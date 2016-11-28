@@ -26,17 +26,17 @@ QuickCreateFacets|\[[Facet](#Facet)\]|Facets that may be used for a (quick) crea
 SelectionPresentationVariant|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
 PresentationVariant|[PresentationVariantType](#PresentationVariantType)|Defines how the result of a queried collection of entities is shaped and how this result is displayed
 SelectionVariant|[SelectionVariantType](#SelectionVariantType)|A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
-ThingPerspective|[Tag](Org.OData.Core.V1.md#Tag)|This term is a Thing Perspective
-IsSummary|[Tag](Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
-PartOfPreview|[Tag](Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are part of the Thing preview
-Map|[Tag](Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.GeoLocation, vCard.Address or a collection of these
-Gallery|[Tag](Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.MediaResource
-IsImageURL|[Tag](Org.OData.Core.V1.md#Tag)|Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
-MultiLineText|[Tag](Org.OData.Core.V1.md#Tag)|Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
+ThingPerspective|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This term is a Thing Perspective
+IsSummary|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
+PartOfPreview|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are part of the Thing preview
+Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.GeoLocation, vCard.Address or a collection of these
+Gallery|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.MediaResource
+IsImageURL|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
+MultiLineText|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
 TextArrangement|[TextArrangementType](#TextArrangementType)|Describes the arrangement of a code value and its text
 Importance|[ImportanceType](#ImportanceType)|Expresses the importance of e.g. a DataField or an annotation
-Hidden|[Tag](Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered at all
-HiddenFilter|[Tag](Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered as filter criteria
+Hidden|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered at all
+HiddenFilter|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered as filter criteria
 
 ## <a name="HeaderInfoType"></a>HeaderInfoType
 
@@ -78,7 +78,7 @@ Property|Type|Description
 Latitude|Double|Geographic latitude
 Longitude|Double|Geographic longitude
 Location|GeographyPoint|A point in a round-earth coordinate system
-Address|[AddressType](com.sap.vocabularies.Communication.v1.md#AddressType)|vCard-style address
+Address|[AddressType](Communication.md#AddressType)|vCard-style address
 
 ## <a name="MediaResourceType"></a>MediaResourceType
 
@@ -123,7 +123,7 @@ Criticality|[CriticalityType](#CriticalityType)|
 CriticalityCalculation|[CriticalityCalculationType](#CriticalityCalculationType)|
 Trend|[TrendType](#TrendType)|
 TrendCalculation|[TrendCalculationType](#TrendCalculationType)|
-Responsible|[ContactType](com.sap.vocabularies.Communication.v1.md#ContactType)|
+Responsible|[ContactType](Communication.md#ContactType)|
 
 ## <a name="NumberFormat"></a>NumberFormat
 
@@ -354,7 +354,7 @@ Property|Type|Description
 ID|String|May contain an identifier to reference this instance from an external context
 Text|String|Name of the presentation variant
 MaxItems|Int32|Maximum number of items that should be included in the result
-SortOrder|\[[SortOrderType](com.sap.vocabularies.Common.v1.md#SortOrderType)\]|Collection could be provided inline or a reference to an Common.SortOrder Annotation via Path could be specified (syntax is identical to AnnotationPath)
+SortOrder|\[[SortOrderType](Common.md#SortOrderType)\]|Collection could be provided inline or a reference to an Common.SortOrder Annotation via Path could be specified (syntax is identical to AnnotationPath)
 GroupBy|\[PropertyPath\]|Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with InitialExpansionLevel.
 TotalBy|\[PropertyPath\]|Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.
 Total|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
@@ -530,7 +530,7 @@ Property|Type|Description
 *IconUrl*|URL|
 *Inline*|Boolean|Action should be placed close to (or even inside) the visualized term
 *Determining*|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-Action|[QualifiedName](com.sap.vocabularies.Common.v1.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+Action|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 InvocationGrouping|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
 ## <a name="OperationGroupingType"></a>OperationGroupingType
@@ -583,7 +583,7 @@ Property|Type|Description
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|
 *Value*|PrimitiveType|
-Action|[QualifiedName](com.sap.vocabularies.Common.v1.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+Action|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
 ## <a name="DataFieldWithIntentBasedNavigation"></a>DataFieldWithIntentBasedNavigation: [DataField](#DataField)
 The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.

@@ -28,7 +28,7 @@ exit /b
 
   echo %~n1
 
-  java.exe org.apache.xalan.xslt.Process -XSL C:\git\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -IN %1 -OUT %~n1.md
+  java.exe org.apache.xalan.xslt.Process -XSL C:\git\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN %1 -OUT %~n1.md
   git.exe --no-pager diff %~n1.md
 
   curl.exe -k -s %PROXY% --data-binary @%~n1.md -H "Content-Type: text/plain" https://api.github.com/markdown/raw -o %~n1.html
@@ -42,6 +42,6 @@ exit /b
           -e "s/\"UI\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470968\/UI.xml?api=v2\"/g" ^
           -e "s/com\.sap\.vocabularies\.\([^.]\+\)\.v1\.md#/https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+\1#/g" ^
           %~n1.html > %~n1.scn 
-  del %~n1.html
+  rem del %~n1.html
 
-  exit /b
+exit /b

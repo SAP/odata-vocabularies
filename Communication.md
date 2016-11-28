@@ -14,8 +14,8 @@ Term|Type|Description
 :---|:---|:----------
 Contact|[ContactType](#ContactType)|Address book entry
 Address|[AddressType](#AddressType)|Street Address
-IsEmailAddress|[Tag](Org.OData.Core.V1.md#Tag)|Property contains an email address
-IsPhoneNumber|[Tag](Org.OData.Core.V1.md#Tag)|Property contains a phone number
+IsEmailAddress|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains an email address
+IsPhoneNumber|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains a phone number
 Event|[EventData](#EventData)|Calendar entry
 Task|[TaskData](#TaskData)|Task list entry
 Message|[MessageData](#MessageData)|Email message
