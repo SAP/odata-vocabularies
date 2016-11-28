@@ -1,0 +1,6 @@
+# XML vocabulary files to transform into MarkDown and HTML
+# file - - - 
+
+Common.xml - - -
+Communication.xml - - -
+UI.xml - - -
