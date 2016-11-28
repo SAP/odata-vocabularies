@@ -1,5 +1,5 @@
 # UI Vocabulary
-**Namespace: [com.sap.vocabularies.UI.v1](com.sap.vocabularies.UI.v1.xml)**
+**Namespace: [com.sap.vocabularies.UI.v1](UI.xml)**
 
 Terms for presenting data in user interfaces
 

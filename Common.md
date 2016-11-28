@@ -1,5 +1,5 @@
 # Common Vocabulary
-**Namespace: [com.sap.vocabularies.Common.v1](com.sap.vocabularies.Common.v1.xml)**
+**Namespace: [com.sap.vocabularies.Common.v1](Common.xml)**
 
 Common terms for all SAP vocabularies
 

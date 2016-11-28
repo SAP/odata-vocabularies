@@ -1,5 +1,5 @@
 # Communication Vocabulary
-**Namespace: [com.sap.vocabularies.Communication.v1](com.sap.vocabularies.Communication.v1.xml)**
+**Namespace: [com.sap.vocabularies.Communication.v1](Communication.xml)**
 
 Terms for annotating communication-relevant information
 

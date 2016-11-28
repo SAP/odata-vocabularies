@@ -1,5 +1,5 @@
 # Analytics Vocabulary
-**Namespace: [com.sap.vocabularies.Analytics.v1](com.sap.vocabularies.Analytics.v1.xml)**
+**Namespace: [com.sap.vocabularies.Analytics.v1](Analytics.xml)**
 
 Terms for annotating analytical resources
 
