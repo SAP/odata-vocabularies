@@ -29,7 +29,7 @@ SelectionVariant|[SelectionVariantType](#SelectionVariantType)|A SelectionVarian
 ThingPerspective|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This term is a Thing Perspective
 IsSummary|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
 PartOfPreview|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are part of the Thing preview
-Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.GeoLocation, vCard.Address or a collection of these
+Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
 Gallery|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.MediaResource
 IsImageURL|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
 MultiLineText|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
@@ -324,7 +324,7 @@ Property|Type|Description
 :-------|:---|:----------
 *Label*|String|Facet label
 *ID*|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-Target|AnnotationPath|Referenced information: vCard.Contact, vCard.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge
+Target|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge
 
 ## <a name="ReferenceURLFacet"></a>ReferenceURLFacet: [Facet](#Facet)
 Facet that refers to a URL
@@ -501,7 +501,7 @@ Property|Type|Description
 *Criticality*|[CriticalityType](#CriticalityType)|
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|
-Target|AnnotationPath|Annotation path MUST end in vCard.Contact, vCard.Address, UI.DataPoint or UI.Chart
+Target|AnnotationPath|Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart
 
 ## <a name="DataFieldForActionAbstract"></a>*DataFieldForActionAbstract*: [DataFieldAbstract](#DataFieldAbstract)
 Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation

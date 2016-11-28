@@ -4,7 +4,7 @@
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
   <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
-    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="vCard" />
+    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
   </edmx:Reference>
   <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
@@ -113,8 +113,8 @@
         <Annotation Term="Core.Description">
         <String>
         Each collection element MUST reference an annotation of a
-        - vCard.Contact or
-        - collection of vCard.ContactData or
+        - Communication.Contact or
+        - collection of Communication.ContactData or
         - UI.Contacts or
         - UI.GeoLocation or
         - collection of UI.GeoLocationType
@@ -143,14 +143,14 @@
         <Property Name="Location" Type="Edm.GeographyPoint" Nullable="true">
           <Annotation Term="Core.Description" String="A point in a round-earth coordinate system" />
         </Property>
-        <Property Name="Address" Type="vCard.AddressType" Nullable="true">
+        <Property Name="Address" Type="Communication.AddressType" Nullable="true">
           <Annotation Term="Core.Description" String="vCard-style address" />
         </Property>
       </ComplexType>
 
       <Term Name="Contacts" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of contacts" />
-        <Annotation Term="Core.LongDescription" String="Each collection item MUST reference an annotation of a vCard.Contact" />
+        <Annotation Term="Core.LongDescription" String="Each collection item MUST reference an annotation of a Communication.Contact" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
@@ -200,8 +200,8 @@
         <Term Name="AdditionalInfo" Type="Edm.AnnotationPath" AppliesTo="Annotation">
         <Annotation Term="Core.Description">
         <String>
-        Applies to UI.GeoLocation and vCard.Contact annotations only
-        Provides additional related information for a UI.GeoLocation or vCard.Contact
+        Applies to UI.GeoLocation and Communication.Contact annotations only
+        Provides additional related information for a UI.GeoLocation or Communication.Contact
         Reference to UI.HeaderInfo, UI.Badge, a qualified UI.FieldGroup, or a dedicated property tagged with Core.IsURL
         </String>
         </Annotation>
@@ -261,7 +261,7 @@
         <Property Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="true" />
         <Property Name="Trend" Type="UI.TrendType" Nullable="true" />
         <Property Name="TrendCalculation" Type="UI.TrendCalculationType" Nullable="true" />
-        <Property Name="Responsible" Type="vCard.ContactType" Nullable="true" />
+        <Property Name="Responsible" Type="Communication.ContactType" Nullable="true" />
       </ComplexType>
 
       <ComplexType Name="NumberFormat">
@@ -509,7 +509,7 @@
         <Annotation Term="Core.Description" String="Facet that refers to a thing perspective, e.g. LineItem" />
         <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description"
-            String="Referenced information: vCard.Contact, vCard.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge" />
+            String="Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge" />
         </Property>
       </ComplexType>
       <ComplexType Name="ReferenceURLFacet" BaseType="UI.Facet">
@@ -733,7 +733,7 @@
         <Annotation Term="Core.RequiresType" String="UI.Facet" />
       </Term>
       <Term Name="Map" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
-        <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, vCard.Address or a collection of these" />
+        <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet" />
       </Term>
       <Term Name="Gallery" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
@@ -810,7 +810,7 @@
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
         <Property Name="Target" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description"
-            String="Annotation path MUST end in vCard.Contact, vCard.Address, UI.DataPoint or UI.Chart" />
+            String="Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart" />
         </Property>
       </ComplexType>
 
