@@ -1,0 +1,13 @@
+# Analytics Vocabulary
+**Namespace: [com.sap.vocabularies.Analytics.v1](com.sap.vocabularies.Analytics.v1.xml)**
+
+Terms for annotating analytical resources
+
+
+Term|Type|Description
+:---|:---|:----------
+Dimension|[Tag](Org.OData.Core.V1.md#Tag)|A property holding the key of a dimension in an analytical context
+Measure|[Tag](Org.OData.Core.V1.md#Tag)|A property holding the numeric value of a measure in an analytical context
+RolledUpPropertyCount|Int16|Number of properties in the entity instance that have been aggregated away
+DrillURL|URL|URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.
+PlanningAction|[Tag](Org.OData.Core.V1.md#Tag)|Processes or generates plan data. Its logic may have side-effects on entity sets.
