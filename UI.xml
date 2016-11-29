@@ -583,7 +583,10 @@ The trend is
       </ComplexType>
       <ComplexType Name="CollectionFacet" BaseType="UI.Facet">
         <Annotation Term="Core.Description" String="Collection of facets" />
-        <Property Name="Facets" Type="Collection(UI.Facet)" Nullable="false" />
+        <Property Name="Facets" Type="Collection(UI.Facet)" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="Nested facets. An empty collection may be used as a placeholder for content added via extension points." />
+        </Property>
       </ComplexType>
       <ComplexType Name="ReferenceFacet" BaseType="UI.Facet">
         <Annotation Term="Core.Description" String="Facet that refers to a thing perspective, e.g. LineItem" />

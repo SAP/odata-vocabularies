@@ -343,7 +343,7 @@ Property|Type|Description
 :-------|:---|:----------
 *Label*|String|Facet label
 *ID*|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-Facets|\[[Facet](#Facet)\]|
+Facets|\[[Facet](#Facet)\]|Nested facets. An empty collection may be used as a placeholder for content added via extension points.
 
 ## <a name="ReferenceFacet"></a>ReferenceFacet: [Facet](#Facet)
 Facet that refers to a thing perspective, e.g. LineItem
