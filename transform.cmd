@@ -31,7 +31,8 @@ exit /b
   java.exe org.apache.xalan.xslt.Process -XSL C:\git\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN %1 -OUT %~n1.md
   git.exe --no-pager diff %~n1.md
 
-  curl.exe -k -s %PROXY% --data-binary @%~n1.md -H "Content-Type: text/plain" https://api.github.com/markdown/raw -o %~n1.html
+  rem curl.exe -k -s %PROXY% --data-binary @%~n1.md -H "Content-Type: text/plain" https://api.github.com/markdown/raw -o %~n1.html
+  curl.exe -k -s --data-binary @%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o %~n1.html
 
   sed.exe -e "s/<a name=\"user-content-/^<a name=\"/g" ^
           -e "s/<span aria-hidden=\"true\" class=\"octicon octicon-link\"><\/span>//g" ^
