@@ -339,7 +339,7 @@
       </EnumType>
 
       <ComplexType Name="CriticalityCalculationType">
-        <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the imprevement direction" />
+        <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the improvement direction" />
         <Annotation Term="Core.LongDescription">
           <String>
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
@@ -450,25 +450,35 @@ The trend is
       </Term>
       <ComplexType Name="ChartDefinitionType">
         <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the chart" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="ChartType" Type="UI.ChartType" Nullable="false" />
-        <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false" />
+        <Property Name="ChartType" Type="UI.ChartType" Nullable="false">
+          <Annotation Term="Core.Description" String="Chart type" />
+        </Property>
+        <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
+        </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.</String>
           </Annotation>
         </Property>
-        <Property Name="Dimensions" Type="Collection(Edm.PropertyPath)" Nullable="false" />
+        <Property Name="Dimensions" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dimensions of the chart, e.g. x- and y-axis of a bubble chart" />
+        </Property>
         <Property Name="DimensionAttributes" Type="Collection(UI.ChartDimensionAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
         </Property>
-        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="ChartType">

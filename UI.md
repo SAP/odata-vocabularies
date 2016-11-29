@@ -163,7 +163,7 @@ Critical|2|Critical / orange status - warning
 Positive|3|Positive / green status - completed - available - on track - acceptable
 
 ## <a name="CriticalityCalculationType"></a>CriticalityCalculationType
-Describes how to calculate the criticality of a value depending on the imprevement direction
+Describes how to calculate the criticality of a value depending on the improvement direction
 
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
@@ -239,14 +239,14 @@ StrongDownDifference|Decimal|Threshold for StrongDown
 
 Property|Type|Description
 :-------|:---|:----------
-Title|String|
-Description|String|
-ChartType|[ChartType](#ChartType)|
-Measures|\[PropertyPath\]|
+Title|String|Title of the chart
+Description|String|Short description
+ChartType|[ChartType](#ChartType)|Chart type
+Measures|\[PropertyPath\]|Measures of the chart, e.g. size and color in a bubble chart
 MeasureAttributes|\[[ChartMeasureAttributeType](#ChartMeasureAttributeType)\]|Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.
-Dimensions|\[PropertyPath\]|
+Dimensions|\[PropertyPath\]|Dimensions of the chart, e.g. x- and y-axis of a bubble chart
 DimensionAttributes|\[[ChartDimensionAttributeType](#ChartDimensionAttributeType)\]|Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.
-Actions|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|
+Actions|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|Available actions
 
 ## <a name="ChartType"></a>ChartType
 
