@@ -369,20 +369,20 @@ UrlContentType|MediaType|Media type of referenced information
 
 Property|Type|Description
 :-------|:---|:----------
-ID|String|May contain an identifier to reference this instance from an external context
+ID|String|Optional identifier to reference this variant from an external context
 Text|String|Name of the bundling variant
-SelectionVariant|[SelectionVariantType](#SelectionVariantType)|Could reference an UI.SelectionVariant Annotation via Path, syntax identical to AnnotationPath
-PresentationVariant|[PresentationVariantType](#PresentationVariantType)|Could reference an UI.PresentationVariant Annotation via Path, syntax identical to AnnotationPath
+SelectionVariant|[SelectionVariantType](#SelectionVariantType)|Selection variant, either specified inline or referencing another annotation via Path
+PresentationVariant|[PresentationVariantType](#PresentationVariantType)|Presentation variant, either specified inline or referencing another annotation via Path
 
 ## <a name="PresentationVariantType"></a>PresentationVariantType
 
 
 Property|Type|Description
 :-------|:---|:----------
-ID|String|May contain an identifier to reference this instance from an external context
+ID|String|Optional identifier to reference this variant from an external context
 Text|String|Name of the presentation variant
 MaxItems|Int32|Maximum number of items that should be included in the result
-SortOrder|\[[SortOrderType](Common.md#SortOrderType)\]|Collection could be provided inline or a reference to an Common.SortOrder Annotation via Path could be specified (syntax is identical to AnnotationPath)
+SortOrder|\[[SortOrderType](Common.md#SortOrderType)\]|Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path
 GroupBy|\[PropertyPath\]|Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with InitialExpansionLevel.
 TotalBy|\[PropertyPath\]|Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.
 Total|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
@@ -398,7 +398,7 @@ Property|Type|Description
 :-------|:---|:----------
 ID|String|May contain identifier to reference this instance from an external context
 Text|String|Name of the selection variant
-Parameters|\[[ParameterAbstract](#ParameterAbstract)\]|
+Parameters|\[[ParameterAbstract](#ParameterAbstract)\]|Parameters of the selection variant
 FilterExpression|String|Filter string for query part of URL, without '$filter ='
 SelectOptions|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
 
@@ -408,9 +408,6 @@ SelectOptions|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Patt
 **Derived Types:**
 - [Parameter](#Parameter)
 - [IntervalParameter](#IntervalParameter)
-
-Property|Type|Description
-:-------|:---|:----------
 
 ## <a name="Parameter"></a>Parameter: [ParameterAbstract](#ParameterAbstract)
 

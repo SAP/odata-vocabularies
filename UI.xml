@@ -618,7 +618,7 @@ The trend is
       <ComplexType Name="SelectionPresentationVariantType">
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
-            <String>May contain an identifier to reference this instance from an external context</String>
+            <String>Optional identifier to reference this variant from an external context</String>
           </Annotation>
         </Property>
         <Property Name="Text" Type="Edm.String">
@@ -626,12 +626,10 @@ The trend is
           <Annotation Term="Core.Description" String="Name of the bundling variant" />
         </Property>
         <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Could reference an UI.SelectionVariant Annotation via Path, syntax identical to AnnotationPath" />
+          <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="PresentationVariant" Type="UI.PresentationVariantType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Could reference an UI.PresentationVariant Annotation via Path, syntax identical to AnnotationPath" />
+          <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
         </Property>
       </ComplexType>
 
@@ -642,7 +640,7 @@ The trend is
       </Term>
       <ComplexType Name="PresentationVariantType">
         <Property Name="ID" Type="Edm.String">
-          <Annotation Term="Core.Description" String="May contain an identifier to reference this instance from an external context" />
+          <Annotation Term="Core.Description" String="Optional identifier to reference this variant from an external context" />
         </Property>
         <Property Name="Text" Type="Edm.String">
           <Annotation Term="Core.IsLanguageDependent" />
@@ -653,7 +651,7 @@ The trend is
         </Property>
         <Property Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false">
           <Annotation Term="Core.Description"
-            String="Collection could be provided inline or a reference to an Common.SortOrder Annotation via Path could be specified (syntax is identical to AnnotationPath)" />
+            String="Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path" />
         </Property>
         <Property Name="GroupBy" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description">
@@ -717,7 +715,9 @@ The trend is
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Name of the selection variant" />
         </Property>
-        <Property Name="Parameters" Type="Collection(UI.ParameterAbstract)" Nullable="false" />
+        <Property Name="Parameters" Type="Collection(UI.ParameterAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Parameters of the selection variant" />
+        </Property>
         <Property Name="FilterExpression" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description">
             <String>Filter string for query part of URL, without '$filter ='</String>
