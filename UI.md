@@ -3,7 +3,6 @@
 
 Terms for presenting data in user interfaces
 
-
 Term|Type|Description
 :---|:---|:----------
 HeaderInfo|[HeaderInfoType](#HeaderInfoType)|Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
@@ -107,31 +106,31 @@ Height|String|Height of image
 
 Property|Type|Description
 :-------|:---|:----------
-Title|String|
-Description|String|
-LongDescription|String|
-Value|PrimitiveType|The numeric value of the DataPoint
-TargetValue|PrimitiveType|The target value of the DataPoint
-ForecastValue|PrimitiveType|The forecast value of the DataPoint
-MinimumValue|Decimal|The minimum value of the DataPoint (for output rendering)
-MaximumValue|Decimal|The maximum value of the DataPoint (for output rendering)
-ValueFormat|[NumberFormat](#NumberFormat)|
-Visualization|[VisualizationType](#VisualizationType)|The preferred visualization of the DataPoint
+Title|String|Title of the data point
+Description|String|Short description
+LongDescription|String|Full description
+Value|PrimitiveType|Numeric value
+TargetValue|PrimitiveType|Target value
+ForecastValue|PrimitiveType|Forecast value
+MinimumValue|Decimal|Minimum value (for output rendering)
+MaximumValue|Decimal|Maximum value (for output rendering)
+ValueFormat|[NumberFormat](#NumberFormat)|Number format
+Visualization|[VisualizationType](#VisualizationType)|Preferred visualization
 SampleSize|PrimitiveType|Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
-ReferencePeriod|[ReferencePeriod](#ReferencePeriod)|
-Criticality|[CriticalityType](#CriticalityType)|
-CriticalityCalculation|[CriticalityCalculationType](#CriticalityCalculationType)|
-Trend|[TrendType](#TrendType)|
-TrendCalculation|[TrendCalculationType](#TrendCalculationType)|
-Responsible|[ContactType](Communication.md#ContactType)|
+ReferencePeriod|[ReferencePeriod](#ReferencePeriod)|Reference period
+Criticality|[CriticalityType](#CriticalityType)|Service-calculated criticality, alternative to CriticalityCalculation
+CriticalityCalculation|[CriticalityCalculationType](#CriticalityCalculationType)|Parameters for client-calculated criticality, alternative to Criticality
+Trend|[TrendType](#TrendType)|Service-calculated trend, alternative to TrendCalculation
+TrendCalculation|[TrendCalculationType](#TrendCalculationType)|Parameters for client-calculated trend, alternative to Trend
+Responsible|[ContactType](Communication.md#ContactType)|Contact person
 
 ## <a name="NumberFormat"></a>NumberFormat
-
+Describes how to visualise a number
 
 Property|Type|Description
 :-------|:---|:----------
-ScaleFactor|Decimal|
-NumberOfFractionalDigits|Byte|
+ScaleFactor|Decimal|Factor to scale a value before visualization, e.g. 0.001 for K, 1e-6 for M
+NumberOfFractionalDigits|Byte|Number of fractional digits of the scaled value to be visualized
 
 ## <a name="VisualizationType"></a>VisualizationType
 
@@ -145,13 +144,13 @@ Rating|3|Visualize as partially or completely filled stars/hearts/... - requires
 Donut|4|Visualize as donut, optionally with missing segment - requires TargetValue
 
 ## <a name="ReferencePeriod"></a>ReferencePeriod
-
+Reference period
 
 Property|Type|Description
 :-------|:---|:----------
-Description|String|
-Start|DateTimeOffset|
-End|DateTimeOffset|
+Description|String|Short description of the reference period
+Start|DateTimeOffset|Start of the reference period
+End|DateTimeOffset|End of the reference period
 
 ## <a name="CriticalityType"></a>CriticalityType
 
@@ -164,47 +163,76 @@ Critical|2|Critical / orange status - warning
 Positive|3|Positive / green status - completed - available - on track - acceptable
 
 ## <a name="CriticalityCalculationType"></a>CriticalityCalculationType
-Direction: Target - Positive: ge ToleranceRangeLowValue and le ToleranceRangeHighValue - Critical: ge DeviationRangeLowValue and lt ToleranceRangeLowValue or gt ToleranceRangeHighValue and le DeviationRangeHighValue - Negative: lt DeviationRangeLowValue or gt DeviationRangeHighValue Direction: Minimize - Positive: le ToleranceRangeHighValue - Critical: gt ToleranceRangeHighValue and le DeviationRangeHighValue - Negative: gt DeviationRangeHighValue Direction: Maximize - Positive: ge ToleranceRangeLowValue - Critical: lt ToleranceRangeLowValue and ge DeviationRangeLowValue - Negative: lt DeviationRangeLowValue
+Describes how to calculate the criticality of a value depending on the imprevement direction
+
+The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
+
+For improvement direction `Target`, the criticality is calculated using all four threshold values. It will be
+  - Positive if the value is greater than or equal to ToleranceRangeLowValue and lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is lower than DeviationRangeLowValue and greater than DeviationRangeHighValue
+
+For improvement direction `Minimize`, the criticality is calculated using the high threshold values.  It is
+  - Positive if the value is lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is greater than DeviationRangeHighValue
+ 
+For improvement direction `Maximize`, the criticality is calculated using the low threshold values. It is
+  - Positive if the value is greater than or equal to ToleranceRangeLowValue
+  - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue
+  - Negative if the value is lower than DeviationRangeLowValue
+          
 
 Property|Type|Description
 :-------|:---|:----------
-ImprovementDirection|[ImprovementDirectionType](#ImprovementDirectionType)|
-ToleranceRangeLowValue|PrimitiveType|
-ToleranceRangeHighValue|PrimitiveType|
-DeviationRangeLowValue|PrimitiveType|
-DeviationRangeHighValue|PrimitiveType|
+ImprovementDirection|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
+ToleranceRangeLowValue|PrimitiveType|Lowest value that is considered positive
+ToleranceRangeHighValue|PrimitiveType|Highest value that is considered positive
+DeviationRangeLowValue|PrimitiveType|Lowest value that is considered critical
+DeviationRangeHighValue|PrimitiveType|Highest value that is considered critical
 
 ## <a name="ImprovementDirectionType"></a>ImprovementDirectionType
-
+Describes which direction of a value change is seen as an improvement
 
 Member|Value|Description
 :-----|----:|:----------
-Minimize|1|
-Target|2|
-Maximize|3|
+Minimize|1|Lower is better
+Target|2|Closer to the target is better
+Maximize|3|Higher is better
 
 ## <a name="TrendType"></a>TrendType
-
+The trend of a value
 
 Member|Value|Description
 :-----|----:|:----------
-StrongUp|1|
-Up|2|
-Sideways|3|
-Down|4|
-StrongDown|5|
+StrongUp|1|Value grows strongly
+Up|2|Value grows
+Sideways|3|Value does not significantly grow or shrink
+Down|4|Value shrinks
+StrongDown|5|Value shrinks strongly
 
 ## <a name="TrendCalculationType"></a>TrendCalculationType
-Value sub ReferenceValue ( div ReferenceValue if IsRelativeDifference ) must be - StrongUp: ge StrongUpDifference - Up: lt StrongUpDifference and ge UpDifference - Sideways: lt UpDifference and gt DownDifference - Down: gt StrongDownDifference and le DownDifference - StrongDown: le StrongDownDifference
+Describes how to calculate the trend of a value
+
+By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
+If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.
+
+The trend is 
+  - StrongUp if the difference is greater than or equal to StrongUpDifference
+  - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
+  - Sideways if the difference  is less than UpDifference and greater than DownDifference
+  - Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference
+  - StrongDown if the difference is lower than or equal to StrongDownDifference          
+          
 
 Property|Type|Description
 :-------|:---|:----------
-ReferenceValue|PrimitiveType|
-IsRelativeDifference|Boolean|
-UpDifference|Decimal|
-StrongUpDifference|Decimal|
-DownDifference|Decimal|
-StrongDownDifference|Decimal|
+ReferenceValue|PrimitiveType|Reference value for the calculation, e.g. number of sales for the last year
+IsRelativeDifference|Boolean|Calculate with a relative difference
+UpDifference|Decimal|Threshold for Up
+StrongUpDifference|Decimal|Threshold for StrongUp
+DownDifference|Decimal|Threshold for Down
+StrongDownDifference|Decimal|Threshold for StrongDown
 
 ## <a name="ChartDefinitionType"></a>ChartDefinitionType
 

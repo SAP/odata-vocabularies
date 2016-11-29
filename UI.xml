@@ -215,16 +215,19 @@
       </Term>
       <ComplexType Name="DataPointType">
         <Property Name="Title" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Title of the data point" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Full description" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="The numeric value of the DataPoint" />
+          <Annotation Term="Core.Description" String="Numeric value" />
           <Annotation Term="Core.LongDescription">
             <String>
               It could be annotated with either UoM.ISOCurrency or UoM.Unit.
@@ -234,20 +237,22 @@
           </Annotation>
         </Property>
         <Property Name="TargetValue" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="The target value of the DataPoint" />
+          <Annotation Term="Core.Description" String="Target value" />
         </Property>
         <Property Name="ForecastValue" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="The forecast value of the DataPoint" />
+          <Annotation Term="Core.Description" String="Forecast value" />
         </Property>
         <Property Name="MinimumValue" Type="Edm.Decimal" Nullable="true">
-          <Annotation Term="Core.Description" String="The minimum value of the DataPoint (for output rendering)" />
+          <Annotation Term="Core.Description" String="Minimum value (for output rendering)" />
         </Property>
         <Property Name="MaximumValue" Type="Edm.Decimal" Nullable="true">
-          <Annotation Term="Core.Description" String="The maximum value of the DataPoint (for output rendering)" />
+          <Annotation Term="Core.Description" String="Maximum value (for output rendering)" />
         </Property>
-        <Property Name="ValueFormat" Type="UI.NumberFormat" Nullable="true" />
+        <Property Name="ValueFormat" Type="UI.NumberFormat" Nullable="true">
+          <Annotation Term="Core.Description" String="Number format" />
+        </Property>
         <Property Name="Visualization" Type="UI.VisualizationType" Nullable="true">
-          <Annotation Term="Core.Description" String="The preferred visualization of the DataPoint" />
+          <Annotation Term="Core.Description" String="Preferred visualization" />
         </Property>
         <Property Name="SampleSize" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description">
@@ -256,17 +261,34 @@
            	</String>
           </Annotation>
         </Property>
-        <Property Name="ReferencePeriod" Type="UI.ReferencePeriod" Nullable="true" />
-        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true" />
-        <Property Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="true" />
-        <Property Name="Trend" Type="UI.TrendType" Nullable="true" />
-        <Property Name="TrendCalculation" Type="UI.TrendCalculationType" Nullable="true" />
-        <Property Name="Responsible" Type="Communication.ContactType" Nullable="true" />
+        <Property Name="ReferencePeriod" Type="UI.ReferencePeriod" Nullable="true">
+          <Annotation Term="Core.Description" String="Reference period" />
+        </Property>
+        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
+          <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to CriticalityCalculation" />
+        </Property>
+        <Property Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to Criticality" />
+        </Property>
+        <Property Name="Trend" Type="UI.TrendType" Nullable="true">
+          <Annotation Term="Core.Description" String="Service-calculated trend, alternative to TrendCalculation" />
+        </Property>
+        <Property Name="TrendCalculation" Type="UI.TrendCalculationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Parameters for client-calculated trend, alternative to Trend" />
+        </Property>
+        <Property Name="Responsible" Type="Communication.ContactType" Nullable="true">
+          <Annotation Term="Core.Description" String="Contact person" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="NumberFormat">
-        <Property Name="ScaleFactor" Type="Edm.Decimal" Scale="variable" Nullable="true" />
-        <Property Name="NumberOfFractionalDigits" Type="Edm.Byte" Nullable="true" />
+        <Annotation Term="Core.Description" String="Describes how to visualise a number" />
+        <Property Name="ScaleFactor" Type="Edm.Decimal" Scale="variable" Nullable="true">
+          <Annotation Term="Core.Description" String="Factor to scale a value before visualization, e.g. 0.001 for K, 1e-6 for M" />
+        </Property>
+        <Property Name="NumberOfFractionalDigits" Type="Edm.Byte" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of fractional digits of the scaled value to be visualized" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="VisualizationType">
@@ -280,8 +302,7 @@
           <Annotation Term="Core.Description" String="Visualize as progress indicator - requires TargetValue" />
         </Member>
         <Member Name="Rating">
-          <Annotation Term="Core.Description"
-            String="Visualize as partially or completely filled stars/hearts/... - requires TargetValue" />
+          <Annotation Term="Core.Description" String="Visualize as partially or completely filled stars/hearts/... - requires TargetValue" />
         </Member>
         <Member Name="Donut">
           <Annotation Term="Core.Description" String="Visualize as donut, optionally with missing segment - requires TargetValue" />
@@ -289,11 +310,17 @@
       </EnumType>
 
       <ComplexType Name="ReferencePeriod">
+        <Annotation Term="Core.Description" String="Reference period" />
         <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description of the reference period" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="Start" Type="Edm.DateTimeOffset" Nullable="true" />
-        <Property Name="End" Type="Edm.DateTimeOffset" Nullable="true" />
+        <Property Name="Start" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Start of the reference period" />
+        </Property>
+        <Property Name="End" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="End of the reference period" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="CriticalityType">
@@ -312,61 +339,109 @@
       </EnumType>
 
       <ComplexType Name="CriticalityCalculationType">
-        <Annotation Term="Core.Description">
+        <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the imprevement direction" />
+        <Annotation Term="Core.LongDescription">
           <String>
-            Direction: Target        
-             - Positive: ge ToleranceRangeLowValue  and le ToleranceRangeHighValue
-             - Critical: ge DeviationRangeLowValue  and lt ToleranceRangeLowValue or
-                         gt ToleranceRangeHighValue and le DeviationRangeHighValue
-             - Negative: lt DeviationRangeLowValue  or gt DeviationRangeHighValue
-            Direction: Minimize        
-             - Positive: le ToleranceRangeHighValue
-             - Critical: gt ToleranceRangeHighValue and le DeviationRangeHighValue  
-             - Negative: gt DeviationRangeHighValue
-            Direction: Maximize        
-             - Positive: ge ToleranceRangeLowValue  
-             - Critical: lt ToleranceRangeLowValue and ge DeviationRangeLowValue   
-             - Negative: lt DeviationRangeLowValue    
+The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
+
+For improvement direction `Target`, the criticality is calculated using all four threshold values. It will be
+  - Positive if the value is greater than or equal to ToleranceRangeLowValue and lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is lower than DeviationRangeLowValue and greater than DeviationRangeHighValue
+
+For improvement direction `Minimize`, the criticality is calculated using the high threshold values.  It is
+  - Positive if the value is lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is greater than DeviationRangeHighValue
+ 
+For improvement direction `Maximize`, the criticality is calculated using the low threshold values. It is
+  - Positive if the value is greater than or equal to ToleranceRangeLowValue
+  - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue
+  - Negative if the value is lower than DeviationRangeLowValue
           </String>
         </Annotation>
-        <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false" />
-        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true" />
-        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true" />
-        <Property Name="DeviationRangeLowValue" Type="Edm.PrimitiveType" Nullable="true" />
-        <Property Name="DeviationRangeHighValue" Type="Edm.PrimitiveType" Nullable="true" />
+        <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
+          <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
+        </Property>
+        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Lowest value that is considered positive" />
+        </Property>
+        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Highest value that is considered positive" />
+        </Property>
+        <Property Name="DeviationRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Lowest value that is considered critical" />
+        </Property>
+        <Property Name="DeviationRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Highest value that is considered critical" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="ImprovementDirectionType">
-        <Member Name="Minimize" Value="1" />
-        <Member Name="Target" Value="2" />
-        <Member Name="Maximize" Value="3" />
+        <Annotation Term="Core.Description" String="Describes which direction of a value change is seen as an improvement" />
+        <Member Name="Minimize" Value="1">
+          <Annotation Term="Core.Description" String="Lower is better" />
+        </Member>
+        <Member Name="Target" Value="2">
+          <Annotation Term="Core.Description" String="Closer to the target is better" />
+        </Member>
+        <Member Name="Maximize" Value="3">
+          <Annotation Term="Core.Description" String="Higher is better" />
+        </Member>
       </EnumType>
 
       <EnumType Name="TrendType">
-        <Member Name="StrongUp" Value="1" />
-        <Member Name="Up" Value="2" />
-        <Member Name="Sideways" Value="3" />
-        <Member Name="Down" Value="4" />
-        <Member Name="StrongDown" Value="5" />
+        <Annotation Term="Core.Description" String="The trend of a value" />
+        <Member Name="StrongUp" Value="1">
+          <Annotation Term="Core.Description" String="Value grows strongly" />
+        </Member>
+        <Member Name="Up" Value="2">
+          <Annotation Term="Core.Description" String="Value grows" />
+        </Member>
+        <Member Name="Sideways" Value="3">
+          <Annotation Term="Core.Description" String="Value does not significantly grow or shrink" />
+        </Member>
+        <Member Name="Down" Value="4">
+          <Annotation Term="Core.Description" String="Value shrinks" />
+        </Member>
+        <Member Name="StrongDown" Value="5">
+          <Annotation Term="Core.Description" String="Value shrinks strongly" />
+        </Member>
       </EnumType>
 
       <ComplexType Name="TrendCalculationType">
-        <Annotation Term="Core.Description">
+        <Annotation Term="Core.Description" String="Describes how to calculate the trend of a value" />
+        <Annotation Term="Core.LongDescription">
           <String>
-            Value sub ReferenceValue ( div ReferenceValue if IsRelativeDifference ) must be
-             - StrongUp:   ge StrongUpDifference
-             - Up:         lt StrongUpDifference   and ge UpDifference
-             - Sideways:   lt UpDifference         and gt DownDifference
-             - Down:       gt StrongDownDifference and le DownDifference
-             - StrongDown: le StrongDownDifference
+By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
+If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.
+
+The trend is 
+  - StrongUp if the difference is greater than or equal to StrongUpDifference
+  - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
+  - Sideways if the difference  is less than UpDifference and greater than DownDifference
+  - Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference
+  - StrongDown if the difference is lower than or equal to StrongDownDifference          
           </String>
         </Annotation>
-        <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="IsRelativeDifference" Type="Edm.Boolean" DefaultValue="false" />
-        <Property Name="UpDifference" Type="Edm.Decimal" Nullable="false" />
-        <Property Name="StrongUpDifference" Type="Edm.Decimal" Nullable="false" />
-        <Property Name="DownDifference" Type="Edm.Decimal" Nullable="false" />
-        <Property Name="StrongDownDifference" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Reference value for the calculation, e.g. number of sales for the last year" />
+        </Property>
+        <Property Name="IsRelativeDifference" Type="Edm.Boolean" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Calculate with a relative difference" />
+        </Property>
+        <Property Name="UpDifference" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Core.Description" String="Threshold for Up" />
+        </Property>
+        <Property Name="StrongUpDifference" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Core.Description" String="Threshold for StrongUp" />
+        </Property>
+        <Property Name="DownDifference" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Core.Description" String="Threshold for Down" />
+        </Property>
+        <Property Name="StrongDownDifference" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Core.Description" String="Threshold for StrongDown" />
+        </Property>
       </ComplexType>
 
       <Term Name="Chart" Type="UI.ChartDefinitionType" AppliesTo="EntityType">
@@ -384,17 +459,13 @@
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false" />
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String> Describes Attributes for Measures. 
-	                 All Measures used in this collection must also be part of the Measures Property.
-	        </String>
+            <String>Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.</String>
           </Annotation>
         </Property>
         <Property Name="Dimensions" Type="Collection(Edm.PropertyPath)" Nullable="false" />
         <Property Name="DimensionAttributes" Type="Collection(UI.ChartDimensionAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String> Describes Attributes for Dimensions. 
-	                 All Dimensions used in this collection must also be part of the Dimensions Property.
-	        </String>
+            <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
         </Property>
         <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false" />
@@ -467,8 +538,7 @@
 
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
-        <Annotation Term="Core.Description"
-          String="Properties that might be relevant for filtering a collection of entities of this type" />
+        <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type" />
       </Term>
 
 
@@ -613,8 +683,7 @@
           </Annotation>
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Properties that should always be included in the result of the queried collection" />
+          <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
         </Property>
       </ComplexType>
 
@@ -849,8 +918,7 @@
             String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="Determines whether  a context needs to be passed to the target of this navigation." />
+          <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
         </Property>
       </ComplexType>
 

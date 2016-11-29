@@ -3,7 +3,6 @@
 
 Common terms for all SAP vocabularies
 
-
 Term|Type|Description
 :---|:---|:----------
 ServiceVersion|Int32|1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI
