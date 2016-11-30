@@ -32,7 +32,7 @@ Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabulari
 Gallery|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.MediaResource
 IsImageURL|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
 MultiLineText|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
-TextArrangement|[TextArrangementType](#TextArrangementType)|Describes the arrangement of a code value and its text
+TextArrangement|[TextArrangementType](#TextArrangementType)|Describes the arrangement of a code or ID value and its text
 Importance|[ImportanceType](#ImportanceType)|Expresses the importance of e.g. a DataField or an annotation
 Hidden|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered at all
 HiddenFilter|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered as filter criteria
@@ -153,7 +153,7 @@ Start|DateTimeOffset|Start of the reference period
 End|DateTimeOffset|End of the reference period
 
 ## <a name="CriticalityType"></a>CriticalityType
-
+Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)
 
 Member|Value|Description
 :-----|----:|:----------
@@ -474,19 +474,19 @@ LT|9|Less than
 
 Member|Value|Description
 :-----|----:|:----------
-TextFirst|0|
-TextLast|1|
-TextSeparate|2|
-TextOnly|3|
+TextFirst|0|Text is first, followed by the code/ID (e.g. in parentheses)
+TextLast|1|Code/ID is first, followed by the text (e.g. separated by a dash)
+TextSeparate|2|Code/ID and text are represented separately
+TextOnly|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
 
 ## <a name="ImportanceType"></a>ImportanceType
 
 
 Member|Value|Description
 :-----|----:|:----------
-High|0|
-Medium|1|
-Low|2|
+High|0|High importance
+Medium|1|Medium importance
+Low|2|Low importance
 
 ## <a name="DataFieldAbstract"></a>*DataFieldAbstract*
 
@@ -505,17 +505,17 @@ Low|2|
 Property|Type|Description
 :-------|:---|:----------
 Label|String|
-Criticality|[CriticalityType](#CriticalityType)|
+Criticality|[CriticalityType](#CriticalityType)|Criticality of the data field value
 CriticalityRepresentation|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-IconUrl|URL|
+IconUrl|URL|Optional icon to decorate the value
 
 ## <a name="CriticalityRepresentationType"></a>CriticalityRepresentationType
 
 
 Member|Value|Description
 :-----|----:|:----------
-WithIcon|0|
-WithoutIcon|1|
+WithIcon|0|Criticality is represented with an icon
+WithoutIcon|1|Criticality is represented without icon, e.g. only via text color
 
 ## <a name="DataFieldForAnnotation"></a>DataFieldForAnnotation: [DataFieldAbstract](#DataFieldAbstract)
 
@@ -523,9 +523,9 @@ WithoutIcon|1|
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
+*IconUrl*|URL|Optional icon to decorate the value
 Target|AnnotationPath|Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart
 
 ## <a name="DataFieldForActionAbstract"></a>*DataFieldForActionAbstract*: [DataFieldAbstract](#DataFieldAbstract)
@@ -538,9 +538,9 @@ Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
+*IconUrl*|URL|Optional icon to decorate the value
 Inline|Boolean|Action should be placed close to (or even inside) the visualized term
 Determining|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 
@@ -550,9 +550,9 @@ The action is NOT tied to a data value (in contrast to DataFieldWithAction)
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
+*IconUrl*|URL|Optional icon to decorate the value
 *Inline*|Boolean|Action should be placed close to (or even inside) the visualized term
 *Determining*|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 Action|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
@@ -572,9 +572,9 @@ The navigation intent is NOT tied to a data value (in contrast to DataFieldWithI
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
+*IconUrl*|URL|Optional icon to decorate the value
 *Inline*|Boolean|Action should be placed close to (or even inside) the visualized term
 *Determining*|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 SemanticObject|String|Name of the Semantic Object
@@ -593,10 +593,10 @@ RequiresContext|Boolean|Determines whether a context needs to be passed to the t
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
-Value|PrimitiveType|
+*IconUrl*|URL|Optional icon to decorate the value
+Value|PrimitiveType|Value of the data field value
 
 ## <a name="DataFieldWithAction"></a>DataFieldWithAction: [DataField](#DataField)
 The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
@@ -604,10 +604,10 @@ The action is tied to a data value which could be render as a button or link tha
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
-*Value*|PrimitiveType|
+*IconUrl*|URL|Optional icon to decorate the value
+*Value*|PrimitiveType|Value of the data field value
 Action|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
 ## <a name="DataFieldWithIntentBasedNavigation"></a>DataFieldWithIntentBasedNavigation: [DataField](#DataField)
@@ -616,10 +616,10 @@ The navigation intent is tied to a data value which should be rendered as a hype
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
-*Value*|PrimitiveType|
+*IconUrl*|URL|Optional icon to decorate the value
+*Value*|PrimitiveType|Value of the data field value
 SemanticObject|String|Name of the Semantic Object
 Action|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
@@ -629,10 +629,10 @@ Action|String|Name of the Action on the Semantic Object. If not specified, let u
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
-*Value*|PrimitiveType|
+*IconUrl*|URL|Optional icon to decorate the value
+*Value*|PrimitiveType|Value of the data field value
 Target|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
 ## <a name="DataFieldWithUrl"></a>DataFieldWithUrl: [DataField](#DataField)
@@ -641,9 +641,9 @@ Target|NavigationPropertyPath|Contains either a navigation property or a term ca
 Property|Type|Description
 :-------|:---|:----------
 *Label*|String|
-*Criticality*|[CriticalityType](#CriticalityType)|
+*Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-*IconUrl*|URL|
-*Value*|PrimitiveType|
-Url|URL|
-UrlContentType|MediaType|
+*IconUrl*|URL|Optional icon to decorate the value
+*Value*|PrimitiveType|Value of the data field value
+Url|URL|Target of the hyperlink
+UrlContentType|MediaType|Media type of the hyperlink target, e.g. `videp/mp4`

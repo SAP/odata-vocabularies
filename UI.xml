@@ -324,6 +324,8 @@
       </ComplexType>
 
       <EnumType Name="CriticalityType">
+        <Annotation Term="Core.Description"
+          String="Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)" />
         <Member Name="Neutral" Value="0">
           <Annotation Term="Core.Description" String="Neutral / blue status - inactive - open - in progress" />
         </Member>
@@ -836,14 +838,22 @@ The trend is
       </Term>
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" AppliesTo="Annotation EntityType">
-        <Annotation Term="Core.Description" String="Describes the arrangement of a code value and its text" />
+        <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
       </Term>
       <EnumType Name="TextArrangementType">
-        <Member Name="TextFirst" />
-        <Member Name="TextLast" />
-        <Member Name="TextSeparate" />
-        <Member Name="TextOnly" />
+        <Member Name="TextFirst">
+          <Annotation Term="Core.Description" String="Text is first, followed by the code/ID (e.g. in parentheses)" />
+        </Member>
+        <Member Name="TextLast">
+          <Annotation Term="Core.Description" String="Code/ID is first, followed by the text (e.g. separated by a dash)" />
+        </Member>
+        <Member Name="TextSeparate">
+          <Annotation Term="Core.Description" String="Code/ID and text are represented separately" />
+        </Member>
+        <Member Name="TextOnly">
+          <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
+        </Member>
       </EnumType>
 
       <!-- Under discussion
@@ -858,9 +868,15 @@ The trend is
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>
       <EnumType Name="ImportanceType">
-        <Member Name="High" />
-        <Member Name="Medium" />
-        <Member Name="Low" />
+        <Member Name="High">
+          <Annotation Term="Core.Description" String="High importance" />
+        </Member>
+        <Member Name="Medium">
+          <Annotation Term="Core.Description" String="Medium importance" />
+        </Member>
+        <Member Name="Low">
+          <Annotation Term="Core.Description" String="Low importance" />
+        </Member>
       </EnumType>
 
       <Term Name="Hidden" Type="Core.Tag" AppliesTo="Property">
@@ -875,18 +891,25 @@ The trend is
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true" />
+        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
+          <Annotation Term="Core.Description" String="Criticality of the data field value" />
+        </Property>
         <Property Name="CriticalityRepresentation" Type="UI.CriticalityRepresentationType" Nullable="true">
           <Annotation Term="Core.Description" String="Decides if criticality is visualized in addition by means of an icon" />
         </Property>
         <Property Name="IconUrl" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Optional icon to decorate the value" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
       <EnumType Name="CriticalityRepresentationType">
-        <Member Name="WithIcon" />
-        <Member Name="WithoutIcon" />
+        <Member Name="WithIcon">
+          <Annotation Term="Core.Description" String="Criticality is represented with an icon" />
+        </Member>
+        <Member Name="WithoutIcon">
+          <Annotation Term="Core.Description" String="Criticality is represented without icon, e.g. only via text color" />
+        </Member>
       </EnumType>
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
@@ -937,6 +960,7 @@ The trend is
 
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value of the data field value" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -971,9 +995,11 @@ The trend is
 
       <ComplexType Name="DataFieldWithUrl" BaseType="UI.DataField">
         <Property Name="Url" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Target of the hyperlink" />
           <Annotation Term="Core.IsURL" />
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `videp/mp4`" />
           <Annotation Term="Core.IsMediaType" />
         </Property>
       </ComplexType>

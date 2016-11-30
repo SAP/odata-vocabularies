@@ -45,6 +45,6 @@ exit /b
           -e "s/\"Common\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Common#/g" ^
           -e "s/\"Communication\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Communication#/g" ^
           %~n1.html > %~n1.scn 
-  rem del %~n1.html
+  del %~n1.html
 
 exit /b
