@@ -76,7 +76,7 @@ type|[ContactInformationType](#ContactInformationType)|Address type
 Property|Type|Description
 :-------|:---|:----------
 uri|URL|This SHOULD use the tel: URL schema defined in RFC3966
-type|[PhoneType](#PhoneType)|
+type|[PhoneType](#PhoneType)|Telephone type
 
 ## <a name="EmailAddressType"></a>EmailAddressType
 
@@ -84,7 +84,7 @@ type|[PhoneType](#PhoneType)|
 Property|Type|Description
 :-------|:---|:----------
 address|String|Email address
-type|[ContactInformationType](#ContactInformationType)|
+type|[ContactInformationType](#ContactInformationType)|Address type
 
 ## <a name="GeoDataType"></a>GeoDataType
 

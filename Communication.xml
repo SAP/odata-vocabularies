@@ -145,14 +145,18 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="This SHOULD use the tel: URL schema defined in RFC3966" />
           <Annotation Term="Core.IsURL" />
         </Property>
-        <Property Name="type" Type="Communication.PhoneType" Nullable="true" />
+        <Property Name="type" Type="Communication.PhoneType" Nullable="true">
+          <Annotation Term="Core.Description" String="Telephone type" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="EmailAddressType">
         <Property Name="address" Type="Edm.String">
           <Annotation Term="Core.Description" String="Email address" />
         </Property>
-        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true" />
+        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Address type" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="GeoDataType">
