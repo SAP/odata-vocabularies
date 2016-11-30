@@ -13,7 +13,7 @@ These terms are inspired by
 Term|Type|Description
 :---|:---|:----------
 Contact|[ContactType](#ContactType)|Address book entry
-Address|[AddressType](#AddressType)|Street Address
+Address|[AddressType](#AddressType)|Address
 IsEmailAddress|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains an email address
 IsPhoneNumber|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains a phone number
 Event|[EventData](#EventData)|Calendar entry
@@ -26,49 +26,49 @@ Message|[MessageData](#MessageData)|Email message
 Property|Type|Description
 :-------|:---|:----------
 fn|String|Full name
-n|[NameType](#NameType)|
-nickname|String|
-photo|URL|
-bday|Date|
-anniversary|Date|
-gender|[GenderType](#GenderType)|
-title|String|
-role|String|
+n|[NameType](#NameType)|Name
+nickname|String|Nickname
+photo|URL|Image or photograph
+bday|Date|Birthday
+anniversary|Date|Date of marriage, or equivalent
+gender|[GenderType](#GenderType)|Sex and gender identity
+title|String|Position or job title
+role|String|Function or part played in a particular situation
 org|String|Organization Name defined by X.520
 orgunit|String|Organization Unit defined by X.520
-kind|[KindType](#KindType)|
-note|String|
-adr|\[[AddressType](#AddressType)\]|
-tel|\[[PhoneNumberType](#PhoneNumberType)\]|
-email|\[[EmailAddressType](#EmailAddressType)\]|
-geo|\[[GeoDataType](#GeoDataType)\]|
-url|\[[UrlType](#UrlType)\]|
+kind|[KindType](#KindType)|Kind of contact
+note|String|Supplemental information or a comment associated with the contact
+adr|\[[AddressType](#AddressType)\]|Addresses
+tel|\[[PhoneNumberType](#PhoneNumberType)\]|Phone numbers
+email|\[[EmailAddressType](#EmailAddressType)\]|Email addresses
+geo|\[[GeoDataType](#GeoDataType)\]|Geographic locations
+url|\[[UrlType](#UrlType)\]|URLs
 
 ## <a name="NameType"></a>NameType
 
 
 Property|Type|Description
 :-------|:---|:----------
-surname|String|
-given|String|
-additional|String|
-prefix|String|
-suffix|String|
+surname|String|Surname or family name
+given|String|Given name
+additional|String|Additional names
+prefix|String|Honorific prefix(es)
+suffix|String|Honorific suffix(es)
 
 ## <a name="AddressType"></a>AddressType
 
 
 Property|Type|Description
 :-------|:---|:----------
-street|String|
+street|String|Street address
 locality|String|City or similar
 region|String|State, province, or similar
-code|String|
-country|String|
-pobox|String|
-ext|String|
-label|String|
-type|[ContactInformationType](#ContactInformationType)|
+code|String|Postal code
+country|String|Country name
+pobox|String|Post office box
+ext|String|Extended address (e.g., apartment or suite number)
+label|String|Delivery address label; plain-text string representing the formatted address, may contain line breaks
+type|[ContactInformationType](#ContactInformationType)|Address type
 
 ## <a name="PhoneNumberType"></a>PhoneNumberType
 
@@ -83,7 +83,7 @@ type|[PhoneType](#PhoneType)|
 
 Property|Type|Description
 :-------|:---|:----------
-address|String|
+address|String|Email address
 type|[ContactInformationType](#ContactInformationType)|
 
 ## <a name="GeoDataType"></a>GeoDataType
@@ -92,7 +92,7 @@ type|[ContactInformationType](#ContactInformationType)|
 Property|Type|Description
 :-------|:---|:----------
 uri|URL|This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint
-type|[ContactInformationType](#ContactInformationType)|
+type|[ContactInformationType](#ContactInformationType)|Address type
 
 ## <a name="UrlType"></a>UrlType
 
@@ -100,39 +100,39 @@ type|[ContactInformationType](#ContactInformationType)|
 Property|Type|Description
 :-------|:---|:----------
 uri|URL|This MUST use the URL schema defined in RFC3986
-type|[ContactInformationType](#ContactInformationType)|
+type|[ContactInformationType](#ContactInformationType)|URL type
 
 ## <a name="KindType"></a>KindType
 
 
 Member|Value|Description
 :-----|----:|:----------
-individual|0|
-group|1|
-org|2|
-location|3|
+individual|0|A single person or entity
+group|1|A group of persons or entities
+org|2|An organization
+location|3|A named geographical place
 
 ## <a name="ContactInformationType"></a>ContactInformationType
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-work|1|
-home|2|
-preferred|4|
+work|1|Related to an individual's work place
+home|2|Related to an indivdual's personal life
+preferred|4|Preferred-use contact information
 
 ## <a name="PhoneType"></a>PhoneType
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-work|1|
-home|2|
-preferred|4|
-voice|8|
-cell|16|
-fax|32|
-video|64|
+work|1|Work telephone number
+home|2|Private telephone number
+preferred|4|Preferred-use telephone number
+voice|8|Voice telephone number
+cell|16|Cellular or mobile telephone number
+fax|32|Facsimile telephone number
+video|64|Video conferencing telephone number
 
 ## <a name="GenderType"></a>GenderType
 
@@ -150,42 +150,42 @@ U|4|unknown
 
 Property|Type|Description
 :-------|:---|:----------
-summary|String|
-description|String|
-categories|\[String\]|
-dtstart|DateTimeOffset|
-dtend|DateTimeOffset|
-duration|Duration|
-class|String|
-status|String|
-location|String|
-transp|Boolean|
-wholeday|Boolean|
-fbtype|String|
+summary|String|Short description of the event
+description|String|More complete description
+categories|\[String\]|Categories or subtypes of the event
+dtstart|DateTimeOffset|Start date and time of the event
+dtend|DateTimeOffset|Date and time by which the event ends, alternative to duration
+duration|Duration|Duration of the event, alternative to dtend
+class|String|Access classification, e.g. PUBLIC, PRIVATE, CONFIDENTIAL
+status|String|Confirmation status, e.g. CONFIRMED, TENTATIVE, CANCELLED
+location|String|Intended venue of the event
+transp|Boolean|Time transparency for busy time searches, true = free, false = blocked
+wholeday|Boolean|Wholeday event
+fbtype|String|Free or busy time type, e.g. FREE, BUSY, BUSY-TENTATIVE
 
 ## <a name="TaskData"></a>TaskData
 
 
 Property|Type|Description
 :-------|:---|:----------
-summary|String|
-description|String|
-due|DateTimeOffset|
-completed|DateTimeOffset|
-percentcomplete|Byte|
-priority|Byte|
+summary|String|Short description of the task
+description|String|More complete description of the task
+due|DateTimeOffset|Date and time that a to-do is expected to be completed
+completed|DateTimeOffset|Date and time that a to-do was actually completed
+percentcomplete|Byte|Percent completion of a to-do, e.g. 50 for half done
+priority|Byte|Relative priority, 0 = undefined, 1 = highest, 9 = lowest
 
 ## <a name="MessageData"></a>MessageData
 
 
 Property|Type|Description
 :-------|:---|:----------
-from|String|
-sender|String|
-to|\[String\]|
-cc|\[String\]|
-bcc|\[String\]|
-subject|String|
-body|String|
-keywords|\[String\]|
-received|DateTimeOffset|
+from|String|Author(s) of the message
+sender|String|Agent responsible for the actual transmission of the message, e.g. a secretary
+to|\[String\]|List of primary recipients
+cc|\[String\]|List of other recipients (carbon copy)
+bcc|\[String\]|List of recipients whose addresses are not to be revealed (blind carbon copy)
+subject|String|Topic of the message
+body|String|Main part of the message
+keywords|\[String\]|List of important words and phrases that might be useful for the recipient
+received|DateTimeOffset|Date and time the message was received

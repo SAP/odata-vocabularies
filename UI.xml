@@ -889,6 +889,7 @@ The trend is
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">

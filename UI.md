@@ -504,7 +504,7 @@ Low|2|Low importance
 
 Property|Type|Description
 :-------|:---|:----------
-Label|String|
+Label|String|A short, human-readable text suitable for labels and captions in UIs
 Criticality|[CriticalityType](#CriticalityType)|Criticality of the data field value
 CriticalityRepresentation|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 IconUrl|URL|Optional icon to decorate the value
@@ -522,7 +522,7 @@ WithoutIcon|1|Criticality is represented without icon, e.g. only via text color
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -537,7 +537,7 @@ Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -549,7 +549,7 @@ The action is NOT tied to a data value (in contrast to DataFieldWithAction)
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -571,7 +571,7 @@ The navigation intent is NOT tied to a data value (in contrast to DataFieldWithI
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -592,7 +592,7 @@ RequiresContext|Boolean|Determines whether a context needs to be passed to the t
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -603,7 +603,7 @@ The action is tied to a data value which could be render as a button or link tha
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -615,7 +615,7 @@ The navigation intent is tied to a data value which should be rendered as a hype
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -628,7 +628,7 @@ Action|String|Name of the Action on the Semantic Object. If not specified, let u
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
@@ -640,7 +640,7 @@ Target|NavigationPropertyPath|Contains either a navigation property or a term ca
 
 Property|Type|Description
 :-------|:---|:----------
-*Label*|String|
+*Label*|String|A short, human-readable text suitable for labels and captions in UIs
 *Criticality*|[CriticalityType](#CriticalityType)|Criticality of the data field value
 *CriticalityRepresentation*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 *IconUrl*|URL|Optional icon to decorate the value
