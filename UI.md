@@ -222,8 +222,7 @@ The trend is
   - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
   - Sideways if the difference  is less than UpDifference and greater than DownDifference
   - Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference
-  - StrongDown if the difference is lower than or equal to StrongDownDifference          
-          
+  - StrongDown if the difference is lower than or equal to StrongDownDifference
 
 Property|Type|Description
 :-------|:---|:----------

@@ -423,8 +423,7 @@ The trend is
   - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
   - Sideways if the difference  is less than UpDifference and greater than DownDifference
   - Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference
-  - StrongDown if the difference is lower than or equal to StrongDownDifference          
-          </String>
+  - StrongDown if the difference is lower than or equal to StrongDownDifference</String>
         </Annotation>
         <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Reference value for the calculation, e.g. number of sales for the last year" />
