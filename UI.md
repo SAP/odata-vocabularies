@@ -458,10 +458,10 @@ Value range. If the range option only requires a single value, the value must be
 
 Property|Type|Description
 :-------|:---|:----------
-Sign|[SelectionRangeSignType](#SelectionRangeSignType)|
-Option|[SelectionRangeOptionType](#SelectionRangeOptionType)|
-Low|PrimitiveType|
-High|PrimitiveType|
+Sign|[SelectionRangeSignType](#SelectionRangeSignType)|Include or exclude values
+Option|[SelectionRangeOptionType](#SelectionRangeOptionType)|Comparison operator
+Low|PrimitiveType|Single value or lower interval boundary
+High|PrimitiveType|Upper interval boundary
 
 ## <a name="SelectionRangeSignType"></a>SelectionRangeSignType
 
@@ -472,7 +472,7 @@ I|0|Inclusive
 E|1|Exclusive
 
 ## <a name="SelectionRangeOptionType"></a>SelectionRangeOptionType
-
+Comparison operator
 
 Member|Value|Description
 :-----|----:|:----------
