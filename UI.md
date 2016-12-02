@@ -5,37 +5,38 @@ Terms for presenting data in user interfaces
 
 Term|Type|Description
 :---|:---|:----------
-HeaderInfo|[HeaderInfoType](#HeaderInfoType)|Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
-Identification|\[[DataFieldAbstract](#DataFieldAbstract)\]|Collection of fields identifying the object
-Badge|[BadgeType](#BadgeType)|Information usually displayed in the form of a business card
-LineItem|\[[DataFieldAbstract](#DataFieldAbstract)\]|Collection of data fields for representation in a table or list
-StatusInfo|\[[DataFieldAbstract](#DataFieldAbstract)\]|Collection of data fields describing the status of an entity
-FieldGroup|[FieldGroupType](#FieldGroupType)|Group of fields with an optional label
-GeoLocations|\[[GeoLocationType](#GeoLocationType)\]|Collection of geographic locations
-GeoLocation|[GeoLocationType](#GeoLocationType)|Geographic location
-Contacts|\[AnnotationPath\]|Collection of contacts
-MediaResource|[MediaResourceType](#MediaResourceType)|Properties that describe a media resource
-DataPoint|[DataPointType](#DataPointType)|Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
-Chart|[ChartDefinitionType](#ChartDefinitionType)|Visualization of multiple data points
-SelectionFields|\[PropertyPath\]|Properties that might be relevant for filtering a collection of entities of this type
-Facets|\[[Facet](#Facet)\]|Collection of facets
-HeaderFacets|\[[Facet](#Facet)\]|Facets for additional object header information
-QuickViewFacets|\[[Facet](#Facet)\]|Facets that may be used for a quick overview of the object
-QuickCreateFacets|\[[Facet](#Facet)\]|Facets that may be used for a (quick) create of the object
-SelectionPresentationVariant|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
-PresentationVariant|[PresentationVariantType](#PresentationVariantType)|Defines how the result of a queried collection of entities is shaped and how this result is displayed
-SelectionVariant|[SelectionVariantType](#SelectionVariantType)|A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
-ThingPerspective|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This term is a Thing Perspective
-IsSummary|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
-PartOfPreview|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|This Facet and all included Facets are part of the Thing preview
-Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
-Gallery|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Target MUST reference a UI.MediaResource
-IsImageURL|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
-MultiLineText|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
-TextArrangement|[TextArrangementType](#TextArrangementType)|Describes the arrangement of a code or ID value and its text
-Importance|[ImportanceType](#ImportanceType)|Expresses the importance of e.g. a DataField or an annotation
-Hidden|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered at all
-HiddenFilter|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Properties annotated with this term will not be rendered as filter criteria
+HeaderInfo|[HeaderInfoType](#HeaderInfoType)|<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
+Identification|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="Identification"></a>Collection of fields identifying the object
+Badge|[BadgeType](#BadgeType)|<a name="Badge"></a>Information usually displayed in the form of a business card
+LineItem|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="LineItem"></a>Collection of data fields for representation in a table or list
+StatusInfo|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="StatusInfo"></a>Collection of data fields describing the status of an entity
+FieldGroup|[FieldGroupType](#FieldGroupType)|<a name="FieldGroup"></a>Group of fields with an optional label
+GeoLocations|\[[GeoLocationType](#GeoLocationType)\]|<a name="GeoLocations"></a>Collection of geographic locations
+GeoLocation|[GeoLocationType](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
+Contacts|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts
+MediaResource|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
+DataPoint|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
+KPI|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
+Chart|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
+SelectionFields|\[PropertyPath\]|<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type
+Facets|\[[Facet](#Facet)\]|<a name="Facets"></a>Collection of facets
+HeaderFacets|\[[Facet](#Facet)\]|<a name="HeaderFacets"></a>Facets for additional object header information
+QuickViewFacets|\[[Facet](#Facet)\]|<a name="QuickViewFacets"></a>Facets that may be used for a quick overview of the object
+QuickCreateFacets|\[[Facet](#Facet)\]|<a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object
+SelectionPresentationVariant|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
+PresentationVariant|[PresentationVariantType](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
+SelectionVariant|[SelectionVariantType](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
+ThingPerspective|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ThingPerspective"></a>This term is a Thing Perspective
+IsSummary|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSummary"></a>This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
+PartOfPreview|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This Facet and all included Facets are part of the Thing preview
+Map|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
+Gallery|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Gallery"></a>Target MUST reference a UI.MediaResource
+IsImageURL|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
+MultiLineText|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
+TextArrangement|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text
+Importance|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
+Hidden|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties annotated with this term will not be rendered at all
+HiddenFilter|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria
 
 ## <a name="HeaderInfoType"></a>HeaderInfoType
 
@@ -233,6 +234,24 @@ StrongUpDifference|Decimal|Threshold for StrongUp
 DownDifference|Decimal|Threshold for Down
 StrongDownDifference|Decimal|Threshold for StrongDown
 
+## <a name="KPIType"></a>KPIType
+
+
+Property|Type|Description
+:-------|:---|:----------
+ID|String|Optional identifier to reference this instance from an external context
+SelectionVariant|[SelectionVariantType](#SelectionVariantType)|Selection variant, either specified inline or referencing another annotation via Path
+DataPoint|[DataPointType](#DataPointType)|Data point, either specified inline or referencing another annotation via Path
+Detail|[KPIDetailType](#KPIDetailType)|Contains information about KPI details, especially drill-down presentations
+
+## <a name="KPIDetailType"></a>KPIDetailType
+
+
+Property|Type|Description
+:-------|:---|:----------
+DefaultPresentationVariant|[PresentationVariantType](#PresentationVariantType)|Presentation variant, either specified inline or referencing another annotation via Path
+AlternativePresentationVariants|\[[PresentationVariantType](#PresentationVariantType)\]|A list of alternative presentation variants, either specified inline or referencing another annotation via Path
+
 ## <a name="ChartDefinitionType"></a>ChartDefinitionType
 
 
@@ -402,40 +421,40 @@ FilterExpression|String|Filter string for query part of URL, without '$filter ='
 SelectOptions|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
 
 ## <a name="ParameterAbstract"></a>*ParameterAbstract*
-
+Key property of a parameter entity type
 
 **Derived Types:**
 - [Parameter](#Parameter)
 - [IntervalParameter](#IntervalParameter)
 
 ## <a name="Parameter"></a>Parameter: [ParameterAbstract](#ParameterAbstract)
-
+Single-valued parameter
 
 Property|Type|Description
 :-------|:---|:----------
-PropertyName|PropertyPath|
-PropertyValue|PrimitiveType|
+PropertyName|PropertyPath|Path to a key property of a parameter entity type
+PropertyValue|PrimitiveType|Value for the key property
 
 ## <a name="IntervalParameter"></a>IntervalParameter: [ParameterAbstract](#ParameterAbstract)
-
+Interval parameter formed with a 'from' and a 'to' property
 
 Property|Type|Description
 :-------|:---|:----------
-PropertyNameFrom|PropertyPath|
-PropertyValueFrom|PrimitiveType|
-PropertyNameTo|PropertyPath|
-PropertyValueTo|PrimitiveType|
+PropertyNameFrom|PropertyPath|Path to the 'from' property of a parameter entity type
+PropertyValueFrom|PrimitiveType|Value for the 'from' property
+PropertyNameTo|PropertyPath|Path to the 'to' property of a parameter entity type
+PropertyValueTo|PrimitiveType|Value for the 'to' property
 
 ## <a name="SelectOptionType"></a>SelectOptionType
-
+List of value ranges for a single property
 
 Property|Type|Description
 :-------|:---|:----------
-PropertyName|PropertyPath|
-Ranges|\[[SelectionRangeType](#SelectionRangeType)\]|
+PropertyName|PropertyPath|Path to the property
+Ranges|\[[SelectionRangeType](#SelectionRangeType)\]|List of value ranges
 
 ## <a name="SelectionRangeType"></a>SelectionRangeType
-If the range option only requires a single value, the value must be in the property Low
+Value range. If the range option only requires a single value, the value must be in the property Low
 
 Property|Type|Description
 :-------|:---|:----------

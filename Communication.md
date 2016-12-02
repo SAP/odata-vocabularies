@@ -12,13 +12,13 @@ These terms are inspired by
 
 Term|Type|Description
 :---|:---|:----------
-Contact|[ContactType](#ContactType)|Address book entry
-Address|[AddressType](#AddressType)|Address
-IsEmailAddress|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains an email address
-IsPhoneNumber|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|Property contains a phone number
-Event|[EventData](#EventData)|Calendar entry
-Task|[TaskData](#TaskData)|Task list entry
-Message|[MessageData](#MessageData)|Email message
+Contact|[ContactType](#ContactType)|<a name="Contact"></a>Address book entry
+Address|[AddressType](#AddressType)|<a name="Address"></a>Address
+IsEmailAddress|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsEmailAddress"></a>Property contains an email address
+IsPhoneNumber|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsPhoneNumber"></a>Property contains a phone number
+Event|[EventData](#EventData)|<a name="Event"></a>Calendar entry
+Task|[TaskData](#TaskData)|<a name="Task"></a>Task list entry
+Message|[MessageData](#MessageData)|<a name="Message"></a>Email message
 
 ## <a name="ContactType"></a>ContactType
 

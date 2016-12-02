@@ -445,6 +445,38 @@ The trend is
         </Property>
       </ComplexType>
 
+      <Term Name="KPI" Type="UI.KPIType" AppliesTo="EntitySet EntityType">
+        <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Core.Description">
+          <String>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="KPIType">
+        <Property Name="ID" Type="Edm.String">
+          <Annotation Term="Core.Description">
+            <String>Optional identifier to reference this instance from an external context</String>
+          </Annotation>
+        </Property>
+        <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
+          <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path" />
+        </Property>
+        <Property Name="DataPoint" Type="UI.DataPointType" Nullable="false">
+          <Annotation Term="Core.Description" String="Data point, either specified inline or referencing another annotation via Path" />
+        </Property>
+        <Property Name="Detail" Type="UI.KPIDetailType">
+          <Annotation Term="Core.Description" String="Contains information about KPI details, especially drill-down presentations" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="KPIDetailType">
+        <Property Name="DefaultPresentationVariant" Type="UI.PresentationVariantType">
+          <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
+        </Property>
+        <Property Name="AlternativePresentationVariants" Type="Collection(UI.PresentationVariantType)" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="A list of alternative presentation variants, either specified inline or referencing another annotation via Path" />
+        </Property>
+      </ComplexType>
+
       <Term Name="Chart" Type="UI.ChartDefinitionType" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of multiple data points" />
@@ -520,7 +552,6 @@ The trend is
         <Member Name="VerticalBullet" />
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
-
 
       <ComplexType Name="ChartDimensionAttributeType">
         <Property Name="Dimension" Type="Edm.PropertyPath" />
@@ -615,7 +646,6 @@ The trend is
           <String>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant</String>
         </Annotation>
       </Term>
-
       <ComplexType Name="SelectionPresentationVariantType">
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
@@ -699,13 +729,11 @@ The trend is
         </Property>
       </ComplexType>
 
-
       <Term Name="SelectionVariant" Type="UI.SelectionVariantType" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description">
           <String>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set</String>
         </Annotation>
       </Term>
-
       <ComplexType Name="SelectionVariantType">
         <Property Name="ID" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description">
@@ -731,31 +759,60 @@ The trend is
         </Property>
       </ComplexType>
 
-      <ComplexType Name="ParameterAbstract" Abstract="true" />
+      <ComplexType Name="ParameterAbstract" Abstract="true">
+        <Annotation Term="Core.Description" String="Key property of a parameter entity type" />
+      </ComplexType>
       <ComplexType Name="Parameter" BaseType="UI.ParameterAbstract">
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValue" Type="Edm.PrimitiveType" Nullable="false" />
+        <Annotation Term="Core.Description" String="Single-valued parameter" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to a key property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValue" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the key property" />
+        </Property>
       </ComplexType>
       <ComplexType Name="IntervalParameter" BaseType="UI.ParameterAbstract">
-        <Property Name="PropertyNameFrom" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValueFrom" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="PropertyNameTo" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValueTo" Type="Edm.PrimitiveType" Nullable="false" />
+        <Annotation Term="Core.Description" String="Interval parameter formed with a 'from' and a 'to' property" />
+        <Property Name="PropertyNameFrom" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the 'from' property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValueFrom" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the 'from' property" />
+        </Property>
+        <Property Name="PropertyNameTo" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the 'to' property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValueTo" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the 'to' property" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="SelectOptionType">
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false" />
+        <Annotation Term="Core.Description" String="List of value ranges for a single property" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the property" />
+        </Property>
+        <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of value ranges" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="SelectionRangeType">
         <Annotation Term="Core.Description">
-          <String>If the range option only requires a single value, the value must be in the property Low</String>
+          <String>Value range. If the range option only requires a single value, the value must be in the property Low</String>
         </Annotation>
-        <Property Name="Sign" Type="UI.SelectionRangeSignType" Nullable="false" />
-        <Property Name="Option" Type="UI.SelectionRangeOptionType" Nullable="false" />
-        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="High" Type="Edm.PrimitiveType" />
+        <Property Name="Sign" Type="UI.SelectionRangeSignType" Nullable="false">
+          <Annotation Term="Core.Description" String="Include or exclude values" />
+        </Property>
+        <Property Name="Option" Type="UI.SelectionRangeOptionType" Nullable="false">
+          <Annotation Term="Core.Description" String="Comparison operator" />
+        </Property>
+        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Single value or lower interval boundary" />
+        </Property>
+        <Property Name="High" Type="Edm.PrimitiveType">
+          <Annotation Term="Core.Description" String="Upper interval boundary" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="SelectionRangeSignType">
@@ -768,6 +825,7 @@ The trend is
       </EnumType>
 
       <EnumType Name="SelectionRangeOptionType">
+        <Annotation Term="Core.Description" String="Comparison operator" />
         <Member Name="EQ">
           <Annotation Term="Core.Description" String="Equal to" />
         </Member>
