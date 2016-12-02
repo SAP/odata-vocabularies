@@ -408,6 +408,7 @@ IncludeGrandTotal|Boolean|Result should include a grand total for the properties
 InitialExpansionLevel|Int32|Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
 Visualizations|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
 RequestAtLeast|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
+SelectionFields|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
 
 ## <a name="SelectionVariantType"></a>SelectionVariantType
 

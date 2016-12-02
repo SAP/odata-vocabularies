@@ -727,6 +727,12 @@ The trend is
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
         </Property>
+        <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description">
+            <String>Properties that should be presented for filtering a collection of entities. 
+            Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
       <Term Name="SelectionVariant" Type="UI.SelectionVariantType" AppliesTo="EntitySet EntityType">
