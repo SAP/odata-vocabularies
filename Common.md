@@ -33,6 +33,7 @@ RelatedRecursiveHierarchy|AnnotationPath|<a name="RelatedRecursiveHierarchy"></a
 Interval|[IntervalType](#IntervalType)|<a name="Interval"></a>An interval with lower and upper boundaries described by two properties
 ResultContext|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.
 ValueList|[ValueListType](#ValueListType)|<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter
+ValueListWithFixedValues|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values
 ValueListReference|[ValueListReferenceType](#ValueListReferenceType)|<a name="ValueListReference"></a>Specifies where to find the value list mappings for a property or parameter
 ValueListMapping|[ValueListMappingType](#ValueListMappingType)|<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties
 IsCalendarYear|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})
@@ -131,7 +132,6 @@ Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to 
 Property|Type|Description
 :-------|:---|:----------
 MappingUrl|String|URL of a CSDL document containing value list mappings for this parameter or property
-FixedValues|Boolean|If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values
 
 ## <a name="ValueListMappingType"></a>ValueListMappingType
 

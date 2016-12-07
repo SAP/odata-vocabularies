@@ -394,16 +394,17 @@
         </Property>
       </ComplexType>
 
+      <Term Name="ValueListWithFixedValues" Type="Core.Tag" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description"
+          String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
+      </Term>
+
       <Term Name="ValueListReference" Type="Common.ValueListReferenceType" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Specifies where to find the value list mappings for a property or parameter" />
       </Term>
       <ComplexType Name="ValueListReferenceType">
         <Property Name="MappingUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="URL of a CSDL document containing value list mappings for this parameter or property" />
-        </Property>
-        <Property Name="FixedValues" Type="Edm.Boolean">
-          <Annotation Term="Core.Description"
-            String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
         </Property>
       </ComplexType>
 
