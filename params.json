@@ -1,0 +1,6 @@
+{
+  "name": "Vocabularies",
+  "tagline": "SAP vocabularies for annotating OData services",
+  "body": "# SAP Vocabularies\r\nSAP Vocabularies for annotating OData services\r\n- [Analytics: Terms for annotating analytical resources](Analytics.md) \r\n- [Common: Common terms for all SAP vocabularies](Common.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/vh_7Gg)\r\n- [Communication: Terms for annotating communication-relevant information](Communication.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/ux_7Gg)\r\n- [UI: Terms for presenting data in user interfaces](UI.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/uB_7Gg)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
