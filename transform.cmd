@@ -5,7 +5,7 @@ set PROXY=-x proxy:8080
 
 @rem XSLT command-line see https://xml.apache.org/xalan-j/commandline.html
 
-set CLASSPATH=%CLASSPATH%;C:\eclipse-Luna\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;C:\eclipse-Luna\plugins\org.apache.xalan_2.7.1.v201005080400.jar
+set CLASSPATH=%CLASSPATH%;C:\eclipse-Neon\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;C:\eclipse-Neon\plugins\org.apache.xalan_2.7.1.v201005080400.jar
 set done=false
 
 set SCN=%2
