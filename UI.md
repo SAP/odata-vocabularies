@@ -168,25 +168,35 @@ Describes how to calculate the criticality of a value depending on the improveme
 
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
-For improvement direction `Target`, the criticality is calculated using all four threshold values. It will be
-  - Positive if the value is greater than or equal to ToleranceRangeLowValue and lower than or equal to ToleranceRangeHighValue
-  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
-  - Negative if the value is lower than DeviationRangeLowValue and greater than DeviationRangeHighValue
+For improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be
+  - Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue
+  - Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue  and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is lower than DeviationRangeLowValue or greater than DeviationRangeHighValue
 
-For improvement direction `Minimize`, the criticality is calculated using the high threshold values.  It is
-  - Positive if the value is lower than or equal to ToleranceRangeHighValue
+For improvement direction `Minimize`, the criticality is calculated using the high threshold values. It is
+  - Positive if the value is lower than or equal to AcceptanceRangeHighValue
+  - Neutral if the value is  greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
   - Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
   - Negative if the value is greater than DeviationRangeHighValue
- 
+
 For improvement direction `Maximize`, the criticality is calculated using the low threshold values. It is
-  - Positive if the value is greater than or equal to ToleranceRangeLowValue
+  - Positive if the value is greater than or equal to AcceptanceRangeLowValue
+  - Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue
   - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue
   - Negative if the value is lower than DeviationRangeLowValue
+             
+Thresholds are optional. For unassigned values, defaults are determined in this order:
+  - For Deviation, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)
+  - For Tolerance, an omitted LowValue will be initialized with DeviationLowValue, an omitted HighValue will be initialized with DeviationHighValue
+  - For Acceptance, an omitted LowValue will be initialized with ToleranceLowValue, an omitted HighValue will be initialized with ToleranceHighValue
           
 
 Property|Type|Description
 :-------|:---|:----------
 ImprovementDirection|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
+AcceptanceRangeLowValue|PrimitiveType|Lowest value that is considered neutral
+AcceptanceRangeHighValue|PrimitiveType|Highest value that is considered neutral
 ToleranceRangeLowValue|PrimitiveType|Lowest value that is considered positive
 ToleranceRangeHighValue|PrimitiveType|Highest value that is considered positive
 DeviationRangeLowValue|PrimitiveType|Lowest value that is considered critical
