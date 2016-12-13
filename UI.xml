@@ -374,16 +374,16 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
           <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
         </Property>
         <Property Name="AcceptanceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Lowest value that is considered neutral" />
-        </Property>
-        <Property Name="AcceptanceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Highest value that is considered neutral" />
-        </Property>
-        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered positive" />
         </Property>
-        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+        <Property Name="AcceptanceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Highest value that is considered positive" />
+        </Property>
+        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Lowest value that is considered neutral" />
+        </Property>
+        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Highest value that is considered neutral" />
         </Property>
         <Property Name="DeviationRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered critical" />
