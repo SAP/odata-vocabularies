@@ -1,11 +1,22 @@
 @echo off 
 setlocal
 
-set PROXY=-x proxy:8080
+@rem  This script uses Apache Xalan 2.7.1 as XSLT processor
+@rem  For a description of Xalan command-line parameters see http://xalan.apache.org/old/xalan-j/commandline.html
+@rem
+@rem  Prerequisites
+@rem  - Java SE 8 is installed and in the PATH - download from http://www.oracle.com/technetwork/java/javase/downloads/index.html 
+@rem  - Eclipse is installed with Xalan (contained in Eclipse Web Tools Platform), and ECLIPSE_HOME environment variable is set
+@rem  - git is installed and in the PATH - download from https://git-for-windows.github.io/
+@rem  - curl is installed and in the PATH - download from https://curl.haxx.se/download.html 
+@rem  - https://github.com/oasis-tcs/odata-vocabularies has been cloned next to this repository
 
-@rem XSLT command-line see https://xml.apache.org/xalan-j/commandline.html
+if [%ECLIPSE_HOME%] == [] (
+  echo Please set environment variable ECLIPSE_HOME, e.g. to C:\GK\external\eclipse\eclipse-ui5-20140519
+  exit /b 
+)
 
-set CLASSPATH=%CLASSPATH%;C:\eclipse-Neon\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;C:\eclipse-Neon\plugins\org.apache.xalan_2.7.1.v201005080400.jar;C:\GK\external\eclipse\eclipse-ui5-20140519\plugins\org.apache.xalan_2.7.1.v201005080400.jar;C:\GK\external\eclipse\eclipse-ui5-20140519\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar
+set CLASSPATH=%CLASSPATH%;%ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;%ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar
 set done=false
 
 set SCN=%2
@@ -39,7 +50,6 @@ exit /b
 
   if /I [%2] == [/scn] (
     <nul (set/p _any=...)
-    rem curl.exe -k -s %PROXY% --data-binary @%~n1.md -H "Content-Type: text/plain" https://api.github.com/markdown/raw -o %~n1.html
     curl.exe -k -s --data-binary @%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o %~n1.html
 
     sed.exe -e "s/<a name=\"user-content-/^<a name=\"/g" ^
