@@ -11,10 +11,10 @@ setlocal
 @rem  - curl is installed and in the PATH - download from https://curl.haxx.se/download.html 
 @rem  - https://github.com/oasis-tcs/odata-vocabularies has been cloned next to this repository
 
-if [%ECLIPSE_HOME%] == [] (
-  echo Please set environment variable ECLIPSE_HOME, e.g. to C:\GK\external\eclipse\eclipse-ui5-20140519
-  exit /b 
-)
+if [%ECLIPSE_HOME%] == [] echo Please set environment variable ECLIPSE_HOME, e.g. to C:\GK\external\eclipse\eclipse-ui5-20140519 && exit /b
+if not exist %ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar echo Please install Eclipse Web Tools Platform && exit /b
+if not exist %ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar echo Please install Eclipse Web Tools Platform && exit /b
+if not exist ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl echo Please clone https://github.com/oasis-tcs/odata-vocabularies next to this folder && exit /b
 
 set CLASSPATH=%CLASSPATH%;%ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;%ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar
 set done=false
