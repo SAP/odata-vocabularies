@@ -187,18 +187,18 @@ For improvement direction `Maximize`, the criticality is calculated using the lo
   - Negative if the value is lower than DeviationRangeLowValue
              
 Thresholds are optional. For unassigned values, defaults are determined in this order:
-  - For Deviation, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)
-  - For Tolerance, an omitted LowValue will be initialized with DeviationLowValue, an omitted HighValue will be initialized with DeviationHighValue
-  - For Acceptance, an omitted LowValue will be initialized with ToleranceLowValue, an omitted HighValue will be initialized with ToleranceHighValue
+  - For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)
+  - For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue
+  - For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue
           
 
 Property|Type|Description
 :-------|:---|:----------
 ImprovementDirection|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
-AcceptanceRangeLowValue|PrimitiveType|Lowest value that is considered neutral
-AcceptanceRangeHighValue|PrimitiveType|Highest value that is considered neutral
-ToleranceRangeLowValue|PrimitiveType|Lowest value that is considered positive
-ToleranceRangeHighValue|PrimitiveType|Highest value that is considered positive
+AcceptanceRangeLowValue|PrimitiveType|Lowest value that is considered positive
+AcceptanceRangeHighValue|PrimitiveType|Highest value that is considered positive
+ToleranceRangeLowValue|PrimitiveType|Lowest value that is considered neutral
+ToleranceRangeHighValue|PrimitiveType|Highest value that is considered neutral
 DeviationRangeLowValue|PrimitiveType|Lowest value that is considered critical
 DeviationRangeHighValue|PrimitiveType|Highest value that is considered critical
 

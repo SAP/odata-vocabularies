@@ -119,7 +119,7 @@ UpperBoundaryIncluded|Boolean|The upper boundary value is included in the interv
 
 Property|Type|Description
 :-------|:---|:----------
-Label|String|
+Label|String|Headline for value list, fallback is the label of the property or parameter
 CollectionPath|String|Resource path of an OData collection with possible values, relative to CollectionRoot
 CollectionRoot|String|Service root of the value list collection; not specified means local to the document containing the annotation
 SearchSupported|Boolean|Value list supports the $search query option
@@ -138,7 +138,7 @@ MappingUrl|String|URL of a CSDL document containing value list mappings for this
 
 Property|Type|Description
 :-------|:---|:----------
-Label|String|
+Label|String|Headline for value list, fallback is the label of the property or parameter
 CollectionPath|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
 SearchSupported|Boolean|Value list supports the $search query option
 PresentationVariantQualifier|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart

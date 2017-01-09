@@ -372,6 +372,7 @@
         -->
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
@@ -416,6 +417,7 @@
       <ComplexType Name="ValueListMappingType">
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description"
