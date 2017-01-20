@@ -400,14 +400,11 @@
           String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
       </Term>
 
-      <Term Name="ValueListReference" Type="Common.ValueListReferenceType" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="Specifies where to find the value list mappings for a property or parameter" />
+      <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description"
+          String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
       </Term>
-      <ComplexType Name="ValueListReferenceType">
-        <Property Name="MappingUrl" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="URL of a CSDL document containing value list mappings for this parameter or property" />
-        </Property>
-      </ComplexType>
 
       <Term Name="ValueListMapping" Type="Common.ValueListMappingType" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Specifies the mapping between data service properties and value list properties" />
@@ -422,10 +419,6 @@
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description"
             String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
-        </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Value list supports the $search query option" />
-          <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />

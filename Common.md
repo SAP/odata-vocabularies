@@ -34,7 +34,7 @@ Interval|[IntervalType](#IntervalType)|<a name="Interval"></a>An interval with l
 ResultContext|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.
 ValueList|[ValueListType](#ValueListType)|<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter
 ValueListWithFixedValues|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values
-ValueListReference|[ValueListReferenceType](#ValueListReferenceType)|<a name="ValueListReference"></a>Specifies where to find the value list mappings for a property or parameter
+ValueListReferences|\[URL\]|<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property
 ValueListMapping|[ValueListMappingType](#ValueListMappingType)|<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties
 IsCalendarYear|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})
 IsCalendarHalfyear|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarHalfyear"></a>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit. The string matches the regex pattern [1-2]
@@ -126,13 +126,6 @@ SearchSupported|Boolean|Value list supports the $search query option
 PresentationVariantQualifier|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
 Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
-## <a name="ValueListReferenceType"></a>ValueListReferenceType
-
-
-Property|Type|Description
-:-------|:---|:----------
-MappingUrl|String|URL of a CSDL document containing value list mappings for this parameter or property
-
 ## <a name="ValueListMappingType"></a>ValueListMappingType
 
 
@@ -140,7 +133,6 @@ Property|Type|Description
 :-------|:---|:----------
 Label|String|Headline for value list, fallback is the label of the property or parameter
 CollectionPath|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-SearchSupported|Boolean|Value list supports the $search query option
 PresentationVariantQualifier|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
 Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
