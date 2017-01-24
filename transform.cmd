@@ -56,6 +56,7 @@ exit /b
             -e "s/<span aria-hidden=\"true\" class=\"octicon octicon-link\"><\/span>//g" ^
             -e "s/<a href=\"Org\.OData\./^<a href=\"https:\/\/github.com\/oasis-tcs\/odata-vocabularies\/blob\/master\/vocabularies\/Org\.OData\./g" ^
             -e "s/<a id=\"user-content-[[:alpha:]-]\+\" class=\"anchor\" href=\"#[[:alpha:]-]\+\" aria-hidden=\"true\"><\/a>//g" ^
+            -e "s/\"Analytics\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/462030211\/Analytics.xml?api=v2\"/g" ^
             -e "s/\"Common\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470974\/Common.xml?api=v2\"/g" ^
             -e "s/\"Communication\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470971\/Communication.xml?api=v2\"/g" ^
             -e "s/\"UI\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470968\/UI.xml?api=v2\"/g" ^
