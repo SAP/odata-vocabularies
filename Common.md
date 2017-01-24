@@ -21,6 +21,7 @@ AssociationEntity|\[NavigationPropertyPath\]|<a name="AssociationEntity"></a>Ent
 DerivedNavigation|NavigationPropertyPath|<a name="DerivedNavigation"></a>Shortcut for a multi-segment navigation, contains the long path with all its segments
 Masked|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Masked"></a>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction
 SemanticObject|String|<a name="SemanticObject"></a>Name of the Semantic Object represented as this entity type or identified by this property
+SemanticObjectMapping|\[[SemanticObjectMappingType](#SemanticObjectMappingType)\]|<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object
 IsInstanceAnnotation|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied
 Insertable|Boolean|<a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)
 Updatable|Boolean|<a name="Updatable"></a>Specifies whether the annotated entity can be updated
@@ -75,6 +76,14 @@ Member|Value|Description
 :-----|----:|:----------
 plain|0|Plain text, line breaks represented as the character 0x0A
 html|1|Plain text with markup that can validly appear directly within an HTML DIV element
+
+## <a name="SemanticObjectMappingType"></a>SemanticObjectMappingType
+Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object
+
+Property|Type|Description
+:-------|:---|:----------
+LocalProperty|PropertyPath|Path to a local property that provides the value for the Semantic Object property
+SemanticObjectProperty|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType
 
