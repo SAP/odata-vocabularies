@@ -16,14 +16,14 @@ GeoLocation|[GeoLocationType](#GeoLocationType)|<a name="GeoLocation"></a>Geogra
 Contacts|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts
 MediaResource|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
 DataPoint|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
-KPI|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
+KPI *(Experimental)*|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
 Chart|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
 SelectionFields|\[PropertyPath\]|<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type
 Facets|\[[Facet](#Facet)\]|<a name="Facets"></a>Collection of facets
 HeaderFacets|\[[Facet](#Facet)\]|<a name="HeaderFacets"></a>Facets for additional object header information
 QuickViewFacets|\[[Facet](#Facet)\]|<a name="QuickViewFacets"></a>Facets that may be used for a quick overview of the object
 QuickCreateFacets|\[[Facet](#Facet)\]|<a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object
-FilterFacets|\[[ReferenceFacet](#ReferenceFacet)\]|<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields
+FilterFacets *(Experimental)*|\[[ReferenceFacet](#ReferenceFacet)\]|<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields
 SelectionPresentationVariant|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
 PresentationVariant|[PresentationVariantType](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
 SelectionVariant|[SelectionVariantType](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
@@ -245,7 +245,7 @@ StrongUpDifference|Decimal|Threshold for StrongUp
 DownDifference|Decimal|Threshold for Down
 StrongDownDifference|Decimal|Threshold for StrongDown
 
-## <a name="KPIType"></a>KPIType
+## <a name="KPIType"></a>KPIType *(Experimental)*
 
 
 Property|Type|Description
@@ -255,7 +255,7 @@ SelectionVariant|[SelectionVariantType](#SelectionVariantType)|Selection variant
 DataPoint|[DataPointType](#DataPointType)|Data point, either specified inline or referencing another annotation via Path
 Detail|[KPIDetailType](#KPIDetailType)|Contains information about KPI details, especially drill-down presentations
 
-## <a name="KPIDetailType"></a>KPIDetailType
+## <a name="KPIDetailType"></a>KPIDetailType *(Experimental)*
 
 
 Property|Type|Description
@@ -419,7 +419,7 @@ IncludeGrandTotal|Boolean|Result should include a grand total for the properties
 InitialExpansionLevel|Int32|Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
 Visualizations|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
 RequestAtLeast|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
-SelectionFields|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
+SelectionFields *(Experimental)*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
 
 ## <a name="SelectionVariantType"></a>SelectionVariantType
 
