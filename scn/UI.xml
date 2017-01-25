@@ -346,30 +346,44 @@
           <String>
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
-For improvement direction `Target`, the criticality is calculated using all four threshold values. It will be
-  - Positive if the value is greater than or equal to ToleranceRangeLowValue and lower than or equal to ToleranceRangeHighValue
-  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
-  - Negative if the value is lower than DeviationRangeLowValue and greater than DeviationRangeHighValue
+For improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be
+  - Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue
+  - Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
+  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue  and lower than or equal to DeviationRangeHighValue
+  - Negative if the value is lower than DeviationRangeLowValue or greater than DeviationRangeHighValue
 
-For improvement direction `Minimize`, the criticality is calculated using the high threshold values.  It is
-  - Positive if the value is lower than or equal to ToleranceRangeHighValue
+For improvement direction `Minimize`, the criticality is calculated using the high threshold values. It is
+  - Positive if the value is lower than or equal to AcceptanceRangeHighValue
+  - Neutral if the value is  greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
   - Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue
   - Negative if the value is greater than DeviationRangeHighValue
- 
+
 For improvement direction `Maximize`, the criticality is calculated using the low threshold values. It is
-  - Positive if the value is greater than or equal to ToleranceRangeLowValue
+  - Positive if the value is greater than or equal to AcceptanceRangeLowValue
+  - Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue
   - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue
   - Negative if the value is lower than DeviationRangeLowValue
+             
+Thresholds are optional. For unassigned values, defaults are determined in this order:
+  - For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)
+  - For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue
+  - For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue
           </String>
         </Annotation>
         <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
           <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
         </Property>
-        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
+        <Property Name="AcceptanceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered positive" />
         </Property>
-        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+        <Property Name="AcceptanceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Highest value that is considered positive" />
+        </Property>
+        <Property Name="ToleranceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Lowest value that is considered neutral" />
+        </Property>
+        <Property Name="ToleranceRangeHighValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Highest value that is considered neutral" />
         </Property>
         <Property Name="DeviationRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered critical" />
@@ -423,8 +437,7 @@ The trend is
   - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
   - Sideways if the difference  is less than UpDifference and greater than DownDifference
   - Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference
-  - StrongDown if the difference is lower than or equal to StrongDownDifference          
-          </String>
+  - StrongDown if the difference is lower than or equal to StrongDownDifference</String>
         </Annotation>
         <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Reference value for the calculation, e.g. number of sales for the last year" />
@@ -522,7 +535,6 @@ The trend is
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 
-
       <ComplexType Name="ChartDimensionAttributeType">
         <Property Name="Dimension" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
@@ -616,7 +628,6 @@ The trend is
           <String>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant</String>
         </Annotation>
       </Term>
-
       <ComplexType Name="SelectionPresentationVariantType">
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
@@ -700,13 +711,11 @@ The trend is
         </Property>
       </ComplexType>
 
-
       <Term Name="SelectionVariant" Type="UI.SelectionVariantType" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description">
           <String>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set</String>
         </Annotation>
       </Term>
-
       <ComplexType Name="SelectionVariantType">
         <Property Name="ID" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description">
@@ -732,31 +741,60 @@ The trend is
         </Property>
       </ComplexType>
 
-      <ComplexType Name="ParameterAbstract" Abstract="true" />
+      <ComplexType Name="ParameterAbstract" Abstract="true">
+        <Annotation Term="Core.Description" String="Key property of a parameter entity type" />
+      </ComplexType>
       <ComplexType Name="Parameter" BaseType="UI.ParameterAbstract">
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValue" Type="Edm.PrimitiveType" Nullable="false" />
+        <Annotation Term="Core.Description" String="Single-valued parameter" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to a key property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValue" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the key property" />
+        </Property>
       </ComplexType>
       <ComplexType Name="IntervalParameter" BaseType="UI.ParameterAbstract">
-        <Property Name="PropertyNameFrom" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValueFrom" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="PropertyNameTo" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="PropertyValueTo" Type="Edm.PrimitiveType" Nullable="false" />
+        <Annotation Term="Core.Description" String="Interval parameter formed with a 'from' and a 'to' property" />
+        <Property Name="PropertyNameFrom" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the 'from' property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValueFrom" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the 'from' property" />
+        </Property>
+        <Property Name="PropertyNameTo" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the 'to' property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyValueTo" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Value for the 'to' property" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="SelectOptionType">
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false" />
+        <Annotation Term="Core.Description" String="List of value ranges for a single property" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the property" />
+        </Property>
+        <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of value ranges" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="SelectionRangeType">
         <Annotation Term="Core.Description">
-          <String>If the range option only requires a single value, the value must be in the property Low</String>
+          <String>Value range. If the range option only requires a single value, the value must be in the property Low</String>
         </Annotation>
-        <Property Name="Sign" Type="UI.SelectionRangeSignType" Nullable="false" />
-        <Property Name="Option" Type="UI.SelectionRangeOptionType" Nullable="false" />
-        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="High" Type="Edm.PrimitiveType" />
+        <Property Name="Sign" Type="UI.SelectionRangeSignType" Nullable="false">
+          <Annotation Term="Core.Description" String="Include or exclude values" />
+        </Property>
+        <Property Name="Option" Type="UI.SelectionRangeOptionType" Nullable="false">
+          <Annotation Term="Core.Description" String="Comparison operator" />
+        </Property>
+        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Single value or lower interval boundary" />
+        </Property>
+        <Property Name="High" Type="Edm.PrimitiveType">
+          <Annotation Term="Core.Description" String="Upper interval boundary" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="SelectionRangeSignType">
@@ -769,6 +807,7 @@ The trend is
       </EnumType>
 
       <EnumType Name="SelectionRangeOptionType">
+        <Annotation Term="Core.Description" String="Comparison operator" />
         <Member Name="EQ">
           <Annotation Term="Core.Description" String="Equal to" />
         </Member>
