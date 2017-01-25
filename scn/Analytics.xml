@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/vocabularies/Org.OData.Core.V1.xml">
-    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
   </edmx:Reference>
-  <edmx:Reference
-    Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
-    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
   </edmx:Reference>
 
   <edmx:DataServices>
@@ -17,15 +15,19 @@
         <String>2013-10-16 © Copyright 2013 SAP AG. All rights reserved</String>
       </Annotation>
 
-      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable"  DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A property holding the key of a dimension in an analytical context" />
+      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context"/>
       </Term>
 
-      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable"  DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A property holding the numeric value of a measure in an analytical context" />
+      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context"/>
       </Term>
+
+      
+
+      
+
+      
 
     </Schema>
   </edmx:DataServices>

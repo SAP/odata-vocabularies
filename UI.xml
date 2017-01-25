@@ -460,12 +460,14 @@ The trend is
       </ComplexType>
 
       <Term Name="KPI" Type="UI.KPIType" AppliesTo="EntitySet EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</String>
         </Annotation>
       </Term>
       <ComplexType Name="KPIType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
             <String>Optional identifier to reference this instance from an external context</String>
@@ -482,6 +484,7 @@ The trend is
         </Property>
       </ComplexType>
       <ComplexType Name="KPIDetailType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="DefaultPresentationVariant" Type="UI.PresentationVariantType">
           <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
         </Property>
@@ -617,6 +620,7 @@ The trend is
       </Term>
 
       <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
       </Term>
 
@@ -746,6 +750,7 @@ The trend is
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
         </Property>
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description">
             <String>Properties that should be presented for filtering a collection of entities. 
             Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.</String>

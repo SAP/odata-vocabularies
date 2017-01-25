@@ -156,10 +156,12 @@
       <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)"
         AppliesTo="EntitySet EntityType Property"
       >
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
         <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
@@ -412,22 +414,26 @@
       </ComplexType>
 
       <Term Name="ValueListWithFixedValues" Type="Core.Tag" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
       </Term>
 
       <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description"
           String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
       </Term>
 
       <Term Name="ValueListMapping" Type="Common.ValueListMappingType" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Specifies the mapping between data service properties and value list properties" />
         <Annotation Term="Core.LongDescription"
           String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers. The qualifier-less mapping is the default value list." />
       </Term>
       <ComplexType Name="ValueListMappingType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
