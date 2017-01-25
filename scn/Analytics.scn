@@ -1,0 +1,48 @@
+<h1>
+Analytics Vocabulary</h1>
+
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2">com.sap.vocabularies.Analytics.v1</a></strong></p>
+
+<p>Terms for annotating analytical resources</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Dimension</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Dimension"></a>A property holding the key of a dimension in an analytical context</td>
+</tr>
+<tr>
+<td align="left">Measure</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Measure"></a>A property holding the numeric value of a measure in an analytical context</td>
+</tr>
+<tr>
+<td align="left">RolledUpPropertyCount</td>
+<td align="left">Int16</td>
+<td align="left">
+<a name="RolledUpPropertyCount"></a>Number of properties in the entity instance that have been aggregated away</td>
+</tr>
+<tr>
+<td align="left">DrillURL</td>
+<td align="left">URL</td>
+<td align="left">
+<a name="DrillURL"></a>URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.</td>
+</tr>
+<tr>
+<td align="left">PlanningAction</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.</td>
+</tr>
+</tbody>
+</table>

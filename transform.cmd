@@ -49,6 +49,9 @@ exit /b
   git.exe --no-pager diff %~n1.md
 
   if /I [%2] == [/scn] (
+    rem TODO: almost-identity-transform xml into scn folder, stripping out experimental stuff
+    rem TODO: transform stripped xml into md, use as source for scn-html production
+    rem TODO: replace SED with almost-identity transformation
     <nul (set/p _any=...)
     curl.exe -k -s --data-binary @%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o %~n1.html
 

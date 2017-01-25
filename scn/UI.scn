@@ -1,0 +1,2488 @@
+<h1>
+UI Vocabulary</h1>
+
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">com.sap.vocabularies.UI.v1</a></strong></p>
+
+<p>Terms for presenting data in user interfaces</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">HeaderInfo</td>
+<td align="left"><a href="#HeaderInfoType">HeaderInfoType</a></td>
+<td align="left">
+<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model</td>
+</tr>
+<tr>
+<td align="left">Identification</td>
+<td align="left">[<a href="#DataFieldAbstract">DataFieldAbstract</a>]</td>
+<td align="left">
+<a name="Identification"></a>Collection of fields identifying the object</td>
+</tr>
+<tr>
+<td align="left">Badge</td>
+<td align="left"><a href="#BadgeType">BadgeType</a></td>
+<td align="left">
+<a name="Badge"></a>Information usually displayed in the form of a business card</td>
+</tr>
+<tr>
+<td align="left">LineItem</td>
+<td align="left">[<a href="#DataFieldAbstract">DataFieldAbstract</a>]</td>
+<td align="left">
+<a name="LineItem"></a>Collection of data fields for representation in a table or list</td>
+</tr>
+<tr>
+<td align="left">StatusInfo</td>
+<td align="left">[<a href="#DataFieldAbstract">DataFieldAbstract</a>]</td>
+<td align="left">
+<a name="StatusInfo"></a>Collection of data fields describing the status of an entity</td>
+</tr>
+<tr>
+<td align="left">FieldGroup</td>
+<td align="left"><a href="#FieldGroupType">FieldGroupType</a></td>
+<td align="left">
+<a name="FieldGroup"></a>Group of fields with an optional label</td>
+</tr>
+<tr>
+<td align="left">GeoLocations</td>
+<td align="left">[<a href="#GeoLocationType">GeoLocationType</a>]</td>
+<td align="left">
+<a name="GeoLocations"></a>Collection of geographic locations</td>
+</tr>
+<tr>
+<td align="left">GeoLocation</td>
+<td align="left"><a href="#GeoLocationType">GeoLocationType</a></td>
+<td align="left">
+<a name="GeoLocation"></a>Geographic location</td>
+</tr>
+<tr>
+<td align="left">Contacts</td>
+<td align="left">[AnnotationPath]</td>
+<td align="left">
+<a name="Contacts"></a>Collection of contacts</td>
+</tr>
+<tr>
+<td align="left">MediaResource</td>
+<td align="left"><a href="#MediaResourceType">MediaResourceType</a></td>
+<td align="left">
+<a name="MediaResource"></a>Properties that describe a media resource</td>
+</tr>
+<tr>
+<td align="left">DataPoint</td>
+<td align="left"><a href="#DataPointType">DataPointType</a></td>
+<td align="left">
+<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value</td>
+</tr>
+<tr>
+<td align="left">KPI</td>
+<td align="left"><a href="#KPIType">KPIType</a></td>
+<td align="left">
+<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</td>
+</tr>
+<tr>
+<td align="left">Chart</td>
+<td align="left"><a href="#ChartDefinitionType">ChartDefinitionType</a></td>
+<td align="left">
+<a name="Chart"></a>Visualization of multiple data points</td>
+</tr>
+<tr>
+<td align="left">SelectionFields</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type</td>
+</tr>
+<tr>
+<td align="left">Facets</td>
+<td align="left">[<a href="#Facet">Facet</a>]</td>
+<td align="left">
+<a name="Facets"></a>Collection of facets</td>
+</tr>
+<tr>
+<td align="left">HeaderFacets</td>
+<td align="left">[<a href="#Facet">Facet</a>]</td>
+<td align="left">
+<a name="HeaderFacets"></a>Facets for additional object header information</td>
+</tr>
+<tr>
+<td align="left">QuickViewFacets</td>
+<td align="left">[<a href="#Facet">Facet</a>]</td>
+<td align="left">
+<a name="QuickViewFacets"></a>Facets that may be used for a quick overview of the object</td>
+</tr>
+<tr>
+<td align="left">QuickCreateFacets</td>
+<td align="left">[<a href="#Facet">Facet</a>]</td>
+<td align="left">
+<a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object</td>
+</tr>
+<tr>
+<td align="left">FilterFacets</td>
+<td align="left">[<a href="#ReferenceFacet">ReferenceFacet</a>]</td>
+<td align="left">
+<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields</td>
+</tr>
+<tr>
+<td align="left">SelectionPresentationVariant</td>
+<td align="left"><a href="#SelectionPresentationVariantType">SelectionPresentationVariantType</a></td>
+<td align="left">
+<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant</td>
+</tr>
+<tr>
+<td align="left">PresentationVariant</td>
+<td align="left"><a href="#PresentationVariantType">PresentationVariantType</a></td>
+<td align="left">
+<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed</td>
+</tr>
+<tr>
+<td align="left">SelectionVariant</td>
+<td align="left"><a href="#SelectionVariantType">SelectionVariantType</a></td>
+<td align="left">
+<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set</td>
+</tr>
+<tr>
+<td align="left">ThingPerspective</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="ThingPerspective"></a>This term is a Thing Perspective</td>
+</tr>
+<tr>
+<td align="left">IsSummary</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsSummary"></a>This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term</td>
+</tr>
+<tr>
+<td align="left">PartOfPreview</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="PartOfPreview"></a>This Facet and all included Facets are part of the Thing preview</td>
+</tr>
+<tr>
+<td align="left">Map</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these</td>
+</tr>
+<tr>
+<td align="left">Gallery</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Gallery"></a>Target MUST reference a UI.MediaResource</td>
+</tr>
+<tr>
+<td align="left">IsImageURL</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image</td>
+</tr>
+<tr>
+<td align="left">MultiLineText</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="MultiLineText"></a>Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)</td>
+</tr>
+<tr>
+<td align="left">TextArrangement</td>
+<td align="left"><a href="#TextArrangementType">TextArrangementType</a></td>
+<td align="left">
+<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text</td>
+</tr>
+<tr>
+<td align="left">Importance</td>
+<td align="left"><a href="#ImportanceType">ImportanceType</a></td>
+<td align="left">
+<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation</td>
+</tr>
+<tr>
+<td align="left">Hidden</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Hidden"></a>Properties annotated with this term will not be rendered at all</td>
+</tr>
+<tr>
+<td align="left">HiddenFilter</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="HeaderInfoType"></a>HeaderInfoType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TypeName</td>
+<td align="left">String</td>
+<td align="left">Name of the main entity type</td>
+</tr>
+<tr>
+<td align="left">TypeNamePlural</td>
+<td align="left">String</td>
+<td align="left">Plural form of the name of the main entity type</td>
+</tr>
+<tr>
+<td align="left">Title</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Title, e.g. for overview pages</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Description, e.g. for overview pages</td>
+</tr>
+<tr>
+<td align="left">ImageUrl</td>
+<td align="left">URL</td>
+<td align="left">Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead.</td>
+</tr>
+<tr>
+<td align="left">TypeImageUrl</td>
+<td align="left">URL</td>
+<td align="left">Image URL for the entity type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="BadgeType"></a>BadgeType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">HeadLine</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Headline</td>
+</tr>
+<tr>
+<td align="left">Title</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Title</td>
+</tr>
+<tr>
+<td align="left">ImageUrl</td>
+<td align="left">URL</td>
+<td align="left">Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead.</td>
+</tr>
+<tr>
+<td align="left">TypeImageUrl</td>
+<td align="left">URL</td>
+<td align="left">Image URL for the entity type</td>
+</tr>
+<tr>
+<td align="left">MainInfo</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Main information on the business card</td>
+</tr>
+<tr>
+<td align="left">SecondaryInfo</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Additional information on the business card</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="FieldGroupType"></a>FieldGroupType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Label for the field group</td>
+</tr>
+<tr>
+<td align="left">Data</td>
+<td align="left">[<a href="#DataFieldAbstract">DataFieldAbstract</a>]</td>
+<td align="left">Collection of data fields</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="GeoLocationType"></a>GeoLocationType</h2>
+
+<p>Properties that define a geographic location</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Latitude</td>
+<td align="left">Double</td>
+<td align="left">Geographic latitude</td>
+</tr>
+<tr>
+<td align="left">Longitude</td>
+<td align="left">Double</td>
+<td align="left">Geographic longitude</td>
+</tr>
+<tr>
+<td align="left">Location</td>
+<td align="left">GeographyPoint</td>
+<td align="left">A point in a round-earth coordinate system</td>
+</tr>
+<tr>
+<td align="left">Address</td>
+<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Communication#AddressType">AddressType</a></td>
+<td align="left">vCard-style address</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="MediaResourceType"></a>MediaResourceType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Url</td>
+<td align="left">URL</td>
+<td align="left">URL of media resource</td>
+</tr>
+<tr>
+<td align="left">ContentType</td>
+<td align="left">MediaType</td>
+<td align="left">Content type, such as application/pdf, video/x-flv, image/jpeg</td>
+</tr>
+<tr>
+<td align="left">ByteSize</td>
+<td align="left">Int64</td>
+<td align="left">Resource size in bytes</td>
+</tr>
+<tr>
+<td align="left">ChangedAt</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Date of last change</td>
+</tr>
+<tr>
+<td align="left">Thumbnail</td>
+<td align="left"><a href="#ImageType">ImageType</a></td>
+<td align="left">Thumbnail image</td>
+</tr>
+<tr>
+<td align="left">Title</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Resource title</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left"><a href="#DataField">DataField</a></td>
+<td align="left">Resource description</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ImageType"></a>ImageType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Url</td>
+<td align="left">URL</td>
+<td align="left">URL of image</td>
+</tr>
+<tr>
+<td align="left">Width</td>
+<td align="left">String</td>
+<td align="left">Width of image</td>
+</tr>
+<tr>
+<td align="left">Height</td>
+<td align="left">String</td>
+<td align="left">Height of image</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataPointType"></a>DataPointType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Title</td>
+<td align="left">String</td>
+<td align="left">Title of the data point</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left">String</td>
+<td align="left">Short description</td>
+</tr>
+<tr>
+<td align="left">LongDescription</td>
+<td align="left">String</td>
+<td align="left">Full description</td>
+</tr>
+<tr>
+<td align="left">Value</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Numeric value</td>
+</tr>
+<tr>
+<td align="left">TargetValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Target value</td>
+</tr>
+<tr>
+<td align="left">ForecastValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Forecast value</td>
+</tr>
+<tr>
+<td align="left">MinimumValue</td>
+<td align="left">Decimal</td>
+<td align="left">Minimum value (for output rendering)</td>
+</tr>
+<tr>
+<td align="left">MaximumValue</td>
+<td align="left">Decimal</td>
+<td align="left">Maximum value (for output rendering)</td>
+</tr>
+<tr>
+<td align="left">ValueFormat</td>
+<td align="left"><a href="#NumberFormat">NumberFormat</a></td>
+<td align="left">Number format</td>
+</tr>
+<tr>
+<td align="left">Visualization</td>
+<td align="left"><a href="#VisualizationType">VisualizationType</a></td>
+<td align="left">Preferred visualization</td>
+</tr>
+<tr>
+<td align="left">SampleSize</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.</td>
+</tr>
+<tr>
+<td align="left">ReferencePeriod</td>
+<td align="left"><a href="#ReferencePeriod">ReferencePeriod</a></td>
+<td align="left">Reference period</td>
+</tr>
+<tr>
+<td align="left">Criticality</td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Service-calculated criticality, alternative to CriticalityCalculation</td>
+</tr>
+<tr>
+<td align="left">CriticalityCalculation</td>
+<td align="left"><a href="#CriticalityCalculationType">CriticalityCalculationType</a></td>
+<td align="left">Parameters for client-calculated criticality, alternative to Criticality</td>
+</tr>
+<tr>
+<td align="left">Trend</td>
+<td align="left"><a href="#TrendType">TrendType</a></td>
+<td align="left">Service-calculated trend, alternative to TrendCalculation</td>
+</tr>
+<tr>
+<td align="left">TrendCalculation</td>
+<td align="left"><a href="#TrendCalculationType">TrendCalculationType</a></td>
+<td align="left">Parameters for client-calculated trend, alternative to Trend</td>
+</tr>
+<tr>
+<td align="left">Responsible</td>
+<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Communication#ContactType">ContactType</a></td>
+<td align="left">Contact person</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="NumberFormat"></a>NumberFormat</h2>
+
+<p>Describes how to visualise a number</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ScaleFactor</td>
+<td align="left">Decimal</td>
+<td align="left">Factor to scale a value before visualization, e.g. 0.001 for K, 1e-6 for M</td>
+</tr>
+<tr>
+<td align="left">NumberOfFractionalDigits</td>
+<td align="left">Byte</td>
+<td align="left">Number of fractional digits of the scaled value to be visualized</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="VisualizationType"></a>VisualizationType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Number</td>
+<td align="right">0</td>
+<td align="left">Visualize as a number</td>
+</tr>
+<tr>
+<td align="left">BulletChart</td>
+<td align="right">1</td>
+<td align="left">Visualize as bullet chart - requires TargetValue</td>
+</tr>
+<tr>
+<td align="left">Progress</td>
+<td align="right">2</td>
+<td align="left">Visualize as progress indicator - requires TargetValue</td>
+</tr>
+<tr>
+<td align="left">Rating</td>
+<td align="right">3</td>
+<td align="left">Visualize as partially or completely filled stars/hearts/... - requires TargetValue</td>
+</tr>
+<tr>
+<td align="left">Donut</td>
+<td align="right">4</td>
+<td align="left">Visualize as donut, optionally with missing segment - requires TargetValue</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ReferencePeriod"></a>ReferencePeriod</h2>
+
+<p>Reference period</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Description</td>
+<td align="left">String</td>
+<td align="left">Short description of the reference period</td>
+</tr>
+<tr>
+<td align="left">Start</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Start of the reference period</td>
+</tr>
+<tr>
+<td align="left">End</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">End of the reference period</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="CriticalityType"></a>CriticalityType</h2>
+
+<p>Criticality of a value or status, represented e.g. via semantic colors (<a href="https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors">https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors</a>)</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Neutral</td>
+<td align="right">0</td>
+<td align="left">Neutral / blue status - inactive - open - in progress</td>
+</tr>
+<tr>
+<td align="left">Negative</td>
+<td align="right">1</td>
+<td align="left">Negative / red status - attention - overload - alert</td>
+</tr>
+<tr>
+<td align="left">Critical</td>
+<td align="right">2</td>
+<td align="left">Critical / orange status - warning</td>
+</tr>
+<tr>
+<td align="left">Positive</td>
+<td align="right">3</td>
+<td align="left">Positive / green status - completed - available - on track - acceptable</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="CriticalityCalculationType"></a>CriticalityCalculationType</h2>
+
+<p>Describes how to calculate the criticality of a value depending on the improvement direction</p>
+
+<p>The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.</p>
+
+<p>For improvement direction <code>Target</code>, the criticality is calculated using both low and high threshold values. It will be</p>
+
+<ul>
+<li>Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue</li>
+<li>Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue</li>
+<li>Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue  and lower than or equal to DeviationRangeHighValue</li>
+<li>Negative if the value is lower than DeviationRangeLowValue or greater than DeviationRangeHighValue</li>
+</ul>
+
+<p>For improvement direction <code>Minimize</code>, the criticality is calculated using the high threshold values. It is</p>
+
+<ul>
+<li>Positive if the value is lower than or equal to AcceptanceRangeHighValue</li>
+<li>Neutral if the value is  greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue</li>
+<li>Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue</li>
+<li>Negative if the value is greater than DeviationRangeHighValue</li>
+</ul>
+
+<p>For improvement direction <code>Maximize</code>, the criticality is calculated using the low threshold values. It is</p>
+
+<ul>
+<li>Positive if the value is greater than or equal to AcceptanceRangeLowValue</li>
+<li>Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue</li>
+<li>Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue</li>
+<li>Negative if the value is lower than DeviationRangeLowValue</li>
+</ul>
+
+<p>Thresholds are optional. For unassigned values, defaults are determined in this order:</p>
+
+<ul>
+<li>For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)</li>
+<li>For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue</li>
+<li>For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ImprovementDirection</td>
+<td align="left"><a href="#ImprovementDirectionType">ImprovementDirectionType</a></td>
+<td align="left">Describes in which direction the value improves</td>
+</tr>
+<tr>
+<td align="left">AcceptanceRangeLowValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left">AcceptanceRangeHighValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left">ToleranceRangeLowValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left">ToleranceRangeHighValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left">DeviationRangeLowValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered critical</td>
+</tr>
+<tr>
+<td align="left">DeviationRangeHighValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered critical</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ImprovementDirectionType"></a>ImprovementDirectionType</h2>
+
+<p>Describes which direction of a value change is seen as an improvement</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Minimize</td>
+<td align="right">1</td>
+<td align="left">Lower is better</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="right">2</td>
+<td align="left">Closer to the target is better</td>
+</tr>
+<tr>
+<td align="left">Maximize</td>
+<td align="right">3</td>
+<td align="left">Higher is better</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="TrendType"></a>TrendType</h2>
+
+<p>The trend of a value</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">StrongUp</td>
+<td align="right">1</td>
+<td align="left">Value grows strongly</td>
+</tr>
+<tr>
+<td align="left">Up</td>
+<td align="right">2</td>
+<td align="left">Value grows</td>
+</tr>
+<tr>
+<td align="left">Sideways</td>
+<td align="right">3</td>
+<td align="left">Value does not significantly grow or shrink</td>
+</tr>
+<tr>
+<td align="left">Down</td>
+<td align="right">4</td>
+<td align="left">Value shrinks</td>
+</tr>
+<tr>
+<td align="left">StrongDown</td>
+<td align="right">5</td>
+<td align="left">Value shrinks strongly</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="TrendCalculationType"></a>TrendCalculationType</h2>
+
+<p>Describes how to calculate the trend of a value</p>
+
+<p>By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
+If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.</p>
+
+<p>The trend is </p>
+
+<ul>
+<li>StrongUp if the difference is greater than or equal to StrongUpDifference</li>
+<li>Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference</li>
+<li>Sideways if the difference  is less than UpDifference and greater than DownDifference</li>
+<li>Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference</li>
+<li>StrongDown if the difference is lower than or equal to StrongDownDifference</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ReferenceValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Reference value for the calculation, e.g. number of sales for the last year</td>
+</tr>
+<tr>
+<td align="left">IsRelativeDifference</td>
+<td align="left">Boolean</td>
+<td align="left">Calculate with a relative difference</td>
+</tr>
+<tr>
+<td align="left">UpDifference</td>
+<td align="left">Decimal</td>
+<td align="left">Threshold for Up</td>
+</tr>
+<tr>
+<td align="left">StrongUpDifference</td>
+<td align="left">Decimal</td>
+<td align="left">Threshold for StrongUp</td>
+</tr>
+<tr>
+<td align="left">DownDifference</td>
+<td align="left">Decimal</td>
+<td align="left">Threshold for Down</td>
+</tr>
+<tr>
+<td align="left">StrongDownDifference</td>
+<td align="left">Decimal</td>
+<td align="left">Threshold for StrongDown</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="KPIType"></a>KPIType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">Optional identifier to reference this instance from an external context</td>
+</tr>
+<tr>
+<td align="left">SelectionVariant</td>
+<td align="left"><a href="#SelectionVariantType">SelectionVariantType</a></td>
+<td align="left">Selection variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">DataPoint</td>
+<td align="left"><a href="#DataPointType">DataPointType</a></td>
+<td align="left">Data point, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">Detail</td>
+<td align="left"><a href="#KPIDetailType">KPIDetailType</a></td>
+<td align="left">Contains information about KPI details, especially drill-down presentations</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="KPIDetailType"></a>KPIDetailType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DefaultPresentationVariant</td>
+<td align="left"><a href="#PresentationVariantType">PresentationVariantType</a></td>
+<td align="left">Presentation variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">AlternativePresentationVariants</td>
+<td align="left">[<a href="#PresentationVariantType">PresentationVariantType</a>]</td>
+<td align="left">A list of alternative presentation variants, either specified inline or referencing another annotation via Path</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartDefinitionType"></a>ChartDefinitionType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Title</td>
+<td align="left">String</td>
+<td align="left">Title of the chart</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left">String</td>
+<td align="left">Short description</td>
+</tr>
+<tr>
+<td align="left">ChartType</td>
+<td align="left"><a href="#ChartType">ChartType</a></td>
+<td align="left">Chart type</td>
+</tr>
+<tr>
+<td align="left">Measures</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Measures of the chart, e.g. size and color in a bubble chart</td>
+</tr>
+<tr>
+<td align="left">MeasureAttributes</td>
+<td align="left">[<a href="#ChartMeasureAttributeType">ChartMeasureAttributeType</a>]</td>
+<td align="left">Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.</td>
+</tr>
+<tr>
+<td align="left">Dimensions</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Dimensions of the chart, e.g. x- and y-axis of a bubble chart</td>
+</tr>
+<tr>
+<td align="left">DimensionAttributes</td>
+<td align="left">[<a href="#ChartDimensionAttributeType">ChartDimensionAttributeType</a>]</td>
+<td align="left">Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</td>
+</tr>
+<tr>
+<td align="left">Actions</td>
+<td align="left">[<a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>]</td>
+<td align="left">Available actions</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartType"></a>ChartType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Column</td>
+<td align="right">0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ColumnStacked</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ColumnDual</td>
+<td align="right">2</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ColumnStackedDual</td>
+<td align="right">3</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ColumnStacked100</td>
+<td align="right">4</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ColumnStackedDual100</td>
+<td align="right">5</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Bar</td>
+<td align="right">6</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BarStacked</td>
+<td align="right">7</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BarDual</td>
+<td align="right">8</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BarStackedDual</td>
+<td align="right">9</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BarStacked100</td>
+<td align="right">10</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">BarStackedDual100</td>
+<td align="right">11</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Area</td>
+<td align="right">12</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">AreaStacked</td>
+<td align="right">13</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">AreaStacked100</td>
+<td align="right">14</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalArea</td>
+<td align="right">15</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalAreaStacked</td>
+<td align="right">16</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalAreaStacked100</td>
+<td align="right">17</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Line</td>
+<td align="right">18</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LineDual</td>
+<td align="right">19</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Combination</td>
+<td align="right">20</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">CombinationStacked</td>
+<td align="right">21</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">CombinationDual</td>
+<td align="right">22</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">CombinationStackedDual</td>
+<td align="right">23</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalCombinationStacked</td>
+<td align="right">24</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Pie</td>
+<td align="right">25</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Donut</td>
+<td align="right">26</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Scatter</td>
+<td align="right">27</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Bubble</td>
+<td align="right">28</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Radar</td>
+<td align="right">29</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HeatMap</td>
+<td align="right">30</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">TreeMap</td>
+<td align="right">31</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Waterfall</td>
+<td align="right">32</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Bullet</td>
+<td align="right">33</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">VerticalBullet</td>
+<td align="right">34</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartDimensionAttributeType"></a>ChartDimensionAttributeType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Dimension</td>
+<td align="left">PropertyPath</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Role</td>
+<td align="left"><a href="#ChartDimensionRoleType">ChartDimensionRoleType</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartMeasureAttributeType"></a>ChartMeasureAttributeType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Measure</td>
+<td align="left">PropertyPath</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Role</td>
+<td align="left"><a href="#ChartMeasureRoleType">ChartMeasureRoleType</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">DataPoint</td>
+<td align="left">AnnotationPath</td>
+<td align="left">Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartDimensionRoleType"></a>ChartDimensionRoleType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Category</td>
+<td align="right">0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Series</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ChartMeasureRoleType"></a>ChartMeasureRoleType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Axis1</td>
+<td align="right">0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Axis2</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Axis3</td>
+<td align="right">2</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="Facet"></a><em>Facet</em>
+</h2>
+
+<p>Abstract base type for facets</p>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#CollectionFacet">CollectionFacet</a></li>
+<li><a href="#ReferenceFacet">ReferenceFacet</a></li>
+<li><a href="#ReferenceURLFacet">ReferenceURLFacet</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Facet label</td>
+</tr>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="CollectionFacet"></a>CollectionFacet: <a href="#Facet">Facet</a>
+</h2>
+
+<p>Collection of facets</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">Facet label</td>
+</tr>
+<tr>
+<td align="left"><em>ID</em></td>
+<td align="left">String</td>
+<td align="left">Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.</td>
+</tr>
+<tr>
+<td align="left">Facets</td>
+<td align="left">[<a href="#Facet">Facet</a>]</td>
+<td align="left">Nested facets. An empty collection may be used as a placeholder for content added via extension points.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ReferenceFacet"></a>ReferenceFacet: <a href="#Facet">Facet</a>
+</h2>
+
+<p>Facet that refers to a thing perspective, e.g. LineItem</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">Facet label</td>
+</tr>
+<tr>
+<td align="left"><em>ID</em></td>
+<td align="left">String</td>
+<td align="left">Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="left">AnnotationPath</td>
+<td align="left">Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ReferenceURLFacet"></a>ReferenceURLFacet: <a href="#Facet">Facet</a>
+</h2>
+
+<p>Facet that refers to a URL</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">Facet label</td>
+</tr>
+<tr>
+<td align="left"><em>ID</em></td>
+<td align="left">String</td>
+<td align="left">Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.</td>
+</tr>
+<tr>
+<td align="left">Url</td>
+<td align="left">URL</td>
+<td align="left">URL of referenced information</td>
+</tr>
+<tr>
+<td align="left">UrlContentType</td>
+<td align="left">MediaType</td>
+<td align="left">Media type of referenced information</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectionPresentationVariantType"></a>SelectionPresentationVariantType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">Optional identifier to reference this variant from an external context</td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">String</td>
+<td align="left">Name of the bundling variant</td>
+</tr>
+<tr>
+<td align="left">SelectionVariant</td>
+<td align="left"><a href="#SelectionVariantType">SelectionVariantType</a></td>
+<td align="left">Selection variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">PresentationVariant</td>
+<td align="left"><a href="#PresentationVariantType">PresentationVariantType</a></td>
+<td align="left">Presentation variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="PresentationVariantType"></a>PresentationVariantType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">Optional identifier to reference this variant from an external context</td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">String</td>
+<td align="left">Name of the presentation variant</td>
+</tr>
+<tr>
+<td align="left">MaxItems</td>
+<td align="left">Int32</td>
+<td align="left">Maximum number of items that should be included in the result</td>
+</tr>
+<tr>
+<td align="left">SortOrder</td>
+<td align="left">[<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#SortOrderType">SortOrderType</a>]</td>
+<td align="left">Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path</td>
+</tr>
+<tr>
+<td align="left">GroupBy</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with InitialExpansionLevel.</td>
+</tr>
+<tr>
+<td align="left">TotalBy</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.</td>
+</tr>
+<tr>
+<td align="left">Total</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</td>
+</tr>
+<tr>
+<td align="left">IncludeGrandTotal</td>
+<td align="left">Boolean</td>
+<td align="left">Result should include a grand total for the properties specified in Total</td>
+</tr>
+<tr>
+<td align="left">InitialExpansionLevel</td>
+<td align="left">Int32</td>
+<td align="left">Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.</td>
+</tr>
+<tr>
+<td align="left">Visualizations</td>
+<td align="left">[AnnotationPath]</td>
+<td align="left">Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.</td>
+</tr>
+<tr>
+<td align="left">RequestAtLeast</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Properties that should always be included in the result of the queried collection</td>
+</tr>
+<tr>
+<td align="left">SelectionFields</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectionVariantType"></a>SelectionVariantType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">May contain identifier to reference this instance from an external context</td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">String</td>
+<td align="left">Name of the selection variant</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ParameterAbstract">ParameterAbstract</a>]</td>
+<td align="left">Parameters of the selection variant</td>
+</tr>
+<tr>
+<td align="left">FilterExpression</td>
+<td align="left">String</td>
+<td align="left">Filter string for query part of URL, without '$filter ='</td>
+</tr>
+<tr>
+<td align="left">SelectOptions</td>
+<td align="left">[<a href="#SelectOptionType">SelectOptionType</a>]</td>
+<td align="left">ABAP Select Options Pattern</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ParameterAbstract"></a><em>ParameterAbstract</em>
+</h2>
+
+<p>Key property of a parameter entity type</p>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#Parameter">Parameter</a></li>
+<li><a href="#IntervalParameter">IntervalParameter</a></li>
+</ul>
+
+<h2>
+<a name="Parameter"></a>Parameter: <a href="#ParameterAbstract">ParameterAbstract</a>
+</h2>
+
+<p>Single-valued parameter</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PropertyName</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to a key property of a parameter entity type</td>
+</tr>
+<tr>
+<td align="left">PropertyValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value for the key property</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="IntervalParameter"></a>IntervalParameter: <a href="#ParameterAbstract">ParameterAbstract</a>
+</h2>
+
+<p>Interval parameter formed with a 'from' and a 'to' property</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PropertyNameFrom</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to the 'from' property of a parameter entity type</td>
+</tr>
+<tr>
+<td align="left">PropertyValueFrom</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value for the 'from' property</td>
+</tr>
+<tr>
+<td align="left">PropertyNameTo</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to the 'to' property of a parameter entity type</td>
+</tr>
+<tr>
+<td align="left">PropertyValueTo</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value for the 'to' property</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectOptionType"></a>SelectOptionType</h2>
+
+<p>List of value ranges for a single property</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PropertyName</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to the property</td>
+</tr>
+<tr>
+<td align="left">Ranges</td>
+<td align="left">[<a href="#SelectionRangeType">SelectionRangeType</a>]</td>
+<td align="left">List of value ranges</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectionRangeType"></a>SelectionRangeType</h2>
+
+<p>Value range. If the range option only requires a single value, the value must be in the property Low</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Sign</td>
+<td align="left"><a href="#SelectionRangeSignType">SelectionRangeSignType</a></td>
+<td align="left">Include or exclude values</td>
+</tr>
+<tr>
+<td align="left">Option</td>
+<td align="left"><a href="#SelectionRangeOptionType">SelectionRangeOptionType</a></td>
+<td align="left">Comparison operator</td>
+</tr>
+<tr>
+<td align="left">Low</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Single value or lower interval boundary</td>
+</tr>
+<tr>
+<td align="left">High</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Upper interval boundary</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectionRangeSignType"></a>SelectionRangeSignType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">I</td>
+<td align="right">0</td>
+<td align="left">Inclusive</td>
+</tr>
+<tr>
+<td align="left">E</td>
+<td align="right">1</td>
+<td align="left">Exclusive</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SelectionRangeOptionType"></a>SelectionRangeOptionType</h2>
+
+<p>Comparison operator</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EQ</td>
+<td align="right">0</td>
+<td align="left">Equal to</td>
+</tr>
+<tr>
+<td align="left">BT</td>
+<td align="right">1</td>
+<td align="left">Between</td>
+</tr>
+<tr>
+<td align="left">CP</td>
+<td align="right">2</td>
+<td align="left">Contains pattern</td>
+</tr>
+<tr>
+<td align="left">LE</td>
+<td align="right">3</td>
+<td align="left">Less than or equal to</td>
+</tr>
+<tr>
+<td align="left">GE</td>
+<td align="right">4</td>
+<td align="left">Greater than or equal to</td>
+</tr>
+<tr>
+<td align="left">NE</td>
+<td align="right">5</td>
+<td align="left">Not equal to</td>
+</tr>
+<tr>
+<td align="left">NB</td>
+<td align="right">6</td>
+<td align="left">Not between</td>
+</tr>
+<tr>
+<td align="left">NP</td>
+<td align="right">7</td>
+<td align="left">Does not contain pattern</td>
+</tr>
+<tr>
+<td align="left">GT</td>
+<td align="right">8</td>
+<td align="left">Greater than</td>
+</tr>
+<tr>
+<td align="left">LT</td>
+<td align="right">9</td>
+<td align="left">Less than</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="TextArrangementType"></a>TextArrangementType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TextFirst</td>
+<td align="right">0</td>
+<td align="left">Text is first, followed by the code/ID (e.g. in parentheses)</td>
+</tr>
+<tr>
+<td align="left">TextLast</td>
+<td align="right">1</td>
+<td align="left">Code/ID is first, followed by the text (e.g. separated by a dash)</td>
+</tr>
+<tr>
+<td align="left">TextSeparate</td>
+<td align="right">2</td>
+<td align="left">Code/ID and text are represented separately</td>
+</tr>
+<tr>
+<td align="left">TextOnly</td>
+<td align="right">3</td>
+<td align="left">Only text is represented, code/ID is hidden (e.g. for UUIDs)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ImportanceType"></a>ImportanceType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">High</td>
+<td align="right">0</td>
+<td align="left">High importance</td>
+</tr>
+<tr>
+<td align="left">Medium</td>
+<td align="right">1</td>
+<td align="left">Medium importance</td>
+</tr>
+<tr>
+<td align="left">Low</td>
+<td align="right">2</td>
+<td align="left">Low importance</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldAbstract"></a><em>DataFieldAbstract</em>
+</h2>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#DataFieldForAnnotation">DataFieldForAnnotation</a></li>
+<li>
+<em><a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a></em>
+
+<ul>
+<li><a href="#DataFieldForAction">DataFieldForAction</a></li>
+<li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
+</ul>
+</li>
+<li>
+<a href="#DataField">DataField</a>
+
+<ul>
+<li><a href="#DataFieldWithAction">DataFieldWithAction</a></li>
+<li><a href="#DataFieldWithIntentBasedNavigation">DataFieldWithIntentBasedNavigation</a></li>
+<li><a href="#DataFieldWithNavigationPath">DataFieldWithNavigationPath</a></li>
+<li><a href="#DataFieldWithUrl">DataFieldWithUrl</a></li>
+</ul>
+</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left">Criticality</td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left">CriticalityRepresentation</td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left">IconUrl</td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="CriticalityRepresentationType"></a>CriticalityRepresentationType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">WithIcon</td>
+<td align="right">0</td>
+<td align="left">Criticality is represented with an icon</td>
+</tr>
+<tr>
+<td align="left">WithoutIcon</td>
+<td align="right">1</td>
+<td align="left">Criticality is represented without icon, e.g. only via text color</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldForAnnotation"></a>DataFieldForAnnotation: <a href="#DataFieldAbstract">DataFieldAbstract</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="left">AnnotationPath</td>
+<td align="left">Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldForActionAbstract"></a><em>DataFieldForActionAbstract</em>: <a href="#DataFieldAbstract">DataFieldAbstract</a>
+</h2>
+
+<p>Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation</p>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#DataFieldForAction">DataFieldForAction</a></li>
+<li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left">Inline</td>
+<td align="left">Boolean</td>
+<td align="left">Action should be placed close to (or even inside) the visualized term</td>
+</tr>
+<tr>
+<td align="left">Determining</td>
+<td align="left">Boolean</td>
+<td align="left">Determines whether the action completes a process step (e.g. approve, reject).</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldForAction"></a>DataFieldForAction: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
+</h2>
+
+<p>The action is NOT tied to a data value (in contrast to DataFieldWithAction)</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Inline</em></td>
+<td align="left">Boolean</td>
+<td align="left">Action should be placed close to (or even inside) the visualized term</td>
+</tr>
+<tr>
+<td align="left"><em>Determining</em></td>
+<td align="left">Boolean</td>
+<td align="left">Determines whether the action completes a process step (e.g. approve, reject).</td>
+</tr>
+<tr>
+<td align="left">Action</td>
+<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#QualifiedName">QualifiedName</a></td>
+<td align="left">Qualified name of an Action, Function, ActionImport or FunctionImport in scope</td>
+</tr>
+<tr>
+<td align="left">InvocationGrouping</td>
+<td align="left"><a href="#OperationGroupingType">OperationGroupingType</a></td>
+<td align="left">Expresses how invocations of this action on multiple instances should be grouped</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="OperationGroupingType"></a>OperationGroupingType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Isolated</td>
+<td align="right">0</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ChangeSet</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
+</h2>
+
+<p>The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Inline</em></td>
+<td align="left">Boolean</td>
+<td align="left">Action should be placed close to (or even inside) the visualized term</td>
+</tr>
+<tr>
+<td align="left"><em>Determining</em></td>
+<td align="left">Boolean</td>
+<td align="left">Determines whether the action completes a process step (e.g. approve, reject).</td>
+</tr>
+<tr>
+<td align="left">SemanticObject</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object</td>
+</tr>
+<tr>
+<td align="left">Action</td>
+<td align="left">String</td>
+<td align="left">Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.</td>
+</tr>
+<tr>
+<td align="left">RequiresContext</td>
+<td align="left">Boolean</td>
+<td align="left">Determines whether a context needs to be passed to the target of this navigation.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataField"></a>DataField: <a href="#DataFieldAbstract">DataFieldAbstract</a>
+</h2>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#DataFieldWithAction">DataFieldWithAction</a></li>
+<li><a href="#DataFieldWithIntentBasedNavigation">DataFieldWithIntentBasedNavigation</a></li>
+<li><a href="#DataFieldWithNavigationPath">DataFieldWithNavigationPath</a></li>
+<li><a href="#DataFieldWithUrl">DataFieldWithUrl</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left">Value</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value of the data field value</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldWithAction"></a>DataFieldWithAction: <a href="#DataField">DataField</a>
+</h2>
+
+<p>The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Value</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value of the data field value</td>
+</tr>
+<tr>
+<td align="left">Action</td>
+<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#QualifiedName">QualifiedName</a></td>
+<td align="left">Qualified name of an Action, Function, ActionImport or FunctionImport in scope</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldWithIntentBasedNavigation"></a>DataFieldWithIntentBasedNavigation: <a href="#DataField">DataField</a>
+</h2>
+
+<p>The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Value</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value of the data field value</td>
+</tr>
+<tr>
+<td align="left">SemanticObject</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object</td>
+</tr>
+<tr>
+<td align="left">Action</td>
+<td align="left">String</td>
+<td align="left">Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldWithNavigationPath"></a>DataFieldWithNavigationPath: <a href="#DataField">DataField</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Value</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value of the data field value</td>
+</tr>
+<tr>
+<td align="left">Target</td>
+<td align="left">NavigationPropertyPath</td>
+<td align="left">Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DataFieldWithUrl"></a>DataFieldWithUrl: <a href="#DataField">DataField</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon to decorate the value</td>
+</tr>
+<tr>
+<td align="left"><em>Value</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Value of the data field value</td>
+</tr>
+<tr>
+<td align="left">Url</td>
+<td align="left">URL</td>
+<td align="left">Target of the hyperlink</td>
+</tr>
+<tr>
+<td align="left">UrlContentType</td>
+<td align="left">MediaType</td>
+<td align="left">Media type of the hyperlink target, e.g. <code>videp/mp4</code>
+</td>
+</tr>
+</tbody>
+</table>

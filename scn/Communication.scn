@@ -1,0 +1,709 @@
+<h1>
+Communication Vocabulary</h1>
+
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">com.sap.vocabularies.Communication.v1</a></strong></p>
+
+<p>Terms for annotating communication-relevant information</p>
+
+<p>These terms are inspired by</p>
+
+<ul>
+<li>RFC6350 vCard (<a href="http://tools.ietf.org/html/rfc6350">http://tools.ietf.org/html/rfc6350</a>)</li>
+<li>RFC5545 iCalendar (<a href="http://tools.ietf.org/html/rfc5545">http://tools.ietf.org/html/rfc5545</a>)</li>
+<li>RFC5322 Internet Message Format (<a href="http://tools.ietf.org/html/rfc5322">http://tools.ietf.org/html/rfc5322</a>)</li>
+<li>RFC6351 xCard: vCard XML Representation (<a href="https://tools.ietf.org/html/rfc6351">https://tools.ietf.org/html/rfc6351</a>)</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Contact</td>
+<td align="left"><a href="#ContactType">ContactType</a></td>
+<td align="left">
+<a name="Contact"></a>Address book entry</td>
+</tr>
+<tr>
+<td align="left">Address</td>
+<td align="left"><a href="#AddressType">AddressType</a></td>
+<td align="left">
+<a name="Address"></a>Address</td>
+</tr>
+<tr>
+<td align="left">IsEmailAddress</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsEmailAddress"></a>Property contains an email address</td>
+</tr>
+<tr>
+<td align="left">IsPhoneNumber</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsPhoneNumber"></a>Property contains a phone number</td>
+</tr>
+<tr>
+<td align="left">Event</td>
+<td align="left"><a href="#EventData">EventData</a></td>
+<td align="left">
+<a name="Event"></a>Calendar entry</td>
+</tr>
+<tr>
+<td align="left">Task</td>
+<td align="left"><a href="#TaskData">TaskData</a></td>
+<td align="left">
+<a name="Task"></a>Task list entry</td>
+</tr>
+<tr>
+<td align="left">Message</td>
+<td align="left"><a href="#MessageData">MessageData</a></td>
+<td align="left">
+<a name="Message"></a>Email message</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ContactType"></a>ContactType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">fn</td>
+<td align="left">String</td>
+<td align="left">Full name</td>
+</tr>
+<tr>
+<td align="left">n</td>
+<td align="left"><a href="#NameType">NameType</a></td>
+<td align="left">Name</td>
+</tr>
+<tr>
+<td align="left">nickname</td>
+<td align="left">String</td>
+<td align="left">Nickname</td>
+</tr>
+<tr>
+<td align="left">photo</td>
+<td align="left">URL</td>
+<td align="left">Image or photograph</td>
+</tr>
+<tr>
+<td align="left">bday</td>
+<td align="left">Date</td>
+<td align="left">Birthday</td>
+</tr>
+<tr>
+<td align="left">anniversary</td>
+<td align="left">Date</td>
+<td align="left">Date of marriage, or equivalent</td>
+</tr>
+<tr>
+<td align="left">gender</td>
+<td align="left"><a href="#GenderType">GenderType</a></td>
+<td align="left">Sex and gender identity</td>
+</tr>
+<tr>
+<td align="left">title</td>
+<td align="left">String</td>
+<td align="left">Position or job title</td>
+</tr>
+<tr>
+<td align="left">role</td>
+<td align="left">String</td>
+<td align="left">Function or part played in a particular situation</td>
+</tr>
+<tr>
+<td align="left">org</td>
+<td align="left">String</td>
+<td align="left">Organization Name defined by X.520</td>
+</tr>
+<tr>
+<td align="left">orgunit</td>
+<td align="left">String</td>
+<td align="left">Organization Unit defined by X.520</td>
+</tr>
+<tr>
+<td align="left">kind</td>
+<td align="left"><a href="#KindType">KindType</a></td>
+<td align="left">Kind of contact</td>
+</tr>
+<tr>
+<td align="left">note</td>
+<td align="left">String</td>
+<td align="left">Supplemental information or a comment associated with the contact</td>
+</tr>
+<tr>
+<td align="left">adr</td>
+<td align="left">[<a href="#AddressType">AddressType</a>]</td>
+<td align="left">Addresses</td>
+</tr>
+<tr>
+<td align="left">tel</td>
+<td align="left">[<a href="#PhoneNumberType">PhoneNumberType</a>]</td>
+<td align="left">Phone numbers</td>
+</tr>
+<tr>
+<td align="left">email</td>
+<td align="left">[<a href="#EmailAddressType">EmailAddressType</a>]</td>
+<td align="left">Email addresses</td>
+</tr>
+<tr>
+<td align="left">geo</td>
+<td align="left">[<a href="#GeoDataType">GeoDataType</a>]</td>
+<td align="left">Geographic locations</td>
+</tr>
+<tr>
+<td align="left">url</td>
+<td align="left">[<a href="#UrlType">UrlType</a>]</td>
+<td align="left">URLs</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="NameType"></a>NameType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">surname</td>
+<td align="left">String</td>
+<td align="left">Surname or family name</td>
+</tr>
+<tr>
+<td align="left">given</td>
+<td align="left">String</td>
+<td align="left">Given name</td>
+</tr>
+<tr>
+<td align="left">additional</td>
+<td align="left">String</td>
+<td align="left">Additional names</td>
+</tr>
+<tr>
+<td align="left">prefix</td>
+<td align="left">String</td>
+<td align="left">Honorific prefix(es)</td>
+</tr>
+<tr>
+<td align="left">suffix</td>
+<td align="left">String</td>
+<td align="left">Honorific suffix(es)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="AddressType"></a>AddressType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">street</td>
+<td align="left">String</td>
+<td align="left">Street address</td>
+</tr>
+<tr>
+<td align="left">locality</td>
+<td align="left">String</td>
+<td align="left">City or similar</td>
+</tr>
+<tr>
+<td align="left">region</td>
+<td align="left">String</td>
+<td align="left">State, province, or similar</td>
+</tr>
+<tr>
+<td align="left">code</td>
+<td align="left">String</td>
+<td align="left">Postal code</td>
+</tr>
+<tr>
+<td align="left">country</td>
+<td align="left">String</td>
+<td align="left">Country name</td>
+</tr>
+<tr>
+<td align="left">pobox</td>
+<td align="left">String</td>
+<td align="left">Post office box</td>
+</tr>
+<tr>
+<td align="left">ext</td>
+<td align="left">String</td>
+<td align="left">Extended address (e.g., apartment or suite number)</td>
+</tr>
+<tr>
+<td align="left">label</td>
+<td align="left">String</td>
+<td align="left">Delivery address label; plain-text string representing the formatted address, may contain line breaks</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left"><a href="#ContactInformationType">ContactInformationType</a></td>
+<td align="left">Address type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="PhoneNumberType"></a>PhoneNumberType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">uri</td>
+<td align="left">URL</td>
+<td align="left">This SHOULD use the tel: URL schema defined in RFC3966</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left"><a href="#PhoneType">PhoneType</a></td>
+<td align="left">Telephone type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="EmailAddressType"></a>EmailAddressType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">address</td>
+<td align="left">String</td>
+<td align="left">Email address</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left"><a href="#ContactInformationType">ContactInformationType</a></td>
+<td align="left">Address type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="GeoDataType"></a>GeoDataType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">uri</td>
+<td align="left">URL</td>
+<td align="left">This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left"><a href="#ContactInformationType">ContactInformationType</a></td>
+<td align="left">Address type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="UrlType"></a>UrlType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">uri</td>
+<td align="left">URL</td>
+<td align="left">This MUST use the URL schema defined in RFC3986</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left"><a href="#ContactInformationType">ContactInformationType</a></td>
+<td align="left">URL type</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="KindType"></a>KindType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">individual</td>
+<td align="right">0</td>
+<td align="left">A single person or entity</td>
+</tr>
+<tr>
+<td align="left">group</td>
+<td align="right">1</td>
+<td align="left">A group of persons or entities</td>
+</tr>
+<tr>
+<td align="left">org</td>
+<td align="right">2</td>
+<td align="left">An organization</td>
+</tr>
+<tr>
+<td align="left">location</td>
+<td align="right">3</td>
+<td align="left">A named geographical place</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ContactInformationType"></a>ContactInformationType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Flag Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">work</td>
+<td align="right">1</td>
+<td align="left">Related to an individual's work place</td>
+</tr>
+<tr>
+<td align="left">home</td>
+<td align="right">2</td>
+<td align="left">Related to an indivdual's personal life</td>
+</tr>
+<tr>
+<td align="left">preferred</td>
+<td align="right">4</td>
+<td align="left">Preferred-use contact information</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="PhoneType"></a>PhoneType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Flag Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">work</td>
+<td align="right">1</td>
+<td align="left">Work telephone number</td>
+</tr>
+<tr>
+<td align="left">home</td>
+<td align="right">2</td>
+<td align="left">Private telephone number</td>
+</tr>
+<tr>
+<td align="left">preferred</td>
+<td align="right">4</td>
+<td align="left">Preferred-use telephone number</td>
+</tr>
+<tr>
+<td align="left">voice</td>
+<td align="right">8</td>
+<td align="left">Voice telephone number</td>
+</tr>
+<tr>
+<td align="left">cell</td>
+<td align="right">16</td>
+<td align="left">Cellular or mobile telephone number</td>
+</tr>
+<tr>
+<td align="left">fax</td>
+<td align="right">32</td>
+<td align="left">Facsimile telephone number</td>
+</tr>
+<tr>
+<td align="left">video</td>
+<td align="right">64</td>
+<td align="left">Video conferencing telephone number</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="GenderType"></a>GenderType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">M</td>
+<td align="right">0</td>
+<td align="left">male</td>
+</tr>
+<tr>
+<td align="left">F</td>
+<td align="right">1</td>
+<td align="left">female</td>
+</tr>
+<tr>
+<td align="left">O</td>
+<td align="right">2</td>
+<td align="left">other</td>
+</tr>
+<tr>
+<td align="left">N</td>
+<td align="right">3</td>
+<td align="left">not applicable</td>
+</tr>
+<tr>
+<td align="left">U</td>
+<td align="right">4</td>
+<td align="left">unknown</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="EventData"></a>EventData</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">summary</td>
+<td align="left">String</td>
+<td align="left">Short description of the event</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">String</td>
+<td align="left">More complete description</td>
+</tr>
+<tr>
+<td align="left">categories</td>
+<td align="left">[String]</td>
+<td align="left">Categories or subtypes of the event</td>
+</tr>
+<tr>
+<td align="left">dtstart</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Start date and time of the event</td>
+</tr>
+<tr>
+<td align="left">dtend</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Date and time by which the event ends, alternative to duration</td>
+</tr>
+<tr>
+<td align="left">duration</td>
+<td align="left">Duration</td>
+<td align="left">Duration of the event, alternative to dtend</td>
+</tr>
+<tr>
+<td align="left">class</td>
+<td align="left">String</td>
+<td align="left">Access classification, e.g. PUBLIC, PRIVATE, CONFIDENTIAL</td>
+</tr>
+<tr>
+<td align="left">status</td>
+<td align="left">String</td>
+<td align="left">Confirmation status, e.g. CONFIRMED, TENTATIVE, CANCELLED</td>
+</tr>
+<tr>
+<td align="left">location</td>
+<td align="left">String</td>
+<td align="left">Intended venue of the event</td>
+</tr>
+<tr>
+<td align="left">transp</td>
+<td align="left">Boolean</td>
+<td align="left">Time transparency for busy time searches, true = free, false = blocked</td>
+</tr>
+<tr>
+<td align="left">wholeday</td>
+<td align="left">Boolean</td>
+<td align="left">Wholeday event</td>
+</tr>
+<tr>
+<td align="left">fbtype</td>
+<td align="left">String</td>
+<td align="left">Free or busy time type, e.g. FREE, BUSY, BUSY-TENTATIVE</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="TaskData"></a>TaskData</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">summary</td>
+<td align="left">String</td>
+<td align="left">Short description of the task</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">String</td>
+<td align="left">More complete description of the task</td>
+</tr>
+<tr>
+<td align="left">due</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Date and time that a to-do is expected to be completed</td>
+</tr>
+<tr>
+<td align="left">completed</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Date and time that a to-do was actually completed</td>
+</tr>
+<tr>
+<td align="left">percentcomplete</td>
+<td align="left">Byte</td>
+<td align="left">Percent completion of a to-do, e.g. 50 for half done</td>
+</tr>
+<tr>
+<td align="left">priority</td>
+<td align="left">Byte</td>
+<td align="left">Relative priority, 0 = undefined, 1 = highest, 9 = lowest</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="MessageData"></a>MessageData</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">from</td>
+<td align="left">String</td>
+<td align="left">Author(s) of the message</td>
+</tr>
+<tr>
+<td align="left">sender</td>
+<td align="left">String</td>
+<td align="left">Agent responsible for the actual transmission of the message, e.g. a secretary</td>
+</tr>
+<tr>
+<td align="left">to</td>
+<td align="left">[String]</td>
+<td align="left">List of primary recipients</td>
+</tr>
+<tr>
+<td align="left">cc</td>
+<td align="left">[String]</td>
+<td align="left">List of other recipients (carbon copy)</td>
+</tr>
+<tr>
+<td align="left">bcc</td>
+<td align="left">[String]</td>
+<td align="left">List of recipients whose addresses are not to be revealed (blind carbon copy)</td>
+</tr>
+<tr>
+<td align="left">subject</td>
+<td align="left">String</td>
+<td align="left">Topic of the message</td>
+</tr>
+<tr>
+<td align="left">body</td>
+<td align="left">String</td>
+<td align="left">Main part of the message</td>
+</tr>
+<tr>
+<td align="left">keywords</td>
+<td align="left">[String]</td>
+<td align="left">List of important words and phrases that might be useful for the recipient</td>
+</tr>
+<tr>
+<td align="left">received</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">Date and time the message was received</td>
+</tr>
+</tbody>
+</table>

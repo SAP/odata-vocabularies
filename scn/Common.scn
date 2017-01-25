@@ -1,0 +1,1031 @@
+<h1>
+Common Vocabulary</h1>
+
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">com.sap.vocabularies.Common.v1</a></strong></p>
+
+<p>Common terms for all SAP vocabularies</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ServiceVersion</td>
+<td align="left">Int32</td>
+<td align="left">
+<a name="ServiceVersion"></a>1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI</td>
+</tr>
+<tr>
+<td align="left">ServiceSchemaVersion</td>
+<td align="left">Int32</td>
+<td align="left">
+<a name="ServiceSchemaVersion"></a>0 for first schema version within a service version, incremented when schema changes compatibly</td>
+</tr>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Label"></a>A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left">Heading</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Heading"></a>A short, human-readable text suitable for column headings in UIs</td>
+</tr>
+<tr>
+<td align="left">QuickInfo</td>
+<td align="left">String</td>
+<td align="left">
+<a name="QuickInfo"></a>A short, human-readable text suitable for tool tips in UIs</td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Text"></a>A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.</td>
+</tr>
+<tr>
+<td align="left">TextFormat</td>
+<td align="left"><a href="#TextFormatType">TextFormatType</a></td>
+<td align="left">
+<a name="TextFormat"></a>Human-readable text that may contain formatting information</td>
+</tr>
+<tr>
+<td align="left">IsDigitSequence</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsDigitSequence"></a>Contains only digits</td>
+</tr>
+<tr>
+<td align="left">IsUpperCase</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsUpperCase"></a>Contains just uppercase characters</td>
+</tr>
+<tr>
+<td align="left">SecondaryKey</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="SecondaryKey"></a>The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers.</td>
+</tr>
+<tr>
+<td align="left">MinOccurs</td>
+<td align="left">Int64</td>
+<td align="left">
+<a name="MinOccurs"></a>The annotated set or collection contains at least this number of items</td>
+</tr>
+<tr>
+<td align="left">MaxOccurs</td>
+<td align="left">Int64</td>
+<td align="left">
+<a name="MaxOccurs"></a>The annotated set or collection contains at most this number of items</td>
+</tr>
+<tr>
+<td align="left">AssociationEntity</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">
+<a name="AssociationEntity"></a>Entity representing an n:m association with attributes</td>
+</tr>
+<tr>
+<td align="left">DerivedNavigation</td>
+<td align="left">NavigationPropertyPath</td>
+<td align="left">
+<a name="DerivedNavigation"></a>Shortcut for a multi-segment navigation, contains the long path with all its segments</td>
+</tr>
+<tr>
+<td align="left">Masked</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="Masked"></a>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</td>
+</tr>
+<tr>
+<td align="left">SemanticObject</td>
+<td align="left">String</td>
+<td align="left">
+<a name="SemanticObject"></a>Name of the Semantic Object represented as this entity type or identified by this property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectMapping</td>
+<td align="left">[<a href="#SemanticObjectMappingType">SemanticObjectMappingType</a>]</td>
+<td align="left">
+<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object</td>
+</tr>
+<tr>
+<td align="left">IsInstanceAnnotation</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied</td>
+</tr>
+<tr>
+<td align="left">Insertable</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</td>
+</tr>
+<tr>
+<td align="left">Updatable</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="Updatable"></a>Specifies whether the annotated entity can be updated</td>
+</tr>
+<tr>
+<td align="left">Deletable</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="Deletable"></a>Specifies whether the annotated entity can be deleted</td>
+</tr>
+<tr>
+<td align="left">FilterExpressionRestrictions</td>
+<td align="left">[<a href="#FilterExpressionRestrictionType">FilterExpressionRestrictionType</a>]</td>
+<td align="left">
+<a name="FilterExpressionRestrictions"></a>These properties only allow a subset of expressions</td>
+</tr>
+<tr>
+<td align="left">FieldControl</td>
+<td align="left"><a href="#FieldControlType">FieldControlType</a></td>
+<td align="left">
+<a name="FieldControl"></a>Control state of a property</td>
+</tr>
+<tr>
+<td align="left">IsActionCritical</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="IsActionCritical"></a>Criticality of the function or action to enforce a warning or similar before it's executed</td>
+</tr>
+<tr>
+<td align="left">Attributes</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="Attributes"></a>Attributes related to this property, which may occur in denormalized entity types</td>
+</tr>
+<tr>
+<td align="left">RelatedRecursiveHierarchy</td>
+<td align="left">AnnotationPath</td>
+<td align="left">
+<a name="RelatedRecursiveHierarchy"></a>A recursive hierarchy related to this property. The annotation path must end in Aggregation.RecursiveHierarchy.</td>
+</tr>
+<tr>
+<td align="left">Interval</td>
+<td align="left"><a href="#IntervalType">IntervalType</a></td>
+<td align="left">
+<a name="Interval"></a>An interval with lower and upper boundaries described by two properties</td>
+</tr>
+<tr>
+<td align="left">ResultContext</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.</td>
+</tr>
+<tr>
+<td align="left">ValueList</td>
+<td align="left"><a href="#ValueListType">ValueListType</a></td>
+<td align="left">
+<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter</td>
+</tr>
+<tr>
+<td align="left">ValueListWithFixedValues</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values</td>
+</tr>
+<tr>
+<td align="left">ValueListReferences</td>
+<td align="left">[URL]</td>
+<td align="left">
+<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property</td>
+</tr>
+<tr>
+<td align="left">ValueListMapping</td>
+<td align="left"><a href="#ValueListMappingType">ValueListMappingType</a></td>
+<td align="left">
+<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})</td>
+</tr>
+<tr>
+<td align="left">IsCalendarHalfyear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarHalfyear"></a>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit. The string matches the regex pattern [1-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarQuarter</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarQuarter"></a>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarMonth"></a>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. The string matches the regex pattern 0[1-9]|1[0-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarWeek</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarWeek"></a>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[2-3]</td>
+</tr>
+<tr>
+<td align="left">IsDayOfCalendarMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsDayOfCalendarMonth"></a>Day number relative to a calendar month. Valid values are between 1 and 31.</td>
+</tr>
+<tr>
+<td align="left">IsDayOfCalendarYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsDayOfCalendarYear"></a>Day number relative to a calendar year. Valid values are between 1 and 366.</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearHalfyear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearHalfyear"></a>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearQuarter</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearQuarter"></a>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearMonth"></a>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearWeek</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearWeek"></a>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[2-3])</td>
+</tr>
+<tr>
+<td align="left">IsCalendarDate</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsCalendarDate"></a>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYear"></a>Property encodes a fiscal year number as string following the logical pattern YYYY(Y*) consisting of at least four digits. The string matches the regex pattern [1-9][0-9]{3,}</td>
+</tr>
+<tr>
+<td align="left">IsFiscalPeriod</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsFiscalPeriod"></a>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. The string matches the regex pattern [0-9]{3}</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearPeriod</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting of at least seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3,})([0-9]{3})</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearVariant</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant</td>
+</tr>
+<tr>
+<td align="left">MutuallyExclusiveTerm</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied</td>
+</tr>
+<tr>
+<td align="left">DraftRoot</td>
+<td align="left"><a href="#DraftRootType">DraftRootType</a></td>
+<td align="left">
+<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern</td>
+</tr>
+<tr>
+<td align="left">DraftNode</td>
+<td align="left"><a href="#DraftNodeType">DraftNodeType</a></td>
+<td align="left">
+<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern</td>
+</tr>
+<tr>
+<td align="left">DraftActivationVia</td>
+<td align="left">[<a href="#SimpleIdentifier">SimpleIdentifier</a>]</td>
+<td align="left">
+<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets</td>
+</tr>
+<tr>
+<td align="left">SemanticKey</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity</td>
+</tr>
+<tr>
+<td align="left">SideEffects</td>
+<td align="left"><a href="#SideEffectsType">SideEffectsType</a></td>
+<td align="left">
+<a name="SideEffects"></a>Changes to the source properties may have side-effects on the target properties or entities. If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects. An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected. Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</td>
+</tr>
+<tr>
+<td align="left">DerivedDefaultValue</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.</td>
+</tr>
+<tr>
+<td align="left">FilterDefaultValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">
+<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.</td>
+</tr>
+<tr>
+<td align="left">DerivedFilterDefaultValue</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</td>
+</tr>
+<tr>
+<td align="left">SortOrder</td>
+<td align="left">[<a href="#SortOrderType">SortOrderType</a>]</td>
+<td align="left">
+<a name="SortOrder"></a>List of sort criteria. The Items of the annotated EntitySet or the Items of the collection of the annotated EntityType are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder Collection, and so on.</td>
+</tr>
+<tr>
+<td align="left">RecursiveHierarchy</td>
+<td align="left"><a href="#RecursiveHierarchyType">RecursiveHierarchyType</a></td>
+<td align="left">
+<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.</td>
+</tr>
+<tr>
+<td align="left">CreatedAt</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">
+<a name="CreatedAt"></a>Creation timestamp</td>
+</tr>
+<tr>
+<td align="left">CreatedBy</td>
+<td align="left"><a href="#UserID">UserID</a></td>
+<td align="left">
+<a name="CreatedBy"></a>First editor</td>
+</tr>
+<tr>
+<td align="left">ChangedAt</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">
+<a name="ChangedAt"></a>Last modification timestamp</td>
+</tr>
+<tr>
+<td align="left">ChangedBy</td>
+<td align="left"><a href="#UserID">UserID</a></td>
+<td align="left">
+<a name="ChangedBy"></a>Last editor</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="TextFormatType"></a>TextFormatType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">plain</td>
+<td align="right">0</td>
+<td align="left">Plain text, line breaks represented as the character 0x0A</td>
+</tr>
+<tr>
+<td align="left">html</td>
+<td align="right">1</td>
+<td align="left">Plain text with markup that can validly appear directly within an HTML DIV element</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SemanticObjectMappingType"></a>SemanticObjectMappingType</h2>
+
+<p>Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LocalProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to a local property that provides the value for the Semantic Object property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectProperty</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object property</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">PropertyPath</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">AllowedExpressions</td>
+<td align="left"><a href="#FilterExpressionType">FilterExpressionType</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="FilterExpressionType"></a>FilterExpressionType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SingleValue</td>
+<td align="right">0</td>
+<td align="left">a single 'eq' clause</td>
+</tr>
+<tr>
+<td align="left">MultiValue</td>
+<td align="right">1</td>
+<td align="left">one or more 'eq' clauses, separated by 'or'</td>
+</tr>
+<tr>
+<td align="left">SingleInterval</td>
+<td align="right">2</td>
+<td align="left">at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="FieldControlType"></a>FieldControlType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Mandatory</td>
+<td align="right">7</td>
+<td align="left">Property must have a non-null value</td>
+</tr>
+<tr>
+<td align="left">Optional</td>
+<td align="right">3</td>
+<td align="left">Property may have a value or be null</td>
+</tr>
+<tr>
+<td align="left">ReadOnly</td>
+<td align="right">1</td>
+<td align="left">Property value cannot be changed</td>
+</tr>
+<tr>
+<td align="left">Inapplicable</td>
+<td align="right">0</td>
+<td align="left">Property has no meaning in the current entity state</td>
+</tr>
+<tr>
+<td align="left">Hidden</td>
+<td align="right">0</td>
+<td align="left">Deprecated synonymn for Inapplicable, do not use</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="IntervalType"></a>IntervalType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LowerBoundary</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the lower interval boundary</td>
+</tr>
+<tr>
+<td align="left">LowerBoundaryIncluded</td>
+<td align="left">Boolean</td>
+<td align="left">The lower boundary value is included in the interval</td>
+</tr>
+<tr>
+<td align="left">UpperBoundary</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the upper interval boundary</td>
+</tr>
+<tr>
+<td align="left">UpperBoundaryIncluded</td>
+<td align="left">Boolean</td>
+<td align="left">The upper boundary value is included in the interval</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListType"></a>ValueListType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Headline for value list, fallback is the label of the property or parameter</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with possible values, relative to CollectionRoot</td>
+</tr>
+<tr>
+<td align="left">CollectionRoot</td>
+<td align="left">String</td>
+<td align="left">Service root of the value list collection; not specified means local to the document containing the annotation</td>
+</tr>
+<tr>
+<td align="left">SearchSupported</td>
+<td align="left">Boolean</td>
+<td align="left">Value list supports the $search query option</td>
+</tr>
+<tr>
+<td align="left">PresentationVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ValueListParameter">ValueListParameter</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListMappingType"></a>ValueListMappingType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Headline for value list, fallback is the label of the property or parameter</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with possible values, relative to the document containing the value list mapping</td>
+</tr>
+<tr>
+<td align="left">PresentationVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ValueListParameter">ValueListParameter</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameter"></a><em>ValueListParameter</em>
+</h2>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#ValueListParameterIn">ValueListParameterIn</a></li>
+<li><a href="#ValueListParameterInOut">ValueListParameterInOut</a></li>
+<li><a href="#ValueListParameterOut">ValueListParameterOut</a></li>
+<li><a href="#ValueListParameterDisplayOnly">ValueListParameterDisplayOnly</a></li>
+<li><a href="#ValueListParameterFilterOnly">ValueListParameterFilterOnly</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ValueListProperty</td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameterIn"></a>ValueListParameterIn: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is used to filter/search the value list</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameterInOut"></a>ValueListParameterInOut: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is used to filter/search the value list or filled from response</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameterOut"></a>ValueListParameterOut: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is filled from response</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameterDisplayOnly"></a>ValueListParameterDisplayOnly: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+
+<p>Value list property that is not used to fill the edited entity</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListParameterFilterOnly"></a>ValueListParameterFilterOnly: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+
+<p>Value list property that is used to filter the value list, not connected to the edited entity</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DraftRootType"></a>DraftRootType: <a href="#DraftNodeType">DraftNodeType</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>PreparationAction</em></td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that prepares a draft document for later activation</td>
+</tr>
+<tr>
+<td align="left"><em>ValidationFunction</em></td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Function that validates whether a draft document is ready for activation</td>
+</tr>
+<tr>
+<td align="left">ActivationAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that activates a draft document</td>
+</tr>
+<tr>
+<td align="left">EditAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that creates an edit draft</td>
+</tr>
+<tr>
+<td align="left">NewAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="DraftNodeType"></a>DraftNodeType</h2>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#DraftRootType">DraftRootType</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PreparationAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that prepares a draft document for later activation</td>
+</tr>
+<tr>
+<td align="left">ValidationFunction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Function that validates whether a draft document is ready for activation</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SimpleIdentifier"></a>SimpleIdentifier</h2>
+
+<p><strong>Type:</strong> String</p>
+
+<p>The SimpleIdentifier of an OData construct in scope</p>
+
+<h2>
+<a name="QualifiedName"></a>QualifiedName</h2>
+
+<p><strong>Type:</strong> String</p>
+
+<p>The QualifiedName of an OData construct in scope</p>
+
+<h2>
+<a name="SideEffectsType"></a>SideEffectsType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SourceProperties</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Changes to the values of one or more of these properties will affect the targets</td>
+</tr>
+<tr>
+<td align="left">SourceEntities</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">Changes to one or more of these entities will affect the targets. An empty path means the annotation target.</td>
+</tr>
+<tr>
+<td align="left">TargetProperties</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">These properties will be affected if the value of one of the sources changes</td>
+</tr>
+<tr>
+<td align="left">TargetEntities</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.</td>
+</tr>
+<tr>
+<td align="left">EffectTypes</td>
+<td align="left"><a href="#EffectType">EffectType</a></td>
+<td align="left">One or more of the targets may show these effects. If not specified, any effect is possible.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="EffectType"></a>EffectType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Flag Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ValidationMessage</td>
+<td align="right">1</td>
+<td align="left">Validation messages are assigned to a target</td>
+</tr>
+<tr>
+<td align="left">ValueChange</td>
+<td align="right">2</td>
+<td align="left">The value of a target changes</td>
+</tr>
+<tr>
+<td align="left">FieldControlChange</td>
+<td align="right">4</td>
+<td align="left">The value of the Common.FieldControl annotation of a target changes</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SortOrderType"></a>SortOrderType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">PropertyPath</td>
+<td align="left">Sort property</td>
+</tr>
+<tr>
+<td align="left">Descending</td>
+<td align="left">Boolean</td>
+<td align="left">Sort direction ; default is ascending</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="RecursiveHierarchyType"></a>RecursiveHierarchyType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ExternalNodeKeyProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the external human-readable key identifying the node</td>
+</tr>
+<tr>
+<td align="left">NodeDescendantCountProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.</td>
+</tr>
+<tr>
+<td align="left">NodeDrillStateProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="UserID"></a>UserID</h2>
+
+<p><strong>Type:</strong> String</p>
+
+<p>User ID</p>

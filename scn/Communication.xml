@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating communication-relevant information</String>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+These terms are inspired by
+- RFC6350 vCard (http://tools.ietf.org/html/rfc6350)
+- RFC5545 iCalendar (http://tools.ietf.org/html/rfc5545)
+- RFC5322 Internet Message Format (http://tools.ietf.org/html/rfc5322)
+- RFC6351 xCard: vCard XML Representation (https://tools.ietf.org/html/rfc6351)
+        </String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2016-11-22 © Copyright 2013 SAP AG. All rights reserved</String>
+      </Annotation>
+
+      <Term Name="Contact" Type="Communication.ContactType" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Address book entry" />
+      </Term>
+      <ComplexType Name="ContactType">
+        <Property Name="fn" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Full name" />
+        </Property>
+        <Property Name="n" Type="Communication.NameType" Nullable="true">
+          <Annotation Term="Core.Description" String="Name" />
+        </Property>
+        <Property Name="nickname" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Nickname" />
+        </Property>
+        <Property Name="photo" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Image or photograph" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="bday" Type="Edm.Date" Nullable="true">
+          <Annotation Term="Core.Description" String="Birthday" />
+        </Property>
+        <Property Name="anniversary" Type="Edm.Date" Nullable="true">
+          <Annotation Term="Core.Description" String="Date of marriage, or equivalent" />
+        </Property>
+        <Property Name="gender" Type="Communication.GenderType" Nullable="true">
+          <Annotation Term="Core.Description" String="Sex and gender identity" />
+        </Property>
+
+        <Property Name="title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Position or job title" />
+        </Property>
+        <Property Name="role" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Function or part played in a particular situation" />
+        </Property>
+        <Property Name="org" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Organization Name defined by X.520" />
+        </Property>
+        <Property Name="orgunit" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Organization Unit defined by X.520" />
+        </Property>
+
+        <Property Name="kind" Type="Communication.KindType" Nullable="true">
+          <Annotation Term="Core.Description" String="Kind of contact" />
+        </Property>
+
+        <Property Name="note" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Supplemental information or a comment associated with the contact" />
+        </Property>
+
+        <Property Name="adr" Type="Collection(Communication.AddressType)">
+          <Annotation Term="Core.Description" String="Addresses" />
+        </Property>
+        <Property Name="tel" Type="Collection(Communication.PhoneNumberType)">
+          <Annotation Term="Core.Description" String="Phone numbers" />
+        </Property>
+        <Property Name="email" Type="Collection(Communication.EmailAddressType)">
+          <Annotation Term="Core.Description" String="Email addresses" />
+        </Property>
+        <Property Name="geo" Type="Collection(Communication.GeoDataType)">
+          <Annotation Term="Core.Description" String="Geographic locations" />
+        </Property>
+        <Property Name="url" Type="Collection(Communication.UrlType)">
+          <Annotation Term="Core.Description" String="URLs" />
+        </Property>
+        <!-- TODO: social networks - yet reflected in VCARD? -->
+      </ComplexType>
+
+      <ComplexType Name="NameType">
+        <Property Name="surname" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Surname or family name" />
+        </Property>
+        <Property Name="given" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Given name" />
+        </Property>
+        <Property Name="additional" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Additional names" />
+        </Property>
+        <Property Name="prefix" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Honorific prefix(es)" />
+        </Property>
+        <Property Name="suffix" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Honorific suffix(es)" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Address" Type="Communication.AddressType" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Address" />
+      </Term>
+      <ComplexType Name="AddressType">
+        <Property Name="street" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Street address" />
+        </Property>
+        <Property Name="locality" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="City or similar" />
+        </Property>
+        <Property Name="region" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="State, province, or similar" />
+        </Property>
+        <Property Name="code" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Postal code" />
+        </Property>
+        <Property Name="country" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Country name" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="pobox" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Post office box" />
+        </Property>
+        <Property Name="ext" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Extended address (e.g., apartment or suite number)" />
+        </Property>
+        <Property Name="label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description"
+            String="Delivery address label; plain-text string representing the formatted address, may contain line breaks" />
+        </Property>
+        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Address type" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="PhoneNumberType">
+        <Property Name="uri" Type="Edm.String">
+          <Annotation Term="Core.Description" String="This SHOULD use the tel: URL schema defined in RFC3966" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="type" Type="Communication.PhoneType" Nullable="true">
+          <Annotation Term="Core.Description" String="Telephone type" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="EmailAddressType">
+        <Property Name="address" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Email address" />
+        </Property>
+        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Address type" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="GeoDataType">
+        <Property Name="uri" Type="Edm.String">
+          <Annotation Term="Core.Description"
+            String="This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
+          <Annotation Term="Core.Description" String="Address type" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="UrlType">
+        <Property Name="uri" Type="Edm.String">
+          <Annotation Term="Core.Description" String="This MUST use the URL schema defined in RFC3986" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
+          <Annotation Term="Core.Description" String="URL type" />
+        </Property>
+      </ComplexType>
+
+      <EnumType Name="KindType">
+        <Member Name="individual">
+          <Annotation Term="Core.Description" String="A single person or entity" />
+        </Member>
+        <Member Name="group">
+          <Annotation Term="Core.Description" String="A group of persons or entities" />
+        </Member>
+        <Member Name="org">
+          <Annotation Term="Core.Description" String="An organization" />
+        </Member>
+        <Member Name="location">
+          <Annotation Term="Core.Description" String="A named geographical place" />
+        </Member>
+      </EnumType>
+
+      <EnumType Name="ContactInformationType" IsFlags="true">
+        <Member Name="work" Value="1">
+          <Annotation Term="Core.Description" String="Related to an individual's work place" />
+        </Member>
+        <Member Name="home" Value="2">
+          <Annotation Term="Core.Description" String="Related to an indivdual's personal life" />
+        </Member>
+        <Member Name="preferred" Value="4">
+          <Annotation Term="Core.Description" String="Preferred-use contact information" />
+        </Member>
+      </EnumType>
+
+      <EnumType Name="PhoneType" IsFlags="true">
+        <Member Name="work" Value="1">
+          <Annotation Term="Core.Description" String="Work telephone number" />
+        </Member>
+        <Member Name="home" Value="2">
+          <Annotation Term="Core.Description" String="Private telephone number" />
+        </Member>
+        <Member Name="preferred" Value="4">
+          <Annotation Term="Core.Description" String="Preferred-use telephone number" />
+        </Member>
+        <Member Name="voice" Value="8">
+          <Annotation Term="Core.Description" String="Voice telephone number" />
+        </Member>
+        <Member Name="cell" Value="16">
+          <Annotation Term="Core.Description" String="Cellular or mobile telephone number" />
+        </Member>
+        <Member Name="fax" Value="32">
+          <Annotation Term="Core.Description" String="Facsimile telephone number" />
+        </Member>
+        <Member Name="video" Value="64">
+          <Annotation Term="Core.Description" String="Video conferencing telephone number" />
+        </Member>
+      </EnumType>
+
+      <EnumType Name="GenderType">
+        <Member Name="M">
+          <Annotation Term="Core.Description" String="male" />
+        </Member>
+        <Member Name="F">
+          <Annotation Term="Core.Description" String="female" />
+        </Member>
+        <Member Name="O">
+          <Annotation Term="Core.Description" String="other" />
+        </Member>
+        <Member Name="N">
+          <Annotation Term="Core.Description" String="not applicable" />
+        </Member>
+        <Member Name="U">
+          <Annotation Term="Core.Description" String="unknown" />
+        </Member>
+      </EnumType>
+
+      <Term Name="IsEmailAddress" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Property contains an email address" />
+      </Term>
+
+      <Term Name="IsPhoneNumber" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Property contains a phone number" />
+      </Term>
+
+      <Term Name="Event" Type="Communication.EventData" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Calendar entry" />
+      </Term>
+
+      <ComplexType Name="EventData">
+        <Property Name="summary" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description of the event" />
+        </Property>
+        <Property Name="description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="More complete description" />
+        </Property>
+        <Property Name="categories" Type="Collection(Edm.String)" Nullable="true">
+          <Annotation Term="Core.Description" String="Categories or subtypes of the event" />
+        </Property>
+        <Property Name="dtstart" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Start date and time of the event" />
+        </Property>
+        <Property Name="dtend" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Date and time by which the event ends, alternative to duration" />
+        </Property>
+        <Property Name="duration" Type="Edm.Duration" Nullable="true">
+          <Annotation Term="Core.Description" String="Duration of the event, alternative to dtend" />
+        </Property>
+        <Property Name="class" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Access classification, e.g. PUBLIC, PRIVATE, CONFIDENTIAL" />
+        </Property>
+        <Property Name="status" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Confirmation status, e.g. CONFIRMED, TENTATIVE, CANCELLED" />
+        </Property>
+        <Property Name="location" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Intended venue of the event" />
+        </Property>
+        <Property Name="transp" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Time transparency for busy time searches, true = free, false = blocked" />
+        </Property>
+        <Property Name="wholeday" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Wholeday event" />
+        </Property>
+        <Property Name="fbtype" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Free or busy time type, e.g. FREE, BUSY, BUSY-TENTATIVE" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Task" Type="Communication.TaskData" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Task list entry" />
+      </Term>
+
+      <ComplexType Name="TaskData">
+        <Property Name="summary" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description of the task" />
+        </Property>
+        <Property Name="description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="More complete description of the task" />
+        </Property>
+        <Property Name="due" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Date and time that a to-do is expected to be completed" />
+        </Property>
+        <Property Name="completed" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Date and time that a to-do was actually completed" />
+        </Property>
+        <Property Name="percentcomplete" Type="Edm.Byte" Nullable="true">
+          <Annotation Term="Core.Description" String="Percent completion of a to-do, e.g. 50 for half done" />
+        </Property>
+        <Property Name="priority" Type="Edm.Byte" Nullable="true">
+          <Annotation Term="Core.Description" String="Relative priority, 0 = undefined, 1 = highest, 9 = lowest" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Message" Type="Communication.MessageData" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Email message" />
+      </Term>
+
+      <ComplexType Name="MessageData">
+        <Property Name="from" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Author(s) of the message" />
+        </Property>
+        <Property Name="sender" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Agent responsible for the actual transmission of the message, e.g. a secretary" />
+        </Property>
+        <Property Name="to" Type="Collection(Edm.String)" Nullable="true">
+          <Annotation Term="Core.Description" String="List of primary recipients" />
+        </Property>
+        <Property Name="cc" Type="Collection(Edm.String)" Nullable="true">
+          <Annotation Term="Core.Description" String="List of other recipients (carbon copy)" />
+        </Property>
+        <Property Name="bcc" Type="Collection(Edm.String)" Nullable="true">
+          <Annotation Term="Core.Description" String="List of recipients whose addresses are not to be revealed (blind carbon copy)" />
+        </Property>
+        <Property Name="subject" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Topic of the message" />
+        </Property>
+        <Property Name="body" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Main part of the message" />
+        </Property>
+        <Property Name="keywords" Type="Collection(Edm.String)" Nullable="true">
+          <Annotation Term="Core.Description" String="List of important words and phrases that might be useful for the recipient" />
+        </Property>
+        <Property Name="received" Type="Edm.DateTimeOffset" Nullable="true">
+          <Annotation Term="Core.Description" String="Date and time the message was received" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
