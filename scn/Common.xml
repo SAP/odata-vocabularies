@@ -372,6 +372,7 @@
         -->
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
@@ -388,46 +389,6 @@
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
           <Annotation Term="Core.LongDescription"
             String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath" />
-        </Property>
-        <Property Name="Parameters" Type="Collection(Common.ValueListParameter)">
-          <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
-        </Property>
-      </ComplexType>
-
-      <Term Name="ValueListReference" Type="Common.ValueListReferenceType" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="Specifies where to find the value list mappings for a property or parameter" />
-      </Term>
-      <ComplexType Name="ValueListReferenceType">
-        <Property Name="MappingUrl" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="URL of a CSDL document containing value list mappings for this parameter or property" />
-        </Property>
-        <Property Name="FixedValues" Type="Edm.Boolean">
-          <Annotation Term="Core.Description"
-            String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
-        </Property>
-      </ComplexType>
-
-      <Term Name="ValueListMapping" Type="Common.ValueListMappingType" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="Specifies the mapping between data service properties and value list properties" />
-        <Annotation Term="Core.LongDescription"
-          String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers. The qualifier-less mapping is the default value list." />
-      </Term>
-      <ComplexType Name="ValueListMappingType">
-        <Property Name="Label" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-        </Property>
-        <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
-        </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Value list supports the $search query option" />
-          <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
-        </Property>
-        <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
-          <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
-          <Annotation Term="Core.LongDescription"
-            String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
         </Property>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
