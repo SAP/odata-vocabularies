@@ -121,6 +121,7 @@ Visualization|[VisualizationType](#VisualizationType)|Preferred visualization
 SampleSize|PrimitiveType|Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
 ReferencePeriod|[ReferencePeriod](#ReferencePeriod)|Reference period
 Criticality|[CriticalityType](#CriticalityType)|Service-calculated criticality, alternative to CriticalityCalculation
+CriticalityRepresentation *(Experimental)*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 CriticalityCalculation|[CriticalityCalculationType](#CriticalityCalculationType)|Parameters for client-calculated criticality, alternative to Criticality
 Trend|[TrendType](#TrendType)|Service-calculated trend, alternative to TrendCalculation
 TrendCalculation|[TrendCalculationType](#TrendCalculationType)|Parameters for client-calculated trend, alternative to Trend
@@ -164,7 +165,7 @@ Negative|1|Negative / red status - attention - overload - alert
 Critical|2|Critical / orange status - warning
 Positive|3|Positive / green status - completed - available - on track - acceptable
 
-## <a name="CriticalityCalculationType"></a>CriticalityCalculationType
+## <a name="CriticalityCalculationType"></a>CriticalityCalculationType: [CriticalityThresholdsType](#CriticalityThresholdsType)
 Describes how to calculate the criticality of a value depending on the improvement direction
 
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
@@ -195,7 +196,24 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
 
 Property|Type|Description
 :-------|:---|:----------
+*AcceptanceRangeLowValue*|PrimitiveType|Lowest value that is considered positive
+*AcceptanceRangeHighValue*|PrimitiveType|Highest value that is considered positive
+*ToleranceRangeLowValue*|PrimitiveType|Lowest value that is considered neutral
+*ToleranceRangeHighValue*|PrimitiveType|Highest value that is considered neutral
+*DeviationRangeLowValue*|PrimitiveType|Lowest value that is considered critical
+*DeviationRangeHighValue*|PrimitiveType|Highest value that is considered critical
 ImprovementDirection|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
+ConstantThresholds *(Experimental)*|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values
+
+## <a name="CriticalityThresholdsType"></a>CriticalityThresholdsType
+Thresholds for calculating the criticality of a value
+
+**Derived Types:**
+- [CriticalityCalculationType](#CriticalityCalculationType)
+- [LevelThresholdsType](#LevelThresholdsType)
+
+Property|Type|Description
+:-------|:---|:----------
 AcceptanceRangeLowValue|PrimitiveType|Lowest value that is considered positive
 AcceptanceRangeHighValue|PrimitiveType|Highest value that is considered positive
 ToleranceRangeLowValue|PrimitiveType|Lowest value that is considered neutral
@@ -211,6 +229,19 @@ Member|Value|Description
 Minimize|1|Lower is better
 Target|2|Closer to the target is better
 Maximize|3|Higher is better
+
+## <a name="LevelThresholdsType"></a>LevelThresholdsType: [CriticalityThresholdsType](#CriticalityThresholdsType) *(Experimental)*
+Thresholds for an aggregation level
+
+Property|Type|Description
+:-------|:---|:----------
+*AcceptanceRangeLowValue*|PrimitiveType|Lowest value that is considered positive
+*AcceptanceRangeHighValue*|PrimitiveType|Highest value that is considered positive
+*ToleranceRangeLowValue*|PrimitiveType|Lowest value that is considered neutral
+*ToleranceRangeHighValue*|PrimitiveType|Highest value that is considered neutral
+*DeviationRangeLowValue*|PrimitiveType|Lowest value that is considered critical
+*DeviationRangeHighValue*|PrimitiveType|Highest value that is considered critical
+AggregationLevel|\[PropertyPath\]|Describes in which direction the value improves
 
 ## <a name="TrendType"></a>TrendType
 The trend of a value

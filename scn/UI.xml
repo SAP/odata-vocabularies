@@ -334,7 +334,7 @@
         </Member>
       </EnumType>
 
-      <ComplexType Name="CriticalityCalculationType">
+      <ComplexType Name="CriticalityCalculationType" BaseType="UI.CriticalityThresholdsType">
         <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the improvement direction"/>
         <Annotation Term="Core.LongDescription">
           <String>
@@ -367,6 +367,11 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
         <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
           <Annotation Term="Core.Description" String="Describes in which direction the value improves"/>
         </Property>
+        
+      </ComplexType>
+
+      <ComplexType Name="CriticalityThresholdsType">
+        <Annotation Term="Core.Description" String="Thresholds for calculating the criticality of a value"/>
         <Property Name="AcceptanceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered positive"/>
         </Property>
@@ -399,6 +404,8 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
           <Annotation Term="Core.Description" String="Higher is better"/>
         </Member>
       </EnumType>
+
+      
 
       <EnumType Name="TrendType">
         <Annotation Term="Core.Description" String="The trend of a value"/>

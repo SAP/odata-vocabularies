@@ -672,7 +672,8 @@ UI Vocabulary</h1>
 </table>
 
 <h2>
-<a name="CriticalityCalculationType"></a>CriticalityCalculationType</h2>
+<a name="CriticalityCalculationType"></a>CriticalityCalculationType: <a href="#CriticalityThresholdsType">CriticalityThresholdsType</a>
+</h2>
 
 <p>Describes how to calculate the criticality of a value depending on the improvement direction</p>
 
@@ -723,10 +724,63 @@ UI Vocabulary</h1>
 </thead>
 <tbody>
 <tr>
+<td align="left"><em>AcceptanceRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left"><em>AcceptanceRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left"><em>ToleranceRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left"><em>ToleranceRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left"><em>DeviationRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered critical</td>
+</tr>
+<tr>
+<td align="left"><em>DeviationRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered critical</td>
+</tr>
+<tr>
 <td align="left">ImprovementDirection</td>
 <td align="left"><a href="#ImprovementDirectionType">ImprovementDirectionType</a></td>
 <td align="left">Describes in which direction the value improves</td>
 </tr>
+</tbody>
+</table>
+
+<h2>
+<a name="CriticalityThresholdsType"></a>CriticalityThresholdsType</h2>
+
+<p>Thresholds for calculating the criticality of a value</p>
+
+<p><strong>Derived Types:</strong></p>
+
+<ul>
+<li><a href="#CriticalityCalculationType">CriticalityCalculationType</a></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td align="left">AcceptanceRangeLowValue</td>
 <td align="left">PrimitiveType</td>

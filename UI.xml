@@ -267,6 +267,10 @@
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
           <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to CriticalityCalculation" />
         </Property>
+        <Property Name="CriticalityRepresentation" Type="UI.CriticalityRepresentationType" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Decides if criticality is visualized in addition by means of an icon" />
+        </Property>
         <Property Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="true">
           <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to Criticality" />
         </Property>
@@ -340,7 +344,7 @@
         </Member>
       </EnumType>
 
-      <ComplexType Name="CriticalityCalculationType">
+      <ComplexType Name="CriticalityCalculationType" BaseType="UI.CriticalityThresholdsType">
         <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the improvement direction" />
         <Annotation Term="Core.LongDescription">
           <String>
@@ -373,6 +377,16 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
         <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
           <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
         </Property>
+        <Property Name="ConstantThresholds" Type="Collection(UI.LevelThresholdsType)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of thresholds depending on the aggregation level as a set of constant values" />
+          <Annotation Term="Core.LongDescription"
+            String="Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="CriticalityThresholdsType">
+        <Annotation Term="Core.Description" String="Thresholds for calculating the criticality of a value" />
         <Property Name="AcceptanceRangeLowValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lowest value that is considered positive" />
         </Property>
@@ -405,6 +419,14 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
           <Annotation Term="Core.Description" String="Higher is better" />
         </Member>
       </EnumType>
+
+      <ComplexType Name="LevelThresholdsType" BaseType="UI.CriticalityThresholdsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Thresholds for an aggregation level" />
+        <Property Name="AggregationLevel" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
+        </Property>
+      </ComplexType>
 
       <EnumType Name="TrendType">
         <Annotation Term="Core.Description" String="The trend of a value" />
