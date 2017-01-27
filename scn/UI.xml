@@ -262,6 +262,7 @@
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
           <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to CriticalityCalculation"/>
         </Property>
+        
         <Property Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="true">
           <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to Criticality"/>
         </Property>
