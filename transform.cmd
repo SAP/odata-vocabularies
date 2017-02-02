@@ -51,7 +51,8 @@ exit /b
   if /I [%2] == [/scn] (
     <nul (set/p _any=...)
     java.exe org.apache.xalan.xslt.Process -XSL scn/strip-experimental.xsl -IN %1 -OUT scn/%1
-
+    git.exe --no-pager diff scn/%1
+   
     java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN scn/%1 -OUT scn/%~n1.md
 
     curl.exe -k -s --data-binary @scn/%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn/%~n1.html

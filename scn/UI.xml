@@ -919,11 +919,11 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" AppliesTo="Property">
+      <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered at all"/>
       </Term>
 
-      <Term Name="HiddenFilter" Type="Core.Tag" AppliesTo="Property">
+      <Term Name="HiddenFilter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria"/>
       </Term>
 
