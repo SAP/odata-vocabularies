@@ -69,7 +69,7 @@ Term|Type|Description
 [ChangedAt](Common.xml#L855)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
 [ChangedBy](Common.xml#L859)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 
-## <a name="TextFormatType"></a>TextFormatType
+## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L56)
 
 
 Member|Value|Description
@@ -93,7 +93,7 @@ Property|Type|Description
 Property|PropertyPath|
 AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|
 
-## <a name="FilterExpressionType"></a>FilterExpressionType
+## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L208)
 
 
 Member|Value|Description
@@ -102,7 +102,7 @@ SingleValue|0|a single 'eq' clause
 MultiValue|1|one or more 'eq' clauses, separated by 'or'
 SingleInterval|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
 
-## <a name="FieldControlType"></a>FieldControlType
+## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L225)
 
 
 Member|Value|Description
@@ -219,12 +219,12 @@ Property|Type|Description
 PreparationAction|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
 ValidationFunction|[QualifiedName](#QualifiedName)|Function that validates whether a draft document is ready for activation
 
-## <a name="SimpleIdentifier"></a>SimpleIdentifier
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L681)
 **Type:** String
 
 The SimpleIdentifier of an OData construct in scope
 
-## <a name="QualifiedName"></a>QualifiedName
+## <a name="QualifiedName"></a>[QualifiedName](Common.xml#L685)
 **Type:** String
 
 The QualifiedName of an OData construct in scope
@@ -240,7 +240,7 @@ TargetProperties|\[PropertyPath\]|These properties will be affected if the value
 TargetEntities|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
 EffectTypes|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
 
-## <a name="EffectType"></a>EffectType
+## <a name="EffectType"></a>[EffectType](Common.xml#L726)
 
 
 Flag Member|Value|Description
@@ -266,7 +266,7 @@ ExternalNodeKeyProperty|PropertyPath|Property holding the external human-readabl
 NodeDescendantCountProperty|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
 NodeDrillStateProperty|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
 
-## <a name="UserID"></a>UserID
+## <a name="UserID"></a>[UserID](Common.xml#L863)
 **Type:** String
 
 User ID
