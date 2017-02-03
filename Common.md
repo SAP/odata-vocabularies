@@ -74,76 +74,76 @@ Term|Type|Description
 
 Member|Value|Description
 :-----|----:|:----------
-plain|0|Plain text, line breaks represented as the character 0x0A
-html|1|Plain text with markup that can validly appear directly within an HTML DIV element
+[plain](Common.xml#L57)|0|Plain text, line breaks represented as the character 0x0A
+[html](Common.xml#L60)|1|Plain text with markup that can validly appear directly within an HTML DIV element
 
 ## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](Common.xml#L163) *(Experimental)*
 Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object
 
 Property|Type|Description
 :-------|:---|:----------
-LocalProperty|PropertyPath|Path to a local property that provides the value for the Semantic Object property
-SemanticObjectProperty|String|Name of the Semantic Object property
+[LocalProperty](Common.xml#L167)|PropertyPath|Path to a local property that provides the value for the Semantic Object property
+[SemanticObjectProperty](Common.xml#L170)|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L204)
 
 
 Property|Type|Description
 :-------|:---|:----------
-Property|PropertyPath|
-AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|
+[Property](Common.xml#L205)|PropertyPath|
+[AllowedExpressions](Common.xml#L206)|[FilterExpressionType](#FilterExpressionType)|
 
 ## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L208)
 
 
 Member|Value|Description
 :-----|----:|:----------
-SingleValue|0|a single 'eq' clause
-MultiValue|1|one or more 'eq' clauses, separated by 'or'
-SingleInterval|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
+[SingleValue](Common.xml#L209)|0|a single 'eq' clause
+[MultiValue](Common.xml#L212)|1|one or more 'eq' clauses, separated by 'or'
+[SingleInterval](Common.xml#L215)|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L225)
 
 
 Member|Value|Description
 :-----|----:|:----------
-Mandatory|7|Property must have a non-null value
-Optional|3|Property may have a value or be null
-ReadOnly|1|Property value cannot be changed
-Inapplicable|0|Property has no meaning in the current entity state
-Hidden|0|Deprecated synonymn for Inapplicable, do not use
+[Mandatory](Common.xml#L226)|7|Property must have a non-null value
+[Optional](Common.xml#L229)|3|Property may have a value or be null
+[ReadOnly](Common.xml#L232)|1|Property value cannot be changed
+[Inapplicable](Common.xml#L235)|0|Property has no meaning in the current entity state
+[Hidden](Common.xml#L238)|0|Deprecated synonymn for Inapplicable, do not use
 
 ## <a name="IntervalType"></a>[IntervalType](Common.xml#L339)
 
 
 Property|Type|Description
 :-------|:---|:----------
-LowerBoundary|PropertyPath|Property holding the lower interval boundary
-LowerBoundaryIncluded|Boolean|The lower boundary value is included in the interval
-UpperBoundary|PropertyPath|Property holding the upper interval boundary
-UpperBoundaryIncluded|Boolean|The upper boundary value is included in the interval
+[LowerBoundary](Common.xml#L340)|PropertyPath|Property holding the lower interval boundary
+[LowerBoundaryIncluded](Common.xml#L343)|Boolean|The lower boundary value is included in the interval
+[UpperBoundary](Common.xml#L346)|PropertyPath|Property holding the upper interval boundary
+[UpperBoundaryIncluded](Common.xml#L349)|Boolean|The upper boundary value is included in the interval
 
 ## <a name="ValueListType"></a>[ValueListType](Common.xml#L369)
 
 
 Property|Type|Description
 :-------|:---|:----------
-Label|String|Headline for value list, fallback is the label of the property or parameter
-CollectionPath|String|Resource path of an OData collection with possible values, relative to CollectionRoot
-CollectionRoot|String|Service root of the value list collection; not specified means local to the document containing the annotation
-SearchSupported|Boolean|Value list supports the $search query option
-PresentationVariantQualifier|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
-Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](Common.xml#L391)|String|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](Common.xml#L395)|String|Resource path of an OData collection with possible values, relative to CollectionRoot
+[CollectionRoot](Common.xml#L398)|String|Service root of the value list collection; not specified means local to the document containing the annotation
+[SearchSupported](Common.xml#L402)|Boolean|Value list supports the $search query option
+[PresentationVariantQualifier](Common.xml#L406)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
+[Parameters](Common.xml#L411)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListMappingType"></a>[ValueListMappingType](Common.xml#L435) *(Experimental)*
 
 
 Property|Type|Description
 :-------|:---|:----------
-Label|String|Headline for value list, fallback is the label of the property or parameter
-CollectionPath|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-PresentationVariantQualifier|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
-Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](Common.xml#L437)|String|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](Common.xml#L441)|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
+[PresentationVariantQualifier](Common.xml#L445)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
+[Parameters](Common.xml#L450)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListParameter"></a>[*ValueListParameter*](Common.xml#L455)
 
@@ -157,56 +157,56 @@ Parameters|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to 
 
 Property|Type|Description
 :-------|:---|:----------
-ValueListProperty|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[ValueListProperty](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
 
 ## <a name="ValueListParameterIn"></a>[ValueListParameterIn](Common.xml#L460): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*ValueListProperty*|String|Path to property in response structure. Format is identical to PropertyPath annotations.
-LocalDataProperty|PropertyPath|Path to property that is used to filter/search the value list
+[*ValueListProperty*](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[LocalDataProperty](Common.xml#L461)|PropertyPath|Path to property that is used to filter/search the value list
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L465): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*ValueListProperty*|String|Path to property in response structure. Format is identical to PropertyPath annotations.
-LocalDataProperty|PropertyPath|Path to property that is used to filter/search the value list or filled from response
+[*ValueListProperty*](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[LocalDataProperty](Common.xml#L466)|PropertyPath|Path to property that is used to filter/search the value list or filled from response
 
 ## <a name="ValueListParameterOut"></a>[ValueListParameterOut](Common.xml#L470): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*ValueListProperty*|String|Path to property in response structure. Format is identical to PropertyPath annotations.
-LocalDataProperty|PropertyPath|Path to property that is filled from response
+[*ValueListProperty*](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[LocalDataProperty](Common.xml#L471)|PropertyPath|Path to property that is filled from response
 
 ## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](Common.xml#L475): [ValueListParameter](#ValueListParameter)
 Value list property that is not used to fill the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-*ValueListProperty*|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L478): [ValueListParameter](#ValueListParameter)
 Value list property that is used to filter the value list, not connected to the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-*ValueListProperty*|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L456)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L649): [DraftNodeType](#DraftNodeType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*PreparationAction*|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
-*ValidationFunction*|[QualifiedName](#QualifiedName)|Function that validates whether a draft document is ready for activation
-ActivationAction|[QualifiedName](#QualifiedName)|Action that activates a draft document
-EditAction|[QualifiedName](#QualifiedName)|Action that creates an edit draft
-NewAction|[QualifiedName](#QualifiedName)|Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft
+[*PreparationAction*](Common.xml#L668)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
+[*ValidationFunction*](Common.xml#L671)|[QualifiedName](#QualifiedName)|Function that validates whether a draft document is ready for activation
+[ActivationAction](Common.xml#L650)|[QualifiedName](#QualifiedName)|Action that activates a draft document
+[EditAction](Common.xml#L653)|[QualifiedName](#QualifiedName)|Action that creates an edit draft
+[NewAction](Common.xml#L656)|[QualifiedName](#QualifiedName)|Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft
 
 ## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L667)
 
@@ -216,8 +216,8 @@ NewAction|[QualifiedName](#QualifiedName)|Action that creates a new draft. It ma
 
 Property|Type|Description
 :-------|:---|:----------
-PreparationAction|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
-ValidationFunction|[QualifiedName](#QualifiedName)|Function that validates whether a draft document is ready for activation
+[PreparationAction](Common.xml#L668)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
+[ValidationFunction](Common.xml#L671)|[QualifiedName](#QualifiedName)|Function that validates whether a draft document is ready for activation
 
 ## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L681)
 **Type:** String
@@ -234,37 +234,37 @@ The QualifiedName of an OData construct in scope
 
 Property|Type|Description
 :-------|:---|:----------
-SourceProperties|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
-SourceEntities|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
-TargetProperties|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
-TargetEntities|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
-EffectTypes|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
+[SourceProperties](Common.xml#L707)|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
+[SourceEntities](Common.xml#L710)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
+[TargetProperties](Common.xml#L714)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
+[TargetEntities](Common.xml#L717)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
+[EffectTypes](Common.xml#L721)|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L726)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-ValidationMessage|1|Validation messages are assigned to a target
-ValueChange|2|The value of a target changes
-FieldControlChange|4|The value of the Common.FieldControl annotation of a target changes
+[ValidationMessage](Common.xml#L727)|1|Validation messages are assigned to a target
+[ValueChange](Common.xml#L730)|2|The value of a target changes
+[FieldControlChange](Common.xml#L733)|4|The value of the Common.FieldControl annotation of a target changes
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L791)
 
 
 Property|Type|Description
 :-------|:---|:----------
-Property|PropertyPath|Sort property
-Descending|Boolean|Sort direction ; default is ascending
+[Property](Common.xml#L792)|PropertyPath|Sort property
+[Descending](Common.xml#L795)|Boolean|Sort direction ; default is ascending
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L820)
 
 
 Property|Type|Description
 :-------|:---|:----------
-ExternalNodeKeyProperty|PropertyPath|Property holding the external human-readable key identifying the node
-NodeDescendantCountProperty|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-NodeDrillStateProperty|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[ExternalNodeKeyProperty](Common.xml#L821)|PropertyPath|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](Common.xml#L824)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](Common.xml#L832)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
 
 ## <a name="UserID"></a>[UserID](Common.xml#L863)
 **Type:** String
