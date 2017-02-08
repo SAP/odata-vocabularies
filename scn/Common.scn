@@ -183,6 +183,24 @@ Common Vocabulary</h1>
 <a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter</td>
 </tr>
 <tr>
+<td align="left">ValueListWithFixedValues</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left">
+<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values</td>
+</tr>
+<tr>
+<td align="left">ValueListReferences</td>
+<td align="left">[URL]</td>
+<td align="left">
+<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property</td>
+</tr>
+<tr>
+<td align="left">ValueListMapping</td>
+<td align="left"><a href="#ValueListMappingType">ValueListMappingType</a></td>
+<td align="left">
+<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties</td>
+</tr>
+<tr>
 <td align="left">IsCalendarYear</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
 <td align="left">
@@ -557,6 +575,41 @@ Common Vocabulary</h1>
 <td align="left">SearchSupported</td>
 <td align="left">Boolean</td>
 <td align="left">Value list supports the $search query option</td>
+</tr>
+<tr>
+<td align="left">PresentationVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ValueListParameter">ValueListParameter</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="ValueListMappingType"></a>ValueListMappingType</h2>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Headline for value list, fallback is the label of the property or parameter</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with possible values, relative to the document containing the value list mapping</td>
 </tr>
 <tr>
 <td align="left">PresentationVariantQualifier</td>
