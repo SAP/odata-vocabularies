@@ -330,7 +330,7 @@ Common Vocabulary</h1>
 <td align="left">SideEffects</td>
 <td align="left"><a href="#SideEffectsType">SideEffectsType</a></td>
 <td align="left">
-<a name="SideEffects"></a>Changes to the source properties may have side-effects on the target properties or entities. If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects. An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected. Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</td>
+<a name="SideEffects"></a>Describes side-effects of modification operations</td>
 </tr>
 <tr>
 <td align="left">DerivedDefaultValue</td>
@@ -867,6 +867,13 @@ Common Vocabulary</h1>
 
 <h2>
 <a name="SideEffectsType"></a>SideEffectsType</h2>
+
+<p>Changes to the source properties or source entities may have side-effects on the target properties or entities.
+If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
+An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.</p>
+
+<p>Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
+only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</p>
 
 <table>
 <thead>

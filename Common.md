@@ -58,16 +58,16 @@ Term|Type|Description
 [DraftNode](Common.xml#L652)|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
 [DraftActivationVia](Common.xml#L666)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
 [SemanticKey](Common.xml#L679)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](Common.xml#L683)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Changes to the source properties may have side-effects on the target properties or entities. If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects. An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected. Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.
-[DerivedDefaultValue](Common.xml#L729)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.
-[FilterDefaultValue](Common.xml#L748)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[DerivedFilterDefaultValue](Common.xml#L752)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.
-[SortOrder](Common.xml#L774)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria. The Items of the annotated EntitySet or the Items of the collection of the annotated EntityType are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder Collection, and so on.
-[RecursiveHierarchy](Common.xml#L805)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[CreatedAt](Common.xml#L837)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L841)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L845)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L849)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
+[SideEffects](Common.xml#L683)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DerivedDefaultValue](Common.xml#L728)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.
+[FilterDefaultValue](Common.xml#L747)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[DerivedFilterDefaultValue](Common.xml#L751)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.
+[SortOrder](Common.xml#L773)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria. The Items of the annotated EntitySet or the Items of the collection of the annotated EntityType are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder Collection, and so on.
+[RecursiveHierarchy](Common.xml#L804)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[CreatedAt](Common.xml#L836)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L840)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L844)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L848)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L56)
 
@@ -229,44 +229,49 @@ The SimpleIdentifier of an OData construct in scope
 
 The QualifiedName of an OData construct in scope
 
-## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L696)
-
+## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L686)
+Changes to the source properties or source entities may have side-effects on the target properties or entities.
+If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
+An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
+            
+Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
+only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](Common.xml#L697)|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
-[SourceEntities](Common.xml#L700)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
-[TargetProperties](Common.xml#L704)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
-[TargetEntities](Common.xml#L707)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
-[EffectTypes](Common.xml#L711)|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
+[SourceProperties](Common.xml#L696)|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
+[SourceEntities](Common.xml#L699)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
+[TargetProperties](Common.xml#L703)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
+[TargetEntities](Common.xml#L706)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
+[EffectTypes](Common.xml#L710)|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L716)
+## <a name="EffectType"></a>[EffectType](Common.xml#L715)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[ValidationMessage](Common.xml#L717)|1|Validation messages are assigned to a target
-[ValueChange](Common.xml#L720)|2|The value of a target changes
-[FieldControlChange](Common.xml#L723)|4|The value of the Common.FieldControl annotation of a target changes
+[ValidationMessage](Common.xml#L716)|1|Validation messages are assigned to a target
+[ValueChange](Common.xml#L719)|2|The value of a target changes
+[FieldControlChange](Common.xml#L722)|4|The value of the Common.FieldControl annotation of a target changes
 
-## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L781)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L782)|PropertyPath|Sort property
-[Descending](Common.xml#L785)|Boolean|Sort direction ; default is ascending
-
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L810)
+## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L780)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](Common.xml#L811)|PropertyPath|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](Common.xml#L814)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](Common.xml#L822)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[Property](Common.xml#L781)|PropertyPath|Sort property
+[Descending](Common.xml#L784)|Boolean|Sort direction ; default is ascending
 
-## <a name="UserID"></a>[UserID](Common.xml#L853)
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L809)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ExternalNodeKeyProperty](Common.xml#L810)|PropertyPath|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](Common.xml#L813)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](Common.xml#L821)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+
+## <a name="UserID"></a>[UserID](Common.xml#L852)
 **Type:** String
 
 User ID
