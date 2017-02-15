@@ -50,12 +50,12 @@ exit /b
 
   if /I [%2] == [/scn] (
     <nul (set/p _any=...)
-    java.exe org.apache.xalan.xslt.Process -XSL scn/strip-experimental.xsl -IN %1 -OUT scn/%1
-    git.exe --no-pager diff scn/%1
+    java.exe org.apache.xalan.xslt.Process -XSL scn/strip-experimental.xsl -IN %1 -OUT scn\%1
+    git.exe --no-pager diff scn\%1
    
-    java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN scn/%1 -OUT scn/%~n1.md
+    java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN scn\%1 -OUT scn\%~n1.md
 
-    curl.exe -k -s --data-binary @scn/%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn/%~n1.html
+    curl.exe -k -s --data-binary @scn\%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn\%~n1.html
 
     rem TODO: replace SED with almost-identity transformation
     sed.exe -e "s/<a name=\"user-content-/^<a name=\"/g" ^
@@ -69,9 +69,9 @@ exit /b
             -e "s/com\.sap\.vocabularies\.\([^.]\+\)\.v1\.md#/https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+\1#/g" ^
             -e "s/\"Common\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Common#/g" ^
             -e "s/\"Communication\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Communication#/g" ^
-            scn/%~n1.html > scn/%~n1.scn 
-    git.exe --no-pager diff scn/%~n1.scn
-    del scn\%~n1.html
+            scn\%~n1.html > scn\%~n1.scn 
+    git.exe --no-pager diff scn\%~n1.scn
+    del scn\%~n1.md scn\%~n1.html
   )
   echo:
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
   <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
@@ -15,7 +15,15 @@
         <String>Terms for presenting data in user interfaces</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
-        <String>2016-11-22 © Copyright 2013 SAP SE. All rights reserved</String>
+        <String>2017-02-15 © Copyright 2013 SAP AG. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2" />
+          </Record>
+        </Collection>
       </Annotation>
 
       <!-- Semantic Views / Perspectives -->
