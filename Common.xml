@@ -18,8 +18,7 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2" />
           </Record>
         </Collection>
       </Annotation>
@@ -168,7 +167,7 @@
           String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
-        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.imental" />
         <Annotation Term="Core.Description"
           String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
         <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
@@ -720,6 +719,18 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
+      <Annotation Term="Core.LongDescription"><String>There are currently five types of side-effects:
+- **Validation Message**  
+This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.
+- **Value Change**  
+This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document. 
+-  **Field Control Change**  
+This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.
+- **Operation Control Change**  
+This side effect type specifies that source properties or entities may impact the dynamic function or action (operations) control state of any, one or multiple target properties (v2) or annotation of target entities (v4). Upon modification operation control logic is invoked so that meta-information like operation enabled or disabled is determined.
+- **Permission Change**  
+This side effect type specifies that source properties or entities may impact the dynamic method permission state (creatable, updatable, deletable) of any, one or multiple target properties (v2) or annotation of target entities (v4). Upon modification permission logic is invoked so that meta-information is determined.</String>
+      </Annotation>
         <Member Name="ValidationMessage" Value="1">
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target" />
         </Member>
@@ -728,6 +739,14 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Member>
         <Member Name="FieldControlChange" Value="4">
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes" />
+        </Member>
+        <Member Name="OperationControlChange" Value="8">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="The operation control changes" />
+        </Member>
+        <Member Name="PermissionChange" Value="16">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="The method permissions change" />
         </Member>
       </EnumType>
 
