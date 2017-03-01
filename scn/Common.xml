@@ -155,7 +155,16 @@
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property"/>
       </Term>
       
-      
+      <ComplexType Name="SemanticObjectMappingType">
+        <Annotation Term="Common.imental"/>
+        <Annotation Term="Core.Description" String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object"/>
+        <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to a local property that provides the value for the Semantic Object property"/>
+        </Property>
+        <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the Semantic Object property"/>
+        </Property>
+      </ComplexType>
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>
@@ -682,13 +691,28 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
       <EnumType Name="EffectType" IsFlags="true">
         <Member Name="ValidationMessage" Value="1">
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target"/>
+          <Annotation Term="Core.LongDescription">
+            <String>This side effect type indicates that validation messages may result from changes of source properties or entities. 
+Thus, a validation request can be sent either in conjunction with or separately after a modifying request. 
+Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</String>
+          </Annotation>
         </Member>
         <Member Name="ValueChange" Value="2">
           <Annotation Term="Core.Description" String="The value of a target changes"/>
+          <Annotation Term="Core.LongDescription">
+            <String>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.
+Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</String>
+          </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes"/>
+          <Annotation Term="Core.LongDescription">
+            <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.
+Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</String>
+          </Annotation>
         </Member>
+        
+        
       </EnumType>
 
       <!-- Section: Default Values -->

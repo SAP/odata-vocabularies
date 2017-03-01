@@ -111,7 +111,7 @@ Property|Type|Description
 [Title](UI.xml#L225)|String|Title of the data point
 [Description](UI.xml#L229)|String|Short description
 [LongDescription](UI.xml#L233)|String|Full description
-[Value](UI.xml#L237)|PrimitiveType|Numeric value
+[Value](UI.xml#L237)|PrimitiveType|Numeric value<p>It could be annotated with either UoM.ISOCurrency or UoM.Unit. Percentage values are annotated with UoM.Unit = '%'. A renderer should take an optional Common.Text annotation into consideration.</p>
 [TargetValue](UI.xml#L247)|PrimitiveType|Target value
 [ForecastValue](UI.xml#L250)|PrimitiveType|Forecast value
 [MinimumValue](UI.xml#L253)|Decimal|Minimum value (for output rendering)
@@ -203,7 +203,7 @@ Property|Type|Description
 [*DeviationRangeLowValue*](UI.xml#L410)|PrimitiveType|Lowest value that is considered critical
 [*DeviationRangeHighValue*](UI.xml#L413)|PrimitiveType|Highest value that is considered critical
 [ImprovementDirection](UI.xml#L385)|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
-[ConstantThresholds *(Experimental)*](UI.xml#L388)|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values
+[ConstantThresholds *(Experimental)*](UI.xml#L388)|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values<p>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.</p>
 
 ## <a name="CriticalityThresholdsType"></a>[CriticalityThresholdsType](UI.xml#L396)
 Thresholds for calculating the criticality of a value

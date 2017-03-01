@@ -66,7 +66,8 @@ UI Vocabulary</h1>
 <td align="left">Contacts</td>
 <td align="left">[AnnotationPath]</td>
 <td align="left">
-<a name="Contacts"></a>Collection of contacts</td>
+<a name="Contacts"></a>Collection of contacts<p>Each collection item MUST reference an annotation of a Communication.Contact</p>
+</td>
 </tr>
 <tr>
 <td align="left">MediaResource</td>
@@ -180,7 +181,8 @@ UI Vocabulary</h1>
 <td align="left">TextArrangement</td>
 <td align="left"><a href="#TextArrangementType">TextArrangementType</a></td>
 <td align="left">
-<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text</td>
+<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<p>If used for a single property the Common.Text annotation is annotated</p>
+</td>
 </tr>
 <tr>
 <td align="left">Importance</td>

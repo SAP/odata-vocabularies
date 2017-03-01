@@ -180,7 +180,8 @@ Common Vocabulary</h1>
 <td align="left">ValueList</td>
 <td align="left"><a href="#ValueListType">ValueListType</a></td>
 <td align="left">
-<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter</td>
+<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter<p>The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ValueListWithFixedValues</td>
@@ -198,7 +199,8 @@ Common Vocabulary</h1>
 <td align="left">ValueListMapping</td>
 <td align="left"><a href="#ValueListMappingType">ValueListMappingType</a></td>
 <td align="left">
-<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties</td>
+<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<p>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers. The qualifier-less mapping is the default value list.</p>
+</td>
 </tr>
 <tr>
 <td align="left">IsCalendarYear</td>
@@ -336,7 +338,8 @@ Common Vocabulary</h1>
 <td align="left">DerivedDefaultValue</td>
 <td align="left">String</td>
 <td align="left">
-<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.</td>
+<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>Function import has two parameters of complex types: - "parameters", a structure resembling the entity type the parameter entity set related to the entity set of the annotated property - "properties", a structure resembling the type of the entity set of the annotated property The return type must be of the same type as the annotated property. Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+</td>
 </tr>
 <tr>
 <td align="left">FilterDefaultValue</td>
@@ -348,7 +351,8 @@ Common Vocabulary</h1>
 <td align="left">DerivedFilterDefaultValue</td>
 <td align="left">String</td>
 <td align="left">
-<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</td>
+<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>Function import has two parameters of complex types: - "parameters", a structure resembling the entity type the parameter entity set related to the entity set of the annotated property - "properties", a structure resembling the type of the entity set of the annotated property The return type must be of the same type as the annotated property. Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+</td>
 </tr>
 <tr>
 <td align="left">SortOrder</td>
@@ -410,6 +414,33 @@ Common Vocabulary</h1>
 <td align="left">html</td>
 <td align="right">1</td>
 <td align="left">Plain text with markup that can validly appear directly within an HTML DIV element</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SemanticObjectMappingType"></a>SemanticObjectMappingType</h2>
+
+<p>Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LocalProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to a local property that provides the value for the Semantic Object property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectProperty</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object property</td>
 </tr>
 </tbody>
 </table>
@@ -927,17 +958,20 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <tr>
 <td align="left">ValidationMessage</td>
 <td align="right">1</td>
-<td align="left">Validation messages are assigned to a target</td>
+<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ValueChange</td>
 <td align="right">2</td>
-<td align="left">The value of a target changes</td>
+<td align="left">The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+</td>
 </tr>
 <tr>
 <td align="left">FieldControlChange</td>
 <td align="right">4</td>
-<td align="left">The value of the Common.FieldControl annotation of a target changes</td>
+<td align="left">The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+</td>
 </tr>
 </tbody>
 </table>

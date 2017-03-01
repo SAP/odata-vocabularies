@@ -131,8 +131,8 @@ Property|Type|Description
 [Label](Common.xml#L391)|String|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L395)|String|Resource path of an OData collection with possible values, relative to CollectionRoot
 [CollectionRoot](Common.xml#L398)|String|Service root of the value list collection; not specified means local to the document containing the annotation
-[SearchSupported](Common.xml#L402)|Boolean|Value list supports the $search query option
-[PresentationVariantQualifier](Common.xml#L406)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
+[SearchSupported](Common.xml#L402)|Boolean|Value list supports the $search query option<p>The value of the target property is used as the search expression instead of in $filter</p>
+[PresentationVariantQualifier](Common.xml#L406)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath</p>
 [Parameters](Common.xml#L411)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListMappingType"></a>[ValueListMappingType](Common.xml#L432)
@@ -142,7 +142,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Label](Common.xml#L433)|String|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L437)|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-[PresentationVariantQualifier](Common.xml#L441)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart
+[PresentationVariantQualifier](Common.xml#L441)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
 [Parameters](Common.xml#L446)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListParameter"></a>[*ValueListParameter*](Common.xml#L451)
