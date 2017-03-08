@@ -747,8 +747,7 @@ Upon modification field control logic is invoked so that meta-information like h
           <Annotation Term="Core.LongDescription">
             <String>This side effect type specifies that source properties or entities may impact the dynamic function or action (operations) control state of any, 
 one or multiple target properties (v2) or annotation of target entities (v4). Upon modification operation control logic is invoked so that meta-information like 
-operation enabled or disabled is determined.
-            </String>
+operation enabled or disabled is determined.</String>
           </Annotation>
         </Member>
         <Member Name="PermissionChange" Value="16">
@@ -770,11 +769,13 @@ one or multiple target properties (v2) or annotation of target entities (v4). Up
         <Annotation Term="Core.LongDescription">
           <String>
             Function import has two parameters of complex types:
-            - "parameters", a structure resembling the entity type the parameter entity set related to the entity set of the annotated property
-            - "properties", a structure resembling the type of the entity set of the annotated property
-            
+
+            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property
+
+            - `properties`, a structure resembling the type of the entity set of the annotated property
+
             The return type must be of the same type as the annotated property.
-            
+
             Arguments passed to the function import are used as context for deriving the default value. 
             The function import returns this default value, or null in case such a value could not be determined.
           </String>
@@ -793,9 +794,11 @@ one or multiple target properties (v2) or annotation of target entities (v4). Up
         <Annotation Term="Core.LongDescription">
           <String>
             Function import has two parameters of complex types:
-            - "parameters", a structure resembling the entity type the parameter
+
+            - `parameters`, a structure resembling the entity type the parameter
             entity set related to the entity set of the annotated property
-            - "properties", a structure resembling the
+
+            - `properties`, a structure resembling the
             type of the entity set of the annotated property
 
             The return type must be of the same type as the annotated
@@ -808,10 +811,11 @@ one or multiple target properties (v2) or annotation of target entities (v4). Up
       </Term>
 
       <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" AppliesTo="EntitySet EntityType">
-        <Annotation Term="Core.Description">
-          <String>List of sort criteria. The Items of the annotated EntitySet or the Items of the 
-          collection of the annotated EntityType are sorted by the first entry of the SortOrder collection. 
-          Items with same value for this first sort criteria are sorted by the second entry of the SortOrder Collection, and so on. </String>
+        <Annotation Term="Core.Description" String="List of sort criteria" />
+        <Annotation Term="Core.LongDescription">
+          <String>The items of the annotated entity set or the items of the 
+          collection of the annotated entity type are sorted by the first entry of the SortOrder collection. 
+          Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </String>
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">

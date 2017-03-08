@@ -111,7 +111,7 @@ Property|Type|Description
 [Title](UI.xml#L225)|String|Title of the data point
 [Description](UI.xml#L229)|String|Short description
 [LongDescription](UI.xml#L233)|String|Full description
-[Value](UI.xml#L237)|PrimitiveType|Numeric value<p>It could be annotated with either UoM.ISOCurrency or UoM.Unit. Percentage values are annotated with UoM.Unit = '%'. A renderer should take an optional Common.Text annotation into consideration.</p>
+[Value](UI.xml#L237)|PrimitiveType|Numeric value<p>               It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`.               Percentage values are annotated with `UoM.Unit = '%'`.               A renderer should take an optional `Common.Text` annotation into consideration.             </p>
 [TargetValue](UI.xml#L247)|PrimitiveType|Target value
 [ForecastValue](UI.xml#L250)|PrimitiveType|Forecast value
 [MinimumValue](UI.xml#L253)|Decimal|Minimum value (for output rendering)
