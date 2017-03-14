@@ -233,9 +233,9 @@
           <Annotation Term="Core.Description" String="Numeric value"/>
           <Annotation Term="Core.LongDescription">
             <String>
-              It could be annotated with either UoM.ISOCurrency or UoM.Unit.
-              Percentage values are annotated with UoM.Unit = '%'.
-              A renderer should take an optional Common.Text annotation into consideration.
+              It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`.
+              Percentage values are annotated with `UoM.Unit = '%'`.
+              A renderer should take an optional `Common.Text` annotation into consideration.
             </String>
           </Annotation>
         </Property>

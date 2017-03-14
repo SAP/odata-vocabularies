@@ -338,7 +338,7 @@ Common Vocabulary</h1>
 <td align="left">DerivedDefaultValue</td>
 <td align="left">String</td>
 <td align="left">
-<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>Function import has two parameters of complex types: - "parameters", a structure resembling the entity type the parameter entity set related to the entity set of the annotated property - "properties", a structure resembling the type of the entity set of the annotated property The return type must be of the same type as the annotated property. Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br>            - <code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br>            - <code>properties</code>, a structure resembling the type of the entity set of the annotated property<br>            The return type must be of the same type as the annotated property.<br>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
 </td>
 </tr>
 <tr>
@@ -351,14 +351,15 @@ Common Vocabulary</h1>
 <td align="left">DerivedFilterDefaultValue</td>
 <td align="left">String</td>
 <td align="left">
-<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>Function import has two parameters of complex types: - "parameters", a structure resembling the entity type the parameter entity set related to the entity set of the annotated property - "properties", a structure resembling the type of the entity set of the annotated property The return type must be of the same type as the annotated property. Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br>            - <code>parameters</code>, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br>            - <code>properties</code>, a structure resembling the             type of the entity set of the annotated property<br>            The return type must be of the same type as the annotated             property.<br>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
 </td>
 </tr>
 <tr>
 <td align="left">SortOrder</td>
 <td align="left">[<a href="#SortOrderType">SortOrderType</a>]</td>
 <td align="left">
-<a name="SortOrder"></a>List of sort criteria. The Items of the annotated EntitySet or the Items of the collection of the annotated EntityType are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder Collection, and so on.</td>
+<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the            collection of the annotated entity type are sorted by the first entry of the SortOrder collection.            Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </p>
+</td>
 </tr>
 <tr>
 <td align="left">RecursiveHierarchy</td>
@@ -605,12 +606,14 @@ Common Vocabulary</h1>
 <tr>
 <td align="left">SearchSupported</td>
 <td align="left">Boolean</td>
-<td align="left">Value list supports the $search query option</td>
+<td align="left">Value list supports the $search query option<p>The value of the target property is used as the search expression instead of in $filter</p>
+</td>
 </tr>
 <tr>
 <td align="left">PresentationVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Alternative representation of a value help, e.g. as a bar chart</td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath</p>
+</td>
 </tr>
 <tr>
 <td align="left">Parameters</td>
@@ -645,7 +648,8 @@ Common Vocabulary</h1>
 <tr>
 <td align="left">PresentationVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Alternative representation of a value help, e.g. as a bar chart</td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
+</td>
 </tr>
 <tr>
 <td align="left">Parameters</td>
@@ -958,7 +962,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <tr>
 <td align="left">ValidationMessage</td>
 <td align="right">1</td>
-<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities.  Thus, a validation request can be sent either in conjunction with or separately after a modifying request.  Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
 </td>
 </tr>
 <tr>

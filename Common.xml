@@ -246,85 +246,80 @@
         </Member>
       </EnumType>
 
-      <!-- End-user messages -->
-      <!-- Under discussion ->
-        <Term Name="ExceptionCategory" Type="Edm.String">
+      <Term Name="ExceptionCategory" Type="Edm.String">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A machine-readable exception category" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <Term Name="Application" Type="Common.ApplicationType">
+      </Term>
+      <Term Name="Application" Type="Common.ApplicationType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="..." />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <ComplexType Name="ApplicationType">
+      </Term>
+      <ComplexType Name="ApplicationType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Component" Type="Edm.String">
-        <Annotation Term="Core.Description" String="Software component of service implementation" />
+          <Annotation Term="Core.Description" String="Software component of service implementation" />
         </Property>
         <Property Name="ServiceRepository" Type="Edm.String">
-        <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="..." />
         </Property>
         <Property Name="ServiceId" Type="Edm.String">
-        <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="..." />
         </Property>
         <Property Name="ServiceVersion" Type="Edm.String">
-        <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="..." />
         </Property>
-        </ComplexType>
-        <Term Name="Timestamp" Type="Edm.DateTimeOffset">
+      </ComplexType>
+      <Term Name="Timestamp" Type="Edm.DateTimeOffset">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="..." />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <Term Name="TransactionId" Type="Edm.String">
+      </Term>
+      <Term Name="TransactionId" Type="Edm.String">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="..." />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <Term Name="ErrorResolution" Type="Common.ErrorResolutionType">
+      </Term>
+      <Term Name="ErrorResolution" Type="Common.ErrorResolutionType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Hints for resolving this error" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <ComplexType Name="ErrorResolutionType">
+      </Term>
+      <ComplexType Name="ErrorResolutionType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Analysis" Type="Edm.String">
-        <Annotation Term="Core.Description" String="Short hint on how to analyze this error" />
+          <Annotation Term="Core.Description" String="Short hint on how to analyze this error" />
         </Property>
         <Property Name="Note" Type="Edm.String">
-        <Annotation Term="Core.Description" String="Note for error resolution" />
+          <Annotation Term="Core.Description" String="Note for error resolution" />
         </Property>
         <Property Name="AdditionalNote" Type="Edm.String">
-        <Annotation Term="Core.Description" String="Additional note for error resolution" />
+          <Annotation Term="Core.Description" String="Additional note for error resolution" />
         </Property>
-        </ComplexType>
-      -->
-      <!-- Under discussion
-        <Term Name="Severity" Type="Common.NotificationSeverity">
+      </ComplexType>
+
+      <Term Name="Severity" Type="Edm.String">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Classifies a notification as info, success, warning, or error" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        </Term>
-        <Term Name="Notification" Type="Common.NotificationType">
-        <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Instance annotation for warning and info notifications" />
-        </Term>
-        <ComplexType Name="NotificationType">
-        <Property Name="code" Type="Edm.String" Nullable="false" />
-        <Property Name="message" Type="Edm.String" Nullable="false">
-        <Annotation Term="Core.IsLanguageDependent" />
-        </Property>
-        <Property Name="severity" Type="Common.NotificationSeverity" Nullable="false" />
-        <Property Name="details" Type="Collection(Common.NotificationDetailType)" />
-        </ComplexType>
-        <ComplexType Name="NotificationDetailType">
-        <Property Name="code" Type="Edm.String" Nullable="false" />
-        <Property Name="message" Type="Edm.String" Nullable="false">
-        <Annotation Term="Core.IsLanguageDependent" />
-        </Property>
-        <Property Name="severity" Type="Common.NotificationSeverity" Nullable="false" />
-        </ComplexType>
-        <EnumType Name="NotificationSeverity">
-        <Member Name="success" />
-        <Member Name="info" />
-        <Member Name="warning" />
-        <Member Name="error" />
-        </EnumType>
-      -->
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="info" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="success" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="warning" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="error" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Term>
 
       <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed" />
