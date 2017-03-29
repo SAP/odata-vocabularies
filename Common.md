@@ -256,6 +256,7 @@ The QualifiedName of an OData construct in scope
 
 ## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L687)
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
+
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
             

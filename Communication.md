@@ -3,6 +3,7 @@
 
 Terms for annotating communication-relevant information
 
+
 These terms are inspired by
 - RFC6350 vCard (http://tools.ietf.org/html/rfc6350)
 - RFC5545 iCalendar (http://tools.ietf.org/html/rfc5545)
