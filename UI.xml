@@ -650,7 +650,6 @@ The trend is
       </Term>
 
       <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
       </Term>
 

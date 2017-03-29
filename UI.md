@@ -23,21 +23,21 @@ Term|Type|Description
 [HeaderFacets](UI.xml#L640)|\[[Facet](#Facet)\]|<a name="HeaderFacets"></a>Facets for additional object header information
 [QuickViewFacets](UI.xml#L644)|\[[Facet](#Facet)\]|<a name="QuickViewFacets"></a>Facets that may be used for a quick overview of the object
 [QuickCreateFacets](UI.xml#L648)|\[[Facet](#Facet)\]|<a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object
-[FilterFacets *(Experimental)*](UI.xml#L652)|\[[ReferenceFacet](#ReferenceFacet)\]|<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields
-[SelectionPresentationVariant](UI.xml#L695)|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
-[PresentationVariant](UI.xml#L719)|[PresentationVariantType](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
-[SelectionVariant](UI.xml#L791)|[SelectionVariantType](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
-[ThingPerspective](UI.xml#L923)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ThingPerspective"></a>This term is a Thing Perspective
-[IsSummary](UI.xml#L926)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSummary"></a>This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
-[PartOfPreview](UI.xml#L931)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This Facet and all included Facets are part of the Thing preview
-[Map](UI.xml#L935)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
-[Gallery](UI.xml#L939)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Gallery"></a>Target MUST reference a UI.MediaResource
-[IsImageURL](UI.xml#L944)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
-[MultiLineText](UI.xml#L950)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
-[TextArrangement](UI.xml#L956)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<p>If used for a single property the Common.Text annotation is annotated</p>
-[Importance](UI.xml#L983)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
-[Hidden](UI.xml#L998)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties annotated with this term will not be rendered at all
-[HiddenFilter](UI.xml#L1002)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria
+[FilterFacets](UI.xml#L652)|\[[ReferenceFacet](#ReferenceFacet)\]|<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields
+[SelectionPresentationVariant](UI.xml#L694)|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
+[PresentationVariant](UI.xml#L718)|[PresentationVariantType](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
+[SelectionVariant](UI.xml#L790)|[SelectionVariantType](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
+[ThingPerspective](UI.xml#L922)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ThingPerspective"></a>This term is a Thing Perspective
+[IsSummary](UI.xml#L925)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSummary"></a>This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
+[PartOfPreview](UI.xml#L930)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This Facet and all included Facets are part of the Thing preview
+[Map](UI.xml#L934)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
+[Gallery](UI.xml#L938)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Gallery"></a>Target MUST reference a UI.MediaResource
+[IsImageURL](UI.xml#L943)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image
+[MultiLineText](UI.xml#L949)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
+[TextArrangement](UI.xml#L955)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<p>If used for a single property the Common.Text annotation is annotated</p>
+[Importance](UI.xml#L982)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
+[Hidden](UI.xml#L997)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties annotated with this term will not be rendered at all
+[HiddenFilter](UI.xml#L1001)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L36)
 
@@ -168,6 +168,7 @@ Member|Value|Description
 ## <a name="CriticalityCalculationType"></a>[CriticalityCalculationType](UI.xml#L355): [CriticalityThresholdsType](#CriticalityThresholdsType)
 Describes how to calculate the criticality of a value depending on the improvement direction
 
+
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
 For improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be
@@ -256,6 +257,7 @@ Member|Value|Description
 
 ## <a name="TrendCalculationType"></a>[TrendCalculationType](UI.xml#L458)
 Describes how to calculate the trend of a value
+
 
 By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
 If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.
@@ -383,7 +385,7 @@ Member|Value|Description
 [Axis2](UI.xml#L624)|1|
 [Axis3](UI.xml#L625)|2|
 
-## <a name="Facet"></a>[*Facet*](UI.xml#L657)
+## <a name="Facet"></a>[*Facet*](UI.xml#L656)
 Abstract base type for facets
 
 **Derived Types:**
@@ -393,163 +395,163 @@ Abstract base type for facets
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](UI.xml#L659)|String|Facet label
-[ID](UI.xml#L663)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
+[Label](UI.xml#L658)|String|Facet label
+[ID](UI.xml#L662)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
 
-## <a name="CollectionFacet"></a>[CollectionFacet](UI.xml#L668): [Facet](#Facet)
+## <a name="CollectionFacet"></a>[CollectionFacet](UI.xml#L667): [Facet](#Facet)
 Collection of facets
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L659)|String|Facet label
-[*ID*](UI.xml#L663)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Facets](UI.xml#L670)|\[[Facet](#Facet)\]|Nested facets. An empty collection may be used as a placeholder for content added via extension points.
+[*Label*](UI.xml#L658)|String|Facet label
+[*ID*](UI.xml#L662)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
+[Facets](UI.xml#L669)|\[[Facet](#Facet)\]|Nested facets. An empty collection may be used as a placeholder for content added via extension points.
 
-## <a name="ReferenceFacet"></a>[ReferenceFacet](UI.xml#L675): [Facet](#Facet)
+## <a name="ReferenceFacet"></a>[ReferenceFacet](UI.xml#L674): [Facet](#Facet)
 Facet that refers to a thing perspective, e.g. LineItem
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L659)|String|Facet label
-[*ID*](UI.xml#L663)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Target](UI.xml#L677)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge
+[*Label*](UI.xml#L658)|String|Facet label
+[*ID*](UI.xml#L662)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
+[Target](UI.xml#L676)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge
 
-## <a name="ReferenceURLFacet"></a>[ReferenceURLFacet](UI.xml#L682): [Facet](#Facet)
+## <a name="ReferenceURLFacet"></a>[ReferenceURLFacet](UI.xml#L681): [Facet](#Facet)
 Facet that refers to a URL
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L659)|String|Facet label
-[*ID*](UI.xml#L663)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Url](UI.xml#L684)|URL|URL of referenced information
-[UrlContentType](UI.xml#L688)|MediaType|Media type of referenced information
+[*Label*](UI.xml#L658)|String|Facet label
+[*ID*](UI.xml#L662)|String|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
+[Url](UI.xml#L683)|URL|URL of referenced information
+[UrlContentType](UI.xml#L687)|MediaType|Media type of referenced information
 
-## <a name="SelectionPresentationVariantType"></a>[SelectionPresentationVariantType](UI.xml#L701)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[ID](UI.xml#L702)|String|Optional identifier to reference this variant from an external context
-[Text](UI.xml#L707)|String|Name of the bundling variant
-[SelectionVariant](UI.xml#L711)|[SelectionVariantType](#SelectionVariantType)|Selection variant, either specified inline or referencing another annotation via Path
-[PresentationVariant](UI.xml#L714)|[PresentationVariantType](#PresentationVariantType)|Presentation variant, either specified inline or referencing another annotation via Path
-
-## <a name="PresentationVariantType"></a>[PresentationVariantType](UI.xml#L724)
+## <a name="SelectionPresentationVariantType"></a>[SelectionPresentationVariantType](UI.xml#L700)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ID](UI.xml#L725)|String|Optional identifier to reference this variant from an external context
-[Text](UI.xml#L728)|String|Name of the presentation variant
-[MaxItems](UI.xml#L732)|Int32|Maximum number of items that should be included in the result
-[SortOrder](UI.xml#L735)|\[[SortOrderType](Common.md#SortOrderType)\]|Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path
-[GroupBy](UI.xml#L739)|\[PropertyPath\]|Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with InitialExpansionLevel.
-[TotalBy](UI.xml#L748)|\[PropertyPath\]|Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.
-[Total](UI.xml#L755)|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
-[IncludeGrandTotal](UI.xml#L760)|Boolean|Result should include a grand total for the properties specified in Total
-[InitialExpansionLevel](UI.xml#L763)|Int32|Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
-[Visualizations](UI.xml#L769)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
-[RequestAtLeast](UI.xml#L779)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
-[SelectionFields *(Experimental)*](UI.xml#L782)|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
+[ID](UI.xml#L701)|String|Optional identifier to reference this variant from an external context
+[Text](UI.xml#L706)|String|Name of the bundling variant
+[SelectionVariant](UI.xml#L710)|[SelectionVariantType](#SelectionVariantType)|Selection variant, either specified inline or referencing another annotation via Path
+[PresentationVariant](UI.xml#L713)|[PresentationVariantType](#PresentationVariantType)|Presentation variant, either specified inline or referencing another annotation via Path
 
-## <a name="SelectionVariantType"></a>[SelectionVariantType](UI.xml#L796)
+## <a name="PresentationVariantType"></a>[PresentationVariantType](UI.xml#L723)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ID](UI.xml#L797)|String|May contain identifier to reference this instance from an external context
-[Text](UI.xml#L802)|String|Name of the selection variant
-[Parameters](UI.xml#L806)|\[[ParameterAbstract](#ParameterAbstract)\]|Parameters of the selection variant
-[FilterExpression](UI.xml#L809)|String|Filter string for query part of URL, without '$filter ='
-[SelectOptions](UI.xml#L814)|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
+[ID](UI.xml#L724)|String|Optional identifier to reference this variant from an external context
+[Text](UI.xml#L727)|String|Name of the presentation variant
+[MaxItems](UI.xml#L731)|Int32|Maximum number of items that should be included in the result
+[SortOrder](UI.xml#L734)|\[[SortOrderType](Common.md#SortOrderType)\]|Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path
+[GroupBy](UI.xml#L738)|\[PropertyPath\]|Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with InitialExpansionLevel.
+[TotalBy](UI.xml#L747)|\[PropertyPath\]|Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.
+[Total](UI.xml#L754)|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
+[IncludeGrandTotal](UI.xml#L759)|Boolean|Result should include a grand total for the properties specified in Total
+[InitialExpansionLevel](UI.xml#L762)|Int32|Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
+[Visualizations](UI.xml#L768)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
+[RequestAtLeast](UI.xml#L778)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
+[SelectionFields *(Experimental)*](UI.xml#L781)|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
 
-## <a name="ParameterAbstract"></a>[*ParameterAbstract*](UI.xml#L821)
+## <a name="SelectionVariantType"></a>[SelectionVariantType](UI.xml#L795)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ID](UI.xml#L796)|String|May contain identifier to reference this instance from an external context
+[Text](UI.xml#L801)|String|Name of the selection variant
+[Parameters](UI.xml#L805)|\[[ParameterAbstract](#ParameterAbstract)\]|Parameters of the selection variant
+[FilterExpression](UI.xml#L808)|String|Filter string for query part of URL, without '$filter ='
+[SelectOptions](UI.xml#L813)|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
+
+## <a name="ParameterAbstract"></a>[*ParameterAbstract*](UI.xml#L820)
 Key property of a parameter entity type
 
 **Derived Types:**
 - [Parameter](#Parameter)
 - [IntervalParameter](#IntervalParameter)
 
-## <a name="Parameter"></a>[Parameter](UI.xml#L824): [ParameterAbstract](#ParameterAbstract)
+## <a name="Parameter"></a>[Parameter](UI.xml#L823): [ParameterAbstract](#ParameterAbstract)
 Single-valued parameter
 
 Property|Type|Description
 :-------|:---|:----------
-[PropertyName](UI.xml#L826)|PropertyPath|Path to a key property of a parameter entity type
-[PropertyValue](UI.xml#L829)|PrimitiveType|Value for the key property
+[PropertyName](UI.xml#L825)|PropertyPath|Path to a key property of a parameter entity type
+[PropertyValue](UI.xml#L828)|PrimitiveType|Value for the key property
 
-## <a name="IntervalParameter"></a>[IntervalParameter](UI.xml#L833): [ParameterAbstract](#ParameterAbstract)
+## <a name="IntervalParameter"></a>[IntervalParameter](UI.xml#L832): [ParameterAbstract](#ParameterAbstract)
 Interval parameter formed with a 'from' and a 'to' property
 
 Property|Type|Description
 :-------|:---|:----------
-[PropertyNameFrom](UI.xml#L835)|PropertyPath|Path to the 'from' property of a parameter entity type
-[PropertyValueFrom](UI.xml#L838)|PrimitiveType|Value for the 'from' property
-[PropertyNameTo](UI.xml#L841)|PropertyPath|Path to the 'to' property of a parameter entity type
-[PropertyValueTo](UI.xml#L844)|PrimitiveType|Value for the 'to' property
+[PropertyNameFrom](UI.xml#L834)|PropertyPath|Path to the 'from' property of a parameter entity type
+[PropertyValueFrom](UI.xml#L837)|PrimitiveType|Value for the 'from' property
+[PropertyNameTo](UI.xml#L840)|PropertyPath|Path to the 'to' property of a parameter entity type
+[PropertyValueTo](UI.xml#L843)|PrimitiveType|Value for the 'to' property
 
-## <a name="SelectOptionType"></a>[SelectOptionType](UI.xml#L849)
+## <a name="SelectOptionType"></a>[SelectOptionType](UI.xml#L848)
 List of value ranges for a single property
 
 Property|Type|Description
 :-------|:---|:----------
-[PropertyName](UI.xml#L851)|PropertyPath|Path to the property
-[Ranges](UI.xml#L854)|\[[SelectionRangeType](#SelectionRangeType)\]|List of value ranges
+[PropertyName](UI.xml#L850)|PropertyPath|Path to the property
+[Ranges](UI.xml#L853)|\[[SelectionRangeType](#SelectionRangeType)\]|List of value ranges
 
-## <a name="SelectionRangeType"></a>[SelectionRangeType](UI.xml#L859)
+## <a name="SelectionRangeType"></a>[SelectionRangeType](UI.xml#L858)
 Value range. If the range option only requires a single value, the value must be in the property Low
 
 Property|Type|Description
 :-------|:---|:----------
-[Sign](UI.xml#L863)|[SelectionRangeSignType](#SelectionRangeSignType)|Include or exclude values
-[Option](UI.xml#L866)|[SelectionRangeOptionType](#SelectionRangeOptionType)|Comparison operator
-[Low](UI.xml#L869)|PrimitiveType|Single value or lower interval boundary
-[High](UI.xml#L872)|PrimitiveType|Upper interval boundary
+[Sign](UI.xml#L862)|[SelectionRangeSignType](#SelectionRangeSignType)|Include or exclude values
+[Option](UI.xml#L865)|[SelectionRangeOptionType](#SelectionRangeOptionType)|Comparison operator
+[Low](UI.xml#L868)|PrimitiveType|Single value or lower interval boundary
+[High](UI.xml#L871)|PrimitiveType|Upper interval boundary
 
-## <a name="SelectionRangeSignType"></a>[SelectionRangeSignType](UI.xml#L877)
+## <a name="SelectionRangeSignType"></a>[SelectionRangeSignType](UI.xml#L876)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[I](UI.xml#L878)|0|Inclusive
-[E](UI.xml#L881)|1|Exclusive
+[I](UI.xml#L877)|0|Inclusive
+[E](UI.xml#L880)|1|Exclusive
 
-## <a name="SelectionRangeOptionType"></a>[SelectionRangeOptionType](UI.xml#L886)
+## <a name="SelectionRangeOptionType"></a>[SelectionRangeOptionType](UI.xml#L885)
 Comparison operator
 
 Member|Value|Description
 :-----|----:|:----------
-[EQ](UI.xml#L888)|0|Equal to
-[BT](UI.xml#L891)|1|Between
-[CP](UI.xml#L894)|2|Contains pattern
-[LE](UI.xml#L897)|3|Less than or equal to
-[GE](UI.xml#L900)|4|Greater than or equal to
-[NE](UI.xml#L903)|5|Not equal to
-[NB](UI.xml#L906)|6|Not between
-[NP](UI.xml#L909)|7|Does not contain pattern
-[GT](UI.xml#L912)|8|Greater than
-[LT](UI.xml#L915)|9|Less than
+[EQ](UI.xml#L887)|0|Equal to
+[BT](UI.xml#L890)|1|Between
+[CP](UI.xml#L893)|2|Contains pattern
+[LE](UI.xml#L896)|3|Less than or equal to
+[GE](UI.xml#L899)|4|Greater than or equal to
+[NE](UI.xml#L902)|5|Not equal to
+[NB](UI.xml#L905)|6|Not between
+[NP](UI.xml#L908)|7|Does not contain pattern
+[GT](UI.xml#L911)|8|Greater than
+[LT](UI.xml#L914)|9|Less than
 
-## <a name="TextArrangementType"></a>[TextArrangementType](UI.xml#L960)
-
-
-Member|Value|Description
-:-----|----:|:----------
-[TextFirst](UI.xml#L961)|0|Text is first, followed by the code/ID (e.g. in parentheses)
-[TextLast](UI.xml#L964)|1|Code/ID is first, followed by the text (e.g. separated by a dash)
-[TextSeparate](UI.xml#L967)|2|Code/ID and text are represented separately
-[TextOnly](UI.xml#L970)|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
-
-## <a name="ImportanceType"></a>[ImportanceType](UI.xml#L986)
+## <a name="TextArrangementType"></a>[TextArrangementType](UI.xml#L959)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[High](UI.xml#L987)|0|High importance
-[Medium](UI.xml#L990)|1|Medium importance
-[Low](UI.xml#L993)|2|Low importance
+[TextFirst](UI.xml#L960)|0|Text is first, followed by the code/ID (e.g. in parentheses)
+[TextLast](UI.xml#L963)|1|Code/ID is first, followed by the text (e.g. separated by a dash)
+[TextSeparate](UI.xml#L966)|2|Code/ID and text are represented separately
+[TextOnly](UI.xml#L969)|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
 
-## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](UI.xml#L1006)
+## <a name="ImportanceType"></a>[ImportanceType](UI.xml#L985)
+
+
+Member|Value|Description
+:-----|----:|:----------
+[High](UI.xml#L986)|0|High importance
+[Medium](UI.xml#L989)|1|Medium importance
+[Low](UI.xml#L992)|2|Low importance
+
+## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](UI.xml#L1005)
 
 
 **Derived Types:**
@@ -565,31 +567,31 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[Criticality](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[CriticalityRepresentation](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[IconUrl](UI.xml#L1017)|URL|Optional icon to decorate the value
+[Label](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[Criticality](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[CriticalityRepresentation](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[IconUrl](UI.xml#L1016)|URL|Optional icon to decorate the value
 
-## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](UI.xml#L1023)
+## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](UI.xml#L1022)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[WithIcon](UI.xml#L1024)|0|Criticality is represented with an icon
-[WithoutIcon](UI.xml#L1027)|1|Criticality is represented without icon, e.g. only via text color
+[WithIcon](UI.xml#L1023)|0|Criticality is represented with an icon
+[WithoutIcon](UI.xml#L1026)|1|Criticality is represented without icon, e.g. only via text color
 
-## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](UI.xml#L1032): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](UI.xml#L1031): [DataFieldAbstract](#DataFieldAbstract)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[Target](UI.xml#L1033)|AnnotationPath|Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[Target](UI.xml#L1032)|AnnotationPath|Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart
 
-## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1039): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1038): [DataFieldAbstract](#DataFieldAbstract)
 Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 
 **Derived Types:**
@@ -598,51 +600,51 @@ Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[Inline](UI.xml#L1041)|Boolean|Action should be placed close to (or even inside) the visualized term
-[Determining](UI.xml#L1044)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[Inline](UI.xml#L1040)|Boolean|Action should be placed close to (or even inside) the visualized term
+[Determining](UI.xml#L1043)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 
-## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1049): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1048): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 The action is NOT tied to a data value (in contrast to DataFieldWithAction)
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Inline*](UI.xml#L1041)|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](UI.xml#L1044)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](UI.xml#L1051)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
-[InvocationGrouping](UI.xml#L1054)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Inline*](UI.xml#L1040)|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](UI.xml#L1043)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[Action](UI.xml#L1050)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[InvocationGrouping](UI.xml#L1053)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
-## <a name="OperationGroupingType"></a>[OperationGroupingType](UI.xml#L1058)
+## <a name="OperationGroupingType"></a>[OperationGroupingType](UI.xml#L1057)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Isolated](UI.xml#L1059)|0|
-[ChangeSet](UI.xml#L1060)|1|
+[Isolated](UI.xml#L1058)|0|
+[ChangeSet](UI.xml#L1059)|1|
 
-## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](UI.xml#L1063): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](UI.xml#L1062): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Inline*](UI.xml#L1041)|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](UI.xml#L1044)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[SemanticObject](UI.xml#L1066)|String|Name of the Semantic Object
-[Action](UI.xml#L1069)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[RequiresContext](UI.xml#L1073)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Inline*](UI.xml#L1040)|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](UI.xml#L1043)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[SemanticObject](UI.xml#L1065)|String|Name of the Semantic Object
+[Action](UI.xml#L1068)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[RequiresContext](UI.xml#L1072)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
 
-## <a name="DataField"></a>[DataField](UI.xml#L1078): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataField"></a>[DataField](UI.xml#L1077): [DataFieldAbstract](#DataFieldAbstract)
 
 
 **Derived Types:**
@@ -653,58 +655,58 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[Value](UI.xml#L1079)|PrimitiveType|Value of the data field value
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[Value](UI.xml#L1078)|PrimitiveType|Value of the data field value
 
-## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1085): [DataField](#DataField)
+## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1084): [DataField](#DataField)
 The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1079)|PrimitiveType|Value of the data field value
-[Action](UI.xml#L1088)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1078)|PrimitiveType|Value of the data field value
+[Action](UI.xml#L1087)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
-## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1093): [DataField](#DataField)
+## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1092): [DataField](#DataField)
 The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1079)|PrimitiveType|Value of the data field value
-[SemanticObject](UI.xml#L1096)|String|Name of the Semantic Object
-[Action](UI.xml#L1099)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1078)|PrimitiveType|Value of the data field value
+[SemanticObject](UI.xml#L1095)|String|Name of the Semantic Object
+[Action](UI.xml#L1098)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
-## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1105): [DataField](#DataField)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1079)|PrimitiveType|Value of the data field value
-[Target](UI.xml#L1106)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
-
-## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1113): [DataField](#DataField)
+## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1104): [DataField](#DataField)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1007)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1011)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1014)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1017)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1079)|PrimitiveType|Value of the data field value
-[Url](UI.xml#L1114)|URL|Target of the hyperlink
-[UrlContentType](UI.xml#L1118)|MediaType|Media type of the hyperlink target, e.g. `videp/mp4`
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1078)|PrimitiveType|Value of the data field value
+[Target](UI.xml#L1105)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+
+## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1112): [DataField](#DataField)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](UI.xml#L1006)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1010)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1013)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1016)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1078)|PrimitiveType|Value of the data field value
+[Url](UI.xml#L1113)|URL|Target of the hyperlink
+[UrlContentType](UI.xml#L1117)|MediaType|Media type of the hyperlink target, e.g. `videp/mp4`

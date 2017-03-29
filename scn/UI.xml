@@ -597,7 +597,9 @@ The trend is
         <Annotation Term="Core.Description" String="Facets that may be used for a (quick) create of the object"/>
       </Term>
 
-      
+      <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields"/>
+      </Term>
 
       <ComplexType Name="Facet" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract base type for facets"/>

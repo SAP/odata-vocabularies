@@ -118,6 +118,12 @@ UI Vocabulary</h1>
 <a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object</td>
 </tr>
 <tr>
+<td align="left">FilterFacets</td>
+<td align="left">[<a href="#ReferenceFacet">ReferenceFacet</a>]</td>
+<td align="left">
+<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields</td>
+</tr>
+<tr>
 <td align="left">SelectionPresentationVariant</td>
 <td align="left"><a href="#SelectionPresentationVariantType">SelectionPresentationVariantType</a></td>
 <td align="left">
