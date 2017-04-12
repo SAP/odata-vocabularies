@@ -151,10 +151,34 @@
       </Term>
 
       <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term Common.Masking instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
         </Annotation>
       </Term>
+
+      <Term Name="Masking" Type="Common.MaskingType" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property contains sensitive data that should be masked on UIs" />
+      </Term>
+      <ComplexType Name="MaskingType">
+        <Annotation Term="Core.Description" String="Describes masking behavior for sensitive data" />
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Value" Type="Edm.PrimitiveType">
+          <Annotation Term="Core.Description"
+            String="Replacement value that should be visible on a UI instead of the actual value of the masked property" />
+        </Property>
+        <Property Name="Always" Type="Edm.Boolean" DefaultValue="true">
+          <Annotation Term="Core.Description" String="If false, the property value is initially masked and can be unmasked on user interaction" />
+        </Property>
+      </ComplexType>
 
       <Term Name="SemanticObject" Type="Edm.String" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property" />
