@@ -557,7 +557,7 @@ The trend is
       <ComplexType Name="ChartMeasureAttributeType">
         <Property Name="Measure" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartMeasureRoleType"/>
-        <Property Name="DataPoint" Type="Edm.AnnotationPath" Nullable="true">
+        <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure"/>
         </Property>
       </ComplexType>

@@ -191,7 +191,7 @@
           String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
-        <Annotation Term="Common.imental" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
         <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">

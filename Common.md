@@ -92,7 +92,7 @@ Property|Type|Description
 [Value](Common.xml#L174)|PrimitiveType|Replacement value that should be visible on a UI instead of the actual value of the masked property
 [Always](Common.xml#L178)|Boolean|If false, the property value is initially masked and can be unmasked on user interaction
 
-## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](Common.xml#L193)
+## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](Common.xml#L193) *(Experimental)*
 Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object
 
 Property|Type|Description

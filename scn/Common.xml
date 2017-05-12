@@ -146,25 +146,27 @@
       </Term>
 
       <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Use term Common.Masking instead"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
         </Annotation>
       </Term>
 
+      
+      
+
       <Term Name="SemanticObject" Type="Edm.String" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property"/>
       </Term>
       
-      <ComplexType Name="SemanticObjectMappingType">
-        <Annotation Term="Common.imental"/>
-        <Annotation Term="Core.Description" String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object"/>
-        <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to a local property that provides the value for the Semantic Object property"/>
-        </Property>
-        <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the Semantic Object property"/>
-        </Property>
-      </ComplexType>
+      
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>
