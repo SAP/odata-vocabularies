@@ -22,6 +22,8 @@
         </Collection>
       </Annotation>
 
+      
+
       <!-- Section: Versioning -->
       <Term Name="ServiceVersion" Type="Edm.Int32" AppliesTo="Schema">
         <Annotation Term="Core.Description" String="1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI"/>

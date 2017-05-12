@@ -23,6 +23,13 @@
         </Collection>
       </Annotation>
 
+      <Term Name="Experimental" Type="Core.Tag" DefaultValue="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description">
+          <String>Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning</String>
+        </Annotation>
+      </Term>
+
       <!-- Section: Versioning -->
       <Term Name="ServiceVersion" Type="Edm.Int32" AppliesTo="Schema">
         <Annotation Term="Core.Description"
