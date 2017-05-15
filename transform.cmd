@@ -60,6 +60,7 @@ exit /b
     rem TODO: replace SED with almost-identity transformation
     sed.exe -e "s/<a name=\"user-content-/^<a name=\"/g" ^
             -e "s/<span aria-hidden=\"true\" class=\"octicon octicon-link\"><\/span>//g" ^
+            -e "s/<br>/<br\/>/g" ^
             -e "s/<a href=\"Org\.OData\./^<a href=\"https:\/\/github.com\/oasis-tcs\/odata-vocabularies\/blob\/master\/vocabularies\/Org\.OData\./g" ^
             -e "s/<a id=\"user-content-[[:alpha:]-]\+\" class=\"anchor\" href=\"#[[:alpha:]-]\+\" aria-hidden=\"true\"><\/a>//g" ^
             -e "s/\"Analytics\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/462030211\/Analytics.xml?api=v2\"/g" ^
