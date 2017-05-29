@@ -237,6 +237,14 @@
 
       <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
+            </Record>
+          </Collection>
+        </Annotation>
       </Term>
       <ComplexType Name="FilterExpressionRestrictionType">
         <Property Name="Property" Type="Edm.PropertyPath" />

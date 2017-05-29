@@ -16,7 +16,7 @@ Term|Type|Description
 [Contacts](UI.xml#L159)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<p>Each collection item MUST reference an annotation of a Communication.Contact</p>
 [MediaResource](UI.xml#L165)|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
 [DataPoint](UI.xml#L219)|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
-[KPI *(Experimental)*](UI.xml#L492)|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
+[KPI](UI.xml#L492) *(Experimental)*|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
 [Chart](UI.xml#L527)|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
 [SelectionFields](UI.xml#L628)|\[PropertyPath\]|<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type
 [Facets](UI.xml#L636)|\[[Facet](#Facet)\]|<a name="Facets"></a>Collection of facets
@@ -121,7 +121,7 @@ Property|Type|Description
 [SampleSize](UI.xml#L265)|PrimitiveType|Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
 [ReferencePeriod](UI.xml#L272)|[ReferencePeriod](#ReferencePeriod)|Reference period
 [Criticality](UI.xml#L275)|[CriticalityType](#CriticalityType)|Service-calculated criticality, alternative to CriticalityCalculation
-[CriticalityRepresentation *(Experimental)*](UI.xml#L278)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[CriticalityRepresentation](UI.xml#L278) *(Experimental)*|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [CriticalityCalculation](UI.xml#L282)|[CriticalityCalculationType](#CriticalityCalculationType)|Parameters for client-calculated criticality, alternative to Criticality
 [Trend](UI.xml#L285)|[TrendType](#TrendType)|Service-calculated trend, alternative to TrendCalculation
 [TrendCalculation](UI.xml#L288)|[TrendCalculationType](#TrendCalculationType)|Parameters for client-calculated trend, alternative to Trend
@@ -204,7 +204,7 @@ Property|Type|Description
 [*DeviationRangeLowValue*](UI.xml#L410)|PrimitiveType|Lowest value that is considered critical
 [*DeviationRangeHighValue*](UI.xml#L413)|PrimitiveType|Highest value that is considered critical
 [ImprovementDirection](UI.xml#L385)|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
-[ConstantThresholds *(Experimental)*](UI.xml#L388)|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values<p>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.</p>
+[ConstantThresholds](UI.xml#L388) *(Experimental)*|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values<p>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.</p>
 
 ## <a name="CriticalityThresholdsType"></a>[CriticalityThresholdsType](UI.xml#L396)
 Thresholds for calculating the criticality of a value
@@ -452,7 +452,7 @@ Property|Type|Description
 [InitialExpansionLevel](UI.xml#L762)|Int32|Initial number of levels to expand in a hierarchy defined for the queried collection. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
 [Visualizations](UI.xml#L768)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
 [RequestAtLeast](UI.xml#L778)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
-[SelectionFields *(Experimental)*](UI.xml#L781)|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
+[SelectionFields](UI.xml#L781) *(Experimental)*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
 
 ## <a name="SelectionVariantType"></a>[SelectionVariantType](UI.xml#L795)
 
