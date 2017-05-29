@@ -20,7 +20,7 @@ Term|Type|Description
 [MaxOccurs](Common.xml#L143)|Int64|<a name="MaxOccurs"></a>The annotated set or collection contains at most this number of items
 [AssociationEntity](Common.xml#L147)|\[NavigationPropertyPath\]|<a name="AssociationEntity"></a>Entity representing an n:m association with attributes
 [DerivedNavigation](Common.xml#L154)|NavigationPropertyPath|<a name="DerivedNavigation"></a>Shortcut for a multi-segment navigation, contains the long path with all its segments
-[Masked](Common.xml#L160) *(Deprecated)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Masked"></a>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction
+[Masked](Common.xml#L160) *(Deprecated)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Masked"></a>Use term Common.Masking instead
 [Masking](Common.xml#L174) *(Experimental)*|[MaskingType](#MaskingType)|<a name="Masking"></a>Property contains sensitive data that should be masked on UIs
 [SemanticObject](Common.xml#L190)|String|<a name="SemanticObject"></a>Name of the Semantic Object represented as this entity type or identified by this property
 [SemanticObjectMapping](Common.xml#L195) *(Experimental)*|\[[SemanticObjectMappingType](#SemanticObjectMappingType)\]|<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object
@@ -28,7 +28,7 @@ Term|Type|Description
 [Insertable](Common.xml#L217)|Boolean|<a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)
 [Updatable](Common.xml#L224)|Boolean|<a name="Updatable"></a>Specifies whether the annotated entity can be updated
 [Deletable](Common.xml#L231)|Boolean|<a name="Deletable"></a>Specifies whether the annotated entity can be deleted
-[FilterExpressionRestrictions](Common.xml#L238) *(Deprecated)*|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|<a name="FilterExpressionRestrictions"></a>These properties only allow a subset of expressions
+[FilterExpressionRestrictions](Common.xml#L238) *(Deprecated)*|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|<a name="FilterExpressionRestrictions"></a>Use term Capabilities.FilterRestrictions instead
 [FieldControl](Common.xml#L266)|[FieldControlType](#FieldControlType)|<a name="FieldControl"></a>Control state of a property
 [ExceptionCategory](Common.xml#L288) *(Experimental)*|String|<a name="ExceptionCategory"></a>A machine-readable exception category
 [Application](Common.xml#L293) *(Experimental)*|[ApplicationType](#ApplicationType)|<a name="Application"></a>...
