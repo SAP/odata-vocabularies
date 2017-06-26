@@ -929,8 +929,8 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered at all"/>
+      <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Record">
+        <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true"/>
       </Term>
 
       <Term Name="HiddenFilter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">

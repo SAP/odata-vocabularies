@@ -159,6 +159,7 @@
 
       <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Revisions">
+          <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />

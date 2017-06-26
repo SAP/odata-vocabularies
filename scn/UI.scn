@@ -200,7 +200,7 @@ UI Vocabulary</h1>
 <td align="left">Hidden</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
 <td align="left">
-<a name="Hidden"></a>Properties annotated with this term will not be rendered at all</td>
+<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true</td>
 </tr>
 <tr>
 <td align="left">HiddenFilter</td>

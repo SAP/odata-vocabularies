@@ -148,14 +148,7 @@
       </Term>
 
       <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Use term Common.Masking instead"/>
-            </Record>
-          </Collection>
-        </Annotation>
+        
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
         </Annotation>
@@ -197,6 +190,14 @@
 
       <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="These properties only allow a subset of expressions"/>
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead"/>
+            </Record>
+          </Collection>
+        </Annotation>
       </Term>
       <ComplexType Name="FilterExpressionRestrictionType">
         <Property Name="Property" Type="Edm.PropertyPath"/>

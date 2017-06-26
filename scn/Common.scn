@@ -135,10 +135,11 @@ Common Vocabulary</h1>
 <a name="Deletable"></a>Specifies whether the annotated entity can be deleted</td>
 </tr>
 <tr>
-<td align="left">FilterExpressionRestrictions</td>
+<td align="left">FilterExpressionRestrictions <em>(Deprecated)</em>
+</td>
 <td align="left">[<a href="#FilterExpressionRestrictionType">FilterExpressionRestrictionType</a>]</td>
 <td align="left">
-<a name="FilterExpressionRestrictions"></a>These properties only allow a subset of expressions</td>
+<a name="FilterExpressionRestrictions"></a>Use term Capabilities.FilterRestrictions instead</td>
 </tr>
 <tr>
 <td align="left">FieldControl</td>
