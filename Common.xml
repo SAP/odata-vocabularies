@@ -443,7 +443,7 @@
           <Annotation Term="Core.LongDescription"
             String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath" />
         </Property>
-        <Property Name="Parameters" Type="Collection(Common.ValueListParameter)">
+        <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
       </ComplexType>
@@ -478,7 +478,7 @@
           <Annotation Term="Core.LongDescription"
             String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
         </Property>
-        <Property Name="Parameters" Type="Collection(Common.ValueListParameter)">
+        <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
       </ComplexType>
