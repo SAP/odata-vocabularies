@@ -160,8 +160,18 @@
       <Term Name="SemanticObject" Type="Edm.String" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property"/>
       </Term>
-      
-      
+      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" AppliesTo="EntitySet EntityType Property">
+        <Annotation Term="Core.Description" String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object"/>
+      </Term>
+      <ComplexType Name="SemanticObjectMappingType">
+        <Annotation Term="Core.Description" String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object"/>
+        <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to a local property that provides the value for the Semantic Object property"/>
+        </Property>
+        <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the Semantic Object property"/>
+        </Property>
+      </ComplexType>
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>

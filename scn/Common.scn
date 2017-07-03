@@ -111,6 +111,12 @@ Common Vocabulary</h1>
 <a name="SemanticObject"></a>Name of the Semantic Object represented as this entity type or identified by this property</td>
 </tr>
 <tr>
+<td align="left">SemanticObjectMapping</td>
+<td align="left">[<a href="#SemanticObjectMappingType">SemanticObjectMappingType</a>]</td>
+<td align="left">
+<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object</td>
+</tr>
+<tr>
 <td align="left">IsInstanceAnnotation</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
 <td align="left">
@@ -416,6 +422,33 @@ Common Vocabulary</h1>
 <td align="left">html</td>
 <td align="right">1</td>
 <td align="left">Plain text with markup that can validly appear directly within an HTML DIV element</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a name="SemanticObjectMappingType"></a>SemanticObjectMappingType</h2>
+
+<p>Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LocalProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to a local property that provides the value for the Semantic Object property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectProperty</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object property</td>
 </tr>
 </tbody>
 </table>
