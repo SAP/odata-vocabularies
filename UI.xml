@@ -995,11 +995,19 @@ The trend is
       </EnumType>
 
       <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Record">
-        <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true" />
+        <Annotation Term="Core.Description"
+          String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true" />
       </Term>
 
       <Term Name="HiddenFilter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria" />
+      </Term>
+
+      <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
+        <Annotation Term="Core.LongDescription" String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault" />
       </Term>
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
