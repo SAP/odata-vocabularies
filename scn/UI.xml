@@ -937,6 +937,8 @@ The trend is
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria"/>
       </Term>
 
+      
+
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs"/>
