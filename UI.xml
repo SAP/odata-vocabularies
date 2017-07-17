@@ -503,6 +503,11 @@ The trend is
             <String>Optional identifier to reference this instance from an external context</String>
           </Annotation>
         </Property>
+        <Property Name="ShortDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Very short description" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
         <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
           <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path" />
         </Property>
@@ -521,6 +526,16 @@ The trend is
         <Property Name="AlternativePresentationVariants" Type="Collection(UI.PresentationVariantType)" Nullable="false">
           <Annotation Term="Core.Description"
             String="A list of alternative presentation variants, either specified inline or referencing another annotation via Path" />
+        </Property>
+        <Property Name="SemanticObject" Type="Edm.String">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value" />
+        </Property>
+        <Property Name="Action" Type="Edm.String">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
       </ComplexType>
 
@@ -603,6 +618,10 @@ The trend is
       <ComplexType Name="ChartDimensionAttributeType">
         <Property Name="Dimension" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
+        <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="All values in this collection will be assigned to levels of the same base color." />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -624,6 +643,19 @@ The trend is
         <Member Name="Axis2" />
         <Member Name="Axis3" />
       </EnumType>
+
+      <Term Name="ValueCriticality" Type="Collection(UI.ValueCriticalityType)" AppliesTo="Property TypeDefinition">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Assign criticalities to primitive values. This information can be used for semantic coloring." />
+      </Term>
+      <ComplexType Name="ValueCriticalityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
+        <Property Name="Value" Type="Edm.PrimitiveType" />
+        <Property Name="Criticality" Type="UI.CriticalityType" />
+      </ComplexType>
 
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />

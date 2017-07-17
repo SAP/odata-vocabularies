@@ -552,6 +552,7 @@ The trend is
       <ComplexType Name="ChartDimensionAttributeType">
         <Property Name="Dimension" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartDimensionRoleType"/>
+        
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -572,6 +573,9 @@ The trend is
         <Member Name="Axis2"/>
         <Member Name="Axis3"/>
       </EnumType>
+
+      
+      
 
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective"/>
