@@ -18,7 +18,7 @@ Term|Type|Description
 [DataPoint](UI.xml#L219)|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
 [KPI](UI.xml#L492) *(Experimental)*|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
 [Chart](UI.xml#L542)|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
-[ValueCriticality](UI.xml#L647) *(Experimental)*|\[[ValueCriticalityType](#ValueCriticalityType)\]|<a name="ValueCriticality"></a>Assign criticalities to primitive valuea. This information can be used for semantic coloring.
+[ValueCriticality](UI.xml#L647) *(Experimental)*|\[[ValueCriticalityType](#ValueCriticalityType)\]|<a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.
 [SelectionFields](UI.xml#L660)|\[PropertyPath\]|<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type
 [Facets](UI.xml#L668)|\[[Facet](#Facet)\]|<a name="Facets"></a>Collection of facets
 [HeaderFacets](UI.xml#L672)|\[[Facet](#Facet)\]|<a name="HeaderFacets"></a>Facets for additional object header information
