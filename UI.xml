@@ -631,6 +631,11 @@ The trend is
           <Annotation Term="Core.Description"
             String="Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure" />
         </Property>
+        <Property Name="UseSequentialColorLevels" Type="Edm.Boolean" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="All measures for which this setting is true shall be assigned to levels of the same base color." />
+        </Property>
       </ComplexType>
 
       <EnumType Name="ChartDimensionRoleType">
