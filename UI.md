@@ -365,7 +365,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Dimension](UI.xml#L620)|PropertyPath|
 [Role](UI.xml#L621)|[ChartDimensionRoleType](#ChartDimensionRoleType)|
-[ValuesForSequentialColorLevels](UI.xml#L622) *(Experimental)*|\[PrimitiveType\]|All values in this collection will be assigned to levels of the same base color.
+[ValuesForSequentialColorLevels](UI.xml#L622) *(Experimental)*|\[PrimitiveType\]|All values in this collection should be assigned to levels of the same color.
 
 ## <a name="ChartMeasureAttributeType"></a>[ChartMeasureAttributeType](UI.xml#L628)
 
@@ -375,7 +375,7 @@ Property|Type|Description
 [Measure](UI.xml#L629)|PropertyPath|
 [Role](UI.xml#L630)|[ChartMeasureRoleType](#ChartMeasureRoleType)|
 [DataPoint](UI.xml#L631)|AnnotationPath|Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure
-[UseSequentialColorLevels](UI.xml#L635) *(Experimental)*|Boolean|All measures for which this setting is true shall be assigned to levels of the same base color.
+[UseSequentialColorLevels](UI.xml#L635) *(Experimental)*|Boolean|All measures for which this setting is true should be assigned to levels of the same color.
 
 ## <a name="ChartDimensionRoleType"></a>[ChartDimensionRoleType](UI.xml#L642)
 

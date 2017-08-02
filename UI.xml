@@ -621,7 +621,7 @@ The trend is
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
         <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="All values in this collection will be assigned to levels of the same base color." />
+          <Annotation Term="Core.Description" String="All values in this collection should be assigned to levels of the same color." />
         </Property>
       </ComplexType>
 
@@ -635,7 +635,7 @@ The trend is
         <Property Name="UseSequentialColorLevels" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
-            String="All measures for which this setting is true shall be assigned to levels of the same base color." />
+            String="All measures for which this setting is true should be assigned to levels of the same color." />
         </Property>
       </ComplexType>
 
