@@ -432,7 +432,8 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Thresholds for an aggregation level" />
         <Property Name="AggregationLevel" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
+          <Annotation Term="Core.Description"
+            String="An unordered tuple of dimensions, i.e. properties which are intended to be used for grouping in aggregating requests. In analytical UIs, e.g. an analytical chart, the aggregation level typically corresponds to the visible dimensions." />
         </Property>
       </ComplexType>
 
