@@ -1034,7 +1034,7 @@ The trend is
 
       <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Record">
         <Annotation Term="Core.Description"
-          String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true" />
+          String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true. The annotation value will usually be an expression to dynamically hide or render the annotated feature." />
       </Term>
 
       <Term Name="HiddenFilter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
