@@ -2467,7 +2467,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">UrlContentType</td>
 <td align="left">MediaType</td>
-<td align="left">Media type of the hyperlink target, e.g. <code>videp/mp4</code>
+<td align="left">Media type of the hyperlink target, e.g. <code>video/mp4</code>
 </td>
 </tr>
 </tbody>

@@ -726,4 +726,4 @@ Property|Type|Description
 [*IconUrl*](UI.xml#L1062)|URL|Optional icon to decorate the value
 [*Value*](UI.xml#L1124)|PrimitiveType|Value of the data field value
 [Url](UI.xml#L1159)|URL|Target of the hyperlink
-[UrlContentType](UI.xml#L1163)|MediaType|Media type of the hyperlink target, e.g. `videp/mp4`
+[UrlContentType](UI.xml#L1163)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`

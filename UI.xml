@@ -1161,7 +1161,7 @@ The trend is
           <Annotation Term="Core.IsURL" />
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `videp/mp4`" />
+          <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `video/mp4`" />
           <Annotation Term="Core.IsMediaType" />
         </Property>
       </ComplexType>
