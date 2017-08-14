@@ -540,7 +540,7 @@ UI Vocabulary</h1>
 <tr>
 <td align="left">ScaleFactor</td>
 <td align="left">Decimal</td>
-<td align="left">Display value in  units, e.g. 1000 for k (kilo), 1e6 for M (Mega)</td>
+<td align="left">Display value in <em>ScaleFactor</em> units, e.g. 1000 for k (kilo), 1e6 for M (Mega)</td>
 </tr>
 <tr>
 <td align="left">NumberOfFractionalDigits</td>

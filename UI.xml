@@ -296,7 +296,7 @@
       <ComplexType Name="NumberFormat">
         <Annotation Term="Core.Description" String="Describes how to visualise a number" />
         <Property Name="ScaleFactor" Type="Edm.Decimal" Scale="variable" Nullable="true">
-          <Annotation Term="Core.Description" String="Display value in &lt;ScaleFactor> units, e.g. 1000 for k (kilo), 1e6 for M (Mega)" />
+          <Annotation Term="Core.Description" String="Display value in *ScaleFactor* units, e.g. 1000 for k (kilo), 1e6 for M (Mega)" />
         </Property>
         <Property Name="NumberOfFractionalDigits" Type="Edm.Byte" Nullable="true">
           <Annotation Term="Core.Description" String="Number of fractional digits of the scaled value to be visualized" />
