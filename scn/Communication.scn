@@ -1,19 +1,14 @@
 <h1>
 Communication Vocabulary</h1>
-
 <p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">com.sap.vocabularies.Communication.v1</a></strong></p>
-
 <p>Terms for annotating communication-relevant information</p>
-
 <p>These terms are inspired by</p>
-
 <ul>
 <li>RFC6350 vCard (<a href="http://tools.ietf.org/html/rfc6350">http://tools.ietf.org/html/rfc6350</a>)</li>
 <li>RFC5545 iCalendar (<a href="http://tools.ietf.org/html/rfc5545">http://tools.ietf.org/html/rfc5545</a>)</li>
 <li>RFC5322 Internet Message Format (<a href="http://tools.ietf.org/html/rfc5322">http://tools.ietf.org/html/rfc5322</a>)</li>
 <li>RFC6351 xCard: vCard XML Representation (<a href="https://tools.ietf.org/html/rfc6351">https://tools.ietf.org/html/rfc6351</a>)</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -67,10 +62,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ContactType"></a>ContactType</h2>
-
 <table>
 <thead>
 <tr>
@@ -172,10 +165,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="NameType"></a>NameType</h2>
-
 <table>
 <thead>
 <tr>
@@ -212,10 +203,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="AddressType"></a>AddressType</h2>
-
 <table>
 <thead>
 <tr>
@@ -272,10 +261,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="PhoneNumberType"></a>PhoneNumberType</h2>
-
 <table>
 <thead>
 <tr>
@@ -297,10 +284,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="EmailAddressType"></a>EmailAddressType</h2>
-
 <table>
 <thead>
 <tr>
@@ -322,10 +307,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="GeoDataType"></a>GeoDataType</h2>
-
 <table>
 <thead>
 <tr>
@@ -347,10 +330,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="UrlType"></a>UrlType</h2>
-
 <table>
 <thead>
 <tr>
@@ -372,10 +353,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="KindType"></a>KindType</h2>
-
 <table>
 <thead>
 <tr>
@@ -407,10 +386,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ContactInformationType"></a>ContactInformationType</h2>
-
 <table>
 <thead>
 <tr>
@@ -437,10 +414,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="PhoneType"></a>PhoneType</h2>
-
 <table>
 <thead>
 <tr>
@@ -487,10 +462,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="GenderType"></a>GenderType</h2>
-
 <table>
 <thead>
 <tr>
@@ -527,10 +500,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="EventData"></a>EventData</h2>
-
 <table>
 <thead>
 <tr>
@@ -602,10 +573,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="TaskData"></a>TaskData</h2>
-
 <table>
 <thead>
 <tr>
@@ -647,10 +616,8 @@ Communication Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="MessageData"></a>MessageData</h2>
-
 <table>
 <thead>
 <tr>

@@ -1,10 +1,7 @@
 <h1>
 UI Vocabulary</h1>
-
 <p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">com.sap.vocabularies.UI.v1</a></strong></p>
-
 <p>Terms for presenting data in user interfaces</p>
-
 <table>
 <thead>
 <tr>
@@ -210,10 +207,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="HeaderInfoType"></a>HeaderInfoType</h2>
-
 <table>
 <thead>
 <tr>
@@ -255,10 +250,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="BadgeType"></a>BadgeType</h2>
-
 <table>
 <thead>
 <tr>
@@ -300,10 +293,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="FieldGroupType"></a>FieldGroupType</h2>
-
 <table>
 <thead>
 <tr>
@@ -325,12 +316,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="GeoLocationType"></a>GeoLocationType</h2>
-
 <p>Properties that define a geographic location</p>
-
 <table>
 <thead>
 <tr>
@@ -362,10 +350,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="MediaResourceType"></a>MediaResourceType</h2>
-
 <table>
 <thead>
 <tr>
@@ -412,10 +398,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ImageType"></a>ImageType</h2>
-
 <table>
 <thead>
 <tr>
@@ -442,10 +426,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataPointType"></a>DataPointType</h2>
-
 <table>
 <thead>
 <tr>
@@ -543,12 +525,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="NumberFormat"></a>NumberFormat</h2>
-
 <p>Describes how to visualise a number</p>
-
 <table>
 <thead>
 <tr>
@@ -561,7 +540,7 @@ UI Vocabulary</h1>
 <tr>
 <td align="left">ScaleFactor</td>
 <td align="left">Decimal</td>
-<td align="left">Factor to scale a value before visualization, e.g. 0.001 for K, 1e-6 for M</td>
+<td align="left">Display value in  units, e.g. 1000 for k (kilo), 1e6 for M (Mega)</td>
 </tr>
 <tr>
 <td align="left">NumberOfFractionalDigits</td>
@@ -570,10 +549,8 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="VisualizationType"></a>VisualizationType</h2>
-
 <table>
 <thead>
 <tr>
@@ -610,12 +587,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ReferencePeriod"></a>ReferencePeriod</h2>
-
 <p>Reference period</p>
-
 <table>
 <thead>
 <tr>
@@ -642,12 +616,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="CriticalityType"></a>CriticalityType</h2>
-
 <p>Criticality of a value or status, represented e.g. via semantic colors (<a href="https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors">https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors</a>)</p>
-
 <table>
 <thead>
 <tr>
@@ -679,50 +650,38 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="CriticalityCalculationType"></a>CriticalityCalculationType: <a href="#CriticalityThresholdsType">CriticalityThresholdsType</a>
 </h2>
-
 <p>Describes how to calculate the criticality of a value depending on the improvement direction</p>
-
 <p>The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.</p>
-
 <p>For improvement direction <code>Target</code>, the criticality is calculated using both low and high threshold values. It will be</p>
-
 <ul>
 <li>Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue</li>
 <li>Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue</li>
 <li>Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue  and lower than or equal to DeviationRangeHighValue</li>
 <li>Negative if the value is lower than DeviationRangeLowValue or greater than DeviationRangeHighValue</li>
 </ul>
-
 <p>For improvement direction <code>Minimize</code>, the criticality is calculated using the high threshold values. It is</p>
-
 <ul>
 <li>Positive if the value is lower than or equal to AcceptanceRangeHighValue</li>
 <li>Neutral if the value is  greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue</li>
 <li>Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue</li>
 <li>Negative if the value is greater than DeviationRangeHighValue</li>
 </ul>
-
 <p>For improvement direction <code>Maximize</code>, the criticality is calculated using the low threshold values. It is</p>
-
 <ul>
 <li>Positive if the value is greater than or equal to AcceptanceRangeLowValue</li>
 <li>Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue</li>
 <li>Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue</li>
 <li>Negative if the value is lower than DeviationRangeLowValue</li>
 </ul>
-
 <p>Thresholds are optional. For unassigned values, defaults are determined in this order:</p>
-
 <ul>
 <li>For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)</li>
 <li>For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue</li>
 <li>For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -769,18 +728,13 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="CriticalityThresholdsType"></a>CriticalityThresholdsType</h2>
-
 <p>Thresholds for calculating the criticality of a value</p>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#CriticalityCalculationType">CriticalityCalculationType</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -822,12 +776,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ImprovementDirectionType"></a>ImprovementDirectionType</h2>
-
 <p>Describes which direction of a value change is seen as an improvement</p>
-
 <table>
 <thead>
 <tr>
@@ -854,12 +805,9 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="TrendType"></a>TrendType</h2>
-
 <p>The trend of a value</p>
-
 <table>
 <thead>
 <tr>
@@ -896,17 +844,12 @@ UI Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="TrendCalculationType"></a>TrendCalculationType</h2>
-
 <p>Describes how to calculate the trend of a value</p>
-
-<p>By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
+<p>By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values.
 If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.</p>
-
-<p>The trend is </p>
-
+<p>The trend is</p>
 <ul>
 <li>StrongUp if the difference is greater than or equal to StrongUpDifference</li>
 <li>Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference</li>
@@ -914,7 +857,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <li>Down if the difference is greater than StrongDownDifference and lower than or equal to DownDifference</li>
 <li>StrongDown if the difference is lower than or equal to StrongDownDifference</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -956,10 +898,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartDefinitionType"></a>ChartDefinitionType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1011,10 +951,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartType"></a>ChartType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1201,10 +1139,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartDimensionAttributeType"></a>ChartDimensionAttributeType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1226,10 +1162,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartMeasureAttributeType"></a>ChartMeasureAttributeType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1256,10 +1190,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartDimensionRoleType"></a>ChartDimensionRoleType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1281,10 +1213,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ChartMeasureRoleType"></a>ChartMeasureRoleType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1311,21 +1241,16 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="Facet"></a><em>Facet</em>
 </h2>
-
 <p>Abstract base type for facets</p>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#CollectionFacet">CollectionFacet</a></li>
 <li><a href="#ReferenceFacet">ReferenceFacet</a></li>
 <li><a href="#ReferenceURLFacet">ReferenceURLFacet</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -1347,13 +1272,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="CollectionFacet"></a>CollectionFacet: <a href="#Facet">Facet</a>
 </h2>
-
 <p>Collection of facets</p>
-
 <table>
 <thead>
 <tr>
@@ -1380,13 +1302,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ReferenceFacet"></a>ReferenceFacet: <a href="#Facet">Facet</a>
 </h2>
-
 <p>Facet that refers to a thing perspective, e.g. LineItem</p>
-
 <table>
 <thead>
 <tr>
@@ -1413,13 +1332,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ReferenceURLFacet"></a>ReferenceURLFacet: <a href="#Facet">Facet</a>
 </h2>
-
 <p>Facet that refers to a URL</p>
-
 <table>
 <thead>
 <tr>
@@ -1451,10 +1367,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectionPresentationVariantType"></a>SelectionPresentationVariantType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1486,10 +1400,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="PresentationVariantType"></a>PresentationVariantType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1556,10 +1468,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectionVariantType"></a>SelectionVariantType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1596,26 +1506,19 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ParameterAbstract"></a><em>ParameterAbstract</em>
 </h2>
-
 <p>Key property of a parameter entity type</p>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#Parameter">Parameter</a></li>
 <li><a href="#IntervalParameter">IntervalParameter</a></li>
 </ul>
-
 <h2>
 <a name="Parameter"></a>Parameter: <a href="#ParameterAbstract">ParameterAbstract</a>
 </h2>
-
 <p>Single-valued parameter</p>
-
 <table>
 <thead>
 <tr>
@@ -1637,13 +1540,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="IntervalParameter"></a>IntervalParameter: <a href="#ParameterAbstract">ParameterAbstract</a>
 </h2>
-
 <p>Interval parameter formed with a 'from' and a 'to' property</p>
-
 <table>
 <thead>
 <tr>
@@ -1675,12 +1575,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectOptionType"></a>SelectOptionType</h2>
-
 <p>List of value ranges for a single property</p>
-
 <table>
 <thead>
 <tr>
@@ -1702,12 +1599,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectionRangeType"></a>SelectionRangeType</h2>
-
 <p>Value range. If the range option only requires a single value, the value must be in the property Low</p>
-
 <table>
 <thead>
 <tr>
@@ -1739,10 +1633,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectionRangeSignType"></a>SelectionRangeSignType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1764,12 +1656,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SelectionRangeOptionType"></a>SelectionRangeOptionType</h2>
-
 <p>Comparison operator</p>
-
 <table>
 <thead>
 <tr>
@@ -1831,10 +1720,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="TextArrangementType"></a>TextArrangementType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1866,10 +1753,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ImportanceType"></a>ImportanceType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1896,18 +1781,14 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldAbstract"></a><em>DataFieldAbstract</em>
 </h2>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#DataFieldForAnnotation">DataFieldForAnnotation</a></li>
 <li>
 <em><a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a></em>
-
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
@@ -1915,7 +1796,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </li>
 <li>
 <a href="#DataField">DataField</a>
-
 <ul>
 <li><a href="#DataFieldWithAction">DataFieldWithAction</a></li>
 <li><a href="#DataFieldWithIntentBasedNavigation">DataFieldWithIntentBasedNavigation</a></li>
@@ -1924,7 +1804,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </ul>
 </li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -1956,10 +1835,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="CriticalityRepresentationType"></a>CriticalityRepresentationType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1981,11 +1858,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldForAnnotation"></a>DataFieldForAnnotation: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -2022,20 +1897,15 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldForActionAbstract"></a><em>DataFieldForActionAbstract</em>: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
-
 <p>Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation</p>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -2077,13 +1947,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldForAction"></a>DataFieldForAction: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
-
 <p>The action is NOT tied to a data value (in contrast to DataFieldWithAction)</p>
-
 <table>
 <thead>
 <tr>
@@ -2135,10 +2002,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="OperationGroupingType"></a>OperationGroupingType</h2>
-
 <table>
 <thead>
 <tr>
@@ -2160,13 +2025,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
-
 <p>The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.</p>
-
 <table>
 <thead>
 <tr>
@@ -2223,20 +2085,16 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataField"></a>DataField: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#DataFieldWithAction">DataFieldWithAction</a></li>
 <li><a href="#DataFieldWithIntentBasedNavigation">DataFieldWithIntentBasedNavigation</a></li>
 <li><a href="#DataFieldWithNavigationPath">DataFieldWithNavigationPath</a></li>
 <li><a href="#DataFieldWithUrl">DataFieldWithUrl</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -2273,13 +2131,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldWithAction"></a>DataFieldWithAction: <a href="#DataField">DataField</a>
 </h2>
-
 <p>The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.</p>
-
 <table>
 <thead>
 <tr>
@@ -2321,13 +2176,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldWithIntentBasedNavigation"></a>DataFieldWithIntentBasedNavigation: <a href="#DataField">DataField</a>
 </h2>
-
 <p>The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.</p>
-
 <table>
 <thead>
 <tr>
@@ -2374,11 +2226,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldWithNavigationPath"></a>DataFieldWithNavigationPath: <a href="#DataField">DataField</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -2420,11 +2270,9 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DataFieldWithUrl"></a>DataFieldWithUrl: <a href="#DataField">DataField</a>
 </h2>
-
 <table>
 <thead>
 <tr>

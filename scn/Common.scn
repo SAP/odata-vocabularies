@@ -1,10 +1,7 @@
 <h1>
 Common Vocabulary</h1>
-
 <p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">com.sap.vocabularies.Common.v1</a></strong></p>
-
 <p>Common terms for all SAP vocabularies</p>
-
 <table>
 <thead>
 <tr>
@@ -400,10 +397,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="TextFormatType"></a>TextFormatType</h2>
-
 <table>
 <thead>
 <tr>
@@ -425,12 +420,9 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SemanticObjectMappingType"></a>SemanticObjectMappingType</h2>
-
 <p>Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object</p>
-
 <table>
 <thead>
 <tr>
@@ -452,10 +444,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType</h2>
-
 <table>
 <thead>
 <tr>
@@ -477,10 +467,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="FilterExpressionType"></a>FilterExpressionType</h2>
-
 <table>
 <thead>
 <tr>
@@ -507,10 +495,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="FieldControlType"></a>FieldControlType</h2>
-
 <table>
 <thead>
 <tr>
@@ -547,10 +533,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="IntervalType"></a>IntervalType</h2>
-
 <table>
 <thead>
 <tr>
@@ -582,10 +566,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListType"></a>ValueListType</h2>
-
 <table>
 <thead>
 <tr>
@@ -629,10 +611,8 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListMappingType"></a>ValueListMappingType</h2>
-
 <table>
 <thead>
 <tr>
@@ -665,13 +645,10 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameter"></a><em>ValueListParameter</em>
 </h2>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#ValueListParameterIn">ValueListParameterIn</a></li>
 <li><a href="#ValueListParameterInOut">ValueListParameterInOut</a></li>
@@ -679,7 +656,6 @@ Common Vocabulary</h1>
 <li><a href="#ValueListParameterDisplayOnly">ValueListParameterDisplayOnly</a></li>
 <li><a href="#ValueListParameterFilterOnly">ValueListParameterFilterOnly</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -696,11 +672,9 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameterIn"></a>ValueListParameterIn: <a href="#ValueListParameter">ValueListParameter</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -722,11 +696,9 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameterInOut"></a>ValueListParameterInOut: <a href="#ValueListParameter">ValueListParameter</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -748,11 +720,9 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameterOut"></a>ValueListParameterOut: <a href="#ValueListParameter">ValueListParameter</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -774,13 +744,10 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameterDisplayOnly"></a>ValueListParameterDisplayOnly: <a href="#ValueListParameter">ValueListParameter</a>
 </h2>
-
 <p>Value list property that is not used to fill the edited entity</p>
-
 <table>
 <thead>
 <tr>
@@ -797,13 +764,10 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="ValueListParameterFilterOnly"></a>ValueListParameterFilterOnly: <a href="#ValueListParameter">ValueListParameter</a>
 </h2>
-
 <p>Value list property that is used to filter the value list, not connected to the edited entity</p>
-
 <table>
 <thead>
 <tr>
@@ -820,11 +784,9 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DraftRootType"></a>DraftRootType: <a href="#DraftNodeType">DraftNodeType</a>
 </h2>
-
 <table>
 <thead>
 <tr>
@@ -861,16 +823,12 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="DraftNodeType"></a>DraftNodeType</h2>
-
 <p><strong>Derived Types:</strong></p>
-
 <ul>
 <li><a href="#DraftRootType">DraftRootType</a></li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -892,32 +850,21 @@ Common Vocabulary</h1>
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SimpleIdentifier"></a>SimpleIdentifier</h2>
-
 <p><strong>Type:</strong> String</p>
-
 <p>The SimpleIdentifier of an OData construct in scope</p>
-
 <h2>
 <a name="QualifiedName"></a>QualifiedName</h2>
-
 <p><strong>Type:</strong> String</p>
-
 <p>The QualifiedName of an OData construct in scope</p>
-
 <h2>
 <a name="SideEffectsType"></a>SideEffectsType</h2>
-
 <p>Changes to the source properties or source entities may have side-effects on the target properties or entities.</p>
-
 <p>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.</p>
-
-<p>Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
+<p>Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning,
 only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</p>
-
 <table>
 <thead>
 <tr>
@@ -954,10 +901,8 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="EffectType"></a>EffectType</h2>
-
 <table>
 <thead>
 <tr>
@@ -987,10 +932,8 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="SortOrderType"></a>SortOrderType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1012,10 +955,8 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="RecursiveHierarchyType"></a>RecursiveHierarchyType</h2>
-
 <table>
 <thead>
 <tr>
@@ -1042,10 +983,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </tr>
 </tbody>
 </table>
-
 <h2>
 <a name="UserID"></a>UserID</h2>
-
 <p><strong>Type:</strong> String</p>
-
 <p>User ID</p>

@@ -136,7 +136,7 @@ Describes how to visualise a number
 
 Property|Type|Description
 :-------|:---|:----------
-[ScaleFactor](UI.xml#L298)|Decimal|Factor to scale a value before visualization, e.g. 0.001 for K, 1e-6 for M
+[ScaleFactor](UI.xml#L298)|Decimal|Display value in <ScaleFactor> units, e.g. 1000 for k (kilo), 1e6 for M (Mega)
 [NumberOfFractionalDigits](UI.xml#L301)|Byte|Number of fractional digits of the scaled value to be visualized
 
 ## <a name="VisualizationType"></a>[VisualizationType](UI.xml#L306)
