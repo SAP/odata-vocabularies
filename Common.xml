@@ -146,7 +146,7 @@
       <Term Name="DefaultScale" Type="Edm.Byte" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
-          String="The number of significant decimal digits in the scale part of a currency amount or measured quantity" />
+          String="The number of fractional decimal digits of a currency amount or measured quantity" />
         <Annotation Term="Core.Description"
           String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device." />
       </Term>

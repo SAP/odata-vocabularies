@@ -17,7 +17,7 @@ Term|Type|Description
 [IsUpperCase](Common.xml#L129)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUpperCase"></a>Contains just uppercase characters
 [IsCurrencyCode](Common.xml#L134) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCurrencyCode"></a>Contains a currency code
 [IsUnitOfMeasure](Common.xml#L140) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUnitOfMeasure"></a>Contains a unit of measure
-[DefaultScale](Common.xml#L146) *(Experimental)*|Byte|<a name="DefaultScale"></a>The number of significant decimal digits in the scale part of a currency amount or measured quantity
+[DefaultScale](Common.xml#L146) *(Experimental)*|Byte|<a name="DefaultScale"></a>The number of fractional decimal digits of a currency amount or measured quantity
 [DefaultPrecision](Common.xml#L154) *(Experimental)*|Byte|<a name="DefaultPrecision"></a>The number of significant decimal digits of a currency amount or measured quantity
 [SecondaryKey](Common.xml#L161)|\[PropertyPath\]|<a name="SecondaryKey"></a>The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers.
 [MinOccurs](Common.xml#L166)|Int64|<a name="MinOccurs"></a>The annotated set or collection contains at least this number of items
