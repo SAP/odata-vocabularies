@@ -153,7 +153,7 @@
 
       <Term Name="DefaultPrecision" Type="Edm.Byte" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The number of significant decimal digits of a measured quantity" />
+        <Annotation Term="Core.Description" String="The number of significant decimal digits of a currency amount or measured quantity" />
         <Annotation Term="Core.Description"
           String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
       </Term>
