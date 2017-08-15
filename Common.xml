@@ -131,6 +131,33 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
+      <Term Name="IsCurrencyCode" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Contains a currency code" />
+        <Annotation Term="Core.RequiresType" String="Edm.String" />
+      </Term>
+
+      <Term Name="IsUnitOfMeasure" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Contains a unit of measure" />
+        <Annotation Term="Core.RequiresType" String="Edm.String" />
+      </Term>
+
+      <Term Name="DefaultScale" Type="Edm.Byte" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="The number of significant decimal digits in the scale part of a currency amount or measured quantity" />
+        <Annotation Term="Core.Description"
+          String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device." />
+      </Term>
+
+      <Term Name="DefaultPrecision" Type="Edm.Byte" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The number of significant decimal digits of a measured quantity" />
+        <Annotation Term="Core.Description"
+          String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
+      </Term>
+
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)">
         <Annotation Term="Core.Description"
           String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
