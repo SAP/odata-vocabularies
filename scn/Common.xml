@@ -180,6 +180,7 @@
           <Annotation Term="Core.Description" String="Name of the Semantic Object property"/>
         </Property>
       </ComplexType>
+      
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>
