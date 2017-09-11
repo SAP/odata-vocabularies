@@ -349,7 +349,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="ValueListWithFixedValues" Type="Core.Tag" AppliesTo="Property Parameter">
+      <Term Name="ValueListWithFixedValues" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"/>
       </Term>
 
