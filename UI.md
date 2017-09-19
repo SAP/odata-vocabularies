@@ -164,7 +164,7 @@ Criticality of a value or status, represented e.g. via semantic colors (https://
 
 Member|Value|Description
 :-----|----:|:----------
-[Neutral](UI.xml#L341)|0|Neutral / blue status - inactive - open - in progress
+[Neutral](UI.xml#L341)|0|Neutral / grey status - inactive - open - in progress
 [Negative](UI.xml#L344)|1|Negative / red status - attention - overload - alert
 [Critical](UI.xml#L347)|2|Critical / orange status - warning
 [Positive](UI.xml#L350)|3|Positive / green status - completed - available - on track - acceptable

@@ -339,7 +339,7 @@
         <Annotation Term="Core.Description"
           String="Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)" />
         <Member Name="Neutral" Value="0">
-          <Annotation Term="Core.Description" String="Neutral / blue status - inactive - open - in progress" />
+          <Annotation Term="Core.Description" String="Neutral / grey status - inactive - open - in progress" />
         </Member>
         <Member Name="Negative" Value="1">
           <Annotation Term="Core.Description" String="Negative / red status - attention - overload - alert" />
