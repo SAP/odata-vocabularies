@@ -5,7 +5,8 @@ SAP Vocabularies for annotating OData services
 * [Communication: Terms for annotating communication-relevant information](Communication.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/ux_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470971)
 * [UI: Terms for presenting data in user interfaces](UI.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/uB_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470968)
 
-OASIS Vocabularies
+# OASIS Vocabularies
+Standard vocabularies
 * [Core: Terms for writing vocabularies](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md)
 * [Capabilities: Terms describing capabilities of a service](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Capabilities.V1.md)
 * [Measures: Terms describing monetary amounts and measured quantities](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Measures.V1.md)
