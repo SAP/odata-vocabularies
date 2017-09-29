@@ -6,17 +6,12 @@ setlocal
 @rem
 @rem  Prerequisites
 @rem  - Java SE 8 is installed and in the PATH - download from http://www.oracle.com/technetwork/java/javase/downloads/index.html 
-@rem  - Eclipse is installed with Xalan (contained in Eclipse Web Tools Platform), and ECLIPSE_HOME environment variable is set
 @rem  - git is installed and in the PATH - download from https://git-for-windows.github.io/
-@rem  - curl is installed and in the PATH - download from https://curl.haxx.se/download.html 
 @rem  - https://github.com/oasis-tcs/odata-vocabularies has been cloned next to this repository
 
-if [%ECLIPSE_HOME%] == [] echo Please set environment variable ECLIPSE_HOME, e.g. to C:\GK\external\eclipse\eclipse-ui5-20140519 && exit /b
-if not exist %ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar echo Please install Eclipse Web Tools Platform && exit /b
-if not exist %ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar echo Please install Eclipse Web Tools Platform && exit /b
 if not exist ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl echo Please clone https://github.com/oasis-tcs/odata-vocabularies next to this folder && exit /b
 
-set CLASSPATH=%CLASSPATH%;%ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;%ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar
+set CLASSPATH=tools/xalan.jar;tools/serializer.jar
 set done=false
 
 set SCN=%2
@@ -55,10 +50,11 @@ exit /b
    
     java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -IN scn\%1 -OUT scn\%~n1.md
 
-    curl.exe -k -s --data-binary @scn\%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn\%~n1.html
+    tools\curl.exe -k -s --data-binary @scn\%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn\%~n1.html
 
     rem TODO: replace SED with almost-identity transformation
-    sed.exe -e "s/<a name=\"user-content-/^<a name=\"/g" ^
+    toolsẞsed.exe ^
+            -e "s/<a name=\"user-content-/^<a name=\"/g" ^
             -e "s/<span aria-hidden=\"true\" class=\"octicon octicon-link\"><\/span>//g" ^
             -e "s/<br>/<br\/>/g" ^
             -e "s/<a href=\"Org\.OData\./^<a href=\"https:\/\/github.com\/oasis-tcs\/odata-vocabularies\/blob\/master\/vocabularies\/Org\.OData\./g" ^
