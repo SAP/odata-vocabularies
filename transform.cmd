@@ -53,7 +53,7 @@ exit /b
     tools\curl.exe -k -s --data-binary @scn\%~n1.md -H "Content-Type: text/plain" https://github.wdf.sap.corp/api/v3/markdown/raw -o scn\%~n1.html
 
     rem TODO: replace SED with almost-identity transformation
-    toolsẞsed.exe ^
+    tools\sed.exe ^
             -e "s/<a name=\"user-content-/^<a name=\"/g" ^
             -e "s/<span aria-hidden=\"true\" class=\"octicon octicon-link\"><\/span>//g" ^
             -e "s/<br>/<br\/>/g" ^
