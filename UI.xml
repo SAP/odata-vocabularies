@@ -623,6 +623,10 @@ The trend is
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be assigned to levels of the same color." />
         </Property>
+        <Property Name="EmphasizedValues" Type="Collection(Edm.PrimitiveType)">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="All values in this collection should be emphasized." />
+        </Property>      
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
