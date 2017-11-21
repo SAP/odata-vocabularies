@@ -626,7 +626,7 @@ The trend is
         <Property Name="EmphasizedValues" Type="Collection(Edm.PrimitiveType)">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be emphasized." />
-        </Property>      
+        </Property>
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -1045,7 +1045,7 @@ The trend is
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria" />
       </Term>
 
-      <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
+      <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="EntityType ComplexType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />

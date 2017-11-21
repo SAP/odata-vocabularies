@@ -553,7 +553,7 @@ The trend is
         <Property Name="Dimension" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartDimensionRoleType"/>
         
-              
+        
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
