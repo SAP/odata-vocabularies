@@ -677,7 +677,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1060)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1063)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1066)|URL|Optional icon to decorate the value
-[Value](UI.xml#L1128)|PrimitiveType|Value of the data field value
+[Value](UI.xml#L1128)|PrimitiveType|The data field's value
 
 ## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1134): [DataField](#DataField)
 The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
@@ -688,7 +688,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1060)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1063)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1066)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1128)|PrimitiveType|Value of the data field value
+[*Value*](UI.xml#L1128)|PrimitiveType|The data field's value
 [Action](UI.xml#L1137)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
 ## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1142): [DataField](#DataField)
@@ -700,7 +700,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1060)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1063)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1066)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1128)|PrimitiveType|Value of the data field value
+[*Value*](UI.xml#L1128)|PrimitiveType|The data field's value
 [SemanticObject](UI.xml#L1145)|String|Name of the Semantic Object
 [Action](UI.xml#L1148)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
@@ -713,7 +713,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1060)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1063)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1066)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1128)|PrimitiveType|Value of the data field value
+[*Value*](UI.xml#L1128)|PrimitiveType|The data field's value
 [Target](UI.xml#L1155)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
 ## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1162): [DataField](#DataField)
@@ -725,6 +725,6 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1060)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1063)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1066)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1128)|PrimitiveType|Value of the data field value
+[*Value*](UI.xml#L1128)|PrimitiveType|The data field's value
 [Url](UI.xml#L1163)|URL|Target of the hyperlink
 [UrlContentType](UI.xml#L1167)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`

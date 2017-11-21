@@ -1126,7 +1126,7 @@ The trend is
 
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Value of the data field value" />
+          <Annotation Term="Core.Description" String="The data field's value" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
