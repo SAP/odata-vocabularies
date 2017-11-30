@@ -36,8 +36,7 @@
           String="1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI" />
       </Term>
       <Term Name="ServiceSchemaVersion" Type="Edm.Int32" AppliesTo="Schema">
-        <Annotation Term="Core.Description"
-          String="0 for first schema version within a service version, incremented when schema changes compatibly" />
+        <Annotation Term="Core.Description" String="0 for first schema version within a service version, incremented when schema changes compatibly" />
       </Term>
 
       <!-- Section: General Semantics -->
@@ -206,8 +205,7 @@
         <Annotation Term="Core.Description" String="Describes masking behavior for sensitive data" />
         <Annotation Term="Common.Experimental" />
         <Property Name="Value" Type="Edm.PrimitiveType">
-          <Annotation Term="Core.Description"
-            String="Replacement value that should be visible on a UI instead of the actual value of the masked property" />
+          <Annotation Term="Core.Description" String="Replacement value that should be visible on a UI instead of the actual value of the masked property" />
         </Property>
         <Property Name="Always" Type="Edm.Boolean" DefaultValue="true">
           <Annotation Term="Core.Description" String="If false, the property value is initially masked and can be unmasked on user interaction" />
@@ -222,6 +220,8 @@
       >
         <Annotation Term="Core.Description"
           String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
+        <Annotation Term="Core.LongDescription"
+          String="If present, only properties explicitly listed in the mapping are used for intent-based navigation. If not present, all (sibling) properties of the annotation target are used for intent-based navigation." />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
         <Annotation Term="Core.Description"
@@ -235,13 +235,11 @@
       </ComplexType>
       <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject" Type="Collection(Edm.String)" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-4243" />
-        <Annotation Term="Core.Description"
-          String="List of actions that are not available in the current state of the instance of the Semantic Object" />
+        <Annotation Term="Core.Description" String="List of actions that are not available in the current state of the instance of the Semantic Object" />
       </Term>
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
-        <Annotation Term="Core.Description"
-          String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied" />
+        <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied" />
       </Term>
 
       <Term Name="Insertable" Type="Edm.Boolean" DefaultValue="true" AppliesTo="NavigationProperty">
@@ -288,8 +286,7 @@
           <Annotation Term="Core.Description" String="one or more 'eq' clauses, separated by 'or'" />
         </Member>
         <Member Name="SingleInterval">
-          <Annotation Term="Core.Description"
-            String="at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause" />
+          <Annotation Term="Core.Description" String="at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause" />
         </Member>
       </EnumType>
 
@@ -490,8 +487,7 @@
 
       <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.IsURL" />
-        <Annotation Term="Core.Description"
-          String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
+        <Annotation Term="Core.Description" String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
       </Term>
 
       <Term Name="ValueListMapping" Type="Common.ValueListMappingType" AppliesTo="Property Parameter">
@@ -548,8 +544,7 @@
         <Annotation Term="Core.Description" String="Value list property that is not used to fill the edited entity" />
       </ComplexType>
       <ComplexType Name="ValueListParameterFilterOnly" BaseType="Common.ValueListParameter">
-        <Annotation Term="Core.Description"
-          String="Value list property that is used to filter the value list, not connected to the edited entity" />
+        <Annotation Term="Core.Description" String="Value list property that is used to filter the value list, not connected to the edited entity" />
       </ComplexType>
 
       <!-- Section: Calendar Points in Time -->
@@ -746,8 +741,7 @@
       </ComplexType>
 
       <Term Name="DraftActivationVia" Type="Collection(Common.SimpleIdentifier)" AppliesTo="EntitySet" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
+        <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
       </Term>
 
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String">
@@ -790,8 +784,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
             String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
-          <Annotation Term="Core.Description"
-            String="One or more of the targets may show these effects. If not specified, any effect is possible." />
+          <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
