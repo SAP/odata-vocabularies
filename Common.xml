@@ -855,6 +855,11 @@ one or multiple target properties (v2) or annotation of target entities (v4). Up
         <Annotation Term="Core.Description" String="A default value for the property to be used in filter expressions." />
       </Term>
 
+      <Term Name="FilterDefaultValueHigh" Type="Edm.PrimitiveType" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" String="Requested by Roland Trapp as a counterpart to CDS annotation @Consumption.filter.defaultValueHigh" />
+        <Annotation Term="Core.Description" String="A default upper limit for the property to be used in 'less than or equal' filter expressions." />
+      </Term>
+
       <Term Name="DerivedFilterDefaultValue" Type="Edm.String" AppliesTo="Property">
         <!-- <Annotation Term="Common.IsFunctionImport" /> -->
         <Annotation Term="Core.Description">
