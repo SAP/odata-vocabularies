@@ -111,7 +111,8 @@ Common Vocabulary</h1>
 <td align="left">SemanticObjectMapping</td>
 <td align="left">[<a href="#SemanticObjectMappingType">SemanticObjectMappingType</a>]</td>
 <td align="left">
-<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object</td>
+<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object<p>If present, only properties explicitly listed in the mapping are used for intent-based navigation. If not present, all properties of the annotated entity set/type or all sibling properties of the annotated property are used for intent-based navigation.</p>
+</td>
 </tr>
 <tr>
 <td align="left">IsInstanceAnnotation</td>
