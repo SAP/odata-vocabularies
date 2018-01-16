@@ -493,7 +493,7 @@
       <Term Name="ValueListMapping" Type="Common.ValueListMappingType" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Specifies the mapping between data service properties and value list properties" />
         <Annotation Term="Core.LongDescription"
-          String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers. The qualifier-less mapping is the default value list." />
+          String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
       </Term>
       <ComplexType Name="ValueListMappingType">
         <Property Name="Label" Type="Edm.String" Nullable="true">

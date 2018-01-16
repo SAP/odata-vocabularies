@@ -204,7 +204,7 @@ Common Vocabulary</h1>
 <td align="left">ValueListMapping</td>
 <td align="left"><a href="#ValueListMappingType">ValueListMappingType</a></td>
 <td align="left">
-<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<p>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers. The qualifier-less mapping is the default value list.</p>
+<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<p>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers.</p>
 </td>
 </tr>
 <tr>
