@@ -41,7 +41,7 @@ exit /b
   <nul (set/p _any=%~n1)
 
   java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -L -IN %1 -OUT %~n1.md
-  git.exe --no-pager diff %~n1.md
+  git.exe --no-pager diff --color-words="[^[:space:]]|^(#L[0-9]+)" %~n1.md
 
   if /I [%2] == [/scn] (
     <nul (set/p _any=...)

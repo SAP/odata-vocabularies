@@ -491,14 +491,12 @@ The trend is
       </ComplexType>
 
       <Term Name="KPI" Type="UI.KPIType" AppliesTo="EntitySet EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</String>
         </Annotation>
       </Term>
       <ComplexType Name="KPIType">
-        <Annotation Term="Common.Experimental" />
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
             <String>Optional identifier to reference this instance from an external context</String>
@@ -613,6 +611,7 @@ The trend is
         <Member Name="Waterfall" />
         <Member Name="Bullet" />
         <Member Name="VerticalBullet" />
+        <Member Name="HorizontalWaterfall" />
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 

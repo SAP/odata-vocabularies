@@ -469,8 +469,29 @@ The trend is
         </Property>
       </ComplexType>
 
-      
-      
+      <Term Name="KPI" Type="UI.KPIType" AppliesTo="EntitySet EntityType">
+        <Annotation Term="UI.ThingPerspective"/>
+        <Annotation Term="Core.Description">
+          <String>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="KPIType">
+        <Property Name="ID" Type="Edm.String">
+          <Annotation Term="Core.Description">
+            <String>Optional identifier to reference this instance from an external context</String>
+          </Annotation>
+        </Property>
+        
+        <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
+          <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path"/>
+        </Property>
+        <Property Name="DataPoint" Type="UI.DataPointType" Nullable="false">
+          <Annotation Term="Core.Description" String="Data point, either specified inline or referencing another annotation via Path"/>
+        </Property>
+        <Property Name="Detail" Type="UI.KPIDetailType">
+          <Annotation Term="Core.Description" String="Contains information about KPI details, especially drill-down presentations"/>
+        </Property>
+      </ComplexType>
       
 
       <Term Name="Chart" Type="UI.ChartDefinitionType" AppliesTo="EntityType">
@@ -546,6 +567,7 @@ The trend is
         <Member Name="Waterfall"/>
         <Member Name="Bullet"/>
         <Member Name="VerticalBullet"/>
+        <Member Name="HorizontalWaterfall"/>
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 

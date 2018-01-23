@@ -79,6 +79,12 @@ UI Vocabulary</h1>
 <a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value</td>
 </tr>
 <tr>
+<td align="left">KPI</td>
+<td align="left"><a href="#KPIType">KPIType</a></td>
+<td align="left">
+<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</td>
+</tr>
+<tr>
 <td align="left">Chart</td>
 <td align="left"><a href="#ChartDefinitionType">ChartDefinitionType</a></td>
 <td align="left">
@@ -899,6 +905,39 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
+<a name="KPIType"></a>KPIType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ID</td>
+<td align="left">String</td>
+<td align="left">Optional identifier to reference this instance from an external context</td>
+</tr>
+<tr>
+<td align="left">SelectionVariant</td>
+<td align="left"><a href="#SelectionVariantType">SelectionVariantType</a></td>
+<td align="left">Selection variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">DataPoint</td>
+<td align="left"><a href="#DataPointType">DataPointType</a></td>
+<td align="left">Data point, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">Detail</td>
+<td align="left"><a href="#KPIDetailType">KPIDetailType</a></td>
+<td align="left">Contains information about KPI details, especially drill-down presentations</td>
+</tr>
+</tbody>
+</table>
+<h2>
 <a name="ChartDefinitionType"></a>ChartDefinitionType</h2>
 <table>
 <thead>
@@ -1135,6 +1174,11 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">VerticalBullet</td>
 <td align="right">34</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalWaterfall</td>
+<td align="right">35</td>
 <td align="left"></td>
 </tr>
 </tbody>
