@@ -4,7 +4,7 @@
     This style sheet removes OData model elements tagged with Common.Experimental
     
     TODO: 
-    - strip XML comments?
+    - strip XML comments
   -->
 
   <xsl:template match="@*|node()">
