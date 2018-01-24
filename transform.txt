@@ -4,4 +4,5 @@
 Analytics.xml
 Common.xml
 Communication.xml
+PersonalData.xml
 UI.xml

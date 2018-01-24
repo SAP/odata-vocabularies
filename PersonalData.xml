@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Personal Data</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-01-24 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/PersonalData.xml" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated entity set" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+      </Term>
+      <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary purpose/meaning of data " />
+        <Annotation Term="Core.LongDescription" String="*TODO: dash-separated values are a bit unusual, why not use CamelCase values?*" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="data-subject-identity" />
+              <Annotation Term="Core.Description"
+                String="Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject)." />
+              <Annotation Term="Core.LongDescription"
+                String="The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="search-provider" />
+              <Annotation Term="Core.Description"
+                String="Combined/Joined view of the Data Subject Identity which contains the entire personal information of the Data Subject including multiple addresses, emails, phone, facsimile, etc." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="legal-ground" />
+              <Annotation Term="Core.Description"
+                String="Provides information regarding the legal ground (consent/contract/purpose) maintained for the application." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="read-access-log" />
+              <Annotation Term="Core.Description"
+                String="Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="change-log" />
+              <Annotation Term="Core.Description"
+                String="Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="authorization-report" />
+              <Annotation Term="Core.Description"
+                String="Provides a report about which users/roles have permissions to view the personal data of a Data Subject." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="business-data" />
+              <Annotation Term="Core.Description"
+                String="The entities of this set are snapshots of data that changes over time. One of the key properties represents the temporal dimension." />
+              <Annotation Term="Core.LongDescription" String="*TODO: Is this reserved for __time-dependent__ business data? If so, why not name it that way?*" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
