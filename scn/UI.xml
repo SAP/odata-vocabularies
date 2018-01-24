@@ -492,7 +492,20 @@ The trend is
           <Annotation Term="Core.Description" String="Contains information about KPI details, especially drill-down presentations"/>
         </Property>
       </ComplexType>
-      
+      <ComplexType Name="KPIDetailType">
+        <Property Name="DefaultPresentationVariant" Type="UI.PresentationVariantType">
+          <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path"/>
+        </Property>
+        <Property Name="AlternativePresentationVariants" Type="Collection(UI.PresentationVariantType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A list of alternative presentation variants, either specified inline or referencing another annotation via Path"/>
+        </Property>
+        <Property Name="SemanticObject" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value"/>
+        </Property>
+        <Property Name="Action" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."/>
+        </Property>
+      </ComplexType>
 
       <Term Name="Chart" Type="UI.ChartDefinitionType" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective"/>

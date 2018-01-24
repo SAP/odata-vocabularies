@@ -938,6 +938,39 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
+<a name="KPIDetailType"></a>KPIDetailType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DefaultPresentationVariant</td>
+<td align="left"><a href="#PresentationVariantType">PresentationVariantType</a></td>
+<td align="left">Presentation variant, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">AlternativePresentationVariants</td>
+<td align="left">[<a href="#PresentationVariantType">PresentationVariantType</a>]</td>
+<td align="left">A list of alternative presentation variants, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">SemanticObject</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value</td>
+</tr>
+<tr>
+<td align="left">Action</td>
+<td align="left">String</td>
+<td align="left">Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.</td>
+</tr>
+</tbody>
+</table>
+<h2>
 <a name="ChartDefinitionType"></a>ChartDefinitionType</h2>
 <table>
 <thead>

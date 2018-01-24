@@ -218,8 +218,7 @@
 
       <Term Name="DataPoint" Type="UI.DataPointType" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
-        <Annotation Term="Core.Description"
-          String="Visualization of a single point of data, typically a number; may also be textual, e.g. a status value" />
+        <Annotation Term="Core.Description" String="Visualization of a single point of data, typically a number; may also be textual, e.g. a status value" />
       </Term>
       <ComplexType Name="DataPointType">
         <Property Name="Title" Type="Edm.String" Nullable="false">
@@ -518,7 +517,6 @@ The trend is
         </Property>
       </ComplexType>
       <ComplexType Name="KPIDetailType">
-        <Annotation Term="Common.Experimental" />
         <Property Name="DefaultPresentationVariant" Type="UI.PresentationVariantType">
           <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
         </Property>
@@ -527,12 +525,10 @@ The trend is
             String="A list of alternative presentation variants, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="SemanticObject" Type="Edm.String">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
             String="Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value" />
         </Property>
         <Property Name="Action" Type="Edm.String">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
             String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
@@ -637,8 +633,7 @@ The trend is
         </Property>
         <Property Name="UseSequentialColorLevels" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description"
-            String="All measures for which this setting is true should be assigned to levels of the same color." />
+          <Annotation Term="Core.Description" String="All measures for which this setting is true should be assigned to levels of the same color." />
         </Property>
       </ComplexType>
 
@@ -655,13 +650,11 @@ The trend is
 
       <Term Name="ValueCriticality" Type="Collection(UI.ValueCriticalityType)" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Assign criticalities to primitive values. This information can be used for semantic coloring." />
+        <Annotation Term="Core.Description" String="Assign criticalities to primitive values. This information can be used for semantic coloring." />
       </Term>
       <ComplexType Name="ValueCriticalityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
+        <Annotation Term="Core.Description" String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
         <Property Name="Value" Type="Edm.PrimitiveType" />
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
@@ -773,8 +766,7 @@ The trend is
           <Annotation Term="Core.Description" String="Maximum number of items that should be included in the result" />
         </Property>
         <Property Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path" />
+          <Annotation Term="Core.Description" String="Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path" />
         </Property>
         <Property Name="GroupBy" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description">
@@ -988,8 +980,7 @@ The trend is
       </Term>
 
       <Term Name="MultiLineText" Type="Core.Tag" DefaultValue="true" AppliesTo="Property PropertyValue">
-        <Annotation Term="Core.Description"
-          String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
+        <Annotation Term="Core.Description" String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
@@ -1048,7 +1039,8 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
-        <Annotation Term="Core.LongDescription" String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
+        <Annotation Term="Core.LongDescription"
+          String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
       </Term>
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
@@ -1079,8 +1071,7 @@ The trend is
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
         <Property Name="Target" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description"
-            String="Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart" />
+          <Annotation Term="Core.Description" String="Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart" />
         </Property>
       </ComplexType>
 
