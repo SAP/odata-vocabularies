@@ -13,6 +13,7 @@ Term|Type|Description
 Primary purpose/meaning of data
 
 *TODO: dash-separated values are a bit unusual, why not use CamelCase values?*
+
 Allowed Value|Description
 :------------|:----------
 [data-subject-identity](PersonalData.xml#L40)|Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject).<p>The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)</p>
