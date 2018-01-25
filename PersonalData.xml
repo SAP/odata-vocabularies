@@ -34,46 +34,43 @@
       <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary purpose/meaning of data " />
-        <Annotation Term="Core.LongDescription" String="*TODO: dash-separated values are a bit unusual, why not use CamelCase values?*" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
-              <PropertyValue Property="Value" String="data-subject-identity" />
+              <PropertyValue Property="Value" String="DataSubjectIdentity" />
               <Annotation Term="Core.Description"
                 String="Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject)." />
               <Annotation Term="Core.LongDescription"
                 String="The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="search-provider" />
+              <PropertyValue Property="Value" String="SearchProvider" />
               <Annotation Term="Core.Description"
                 String="Combined/Joined view of the Data Subject Identity which contains the entire personal information of the Data Subject including multiple addresses, emails, phone, facsimile, etc." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="legal-ground" />
+              <PropertyValue Property="Value" String="LegalGround" />
               <Annotation Term="Core.Description"
                 String="Provides information regarding the legal ground (consent/contract/purpose) maintained for the application." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="read-access-log" />
+              <PropertyValue Property="Value" String="ReadAccessLog" />
               <Annotation Term="Core.Description"
                 String="Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="change-log" />
+              <PropertyValue Property="Value" String="ChangeLog" />
               <Annotation Term="Core.Description"
                 String="Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="authorization-report" />
+              <PropertyValue Property="Value" String="AuthorizationReport" />
               <Annotation Term="Core.Description"
                 String="Provides a report about which users/roles have permissions to view the personal data of a Data Subject." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="business-data" />
-              <Annotation Term="Core.Description"
-                String="The entities of this set are snapshots of data that changes over time. One of the key properties represents the temporal dimension." />
-              <Annotation Term="Core.LongDescription" String="*TODO: Is this reserved for __time-dependent__ business data? If so, why not name it that way?*" />
+              <PropertyValue Property="Value" String="PersonRelatedData" />
+              <Annotation Term="Core.Description" String="The entities of this set are related to a person" />
             </Record>
           </Collection>
         </Annotation>
