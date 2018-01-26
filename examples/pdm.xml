@@ -24,7 +24,7 @@
         <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
         <Property Name="middleName" Type="Edm.String" Nullable="true" MaxLength="256" sap:pdm-semantics="personal-data" />
         <Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="genderCode" Type="Edm.String" MaxLength="1" sap:pdm-semantics="sensitive-personal-data" />
+        <Property Name="genderCode" Type="Edm.String" MaxLength="1" />
         <Property Name="birthDate" Type="Edm.DateTime" sap:pdm-semantics="personal-data" />
       </EntityType>
 
@@ -37,7 +37,7 @@
         <Property Name="country" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
         <Property Name="region" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
         <Property Name="city" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="district" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" sap:pdm-property="address-district" />
+        <Property Name="district" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
         <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
         <Property Name="streetName" Type="Edm.String" MaxLength="60" sap:pdm-semantics="personal-data" />
         <Property Name="houseID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
@@ -104,6 +104,9 @@
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
         <v4:Annotation Term="Communication.IsEmailAddress" />
       </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/genderCode">
+        <v4:Annotation Term="PersonalData.IsSensitive" />
+      </v4:Annotations>
 
 
       <v4:Annotations Target="gdpr.gra.sample.AddressType">
@@ -112,11 +115,14 @@
             <v4:PropertyValue Property="country" Path="country" />
             <v4:PropertyValue Property="region" Path="region" />
             <v4:PropertyValue Property="locality" Path="city" />
+            <!-- TODO: needed? -->
             <v4:PropertyValue Property="district" Path="district" />
             <v4:PropertyValue Property="code" Path="streetPostalCode" />
             <v4:PropertyValue Property="street" Path="streetName" />
             <v4:PropertyValue Property="ext" Path="houseID" />
+            <!-- TODO: needed? -->
             <v4:PropertyValue Property="careof" Path="careOfName" />
+            <!-- TODO: needed? -->
             <v4:PropertyValue Property="building" Path="buildingID" />
           </v4:Record>
         </v4:Annotation>
