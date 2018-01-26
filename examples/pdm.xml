@@ -20,29 +20,29 @@
         <Property Name="userUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
         <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false" />
         <Property Name="userProfileId" Type="Edm.String" MaxLength="32" Nullable="false" />
-        <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="middleName" Type="Edm.String" Nullable="true" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" />
+        <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" />
+        <Property Name="middleName" Type="Edm.String" Nullable="true" MaxLength="256" />
+        <Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="256" />
         <Property Name="genderCode" Type="Edm.String" MaxLength="1" />
-        <Property Name="birthDate" Type="Edm.DateTime" sap:pdm-semantics="personal-data" />
+        <Property Name="birthDate" Type="Edm.DateTime" />
       </EntityType>
 
-      <EntityType Name="AddressType" sap:pdm-semantics="address">
+      <EntityType Name="AddressType">
         <Key>
           <PropertyRef Name="addressId" />
         </Key>
         <Property Name="employeeUserUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
         <Property Name="addressId" Type="Edm.String" Nullable="false" />
-        <Property Name="country" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="region" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="city" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="district" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
-        <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
-        <Property Name="streetName" Type="Edm.String" MaxLength="60" sap:pdm-semantics="personal-data" />
-        <Property Name="houseID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
-        <Property Name="careOfName" Type="Edm.String" MaxLength="40" sap:pdm-semantics="personal-data" />
-        <Property Name="buildingID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
+        <Property Name="country" Type="Edm.String" MaxLength="256" />
+        <Property Name="region" Type="Edm.String" MaxLength="256" />
+        <Property Name="city" Type="Edm.String" MaxLength="256" />
+        <Property Name="district" Type="Edm.String" MaxLength="256" />
+        <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" />
+        <Property Name="streetName" Type="Edm.String" MaxLength="60" />
+        <Property Name="houseID" Type="Edm.String" MaxLength="10" />
+        <Property Name="careOfName" Type="Edm.String" MaxLength="40" />
+        <Property Name="buildingID" Type="Edm.String" MaxLength="10" />
       </EntityType>
 
       <EntityType Name="LeaveRequestType">
@@ -108,6 +108,23 @@
         <v4:Annotation Term="PersonalData.IsSensitive" />
       </v4:Annotations>
 
+      <!-- TODO: is it really necessary to tag all contact-related fields as "person-related data"? -->
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/firstName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/middleName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/lastName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/birthDate">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+
 
       <v4:Annotations Target="gdpr.gra.sample.AddressType">
         <v4:Annotation Term="Communication.Address">
@@ -130,6 +147,35 @@
 
       <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserUuid">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
+      </v4:Annotations>
+
+      <!-- TODO: is it really necessary to tag all contact-related fields as "person-related data"? -->
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/country">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/region">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/city">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/district">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/streetPostalCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/streetName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/houseID">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/careOfName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/buildingID">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonRelatedData" />
       </v4:Annotations>
 
 

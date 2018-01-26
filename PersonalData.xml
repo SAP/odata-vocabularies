@@ -41,6 +41,10 @@ Field | Question
 address-district | Not part of vCard: why is this needed? Usually the district isn't part of an address
 address-care-of-name | c/o: not part of vCard: why needed?
 address-building | Not part of vCard: why is this needed?
+
+### Tagging of fields as "personal data"
+
+- Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
         </String>
       </Annotation>
 
@@ -63,8 +67,9 @@ address-building | Not part of vCard: why is this needed?
                 String="Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject)." />
               <Annotation Term="Core.LongDescription">
                 <String>The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)
-                
-                *TODO: How does this differ from the similarly named DataSubjectId in [FieldSemanticsType](#FieldSemanticsType)? Should this rather just be a DataSubject or a DataSubjectType? Would fit to CustomerMasterHeader -> Data Subject, CustomerID -> DataSubjectId*</String>
+
+*TODO: How does this differ from the similarly named DataSubjectId in [FieldSemanticsType](#FieldSemanticsType)? Should this rather just be a DataSubject or a DataSubjectType? Would fit to CustomerMasterHeader -> Data Subject, CustomerID -> DataSubjectId*
+                </String>
               </Annotation>
             </Record>
             <Record>
@@ -155,6 +160,12 @@ address-building | Not part of vCard: why is this needed?
               <PropertyValue Property="Value" String="UserProfileId" />
               <Annotation Term="Core.Description"
                 String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool?*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="PersonRelatedData" />
+              <Annotation Term="Core.Description" String="Personal Identifiable Information (Personal Data)" />
+              <Annotation Term="Core.LongDescription"
+                String="*TODO: Is this annotation really necessary on fields that are already marked as being contact data or address data?*" />
             </Record>
           </Collection>
         </Annotation>
