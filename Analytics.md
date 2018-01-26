@@ -3,6 +3,9 @@
 
 Terms for annotating analytical resources
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [Dimension](Analytics.xml#L28)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Dimension"></a>A property holding the key of a dimension in an analytical context

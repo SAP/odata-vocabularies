@@ -11,6 +11,9 @@ These terms are inspired by
 - RFC6351 xCard: vCard XML Representation (https://tools.ietf.org/html/rfc6351)
         
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [Contact](Communication.xml#L33)|[ContactType](#ContactType)|<a name="Contact"></a>Address book entry

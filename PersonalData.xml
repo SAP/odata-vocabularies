@@ -25,23 +25,38 @@
           </Record>
         </Collection>
       </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+## Open Issues
+
+### Address-related fields        
+
+Field | Question
+------|---------
+address-district | Not part of vCard: why is this needed? Usually the district isn't part of an address
+address-care-of-name | c/o: not part of vCard: why needed?
+address-building | Not part of vCard: why is this needed?
+        </String>
+      </Annotation>
 
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated entity set" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
       <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary purpose/meaning of data " />
+        <Annotation Term="Core.Description" String="Primary purpose/meaning of data set" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="DataSubjectIdentity" />
               <Annotation Term="Core.Description"
                 String="Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject)." />
-              <Annotation Term="Core.LongDescription"
-                String="The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)" />
+              <Annotation Term="Core.LongDescription">
+                <String>The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)
+                
+                *TODO: How does this differ from the similarly named DataSubjectId in [FieldSemanticsType](#FieldSemanticsType)? Should this rather just be a DataSubject or a DataSubjectType? Would fit to CustomerMasterHeader -> Data Subject, CustomerID -> DataSubjectId*</String>
+              </Annotation>
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchProvider" />
@@ -62,6 +77,8 @@
               <PropertyValue Property="Value" String="ChangeLog" />
               <Annotation Term="Core.Description"
                 String="Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application." />
+              <Annotation Term="Core.LongDescription"
+                String="*TODO: Align with Steffen Weinstock and Wolfgang Koch how the counterpart annotation for 'please keep a change log for this view' will be named*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="AuthorizationReport" />
@@ -76,6 +93,63 @@
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated property" />
+      </Term>
+      <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary purpose/meaning of a data field" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="DataSubjectId" />
+              <Annotation Term="Core.Description" String="Human-readable id of the data subject" />
+              <Annotation Term="Core.LongDescription"
+                String="*TODO: How does this differ from the similarly named DataSubjectIdentity in [SemanticsType](#SemanticsType)?*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="DataSubjectTechId" />
+              <Annotation Term="Core.Description" String="Generated id or UUID of the data subject which could be specific to the application" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="LegalGroundType" />
+              <Annotation Term="Core.Description"
+                String="The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data." />
+              <Annotation Term="Core.LongDescription">
+                <String>Field values can be
+
+                - Consent
+
+                - Name of Business Process
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="LegalGroundId" />
+              <Annotation Term="Core.Description"
+                String="The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data." />
+              <Annotation Term="Core.LongDescription">
+                <String>Field values can be
+
+                - Consent ID
+
+                - Sales Contract ID
+
+                - Purchase Contract ID
+
+                - Service Contract ID
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="UserProfileId" />
+              <Annotation Term="Core.Description"
+                String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool?*" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>

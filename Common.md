@@ -3,6 +3,9 @@
 
 Common terms for all SAP vocabularies
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [Experimental](Common.xml#L26) *(Experimental)*|String|<a name="Experimental"></a>Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning

@@ -1,0 +1,143 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+  <!-- TODO: replace with SCN link once published -->
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+    <Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+      xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" Namespace="gdpr.gra.sample"
+    >
+      <EntityType Name="EmployeeType">
+        <Key>
+          <PropertyRef Name="userUuid" />
+        </Key>
+        <Property Name="userUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
+        <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false" />
+        <Property Name="userProfileId" Type="Edm.String" MaxLength="32" Nullable="false" />
+        <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="middleName" Type="Edm.String" Nullable="true" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="genderCode" Type="Edm.String" MaxLength="1" sap:pdm-semantics="sensitive-personal-data" />
+        <Property Name="birthDate" Type="Edm.DateTime" sap:pdm-semantics="personal-data" />
+      </EntityType>
+
+      <EntityType Name="AddressType" sap:pdm-semantics="address">
+        <Key>
+          <PropertyRef Name="addressId" />
+        </Key>
+        <Property Name="employeeUserUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
+        <Property Name="addressId" Type="Edm.String" Nullable="false" />
+        <Property Name="country" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="region" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="city" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" />
+        <Property Name="district" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" sap:pdm-property="address-district" />
+        <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
+        <Property Name="streetName" Type="Edm.String" MaxLength="60" sap:pdm-semantics="personal-data" />
+        <Property Name="houseID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" sap:pdm-property="address-house-number" />
+        <Property Name="careOfName" Type="Edm.String" MaxLength="40" sap:pdm-semantics="personal-data" sap:pdm-property="address-care-of-name" />
+        <Property Name="buildingID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" sap:pdm-property="address-building" />
+      </EntityType>
+
+      <EntityType Name="LeaveRequestType">
+        <Key>
+          <PropertyRef Name="leaveRequestId" />
+        </Key>
+        <Property Name="employeeUserUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
+        <Property Name="leaveRequestId" Type="Edm.Int64" Nullable="false" />
+        <Property Name="leaveType" Type="Edm.String" MaxLength="32" Nullable="false" />
+        <Property Name="leaveStartDate" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="leaveEndDate" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="leaveReason" Type="Edm.String" MaxLength="1024" />
+        <Property Name="leaveRequestStatus" Type="Edm.String" MaxLength="10" Nullable="false" />
+      </EntityType>
+
+      <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Employee" EntityType="gdpr.gra.sample.EmployeeType" />
+        <EntitySet Name="Address" EntityType="gdpr.gra.sample.AddressType" />
+        <EntitySet Name="LeaveRequest" EntityType="gdpr.gra.sample.LeaveRequestType" />
+      </EntityContainer>
+
+
+      <v4:Annotations Target="gdpr.gra.sample.v2/Employee">
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectIdentity" />
+      </v4:Annotations>
+
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType">
+        <v4:Annotation Term="Communication.Contact">
+          <v4:Record>
+            <v4:PropertyValue Property="n">
+              <v4:Record>
+                <v4:PropertyValue Property="given" Path="firstName" />
+                <v4:PropertyValue Property="additional" Path="middleName" />
+                <v4:PropertyValue Property="surname" Path="lastName" />
+              </v4:Record>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="email">
+              <v4:Collection>
+                <v4:Record>
+                  <v4:PropertyValue Property="address" Path="email" />
+                </v4:Record>
+              </v4:Collection>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="gender" Path="genderCode" />
+            <v4:PropertyValue Property="bday" Path="birthDate" />
+          </v4:Record>
+        </v4:Annotation>
+      </v4:Annotations>
+
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectId" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userProfileId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="UserProfileId" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
+        <v4:Annotation Term="Communication.IsEmailAddress" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="gdpr.gra.sample.AddressType">
+        <v4:Annotation Term="Communication.Address">
+          <v4:Record>
+            <v4:PropertyValue Property="country" Path="country" />
+            <v4:PropertyValue Property="region" Path="region" />
+            <v4:PropertyValue Property="locality" Path="city" />
+            <v4:PropertyValue Property="" Path="district" />
+            <v4:PropertyValue Property="code" Path="streetPostalCode" />
+            <v4:PropertyValue Property="street" Path="streetName" />
+            <v4:PropertyValue Property="ext" Path="houseID" />
+            <v4:PropertyValue Property="" Path="careOfName" />
+            <v4:PropertyValue Property="" Path="buildingID" />
+          </v4:Record>
+        </v4:Annotation>
+      </v4:Annotations>
+
+      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="gdpr.gra.sample.v2/LeaveRequest">
+        <v4:Annotation Term="PersonalData.Semantics" String="PersonRelatedData" />
+      </v4:Annotations>
+
+      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundId" />
+      </v4:Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
