@@ -44,6 +44,10 @@ address-building | Not part of vCard: why is this needed?
         </String>
       </Annotation>
 
+      <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
+      </Term>
+
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated entity set" />
