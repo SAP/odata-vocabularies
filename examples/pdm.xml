@@ -40,9 +40,9 @@
         <Property Name="district" Type="Edm.String" MaxLength="256" sap:pdm-semantics="personal-data" sap:pdm-property="address-district" />
         <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
         <Property Name="streetName" Type="Edm.String" MaxLength="60" sap:pdm-semantics="personal-data" />
-        <Property Name="houseID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" sap:pdm-property="address-house-number" />
-        <Property Name="careOfName" Type="Edm.String" MaxLength="40" sap:pdm-semantics="personal-data" sap:pdm-property="address-care-of-name" />
-        <Property Name="buildingID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" sap:pdm-property="address-building" />
+        <Property Name="houseID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
+        <Property Name="careOfName" Type="Edm.String" MaxLength="40" sap:pdm-semantics="personal-data" />
+        <Property Name="buildingID" Type="Edm.String" MaxLength="10" sap:pdm-semantics="personal-data" />
       </EntityType>
 
       <EntityType Name="LeaveRequestType">
@@ -112,12 +112,12 @@
             <v4:PropertyValue Property="country" Path="country" />
             <v4:PropertyValue Property="region" Path="region" />
             <v4:PropertyValue Property="locality" Path="city" />
-            <v4:PropertyValue Property="" Path="district" />
+            <v4:PropertyValue Property="district" Path="district" />
             <v4:PropertyValue Property="code" Path="streetPostalCode" />
             <v4:PropertyValue Property="street" Path="streetName" />
             <v4:PropertyValue Property="ext" Path="houseID" />
-            <v4:PropertyValue Property="" Path="careOfName" />
-            <v4:PropertyValue Property="" Path="buildingID" />
+            <v4:PropertyValue Property="careof" Path="careOfName" />
+            <v4:PropertyValue Property="building" Path="buildingID" />
           </v4:Record>
         </v4:Annotation>
       </v4:Annotations>

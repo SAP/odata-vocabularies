@@ -23,6 +23,10 @@
             <PropertyValue Property="rel" String="latest-version" />
             <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2" />
           </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/uB_7Gg" />
+          </Record>
         </Collection>
       </Annotation>
 

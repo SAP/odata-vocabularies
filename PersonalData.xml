@@ -21,7 +21,12 @@
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
             <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/PersonalData.xml" />
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/PersonalData.md" />
           </Record>
         </Collection>
       </Annotation>
