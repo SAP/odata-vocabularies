@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy">
+      <Annotation Term="Core.Description">
+        <String>Terms for Hierarchies</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-01-31 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/Hierarchy.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
+      </Term>
+      <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="ParentNodeProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property holding the parent hierarchy node value" />
+        </Property>
+        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
+        </Property>
+        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
+        </Property>
+        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
+          <Annotation Term="Core.LongDescription" String="*TODO: which values does the drill state have?*" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

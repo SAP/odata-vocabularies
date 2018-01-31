@@ -60,27 +60,6 @@
         </Annotation>
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Analytics.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
-      </Term>
-      <ComplexType Name="RecursiveHierarchyType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="ParentNodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the parent hierarchy node value" />
-        </Property>
-        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
-        </Property>
-        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
-        </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
-          <Annotation Term="Core.LongDescription" String="*TODO: which values does the drill state have?*" />
-        </Property>
-      </ComplexType>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
