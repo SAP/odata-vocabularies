@@ -50,9 +50,7 @@
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription"
-            String="*TODO: are these three values strings, or do we have corresponding numeric values?*
-            
-            The drill state is indicated by one of the following values: collapsed, expanded, leaf. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
+            String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the sibling rank of a node" />
