@@ -65,6 +65,16 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="IsText" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Contains a descriptive text" />
+      </Term>
+
+      <Term Name="IsLanguageIdentifier" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="An identifier to distinguish multiple texts in different languages for the same entity" />
+      </Term>
+
       <Term Name="TextFormat" Type="Common.TextFormatType" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Core.Description" String="Human-readable text that may contain formatting information" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
