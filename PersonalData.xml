@@ -162,8 +162,8 @@ address-building | Not part of vCard: why is this needed?
                 String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool?*" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="PersonRelatedData" />
-              <Annotation Term="Core.Description" String="Personal Identifiable Information (Personal Data)" />
+              <PropertyValue Property="Value" String="PersonalData" />
+              <Annotation Term="Core.Description" String="Personal Identifiable Information" />
               <Annotation Term="Core.LongDescription"
                 String="*TODO: Is this annotation really necessary on fields that are already marked as being contact data or address data?*" />
             </Record>
