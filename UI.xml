@@ -341,6 +341,10 @@
       <EnumType Name="CriticalityType">
         <Annotation Term="Core.Description"
           String="Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)" />
+        <Member Name="VeryNegative" Value="-1">
+          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898" />
+          <Annotation Term="Core.Description" String="Very negative / dark-red status - risk - out of stock - late" />
+        </Member>
         <Member Name="Neutral" Value="0">
           <Annotation Term="Core.Description" String="Neutral / grey status - inactive - open - in progress" />
         </Member>
@@ -352,6 +356,10 @@
         </Member>
         <Member Name="Positive" Value="3">
           <Annotation Term="Core.Description" String="Positive / green status - completed - available - on track - acceptable" />
+        </Member>
+        <Member Name="VeryPositive" Value="4">
+          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898" />
+          <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
         </Member>
       </EnumType>
 
