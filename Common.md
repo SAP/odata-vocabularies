@@ -293,7 +293,7 @@ Property|Type|Description
 [TargetProperties](Common.xml#L803)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
 [TargetEntities](Common.xml#L806)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
 [EffectTypes](Common.xml#L810)|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
-[OnPreparation](Common.xml#L813) *(Experimental)*|Boolean|This side effect is deferred until invoking the Draft-specific Preparation action.
+[OnPreparation](Common.xml#L813) *(Experimental)*|Boolean|This side effect is deferred until invoking the Preparation action
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L818)
 

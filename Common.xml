@@ -812,7 +812,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="This side effect is deferred until invoking the Draft-specific Preparation action." />
+          <Annotation Term="Core.Description" String="This side effect is deferred until invoking the Preparation action" />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
