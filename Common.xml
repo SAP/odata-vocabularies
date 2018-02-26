@@ -750,6 +750,16 @@
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Revisions">
+            <Annotation Term="Common.Experimental" />
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description"
+                  String="Use `PreparationAction` instead which can as a side-effect auto-fill missing information" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Function that validates whether a draft document is ready for activation" />
         </Property>
       </ComplexType>
@@ -800,12 +810,25 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
+        <Property Name="OnPreparation" Type="Edm.Boolean">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="This side effect is deferred until invoking the Draft-specific Preparation action." />
+        </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
         <Member Name="ValidationMessage" Value="1">
+          <Annotation Term="Core.Revisions">
+            <Annotation Term="Common.Experimental" />
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Use `ValueChange` instead" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type indicates that validation messages may result from changes of source properties or entities. 
+            <String>This side effect type indicates that validation messages may result from changes of source properties or entities.  
 Thus, a validation request can be sent either in conjunction with or separately after a modifying request. 
 Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</String>
           </Annotation>
@@ -813,32 +836,24 @@ Validation messages shall be persisted with the draft and immediately available 
         <Member Name="ValueChange" Value="2">
           <Annotation Term="Core.Description" String="The value of a target changes" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.
+            <String>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.  
 Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</String>
           </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
+          <Annotation Term="Core.Revisions">
+            <Annotation Term="Common.Experimental" />
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Use `ValueChange` instead" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.
+            <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  
 Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</String>
-          </Annotation>
-        </Member>
-        <Member Name="OperationControlChange" Value="8">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="The operation control changes" />
-          <Annotation Term="Core.LongDescription">
-            <String>This side effect type specifies that source properties or entities may impact the dynamic function or action (operations) control state of any, 
-one or multiple target properties (v2) or annotation of target entities (v4). Upon modification operation control logic is invoked so that meta-information like 
-operation enabled or disabled is determined.</String>
-          </Annotation>
-        </Member>
-        <Member Name="PermissionChange" Value="16">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="The method permissions change" />
-          <Annotation Term="Core.LongDescription">
-            <String>This side effect type specifies that source properties or entities may impact the dynamic method permission state (creatable, updatable, deletable) of any, 
-one or multiple target properties (v2) or annotation of target entities (v4). Upon modification permission logic is invoked so that meta-information is determined.</String>
           </Annotation>
         </Member>
       </EnumType>

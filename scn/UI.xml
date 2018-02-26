@@ -333,6 +333,7 @@
 
       <EnumType Name="CriticalityType">
         <Annotation Term="Core.Description" String="Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)"/>
+        
         <Member Name="Neutral" Value="0">
           <Annotation Term="Core.Description" String="Neutral / grey status - inactive - open - in progress"/>
         </Member>
@@ -345,6 +346,7 @@
         <Member Name="Positive" Value="3">
           <Annotation Term="Core.Description" String="Positive / green status - completed - available - on track - acceptable"/>
         </Member>
+        
       </EnumType>
 
       <ComplexType Name="CriticalityCalculationType" BaseType="UI.CriticalityThresholdsType">
