@@ -651,11 +651,13 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target."/>
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
+          
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible."/>
         </Property>
         
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
+        
         <Member Name="ValidationMessage" Value="1">
           
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target"/>

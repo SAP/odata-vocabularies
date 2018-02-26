@@ -808,6 +808,15 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
             String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
+          <Annotation Term="Core.Revisions">
+            <Annotation Term="Common.Experimental" />
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`." />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean">
@@ -816,6 +825,15 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
+        <Annotation Term="Core.Revisions">
+          <Annotation Term="Common.Experimental" />
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="`ValueChange` is the only surviving member" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Member Name="ValidationMessage" Value="1">
           <Annotation Term="Core.Revisions">
             <Annotation Term="Common.Experimental" />

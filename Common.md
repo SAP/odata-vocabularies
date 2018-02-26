@@ -77,16 +77,16 @@ Term|Type|Description
 [DraftActivationVia](Common.xml#L767)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
 [SemanticKey](Common.xml#L779)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
 [SideEffects](Common.xml#L783)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DerivedDefaultValue](Common.xml#L862)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated property.<br/>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
-[FilterDefaultValue](Common.xml#L883)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](Common.xml#L887) *(Experimental)*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](Common.xml#L892)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the             type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated             property.<br/>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
-[SortOrder](Common.xml#L916)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the            collection of the annotated entity type are sorted by the first entry of the SortOrder collection.            Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </p>
-[RecursiveHierarchy](Common.xml#L948)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[CreatedAt](Common.xml#L980)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L984)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L988)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L992)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
+[DerivedDefaultValue](Common.xml#L880)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated property.<br/>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
+[FilterDefaultValue](Common.xml#L901)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](Common.xml#L905) *(Experimental)*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](Common.xml#L910)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the             type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated             property.<br/>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
+[SortOrder](Common.xml#L934)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the            collection of the annotated entity type are sorted by the first entry of the SortOrder collection.            Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </p>
+[RecursiveHierarchy](Common.xml#L966)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[CreatedAt](Common.xml#L998)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L1002)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L1006)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L1010)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L82)
 
@@ -292,36 +292,36 @@ Property|Type|Description
 [SourceEntities](Common.xml#L799)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
 [TargetProperties](Common.xml#L803)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
 [TargetEntities](Common.xml#L806)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
-[EffectTypes](Common.xml#L810)|[EffectType](#EffectType)|One or more of the targets may show these effects. If not specified, any effect is possible.
-[OnPreparation](Common.xml#L813) *(Experimental)*|Boolean|This side effect is deferred until invoking the Preparation action
+[EffectTypes](Common.xml#L810) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`.
+[OnPreparation](Common.xml#L822) *(Experimental)*|Boolean|This side effect is deferred until invoking the Preparation action
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L818)
+## <a name="EffectType"></a>[EffectType](Common.xml#L827) *(Deprecated)*
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[ValidationMessage](Common.xml#L819) *(Deprecated)*|1|Use `ValueChange` instead
-[ValueChange](Common.xml#L836)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.   Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L843) *(Deprecated)*|4|Use `ValueChange` instead
+[ValidationMessage](Common.xml#L837) *(Deprecated)*|1|Use `ValueChange` instead
+[ValueChange](Common.xml#L854)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.   Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+[FieldControlChange](Common.xml#L861) *(Deprecated)*|4|Use `ValueChange` instead
 
-## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L924)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L925)|PropertyPath|Sort property
-[Descending](Common.xml#L928)|Boolean|Sort direction ; default is ascending
-
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L953)
+## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L942)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](Common.xml#L954)|PropertyPath|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](Common.xml#L957)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](Common.xml#L965)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[Property](Common.xml#L943)|PropertyPath|Sort property
+[Descending](Common.xml#L946)|Boolean|Sort direction ; default is ascending
 
-## <a name="UserID"></a>[UserID](Common.xml#L996)
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L971)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ExternalNodeKeyProperty](Common.xml#L972)|PropertyPath|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](Common.xml#L975)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](Common.xml#L983)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+
+## <a name="UserID"></a>[UserID](Common.xml#L1014)
 **Type:** String
 
 User ID
