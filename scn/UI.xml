@@ -595,6 +595,7 @@ The trend is
         <Property Name="Role" Type="UI.ChartDimensionRoleType"/>
         
         
+        
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
