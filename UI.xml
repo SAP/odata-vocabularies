@@ -626,6 +626,11 @@ The trend is
       <ComplexType Name="ChartDimensionAttributeType">
         <Property Name="Dimension" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
+        <Property Name="HierarchyLevel" Type="Edm.Int16">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0." />
+        </Property>
         <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be assigned to levels of the same color." />
