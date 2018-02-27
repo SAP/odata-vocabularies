@@ -758,10 +758,10 @@ The trend is
         </Property>
         <Property Name="Visualizations" Type="Collection(Edm.AnnotationPath)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint.
+            <String>Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.
               For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type
-              shall be modeled with different PresentationVariants. 
-              A reference to UI.Lineitem should always be part of collection (least common denominator for renderers).
+              shall be modeled with different presentation variants. 
+              A reference to `UI.Lineitem` should always be part of collection (least common denominator for renderers).
               The first entry of the collection is the default visualization.
             </String>
           </Annotation>
@@ -792,7 +792,7 @@ The trend is
         </Property>
         <Property Name="FilterExpression" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description">
-            <String>Filter string for query part of URL, without '$filter ='</String>
+            <String>Filter string for query part of URL, without `$filter=`</String>
           </Annotation>
         </Property>
         <Property Name="SelectOptions" Type="Collection(UI.SelectOptionType)" Nullable="false">

@@ -1538,7 +1538,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">Visualizations</td>
 <td align="left">[AnnotationPath]</td>
-<td align="left">Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.</td>
+<td align="left">Lists available visualization types. Currently supported types are <code>UI.LineItem</code>, <code>UI.Chart</code>, and <code>UI.DataPoint</code>. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to <code>UI.Lineitem</code> should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.</td>
 </tr>
 <tr>
 <td align="left">RequestAtLeast</td>
@@ -1576,7 +1576,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">FilterExpression</td>
 <td align="left">String</td>
-<td align="left">Filter string for query part of URL, without '$filter ='</td>
+<td align="left">Filter string for query part of URL, without <code>$filter=</code>
+</td>
 </tr>
 <tr>
 <td align="left">SelectOptions</td>

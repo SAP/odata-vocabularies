@@ -474,9 +474,9 @@ Property|Type|Description
 [Total](UI.xml#L799)|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
 [IncludeGrandTotal](UI.xml#L804)|Boolean|Result should include a grand total for the properties specified in Total
 [InitialExpansionLevel](UI.xml#L807)|Int32|Level up to which the hierarchy defined for the queried collection should be expanded initially. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
-[Visualizations](UI.xml#L813)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are UI.LineItem, UI.Chart, and UI.DataPoint. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different PresentationVariants. A reference to UI.Lineitem should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
+[Visualizations](UI.xml#L813)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to `UI.Lineitem` should always be part of collection (least common denominator for renderers). The first entry of the collection is the default visualization.
 [RequestAtLeast](UI.xml#L823)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
-[SelectionFields](UI.xml#L826) *(Experimental)*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a UI.SelectionFields annotation via Path.
+[SelectionFields](UI.xml#L826) *(Experimental)*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a `UI.SelectionFields` annotation via Path.
 
 ## <a name="SelectionVariantType"></a>[SelectionVariantType](UI.xml#L840)
 
@@ -486,7 +486,7 @@ Property|Type|Description
 [ID](UI.xml#L841)|String|May contain identifier to reference this instance from an external context
 [Text](UI.xml#L846)|String|Name of the selection variant
 [Parameters](UI.xml#L850)|\[[ParameterAbstract](#ParameterAbstract)\]|Parameters of the selection variant
-[FilterExpression](UI.xml#L853)|String|Filter string for query part of URL, without '$filter ='
+[FilterExpression](UI.xml#L853)|String|Filter string for query part of URL, without `$filter=`
 [SelectOptions](UI.xml#L858)|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
 
 ## <a name="ParameterAbstract"></a>[*ParameterAbstract*](UI.xml#L865)
