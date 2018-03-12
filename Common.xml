@@ -65,9 +65,10 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="IsText" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="TextFor" Type="Edm.PropertyPath" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Contains a descriptive text" />
+        <Annotation Term="Core.RequiresType" String="Edm.String" />
+        <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
       <Term Name="IsLanguageIdentifier" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
