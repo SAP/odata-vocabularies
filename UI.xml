@@ -767,6 +767,7 @@ The trend is
       </ComplexType>
 
       <Term Name="PresentationVariant" Type="UI.PresentationVariantType" AppliesTo="EntitySet EntityType">
+        <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>Defines how the result of a queried collection of entities is shaped and how this result is displayed</String>
         </Annotation>
