@@ -399,14 +399,17 @@
         </Property>
       </ComplexType>
 
-      <Term Name="NumericMessageSeverity" Type="Common.NumericMessageSeverityType" AppliesTo="ComplexType">
+      <Term Name="NumericMessageSeverity" Type="Common.NumericMessageSeverityType" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
+        <Annotation Term="Core.LongDescription"
+          String="This instance annotation can be applied to items of an instance annotation with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
       </Term>
-      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" AppliesTo="EntityType">
+      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The maximum severity of all end-user messages attached to an entity" />
+        <Annotation Term="Core.Description"
+          String="The maximum severity of all end-user messages attached to an entity, null if no messages are attached" />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
@@ -433,6 +436,15 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+      <Term Name="LongtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Location of the message long text" />
+        <Annotation Term="Core.LongDescription"
+          String="This instance annotation can be applied to items of an instance annotation with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
+      </Term>
 
       <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description"
