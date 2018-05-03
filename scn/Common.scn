@@ -113,7 +113,7 @@ Terms</h2>
 <td align="left">SemanticObjectMapping</td>
 <td align="left">[<a href="#SemanticObjectMappingType">SemanticObjectMappingType</a>]</td>
 <td align="left">
-<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object<p>If present, only properties explicitly listed in the mapping are used for intent-based navigation. If not present, all properties of the annotated entity set/type or all sibling properties of the annotated property are used for intent-based navigation.</p>
+<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object<p>This allows "renaming" of properties in the current context to match property names of the Semantic Object, e.g. <code>SenderPartyID</code> to <code>PartyID</code>. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their "local" name.</p>
 </td>
 </tr>
 <tr>

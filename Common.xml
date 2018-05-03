@@ -249,7 +249,7 @@
         <Annotation Term="Core.Description"
           String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
         <Annotation Term="Core.LongDescription"
-          String="If present, only properties explicitly listed in the mapping are used for intent-based navigation. If not present, all properties of the annotated entity set/type or all sibling properties of the annotated property are used for intent-based navigation." />
+          String="This allows &quot;renaming&quot; of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their &quot;local&quot; name." />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
         <Annotation Term="Core.Description"
