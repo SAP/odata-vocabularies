@@ -593,6 +593,11 @@ Terms</h2>
 <td align="right">4</td>
 <td align="left">Visualize as donut, optionally with missing segment - requires TargetValue</td>
 </tr>
+<tr>
+<td align="left">DeltaBulletChart</td>
+<td align="right">5</td>
+<td align="left">Visualize as delta bullet chart - requires TargetValue</td>
+</tr>
 </tbody>
 </table>
 <h2>

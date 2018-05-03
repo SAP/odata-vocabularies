@@ -322,6 +322,9 @@
         <Member Name="Donut">
           <Annotation Term="Core.Description" String="Visualize as donut, optionally with missing segment - requires TargetValue" />
         </Member>
+        <Member Name="DeltaBulletChart">
+          <Annotation Term="Core.Description" String="Visualize as delta bullet chart - requires TargetValue" />
+        </Member>
       </EnumType>
 
       <ComplexType Name="ReferencePeriod">
