@@ -42,6 +42,9 @@
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
         </Property>
+        <Property Name="ValueProperty" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Property for whose values the hierarchy is defined" />
+        </Property>
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
           <Annotation Term="Core.LongDescription"
