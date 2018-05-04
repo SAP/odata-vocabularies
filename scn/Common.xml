@@ -422,6 +422,14 @@
       </ComplexType>
       <ComplexType Name="ValueListParameterFilterOnly" BaseType="Common.ValueListParameter">
         <Annotation Term="Core.Description" String="Value list property that is used to filter the value list, not connected to the edited entity"/>
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="All filterable properties of the value list can be used to filter"/>
+            </Record>
+          </Collection>
+        </Annotation>
       </ComplexType>
 
       <!-- Section: Calendar Points in Time -->

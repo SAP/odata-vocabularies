@@ -768,7 +768,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="ValueListParameterFilterOnly"></a>ValueListParameterFilterOnly: <a href="#ValueListParameter">ValueListParameter</a>
+<a name="ValueListParameterFilterOnly"></a>ValueListParameterFilterOnly: <a href="#ValueListParameter">ValueListParameter</a> <em>(Deprecated)</em>
 </h2>
 <p>Value list property that is used to filter the value list, not connected to the edited entity</p>
 <table>
