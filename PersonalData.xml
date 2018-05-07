@@ -34,6 +34,12 @@
         <String>
 ## Open Issues
 
+
+### Tagging of contact-related fields as "personal data"
+
+- Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
+
+
 ### Address-related fields        
 
 Field | Question
@@ -41,16 +47,8 @@ Field | Question
 address-district | Not part of vCard: why is this needed? Usually the district isn't part of an address
 address-care-of-name | c/o: not part of vCard: why needed?
 address-building | Not part of vCard: why is this needed?
-
-### Tagging of fields as "personal data"
-
-- Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
         </String>
       </Annotation>
-
-      <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
-      </Term>
 
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
@@ -62,20 +60,25 @@ address-building | Not part of vCard: why is this needed?
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
-              <PropertyValue Property="Value" String="DataSubjectIdentity" />
+              <PropertyValue Property="Value" String="DataSubject" />
               <Annotation Term="Core.Description"
-                String="Data Subject Identity, e.g. CustomerMasterHeader, VendorMasterHeader (The entity that identifies/contain Personal Data about the data subject)." />
+                String="The entities of this set identify/describe a 'data subject' (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader" />
               <Annotation Term="Core.LongDescription">
-                <String>The structure of this entity set can be as per the business requirement.  The fields of the entity set should be annotated suitably so that we can relate the content with Data Privacy (Fields are defined further in the document)
-
-*TODO: How does this differ from the similarly named DataSubjectId in [FieldSemanticsType](#FieldSemanticsType)? Should this rather just be a DataSubject or a DataSubjectType? Would fit to CustomerMasterHeader -> Data Subject, CustomerID -> DataSubjectId*
-                </String>
+                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)</String>
               </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="PersonRelatedData" />
+              <Annotation Term="Core.Description"
+                String="The entities of this set are related to a person but do not by themselves identify/describe a person" />
+              <Annotation Term="Core.LongDescription" String="These entities are relevant for audit logging." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchProvider" />
               <Annotation Term="Core.Description"
                 String="Combined/Joined view of the Data Subject Identity which contains the entire personal information of the Data Subject including multiple addresses, emails, phone, facsimile, etc." />
+              <Annotation Term="Core.LongDescription"
+                String="*TODO: this seems rather special: isn't this just another `DataSubject`?*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="LegalGround" />
@@ -88,20 +91,16 @@ address-building | Not part of vCard: why is this needed?
                 String="Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="ChangeLog" />
+              <PropertyValue Property="Value" String="ChangeLog/AuditLog" />
               <Annotation Term="Core.Description"
                 String="Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application." />
               <Annotation Term="Core.LongDescription"
-                String="*TODO: Align with Steffen Weinstock and Wolfgang Koch how the counterpart annotation for 'please keep a change log for this view' will be named*" />
+                String="*TODO: what is the aligned/correct name: change log or audit log?*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="AuthorizationReport" />
               <Annotation Term="Core.Description"
                 String="Provides a report about which users/roles have permissions to view the personal data of a Data Subject." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="PersonRelatedData" />
-              <Annotation Term="Core.Description" String="The entities of this set are related to a person" />
             </Record>
           </Collection>
         </Annotation>
@@ -118,20 +117,29 @@ address-building | Not part of vCard: why is this needed?
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="DataSubjectId" />
-              <Annotation Term="Core.Description" String="Human-readable id of the data subject" />
-              <Annotation Term="Core.LongDescription"
-                String="*TODO: How does this differ from the similarly named DataSubjectIdentity in [SemanticsType](#SemanticsType)?*" />
+              <Annotation Term="Core.Description" String="ID of the data subject" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="DataSubjectTechId" />
-              <Annotation Term="Core.Description" String="Generated id or UUID of the data subject which could be specific to the application" />
+              <PropertyValue Property="Value" String="DataSubjectType???" />
+              <Annotation Term="Core.Description" String="Type of the data subject" />
+              <Annotation Term="Core.LongDescription" String="*TODO: crisp definition needed*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="DataSubjectRole???" />
+              <Annotation Term="Core.Description" String="Role of the data subject" />
+              <Annotation Term="Core.LongDescription" String="*TODO: crisp definition needed*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="~~DataSubjectTechId~~" />
+              <Annotation Term="Core.Description"
+                String="Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'rememberable' ID) - Common.ExternalID - is in the works, no need for a special case here" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="LegalGroundType" />
               <Annotation Term="Core.Description"
                 String="The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
-                <String>Field values can be
+                <String>Examples:
 
                 - Consent
 
@@ -144,7 +152,7 @@ address-building | Not part of vCard: why is this needed?
               <Annotation Term="Core.Description"
                 String="The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
-                <String>Field values can be
+                <String>Examples:
 
                 - Consent ID
 
@@ -157,19 +165,31 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="UserProfileId" />
+              <PropertyValue Property="Value" String="~~UserProfileId~~" />
               <Annotation Term="Core.Description"
-                String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool?*" />
+                String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="PersonalData" />
               <Annotation Term="Core.Description" String="Personal Identifiable Information" />
               <Annotation Term="Core.LongDescription"
-                String="*TODO: Is this annotation really necessary on fields that are already marked as being contact data or address data?*" />
+                String="Changes are tracked in the change log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data or address data?*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="RelatedData" />
+              <Annotation Term="Core.Description" String="Related Entity Information" />
+              <Annotation Term="Core.LongDescription"
+                String="Changes are _not_ tracked in the change log.&#xA;&#xA;*TODO: discuss with Girish*" />
             </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+      <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
+        <Annotation Term="Core.LongDescription" String="*TODO: crisp definition of 'sensitive' needed*" />
+      </Term>
 
     </Schema>
   </edmx:DataServices>
