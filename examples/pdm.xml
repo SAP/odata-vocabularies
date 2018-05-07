@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
     <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
   </edmx:Reference>
@@ -66,7 +69,7 @@
 
 
       <v4:Annotations Target="gdpr.gra.sample.v2/Employee">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectIdentity" />
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType">
@@ -93,7 +96,7 @@
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userUuid">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
+        <v4:Annotation Term="Common.ExternalID" Path="userId" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectId" />
@@ -132,14 +135,14 @@
             <v4:PropertyValue Property="country" Path="country" />
             <v4:PropertyValue Property="region" Path="region" />
             <v4:PropertyValue Property="locality" Path="city" />
-            <!-- TODO: needed? -->
+            <!-- TODO: district needed? -->
             <v4:PropertyValue Property="district" Path="district" />
             <v4:PropertyValue Property="code" Path="streetPostalCode" />
             <v4:PropertyValue Property="street" Path="streetName" />
             <v4:PropertyValue Property="ext" Path="houseID" />
-            <!-- TODO: needed? -->
+            <!-- TODO: careof needed? -->
             <v4:PropertyValue Property="careof" Path="careOfName" />
-            <!-- TODO: needed? -->
+            <!-- TODO: building needed? -->
             <v4:PropertyValue Property="building" Path="buildingID" />
           </v4:Record>
         </v4:Annotation>
