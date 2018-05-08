@@ -3,6 +3,9 @@
 
 Terms for Hierarchies
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [RecursiveHierarchy](Hierarchy.xml#L33) *(Experimental)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
