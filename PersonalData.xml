@@ -68,7 +68,7 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="PersonRelatedData" />
+              <PropertyValue Property="Value" String="PersonRelatedData/PersonRelatedEntity?" />
               <Annotation Term="Core.Description"
                 String="The entities of this set are related to a person but do not by themselves identify/describe a person" />
               <Annotation Term="Core.LongDescription" String="These entities are relevant for audit logging." />
@@ -84,6 +84,8 @@ address-building | Not part of vCard: why is this needed?
               <PropertyValue Property="Value" String="LegalGround" />
               <Annotation Term="Core.Description"
                 String="Provides information regarding the legal ground (consent/contract/purpose) maintained for the application." />
+              <Annotation Term="Core.LongDescription"
+                String="This is a special case of `PersonRelatedData`." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ReadAccessLog" />
@@ -165,6 +167,28 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
+              <PropertyValue Property="Value" String="RelatedEntityType???" />
+              <Annotation Term="Core.Description"
+                String="The annotated field holds the type of ???" />
+              <Annotation Term="Core.LongDescription">
+                <String>Examples:
+
+                - ???
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="RelatedEntityId" />
+              <Annotation Term="Core.Description"
+                String="The annotated field holds the actual ID of the related entity???" />
+              <Annotation Term="Core.LongDescription">
+                <String>Examples:
+
+                - ???
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
               <PropertyValue Property="Value" String="~~UserProfileId~~" />
               <Annotation Term="Core.Description"
                 String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*" />
@@ -173,7 +197,7 @@ address-building | Not part of vCard: why is this needed?
               <PropertyValue Property="Value" String="PersonalData" />
               <Annotation Term="Core.Description" String="Personal Identifiable Information" />
               <Annotation Term="Core.LongDescription"
-                String="Changes are tracked in the change log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data or address data?*" />
+                String="Changes are tracked in the change log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="RelatedData" />
