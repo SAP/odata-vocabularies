@@ -1978,7 +1978,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">Target</td>
 <td align="left">AnnotationPath</td>
-<td align="left">Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart</td>
+<td align="left">Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields</td>
 </tr>
 </tbody>
 </table>

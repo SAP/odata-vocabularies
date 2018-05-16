@@ -1022,7 +1022,7 @@ The trend is
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
         <Property Name="Target" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Annotation path MUST end in Communication.Contact, Communication.Address, UI.DataPoint or UI.Chart"/>
+          <Annotation Term="Core.Description" String="Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields"/>
         </Property>
       </ComplexType>
 
