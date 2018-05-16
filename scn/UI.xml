@@ -116,6 +116,9 @@
         </Property>
       </ComplexType>
 
+      
+      
+
       <!-- Under Discussion
         <Term Name="GeoPoints" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
