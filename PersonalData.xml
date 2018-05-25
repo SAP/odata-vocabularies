@@ -64,30 +64,27 @@ address-building | Not part of vCard: why is this needed?
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="DataSubject" />
-              <Annotation Term="Core.Description"
-                String="The entities of this set describe a 'data subject' (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader" />
+              <Annotation Term="Core.Description">
+                <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader</String>
+              </Annotation>
               <Annotation Term="Core.LongDescription">
-                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)</String>
+                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</String>
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="PersonRelatedData/PersonRelatedEntity?" />
-              <Annotation Term="Core.Description"
-                String="The entities of this set are related to a person but do not by themselves identify/describe a person" />
-              <Annotation Term="Core.LongDescription" String="These entities are relevant for audit logging." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="SearchProvider" />
-              <Annotation Term="Core.Description"
-                String="Combined/joined view which contains the entire personal data of the data subject including multiple addresses, emails, phone, facsimile, etc." />
-              <Annotation Term="Core.LongDescription"
-                String="*TODO: this seems rather special: isn't this just another `DataSubject`?*" />
+              <PropertyValue Property="Value" String="DataSubjectDetails" />
+              <Annotation Term="Core.Description">
+                <String>The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress</String>
+              </Annotation>
+              <Annotation Term="Core.LongDescription">
+                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</String>
+              </Annotation>
             </Record>
             <Record>
               <PropertyValue Property="Value" String="LegalBasis" />
               <Annotation Term="Core.Description"
-                String="Provides information regarding the legal basis (consent/contract/purpose) maintained for the application." />
-              <Annotation Term="Core.LongDescription" String="This is a special case of `PersonRelatedData`." />
+                String="Provides information regarding the legal basis (consent or contract) maintained for the application." />
+              <Annotation Term="Core.LongDescription" String="This is a special case of `DataSubjectDetails`." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ReadAccessLog" />
@@ -95,15 +92,14 @@ address-building | Not part of vCard: why is this needed?
                 String="Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="ChangeLog/AuditLog" />
+              <PropertyValue Property="Value" String="AuditLog" />
               <Annotation Term="Core.Description"
-                String="Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application." />
-              <Annotation Term="Core.LongDescription" String="*TODO: what is the aligned/correct name: change log or audit log?*" />
+                String="Provides a view of the audit logs kept by the application. It provides information about changes to the personal data done in the application." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="AuthorizationReport" />
               <Annotation Term="Core.Description"
-                String="Provides a report about which users/roles have permissions to view the personal data of a Data Subject." />
+                String="Provides a report about which users/roles have permissions to view the personal data of a data subject." />
             </Record>
           </Collection>
         </Annotation>
@@ -125,7 +121,8 @@ address-building | Not part of vCard: why is this needed?
             <Record>
               <PropertyValue Property="Value" String="DataSubjectType???" />
               <Annotation Term="Core.Description" String="Type of the data subject" />
-              <Annotation Term="Core.LongDescription" String="*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number" />
+              <Annotation Term="Core.LongDescription"
+                String="*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="DataSubjectRole???" />
@@ -135,7 +132,7 @@ address-building | Not part of vCard: why is this needed?
             <Record>
               <PropertyValue Property="Value" String="~~DataSubjectTechId~~" />
               <Annotation Term="Core.Description"
-                String="Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'rememberable' ID) - Common.ExternalID - is in the works, no need for a special case here" />
+                String="Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'readable' ID) - Common.ExternalID - is in the works, no need for a special case here" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="LegalBasisType" />
@@ -151,7 +148,7 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalBasisId" />
+              <PropertyValue Property="Value" String="LegalBasisID" />
               <Annotation Term="Core.Description"
                 String="The annotated field holds the actual ID of the Legal Basis on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
@@ -178,7 +175,7 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="RelatedEntityId" />
+              <PropertyValue Property="Value" String="RelatedEntityID" />
               <Annotation Term="Core.Description" String="The annotated field holds the actual ID of the related entity???" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
@@ -194,15 +191,16 @@ address-building | Not part of vCard: why is this needed?
             </Record>
             <Record>
               <PropertyValue Property="Value" String="PersonalData" />
-              <Annotation Term="Core.Description" String="Information relating to an identified or identifiable natural person (data subject)" />
+              <Annotation Term="Core.Description"
+                String="Information relating to an identified or identifiable natural person (data subject)" />
               <Annotation Term="Core.LongDescription"
-                String="Changes are tracked in the change log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*" />
+                String="Changes are tracked in the audit log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="RelatedData" />
               <Annotation Term="Core.Description" String="Related Entity Information" />
               <Annotation Term="Core.LongDescription"
-                String="Changes are _not_ tracked in the change log.&#xA;&#xA;*TODO: discuss with Girish*" />
+                String="Changes are _not_ tracked in the audit log.&#xA;&#xA;*TODO: discuss with Girish whether this is actually needed*" />
             </Record>
           </Collection>
         </Annotation>
@@ -211,7 +209,17 @@ address-building | Not part of vCard: why is this needed?
       <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
-        <Annotation Term="Core.LongDescription" String="*TODO: crisp definition of 'sensitive' needed*" />
+        <Annotation Term="Core.LongDescription">
+          <String>Sensitive data is a colloquial term usually including the following data:
+
+-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation
+
+-  Personal data subject to professional secrecy
+
+-  Personal data relating to criminal or administrative offences
+
+-  Personal data concerning bank or credit card accounts</String>
+        </Annotation>
       </Term>
 
     </Schema>

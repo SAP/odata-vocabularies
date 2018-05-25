@@ -30,8 +30,8 @@ address-building | Not part of vCard: why is this needed?
 Term|Type|Description
 :---|:---|:----------
 [Semantics](PersonalData.xml#L56) *(Experimental)*|[SemanticsType](#SemanticsType)|<a name="Semantics"></a>Primary purpose/meaning of the data contained in the annotated entity set
-[FieldSemantics](PersonalData.xml#L112) *(Experimental)*|[FieldSemanticsType](#FieldSemanticsType)|<a name="FieldSemantics"></a>Primary purpose/meaning of the data contained in the annotated property
-[IsSensitive](PersonalData.xml#L211) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>*TODO: crisp definition of 'sensitive' needed*</p>
+[FieldSemantics](PersonalData.xml#L108) *(Experimental)*|[FieldSemanticsType](#FieldSemanticsType)|<a name="FieldSemantics"></a>Primary purpose/meaning of the data contained in the annotated property
+[IsSensitive](PersonalData.xml#L209) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts</p>
 
 ## <a name="SemanticsType"></a>[SemanticsType](PersonalData.xml#L60) *(Experimental)*
 **Type:** String
@@ -40,29 +40,28 @@ Primary purpose/meaning of data set
 
 Allowed Value|Description
 :------------|:----------
-[DataSubject](PersonalData.xml#L65)|The entities of this set describe a 'data subject' (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)</p>
-[PersonRelatedData/PersonRelatedEntity?](PersonalData.xml#L73)|The entities of this set are related to a person but do not by themselves identify/describe a person<p>These entities are relevant for audit logging.</p>
-[SearchProvider](PersonalData.xml#L79)|Combined/joined view which contains the entire personal data of the data subject including multiple addresses, emails, phone, facsimile, etc.<p>*TODO: this seems rather special: isn't this just another `DataSubject`?*</p>
-[LegalBasis](PersonalData.xml#L86)|Provides information regarding the legal basis (consent/contract/purpose) maintained for the application.<p>This is a special case of `PersonRelatedData`.</p>
-[ReadAccessLog](PersonalData.xml#L92)|Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data.
-[ChangeLog/AuditLog](PersonalData.xml#L97)|Provides a view of the change logs that are logged by the application. It provides the information about changes to the personal data done in the application.<p>*TODO: what is the aligned/correct name: change log or audit log?*</p>
-[AuthorizationReport](PersonalData.xml#L103)|Provides a report about which users/roles have permissions to view the personal data of a Data Subject.
+[DataSubject](PersonalData.xml#L65)|The entities of this set describe a data subject (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
+[DataSubjectDetails](PersonalData.xml#L74)|The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
+[LegalBasis](PersonalData.xml#L83)|Provides information regarding the legal basis (consent or contract) maintained for the application.<p>This is a special case of `DataSubjectDetails`.</p>
+[ReadAccessLog](PersonalData.xml#L89)|Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data.
+[AuditLog](PersonalData.xml#L94)|Provides a view of the audit logs kept by the application. It provides information about changes to the personal data done in the application.
+[AuthorizationReport](PersonalData.xml#L99)|Provides a report about which users/roles have permissions to view the personal data of a data subject.
 
-## <a name="FieldSemanticsType"></a>[FieldSemanticsType](PersonalData.xml#L116) *(Experimental)*
+## <a name="FieldSemanticsType"></a>[FieldSemanticsType](PersonalData.xml#L112) *(Experimental)*
 **Type:** String
 
 Primary purpose/meaning of a data field
 
 Allowed Value|Description
 :------------|:----------
-[DataSubjectID](PersonalData.xml#L121)|The unique identifier for a data subject
-[DataSubjectType???](PersonalData.xml#L125)|Type of the data subject<p>*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number</p>
-[DataSubjectRole???](PersonalData.xml#L130)|Role of the data subject<p>*TODO: crisp definition needed*</p>
-[~~DataSubjectTechId~~](PersonalData.xml#L135)|Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'rememberable' ID) - Common.ExternalID - is in the works, no need for a special case here
-[LegalBasisType](PersonalData.xml#L140)|The annotated field holds the type of Legal Basis on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent<br/>                - Name of Business Process                 </p>
-[LegalBasisId](PersonalData.xml#L153)|The annotated field holds the actual ID of the Legal Basis on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent ID<br/>                - Sales Contract ID<br/>                - Purchase Contract ID<br/>                - Service Contract ID                 </p>
-[RelatedEntityType???](PersonalData.xml#L170)|The annotated field holds the type of ???<p>Examples:<br/>                - ???                 </p>
-[RelatedEntityId](PersonalData.xml#L180)|The annotated field holds the actual ID of the related entity???<p>Examples:<br/>                - ???                 </p>
-[~~UserProfileId~~](PersonalData.xml#L190)|*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*
-[PersonalData](PersonalData.xml#L195)|Information relating to an identified or identifiable natural person (data subject)<p>Changes are tracked in the change log.<br/>*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*</p>
-[RelatedData](PersonalData.xml#L201)|Related Entity Information<p>Changes are _not_ tracked in the change log.<br/>*TODO: discuss with Girish*</p>
+[DataSubjectID](PersonalData.xml#L117)|The unique identifier for a data subject
+[DataSubjectType???](PersonalData.xml#L121)|Type of the data subject<p>*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number</p>
+[DataSubjectRole???](PersonalData.xml#L127)|Role of the data subject<p>*TODO: crisp definition needed*</p>
+[~~DataSubjectTechId~~](PersonalData.xml#L132)|Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'readable' ID) - Common.ExternalID - is in the works, no need for a special case here
+[LegalBasisType](PersonalData.xml#L137)|The annotated field holds the type of Legal Basis on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent<br/>                - Name of Business Process                 </p>
+[LegalBasisID](PersonalData.xml#L150)|The annotated field holds the actual ID of the Legal Basis on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent ID<br/>                - Sales Contract ID<br/>                - Purchase Contract ID<br/>                - Service Contract ID                 </p>
+[RelatedEntityType???](PersonalData.xml#L167)|The annotated field holds the type of ???<p>Examples:<br/>                - ???                 </p>
+[RelatedEntityID](PersonalData.xml#L177)|The annotated field holds the actual ID of the related entity???<p>Examples:<br/>                - ???                 </p>
+[~~UserProfileId~~](PersonalData.xml#L187)|*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*
+[PersonalData](PersonalData.xml#L192)|Information relating to an identified or identifiable natural person (data subject)<p>Changes are tracked in the audit log.<br/>*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*</p>
+[RelatedData](PersonalData.xml#L199)|Related Entity Information<p>Changes are _not_ tracked in the audit log.<br/>*TODO: discuss with Girish whether this is actually needed*</p>
