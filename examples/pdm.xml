@@ -99,10 +99,10 @@
         <v4:Annotation Term="Common.ExternalID" Path="userId" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectId" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userProfileId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="UserProfileId" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="UserProfileID" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
         <v4:Annotation Term="Communication.IsEmailAddress" />
@@ -148,10 +148,6 @@
         </v4:Annotation>
       </v4:Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserUuid">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
-      </v4:Annotations>
-
       <!-- TODO: is it really necessary to tag all contact-related fields as "person-related data"? -->
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/country">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
@@ -183,14 +179,11 @@
 
 
       <v4:Annotations Target="gdpr.gra.sample.v2/LeaveRequest">
-        <v4:Annotation Term="PersonalData.Semantics" String="PersonRelatedData" />
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectDetails" />
       </v4:Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserUuid">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectTechId" />
-      </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundId" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalBasisID" />
       </v4:Annotations>
 
     </Schema>

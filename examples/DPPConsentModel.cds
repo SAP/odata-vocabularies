@@ -4,10 +4,10 @@ context ConsentModel {
 
   @PersonalData.Semantics: 'LegalBasis'     // the Consent itself is a legal basis 
 
-  @PersonalData.ChangeLog.Operation: {Insert: false, Update: false, Delete: true}   // @D046777: these annotations should not appear in OData $metadata as they controlling audit logging granularity
-  @PersonalDataChangeLog.Operation: {Insert: false, Update: false, Delete: true}    // should we rather use a separate top-level term?
+  @PersonalData.AuditLog.Operation: {Insert: false, Update: false, Delete: true}   // @D046777: these annotations should not appear in OData $metadata as they controlling audit logging granularity
+  @PersonalDataAuditLog.Operation: {Insert: false, Update: false, Delete: true}    // should we rather use a separate top-level term?
 
-  @PersonalData(.)ChangeLog.Action: {WithdrawConsent: true}                         // beside the standard operations, we list Actions relevant for logging
+  @PersonalData(.)AuditLog.Action: {WithdrawConsent: true}                         // beside the standard operations, we list Actions relevant for logging
   entity Consent {
 
     @PersonalData.FieldSemantics: 'LegalBasisID'
@@ -113,9 +113,9 @@ context ConsentModel {
 
 @
 
-** Second Level (a) --> @PersonalData(.)ChangeLog.Operation: {<StandardOperation>: true || false, ...}         // indicates if a certain StandardOperation (like Insert, Update, Delete) on the entity is relevant for audit logging 
+** Second Level (a) --> @PersonalData(.)AuditLog.Operation: {<StandardOperation>: true || false, ...}         // indicates if a certain StandardOperation (like Insert, Update, Delete) on the entity is relevant for audit logging 
 
-** Second Level (b) --> @PersonalData(.)ChangeLog.Action:    {<ActionName>: true || false, ...}                // indicates if a certain Action on the entity is relevant for audit logging 
+** Second Level (b) --> @PersonalData(.)AuditLog.Action:    {<ActionName>: true || false, ...}                // indicates if a certain Action on the entity is relevant for audit logging 
 
 *** Third level     --> Fill the corresponding "header" fields in the audit log API (see https://github.wdf.sap.corp/xs-audit-log/audit-java-client/wiki/Audit-Log-V2)
 
