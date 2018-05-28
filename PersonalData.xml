@@ -65,7 +65,7 @@ address-building | Not part of vCard: why is this needed?
             <Record>
               <PropertyValue Property="Value" String="DataSubject" />
               <Annotation Term="Core.Description">
-                <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. CustomerMasterHeader, VendorMasterHeader</String>
+                <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor</String>
               </Annotation>
               <Annotation Term="Core.LongDescription">
                 <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</String>
@@ -85,21 +85,6 @@ address-building | Not part of vCard: why is this needed?
               <Annotation Term="Core.Description"
                 String="Provides information regarding the legal basis (consent or contract) maintained for the application." />
               <Annotation Term="Core.LongDescription" String="This is a special case of `DataSubjectDetails`." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="ReadAccessLog" />
-              <Annotation Term="Core.Description"
-                String="Provides a view of the read access logs that are logged by the application. It provides the information about how all have read the sensitive data." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="AuditLog" />
-              <Annotation Term="Core.Description"
-                String="Provides a view of the audit logs kept by the application. It provides information about changes to the personal data done in the application." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="AuthorizationReport" />
-              <Annotation Term="Core.Description"
-                String="Provides a report about which users/roles have permissions to view the personal data of a data subject." />
             </Record>
           </Collection>
         </Annotation>
