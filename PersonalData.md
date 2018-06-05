@@ -69,7 +69,7 @@ Allowed Value|Description
 [DataSubjectType???](PersonalData.xml#L120)|Type of the data subject<p>*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number</p>
 [DataSubjectRole???](PersonalData.xml#L126)|Role of the data subject<p>*TODO: crisp definition needed*</p>
 [~~DataSubjectTechId~~](PersonalData.xml#L131)|Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'readable' ID) - Common.ExternalID - is in the works, no need for a special case here
-[LegalGroundType](PersonalData.xml#L136)|The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent<br/>                - Name of Business Process                 </p>
+[LegalGroundType](PersonalData.xml#L136)|The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent<br/>                - Name of Business Object                 </p>
 [LegalGroundID](PersonalData.xml#L149)|The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Consent ID<br/>                - Sales Contract ID<br/>                - Purchase Contract ID<br/>                - Service Contract ID                 </p>
 [RelatedEntityType???](PersonalData.xml#L166)|The annotated field holds the type of ???<p>Examples:<br/>                - ???                 </p>
 [RelatedEntityID](PersonalData.xml#L176)|The annotated field holds the actual ID of the related entity???<p>Examples:<br/>                - ???                 </p>
