@@ -36,6 +36,20 @@
 
 Personal Data is any information relating to an identified or identifiable natural person ("data subject"). An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
 
+## TODO
+
+- "Purpose": define
+
+
+## Background Info
+
+"Order" or other contract-like thing is a stronger "Legal Ground" than a "Consent"
+
+Legal grounds may be part of the "primary" micro-service or just referenced from another 
+
+"Marketing Campaign" is a legal ground that is itself justified by a "Consent"
+
+
 
 ## Open Issues
 
@@ -81,9 +95,9 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalBasis" />
+              <PropertyValue Property="Value" String="LegalGround" />
               <Annotation Term="Core.Description"
-                String="Provides information regarding the legal basis (consent or contract) maintained for the application." />
+                String="Provides information regarding the legal ground (consent or contract) maintained for the application." />
               <Annotation Term="Core.LongDescription" String="This is a special case of `DataSubjectDetails`." />
             </Record>
           </Collection>
@@ -120,9 +134,9 @@ address-building | Not part of vCard: why is this needed?
                 String="Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'readable' ID) - Common.ExternalID - is in the works, no need for a special case here" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalBasisType" />
+              <PropertyValue Property="Value" String="LegalGroundType" />
               <Annotation Term="Core.Description"
-                String="The annotated field holds the type of Legal Basis on which the Business Data is holding reference to Data Subject Data." />
+                String="The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -133,9 +147,9 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalBasisID" />
+              <PropertyValue Property="Value" String="LegalGroundID" />
               <Annotation Term="Core.Description"
-                String="The annotated field holds the actual ID of the Legal Basis on which the Business Data is holding reference to Data Subject Data." />
+                String="The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
