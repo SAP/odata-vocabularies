@@ -72,23 +72,28 @@ Term|Type|Description
 [IsFiscalYear](Common.xml#L751)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYear"></a>Property encodes a fiscal year number as string following the logical pattern YYYY(Y*) consisting of at least four digits. The string matches the regex pattern [1-9][0-9]{3,}
 [IsFiscalPeriod](Common.xml#L760)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalPeriod"></a>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. The string matches the regex pattern [0-9]{3}
 [IsFiscalYearPeriod](Common.xml#L769)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting of at least seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3,})([0-9]{3})
-[IsFiscalYearVariant](Common.xml#L779)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
-[MutuallyExclusiveTerm](Common.xml#L787)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
-[DraftRoot](Common.xml#L794)|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
-[DraftNode](Common.xml#L812)|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
-[DraftActivationVia](Common.xml#L836)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
-[SemanticKey](Common.xml#L849)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](Common.xml#L854)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DerivedDefaultValue](Common.xml#L955)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated property.<br/>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
-[FilterDefaultValue](Common.xml#L976)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](Common.xml#L980) *(Experimental)*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](Common.xml#L987)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the             type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated             property.<br/>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
-[SortOrder](Common.xml#L1011)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the            collection of the annotated entity type are sorted by the first entry of the SortOrder collection.            Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </p>
-[RecursiveHierarchy](Common.xml#L1043)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[CreatedAt](Common.xml#L1075)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L1079)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L1083)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L1087)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
+[IsFiscalQuarter](Common.xml#L779) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalQuarter"></a>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]
+[IsFiscalYearQuarter](Common.xml#L788) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearQuarter"></a>Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})[1-4]
+[IsFiscalWeek](Common.xml#L798) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalWeek"></a>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]\|[1-4][0-9]\|5[2-3]
+[IsFiscalYearWeek](Common.xml#L807) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearWeek"></a>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|[1-4][0-9]\|5[2-3])
+[IsDayOfFiscalYear](Common.xml#L817) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfFiscalYear"></a>Day number relative to a fiscal year. Valid values are between 1 and 371.
+[IsFiscalYearVariant](Common.xml#L825)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
+[MutuallyExclusiveTerm](Common.xml#L833)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
+[DraftRoot](Common.xml#L840)|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
+[DraftNode](Common.xml#L858)|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
+[DraftActivationVia](Common.xml#L882)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
+[SemanticKey](Common.xml#L895)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
+[SideEffects](Common.xml#L900)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DerivedDefaultValue](Common.xml#L1001)|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated property.<br/>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
+[FilterDefaultValue](Common.xml#L1022)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](Common.xml#L1026) *(Experimental)*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](Common.xml#L1033)|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br/>            - `parameters`, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br/>            - `properties`, a structure resembling the             type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated             property.<br/>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
+[SortOrder](Common.xml#L1057)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the            collection of the annotated entity type are sorted by the first entry of the SortOrder collection.            Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </p>
+[RecursiveHierarchy](Common.xml#L1089)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[CreatedAt](Common.xml#L1121)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L1125)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L1129)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L1133)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L90)
 
@@ -259,18 +264,18 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L595)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
 
-## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L799): [DraftNodeType](#DraftNodeType)
+## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L845): [DraftNodeType](#DraftNodeType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*PreparationAction*](Common.xml#L818)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
-[*ValidationFunction*](Common.xml#L821) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `PreparationAction` instead which can as a side-effect auto-fill missing information
-[ActivationAction](Common.xml#L800)|[QualifiedName](#QualifiedName)|Action that activates a draft document
-[EditAction](Common.xml#L803)|[QualifiedName](#QualifiedName)|Action that creates an edit draft
-[NewAction](Common.xml#L806)|[QualifiedName](#QualifiedName)|Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft
+[*PreparationAction*](Common.xml#L864)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
+[*ValidationFunction*](Common.xml#L867) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `PreparationAction` instead which can as a side-effect auto-fill missing information
+[ActivationAction](Common.xml#L846)|[QualifiedName](#QualifiedName)|Action that activates a draft document
+[EditAction](Common.xml#L849)|[QualifiedName](#QualifiedName)|Action that creates an edit draft
+[NewAction](Common.xml#L852)|[QualifiedName](#QualifiedName)|Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft
 
-## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L817)
+## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L863)
 
 
 **Derived Types:**
@@ -278,20 +283,20 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[PreparationAction](Common.xml#L818)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
-[ValidationFunction](Common.xml#L821) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `PreparationAction` instead which can as a side-effect auto-fill missing information
+[PreparationAction](Common.xml#L864)|[QualifiedName](#QualifiedName)|Action that prepares a draft document for later activation
+[ValidationFunction](Common.xml#L867) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `PreparationAction` instead which can as a side-effect auto-fill missing information
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L841)
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L887)
 **Type:** String
 
 The SimpleIdentifier of an OData construct in scope
 
-## <a name="QualifiedName"></a>[QualifiedName](Common.xml#L845)
+## <a name="QualifiedName"></a>[QualifiedName](Common.xml#L891)
 **Type:** String
 
 The QualifiedName of an OData construct in scope
 
-## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L857)
+## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L903)
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -302,40 +307,40 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](Common.xml#L867)|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
-[SourceEntities](Common.xml#L871)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
-[TargetProperties](Common.xml#L875)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
-[TargetEntities](Common.xml#L879)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
-[EffectTypes](Common.xml#L883) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`.
-[OnPreparation](Common.xml#L897) *(Experimental)*|Boolean|This side effect is deferred until invoking the Preparation action
+[SourceProperties](Common.xml#L913)|\[PropertyPath\]|Changes to the values of one or more of these properties will affect the targets
+[SourceEntities](Common.xml#L917)|\[NavigationPropertyPath\]|Changes to one or more of these entities will affect the targets. An empty path means the annotation target.
+[TargetProperties](Common.xml#L921)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
+[TargetEntities](Common.xml#L925)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
+[EffectTypes](Common.xml#L929) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`.
+[OnPreparation](Common.xml#L943) *(Experimental)*|Boolean|This side effect is deferred until invoking the Preparation action
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L902) *(Deprecated)*
+## <a name="EffectType"></a>[EffectType](Common.xml#L948) *(Deprecated)*
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[ValidationMessage](Common.xml#L912) *(Deprecated)*|1|Use `ValueChange` instead
-[ValueChange](Common.xml#L929)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.   Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L936) *(Deprecated)*|4|Use `ValueChange` instead
+[ValidationMessage](Common.xml#L958) *(Deprecated)*|1|Use `ValueChange` instead
+[ValueChange](Common.xml#L975)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.   Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+[FieldControlChange](Common.xml#L982) *(Deprecated)*|4|Use `ValueChange` instead
 
-## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1019)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L1020)|PropertyPath|Sort property
-[Descending](Common.xml#L1023)|Boolean|Sort direction ; default is ascending
-
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L1048)
+## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1065)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](Common.xml#L1049)|PropertyPath|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](Common.xml#L1052)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](Common.xml#L1060)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[Property](Common.xml#L1066)|PropertyPath|Sort property
+[Descending](Common.xml#L1069)|Boolean|Sort direction ; default is ascending
 
-## <a name="UserID"></a>[UserID](Common.xml#L1091)
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L1094)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ExternalNodeKeyProperty](Common.xml#L1095)|PropertyPath|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](Common.xml#L1098)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](Common.xml#L1106)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+
+## <a name="UserID"></a>[UserID](Common.xml#L1137)
 **Type:** String
 
 User ID
