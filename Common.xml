@@ -669,7 +669,7 @@
       <Term Name="IsCalendarWeek" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[2-3] 
+          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3] 
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -725,7 +725,7 @@
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting 
           of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[2-3]) 
+          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3]) 
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -799,7 +799,7 @@
         <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/rsZCdg" />
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[2-3]</String>
+          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -809,7 +809,7 @@
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an
           optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. 
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[2-3])</String>
+          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
