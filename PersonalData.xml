@@ -38,7 +38,7 @@ Personal Data is any information relating to an identified or identifiable natur
 
 ## TODO
 
-- "Purpose": define
+- "ConsentDependentData" is data that needs to be deleted if a consent is withdrawn -> to be discussed with Bjoern Dederichs whether we need this
 
 
 ## Background Info
@@ -69,11 +69,11 @@ address-building | Not part of vCard: why is this needed?
 
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated entity set" />
+        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
       </Term>
       <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary purpose/meaning of data set" />
+        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
@@ -95,10 +95,24 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
+              <PropertyValue Property="Value" String="Consent" />
+              <Annotation Term="Core.Description" String="The entities of this set represent a consent" />
+              <Annotation Term="Core.LongDescription">
+                <String>A consent is the action of the data subject confirming that 
+                the usage of his or her personal data shall be allowed for a given purpose. 
+                A consent functionality allows the storage of a consent record in relation 
+                to a specific purpose and shows if a data subject has granted, withdrawn, 
+                or denied consent.
+                
+                A purpose is the information that specifies the reason and the goal for the
+                processing of a specific set of personal data. As a rule, the purpose
+                references the relevant legal basis for the processing of personal data.</String>
+              </Annotation>
+            </Record>
+            <Record>
               <PropertyValue Property="Value" String="LegalGround" />
               <Annotation Term="Core.Description"
-                String="Provides information regarding the legal ground (consent or contract) maintained for the application." />
-              <Annotation Term="Core.LongDescription" String="This is a special case of `DataSubjectDetails`." />
+                String="Provides information regarding the legal ground (e.g. order or contract) maintained for the application." />
             </Record>
           </Collection>
         </Annotation>
@@ -106,11 +120,11 @@ address-building | Not part of vCard: why is this needed?
 
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary purpose/meaning of the data contained in the annotated property" />
+        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated property" />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary purpose/meaning of a data field" />
+        <Annotation Term="Core.Description" String="Primary meaning of a data field" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
@@ -129,22 +143,8 @@ address-building | Not part of vCard: why is this needed?
               <Annotation Term="Core.LongDescription" String="*TODO: crisp definition needed*" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="~~DataSubjectTechId~~" />
-              <Annotation Term="Core.Description"
-                String="Obsolete: a generic concept for pairs of internal and external ID (e.g. UUID plus 'readable' ID) - Common.ExternalID - is in the works, no need for a special case here" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="LegalGroundType" />
-              <Annotation Term="Core.Description"
-                String="The annotated field holds the type of Legal Ground on which the Business Data is holding reference to Data Subject Data." />
-              <Annotation Term="Core.LongDescription">
-                <String>Examples:
-
-                - Consent
-
-                - Name of Business Object
-                </String>
-              </Annotation>
+              <PropertyValue Property="Value" String="ConsentID" />
+              <Annotation Term="Core.Description" String="The unique identifier for a consent" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="LegalGroundID" />
@@ -152,8 +152,6 @@ address-building | Not part of vCard: why is this needed?
                 String="The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data." />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
-
-                - Consent ID
 
                 - Sales Contract ID
 
@@ -164,8 +162,23 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="RelatedEntityType???" />
-              <Annotation Term="Core.Description" String="The annotated field holds the type of ???" />
+              <PropertyValue Property="Value" String="LegalGroundType/BusinessObjectType???" />
+              <Annotation Term="Core.Description"
+                String="The type of Legal Ground on which the Business Data is holding a reference to Data Subject Data." />
+              <Annotation Term="Core.LongDescription">
+                <String>Examples:
+
+                - Consent
+
+                - Name of Business Object
+                
+                _TODO: do we really need this (now)?_
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="RelatedEntityID???" />
+              <Annotation Term="Core.Description" String="The annotated field holds the actual ID of the related entity???" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -174,8 +187,8 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="RelatedEntityID" />
-              <Annotation Term="Core.Description" String="The annotated field holds the actual ID of the related entity???" />
+              <PropertyValue Property="Value" String="RelatedEntityType???" />
+              <Annotation Term="Core.Description" String="The annotated field holds the type of ???" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -199,7 +212,7 @@ address-building | Not part of vCard: why is this needed?
               <PropertyValue Property="Value" String="RelatedData" />
               <Annotation Term="Core.Description" String="Related Entity Information" />
               <Annotation Term="Core.LongDescription"
-                String="Changes are _not_ tracked in the audit log.&#xA;&#xA;*TODO: discuss with Girish whether this is actually needed*" />
+                String="Changes are _not_ tracked in the audit log.&#xA;&#xA;*TODO: discuss with Girish whether this is actually needed, especially: how is this different from other/unrelated data?*" />
             </Record>
           </Collection>
         </Annotation>
