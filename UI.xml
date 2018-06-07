@@ -1275,6 +1275,13 @@ The trend is
         <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to UI.Criticality" />
       </Term>
 
+      <Term Name="OrderBy" Type="Edm.PropertyPath" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Sort by the referenced property instead of by the annotated property" />
+        <Annotation Term="Core.LongDescription"
+          String="Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
