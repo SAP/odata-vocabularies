@@ -71,7 +71,7 @@ Annotation | Question
 -----------|---------
 sap:pdm-semantics="data-subject-tech-id"  | Why isn't this just a DataSubjectID? It is a unique identifier for a data subject, same as our I or D numbers, and it doesn't matter that it is a UUID.
 sap:pdm-semantics="legal-entity" | ???
-sap:pdm-legal-entity-key="sales-org" | what does this reference?
+sap:pdm-legal-entity-key="sales-org" | Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute - this is rather technical and relying on a specific authentication mechanism and its implementation
 sap:pdm-display-seq-no="-1" | ???
 sap:pdm-semantics="user-profile-id" | Still needed? See question below on UserProfileID
 sap:pdm-semantics="consent-purpose-id" | ???
