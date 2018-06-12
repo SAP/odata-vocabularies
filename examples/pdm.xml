@@ -95,9 +95,6 @@
         </v4:Annotation>
       </v4:Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userUuid">
-        <v4:Annotation Term="Common.ExternalID" Path="userId" />
-      </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
       </v4:Annotations>
@@ -183,7 +180,7 @@
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalBasisID" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID" />
       </v4:Annotations>
 
     </Schema>
