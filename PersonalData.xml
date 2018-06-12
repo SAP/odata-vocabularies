@@ -53,6 +53,35 @@ Legal grounds may be part of the "primary" micro-service or just referenced from
 
 ## Open Issues
 
+### Missing annotations on entity types
+
+General question: why annotations on entity *types*? So far we have `PersonalData.Semantics` on entity *sets*.
+
+Annotation | Question
+-----------|---------
+sap:pdm-business-object  | We currently have this on field level: why on type level?
+sap:pdm-business-node | ???
+sap:pdm-data-subject-role | We currently have this on field level: why on type level?
+sap:pdm-data-subject-role-desc | How does this differ from sap:label?
+
+
+### Missing annotations on fields
+
+Annotation | Question
+-----------|---------
+sap:pdm-semantics="data-subject-tech-id"  | Why isn't this just a DataSubjectID? It is a unique identifier for a data subject, same as our I or D numbers, and it doesn't matter that it is a UUID.
+sap:pdm-semantics="legal-entity" | ???
+sap:pdm-legal-entity-key="sales-org" | what does this reference?
+sap:pdm-display-seq-no="-1" | ???
+sap:pdm-semantics="user-profile-id" | Still needed? See question below on UserProfileID
+sap:pdm-semantics="consent-purpose-id" | ???
+sap:pdm-semantics="consent-purpose-name" | ???
+sap:pdm-semantics="consent-type" | ???
+sap:pdm-semantics="consent-valid-from"  | ???
+sap:pdm-semantics="consent-valid-to" | ???
+sap:pdm-semantics="consent-status" | ???
+
+
 ### Tagging of contact-related fields as "personal data"
 
 - Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
@@ -197,7 +226,7 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="~~UserProfileId~~" />
+              <PropertyValue Property="Value" String="~~UserProfileID~~" />
               <Annotation Term="Core.Description"
                 String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*" />
             </Record>
