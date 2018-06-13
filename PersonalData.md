@@ -31,10 +31,10 @@ General question: why annotations on entity *types*? So far we have `PersonalDat
 
 Annotation | Question
 -----------|---------
-sap:pdm-business-object  | We currently have this on field level: why on type level?
-sap:pdm-business-node | ???
-sap:pdm-data-subject-role | We currently have this on field level: why on type level?
-sap:pdm-data-subject-role-desc | How does this differ from sap:label?
+sap:pdm-business-object  | We currently have this on field level: why on type level? Where is the list of allowed values?
+sap:pdm-business-node | What for? Where is the list of allowed values?
+sap:pdm-data-subject-role | We currently have this on field level: why on type level? Where is the list of allowed values?
+sap:pdm-data-subject-role-desc | How does this differ from sap:label? Where is the list of allowed values?
 
 
 ### Missing annotations on fields
@@ -43,7 +43,7 @@ Annotation | Question
 -----------|---------
 sap:pdm-semantics="data-subject-tech-id"  | Why isn't this just a DataSubjectID? It is a unique identifier for a data subject, same as our I or D numbers, and it doesn't matter that it is a UUID.
 sap:pdm-semantics="legal-entity" | ???
-sap:pdm-legal-entity-key="sales-org" | Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute - this is rather technical and relying on a specific authentication mechanism and its implementation
+sap:pdm-legal-entity-key="sales-org" | "Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute" - this is rather technical and relying on a specific authentication mechanism and a specific implementation and creates a technical dependency of the service and the currently used identity provider. Also: the OAuth token would contain the legal entity of the authenticated user, whereas the data would contain the legal entity of a data subject (customer, employee, ...) that is represented by that data record - why should these match except in very special cases?
 sap:pdm-display-seq-no="-1" | ???
 sap:pdm-semantics="user-profile-id" | Still needed? See question below on UserProfileID
 sap:pdm-semantics="consent-purpose-id" | ???
@@ -74,7 +74,7 @@ Term|Type|Description
 :---|:---|:----------
 [Semantics](PersonalData.xml#L99) *(Experimental)*|[SemanticsType](#SemanticsType)|<a name="Semantics"></a>Primary meaning of the data contained in the annotated entity set
 [FieldSemantics](PersonalData.xml#L150) *(Experimental)*|[FieldSemanticsType](#FieldSemanticsType)|<a name="FieldSemantics"></a>Primary meaning of the data contained in the annotated property
-[IsSensitive](PersonalData.xml#L250) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts</p>
+[IsSensitive](PersonalData.xml#L259) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts</p>
 
 ## <a name="SemanticsType"></a>[SemanticsType](PersonalData.xml#L103) *(Experimental)*
 **Type:** String
@@ -106,3 +106,4 @@ Allowed Value|Description
 [~~UserProfileID~~](PersonalData.xml#L228)|*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*
 [PersonalData](PersonalData.xml#L233)|Information relating to an identified or identifiable natural person (data subject)<p>Changes are tracked in the audit log.<br/>*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*</p>
 [RelatedData](PersonalData.xml#L240)|Related Entity Information<p>Changes are _not_ tracked in the audit log.<br/>*TODO: discuss with Girish whether this is actually needed, especially: how is this different from other/unrelated data?*</p>
+[LegalEntity???](PersonalData.xml#L246)|Related Entity Information<p>The annotated field holds the (identifier???) of a legal entity                                   A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</p>

@@ -59,10 +59,10 @@ General question: why annotations on entity *types*? So far we have `PersonalDat
 
 Annotation | Question
 -----------|---------
-sap:pdm-business-object  | We currently have this on field level: why on type level?
-sap:pdm-business-node | ???
-sap:pdm-data-subject-role | We currently have this on field level: why on type level?
-sap:pdm-data-subject-role-desc | How does this differ from sap:label?
+sap:pdm-business-object  | We currently have this on field level: why on type level? Where is the list of allowed values?
+sap:pdm-business-node | What for? Where is the list of allowed values?
+sap:pdm-data-subject-role | We currently have this on field level: why on type level? Where is the list of allowed values?
+sap:pdm-data-subject-role-desc | How does this differ from sap:label? Where is the list of allowed values?
 
 
 ### Missing annotations on fields
@@ -71,7 +71,7 @@ Annotation | Question
 -----------|---------
 sap:pdm-semantics="data-subject-tech-id"  | Why isn't this just a DataSubjectID? It is a unique identifier for a data subject, same as our I or D numbers, and it doesn't matter that it is a UUID.
 sap:pdm-semantics="legal-entity" | ???
-sap:pdm-legal-entity-key="sales-org" | Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute - this is rather technical and relying on a specific authentication mechanism and its implementation
+sap:pdm-legal-entity-key="sales-org" | "Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute" - this is rather technical and relying on a specific authentication mechanism and a specific implementation and creates a technical dependency of the service and the currently used identity provider. Also: the OAuth token would contain the legal entity of the authenticated user, whereas the data would contain the legal entity of a data subject (customer, employee, ...) that is represented by that data record - why should these match except in very special cases?
 sap:pdm-display-seq-no="-1" | ???
 sap:pdm-semantics="user-profile-id" | Still needed? See question below on UserProfileID
 sap:pdm-semantics="consent-purpose-id" | ???
@@ -242,6 +242,15 @@ address-building | Not part of vCard: why is this needed?
               <Annotation Term="Core.Description" String="Related Entity Information" />
               <Annotation Term="Core.LongDescription"
                 String="Changes are _not_ tracked in the audit log.&#xA;&#xA;*TODO: discuss with Girish whether this is actually needed, especially: how is this different from other/unrelated data?*" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="LegalEntity???" />
+              <Annotation Term="Core.Description" String="Related Entity Information" />
+              <Annotation Term="Core.LongDescription">
+                <String>The annotated field holds the (identifier???) of a legal entity
+                
+                 A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+              </Annotation>
             </Record>
           </Collection>
         </Annotation>
