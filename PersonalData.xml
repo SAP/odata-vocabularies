@@ -53,23 +53,10 @@ Legal grounds may be part of the "primary" micro-service or just referenced from
 
 ## Open Issues
 
-### Missing annotations on entity types
-
-General question: why annotations on entity *types*? So far we have `PersonalData.Semantics` on entity *sets*.
-
-Annotation | Question
------------|---------
-sap:pdm-business-object  | We currently have this on field level: why on type level? Where is the list of allowed values?
-sap:pdm-business-node | What for? Where is the list of allowed values?
-sap:pdm-data-subject-role | We currently have this on field level: why on type level? Where is the list of allowed values?
-sap:pdm-data-subject-role-desc | How does this differ from sap:label? Where is the list of allowed values?
-
-
 ### Missing annotations on fields
 
 Annotation | Question
 -----------|---------
-sap:pdm-semantics="data-subject-tech-id"  | Why isn't this just a DataSubjectID? It is a unique identifier for a data subject, same as our I or D numbers, and it doesn't matter that it is a UUID.
 sap:pdm-semantics="legal-entity" | ???
 sap:pdm-legal-entity-key="sales-org" | "Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute" - this is rather technical and relying on a specific authentication mechanism and a specific implementation and creates a technical dependency of the service and the currently used identity provider. Also: the OAuth token would contain the legal entity of the authenticated user, whereas the data would contain the legal entity of a data subject (customer, employee, ...) that is represented by that data record - why should these match except in very special cases?
 sap:pdm-display-seq-no="-1" | ???
@@ -99,6 +86,24 @@ address-building | Not part of vCard: why is this needed?
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
+      </Term>
+      <Term Name="DataSubjectRole" Type="Edm.String" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
+        <Annotation Term="Core.LongDescription">
+          <String>Values are application-specific.
+          
+          If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`</String>
+        </Annotation>
+      </Term>
+      <Term Name="DataSubjectRoleDescription" Type="Edm.String" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsLanguageDependent" />
+        <Annotation Term="Core.Description"
+          String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
+        <Annotation Term="Core.LongDescription">
+          <String>If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`, and optionally with Common.Text pointing to a property containing the role description</String>
+        </Annotation>
       </Term>
       <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
@@ -247,9 +252,31 @@ address-building | Not part of vCard: why is this needed?
               <PropertyValue Property="Value" String="LegalEntity???" />
               <Annotation Term="Core.Description" String="Related Entity Information" />
               <Annotation Term="Core.LongDescription">
-                <String>The annotated field holds the (identifier???) of a legal entity
+                <String>The annotated field holds (the identifier of???) a legal entity
                 
                  A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="CreditCardNumber???" />
+              <Annotation Term="Core.Description" String="Credit Card Number" />
+              <Annotation Term="Core.LongDescription">
+                <String>TODO: do we really need this semantics? Isn't it enough to know that it is sensitve?</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="NationalIdentificationNumber???" />
+              <Annotation Term="Core.Description"
+                String="A national identification number, national identity number, or national insurance number is used by the governments of many countries as a means of tracking their citizens, permanent residents, and temporary residents for the purposes of work, taxation, government benefits, health care, and other governmentally-related functions. The number appears on identity documents issued by several of the countries. ([Source: Wikipedia](https://en.wikipedia.org/wiki/National_identification_number))" />
+              <Annotation Term="Core.LongDescription">
+                <String>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="PassportNumber???" />
+              <Annotation Term="Core.Description" String="Passport Number" />
+              <Annotation Term="Core.LongDescription">
+                <String>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</String>
               </Annotation>
             </Record>
           </Collection>
