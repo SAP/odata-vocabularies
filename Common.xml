@@ -399,18 +399,36 @@
         </Property>
       </ComplexType>
 
-      <Term Name="NumericMessageSeverity" Type="Common.NumericMessageSeverityType" Nullable="false" AppliesTo="Record">
+      <Term Name="transient" Type="Edm.Boolean" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Classifies an end-user message as transient" />
+        <Annotation Term="Core.LongDescription"
+          String="This instance annotation can be applied to the `error` object of an OData error response" />
+      </Term>
+      <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Location of the message long text" />
+        <Annotation Term="Core.LongDescription"
+          String="This instance annotation can be applied to the `error` object of an OData error response" />
+      </Term>
+      <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to items of an instance annotation with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
+          String="This instance annotation can be applied to the `error` object of an OData error response" />
       </Term>
-      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" Nullable="true" AppliesTo="EntityType">
+      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" BaseTerm="Core.Messages" Nullable="true"
+        AppliesTo="EntityType"
+      >
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The maximum severity of all end-user messages attached to an entity, null if no messages are attached" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.LongDescription"
+          String="This metadata annotation can be applied to entity types that are also annotated with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
         <Annotation Term="Common.Experimental" />
@@ -436,15 +454,6 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
-
-      <Term Name="LongtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsURL" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Location of the message long text" />
-        <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to items of an instance annotation with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
-      </Term>
 
       <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description"
@@ -482,8 +491,8 @@
       <Term Name="ResultContext" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>The annotated entity type has one or more containment navigation properties.
-          An instance of the annotated entity type provides the context required for determining 
-          the target entity sets reached by these containment navigation properties.</String>
+            An instance of the annotated entity type provides the context required for determining
+            the target entity sets reached by these containment navigation properties.</String>
         </Annotation>
       </Term>
 
@@ -632,8 +641,8 @@
       <!-- Section: Calendar Points in Time -->
       <Term Name="IsCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional 
-          minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
+          <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional
+            minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -642,7 +651,7 @@
       <Term Name="IsCalendarHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit.
-          The string matches the regex pattern [1-2]
+            The string matches the regex pattern [1-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -650,8 +659,8 @@
       </Term>
       <Term Name="IsCalendarQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. 
-          The string matches the regex pattern [1-4]
+          <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit.
+            The string matches the regex pattern [1-4]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -659,8 +668,8 @@
       </Term>
       <Term Name="IsCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|1[0-2]
+          <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits.
+            The string matches the regex pattern 0[1-9]|1[0-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -668,8 +677,8 @@
       </Term>
       <Term Name="IsCalendarWeek" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3] 
+          <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits.
+            The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -677,7 +686,7 @@
       </Term>
       <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Day number relative to a calendar month. Valid values are between 1 and 31.  
+          <String>Day number relative to a calendar month. Valid values are between 1 and 31.
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.SByte" />
@@ -685,7 +694,7 @@
       </Term>
       <Term Name="IsDayOfCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Day number relative to a calendar year. Valid values are between 1 and 366.  
+          <String>Day number relative to a calendar year. Valid values are between 1 and 366.
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.Int16" />
@@ -693,9 +702,9 @@
       </Term>
       <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting 
-          of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]
+          <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting
+            of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -703,9 +712,9 @@
       </Term>
       <Term Name="IsCalendarYearQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting 
-          of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]
+          <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting
+            of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -713,9 +722,10 @@
       </Term>
       <Term Name="IsCalendarYearMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting 
-          of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])
+          <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting
+            of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to
+            December.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
