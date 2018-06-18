@@ -6,49 +6,30 @@ Terms for annotating Personal Data
 
 ## Definition
 
-Personal Data is any information relating to an identified or identifiable natural person ("data subject"). An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
+Personal Data is any information relating to an identified or identifiable natural person ("data subject"). 
 
-## TODO
+An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
 
-- "ConsentDependentData" is data that needs to be deleted if a consent is withdrawn -> to be discussed with Bjoern Dederichs whether we need this
+Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
 
-
-## Background Info
-
-"Order" or other contract-like thing is a stronger "Legal Ground" than a "Consent"
-
-Legal grounds may be part of the "primary" micro-service or just referenced from another 
-
-"Marketing Campaign" is a legal ground that is itself justified by a "Consent"
-
-
+See also:
+- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
+- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
+- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
 
 ## Open Issues
 
 ### Missing annotations on fields
 
-Annotation | Question
------------|---------
-sap:pdm-legal-entity-key="sales-org" | "Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute" - this is rather technical and relying on a specific authentication mechanism and a specific implementation and creates a technical dependency of the service and the currently used identity provider. Also: the OAuth token would contain the legal entity of the authenticated user, whereas the data would contain the legal entity of a data subject (customer, employee, ...) that is represented by that data record - why should these match except in very special cases?
-sap:pdm-display-seq-no="-1" | ??? If these fields should NOT be displayed, better not annotate them, only annotate the ones that should be displayed
-sap:pdm-semantics="consent-type" | I'm not convinced that applications would replicate consent data into their micro services. The consent id should be enough.
-sap:pdm-semantics="consent-purpose-description" | ???
-sap:pdm-semantics="consent-valid-from"  | ???
-sap:pdm-semantics="consent-valid-to" | ???
-sap:pdm-semantics="consent-status" | ???
-
-
-### Tagging of contact-related fields as "personal data"
-
-- Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
+TODO: New annotation IsUserID: Common or PersonalData?
 
 ### Address-related fields        
 
 Field | Question
 ------|---------
-address-district | Not part of vCard: why is this needed? Usually the district isn't part of an address
-address-care-of-name | c/o: not part of vCard: why needed?
-address-building | Not part of vCard: why is this needed?
+address-district | Not part of vCard? Usually the district isn't part of an address
+address-care-of-name | c/o: why not in vCard? Is part of address
+address-building | Not part of vCard?
         
 
 
@@ -56,44 +37,40 @@ address-building | Not part of vCard: why is this needed?
 
 Term|Type|Description
 :---|:---|:----------
-[Semantics](PersonalData.xml#L83) *(Experimental)*|[SemanticsType](#SemanticsType)|<a name="Semantics"></a>Primary meaning of the data contained in the annotated entity set
-[DataSubjectRole](PersonalData.xml#L87) *(Experimental)*|String|<a name="DataSubjectRole"></a>Role of the data subjects in this set (e.g. employee, customer)<p>Values are application-specific.                      If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`</p>
-[DataSubjectRoleDescription](PersonalData.xml#L96) *(Experimental)*|String|<a name="DataSubjectRoleDescription"></a>Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)<p>If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`, and optionally with Common.Text pointing to a property containing the role description</p>
-[FieldSemantics](PersonalData.xml#L152) *(Experimental)*|[FieldSemanticsType](#FieldSemanticsType)|<a name="FieldSemantics"></a>Primary meaning of the data contained in the annotated property
-[IsSensitive](PersonalData.xml#L299) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts</p>
+[Semantics](PersonalData.xml#L64) *(Experimental)*|[SemanticsType](#SemanticsType)|<a name="Semantics"></a>Primary meaning of the data contained in the annotated entity set
+[DataSubjectRole](PersonalData.xml#L68) *(Experimental)*|String|<a name="DataSubjectRole"></a>Role of the data subjects in this set (e.g. employee, customer)<p>Values are application-specific.                      If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`</p>
+[DataSubjectRoleDescription](PersonalData.xml#L77) *(Experimental)*|String|<a name="DataSubjectRoleDescription"></a>Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)<p>If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`, and optionally with Common.Text pointing to a property containing the role description</p>
+[FieldSemantics](PersonalData.xml#L140) *(Experimental)*|[FieldSemanticsType](#FieldSemanticsType)|<a name="FieldSemantics"></a>Primary meaning of the data contained in the annotated property
+[IsSensitive](PersonalData.xml#L241) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSensitive"></a>Property contains sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts<br/>See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</p>
 
-## <a name="SemanticsType"></a>[SemanticsType](PersonalData.xml#L105) *(Experimental)*
+## <a name="SemanticsType"></a>[SemanticsType](PersonalData.xml#L86) *(Experimental)*
 **Type:** String
 
 Primary meaning of the data contained in the annotated entity set
 
 Allowed Value|Description
 :------------|:----------
-[DataSubject](PersonalData.xml#L110)|The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
-[DataSubjectDetails](PersonalData.xml#L119)|The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
-[Consent](PersonalData.xml#L128)|The entities of this set represent a consent<p>A consent is the action of the data subject confirming that                  the usage of his or her personal data shall be allowed for a given purpose.                  A consent functionality allows the storage of a consent record in relation                  to a specific purpose and shows if a data subject has granted, withdrawn,                  or denied consent.                                  A purpose is the information that specifies the reason and the goal for the                 processing of a specific set of personal data. As a rule, the purpose                 references the relevant legal basis for the processing of personal data.</p>
-[LegalGround](PersonalData.xml#L143)|Provides information regarding the legal ground (e.g. order or contract) maintained for the application.
+[DataSubject](PersonalData.xml#L91)|The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
+[DataSubjectDetails](PersonalData.xml#L100)|The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</p>
+[Consent](PersonalData.xml#L109)|The entities of this set represent a consent<p>A consent is the action of the data subject confirming that                  the usage of his or her personal data shall be allowed for a given purpose.                  A consent functionality allows the storage of a consent record in relation                  to a specific purpose and shows if a data subject has granted, withdrawn,                  or denied consent.                                  A purpose is the information that specifies the reason and the goal for the                 processing of a specific set of personal data. As a rule, the purpose                 references the relevant legal basis for the processing of personal data.</p>
+[ConsentDependent](PersonalData.xml#L124)|The entities of this set represent data whose processing depends on explicit consent<p>Consent-dependent data needs to be deleted if the consent is withdrawn.</p>
+[LegalGround](PersonalData.xml#L131)|Provides information regarding the legal ground (e.g. order or contract) for processing personal data
 
-## <a name="FieldSemanticsType"></a>[FieldSemanticsType](PersonalData.xml#L156) *(Experimental)*
+## <a name="FieldSemanticsType"></a>[FieldSemanticsType](PersonalData.xml#L144) *(Experimental)*
 **Type:** String
 
 Primary meaning of a data field
 
 Allowed Value|Description
 :------------|:----------
-[DataSubjectID](PersonalData.xml#L161)|The unique identifier for a data subject
-[DataSubjectType???](PersonalData.xml#L165)|Type of the data subject<p>*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number</p>
-[DataSubjectRole???](PersonalData.xml#L171)|Role of the data subject<p>*TODO: crisp definition needed*</p>
-[ConsentID](PersonalData.xml#L176)|The unique identifier for a consent<p>A consent is the action of the data subject confirming that                  the usage of his or her personal data shall be allowed for a given purpose.                  A consent functionality allows the storage of a consent record in relation                  to a specific purpose and shows if a data subject has granted, withdrawn,                  or denied consent.</p>
-[ConsentPurposeID](PersonalData.xml#L187)|The unique identifier for the purpose of a consent<p>The purpose of a consent is the information that specifies the reason and the goal for                 the processing of a specific set of personal data. As a rule, the purpose                 references the relevant legal basis for the processing of personal data.</p>
-[LegalGroundID](PersonalData.xml#L196)|The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data.<p>Examples:<br/>                - Sales Contract ID<br/>                - Purchase Contract ID<br/>                - Service Contract ID                 </p>
-[LegalGroundType/BusinessObjectType???](PersonalData.xml#L211)|The type of Legal Ground on which the Business Data is holding a reference to Data Subject Data.<p>Examples:<br/>                - Consent<br/>                - Name of Business Object                                  _TODO: do we really need this (now)?_                 </p>
-[RelatedEntityID???](PersonalData.xml#L226)|The annotated field holds the actual ID of the related entity???<p>Examples:<br/>                - ???                 </p>
-[RelatedEntityType???](PersonalData.xml#L236)|The annotated field holds the type of ???<p>Examples:<br/>                - ???                 </p>
-[~~UserProfileID~~](PersonalData.xml#L246)|*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*
-[PersonalData](PersonalData.xml#L251)|Information relating to an identified or identifiable natural person (data subject)<p>Changes are tracked in the audit log.<br/>*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*</p>
-[RelatedData](PersonalData.xml#L258)|Related Entity Information<p>Changes are _not_ tracked in the audit log.<br/>*TODO: discuss with Girish whether this is actually needed, especially: how is this different from other/unrelated data?*</p>
-[LegalEntity???](PersonalData.xml#L264)|Legal Entity<p>The annotated field holds (the identifier of???) a legal entity                                   A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</p>
-[CreditCardNumber???](PersonalData.xml#L273)|Credit Card Number<p>TODO: do we really need this semantics? Isn't it enough to know that it is sensitve?</p>
-[NationalIdentificationNumber???](PersonalData.xml#L280)|A national identification number, national identity number, or national insurance number is used by the governments of many countries as a means of tracking their citizens, permanent residents, and temporary residents for the purposes of work, taxation, government benefits, health care, and other governmentally-related functions. The number appears on identity documents issued by several of the countries. ([Source: Wikipedia](https://en.wikipedia.org/wiki/National_identification_number))<p>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</p>
-[PassportNumber???](PersonalData.xml#L288)|Passport Number<p>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</p>
+[DataSubjectID](PersonalData.xml#L149)|The unique identifier for a data subject
+[DataSubjectIDType](PersonalData.xml#L153)|The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number.
+[DataSubjectRole](PersonalData.xml#L157)|Role of the data subject<p>*TODO: definition needed*</p>
+[ConsentID](PersonalData.xml#L162)|The unique identifier for a consent<p>A consent is the action of the data subject confirming that                  the usage of his or her personal data shall be allowed for a given purpose.                  A consent functionality allows the storage of a consent record in relation                  to a specific purpose and shows if a data subject has granted, withdrawn,                  or denied consent.</p>
+[ConsentPurposeID](PersonalData.xml#L173)|The unique identifier for the purpose of a consent<p>The purpose of a consent is the information that specifies the reason and the goal for                 the processing of a specific set of personal data. As a rule, the purpose                 references the relevant legal basis for the processing of personal data.</p>
+[LegalGroundID](PersonalData.xml#L182)|The unique identifier for the legal ground (e.g. a contractual agreement) that requires processing of personal data<p>Examples:<br/>                - Sales Contract ID<br/>                - Purchase Contract ID<br/>                - Service Contract ID                 </p>
+[~~RelatedEntityID~~](PersonalData.xml#L197)|The annotated field holds the actual ID of the related entity???<p>To be removed: check with Wolfgang Koch whether he needs this</p>
+[~~RelatedEntityType~~](PersonalData.xml#L204)|The annotated field holds the type of ???<p>To be removed: check with Wolfgang Koch whether he needs this</p>
+[User(Profile)ID???](PersonalData.xml#L211)|*TODO: description is missing - this is the user id known to/maintained by the central identity provider - check SAPTerm<p>PDM needs this for self-service scenarios in order to connect the stored data with the authenticated user.                  However backends often only store the backend-specific logon userid and don't know the connection of the backend user to the IDP user<br/>A user id is also (in most cases) a data subject id</p>
+[PersonalData](PersonalData.xml#L223)|Information relating to an identified or identifiable natural person (data subject)<p>Changes are tracked in the audit log.<br/>*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)*</p>
+[LegalEntity](PersonalData.xml#L230)|The unique identifier of a legal entity<p>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</p>

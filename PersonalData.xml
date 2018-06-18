@@ -34,49 +34,30 @@
         <String>
 ## Definition
 
-Personal Data is any information relating to an identified or identifiable natural person ("data subject"). An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
+Personal Data is any information relating to an identified or identifiable natural person ("data subject"). 
 
-## TODO
+An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
 
-- "ConsentDependentData" is data that needs to be deleted if a consent is withdrawn -> to be discussed with Bjoern Dederichs whether we need this
+Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
 
-
-## Background Info
-
-"Order" or other contract-like thing is a stronger "Legal Ground" than a "Consent"
-
-Legal grounds may be part of the "primary" micro-service or just referenced from another 
-
-"Marketing Campaign" is a legal ground that is itself justified by a "Consent"
-
-
+See also:
+- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
+- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
+- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
 
 ## Open Issues
 
 ### Missing annotations on fields
 
-Annotation | Question
------------|---------
-sap:pdm-legal-entity-key="sales-org" | "Usually legal entities are propagated to the application via OAuth token attributes this annotation provides the name of the attribute" - this is rather technical and relying on a specific authentication mechanism and a specific implementation and creates a technical dependency of the service and the currently used identity provider. Also: the OAuth token would contain the legal entity of the authenticated user, whereas the data would contain the legal entity of a data subject (customer, employee, ...) that is represented by that data record - why should these match except in very special cases?
-sap:pdm-display-seq-no="-1" | ??? If these fields should NOT be displayed, better not annotate them, only annotate the ones that should be displayed
-sap:pdm-semantics="consent-type" | I'm not convinced that applications would replicate consent data into their micro services. The consent id should be enough.
-sap:pdm-semantics="consent-purpose-description" | ???
-sap:pdm-semantics="consent-valid-from"  | ???
-sap:pdm-semantics="consent-valid-to" | ???
-sap:pdm-semantics="consent-status" | ???
-
-
-### Tagging of contact-related fields as "personal data"
-
-- Is it really necessary to tag contact-related fields as "personal data"? Can a firstname, lastname, or birthdate ever be "non-personal data"?
+TODO: New annotation IsUserID: Common or PersonalData?
 
 ### Address-related fields        
 
 Field | Question
 ------|---------
-address-district | Not part of vCard: why is this needed? Usually the district isn't part of an address
-address-care-of-name | c/o: not part of vCard: why needed?
-address-building | Not part of vCard: why is this needed?
+address-district | Not part of vCard? Usually the district isn't part of an address
+address-care-of-name | c/o: why not in vCard? Is part of address
+address-building | Not part of vCard?
         </String>
       </Annotation>
 
@@ -141,9 +122,16 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
+              <PropertyValue Property="Value" String="ConsentDependent" />
+              <Annotation Term="Core.Description" String="The entities of this set represent data whose processing depends on explicit consent" />
+              <Annotation Term="Core.LongDescription">
+                <String>Consent-dependent data needs to be deleted if the consent is withdrawn.</String>
+              </Annotation>
+            </Record>
+            <Record>
               <PropertyValue Property="Value" String="LegalGround" />
               <Annotation Term="Core.Description"
-                String="Provides information regarding the legal ground (e.g. order or contract) maintained for the application." />
+                String="Provides information regarding the legal ground (e.g. order or contract) for processing personal data" />
             </Record>
           </Collection>
         </Annotation>
@@ -163,15 +151,13 @@ address-building | Not part of vCard: why is this needed?
               <Annotation Term="Core.Description" String="The unique identifier for a data subject" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="DataSubjectType???" />
-              <Annotation Term="Core.Description" String="Type of the data subject" />
-              <Annotation Term="Core.LongDescription"
-                String="*TODO: crisp definition needed* - SAPTerm only defines a Data Subject ID Type, e.g. email address, phone number" />
+              <PropertyValue Property="Value" String="DataSubjectIDType" />
+              <Annotation Term="Core.Description" String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="DataSubjectRole???" />
+              <PropertyValue Property="Value" String="DataSubjectRole" />
               <Annotation Term="Core.Description" String="Role of the data subject" />
-              <Annotation Term="Core.LongDescription" String="*TODO: crisp definition needed*" />
+              <Annotation Term="Core.LongDescription" String="*TODO: definition needed*" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ConsentID" />
@@ -196,7 +182,7 @@ address-building | Not part of vCard: why is this needed?
             <Record>
               <PropertyValue Property="Value" String="LegalGroundID" />
               <Annotation Term="Core.Description"
-                String="The annotated field holds the actual ID of the Legal Ground on which the Business Data is holding reference to Data Subject Data." />
+                String="The unique identifier for the legal ground (e.g. a contractual agreement) that requires processing of personal data" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -209,87 +195,43 @@ address-building | Not part of vCard: why is this needed?
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalGroundType/BusinessObjectType???" />
-              <Annotation Term="Core.Description"
-                String="The type of Legal Ground on which the Business Data is holding a reference to Data Subject Data." />
-              <Annotation Term="Core.LongDescription">
-                <String>Examples:
-
-                - Consent
-
-                - Name of Business Object
-                
-                _TODO: do we really need this (now)?_
-                </String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="RelatedEntityID???" />
+              <PropertyValue Property="Value" String="~~RelatedEntityID~~" />
               <Annotation Term="Core.Description" String="The annotated field holds the actual ID of the related entity???" />
               <Annotation Term="Core.LongDescription">
-                <String>Examples:
-
-                - ???
-                </String>
+                <String>To be removed: check with Wolfgang Koch whether he needs this</String>
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="RelatedEntityType???" />
+              <PropertyValue Property="Value" String="~~RelatedEntityType~~" />
               <Annotation Term="Core.Description" String="The annotated field holds the type of ???" />
               <Annotation Term="Core.LongDescription">
-                <String>Examples:
-
-                - ???
-                </String>
+                <String>To be removed: check with Wolfgang Koch whether he needs this</String>
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="~~UserProfileID~~" />
+              <PropertyValue Property="Value" String="User(Profile)ID???" />
               <Annotation Term="Core.Description"
-                String="*TODO: description is missing - what is a user profile id, and is it tied to some specific identity provider or authorization management tool? Who is going to need this, and why?*" />
+                String="*TODO: description is missing - this is the user id known to/maintained by the central identity provider - check SAPTerm" />
+              <Annotation Term="Core.LongDescription">
+                <String>PDM needs this for self-service scenarios in order to connect the stored data with the authenticated user.
+                
+However backends often only store the backend-specific logon userid and don't know the connection of the backend user to the IDP user
+
+A user id is also (in most cases) a data subject id</String>
+              </Annotation>
             </Record>
             <Record>
               <PropertyValue Property="Value" String="PersonalData" />
               <Annotation Term="Core.Description"
                 String="Information relating to an identified or identifiable natural person (data subject)" />
               <Annotation Term="Core.LongDescription"
-                String="Changes are tracked in the audit log.&#xA;&#xA;*TODO: Is this annotation really necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)?*" />
+                String="Changes are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)*" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="RelatedData" />
-              <Annotation Term="Core.Description" String="Related Entity Information" />
-              <Annotation Term="Core.LongDescription"
-                String="Changes are _not_ tracked in the audit log.&#xA;&#xA;*TODO: discuss with Girish whether this is actually needed, especially: how is this different from other/unrelated data?*" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="LegalEntity???" />
-              <Annotation Term="Core.Description" String="Legal Entity" />
+              <PropertyValue Property="Value" String="LegalEntity" />
+              <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
-                <String>The annotated field holds (the identifier of???) a legal entity
-                
-                 A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="CreditCardNumber???" />
-              <Annotation Term="Core.Description" String="Credit Card Number" />
-              <Annotation Term="Core.LongDescription">
-                <String>TODO: do we really need this semantics? Isn't it enough to know that it is sensitve?</String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="NationalIdentificationNumber???" />
-              <Annotation Term="Core.Description"
-                String="A national identification number, national identity number, or national insurance number is used by the governments of many countries as a means of tracking their citizens, permanent residents, and temporary residents for the purposes of work, taxation, government benefits, health care, and other governmentally-related functions. The number appears on identity documents issued by several of the countries. ([Source: Wikipedia](https://en.wikipedia.org/wiki/National_identification_number))" />
-              <Annotation Term="Core.LongDescription">
-                <String>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="PassportNumber???" />
-              <Annotation Term="Core.Description" String="Passport Number" />
-              <Annotation Term="Core.LongDescription">
-                <String>TODO: do we really need this semantics? Isn't it enough to know that it is a data subject id?</String>
+                <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
               </Annotation>
             </Record>
           </Collection>
@@ -308,7 +250,9 @@ address-building | Not part of vCard: why is this needed?
 
 -  Personal data relating to criminal or administrative offences
 
--  Personal data concerning bank or credit card accounts</String>
+-  Personal data concerning bank or credit card accounts
+
+See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
         </Annotation>
       </Term>
 
