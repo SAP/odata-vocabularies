@@ -228,7 +228,7 @@ A user id is also (in most cases) a data subject id</String>
                 String="Changes are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)*" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalEntity" />
+              <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
                 <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>

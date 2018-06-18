@@ -108,24 +108,6 @@
         <v4:Annotation Term="PersonalData.IsSensitive" />
       </v4:Annotations>
 
-      <!-- TODO: is it really necessary to tag all contact-related fields as "person-related data"? -->
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/firstName">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/middleName">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/lastName">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/birthDate">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-
-
       <v4:Annotations Target="gdpr.gra.sample.AddressType">
         <v4:Annotation Term="Communication.Address">
           <v4:Record>

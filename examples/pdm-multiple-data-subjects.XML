@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- TODO:
+
+  - cross-check against PersonalData and other pdm example
+  - resolve TODOs
+
+-->
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
+    <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
+    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+  </edmx:Reference>
+  <!-- TODO: replace with SCN link once published -->
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
+    <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+  </edmx:Reference>
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="SapAuctionSolution"
+      xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" xmlns:to-do="TODO"
+    >
+      <EntityType Name="CustomerMaster" sap:label="Customer Profile">
+        <Key>
+          <PropertyRef Name="Uuid" />
+        </Key>
+        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="256" sap:updatable="false" />
+        <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="RegisteredEmailId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Registered Email Id"
+          sap:updatable="false" />
+        <Property Name="RegisteredPhoneNumber" Type="Edm.String" Nullable="false" MaxLength="16"
+          sap:label="Registered Phone Number" sap:updatable="false" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="First Name" />
+        <Property Name="MiddleName" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="Middle Name" />
+        <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Last Name" />
+        <Property Name="UserProfileId" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="User Profile ID"
+          sap:updatable="false" />
+        <Property Name="DateOfBirth" Type="Edm.DateTime" Nullable="false" sap:label="Date of Birth" />
+        <Property Name="AdditionalEmailId" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="Additional Email Id" />
+        <Property Name="AdditionalPhoneNumber" Type="Edm.String" Nullable="true" MaxLength="16" sap:label="Additional Phone Number" />
+        <Property Name="CreditCardNumber" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="Credit Card Number" />
+        <Property Name="PassportNumber" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="Passport Number" />
+        <Property Name="NationalIdentityNumber" Type="Edm.String" Nullable="true" MaxLength="128"
+          sap:label="National Identity Number" sap:updatable="false" />
+      </EntityType>
+
+      <EntityType Name="EmployeeMaster" sap:label="Employee Profile">
+        <Key>
+          <PropertyRef Name="Uuid" />
+        </Key>
+        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="256" sap:updatable="false" />
+        <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="EmployeeEmailId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Employee Email Id"
+          sap:updatable="false" />
+        <Property Name="EmployeePhoneNumber" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Employee Phone Number"
+          sap:updatable="false" />
+        <Property Name="EmployeeFirstName" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Employee First Name" />
+        <Property Name="EmployeeMiddleName" Type="Edm.String" Nullable="true" MaxLength="256" sap:label="Employee Middle Name" />
+        <Property Name="EmployeeLastName" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Employee Last Name" />
+        <Property Name="EmployeeAdditionalPhoneNumber1" Type="Edm.String" Nullable="true" MaxLength="16"
+          sap:label="Employee Additional Phone Number 1" />
+        <Property Name="EmployeeAdditionalPhoneNumber2" Type="Edm.String" Nullable="true" MaxLength="16"
+          sap:label="Employee Additional Phone Number 2" />
+      </EntityType>
+
+      <EntityType Name="Consents" sap:label="Consents">
+        <Key>
+          <PropertyRef Name="ConsentId" />
+        </Key>
+        <Property Name="ConsentId" Type="Edm.String" Nullable="false" MaxLength="36" sap:updatable="false" sap:label="Consent Id" />
+        <Property Name="PurposeId" Type="Edm.String" Nullable="false" MaxLength="36" sap:updatable="false" sap:label="Purpose Id" />
+        <Property Name="PurposeName" Type="Edm.String" Nullable="false" MaxLength="256" sap:updatable="false"
+          sap:label="Purpose Name" />
+        <Property Name="PurposeDescription" Type="Edm.String" Nullable="true" MaxLength="1024" sap:updatable="false"
+          sap:label="Purpose Description" />
+        <Property Name="JurisdictionCode" Type="Edm.String" Nullable="true" MaxLength="256" sap:updatable="false"
+          sap:label="Jurisdiction Code" />
+        <Property Name="ConsentModelCode" Type="Edm.String" Nullable="true" MaxLength="36" sap:updatable="false"
+          sap:label="Consent Type" />
+        <Property Name="ValidFrom" Type="Edm.DateTime" Nullable="true" sap:updatable="false" sap:label="Valid From" />
+        <Property Name="ValidTo" Type="Edm.DateTime" Nullable="true" sap:updatable="false" sap:label="Valid To" />
+        <Property Name="ConsentStatusCode" Type="Edm.String" Nullable="true" MaxLength="36" sap:updatable="false"
+          sap:label="Status" />
+      </EntityType>
+
+      <EntityType Name="PurchaseOrderForCustomer" sap:updatable="false" sap:label="Purchase Orders">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Purchase Order Id" sap:updatable="false" />
+        <Property Name="CustomerUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Customer Id"
+          sap:updatable="false" />
+        <Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Id" sap:text="VendorName"
+          sap:updatable="false" />
+        <Property Name="VendorName" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Name" sap:updatable="false" />
+        <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Transaction Currency"
+          sap:updatable="false" />
+        <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Gross Amount"
+          sap:updatable="false" />
+        <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Net Amount"
+          sap:updatable="false" />
+        <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Tax Amount"
+          sap:updatable="false" />
+        <Property Name="ApprovalStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Approval Status"
+          sap:updatable="false" />
+        <Property Name="ConfirmStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Confirm Status"
+          sap:updatable="false" />
+        <Property Name="InvoicingStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Invoicing Status"
+          sap:updatable="false" />
+        <Property Name="LifeCycleStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Invoicing Status"
+          sap:updatable="false" />
+        <Property Name="OrderingStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Ordering Status"
+          sap:updatable="false" />
+        <Property Name="CreatedBy" Type="Edm.String" Nullable="true" MaxLength="32" sap:label="Created By" sap:updatable="false" />
+        <Property Name="CreatedOn" Type="Edm.DateTime" Nullable="true" sap:label="Created On" sap:updatable="false" />
+        <Property Name="LastChangedBy" Type="Edm.String" Nullable="true" MaxLength="32" sap:label="Last Changed By"
+          sap:updatable="false" />
+        <Property Name="LastChangedOn" Type="Edm.DateTime" Nullable="true" sap:label="Last Changed On" sap:updatable="false" />
+      </EntityType>
+
+      <EntityType Name="PurchaseOrderForEmployee" sap:updatable="false" sap:label="Purchase Orders">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Purchase Order Id" sap:updatable="false" />
+        <Property Name="CustomerUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Customer Id"
+          sap:updatable="false" />
+        <Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Id" sap:text="VendorName"
+          sap:updatable="false" />
+        <Property Name="VendorName" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Name" sap:updatable="false" />
+        <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Transaction Currency"
+          sap:updatable="false" />
+        <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Gross Amount"
+          sap:updatable="false" />
+        <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Net Amount"
+          sap:updatable="false" />
+        <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Scale="2" Precision="15" sap:label="Tax Amount"
+          sap:updatable="false" />
+        <Property Name="ApprovalStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Approval Status"
+          sap:updatable="false" />
+        <Property Name="ConfirmStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Confirm Status"
+          sap:updatable="false" />
+        <Property Name="InvoicingStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Invoicing Status"
+          sap:updatable="false" />
+        <Property Name="LifeCycleStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Life Cycle Status"
+          sap:updatable="false" />
+        <Property Name="OrderingStatus" Type="Edm.String" Nullable="true" MaxLength="1" sap:label="Ordering Status"
+          sap:updatable="false" />
+        <Property Name="CreatedBy" Type="Edm.String" Nullable="true" MaxLength="32" sap:label="Created By" sap:updatable="false" />
+        <Property Name="CreatedOn" Type="Edm.DateTime" Nullable="true" sap:label="Created On" sap:updatable="false" />
+        <Property Name="LastChangedBy" Type="Edm.String" Nullable="true" MaxLength="32" sap:label="Last Changed By"
+          sap:updatable="false" />
+        <Property Name="LastChangedOn" Type="Edm.DateTime" Nullable="true" sap:label="Last Changed On" sap:updatable="false" />
+      </EntityType>
+
+      <EntityType Name="EmployeePaySlip" sap:label="Pay Slips">
+        <Key>
+          <PropertyRef Name="Uuid" />
+        </Key>
+        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Uuid" sap:updatable="false" />
+        <Property Name="EmployeeUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Employee Id"
+          sap:updatable="false" />
+        <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
+        <Property Name="Designation" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Designation"
+          sap:updatable="false" />
+        <Property Name="SalaryMonthYear" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Salary Month Year"
+          sap:updatable="false" />
+        <Property Name="SalaryBasicAmount" Type="Edm.Decimal" Nullable="false" Precision="15" sap:label="Salary Basic Amount"
+          sap:updatable="false" />
+        <Property Name="SalaryTotalAmount" Type="Edm.Decimal" Nullable="false" Precision="15" sap:label="Salary Total Amount"
+          sap:updatable="false" />
+      </EntityType>
+
+      <EntityContainer Name="SapAuctionSolutionContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Customers" EntityType="SapAuctionSolution.CustomerMaster" />
+        <EntitySet Name="Employees" EntityType="SapAuctionSolution.EmployeeMaster" />
+        <EntitySet Name="Consents" EntityType="SapAuctionSolution.Consent" />
+        <EntitySet Name="PurchaseOrderForCustomers" EntityType="SapAuctionSolution.PurchaseOrderForCustomer" />
+        <EntitySet Name="PurchaseOrderForEmployees" EntityType="SapAuctionSolution.PurchaseOrderForEmployee" />
+        <EntitySet Name="EmployeePaySlips" EntityType="SapAuctionSolution.EmployeePaySlip" />
+      </EntityContainer>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Customers">
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
+        <v4:Annotation Term="PersonalData.DataSubjectRole" String="cust" />
+        <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
+      </v4:Annotations>
+
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster">
+        <v4:Annotation Term="Communication.Contact">
+          <v4:Record>
+            <v4:PropertyValue Property="n">
+              <v4:Record>
+                <v4:PropertyValue Property="given" Path="FirstName" />
+                <v4:PropertyValue Property="additional" Path="MiddleName" />
+                <v4:PropertyValue Property="surname" Path="LastName" />
+              </v4:Record>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="email">
+              <v4:Collection>
+                <v4:Record>
+                  <!-- TODO: is this really an email address, or just an ID to retrieve an email address? If the latter, how/where to retrieve? -->
+                  <v4:PropertyValue Property="address" Path="RegisteredEmailId" />
+                </v4:Record>
+                <v4:Record>
+                  <v4:PropertyValue Property="address" Path="AdditionalEmailId" />
+                </v4:Record>
+              </v4:Collection>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="tel">
+              <v4:Collection>
+                <v4:Record>
+                  <v4:PropertyValue Property="uri" Path="RegisteredPhoneNumber" />
+                </v4:Record>
+                <v4:Record>
+                  <v4:PropertyValue Property="uri" Path="AdditionalPhoneNumber" />
+                </v4:Record>
+              </v4:Collection>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="bday" Path="DateOfBirth" />
+          </v4:Record>
+        </v4:Annotation>
+      </v4:Annotations>
+
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/Uuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/Id">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/CompanyCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredEmailId">
+        <v4:Annotation Term="Communication.IsEmailAddress" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredPhoneNumber">
+        <v4:Annotation Term="Communication.IsPhoneNumber" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/FirstName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/MiddleName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/LastName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/UserProfileId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="UserProfileID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalEmailId">
+        <v4:Annotation Term="Communication.IsEmailAddress" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalPhoneNumber">
+        <v4:Annotation Term="Communication.IsPhoneNumber" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/CreditCardNumber">
+        <v4:Annotation Term="PersonalData.IsSensitive" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="CreditCardNumber" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/NationalIdentityNumber">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="NationalIdentificationNumber" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/PassportNumber">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PassportNumber" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Employees">
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
+        <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
+        <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
+      </v4:Annotations>
+
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster">
+        <v4:Annotation Term="Communication.Contact">
+          <v4:Record>
+            <v4:PropertyValue Property="n">
+              <v4:Record>
+                <v4:PropertyValue Property="given" Path="EmployeeFirstName" />
+                <v4:PropertyValue Property="additional" Path="EmployeeMiddleName" />
+                <v4:PropertyValue Property="surname" Path="EmployeeLastName" />
+              </v4:Record>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="email">
+              <v4:Collection>
+                <v4:Record>
+                  <!-- TODO: is this really an email address, or just an ID to retrieve an email address? If the latter, how/where to retrieve? -->
+                  <v4:PropertyValue Property="address" Path="EmployeeEmailId" />
+                </v4:Record>
+              </v4:Collection>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="tel">
+              <v4:Collection>
+                <v4:Record>
+                  <v4:PropertyValue Property="uri" Path="EmployeePhoneNumber" />
+                </v4:Record>
+                <v4:Record>
+                  <v4:PropertyValue Property="uri" Path="EmployeeAdditionalPhoneNumber1" />
+                </v4:Record>
+                <v4:Record>
+                  <v4:PropertyValue Property="uri" Path="EmployeeAdditionalPhoneNumber2" />
+                </v4:Record>
+              </v4:Collection>
+            </v4:PropertyValue>
+            <v4:PropertyValue Property="bday" Path="DateOfBirth" />
+          </v4:Record>
+        </v4:Annotation>
+      </v4:Annotations>
+
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/Uuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/Id">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/CompanyCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeEmailId">
+        <v4:Annotation Term="Communication.IsEmailAddress" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeePhoneNumber">
+        <v4:Annotation Term="Communication.IsPhoneNumber" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeFirstName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeMiddleName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeLastName">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber1">
+        <v4:Annotation Term="Communication.IsPhoneNumber" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber2">
+        <v4:Annotation Term="Communication.IsPhoneNumber" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Consents">
+        <v4:Annotation Term="PersonalData.Semantics" String="Consent" />
+      </v4:Annotations>
+
+      <v4:Annotations Target="SapAuctionSolution.Consents/ConsentId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="ConsentID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.Consents/PurposeId">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="ConsentPurposeID" />
+        <v4:Annotation Term="Common.Text" Path="PurposeName" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.Consents/JurisdictionCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForCustomers">
+        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.DataSubjectRole" String="cust" />
+        <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
+      </v4:Annotations>
+
+      <!-- TODO: UI.LineItem: [Id,VendorName,GrossAmount,OrderingStatus] -->
+
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/CustomerUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/CompanyCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/GrossAmount">
+        <v4:Annotation Term="Measures.ISOCurrency" Path="Currency" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForEmployees">
+        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
+        <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
+      </v4:Annotations>
+
+      <!-- TODO: UI.LineItem: [Id,CreatedOn,LastChangedOn,VendorName,ApprovalStatus,OrderingStatus] -->
+
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForEmployee/CompanyCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForEmployee/CreatedBy">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForEmployee/LastChangedBy">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/EmployeePaySlips">
+        <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
+        <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
+      </v4:Annotations>
+
+      <!-- TODO: UI.LineItem: [Designation,SalaryMonthYear,SalaryBasicAmount,SalaryTotalAmount,CompanyCode] -->
+
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+      </v4:Annotations>
+      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/CompanyCode">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
+      </v4:Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
+	
