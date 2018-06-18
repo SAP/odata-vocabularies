@@ -50,14 +50,6 @@ See also:
 ### Missing annotations on fields
 
 TODO: New annotation IsUserID: Common or PersonalData?
-
-### Address-related fields        
-
-Field | Question
-------|---------
-address-district | Not part of vCard? Usually the district isn't part of an address
-address-care-of-name | c/o: why not in vCard? Is part of address
-address-building | Not part of vCard?
         </String>
       </Annotation>
 

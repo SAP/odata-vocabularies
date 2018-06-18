@@ -114,46 +114,14 @@
             <v4:PropertyValue Property="country" Path="country" />
             <v4:PropertyValue Property="region" Path="region" />
             <v4:PropertyValue Property="locality" Path="city" />
-            <!-- TODO: district needed? -->
             <v4:PropertyValue Property="district" Path="district" />
             <v4:PropertyValue Property="code" Path="streetPostalCode" />
             <v4:PropertyValue Property="street" Path="streetName" />
             <v4:PropertyValue Property="ext" Path="houseID" />
-            <!-- TODO: careof needed? -->
             <v4:PropertyValue Property="careof" Path="careOfName" />
-            <!-- TODO: building needed? -->
             <v4:PropertyValue Property="building" Path="buildingID" />
           </v4:Record>
         </v4:Annotation>
-      </v4:Annotations>
-
-      <!-- TODO: is it really necessary to tag all contact-related fields as "person-related data"? -->
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/country">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/region">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/city">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/district">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/streetPostalCode">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/streetName">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/houseID">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/careOfName">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/buildingID">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
       </v4:Annotations>
 
 

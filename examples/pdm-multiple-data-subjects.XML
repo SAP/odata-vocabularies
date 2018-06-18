@@ -29,7 +29,7 @@
   </edmx:Reference>
   <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
     <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="SapAuctionSolution"
-      xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" xmlns:to-do="TODO"
+      xmlns:sap="http://www.sap.com/Protocols/SAPData" xmlns:v4="http://docs.oasis-open.org/odata/ns/edm"
     >
       <EntityType Name="CustomerMaster" sap:label="Customer Profile">
         <Key>
@@ -215,7 +215,6 @@
             <v4:PropertyValue Property="email">
               <v4:Collection>
                 <v4:Record>
-                  <!-- TODO: is this really an email address, or just an ID to retrieve an email address? If the latter, how/where to retrieve? -->
                   <v4:PropertyValue Property="address" Path="RegisteredEmailId" />
                 </v4:Record>
                 <v4:Record>
@@ -306,7 +305,6 @@
             <v4:PropertyValue Property="email">
               <v4:Collection>
                 <v4:Record>
-                  <!-- TODO: is this really an email address, or just an ID to retrieve an email address? If the latter, how/where to retrieve? -->
                   <v4:PropertyValue Property="address" Path="EmployeeEmailId" />
                 </v4:Record>
               </v4:Collection>

@@ -24,7 +24,8 @@ These terms are inspired by
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2" />
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -121,8 +122,14 @@ These terms are inspired by
         <Annotation Term="Core.Description" String="Address" />
       </Term>
       <ComplexType Name="AddressType">
+        <Property Name="building" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Building identifier" />
+        </Property>
         <Property Name="street" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Street address" />
+        </Property>
+        <Property Name="district" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Territorial administrative organization in a large city" />
         </Property>
         <Property Name="locality" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="City or similar" />
@@ -142,6 +149,10 @@ These terms are inspired by
         </Property>
         <Property Name="ext" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Extended address (e.g., apartment or suite number)" />
+        </Property>
+        <Property Name="careof" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description"
+            String="An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee" />
         </Property>
         <Property Name="label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description"
@@ -346,7 +357,8 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="Author(s) of the message" />
         </Property>
         <Property Name="sender" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Agent responsible for the actual transmission of the message, e.g. a secretary" />
+          <Annotation Term="Core.Description"
+            String="Agent responsible for the actual transmission of the message, e.g. a secretary" />
         </Property>
         <Property Name="to" Type="Collection(Edm.String)" Nullable="true">
           <Annotation Term="Core.Description" String="List of primary recipients" />
@@ -355,7 +367,8 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="List of other recipients (carbon copy)" />
         </Property>
         <Property Name="bcc" Type="Collection(Edm.String)" Nullable="true">
-          <Annotation Term="Core.Description" String="List of recipients whose addresses are not to be revealed (blind carbon copy)" />
+          <Annotation Term="Core.Description"
+            String="List of recipients whose addresses are not to be revealed (blind carbon copy)" />
         </Property>
         <Property Name="subject" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Topic of the message" />
