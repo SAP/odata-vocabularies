@@ -213,8 +213,9 @@ See also: [What personal data is considered sensitive?](https://ec.europa.eu/inf
 
       <Term Name="IsUserID" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="UA unique identifier for an individual who interacts with the services supplied by a system" />
+        <Annotation Term="Core.Description" String="Property contains a user id" />
+        <Annotation Term="Core.LongDescription"
+          String="A user id is a unique identifier for an individual who interacts with the services supplied by a system" />
       </Term>
     </Schema>
   </edmx:DataServices>
