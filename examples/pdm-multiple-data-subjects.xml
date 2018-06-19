@@ -20,8 +20,7 @@
   >
     <edmx:Include Namespace="com.sap.vocabularies.UI" Alias="UI" />
   </edmx:Reference>
-  <!-- TODO: replace with SCN link once published -->
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
