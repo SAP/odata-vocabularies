@@ -44,12 +44,6 @@ See also:
 - [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
 - [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
 - [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
-
-## Open Issues
-
-### Missing annotations on fields
-
-TODO: New annotation IsUserID: Common or PersonalData?
         </String>
       </Annotation>
 
@@ -233,6 +227,13 @@ See also: [What personal data is considered sensitive?](https://ec.europa.eu/inf
         </Annotation>
       </Term>
 
+      <Term Name="IsUserID" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Unique identifier for a (system) user" />
+        <Annotation Term="Core.LongDescription">
+          <String>*TODO: get definition from SAPterm*</String>
+        </Annotation>
+      </Term>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
