@@ -1,6 +1,13 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
   Version="1.0"
 >
+
+  <!-- TODO: add navigation properties
+    - Employee -> Address
+    - LeaveRequest -> Employee
+    - translate into V4
+  -->
+
   <!-- TODO: replace with SCN link once published -->
   <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
