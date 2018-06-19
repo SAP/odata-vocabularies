@@ -29,9 +29,8 @@
     >
       <EntityType Name="EmployeeType">
         <Key>
-          <PropertyRef Name="userUuid" />
+          <PropertyRef Name="userId" />
         </Key>
-        <Property Name="userUuid" Type="Edm.Guid" Nullable="false" />
         <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false" />
         <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" />
         <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" />
@@ -45,7 +44,7 @@
         <Key>
           <PropertyRef Name="addressId" />
         </Key>
-        <Property Name="employeeUserUuid" Type="Edm.Guid" Nullable="false" />
+        <Property Name="employeeUserId" Type="Edm.String" MaxLength="16" Nullable="false" />
         <Property Name="addressId" Type="Edm.String" Nullable="false" />
         <Property Name="country" Type="Edm.String" MaxLength="256" />
         <Property Name="region" Type="Edm.String" MaxLength="256" />
@@ -62,7 +61,7 @@
         <Key>
           <PropertyRef Name="leaveRequestId" />
         </Key>
-        <Property Name="employeeUserUuid" Type="Edm.Guid" Nullable="false" />
+        <Property Name="employeeUserId" Type="Edm.String" MaxLength="16" Nullable="false" />
         <Property Name="leaveRequestId" Type="Edm.Int64" Nullable="false" />
         <Property Name="leaveType" Type="Edm.String" MaxLength="32" Nullable="false" />
         <Property Name="leaveStartDate" Type="Edm.DateTime" Nullable="false" />
@@ -105,17 +104,13 @@
         </v4:Annotation>
       </v4:Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userUuid">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
-        <v4:Annotation Term="PersonalData.IsUserID" />
-      </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
         <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <!-- TODO: is an email address also a DataSubjectID -->
+        <v4:Annotation Term="Core.Description" String="Email address, e.g. foo@bar.com" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/genderCode">
         <v4:Annotation Term="PersonalData.IsSensitive" />
@@ -142,7 +137,7 @@
         </v4:Annotation>
       </v4:Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserUuid">
+      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
         <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
@@ -155,7 +150,7 @@
       <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID" />
       </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserUuid">
+      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
         <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
