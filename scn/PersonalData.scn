@@ -1,0 +1,16 @@
+<h1>
+PersonalData Vocabulary</h1>
+<p><strong>Namespace: <a href="PersonalData.xml">com.sap.vocabularies.PersonalData.v1</a></strong></p>
+<p>Terms for annotating Personal Data</p>
+<h2>
+Definition</h2>
+<p>Personal Data is any information relating to an identified or identifiable natural person ("data subject").</p>
+<p>An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.</p>
+<p>Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform_en">European Commission: Reform of EU data protection rules</a></li>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en">European Commission: Rules for business and organisations</a></li>
+<li>
+<a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en">European Commission: Legal grounds for processing data</a>.</li>
+</ul>

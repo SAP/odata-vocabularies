@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Personal Data</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-01-24 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version"/>
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby"/>
+            <!-- TODO: replace with SCN link once published -->
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/PersonalData.md"/>
+          </Record>
+        </Collection>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+## Definition
+
+Personal Data is any information relating to an identified or identifiable natural person ("data subject"). 
+
+An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
+
+Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
+
+See also:
+- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
+- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
+- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
+        </String>
+      </Annotation>
+
+      
+      
+      
+      
+
+      
+      
+
+      
+
+      
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

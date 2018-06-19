@@ -14,12 +14,12 @@
   >
     <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml"
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml"
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />

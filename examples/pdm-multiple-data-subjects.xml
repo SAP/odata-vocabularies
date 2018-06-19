@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- TODO:
-
-  - cross-check against PersonalData and other pdm example
-  - remove uuids, only use external ids
-  - resolve TODOs
-
--->
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml"
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml"
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2"
     xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
   >
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
+    <edmx:Include Namespace="com.sap.vocabularies.UI" Alias="UI" />
   </edmx:Reference>
   <!-- TODO: replace with SCN link once published -->
   <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"
@@ -34,9 +32,8 @@
     >
       <EntityType Name="CustomerMaster" sap:label="Customer Profile">
         <Key>
-          <PropertyRef Name="Uuid" />
+          <PropertyRef Name="Id" />
         </Key>
-        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
         <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="256" sap:updatable="false" />
         <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
         <Property Name="RegisteredEmailId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Registered Email Id"
@@ -59,9 +56,8 @@
 
       <EntityType Name="EmployeeMaster" sap:label="Employee Profile">
         <Key>
-          <PropertyRef Name="Uuid" />
+          <PropertyRef Name="Id" />
         </Key>
-        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
         <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="256" sap:updatable="false" />
         <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
         <Property Name="EmployeeEmailId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Employee Email Id"
@@ -102,7 +98,7 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Purchase Order Id" sap:updatable="false" />
-        <Property Name="CustomerUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Customer Id"
+        <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Customer Id"
           sap:updatable="false" />
         <Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Id" sap:text="VendorName"
           sap:updatable="false" />
@@ -138,7 +134,7 @@
           <PropertyRef Name="Id" />
         </Key>
         <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Purchase Order Id" sap:updatable="false" />
-        <Property Name="CustomerUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Customer Id"
+        <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Customer Id"
           sap:updatable="false" />
         <Property Name="VendorId" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Vendor Id" sap:text="VendorName"
           sap:updatable="false" />
@@ -173,8 +169,8 @@
         <Key>
           <PropertyRef Name="Uuid" />
         </Key>
-        <Property Name="Uuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Uuid" sap:updatable="false" />
-        <Property Name="EmployeeUuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Employee Id"
+        <Property Name="Uuid" Type="Edm.Guid" Nullable="false" sap:label="Payslip Uuid" sap:updatable="false" />
+        <Property Name="EmployeeId" Type="Edm.String" Nullable="false" MaxLength="256" sap:label="Employee Id"
           sap:updatable="false" />
         <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="32" sap:updatable="false" />
         <Property Name="Designation" Type="Edm.String" Nullable="false" MaxLength="32" sap:label="Designation"
@@ -238,9 +234,6 @@
         </v4:Annotation>
       </v4:Annotations>
 
-      <v4:Annotations Target="SapAuctionSolution.CustomerMaster/Uuid">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
-      </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/Id">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
       </v4:Annotations>
@@ -358,9 +351,26 @@
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
       </v4:Annotations>
 
-      <!-- TODO: UI.LineItem: [Id,VendorName,GrossAmount,OrderingStatus] -->
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer">
+        <v4:Annotation Term="UI.LineItem">
+          <v4:Collection>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="Id" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="VendorName" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="GrossAmount" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="OrderingStatus" />
+            </v4:Record>
+          </v4:Collection>
+        </v4:Annotation>
+      </v4:Annotations>
 
-      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/CustomerUuid">
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/CustomerId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForCustomer/CompanyCode">
@@ -377,7 +387,30 @@
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
       </v4:Annotations>
 
-      <!-- TODO: UI.LineItem: [Id,CreatedOn,LastChangedOn,VendorName,ApprovalStatus,OrderingStatus] -->
+      <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForEmployee">
+        <v4:Annotation Term="UI.LineItem">
+          <v4:Collection>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="Id" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="CreatedOn" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="LastChangedOn" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="VendorName" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="ApprovalStatus" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="OrderingStatus" />
+            </v4:Record>
+          </v4:Collection>
+        </v4:Annotation>
+      </v4:Annotations>
 
       <v4:Annotations Target="SapAuctionSolution.PurchaseOrderForEmployee/CompanyCode">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
@@ -395,12 +428,32 @@
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
       </v4:Annotations>
 
-      <!-- TODO: UI.LineItem: [Designation,SalaryMonthYear,SalaryBasicAmount,SalaryTotalAmount,CompanyCode] -->
+      <v4:Annotations Target="SapAuctionSolution.EmployeePaySlip">
+        <v4:Annotation Term="UI.LineItem">
+          <v4:Collection>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="Designation" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="SalaryMonthYear" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="SalaryBasicAmount" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="SalaryTotalAmount" />
+            </v4:Record>
+            <v4:Record Type="UI.DataField">
+              <v4:PropertyValue Property="Value" Path="CompanyCode" />
+            </v4:Record>
+          </v4:Collection>
+        </v4:Annotation>
+      </v4:Annotations>
 
-      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeUuid">
+      <v4:Annotations Target="SapAuctionSolution.EmployeePaySlip/EmployeeId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
       </v4:Annotations>
-      <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/CompanyCode">
+      <v4:Annotations Target="SapAuctionSolution.EmployeePaySlip/CompanyCode">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalEntityID" />
       </v4:Annotations>
 
