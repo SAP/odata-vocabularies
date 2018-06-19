@@ -176,20 +176,6 @@ See also:
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="~~RelatedEntityID~~" />
-              <Annotation Term="Core.Description" String="The annotated field holds the actual ID of the related entity???" />
-              <Annotation Term="Core.LongDescription">
-                <String>To be removed: check with Wolfgang Koch whether he needs this</String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="~~RelatedEntityType~~" />
-              <Annotation Term="Core.Description" String="The annotated field holds the type of ???" />
-              <Annotation Term="Core.LongDescription">
-                <String>To be removed: check with Wolfgang Koch whether he needs this</String>
-              </Annotation>
-            </Record>
-            <Record>
               <PropertyValue Property="Value" String="PersonalData" />
               <Annotation Term="Core.Description"
                 String="Information relating to an identified or identifiable natural person (data subject)" />
