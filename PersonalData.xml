@@ -61,9 +61,8 @@ TODO: New annotation IsUserID: Common or PersonalData?
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.
-          
-          If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`</String>
+          <String>Values are application-specific.         
+          Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
       <Term Name="DataSubjectRoleDescription" Type="Edm.String" AppliesTo="EntitySet">
@@ -72,7 +71,8 @@ TODO: New annotation IsUserID: Common or PersonalData?
         <Annotation Term="Core.Description"
           String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>If the role varies per entity, a property containing the entity-specific role should be annotated with  [FieldSemantics](#FieldSemantics) and a value of `DataSubjectRole`, and optionally with Common.Text pointing to a property containing the role description</String>
+          <String>Values are application-specific.         
+          Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
       <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
@@ -115,7 +115,8 @@ TODO: New annotation IsUserID: Common or PersonalData?
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ConsentDependent" />
-              <Annotation Term="Core.Description" String="The entities of this set represent data whose processing depends on explicit consent" />
+              <Annotation Term="Core.Description"
+                String="The entities of this set represent data whose processing depends on explicit consent" />
               <Annotation Term="Core.LongDescription">
                 <String>Consent-dependent data needs to be deleted if the consent is withdrawn.</String>
               </Annotation>
@@ -144,12 +145,8 @@ TODO: New annotation IsUserID: Common or PersonalData?
             </Record>
             <Record>
               <PropertyValue Property="Value" String="DataSubjectIDType" />
-              <Annotation Term="Core.Description" String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="DataSubjectRole" />
-              <Annotation Term="Core.Description" String="Role of the data subject" />
-              <Annotation Term="Core.LongDescription" String="*TODO: definition needed*" />
+              <Annotation Term="Core.Description"
+                String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ConsentID" />
@@ -198,18 +195,6 @@ TODO: New annotation IsUserID: Common or PersonalData?
               <Annotation Term="Core.Description" String="The annotated field holds the type of ???" />
               <Annotation Term="Core.LongDescription">
                 <String>To be removed: check with Wolfgang Koch whether he needs this</String>
-              </Annotation>
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="User(Profile)ID???" />
-              <Annotation Term="Core.Description"
-                String="*TODO: description is missing - this is the user id known to/maintained by the central identity provider - check SAPTerm" />
-              <Annotation Term="Core.LongDescription">
-                <String>PDM needs this for self-service scenarios in order to connect the stored data with the authenticated user.
-                
-However backends often only store the backend-specific logon userid and don't know the connection of the backend user to the IDP user
-
-A user id is also (in most cases) a data subject id</String>
               </Annotation>
             </Record>
             <Record>

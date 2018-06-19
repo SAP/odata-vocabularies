@@ -1,26 +1,38 @@
-<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+  Version="1.0"
+>
   <!-- TODO: replace with SCN link once published -->
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
     <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Commonn.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
     <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://github.wdf.sap.corp/pages/odata/vocabularies/Communication.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml"
+    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+  >
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
   <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
-    <Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
-      xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" Namespace="gdpr.gra.sample"
+    <Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+      xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" Namespace="gdpr.gra.sample"
     >
       <EntityType Name="EmployeeType">
         <Key>
           <PropertyRef Name="userUuid" />
         </Key>
         <Property Name="userUuid" Type="Edm.String" MaxLength="36" Nullable="false" />
+        <!-- TODO: why both userId and userProfileId? -->
         <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false" />
         <Property Name="userProfileId" Type="Edm.String" MaxLength="32" Nullable="false" />
         <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" />
@@ -95,17 +107,30 @@
         </v4:Annotation>
       </v4:Annotations>
 
+      <!-- TODO: why both userId and userProfileId? -->
+      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+        <v4:Annotation Term="PersonalData.IsUserID" />
+      </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+        <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userProfileId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="UserProfileID" />
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+        <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
         <v4:Annotation Term="Communication.IsEmailAddress" />
+        <!-- TODO: is an email address also a DataSubjectID -->
       </v4:Annotations>
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType/genderCode">
         <v4:Annotation Term="PersonalData.IsSensitive" />
+      </v4:Annotations>
+
+
+      <v4:Annotations Target="gdpr.gra.sample.v2/Address">
+        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectDetails" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.AddressType">
@@ -124,13 +149,22 @@
         </v4:Annotation>
       </v4:Annotations>
 
+      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+        <v4:Annotation Term="PersonalData.IsUserID" />
+      </v4:Annotations>
+
 
       <v4:Annotations Target="gdpr.gra.sample.v2/LeaveRequest">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectDetails" />
+        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
         <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID" />
+      </v4:Annotations>
+      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserUuid">
+        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
+        <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
 
     </Schema>
