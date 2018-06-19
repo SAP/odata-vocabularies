@@ -213,10 +213,8 @@ See also: [What personal data is considered sensitive?](https://ec.europa.eu/inf
 
       <Term Name="IsUserID" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Unique identifier for a (system) user" />
-        <Annotation Term="Core.LongDescription">
-          <String>*TODO: get definition from SAPterm*</String>
-        </Annotation>
+        <Annotation Term="Core.Description"
+          String="UA unique identifier for an individual who interacts with the services supplied by a system" />
       </Term>
     </Schema>
   </edmx:DataServices>
