@@ -532,7 +532,8 @@ Terms</h2>
 <tr>
 <td align="left">Hidden</td>
 <td align="right">0</td>
-<td align="left">Deprecated synonymn for Inapplicable, do not use</td>
+<td align="left">Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use <code>UI.Hidden</code> instead</p>
+</td>
 </tr>
 </tbody>
 </table>

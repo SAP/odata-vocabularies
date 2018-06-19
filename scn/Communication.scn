@@ -217,9 +217,19 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
+<td align="left">building</td>
+<td align="left">String</td>
+<td align="left">Building identifier</td>
+</tr>
+<tr>
 <td align="left">street</td>
 <td align="left">String</td>
 <td align="left">Street address</td>
+</tr>
+<tr>
+<td align="left">district</td>
+<td align="left">String</td>
+<td align="left">Territorial administrative organization in a large city</td>
 </tr>
 <tr>
 <td align="left">locality</td>
@@ -250,6 +260,11 @@ Terms</h2>
 <td align="left">ext</td>
 <td align="left">String</td>
 <td align="left">Extended address (e.g., apartment or suite number)</td>
+</tr>
+<tr>
+<td align="left">careof</td>
+<td align="left">String</td>
+<td align="left">An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee</td>
 </tr>
 <tr>
 <td align="left">label</td>

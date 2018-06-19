@@ -265,6 +265,7 @@
         </Member>
         <Member Name="Hidden" Value="0">
           <Annotation Term="Core.Description" String="Deprecated synonymn for Inapplicable, do not use"/>
+          <Annotation Term="Core.LongDescription" String="To statically hide a property on a UI use `UI.Hidden` instead"/>
         </Member>
       </EnumType>
 
@@ -279,7 +280,7 @@
       
       
       
-
+      
       
 
       <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
@@ -315,8 +316,8 @@
       <Term Name="ResultContext" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>The annotated entity type has one or more containment navigation properties.
-          An instance of the annotated entity type provides the context required for determining 
-          the target entity sets reached by these containment navigation properties.</String>
+            An instance of the annotated entity type provides the context required for determining
+            the target entity sets reached by these containment navigation properties.</String>
         </Annotation>
       </Term>
 
@@ -435,8 +436,8 @@
       <!-- Section: Calendar Points in Time -->
       <Term Name="IsCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional 
-          minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
+          <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional
+            minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -445,7 +446,7 @@
       <Term Name="IsCalendarHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit.
-          The string matches the regex pattern [1-2]
+            The string matches the regex pattern [1-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -453,8 +454,8 @@
       </Term>
       <Term Name="IsCalendarQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. 
-          The string matches the regex pattern [1-4]
+          <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit.
+            The string matches the regex pattern [1-4]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -462,8 +463,8 @@
       </Term>
       <Term Name="IsCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|1[0-2]
+          <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits.
+            The string matches the regex pattern 0[1-9]|1[0-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -471,8 +472,8 @@
       </Term>
       <Term Name="IsCalendarWeek" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3] 
+          <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits.
+            The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -480,7 +481,7 @@
       </Term>
       <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Day number relative to a calendar month. Valid values are between 1 and 31.  
+          <String>Day number relative to a calendar month. Valid values are between 1 and 31.
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.SByte"/>
@@ -488,7 +489,7 @@
       </Term>
       <Term Name="IsDayOfCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Day number relative to a calendar year. Valid values are between 1 and 366.  
+          <String>Day number relative to a calendar year. Valid values are between 1 and 366.
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.Int16"/>
@@ -496,9 +497,9 @@
       </Term>
       <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting 
-          of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]
+          <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting
+            of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -506,9 +507,9 @@
       </Term>
       <Term Name="IsCalendarYearQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting 
-          of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]
+          <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting
+            of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
@@ -516,9 +517,10 @@
       </Term>
       <Term Name="IsCalendarYearMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting 
-          of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])
+          <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting
+            of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to
+            December.
+            The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>

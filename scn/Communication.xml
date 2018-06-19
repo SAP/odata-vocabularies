@@ -120,8 +120,14 @@ These terms are inspired by
         <Annotation Term="Core.Description" String="Address"/>
       </Term>
       <ComplexType Name="AddressType">
+        <Property Name="building" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Building identifier"/>
+        </Property>
         <Property Name="street" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Street address"/>
+        </Property>
+        <Property Name="district" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Territorial administrative organization in a large city"/>
         </Property>
         <Property Name="locality" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="City or similar"/>
@@ -141,6 +147,9 @@ These terms are inspired by
         </Property>
         <Property Name="ext" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Extended address (e.g., apartment or suite number)"/>
+        </Property>
+        <Property Name="careof" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee"/>
         </Property>
         <Property Name="label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Delivery address label; plain-text string representing the formatted address, may contain line breaks"/>
