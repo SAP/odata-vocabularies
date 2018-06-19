@@ -18,13 +18,11 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version"/>
-            <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/PersonalData.xml"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2"/>
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby"/>
-            <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/PersonalData.md"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/tQGXHQ"/>
           </Record>
         </Collection>
       </Annotation>

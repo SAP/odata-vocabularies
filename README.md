@@ -4,7 +4,7 @@ SAP Vocabularies for annotating OData services
 * [Common: Common terms for all SAP vocabularies](Common.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/vh_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470974)
 * [Communication: Terms for annotating communication-relevant information](Communication.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/ux_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470971)
 * [Hierarchy: Terms for Hierarchies](Hierarchy.md) - *experimental*
-* [PersonalData: Terms for annotating Personal Data](PersonalData.md) - *experimental*
+* [PersonalData: Terms for annotating Personal Data](PersonalData.md) - *experimental* - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/tQGXHQ) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=496435637)
 * [UI: Terms for presenting data in user interfaces](UI.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/uB_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470968)
 
 # OASIS Vocabularies
