@@ -124,7 +124,9 @@ See also:
 
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated property" />
+        <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
+        <Annotation Term="Core.LongDescription"
+          String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
@@ -176,18 +178,18 @@ See also:
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="PersonalData" />
-              <Annotation Term="Core.Description"
-                String="Information relating to an identified or identifiable natural person (data subject)" />
-              <Annotation Term="Core.LongDescription"
-                String="Changes are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, email address, birthday, ...)or address data (street, city, ...)*" />
-            </Record>
-            <Record>
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
                 <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
               </Annotation>
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="PersonalData" />
+              <Annotation Term="Core.Description"
+                String="Information relating to an identified or identifiable natural person (data subject)" />
+              <Annotation Term="Core.LongDescription"
+                String="This is the most unspecific meaning, used for anything not covered by the specific meanings above." />
             </Record>
           </Collection>
         </Annotation>
