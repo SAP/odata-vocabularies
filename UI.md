@@ -41,12 +41,12 @@ Term|Type|Description
 [MultiLineText](UI.xml#L1058)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)
 [TextArrangement](UI.xml#L1063)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<p>If used for a single property the Common.Text annotation is annotated</p>
 [Importance](UI.xml#L1090)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
-[Hidden](UI.xml#L1105)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true.<p>The annotation value will usually be an expression to dynamically hide or render the annotated feature.</p>
-[HiddenFilter](UI.xml#L1112)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria.<p>The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all.</p>
-[DataFieldDefault](UI.xml#L1118) *(Experimental)*|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<p>Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.</p>
-[Criticality](UI.xml#L1244) *(Experimental)*|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](UI.xml#L1249) *(Experimental)*|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[OrderBy](UI.xml#L1254) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
+[Hidden](UI.xml#L1105)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<p>The annotation value will usually be an expression to dynamically hide or render the annotated feature.</p>
+[HiddenFilter](UI.xml#L1112)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<p>The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all.</p>
+[DataFieldDefault](UI.xml#L1119) *(Experimental)*|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<p>Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.</p>
+[Criticality](UI.xml#L1245) *(Experimental)*|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](UI.xml#L1250) *(Experimental)*|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[OrderBy](UI.xml#L1255) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L40)
 
@@ -588,7 +588,7 @@ Member|Value|Description
 [Medium](UI.xml#L1097)|1|Medium importance
 [Low](UI.xml#L1100)|2|Low importance
 
-## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](UI.xml#L1126)
+## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](UI.xml#L1127)
 
 
 **Derived Types:**
@@ -604,31 +604,31 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[Criticality](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[CriticalityRepresentation](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[IconUrl](UI.xml#L1137)|URL|Optional icon to decorate the value
+[Label](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[Criticality](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[CriticalityRepresentation](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[IconUrl](UI.xml#L1138)|URL|Optional icon to decorate the value
 
-## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](UI.xml#L1143)
+## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](UI.xml#L1144)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[WithIcon](UI.xml#L1144)|0|Criticality is represented with an icon
-[WithoutIcon](UI.xml#L1147)|1|Criticality is represented without icon, e.g. only via text color
+[WithIcon](UI.xml#L1145)|0|Criticality is represented with an icon
+[WithoutIcon](UI.xml#L1148)|1|Criticality is represented without icon, e.g. only via text color
 
-## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](UI.xml#L1152): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](UI.xml#L1153): [DataFieldAbstract](#DataFieldAbstract)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[Target](UI.xml#L1153)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[Target](UI.xml#L1154)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields
 
-## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1159): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1160): [DataFieldAbstract](#DataFieldAbstract)
 Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 
 **Derived Types:**
@@ -637,51 +637,51 @@ Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[Inline](UI.xml#L1161)|Boolean|Action should be placed close to (or even inside) the visualized term
-[Determining](UI.xml#L1164)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[Inline](UI.xml#L1162)|Boolean|Action should be placed close to (or even inside) the visualized term
+[Determining](UI.xml#L1165)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 
-## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1169): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1170): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 The action is NOT tied to a data value (in contrast to DataFieldWithAction)
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Inline*](UI.xml#L1161)|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](UI.xml#L1164)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](UI.xml#L1171)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
-[InvocationGrouping](UI.xml#L1174)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Inline*](UI.xml#L1162)|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](UI.xml#L1165)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[Action](UI.xml#L1172)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[InvocationGrouping](UI.xml#L1175)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
-## <a name="OperationGroupingType"></a>[OperationGroupingType](UI.xml#L1178)
+## <a name="OperationGroupingType"></a>[OperationGroupingType](UI.xml#L1179)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Isolated](UI.xml#L1179)|0|
-[ChangeSet](UI.xml#L1180)|1|
+[Isolated](UI.xml#L1180)|0|
+[ChangeSet](UI.xml#L1181)|1|
 
-## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](UI.xml#L1183): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](UI.xml#L1184): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Inline*](UI.xml#L1161)|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](UI.xml#L1164)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[SemanticObject](UI.xml#L1186)|String|Name of the Semantic Object
-[Action](UI.xml#L1189)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[RequiresContext](UI.xml#L1193)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Inline*](UI.xml#L1162)|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](UI.xml#L1165)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[SemanticObject](UI.xml#L1187)|String|Name of the Semantic Object
+[Action](UI.xml#L1190)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[RequiresContext](UI.xml#L1194)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
 
-## <a name="DataField"></a>[DataField](UI.xml#L1198): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataField"></a>[DataField](UI.xml#L1199): [DataFieldAbstract](#DataFieldAbstract)
 
 
 **Derived Types:**
@@ -692,58 +692,58 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[Value](UI.xml#L1199)|PrimitiveType|The data field's value
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[Value](UI.xml#L1200)|PrimitiveType|The data field's value
 
-## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1205): [DataField](#DataField)
+## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1206): [DataField](#DataField)
 The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1199)|PrimitiveType|The data field's value
-[Action](UI.xml#L1208)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1200)|PrimitiveType|The data field's value
+[Action](UI.xml#L1209)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
-## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1213): [DataField](#DataField)
+## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1214): [DataField](#DataField)
 The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1199)|PrimitiveType|The data field's value
-[SemanticObject](UI.xml#L1216)|String|Name of the Semantic Object
-[Action](UI.xml#L1219)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1200)|PrimitiveType|The data field's value
+[SemanticObject](UI.xml#L1217)|String|Name of the Semantic Object
+[Action](UI.xml#L1220)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
-## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1225): [DataField](#DataField)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1199)|PrimitiveType|The data field's value
-[Target](UI.xml#L1226)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
-
-## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1233): [DataField](#DataField)
+## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1226): [DataField](#DataField)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](UI.xml#L1127)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1131)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1134)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1137)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1199)|PrimitiveType|The data field's value
-[Url](UI.xml#L1234)|URL|Target of the hyperlink
-[UrlContentType](UI.xml#L1238)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1200)|PrimitiveType|The data field's value
+[Target](UI.xml#L1227)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+
+## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1234): [DataField](#DataField)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](UI.xml#L1128)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1132)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1135)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1138)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1200)|PrimitiveType|The data field's value
+[Url](UI.xml#L1235)|URL|Target of the hyperlink
+[UrlContentType](UI.xml#L1239)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
