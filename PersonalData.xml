@@ -42,7 +42,12 @@ See also:
 - [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
 - [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
 - [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
-        </String>
+     
+## TODO
+
+* Point/cross-reference to Communication
+* in Communication tag Contact as being Personal Data
+       </String>
       </Annotation>
 
       <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">

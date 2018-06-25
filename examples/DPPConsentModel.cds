@@ -12,69 +12,69 @@ context ConsentModel {
         @PersonalData.FieldSemantics: 'ConsentID'
     key ConsentId                       : ConsentUtil.TConsentId;
 
-	    TemplateId                      : ConsentUtil.TTemplateId;
-    	TemplateName                    : ConsentUtil.TTemplateName;
+        TemplateId                      : ConsentUtil.TTemplateId;
+        TemplateName                    : ConsentUtil.TTemplateName;
 
         @PersonalData.FieldSemantics: 'ConsentPurposeID'
-     	PurposeId                       : ConsentUtil.TPurposeId;
+        PurposeId                       : ConsentUtil.TPurposeId;
 
-     	PurposeName                     : ConsentUtil.TPurposeName;
-     	ControllerId                    : Integer;
+        PurposeName                     : ConsentUtil.TPurposeName;
+        ControllerId                    : Integer;
         Country                         : String(2);
         ConsentModel                    : ConsentUtil.TModel;
         ApplicationId                   : ConsentUtil.TApplicationId;
         ApplicationTemplateId           : String(128);
         ValidFrom                       : Timestamp;
         StartOfExpiration               : Timestamp;
-     	ValidTo                         : Timestamp;
+        ValidTo                         : Timestamp;
 
-     	@PersonalData.FieldSemantics: 'DataSubjectIDType'            // this field could be filled dynamic like here, but also static in some other application
-     	DataSubjectType                 : String(30);
+        @PersonalData.FieldSemantics: 'DataSubjectIDType'            // this field could be filled dynamic like here, but also static in some other application
+        DataSubjectType                 : String(30);
 
-     	@PersonalData.FieldSemantics: 'DataSubjectID'                // this is a "technical" id 
-     	DataSubjectId                   : String(128) not null;
+        @PersonalData.FieldSemantics: 'DataSubjectID'                // this is a "technical" id 
+        DataSubjectId                   : String(128) not null;
 
-     	@PersonalData.FieldSemantics: 'PersonalData'
-     	DataSubjectFormattedDescription : String(255);
+        @PersonalData.FieldSemantics: 'PersonalData'
+        DataSubjectFormattedDescription : String(255);
 
-     	GrantedAt                       : Timestamp;
-     	GrantedBy                       : String(128);
-     	WithdrawnAt                     : Timestamp;
-     	WithdrawnBy                     : String(128);
-     	Language                        : ConsentUtil.TLanguage;
-     	ThirdPartyId                    : ConsentUtil.TThirdPartyId;
-     	ThirdPartyFunction              : Integer;
-     	CreatedAt                       : ConsentUtil.TCreatedAt;
-     	CreatedBy                       : ConsentUtil.TCreatedBy;
-     	ChangedAt                       : ConsentUtil.TChangedAt;
-     	ChangedBy                       : ConsentUtil.TChangedBy;
+        GrantedAt                       : Timestamp;
+        GrantedBy                       : String(128);
+        WithdrawnAt                     : Timestamp;
+        WithdrawnBy                     : String(128);
+        Language                        : ConsentUtil.TLanguage;
+        ThirdPartyId                    : ConsentUtil.TThirdPartyId;
+        ThirdPartyFunction              : Integer;
+        CreatedAt                       : ConsentUtil.TCreatedAt;
+        CreatedBy                       : ConsentUtil.TCreatedBy;
+        ChangedAt                       : ConsentUtil.TChangedAt;
+        ChangedBy                       : ConsentUtil.TChangedBy;
 
-     	@PersonalData.FieldSemantics: 'RelatedData' 
-     	ConsentStatus                   : Integer;
+        @PersonalData.FieldSemantics: 'RelatedData' 
+        ConsentStatus                   : Integer;
 
-     	LifecycleStatus                 : Integer;
-     	SourceSystemId                  : ConsentUtil.TSystemId;
-     	TextPurposeId                   : ConsentUtil.TTextUUID;
-     	PurposeDescription              : String(80);
-     	TextExplanatoryTemplateId       : ConsentUtil.TTextUUID;
-     	TextQuestionTemplateId          : ConsentUtil.TTextUUID;
-     	TextConsequenceTemplateId       : ConsentUtil.TTextUUID;
-     	TemplateDescription             : String(80);
-     	PurposePersDataCategory         : String(30);
-     	ThirdPartyPersDataCategory      : String(30);
-     	to_PurposeText                  : association[1, 0..1] to ConsentText on to_PurposeText.ConsentTextId = TextPurposeId;
-     	to_TemplateExplanatoryText      : association[1, 0..1] to ConsentText on to_TemplateExplanatoryText.ConsentTextId = TextExplanatoryTemplateId;
-     	to_TemplateQuestionText         : association[1, 0..1] to ConsentText on to_TemplateQuestionText.ConsentTextId = TextQuestionTemplateId;
-     	to_TemplateConsequenceText      : association[1, 0..1] to ConsentText on to_TemplateConsequenceText.ConsentTextId = TextConsequenceTemplateId;
+        LifecycleStatus                 : Integer;
+        SourceSystemId                  : ConsentUtil.TSystemId;
+        TextPurposeId                   : ConsentUtil.TTextUUID;
+        PurposeDescription              : String(80);
+        TextExplanatoryTemplateId       : ConsentUtil.TTextUUID;
+        TextQuestionTemplateId          : ConsentUtil.TTextUUID;
+        TextConsequenceTemplateId       : ConsentUtil.TTextUUID;
+        TemplateDescription             : String(80);
+        PurposePersDataCategory         : String(30);
+        ThirdPartyPersDataCategory      : String(30);
+        to_PurposeText                  : association[1, 0..1] to ConsentText on to_PurposeText.ConsentTextId = TextPurposeId;
+        to_TemplateExplanatoryText      : association[1, 0..1] to ConsentText on to_TemplateExplanatoryText.ConsentTextId = TextExplanatoryTemplateId;
+        to_TemplateQuestionText         : association[1, 0..1] to ConsentText on to_TemplateQuestionText.ConsentTextId = TextQuestionTemplateId;
+        to_TemplateConsequenceText      : association[1, 0..1] to ConsentText on to_TemplateConsequenceText.ConsentTextId = TextConsequenceTemplateId;
     };
 
     entity ConsentText {
-        key ConsentTextId  : ConsentUtil.TTextUUID;
-            SourceObjectId : ConsentUtil.TUUID;
-            Language       : ConsentUtil.TLanguage;
-            Type           : ConsentUtil.TType;
-            Text           : ConsentUtil.TText;
-            OriginChangedAt: ConsentUtil.TChangedAt;
+      key ConsentTextId  : ConsentUtil.TTextUUID;
+          SourceObjectId : ConsentUtil.TUUID;
+          Language       : ConsentUtil.TLanguage;
+          Type           : ConsentUtil.TType;
+          Text           : ConsentUtil.TText;
+          OriginChangedAt: ConsentUtil.TChangedAt;
     };	
 };
 
