@@ -205,13 +205,15 @@ Terms</h2>
 <td align="left">Hidden</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
 <td align="left">
-<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if annotation evaluates to true. The annotation value will usually be an expression to dynamically hide or render the annotated feature.</td>
+<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<p>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature.</p>
+</td>
 </tr>
 <tr>
 <td align="left">HiddenFilter</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
 <td align="left">
-<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria</td>
+<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<p>Properties annotated with <code>HiddenFilter</code> are intended as parts of a <code>$filter</code> expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with <a href="#Hidden"><code>UI.Hidden</code></a> that are not rendered at all.</p>
+</td>
 </tr>
 </tbody>
 </table>
