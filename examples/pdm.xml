@@ -1,165 +1,199 @@
-<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
-  Version="1.0"
->
-
-  <!-- TODO: add navigation properties
-    - Employee -> Address
-    - LeaveRequest -> Employee
-    - translate into V4
-  -->
-
-  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2"
-    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  >
-    <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData" />
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
   </edmx:Reference>
-  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2"
-    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  >
-    <edmx:Include Namespace="com.sap.vocabularies.Common" Alias="Common" />
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Measures" Namespace="Org.OData.Measures.V1"/>
   </edmx:Reference>
-  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2"
-    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  >
-    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml"
-    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  >
-    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
   </edmx:Reference>
-  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
-    <Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
-      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
-      xmlns:v4="http://docs.oasis-open.org/odata/ns/edm" Namespace="gdpr.gra.sample"
-    >
-      <EntityType Name="EmployeeType">
-        <Key>
-          <PropertyRef Name="userId" />
-        </Key>
-        <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false" />
-        <Property Name="email" Type="Edm.String" Nullable="true" MaxLength="256" />
-        <Property Name="firstName" Type="Edm.String" Nullable="false" MaxLength="256" />
-        <Property Name="middleName" Type="Edm.String" Nullable="true" MaxLength="256" />
-        <Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="256" />
-        <Property Name="genderCode" Type="Edm.String" MaxLength="1" />
-        <Property Name="birthDate" Type="Edm.DateTime" />
-      </EntityType>
-
-      <EntityType Name="AddressType">
-        <Key>
-          <PropertyRef Name="addressId" />
-        </Key>
-        <Property Name="employeeUserId" Type="Edm.String" MaxLength="16" Nullable="false" />
-        <Property Name="addressId" Type="Edm.String" Nullable="false" />
-        <Property Name="country" Type="Edm.String" MaxLength="256" />
-        <Property Name="region" Type="Edm.String" MaxLength="256" />
-        <Property Name="city" Type="Edm.String" MaxLength="256" />
-        <Property Name="district" Type="Edm.String" MaxLength="256" />
-        <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10" />
-        <Property Name="streetName" Type="Edm.String" MaxLength="60" />
-        <Property Name="houseID" Type="Edm.String" MaxLength="10" />
-        <Property Name="careOfName" Type="Edm.String" MaxLength="40" />
-        <Property Name="buildingID" Type="Edm.String" MaxLength="10" />
-      </EntityType>
-
-      <EntityType Name="LeaveRequestType">
-        <Key>
-          <PropertyRef Name="leaveRequestId" />
-        </Key>
-        <Property Name="employeeUserId" Type="Edm.String" MaxLength="16" Nullable="false" />
-        <Property Name="leaveRequestId" Type="Edm.Int64" Nullable="false" />
-        <Property Name="leaveType" Type="Edm.String" MaxLength="32" Nullable="false" />
-        <Property Name="leaveStartDate" Type="Edm.DateTime" Nullable="false" />
-        <Property Name="leaveEndDate" Type="Edm.DateTime" Nullable="false" />
-        <Property Name="leaveReason" Type="Edm.String" MaxLength="1024" />
-        <Property Name="leaveRequestStatus" Type="Edm.String" MaxLength="10" Nullable="false" />
-      </EntityType>
-
-      <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
-        <EntitySet Name="Employee" EntityType="gdpr.gra.sample.EmployeeType" />
-        <EntitySet Name="Address" EntityType="gdpr.gra.sample.AddressType" />
-        <EntitySet Name="LeaveRequest" EntityType="gdpr.gra.sample.LeaveRequestType" />
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include  Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="Communication" Namespace="com.sap.vocabularies.Communication.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include  Alias="PersonalData" Namespace="com.sap.vocabularies.PersonalData.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+  </edmx:Reference>
+  <edmx:DataServices m:DataServiceVersion="2.0">
+    <Schema Namespace="gdpr.gra.sample" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Employee" EntityType="gdpr.gra.sample.Employee"/>
+        <EntitySet Name="Address" EntityType="gdpr.gra.sample.Address"/>
+        <EntitySet Name="LeaveRequest" EntityType="gdpr.gra.sample.LeaveRequest"/>
+        <AssociationSet Name="Address_employee" Association="gdpr.gra.sample.Address_employee">
+          <End Role="Address" EntitySet="Address"/>
+          <End Role="Employee" EntitySet="Employee"/>
+        </AssociationSet>
+        <AssociationSet Name="LeaveRequest_employee" Association="gdpr.gra.sample.LeaveRequest_employee">
+          <End Role="LeaveRequest" EntitySet="LeaveRequest"/>
+          <End Role="Employee" EntitySet="Employee"/>
+        </AssociationSet>
       </EntityContainer>
 
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="userId"/>
+        </Key>
+        <Property Name="userId" Type="Edm.String" MaxLength="16" Nullable="false"/>
+        <Property Name="email" Type="Edm.String" MaxLength="256"/>
+        <Property Name="firstName" Type="Edm.String" MaxLength="256" Nullable="false"/>
+        <Property Name="middleName" Type="Edm.String" MaxLength="256"/>
+        <Property Name="lastName" Type="Edm.String" MaxLength="256" Nullable="false"/>
+        <Property Name="genderCode" Type="Edm.String" MaxLength="1"/>
+        <Property Name="birthDate" Type="Edm.DateTime" sap:display-format="Date"/>
+        <NavigationProperty Name="addresses" Relationship="gdpr.gra.sample.Address_employee" FromRole="Employee" ToRole="Address"/>
+        <NavigationProperty Name="leaveRequests" Relationship="gdpr.gra.sample.LeaveRequest_employee" FromRole="Employee" ToRole="LeaveRequest"/>
+      </EntityType>
 
-      <v4:Annotations Target="gdpr.gra.sample.v2/Employee">
-        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubject" />
-      </v4:Annotations>
+      <EntityType Name="Address">
+        <Key>
+          <PropertyRef Name="addressId"/>
+        </Key>
+        <Property Name="addressId" Type="Edm.String" Nullable="false"/>
+        <Property Name="country" Type="Edm.String" MaxLength="256"/>
+        <Property Name="region" Type="Edm.String" MaxLength="256"/>
+        <Property Name="city" Type="Edm.String" MaxLength="256"/>
+        <Property Name="district" Type="Edm.String" MaxLength="256"/>
+        <Property Name="streetPostalCode" Type="Edm.String" MaxLength="10"/>
+        <Property Name="streetName" Type="Edm.String" MaxLength="60"/>
+        <Property Name="houseID" Type="Edm.String" MaxLength="10"/>
+        <Property Name="careOfName" Type="Edm.String" MaxLength="40"/>
+        <Property Name="buildingID" Type="Edm.String" MaxLength="10"/>
+        <NavigationProperty Name="employee" Relationship="gdpr.gra.sample.Address_employee" FromRole="Address" ToRole="Employee"/>
+        <Property Name="employee_userId" Type="Edm.String" MaxLength="16" Nullable="false"/>
+      </EntityType>
 
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType">
-        <v4:Annotation Term="Communication.Contact">
-          <v4:Record>
-            <v4:PropertyValue Property="n">
-              <v4:Record>
-                <v4:PropertyValue Property="given" Path="firstName" />
-                <v4:PropertyValue Property="additional" Path="middleName" />
-                <v4:PropertyValue Property="surname" Path="lastName" />
-              </v4:Record>
-            </v4:PropertyValue>
-            <v4:PropertyValue Property="email">
-              <v4:Collection>
-                <v4:Record>
-                  <v4:PropertyValue Property="address" Path="email" />
-                </v4:Record>
-              </v4:Collection>
-            </v4:PropertyValue>
-            <v4:PropertyValue Property="gender" Path="genderCode" />
-            <v4:PropertyValue Property="bday" Path="birthDate" />
-          </v4:Record>
-        </v4:Annotation>
-      </v4:Annotations>
+      <EntityType Name="LeaveRequest">
+        <Key>
+          <PropertyRef Name="leaveRequestId"/>
+        </Key>
+        <Property Name="leaveRequestId" Type="Edm.Int64" Nullable="false"/>
+        <Property Name="leaveType" Type="Edm.String" MaxLength="32" Nullable="false"/>
+        <Property Name="leaveStartDate" Type="Edm.DateTime" Nullable="false" sap:display-format="Date"/>
+        <Property Name="leaveEndDate" Type="Edm.DateTime" Nullable="false" sap:display-format="Date"/>
+        <Property Name="leaveReason" Type="Edm.String" MaxLength="1024"/>
+        <Property Name="leaveRequestStatus" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <NavigationProperty Name="employee" Relationship="gdpr.gra.sample.LeaveRequest_employee" FromRole="LeaveRequest" ToRole="Employee"/>
+        <Property Name="employee_userId" Type="Edm.String" MaxLength="16" Nullable="false"/>
+      </EntityType>
 
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/userId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
-        <v4:Annotation Term="PersonalData.IsUserID" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/email">
-        <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="Core.Description" String="Email address, e.g. foo@bar.com" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.EmployeeType/genderCode">
-        <v4:Annotation Term="PersonalData.IsSensitive" />
-      </v4:Annotations>
+      <Association Name="Address_employee">
+        <End Role="Address" Type="gdpr.gra.sample.Address" Multiplicity="*"/>
+        <End Role="Employee" Type="gdpr.gra.sample.Employee" Multiplicity="1"/>
+        <ReferentialConstraint>
+          <Principal Role="Employee">
+            <PropertyRef Name="userId"/>
+          </Principal>
+          <Dependent Role="Address">
+            <PropertyRef Name="employee_userId"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+
+      <Association Name="LeaveRequest_employee">
+        <End Role="LeaveRequest" Type="gdpr.gra.sample.LeaveRequest" Multiplicity="*"/>
+        <End Role="Employee" Type="gdpr.gra.sample.Employee" Multiplicity="1"/>
+        <ReferentialConstraint>
+          <Principal Role="Employee">
+            <PropertyRef Name="userId"/>
+          </Principal>
+          <Dependent Role="LeaveRequest">
+            <PropertyRef Name="employee_userId"/>
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+
+      <Annotations Target="gdpr.gra.sample.Employee" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Communication.Contact">
+          <Record>
+            <PropertyValue Property="n">
+              <Record>
+                <PropertyValue Property="given" Path="firstName"/>
+                <PropertyValue Property="additional" Path="middleName"/>
+                <PropertyValue Property="surname" Path="lastName"/>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="adr" Path="addresses/@Communication.Address"/>
+            <PropertyValue Property="email">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="address" Path="email"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="gender" Path="genderCode"/>
+            <PropertyValue Property="bday" Path="birthDate"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+      <Annotations Target="gdpr.gra.sample.EntityContainer/Employee" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.EntitySemantics" String="DataSubject"/>
+      </Annotations>
+
+      <Annotations Target="gdpr.gra.sample.Employee/userId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID"/>
+        <Annotation Term="PersonalData.IsUserID"/>
+      </Annotations>
+      <Annotations Target="gdpr.gra.sample.Employee/email" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Communication.IsEmailAddress"/>
+        <Annotation Term="Core.Description" String="Email address, e.g. foo@bar.com"/>
+      </Annotations>
+      <Annotations Target="gdpr.gra.sample.Employee/genderCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.IsSensitive"/>
+      </Annotations>
 
 
-      <v4:Annotations Target="gdpr.gra.sample.v2/Address">
-        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubjectDetails" />
-      </v4:Annotations>
+      <Annotations Target="gdpr.gra.sample.Address" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Communication.Address">
+          <Record>
+            <PropertyValue Property="country" Path="country"/>
+            <PropertyValue Property="region" Path="region"/>
+            <PropertyValue Property="locality" Path="city"/>
+            <PropertyValue Property="district" Path="district"/>
+            <PropertyValue Property="code" Path="streetPostalCode"/>
+            <PropertyValue Property="street" Path="streetName"/>
+            <PropertyValue Property="ext" Path="houseID"/>
+            <PropertyValue Property="careof" Path="careOfName"/>
+            <PropertyValue Property="building" Path="buildingID"/>
+          </Record>
+        </Annotation>
+      </Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.AddressType">
-        <v4:Annotation Term="Communication.Address">
-          <v4:Record>
-            <v4:PropertyValue Property="country" Path="country" />
-            <v4:PropertyValue Property="region" Path="region" />
-            <v4:PropertyValue Property="locality" Path="city" />
-            <v4:PropertyValue Property="district" Path="district" />
-            <v4:PropertyValue Property="code" Path="streetPostalCode" />
-            <v4:PropertyValue Property="street" Path="streetName" />
-            <v4:PropertyValue Property="ext" Path="houseID" />
-            <v4:PropertyValue Property="careof" Path="careOfName" />
-            <v4:PropertyValue Property="building" Path="buildingID" />
-          </v4:Record>
-        </v4:Annotation>
-      </v4:Annotations>
+      <Annotations Target="gdpr.gra.sample.EntityContainer/Address" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.EntitySemantics" String="DataSubjectDetails"/>
+      </Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.AddressType/employeeUserId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
-        <v4:Annotation Term="PersonalData.IsUserID" />
-      </v4:Annotations>
+      <Annotations Target="gdpr.gra.sample.Address/employee_userId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID"/>
+        <Annotation Term="PersonalData.IsUserID"/>
+      </Annotations>
 
 
-      <v4:Annotations Target="gdpr.gra.sample.v2/LeaveRequest">
-        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
-      </v4:Annotations>
+      <Annotations Target="gdpr.gra.sample.EntityContainer/LeaveRequest" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.EntitySemantics" String="LegalGround"/>
+      </Annotations>
 
-      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID" />
-      </v4:Annotations>
-      <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/employeeUserId">
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID" />
-        <v4:Annotation Term="PersonalData.IsUserID" />
-      </v4:Annotations>
+      <Annotations Target="gdpr.gra.sample.LeaveRequest/leaveRequestId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID"/>
+      </Annotations>
+      <Annotations Target="gdpr.gra.sample.LeaveRequest/employee_userId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID"/>
+        <Annotation Term="PersonalData.IsUserID"/>
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>
