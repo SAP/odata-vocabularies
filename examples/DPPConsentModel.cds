@@ -2,7 +2,7 @@ using ConsentUtil;
 
 context ConsentModel {
 
-  @PersonalData.Semantics: 'Consent'     
+  @PersonalData.EntitySemantics: 'Consent'     
   @PersonalData.DataSubjectRole: 'Data Subject'
 
   @AuditLog.Operation: {Insert: false, Update: false, Delete: true}  // @D046777: these annotations should not appear in OData $metadata as they controlling audit logging granularity
@@ -34,7 +34,7 @@ context ConsentModel {
         @PersonalData.FieldSemantics: 'DataSubjectID'                // this is a "technical" id 
         DataSubjectId                   : String(128) not null;
 
-        @PersonalData.FieldSemantics: 'PersonalData'
+        @PersonalData.IsPersonal
         DataSubjectFormattedDescription : String(255);
 
         GrantedAt                       : Timestamp;
@@ -80,7 +80,7 @@ context ConsentModel {
 
 <<<<<<<<<<<<<<<<<<<<<<< Impact of the Annotations on Runtime >>>>>>>>>>>>>>>>>>>>>
 
-* First Level       --> @PersonalData.Semantics: 'DataSubject' / ...                           // indicates if an entity is relevant for audit logging at all
+* First Level       --> @PersonalData.EntitySemantics: 'DataSubject' / ...                           // indicates if an entity is relevant for audit logging at all
 
 ** Second Level (a) --> @AuditLog.Operation: {<StandardOperation>: true || false, ...}         // indicates if a certain StandardOperation (like Insert, Update, Delete) on the entity is relevant for audit logging 
 
@@ -88,7 +88,7 @@ context ConsentModel {
 
 *** Third level     --> Fill the corresponding "header" fields in the audit log API (see https://github.wdf.sap.corp/xs-audit-log/audit-java-client/wiki/Audit-Log-V2)
 
-static "type": @PersonalData.Semantics: 'DataSubject' / 'LegalGround' / ...           -->   auditedObject.setType("...");               // Example : "Consent" as name of the Entity
+static "type": @PersonalData.EntitySemantics: 'DataSubject' / 'LegalGround' / ...           -->   auditedObject.setType("...");               // Example : "Consent" as name of the Entity
 @PersonalData.FieldSemantics: 'DataSubjectID' / 'ConsentID' / 'LegalGroundID'         -->   auditedObject.addIdentifier("...");         // Example : ConsentId = '4711'
 
 @PesonalData.FieldSemantics: 'DataSubjectIDType'   -->   auditedDataSubject.setType("...");          // Example : BusinessPartner
@@ -97,7 +97,7 @@ static "type": @PersonalData.Semantics: 'DataSubject' / 'LegalGround' / ...     
 
 **** Fourth level   --> Fill the relavent name value pairs into the audit log API 
 
-@PersonalData.FieldSemantics: 'PersonalData'       --> personal data like e-mail-address, birthday, name, ...
+@PersonalData.FieldSemantics/IsPersonal            --> personal data like e-mail-address, birthday, name, ...
 (here the changes have to be tracked into the API as name-value-pairs containing "old" image and/or "new" image depending on the operation type like Insert, Update, Delete)
 
 TODO: what about data marked as sensitive? Should those values appear in the audit log at all?

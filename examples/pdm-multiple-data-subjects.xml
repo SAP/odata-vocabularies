@@ -193,7 +193,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Customers">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubject" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="cust" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
       </v4:Annotations>
@@ -241,22 +241,22 @@
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredPhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/UserProfileId">
         <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalPhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/CreditCardNumber">
         <v4:Annotation Term="PersonalData.IsSensitive" />
@@ -264,7 +264,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Employees">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubject" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
       </v4:Annotations>
@@ -312,24 +312,24 @@
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeePhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber1">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber2">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.FieldSemantics" String="PersonalData" />
+        <v4:Annotation Term="PersonalData.IsPersonal />
       </v4:Annotations>
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/Consents">
-        <v4:Annotation Term="PersonalData.Semantics" String="Consent" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="Consent" />
       </v4:Annotations>
 
       <v4:Annotations Target="SapAuctionSolution.Consents/ConsentId">
@@ -345,7 +345,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForCustomers">
-        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="cust" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
       </v4:Annotations>
@@ -381,7 +381,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForEmployees">
-        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
       </v4:Annotations>

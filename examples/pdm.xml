@@ -84,7 +84,7 @@
 
 
       <v4:Annotations Target="gdpr.gra.sample.v2/Employee">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubject" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubject" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.EmployeeType">
@@ -124,7 +124,7 @@
 
 
       <v4:Annotations Target="gdpr.gra.sample.v2/Address">
-        <v4:Annotation Term="PersonalData.Semantics" String="DataSubjectDetails" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="DataSubjectDetails" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.AddressType">
@@ -150,7 +150,7 @@
 
 
       <v4:Annotations Target="gdpr.gra.sample.v2/LeaveRequest">
-        <v4:Annotation Term="PersonalData.Semantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
       </v4:Annotations>
 
       <v4:Annotations Target="gdpr.gra.sample.LeaveRequestType/leaveRequestId">

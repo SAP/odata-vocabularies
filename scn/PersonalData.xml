@@ -36,11 +36,15 @@ An identifiable natural person is one who can be identified, directly or indirec
 
 Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
 
-See also:
+This vocabulary defines terms specific to the European [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en).
+
+Terms for contact and address information are defined in the [Communication vocabulary](Communication.md#).
+
+### References
 - [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
 - [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
 - [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
-        </String>
+       </String>
       </Annotation>
 
       
@@ -49,6 +53,8 @@ See also:
       
 
       
+      
+
       
 
       

@@ -38,21 +38,20 @@ An identifiable natural person is one who can be identified, directly or indirec
 
 Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
 
-See also:
+This vocabulary defines terms specific to the European [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en).
+
+Terms for contact and address information are defined in the [Communication vocabulary](Communication.md#).
+
+### References
 - [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
 - [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
 - [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
-     
-## TODO
-
-* Point/cross-reference to Communication
-* in Communication tag Contact as being Personal Data
        </String>
       </Annotation>
 
-      <Term Name="Semantics" Type="PersonalData.SemanticsType" AppliesTo="EntitySet">
+      <Term Name="EntitySemantics" Type="PersonalData.EntitySemanticsType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
+        <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
       </Term>
       <Term Name="DataSubjectRole" Type="Edm.String" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
@@ -72,7 +71,7 @@ See also:
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
-      <TypeDefinition Name="SemanticsType" UnderlyingType="Edm.String">
+      <TypeDefinition Name="EntitySemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
         <Annotation Term="Validation.AllowedValues">
@@ -189,16 +188,21 @@ See also:
                 <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
               </Annotation>
             </Record>
-            <Record>
-              <PropertyValue Property="Value" String="PersonalData" />
-              <Annotation Term="Core.Description"
-                String="Information relating to an identified or identifiable natural person (data subject)" />
-              <Annotation Term="Core.LongDescription"
-                String="This is the most unspecific meaning, used for anything not covered by the specific meanings above." />
-            </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+      <Term Name="IsPersonal" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property contains personal data" />
+        <Annotation Term="Core.LongDescription">
+          <String>Personal data is information relating to an identified or identifiable natural person (data subject).
+
+Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
+
+See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)</String>
+        </Annotation>
+      </Term>
 
       <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
