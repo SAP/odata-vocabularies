@@ -48,10 +48,7 @@ context ConsentModel {
         CreatedBy                       : ConsentUtil.TCreatedBy;
         ChangedAt                       : ConsentUtil.TChangedAt;
         ChangedBy                       : ConsentUtil.TChangedBy;
-
-        @PersonalData.FieldSemantics: 'RelatedData' 
         ConsentStatus                   : Integer;
-
         LifecycleStatus                 : Integer;
         SourceSystemId                  : ConsentUtil.TSystemId;
         TextPurposeId                   : ConsentUtil.TTextUUID;
