@@ -202,6 +202,7 @@
 
       <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Revisions">
+          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />

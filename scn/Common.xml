@@ -176,6 +176,10 @@
       
       
 
+      
+
+      
+
       <Term Name="SemanticObject" Type="Edm.String" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property"/>
       </Term>
