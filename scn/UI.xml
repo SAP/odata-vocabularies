@@ -639,19 +639,19 @@ The trend is
         <Annotation Term="Core.Description" String="Collection of facets"/>
       </Term>
 
-      <Term Name="HeaderFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="HeaderFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets for additional object header information"/>
       </Term>
 
-      <Term Name="QuickViewFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="QuickViewFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that may be used for a quick overview of the object"/>
       </Term>
 
-      <Term Name="QuickCreateFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="QuickCreateFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that may be used for a (quick) create of the object"/>
       </Term>
 
-      <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" AppliesTo="EntityType">
+      <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields"/>
       </Term>
 

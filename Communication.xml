@@ -82,19 +82,19 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="Supplemental information or a comment associated with the contact" />
         </Property>
 
-        <Property Name="adr" Type="Collection(Communication.AddressType)">
+        <Property Name="adr" Type="Collection(Communication.AddressType)" Nullable="false">
           <Annotation Term="Core.Description" String="Addresses" />
         </Property>
-        <Property Name="tel" Type="Collection(Communication.PhoneNumberType)">
+        <Property Name="tel" Type="Collection(Communication.PhoneNumberType)" Nullable="false">
           <Annotation Term="Core.Description" String="Phone numbers" />
         </Property>
-        <Property Name="email" Type="Collection(Communication.EmailAddressType)">
+        <Property Name="email" Type="Collection(Communication.EmailAddressType)" Nullable="false">
           <Annotation Term="Core.Description" String="Email addresses" />
         </Property>
-        <Property Name="geo" Type="Collection(Communication.GeoDataType)">
+        <Property Name="geo" Type="Collection(Communication.GeoDataType)" Nullable="false">
           <Annotation Term="Core.Description" String="Geographic locations" />
         </Property>
-        <Property Name="url" Type="Collection(Communication.UrlType)">
+        <Property Name="url" Type="Collection(Communication.UrlType)" Nullable="false">
           <Annotation Term="Core.Description" String="URLs" />
         </Property>
         <!-- TODO: social networks - yet reflected in VCARD? -->

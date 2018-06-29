@@ -141,7 +141,7 @@
 
       
 
-      <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)">
+      <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Description" String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers."/>
       </Term>
 
@@ -153,7 +153,7 @@
         <Annotation Term="Core.Description" String="The annotated set or collection contains at most this number of items"/>
       </Term>
 
-      <Term Name="AssociationEntity" Type="Collection(Edm.NavigationPropertyPath)" AppliesTo="EntityType">
+      <Term Name="AssociationEntity" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>Entity representing an n:m association with attributes</String>
         </Annotation>
@@ -183,7 +183,7 @@
       <Term Name="SemanticObject" Type="Edm.String" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property"/>
       </Term>
-      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" AppliesTo="EntitySet EntityType Property">
+      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object"/>
         <Annotation Term="Core.LongDescription" String="This allows &quot;renaming&quot; of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their &quot;local&quot; name."/>
       </Term>
@@ -223,7 +223,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" AppliesTo="EntitySet">
+      <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="These properties only allow a subset of expressions"/>
         <Annotation Term="Core.Revisions">
           <Collection>
@@ -291,7 +291,7 @@
         <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed"/>
       </Term>
 
-      <Term Name="Attributes" Type="Collection(Edm.PropertyPath)" AppliesTo="Property">
+      <Term Name="Attributes" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Attributes related to this property, which may occur in denormalized entity types"/>
       </Term>
 
@@ -636,7 +636,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="DraftActivationVia" Type="Collection(Common.SimpleIdentifier)" AppliesTo="EntitySet" Nullable="false">
+      <Term Name="DraftActivationVia" Type="Collection(Common.SimpleIdentifier)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets"/>
       </Term>
 
@@ -648,7 +648,7 @@
         <Annotation Term="Core.Description" String="The QualifiedName of an OData construct in scope"/>
       </TypeDefinition>
 
-      <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)">
+      <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Description" String="The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity"/>
       </Term>
 
@@ -664,16 +664,16 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
 only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</String>
         </Annotation>
-        <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)">
+        <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these properties will affect the targets"/>
         </Property>
-        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)">
+        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities will affect the targets. An empty path means the annotation target."/>
         </Property>
-        <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)">
+        <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties will be affected if the value of one of the sources changes"/>
         </Property>
-        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)">
+        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target."/>
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
@@ -762,7 +762,7 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
 
-      <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" AppliesTo="EntitySet EntityType">
+      <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="List of sort criteria"/>
         <Annotation Term="Core.LongDescription">
           <String>The items of the annotated entity set or the items of the 

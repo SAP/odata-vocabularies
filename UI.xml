@@ -122,7 +122,8 @@
 
       <Term Name="ConnectedFields" Type="UI.ConnectedFieldsType" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Group of semantically connected fields with a representation template and an optional label" />
+        <Annotation Term="Core.Description"
+          String="Group of semantically connected fields with a representation template and an optional label" />
         <Annotation Term="Core.Example">
           <Record>
             <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
@@ -150,7 +151,8 @@
       </Term>
       <ComplexType Name="ConnectedFieldsType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Group of semantically connected fields with a representation template and an optional label" />
+        <Annotation Term="Core.Description"
+          String="Group of semantically connected fields with a representation template and an optional label" />
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Label for the connected fields" />
@@ -215,7 +217,8 @@
 
       <Term Name="Contacts" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of contacts" />
-        <Annotation Term="Core.LongDescription" String="Each collection item MUST reference an annotation of a Communication.Contact" />
+        <Annotation Term="Core.LongDescription"
+          String="Each collection item MUST reference an annotation of a Communication.Contact" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
@@ -353,7 +356,8 @@
       <ComplexType Name="NumberFormat">
         <Annotation Term="Core.Description" String="Describes how to visualise a number" />
         <Property Name="ScaleFactor" Type="Edm.Decimal" Scale="variable" Nullable="true">
-          <Annotation Term="Core.Description" String="Display value in *ScaleFactor* units, e.g. 1000 for k (kilo), 1e6 for M (Mega)" />
+          <Annotation Term="Core.Description"
+            String="Display value in *ScaleFactor* units, e.g. 1000 for k (kilo), 1e6 for M (Mega)" />
         </Property>
         <Property Name="NumberOfFractionalDigits" Type="Edm.Byte" Nullable="true">
           <Annotation Term="Core.Description" String="Number of fractional digits of the scaled value to be visualized" />
@@ -371,7 +375,8 @@
           <Annotation Term="Core.Description" String="Visualize as progress indicator - requires TargetValue" />
         </Member>
         <Member Name="Rating">
-          <Annotation Term="Core.Description" String="Visualize as partially or completely filled stars/hearts/... - requires TargetValue" />
+          <Annotation Term="Core.Description"
+            String="Visualize as partially or completely filled stars/hearts/... - requires TargetValue" />
         </Member>
         <Member Name="Donut">
           <Annotation Term="Core.Description" String="Visualize as donut, optionally with missing segment - requires TargetValue" />
@@ -421,7 +426,8 @@
       </EnumType>
 
       <ComplexType Name="CriticalityCalculationType" BaseType="UI.CriticalityThresholdsType">
-        <Annotation Term="Core.Description" String="Describes how to calculate the criticality of a value depending on the improvement direction" />
+        <Annotation Term="Core.Description"
+          String="Describes how to calculate the criticality of a value depending on the improvement direction" />
         <Annotation Term="Core.LongDescription">
           <String>
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
@@ -455,7 +461,8 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
         </Property>
         <Property Name="ConstantThresholds" Type="Collection(UI.LevelThresholdsType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="List of thresholds depending on the aggregation level as a set of constant values" />
+          <Annotation Term="Core.Description"
+            String="List of thresholds depending on the aggregation level as a set of constant values" />
           <Annotation Term="Core.LongDescription"
             String="Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements." />
         </Property>
@@ -539,7 +546,8 @@ The trend is
   - StrongDown if the difference is lower than or equal to StrongDownDifference</String>
         </Annotation>
         <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Reference value for the calculation, e.g. number of sales for the last year" />
+          <Annotation Term="Core.Description"
+            String="Reference value for the calculation, e.g. number of sales for the last year" />
         </Property>
         <Property Name="IsRelativeDifference" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Calculate with a relative difference" />
@@ -576,18 +584,22 @@ The trend is
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
-          <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Selection variant, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="DataPoint" Type="UI.DataPointType" Nullable="false">
-          <Annotation Term="Core.Description" String="Data point, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Data point, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="Detail" Type="UI.KPIDetailType">
-          <Annotation Term="Core.Description" String="Contains information about KPI details, especially drill-down presentations" />
+          <Annotation Term="Core.Description"
+            String="Contains information about KPI details, especially drill-down presentations" />
         </Property>
       </ComplexType>
       <ComplexType Name="KPIDetailType">
         <Property Name="DefaultPresentationVariant" Type="UI.PresentationVariantType">
-          <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Presentation variant, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="AlternativePresentationVariants" Type="Collection(UI.PresentationVariantType)" Nullable="false">
           <Annotation Term="Core.Description"
@@ -688,11 +700,12 @@ The trend is
           <Annotation Term="Core.Description"
             String="For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0." />
         </Property>
-        <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)">
+        <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="All values in this collection should be assigned to levels of the same color." />
+          <Annotation Term="Core.Description"
+            String="All values in this collection should be assigned to levels of the same color." />
         </Property>
-        <Property Name="EmphasizedValues" Type="Collection(Edm.PrimitiveType)">
+        <Property Name="EmphasizedValues" Type="Collection(Edm.PrimitiveType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be emphasized." />
         </Property>
@@ -707,7 +720,8 @@ The trend is
         </Property>
         <Property Name="UseSequentialColorLevels" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="All measures for which this setting is true should be assigned to levels of the same color." />
+          <Annotation Term="Core.Description"
+            String="All measures for which this setting is true should be assigned to levels of the same color." />
         </Property>
       </ComplexType>
 
@@ -722,9 +736,10 @@ The trend is
         <Member Name="Axis3" />
       </EnumType>
 
-      <Term Name="ValueCriticality" Type="Collection(UI.ValueCriticalityType)" AppliesTo="Property TypeDefinition">
+      <Term Name="ValueCriticality" Type="Collection(UI.ValueCriticalityType)" Nullable="false" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Assign criticalities to primitive values. This information can be used for semantic coloring." />
+        <Annotation Term="Core.Description"
+          String="Assign criticalities to primitive values. This information can be used for semantic coloring." />
       </Term>
       <ComplexType Name="ValueCriticalityType">
         <Annotation Term="Common.Experimental" />
@@ -736,7 +751,8 @@ The trend is
 
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
-        <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type" />
+        <Annotation Term="Core.Description"
+          String="Properties that might be relevant for filtering a collection of entities of this type" />
       </Term>
 
 
@@ -746,19 +762,19 @@ The trend is
         <Annotation Term="Core.Description" String="Collection of facets" />
       </Term>
 
-      <Term Name="HeaderFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="HeaderFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets for additional object header information" />
       </Term>
 
-      <Term Name="QuickViewFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="QuickViewFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that may be used for a quick overview of the object" />
       </Term>
 
-      <Term Name="QuickCreateFacets" Type="Collection(UI.Facet)" AppliesTo="EntityType">
+      <Term Name="QuickCreateFacets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that may be used for a (quick) create of the object" />
       </Term>
 
-      <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" AppliesTo="EntityType">
+      <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
       </Term>
 
@@ -817,10 +833,12 @@ The trend is
           <Annotation Term="Core.Description" String="Name of the bundling variant" />
         </Property>
         <Property Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false">
-          <Annotation Term="Core.Description" String="Selection variant, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Selection variant, either specified inline or referencing another annotation via Path" />
         </Property>
         <Property Name="PresentationVariant" Type="UI.PresentationVariantType" Nullable="false">
-          <Annotation Term="Core.Description" String="Presentation variant, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Presentation variant, either specified inline or referencing another annotation via Path" />
         </Property>
       </ComplexType>
 
@@ -842,7 +860,8 @@ The trend is
           <Annotation Term="Core.Description" String="Maximum number of items that should be included in the result" />
         </Property>
         <Property Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path" />
+          <Annotation Term="Core.Description"
+            String="Collection can be provided inline or as a reference to a Common.SortOrder annotation via Path" />
         </Property>
         <Property Name="GroupBy" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description">
@@ -885,7 +904,8 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
+          <Annotation Term="Core.Description"
+            String="Properties that should always be included in the result of the queried collection" />
         </Property>
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -1041,7 +1061,8 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.Facet" />
       </Term>
       <Term Name="Map" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
-        <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
+        <Annotation Term="Core.Description"
+          String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet" />
       </Term>
       <Term Name="Gallery" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
@@ -1056,7 +1077,8 @@ The trend is
       </Term>
 
       <Term Name="MultiLineText" Type="Core.Tag" DefaultValue="true" AppliesTo="Property PropertyValue">
-        <Annotation Term="Core.Description" String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
+        <Annotation Term="Core.Description"
+          String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
@@ -1158,22 +1180,26 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldForActionAbstract" BaseType="UI.DataFieldAbstract" Abstract="true">
-        <Annotation Term="Core.Description" String="Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation" />
+        <Annotation Term="Core.Description"
+          String="Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation" />
         <Property Name="Inline" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Action should be placed close to (or even inside) the visualized term" />
         </Property>
         <Property Name="Determining" Type="Edm.Boolean" DefaultValue="false" Nullable="true">
-          <Annotation Term="Core.Description" String="Determines whether the action completes a process step (e.g. approve, reject)." />
+          <Annotation Term="Core.Description"
+            String="Determines whether the action completes a process step (e.g. approve, reject)." />
         </Property>
       </ComplexType>
 
       <ComplexType Name="DataFieldForAction" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="The action is NOT tied to a data value (in contrast to DataFieldWithAction)" />
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
+          <Annotation Term="Core.Description"
+            String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
         </Property>
         <Property Name="InvocationGrouping" Type="UI.OperationGroupingType">
-          <Annotation Term="Core.Description" String="Expresses how invocations of this action on multiple instances should be grouped" />
+          <Annotation Term="Core.Description"
+            String="Expresses how invocations of this action on multiple instances should be grouped" />
         </Property>
       </ComplexType>
       <EnumType Name="OperationGroupingType">
@@ -1192,7 +1218,8 @@ The trend is
             String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
+          <Annotation Term="Core.Description"
+            String="Determines whether  a context needs to be passed to the target of this navigation." />
         </Property>
       </ComplexType>
 
@@ -1207,7 +1234,8 @@ The trend is
         <Annotation Term="Core.Description"
           String="The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value." />
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
+          <Annotation Term="Core.Description"
+            String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
         </Property>
       </ComplexType>
 
