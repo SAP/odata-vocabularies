@@ -433,18 +433,22 @@ If the annotation evaluates to false, the unmasked property value can be request
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of end-user messages" />
         <Annotation Term="Core.LongDescription">
-          <String>The name of the message type is service-specific, its structure components are identified by
-           naming convention, following the names of the OData error response structure.
-           The minimum structure is  
-            &lt;table>
-            &lt;tr>&lt;th>Name&lt;/th>&lt;th>Type&lt;/th>&lt;th>Nullable&lt;/th>&lt;/tr>
-            &lt;tr>&lt;td>code&lt;/td>&lt;td>Edm.String&lt;/td>&lt;td>false&lt;/td>&lt;/tr>
-            &lt;tr>&lt;td>message&lt;/td>&lt;td>Edm.String&lt;/td>&lt;td>false&lt;/td>&lt;/tr>
-            &lt;tr>&lt;td>target&lt;/td>&lt;td>Edm.String&lt;/td>&lt;td>true&lt;/td>&lt;/tr>
-            &lt;tr>&lt;td>transient&lt;/td>&lt;td>Edm.Boolean&lt;/td>&lt;td>false&lt;/td>&lt;/tr>
-            &lt;tr>&lt;td>numericSeverity&lt;/td>&lt;td>Edm.Byte&lt;/td>&lt;td>false&lt;/td>&lt;/tr>
-            &lt;tr>&lt;td>longtextUrl&lt;/td>&lt;td>Edm.String&lt;/td>&lt;td>true&lt;/td>&lt;/tr>
-            &lt;/table> </String>
+          <String>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.
+
+The minimum structure is  
+
+- code: Edm.String 
+
+- message: Edm.String 
+
+- target: Edm.String nullable  
+
+- transient: Edm.Boolean
+
+- numericSeverity: Edm.Byte
+
+- longtextUrl: Edm.String nullable  
+          </String>
         </Annotation>
       </Term>
       <Term Name="transient" Type="Edm.Boolean" Nullable="false">
