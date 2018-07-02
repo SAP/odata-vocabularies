@@ -286,6 +286,7 @@
       
       
       
+      
 
       <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed"/>
