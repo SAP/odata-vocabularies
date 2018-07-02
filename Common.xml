@@ -473,14 +473,14 @@ The minimum structure is
         <Annotation Term="Core.LongDescription"
           String="This instance annotation can be applied to the `error` object of an OData error response" />
       </Term>
-      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" BaseTerm="Core.Messages" Nullable="true"
+      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" BaseTerm="Common.Messages" Nullable="true"
         AppliesTo="EntityType"
       >
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The maximum severity of all end-user messages attached to an entity, null if no messages are attached" />
         <Annotation Term="Core.LongDescription"
-          String="This metadata annotation can be applied to entity types that are also annotated with term [`Core.Messages`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Messages)" />
+          String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
         <Annotation Term="Common.Experimental" />
