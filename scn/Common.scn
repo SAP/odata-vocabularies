@@ -955,7 +955,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <tr>
 <td align="left">Descending</td>
 <td align="left">Boolean</td>
-<td align="left">Sort direction ; default is ascending</td>
+<td align="left">Sort direction, ascending if not specified otherwise</td>
 </tr>
 </tbody>
 </table>

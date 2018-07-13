@@ -85,7 +85,7 @@
         <Property Name="FailureMessage" Type="Edm.String" Nullable="true">
         <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="Condition" Type="Edm.Boolean">
+        <Property Name="Condition" Type="Edm.Boolean" Nullable="false">
         <Annotation Term="Core.Description"
         String="Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled" />
         </Property>
@@ -123,12 +123,12 @@
         Function returns true if and only if the whole first argument matches the regular expression in the second argumentReturns
       -->
 
-      <Term Name="IsDigitSequence" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsDigitSequence" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains only digits"/>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
       </Term>
 
-      <Term Name="IsUpperCase" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsUpperCase" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains just uppercase characters"/>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
       </Term>
@@ -166,7 +166,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="Masked" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Masked" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
@@ -198,25 +198,25 @@
       </ComplexType>
       
 
-      <Term Name="IsInstanceAnnotation" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
+      <Term Name="IsInstanceAnnotation" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>
       </Term>
 
-      <Term Name="Insertable" Type="Edm.Boolean" DefaultValue="true" AppliesTo="NavigationProperty">
+      <Term Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Common.IsInstanceAnnotation"/>
         <Annotation Term="Core.Description">
           <String>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</String>
         </Annotation>
       </Term>
 
-      <Term Name="Updatable" Type="Edm.Boolean" DefaultValue="true" AppliesTo="EntityType">
+      <Term Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.IsInstanceAnnotation"/>
         <Annotation Term="Core.Description">
           <String>Specifies whether the annotated entity can be updated</String>
         </Annotation>
       </Term>
 
-      <Term Name="Deletable" Type="Edm.Boolean" DefaultValue="true" AppliesTo="EntityType">
+      <Term Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.IsInstanceAnnotation"/>
         <Annotation Term="Core.Description">
           <String>Specifies whether the annotated entity can be deleted</String>
@@ -288,7 +288,7 @@
       
       
 
-      <Term Name="IsActionCritical" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
+      <Term Name="IsActionCritical" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed"/>
       </Term>
 
@@ -307,18 +307,18 @@
         <Property Name="LowerBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the lower interval boundary"/>
         </Property>
-        <Property Name="LowerBoundaryIncluded" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="LowerBoundaryIncluded" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The lower boundary value is included in the interval"/>
         </Property>
         <Property Name="UpperBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the upper interval boundary"/>
         </Property>
-        <Property Name="UpperBoundaryIncluded" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="UpperBoundaryIncluded" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The upper boundary value is included in the interval"/>
         </Property>
       </ComplexType>
 
-      <Term Name="ResultContext" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType">
+      <Term Name="ResultContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>The annotated entity type has one or more containment navigation properties.
             An instance of the annotated entity type provides the context required for determining
@@ -358,7 +358,7 @@
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation"/>
         </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean">
+        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Value list supports the $search query option"/>
           <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter"/>
         </Property>
@@ -372,7 +372,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="ValueListWithFixedValues" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"/>
       </Term>
 
@@ -439,7 +439,7 @@
       </ComplexType>
 
       <!-- Section: Calendar Points in Time -->
-      <Term Name="IsCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional
             minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
@@ -448,7 +448,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit.
             The string matches the regex pattern [1-2]
@@ -457,7 +457,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit.
             The string matches the regex pattern [1-4]
@@ -466,7 +466,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits.
             The string matches the regex pattern 0[1-9]|1[0-2]
@@ -475,7 +475,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarWeek" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits.
             The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]
@@ -484,7 +484,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Day number relative to a calendar month. Valid values are between 1 and 31.
           </String>
@@ -492,7 +492,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.SByte"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsDayOfCalendarYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsDayOfCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Day number relative to a calendar year. Valid values are between 1 and 366.
           </String>
@@ -500,7 +500,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.Int16"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting
             of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
@@ -510,7 +510,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarYearQuarter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting
             of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
@@ -520,7 +520,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarYearMonth" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarYearMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting
             of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to
@@ -531,7 +531,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarYearWeek" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting 
           of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.
@@ -541,7 +541,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsCalendarDate" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsCalendarDate" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting 
           of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent 
@@ -558,7 +558,7 @@
 
 
       <!-- Section: Fiscal Points in Time -->
-      <Term Name="IsFiscalYear" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year number as string following the logical pattern YYYY(Y*) consisting of at least four digits. 
           The string matches the regex pattern [1-9][0-9]{3,}
@@ -567,7 +567,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsFiscalPeriod" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsFiscalPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. 
           The string matches the regex pattern [0-9]{3}
@@ -576,7 +576,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
       </Term>
-      <Term Name="IsFiscalYearPeriod" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsFiscalYearPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting 
           of at least seven digits, where the last three digits represent the fiscal period in the year.
@@ -591,7 +591,7 @@
       
       
       
-      <Term Name="IsFiscalYearVariant" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsFiscalYearVariant" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property encodes a fiscal year variant"/>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart"/>
@@ -599,7 +599,7 @@
 
 
       <!-- Section: Term Constraints -->
-      <Term Name="MutuallyExclusiveTerm" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
+      <Term Name="MutuallyExclusiveTerm" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Only one term of the group identified with the Qualifier attribute can be applied"/>
       </Term>
 
@@ -775,8 +775,8 @@ Upon modification field control logic is invoked so that meta-information like h
         <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Sort property"/>
         </Property>
-        <Property Name="Descending" Type="Edm.Boolean" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Sort direction ; default is ascending"/>
+        <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise"/>
         </Property>
       </ComplexType>
 

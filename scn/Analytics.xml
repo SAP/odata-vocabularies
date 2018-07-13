@@ -27,11 +27,11 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context"/>
       </Term>
 
-      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context"/>
       </Term>
 

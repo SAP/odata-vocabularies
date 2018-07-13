@@ -464,7 +464,7 @@ The trend is
         <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Reference value for the calculation, e.g. number of sales for the last year"/>
         </Property>
-        <Property Name="IsRelativeDifference" Type="Edm.Boolean" DefaultValue="false">
+        <Property Name="IsRelativeDifference" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Calculate with a relative difference"/>
         </Property>
         <Property Name="UpDifference" Type="Edm.Decimal" Nullable="false">
@@ -755,7 +755,7 @@ The trend is
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
           </Annotation>
         </Property>
-        <Property Name="IncludeGrandTotal" Type="Edm.Boolean">
+        <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Result should include a grand total for the properties specified in Total"/>
         </Property>
         <Property Name="InitialExpansionLevel" Type="Edm.Int32" DefaultValue="1">
@@ -912,32 +912,32 @@ The trend is
 
       <!-- basic type definitions for reuse -->
 
-      <Term Name="ThingPerspective" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
+      <Term Name="ThingPerspective" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="This term is a Thing Perspective"/>
       </Term>
-      <Term Name="IsSummary" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
+      <Term Name="IsSummary" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term"/>
         <Annotation Term="Core.RequiresType" String="UI.Facet"/>
       </Term>
-      <Term Name="PartOfPreview" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
+      <Term Name="PartOfPreview" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="This Facet and all included Facets are part of the Thing preview"/>
         <Annotation Term="Core.RequiresType" String="UI.Facet"/>
       </Term>
-      <Term Name="Map" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
+      <Term Name="Map" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these"/>
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet"/>
       </Term>
-      <Term Name="Gallery" Type="Core.Tag" DefaultValue="true" AppliesTo="Record">
+      <Term Name="Gallery" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="Target MUST reference a UI.MediaResource"/>
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet"/>
       </Term>
 
-      <Term Name="IsImageURL" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Term">
+      <Term Name="IsImageURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image"/>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
       </Term>
 
-      <Term Name="MultiLineText" Type="Core.Tag" DefaultValue="true" AppliesTo="Property PropertyValue">
+      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue">
         <Annotation Term="Core.Description" String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)"/>
         <Annotation Term="Core.RequiresType" String="Edm.String"/>
       </Term>
@@ -984,12 +984,12 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Record">
+      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Record">
         <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true."/>
         <Annotation Term="Core.LongDescription" String="Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature."/>
       </Term>
 
-      <Term Name="HiddenFilter" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="HiddenFilter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true."/>
         <Annotation Term="Core.LongDescription" String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all."/>
       </Term>
@@ -1030,10 +1030,10 @@ The trend is
 
       <ComplexType Name="DataFieldForActionAbstract" BaseType="UI.DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation"/>
-        <Property Name="Inline" Type="Edm.Boolean" Nullable="true">
+        <Property Name="Inline" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Action should be placed close to (or even inside) the visualized term"/>
         </Property>
-        <Property Name="Determining" Type="Edm.Boolean" DefaultValue="false" Nullable="true">
+        <Property Name="Determining" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether the action completes a process step (e.g. approve, reject)."/>
         </Property>
       </ComplexType>
@@ -1060,7 +1060,7 @@ The trend is
         <Property Name="Action" Type="Edm.String">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."/>
         </Property>
-        <Property Name="RequiresContext" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation."/>
         </Property>
       </ComplexType>

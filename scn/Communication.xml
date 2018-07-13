@@ -267,11 +267,11 @@ These terms are inspired by
         </Member>
       </EnumType>
 
-      <Term Name="IsEmailAddress" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsEmailAddress" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains an email address"/>
       </Term>
 
-      <Term Name="IsPhoneNumber" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPhoneNumber" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains a phone number"/>
       </Term>
 
@@ -286,7 +286,7 @@ These terms are inspired by
         <Property Name="description" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="More complete description"/>
         </Property>
-        <Property Name="categories" Type="Collection(Edm.String)" Nullable="true">
+        <Property Name="categories" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Categories or subtypes of the event"/>
         </Property>
         <Property Name="dtstart" Type="Edm.DateTimeOffset" Nullable="true">
@@ -354,13 +354,13 @@ These terms are inspired by
         <Property Name="sender" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Agent responsible for the actual transmission of the message, e.g. a secretary"/>
         </Property>
-        <Property Name="to" Type="Collection(Edm.String)" Nullable="true">
+        <Property Name="to" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of primary recipients"/>
         </Property>
-        <Property Name="cc" Type="Collection(Edm.String)" Nullable="true">
+        <Property Name="cc" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of other recipients (carbon copy)"/>
         </Property>
-        <Property Name="bcc" Type="Collection(Edm.String)" Nullable="true">
+        <Property Name="bcc" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of recipients whose addresses are not to be revealed (blind carbon copy)"/>
         </Property>
         <Property Name="subject" Type="Edm.String" Nullable="true">
@@ -369,7 +369,7 @@ These terms are inspired by
         <Property Name="body" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Main part of the message"/>
         </Property>
-        <Property Name="keywords" Type="Collection(Edm.String)" Nullable="true">
+        <Property Name="keywords" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of important words and phrases that might be useful for the recipient"/>
         </Property>
         <Property Name="received" Type="Edm.DateTimeOffset" Nullable="true">

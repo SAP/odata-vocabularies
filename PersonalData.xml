@@ -192,7 +192,7 @@ Terms for contact and address information are defined in the [Communication voca
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="IsPersonal" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains personal data" />
         <Annotation Term="Core.LongDescription">
@@ -204,7 +204,7 @@ See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-
         </Annotation>
       </Term>
 
-      <Term Name="IsSensitive" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsSensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
         <Annotation Term="Core.LongDescription">
@@ -222,7 +222,7 @@ See also: [What personal data is considered sensitive?](https://ec.europa.eu/inf
         </Annotation>
       </Term>
 
-      <Term Name="IsUserID" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsUserID" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains a user id" />
         <Annotation Term="Core.LongDescription"

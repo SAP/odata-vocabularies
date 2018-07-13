@@ -28,11 +28,11 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
-      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
@@ -52,7 +52,7 @@
         <Annotation Term="Core.IsURL" />
       </Term>
 
-      <Term Name="PlanningAction" Type="Core.Tag" DefaultValue="true" AppliesTo="ActionImport">
+      <Term Name="PlanningAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="ActionImport">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String> Processes or generates plan data. Its logic may have side-effects on entity sets.
