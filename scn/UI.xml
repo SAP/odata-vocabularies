@@ -758,7 +758,7 @@ The trend is
         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Result should include a grand total for the properties specified in Total"/>
         </Property>
-        <Property Name="InitialExpansionLevel" Type="Edm.Int32" DefaultValue="1">
+        <Property Name="InitialExpansionLevel" Type="Edm.Int32" Nullable="false" DefaultValue="1">
           <Annotation Term="Core.Description">
             <String>Level up to which the hierarchy defined for the queried collection should be expanded initially.
             The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.</String>
