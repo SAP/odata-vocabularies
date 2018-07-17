@@ -310,10 +310,10 @@
         <Property Name="ForecastValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Forecast value" />
         </Property>
-        <Property Name="MinimumValue" Type="Edm.Decimal" Nullable="true">
+        <Property Name="MinimumValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Minimum value (for output rendering)" />
         </Property>
-        <Property Name="MaximumValue" Type="Edm.Decimal" Nullable="true">
+        <Property Name="MaximumValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Maximum value (for output rendering)" />
         </Property>
         <Property Name="ValueFormat" Type="UI.NumberFormat" Nullable="true">
@@ -552,16 +552,16 @@ The trend is
         <Property Name="IsRelativeDifference" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Calculate with a relative difference" />
         </Property>
-        <Property Name="UpDifference" Type="Edm.Decimal" Nullable="false">
+        <Property Name="UpDifference" Type="Edm.Decimal" Scale="variable" Nullable="false">
           <Annotation Term="Core.Description" String="Threshold for Up" />
         </Property>
-        <Property Name="StrongUpDifference" Type="Edm.Decimal" Nullable="false">
+        <Property Name="StrongUpDifference" Type="Edm.Decimal" Scale="variable" Nullable="false">
           <Annotation Term="Core.Description" String="Threshold for StrongUp" />
         </Property>
-        <Property Name="DownDifference" Type="Edm.Decimal" Nullable="false">
+        <Property Name="DownDifference" Type="Edm.Decimal" Scale="variable" Nullable="false">
           <Annotation Term="Core.Description" String="Threshold for Down" />
         </Property>
-        <Property Name="StrongDownDifference" Type="Edm.Decimal" Nullable="false">
+        <Property Name="StrongDownDifference" Type="Edm.Decimal" Scale="variable" Nullable="false">
           <Annotation Term="Core.Description" String="Threshold for StrongDown" />
         </Property>
       </ComplexType>
