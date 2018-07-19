@@ -151,7 +151,8 @@ Terms</h2>
 <td align="left">FieldControl</td>
 <td align="left"><a href="#FieldControlType">FieldControlType</a></td>
 <td align="left">
-<a name="FieldControl"></a>Control state of a property</td>
+<a name="FieldControl"></a>Control state of a property<p>This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a <code>Path</code> expression.<br/>In the dynamic case the property referenced by the <code>Path</code>expression MUST be of type <code>Edm.Byte</code> to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types.</p>
+</td>
 </tr>
 <tr>
 <td align="left">IsActionCritical</td>
@@ -500,6 +501,8 @@ Terms</h2>
 </table>
 <h2>
 <a name="FieldControlType"></a>FieldControlType</h2>
+<p>Control state of a property</p>
+<p>Control state of a property</p>
 <table>
 <thead>
 <tr>

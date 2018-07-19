@@ -252,9 +252,12 @@
 
       <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record">
         <Annotation Term="Core.Description" String="Control state of a property"/>
+        <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#10;&#10;In the dynamic case the property referenced by the `Path`expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types."/>
         <Annotation Term="Common.IsInstanceAnnotation"/>
       </Term>
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
+        <Annotation Term="Core.Description" String="Control state of a property"/>
+        <Annotation Term="Core.LongDescription" String="Control state of a property"/>
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property must have a non-null value"/>
         </Member>
