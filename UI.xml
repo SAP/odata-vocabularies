@@ -727,6 +727,7 @@ The trend is
 
       <EnumType Name="ChartDimensionRoleType">
         <Member Name="Category" />
+        <Member Name="Category2" />
         <Member Name="Series" />
       </EnumType>
 
