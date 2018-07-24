@@ -400,8 +400,8 @@ Property|Type|Description
 Member|Value|Description
 :-----|----:|:----------
 [Category](UI.xml#L729)|0|
-[Category2](UI.xml#L730)|1|
-[Series](UI.xml#L731)|2|
+[Series](UI.xml#L730)|1|
+[Category2](UI.xml#L731)|2|
 
 ## <a name="ChartMeasureRoleType"></a>[ChartMeasureRoleType](UI.xml#L734)
 
