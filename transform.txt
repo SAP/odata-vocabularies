@@ -6,4 +6,5 @@ Common.xml
 Communication.xml
 Hierarchy.xml
 PersonalData.xml
+Session.xml
 UI.xml

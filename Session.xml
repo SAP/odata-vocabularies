@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Session.v1" Alias="Session">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for services requiring sticky sessions for data modification</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-07-26 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <!-- TODO: insert correct page id -->
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Session.xml?api=v2" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <!-- TODO: insert correct page link -->
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/gwWKGw" />
+          </Record>
+        </Collection>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+Building REST APIs on top of ABAP code that has been written for classic session-based communication is hard and sometimes not economically feasible.
+
+HTTP is not connection-based, meaning that each request may be sent over a different TCP connection. 
+Adding scalable servers and load balancers into the mix, each individual HTTP request is typically answered by a different application server instance.
+
+Sticky sessions to the rescue: session stickiness or session affinity is a mechanism to route (HTTP) calls from the same client instance to the same "session", 
+"work process", or "application instance".  This is a performance improvement measure because it allows the server to keep server state in process-specific memory.
+This process-specific memory is lost if the server process instance crashes, in which case the client is redirected to another process instance.
+In modern, scalable server environments sticky sessions are usually combined with a persistency service to allow recovering session state after 
+a process instance crash, so from the client's perspective the server state is kept. In the case of ABAP servers the session state is simply lost.
+
+Session stickiness is usually achieved via a cookie containing the session id. This has the benefit that browser-based applications don't need to be aware 
+of the session stickiness because browsers automatically send cookies on subsequent requests. 
+However, cookies are shared across browser tabs and windows, and requests from different tabs or windows would be dispatched to the same server session.
+Again this poses a problem for classic ABAP code which was built under the assumption that each server session is tied to at most one client instance.
+
+This means that the client application has to be aware of the service's limitations and cooperate to route calls from each client instance (browser tab or window) 
+to a different server session. The ABAP server allows this by sending the session id in the response header `sap-contextid`, 
+which client instances will need to echo in subsequent requests.
+
+Also the client needs to adhere to a strict choreography of 
+- initiate session
+- send data modification and read requests
+- end session by either
+  - confirm data modification or
+  - discard changes
+
+This choreography is (intentionally) similar to the choreography for [Draft Handling](https://experience.sap.com/fiori-design-web/draft-handling/).
+
+Data modification requests will fail outside of a session. This is a safety mechanism for clients that do not know the session choreography.
+        </String>
+      </Annotation>
+
+      <Term Name="StickySessionRequired" Type="Session.StickySessionRequiredType" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="The annotated entity set allows data modification only within a sticky session" />
+        <Annotation Term="Core.Example">
+          <Record>
+            <Annotation Term="Legacy.SessionOnlyStateRequired">
+              <Record>
+                <PropertyValue Property="NewActions">
+                  <Collection>
+                    <String>...</String>
+                  </Collection>
+                </PropertyValue>
+                <PropertyValue Property="EditAction" String="..." />
+                <PropertyValue Property="PreparationAction" String="..." />
+                <PropertyValue Property="SaveAction" String="..." />
+                <PropertyValue Property="DiscardAction" String="..." />
+              </Record>
+            </Annotation>
+          </Record>
+        </Annotation>
+      </Term>
+      <ComplexType Name="StickySessionRequiredType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Actions for managing data modification within a sticky session" />
+        <Property Name="NewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of bound actions that initiate a sticky session and create a new entity" />
+          <Annotation Term="Core.LongDescription" String="Multiple actions are allowed to support 'create by reference' from different sources." />
+        </Property>
+        <Property Name="EditAction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
+        </Property>
+        <Property Name="PreparationAction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="Bound action that prepares (checks, auto-fills) an entity" />
+        </Property>
+        <Property Name="SaveAction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="Bound action that saves a new or edited entity" />
+          <Annotation Term="Core.LongDescription" String="On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive." />
+        </Property>
+        <Property Name="DiscardAction" Type="Common.SimpleIdentifier" Nullable="false">
+          <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
