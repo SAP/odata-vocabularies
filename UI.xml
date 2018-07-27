@@ -1210,6 +1210,8 @@ The trend is
 
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description"
+          String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object" />
+        <Annotation Term="Core.LongDescription"
           String="The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger." />
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
@@ -1242,6 +1244,8 @@ The trend is
 
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description"
+          String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object" />
+        <Annotation Term="Core.LongDescription"
           String="The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value." />
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />

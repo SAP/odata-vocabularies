@@ -616,6 +616,7 @@ The trend is
       <EnumType Name="ChartDimensionRoleType">
         <Member Name="Category"/>
         <Member Name="Series"/>
+        <Member Name="Category2"/>
       </EnumType>
 
       <EnumType Name="ChartMeasureRoleType">
@@ -1053,7 +1054,8 @@ The trend is
       </EnumType>
 
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
-        <Annotation Term="Core.Description" String="The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger."/>
+        <Annotation Term="Core.Description" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object"/>
+        <Annotation Term="Core.LongDescription" String="The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger."/>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>
@@ -1080,7 +1082,8 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
-        <Annotation Term="Core.Description" String="The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value."/>
+        <Annotation Term="Core.Description" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object"/>
+        <Annotation Term="Core.LongDescription" String="The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value."/>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>

@@ -3,6 +3,9 @@
 
 Terms for presenting data in user interfaces
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [HeaderInfo](UI.xml#L35)|[HeaderInfoType](#HeaderInfoType)|<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
@@ -41,9 +44,9 @@ Term|Type|Description
 [Hidden](UI.xml#L1128)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<p>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature.</p>
 [HiddenFilter](UI.xml#L1135)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<p>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all.</p>
 [DataFieldDefault](UI.xml#L1142) *(Experimental)*|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<p>Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.</p>
-[Criticality](UI.xml#L1274) *(Experimental)*|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](UI.xml#L1279) *(Experimental)*|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[OrderBy](UI.xml#L1284) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
+[Criticality](UI.xml#L1278) *(Experimental)*|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](UI.xml#L1283) *(Experimental)*|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[OrderBy](UI.xml#L1288) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L40)
 
@@ -665,6 +668,8 @@ Member|Value|Description
 [ChangeSet](UI.xml#L1208)|1|
 
 ## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](UI.xml#L1211): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+The navigation intent is is expressed as a Semantic Object and optionally an Action on that object
+
 The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.
 
 Property|Type|Description
@@ -675,11 +680,11 @@ Property|Type|Description
 [*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
 [*Inline*](UI.xml#L1186)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1189)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[SemanticObject](UI.xml#L1214)|String|Name of the Semantic Object
-[Action](UI.xml#L1217)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[RequiresContext](UI.xml#L1221)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
+[SemanticObject](UI.xml#L1216)|String|Name of the Semantic Object
+[Action](UI.xml#L1219)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[RequiresContext](UI.xml#L1223)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
 
-## <a name="DataField"></a>[DataField](UI.xml#L1227): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataField"></a>[DataField](UI.xml#L1229): [DataFieldAbstract](#DataFieldAbstract)
 
 
 **Derived Types:**
@@ -694,9 +699,9 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
-[Value](UI.xml#L1228)|PrimitiveType|The data field's value
+[Value](UI.xml#L1230)|PrimitiveType|The data field's value
 
-## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1234): [DataField](#DataField)
+## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1236): [DataField](#DataField)
 The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
 
 Property|Type|Description
@@ -705,10 +710,12 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1228)|PrimitiveType|The data field's value
-[Action](UI.xml#L1237)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[*Value*](UI.xml#L1230)|PrimitiveType|The data field's value
+[Action](UI.xml#L1239)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
-## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1243): [DataField](#DataField)
+## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1245): [DataField](#DataField)
+The navigation intent is is expressed as a Semantic Object and optionally an Action on that object
+
 The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.
 
 Property|Type|Description
@@ -717,23 +724,11 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1228)|PrimitiveType|The data field's value
-[SemanticObject](UI.xml#L1246)|String|Name of the Semantic Object
-[Action](UI.xml#L1249)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[*Value*](UI.xml#L1230)|PrimitiveType|The data field's value
+[SemanticObject](UI.xml#L1250)|String|Name of the Semantic Object
+[Action](UI.xml#L1253)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
-## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1255): [DataField](#DataField)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[*Label*](UI.xml#L1151)|String|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1228)|PrimitiveType|The data field's value
-[Target](UI.xml#L1256)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
-
-## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1263): [DataField](#DataField)
+## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1259): [DataField](#DataField)
 
 
 Property|Type|Description
@@ -742,6 +737,18 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
-[*Value*](UI.xml#L1228)|PrimitiveType|The data field's value
-[Url](UI.xml#L1264)|URL|Target of the hyperlink
-[UrlContentType](UI.xml#L1268)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
+[*Value*](UI.xml#L1230)|PrimitiveType|The data field's value
+[Target](UI.xml#L1260)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+
+## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1267): [DataField](#DataField)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](UI.xml#L1151)|String|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1155)|[CriticalityType](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1158)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1161)|URL|Optional icon to decorate the value
+[*Value*](UI.xml#L1230)|PrimitiveType|The data field's value
+[Url](UI.xml#L1268)|URL|Target of the hyperlink
+[UrlContentType](UI.xml#L1272)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
