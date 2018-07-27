@@ -16,7 +16,7 @@
     <edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
   </edmx:Reference>
   <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-    <edmx:Include  Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
   </edmx:Reference>
   <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
     <edmx:Include Alias="Communication" Namespace="com.sap.vocabularies.Communication.v1"/>
@@ -149,7 +149,7 @@
         <Annotation Term="PersonalData.IsUserID"/>
       </Annotations>
       <Annotations Target="gdpr.gra.sample.Employee/email" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Communication.IsEmailAddress"/>
+        <Annotation Term="Communication.IsEmailAddress" Bool="true"/>
         <Annotation Term="Core.Description" String="Email address, e.g. foo@bar.com"/>
       </Annotations>
       <Annotations Target="gdpr.gra.sample.Employee/genderCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
