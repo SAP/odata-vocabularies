@@ -446,20 +446,13 @@ The minimum structure is
 
 - target: Edm.String nullable  
 
-- transient: Edm.Boolean
+- transition: Edm.Boolean
 
 - numericSeverity: Edm.Byte
 
 - longtextUrl: Edm.String nullable  
           </String>
         </Annotation>
-      </Term>
-      <Term Name="transient" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Classifies an end-user message as transient" />
-        <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to the `error` object of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
