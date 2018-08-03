@@ -593,6 +593,8 @@ The trend is
         <Member Name="Bullet"/>
         <Member Name="VerticalBullet"/>
         <Member Name="HorizontalWaterfall"/>
+        <Member Name="HorizontalCombinationDual"/>
+        <Member Name="HorizontalCombinationStackedDual"/>
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 

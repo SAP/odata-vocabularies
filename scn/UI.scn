@@ -1223,6 +1223,16 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="right">35</td>
 <td align="left"></td>
 </tr>
+<tr>
+<td align="left">HorizontalCombinationDual</td>
+<td align="right">36</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">HorizontalCombinationStackedDual</td>
+<td align="right">37</td>
+<td align="left"></td>
+</tr>
 </tbody>
 </table>
 <h2>
