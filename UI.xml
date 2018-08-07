@@ -695,7 +695,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="ChartDimensionAttributeType">
-        <Property Name="Dimension" Type="Edm.PropertyPath" />
+        <Property Name="Dimension" Type="Edm.PropertyPath" Nullable="false" />
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
         <Property Name="HierarchyLevel" Type="Edm.Int32">
           <Annotation Term="Common.Experimental" />
@@ -714,7 +714,7 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Property Name="Measure" Type="Edm.PropertyPath" />
+        <Property Name="Measure" Type="Edm.PropertyPath" Nullable="false" />
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description"
