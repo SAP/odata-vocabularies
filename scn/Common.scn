@@ -826,7 +826,8 @@ Terms</h2>
 <tr>
 <td align="left">NewAction</td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
-<td align="left">Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft</td>
+<td align="left">Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft<p>New drafts may also be created by POSTing an empty entity without any properties to the entity set.</p>
+</td>
 </tr>
 </tbody>
 </table>
