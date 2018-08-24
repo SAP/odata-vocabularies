@@ -631,6 +631,9 @@ The trend is
         <Property Name="ChartType" Type="UI.ChartType" Nullable="false">
           <Annotation Term="Core.Description" String="Chart type" />
         </Property>
+	<Property Name="AxisScaling" Type="UI.ChartAxisScalingType" Nullable="true">
+          <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
+	</Property>    
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
         </Property>
@@ -694,8 +697,60 @@ The trend is
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 
+      <ComplexType Name="ChartAxisScalingType">
+	<Property Name="ScaleBehavior" Type="UI.ChartAxisScaleBehaviorType" DefaultValue="ChartAxisScaleBehaviorType/AutoScale" Nullable="false">
+          <Annotation Term="Core.Description" String="Scale is fixed or adapts automatically to rendered values" />
+	</Property>
+	<Property Name="AutoScaleBehavior" Type="UI.ChartAxisAutoScaleBehaviorType">
+          <Annotation Term="Core.Description" String="Settings for automatic scaling" />
+	</Property>
+	<Property Name="FixedScaleMultipleStackedMeasuresBoundaryValues" Type="UI.FixedScaleMultipleStackedMeasuresBoundaryValuesType" >
+          <Annotation Term="Core.Description" String="Boundary values for fixed scaling of a stacking chart type with multiple measures" />
+	</Property>
+      </ComplexType>
+      
+      <EnumType Name="ChartAxisScaleBehaviorType">
+	<Member Name="AutoScale">
+          <Annotation Term="Core.Description" String="Value axes scale automatically" />
+	</Member>
+	<Member Name="FixedScale">
+          <Annotation Term="Core.Description">
+            <String>>Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. 
+        For stacking chart types with multiple measures, they are taken from ChartAxisScalingType/FixedScaleMultipleStackedMeasuresBoundaryValues.
+            </String>
+          </Annotation>
+	</Member>
+      </EnumType>
+      
+      <ComplexType Name="ChartAxisAutoScaleBehaviorType">
+	<Property Name="ZeroAlwaysVisible" Type="Edm.Boolean" DefaultValue="true" Nullable="false">
+	  <Annotation Term="Core.Description" String="Forces the value axis to always display the zero value" />
+	</Property>
+	<Property Name="DataScope" Type="UI.ChartAxisAutoScaleDataScopeType" DefaultValue="ChartAxisAutoScaleDataScopeType/DataSet" Nullable="false">
+	  <Annotation Term="Core.Description" String="Determines the automatic scaling" />
+	</Property>
+      </ComplexType>
+      
+      <EnumType Name="ChartAxisAutoScaleDataScopeType">
+	<Member Name="DataSet">
+	  <Annotation Term="Core.Description" String="Minimum and maximum axes values are determined from the entire data set" />
+	</Member>
+	<Member Name="VisibleData">
+	  <Annotation Term="Core.Description" String="Minimum and maximum axes values are determined from the currently visible data. Scrolling will change the scale." />
+	</Member>
+      </EnumType>
+      
+      <ComplexType Name="FixedScaleMultipleStackedMeasuresBoundaryValuesType">
+	<Property Name="MinimumValue" Type="Edm.Decimal" Scale="variable" Nullable="false">
+	  <Annotation Term="Core.Description" String="Minimum value on value axes" />
+	</Property>
+	<Property Name="MaximumValue" Type="Edm.Decimal" Scale="variable" Nullable="false">
+	  <Annotation Term="Core.Description" String="Maximum value on value axes" />
+	</Property>
+      </ComplexType>
+
       <ComplexType Name="ChartDimensionAttributeType">
-        <Property Name="Dimension" Type="Edm.PropertyPath" Nullable="false" />
+        <Property Name="Dimension" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
         <Property Name="HierarchyLevel" Type="Edm.Int32">
           <Annotation Term="Common.Experimental" />
@@ -714,7 +769,7 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Property Name="Measure" Type="Edm.PropertyPath" Nullable="false" />
+        <Property Name="Measure" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description"
@@ -748,8 +803,8 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
-        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="false" />
+        <Property Name="Value" Type="Edm.PrimitiveType" />
+        <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
