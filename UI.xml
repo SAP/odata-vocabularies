@@ -715,7 +715,7 @@ The trend is
 	</Member>
 	<Member Name="FixedScale">
           <Annotation Term="Core.Description">
-            <String>>Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. 
+            <String>Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. 
         For stacking chart types with multiple measures, they are taken from ChartAxisScalingType/FixedScaleMultipleStackedMeasuresBoundaryValues.
             </String>
           </Annotation>
