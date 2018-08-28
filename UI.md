@@ -3,6 +3,9 @@
 
 Terms for presenting data in user interfaces
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [HeaderInfo](UI.xml#L35)|[HeaderInfoType](#HeaderInfoType)|<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model

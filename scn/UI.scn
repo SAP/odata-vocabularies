@@ -1006,6 +1006,11 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">Chart type</td>
 </tr>
 <tr>
+<td align="left">AxisScaling</td>
+<td align="left"><a href="#ChartAxisScalingType">ChartAxisScalingType</a></td>
+<td align="left">Describes the scale of the chart value axes</td>
+</tr>
+<tr>
 <td align="left">Measures</td>
 <td align="left">[PropertyPath]</td>
 <td align="left">Measures of the chart, e.g. size and color in a bubble chart</td>
@@ -1232,6 +1237,126 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">HorizontalCombinationStackedDual</td>
 <td align="right">37</td>
 <td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ChartAxisScalingType"></a>ChartAxisScalingType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ScaleBehavior</td>
+<td align="left"><a href="#ChartAxisScaleBehaviorType">ChartAxisScaleBehaviorType</a></td>
+<td align="left">Scale is fixed or adapts automatically to rendered values</td>
+</tr>
+<tr>
+<td align="left">AutoScaleBehavior</td>
+<td align="left"><a href="#ChartAxisAutoScaleBehaviorType">ChartAxisAutoScaleBehaviorType</a></td>
+<td align="left">Settings for automatic scaling</td>
+</tr>
+<tr>
+<td align="left">FixedScaleMultipleStackedMeasuresBoundaryValues</td>
+<td align="left"><a href="#FixedScaleMultipleStackedMeasuresBoundaryValuesType">FixedScaleMultipleStackedMeasuresBoundaryValuesType</a></td>
+<td align="left">Boundary values for fixed scaling of a stacking chart type with multiple measures</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ChartAxisScaleBehaviorType"></a>ChartAxisScaleBehaviorType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">AutoScale</td>
+<td align="right">0</td>
+<td align="left">Value axes scale automatically</td>
+</tr>
+<tr>
+<td align="left">FixedScale</td>
+<td align="right">1</td>
+<td align="left">Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. For stacking chart types with multiple measures, they are taken from ChartAxisScalingType/FixedScaleMultipleStackedMeasuresBoundaryValues.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ChartAxisAutoScaleBehaviorType"></a>ChartAxisAutoScaleBehaviorType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ZeroAlwaysVisible</td>
+<td align="left">Boolean</td>
+<td align="left">Forces the value axis to always display the zero value</td>
+</tr>
+<tr>
+<td align="left">DataScope</td>
+<td align="left"><a href="#ChartAxisAutoScaleDataScopeType">ChartAxisAutoScaleDataScopeType</a></td>
+<td align="left">Determines the automatic scaling</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ChartAxisAutoScaleDataScopeType"></a>ChartAxisAutoScaleDataScopeType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DataSet</td>
+<td align="right">0</td>
+<td align="left">Minimum and maximum axes values are determined from the entire data set</td>
+</tr>
+<tr>
+<td align="left">VisibleData</td>
+<td align="right">1</td>
+<td align="left">Minimum and maximum axes values are determined from the currently visible data. Scrolling will change the scale.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FixedScaleMultipleStackedMeasuresBoundaryValuesType"></a>FixedScaleMultipleStackedMeasuresBoundaryValuesType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MinimumValue</td>
+<td align="left">Decimal</td>
+<td align="left">Minimum value on value axes</td>
+</tr>
+<tr>
+<td align="left">MaximumValue</td>
+<td align="left">Decimal</td>
+<td align="left">Maximum value on value axes</td>
 </tr>
 </tbody>
 </table>
