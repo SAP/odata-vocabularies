@@ -355,7 +355,8 @@ If the annotation evaluates to false, the unmasked property value can be request
 
       <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record">
         <Annotation Term="Core.Description" String="Control state of a property" />
-        <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
+        <Annotation Term="Core.LongDescription"
+          String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
@@ -1200,6 +1201,16 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.Description" String="User ID" />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </TypeDefinition>
+
+
+      <!-- Metadata annotations for converters -->
+
+      <Term Name="OriginalProtocolVersion" Type="Edm.String" AppliesTo="Schema">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

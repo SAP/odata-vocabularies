@@ -850,6 +850,12 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.Description" String="User ID"/>
         <Annotation Term="Common.IsInstanceAnnotation"/>
       </TypeDefinition>
+
+
+      <!-- Metadata annotations for converters -->
+
+      
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
