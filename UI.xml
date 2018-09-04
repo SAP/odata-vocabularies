@@ -212,7 +212,7 @@
         <Property Name="Longitude" Type="Edm.Double" Nullable="true">
           <Annotation Term="Core.Description" String="Geographic longitude" />
         </Property>
-        <Property Name="Location" Type="Edm.GeographyPoint" Nullable="true">
+        <Property Name="Location" Type="Edm.GeographyPoint" SRID="variable" Nullable="true">
           <Annotation Term="Core.Description" String="A point in a round-earth coordinate system" />
         </Property>
         <Property Name="Address" Type="Communication.AddressType" Nullable="true">
