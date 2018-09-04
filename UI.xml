@@ -701,9 +701,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="ChartAxisScalingType">
-        <Property Name="ScaleBehavior" Type="UI.ChartAxisScaleBehaviorType" DefaultValue="ChartAxisScaleBehaviorType/AutoScale"
-          Nullable="false"
-        >
+        <Property Name="ScaleBehavior" Type="UI.ChartAxisScaleBehaviorType" DefaultValue="AutoScale" Nullable="false">
           <Annotation Term="Core.Description" String="Scale is fixed or adapts automatically to rendered values" />
         </Property>
         <Property Name="AutoScaleBehavior" Type="UI.ChartAxisAutoScaleBehaviorType">
@@ -734,9 +732,7 @@ The trend is
         <Property Name="ZeroAlwaysVisible" Type="Edm.Boolean" DefaultValue="true" Nullable="false">
           <Annotation Term="Core.Description" String="Forces the value axis to always display the zero value" />
         </Property>
-        <Property Name="DataScope" Type="UI.ChartAxisAutoScaleDataScopeType" DefaultValue="ChartAxisAutoScaleDataScopeType/DataSet"
-          Nullable="false"
-        >
+        <Property Name="DataScope" Type="UI.ChartAxisAutoScaleDataScopeType" DefaultValue="DataSet" Nullable="false">
           <Annotation Term="Core.Description" String="Determines the automatic scaling" />
         </Property>
       </ComplexType>
@@ -1362,7 +1358,7 @@ The trend is
 
 
       <Term Name="RecommendationState" Type="UI.RecommendationStateType">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate"/>
+        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>
@@ -1370,7 +1366,7 @@ The trend is
       </Term>
 
       <TypeDefinition Name="RecommendationStateType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate"/>
+        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
         <Annotation Term="Core.LongDescription">
           <String>Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.</String>
@@ -1394,7 +1390,7 @@ The trend is
       </TypeDefinition>
 
       <Term Name="RecommendationList" Type="UI.RecommendationListType" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate"/>
+        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description"
           String="Specifies how to get a list of recommended values for a property or parameter" />
         <Annotation Term="Core.LongDescription">
@@ -1403,7 +1399,7 @@ The trend is
       </Term>
 
       <ComplexType Name="RecommendationListType">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate"/>
+        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Reference to a recommendation list" />
         <Annotation Term="Core.LongDescription">
           <String>A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.</String>
@@ -1421,7 +1417,7 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="RecommendationBinding">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate"/>
+        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to editable property for which recommended values exist" />
         </Property>

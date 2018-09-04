@@ -605,7 +605,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="ChartAxisScalingType">
-        <Property Name="ScaleBehavior" Type="UI.ChartAxisScaleBehaviorType" DefaultValue="ChartAxisScaleBehaviorType/AutoScale" Nullable="false">
+        <Property Name="ScaleBehavior" Type="UI.ChartAxisScaleBehaviorType" DefaultValue="AutoScale" Nullable="false">
           <Annotation Term="Core.Description" String="Scale is fixed or adapts automatically to rendered values"/>
         </Property>
         <Property Name="AutoScaleBehavior" Type="UI.ChartAxisAutoScaleBehaviorType">
@@ -633,7 +633,7 @@ The trend is
         <Property Name="ZeroAlwaysVisible" Type="Edm.Boolean" DefaultValue="true" Nullable="false">
           <Annotation Term="Core.Description" String="Forces the value axis to always display the zero value"/>
         </Property>
-        <Property Name="DataScope" Type="UI.ChartAxisAutoScaleDataScopeType" DefaultValue="ChartAxisAutoScaleDataScopeType/DataSet" Nullable="false">
+        <Property Name="DataScope" Type="UI.ChartAxisAutoScaleDataScopeType" DefaultValue="DataSet" Nullable="false">
           <Annotation Term="Core.Description" String="Determines the automatic scaling"/>
         </Property>
       </ComplexType>
