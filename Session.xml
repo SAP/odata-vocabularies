@@ -70,43 +70,50 @@ Data modification requests will fail outside of a session. This is a safety mech
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The annotated entity set allows data modification only within a sticky session" />
-        <Annotation Term="Core.Example">
+        <!-- TODO: adapt to final resolution of https://issues.oasis-open.org/browse/ODATA-1194
+          <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="Legacy.SessionOnlyStateRequired">
-              <Record>
-                <PropertyValue Property="NewActions">
-                  <Collection>
-                    <String>...</String>
-                  </Collection>
-                </PropertyValue>
-                <PropertyValue Property="EditAction" String="..." />
-                <PropertyValue Property="PreparationAction" String="..." />
-                <PropertyValue Property="SaveAction" String="..." />
-                <PropertyValue Property="DiscardAction" String="..." />
-              </Record>
-            </Annotation>
+          <Annotation Term="Legacy.SessionOnlyStateRequired">
+          <Record>
+          <PropertyValue Property="NewActions">
+          <Collection>
+          <String>...</String>
+          </Collection>
+          </PropertyValue>
+          <PropertyValue Property="EditAction" String="..." />
+          <PropertyValue Property="PreparationAction" String="..." />
+          <PropertyValue Property="SaveAction" String="..." />
+          <PropertyValue Property="DiscardAction" String="..." />
           </Record>
-        </Annotation>
+          </Annotation>
+          </Record>
+          </Annotation>
+        -->
       </Term>
       <ComplexType Name="StickySessionRequiredType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Actions for managing data modification within a sticky session" />
         <Property Name="NewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of bound actions that initiate a sticky session and create a new entity" />
-          <Annotation Term="Core.LongDescription" String="Multiple actions are allowed to support 'create by reference' from different sources." />
+          <Annotation Term="Core.Description"
+            String="List of bound actions that initiate a sticky session and create a new entity" />
+          <Annotation Term="Core.LongDescription"
+            String="Multiple actions are allowed to support 'create by reference' from different sources." />
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
+          <Annotation Term="Core.Description"
+            String="Bound action that initiates a sticky session for editing the targeted entity" />
         </Property>
         <Property Name="PreparationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Bound action that prepares (checks, auto-fills) an entity" />
         </Property>
         <Property Name="SaveAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Bound action that saves a new or edited entity" />
-          <Annotation Term="Core.LongDescription" String="On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive." />
+          <Annotation Term="Core.LongDescription"
+            String="On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive." />
         </Property>
         <Property Name="DiscardAction" Type="Common.SimpleIdentifier" Nullable="false">
-          <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
+          <Annotation Term="Core.Description"
+            String="Action import for an unbound action that discards all changes and terminates the sticky session" />
         </Property>
       </ComplexType>
 

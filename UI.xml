@@ -127,30 +127,32 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Group of semantically connected fields with a representation template and an optional label" />
-        <Annotation Term="Core.Example">
+        <!-- TODO: adapt to final resolution of https://issues.oasis-open.org/browse/ODATA-1194
+          <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
-              <Record>
-                <PropertyValue Property="Label" String="Material" />
-                <PropertyValue Property="Template" String="{MaterialName} - {MaterialClassName}" />
-                <PropertyValue Property="Data">
-                  <Record>
-                    <PropertyValue Property="MaterialName">
-                      <Record Type="com.sap.vocabularies.UI.v1.DataField">
-                        <PropertyValue Property="Value" Path="Material" />
-                      </Record>
-                    </PropertyValue>
-                    <PropertyValue Property="MaterialClassName">
-                      <Record Type="com.sap.vocabularies.UI.v1.DataField">
-                        <PropertyValue Property="Value" Path="MaterialClass" />
-                      </Record>
-                    </PropertyValue>
-                  </Record>
-                </PropertyValue>
-              </Record>
-            </Annotation>
+          <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
+          <Record>
+          <PropertyValue Property="Label" String="Material" />
+          <PropertyValue Property="Template" String="{MaterialName} - {MaterialClassName}" />
+          <PropertyValue Property="Data">
+          <Record>
+          <PropertyValue Property="MaterialName">
+          <Record Type="com.sap.vocabularies.UI.v1.DataField">
+          <PropertyValue Property="Value" Path="Material" />
           </Record>
-        </Annotation>
+          </PropertyValue>
+          <PropertyValue Property="MaterialClassName">
+          <Record Type="com.sap.vocabularies.UI.v1.DataField">
+          <PropertyValue Property="Value" Path="MaterialClass" />
+          </Record>
+          </PropertyValue>
+          </Record>
+          </PropertyValue>
+          </Record>
+          </Annotation>
+          </Record>
+          </Annotation>
+        -->
       </Term>
       <ComplexType Name="ConnectedFieldsType">
         <Annotation Term="Common.Experimental" />

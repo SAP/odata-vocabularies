@@ -43,13 +43,13 @@ Term|Type|Description
 :---|:---|:----------
 [StickySessionRequired](Session.xml#L69) *(Experimental)*|[StickySessionRequiredType](#StickySessionRequiredType)|<a name="StickySessionRequired"></a>The annotated entity set allows data modification only within a sticky session
 
-## <a name="StickySessionRequiredType"></a>[StickySessionRequiredType](Session.xml#L91) *(Experimental)*
+## <a name="StickySessionRequiredType"></a>[StickySessionRequiredType](Session.xml#L93) *(Experimental)*
 Actions for managing data modification within a sticky session
 
 Property|Type|Description
 :-------|:---|:----------
-[NewActions](Session.xml#L94)|\[[QualifiedName](Common.md#QualifiedName)\]|List of bound actions that initiate a sticky session and create a new entity<p>Multiple actions are allowed to support 'create by reference' from different sources.</p>
-[EditAction](Session.xml#L98)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity
-[PreparationAction](Session.xml#L101)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity
-[SaveAction](Session.xml#L104)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive.</p>
-[DiscardAction](Session.xml#L108)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session
+[NewActions](Session.xml#L96)|\[[QualifiedName](Common.md#QualifiedName)\]|List of bound actions that initiate a sticky session and create a new entity<p>Multiple actions are allowed to support 'create by reference' from different sources.</p>
+[EditAction](Session.xml#L102)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity
+[PreparationAction](Session.xml#L106)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity
+[SaveAction](Session.xml#L109)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive.</p>
+[DiscardAction](Session.xml#L114)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session
