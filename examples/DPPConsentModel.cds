@@ -85,8 +85,8 @@ context ConsentModel {
 
 *** Third level     --> Fill the corresponding "header" fields in the audit log API (see https://github.wdf.sap.corp/xs-audit-log/audit-java-client/wiki/Audit-Log-V2)
 
-static "type": @PersonalData.EntitySemantics: 'DataSubject' / 'LegalGround' / ...           -->   auditedObject.setType("...");               // Example : "Consent" as name of the Entity
-@PersonalData.FieldSemantics: 'DataSubjectID' / 'ConsentID' / 'LegalGroundID'         -->   auditedObject.addIdentifier("...");         // Example : ConsentId = '4711'
+static "type": @PersonalData.EntitySemantics: 'DataSubject' / 'ContractRelated' / ...           -->   auditedObject.setType("...");               // Example : "Consent" as name of the Entity
+@PersonalData.FieldSemantics: 'DataSubjectID' / 'ConsentID' / 'ContractRelatedID'         -->   auditedObject.addIdentifier("...");         // Example : ConsentId = '4711'
 
 @PesonalData.FieldSemantics: 'DataSubjectIDType'   -->   auditedDataSubject.setType("...");          // Example : BusinessPartner
 @PesonalData.DataSubjectRole                       -->   auditedDataSubject.setRole("...");          // Example : Vendor

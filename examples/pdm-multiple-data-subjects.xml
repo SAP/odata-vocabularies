@@ -345,7 +345,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForCustomers">
-        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="ContractRelated" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="cust" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Customer" />
       </v4:Annotations>
@@ -381,7 +381,7 @@
 
 
       <v4:Annotations Target="SapAuctionSolution.SapAuctionSolutionContainer/PurchaseOrderForEmployees">
-        <v4:Annotation Term="PersonalData.EntitySemantics" String="LegalGround" />
+        <v4:Annotation Term="PersonalData.EntitySemantics" String="ContractRelated" />
         <v4:Annotation Term="PersonalData.DataSubjectRole" String="emp" />
         <v4:Annotation Term="PersonalData.DataSubjectRoleDescription" String="Employee" />
       </v4:Annotations>

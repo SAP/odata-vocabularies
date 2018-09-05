@@ -184,11 +184,11 @@
 
 
       <Annotations Target="gdpr.gra.sample.EntityContainer/LeaveRequest" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="PersonalData.EntitySemantics" String="LegalGround"/>
+        <Annotation Term="PersonalData.EntitySemantics" String="ContractRelated"/>
       </Annotations>
 
       <Annotations Target="gdpr.gra.sample.LeaveRequest/leaveRequestId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="PersonalData.FieldSemantics" String="LegalGroundID"/>
+        <Annotation Term="PersonalData.FieldSemantics" String="ContractRelatedID"/>
       </Annotations>
       <Annotations Target="gdpr.gra.sample.LeaveRequest/employee_userId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="PersonalData.FieldSemantics" String="DataSubjectID"/>

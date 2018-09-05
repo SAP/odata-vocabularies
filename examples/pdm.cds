@@ -63,9 +63,9 @@ service sample {
     employee : Association to Employee not null;   
   }
 
-  @PersonalData.EntitySemantics : 'LegalGround'
+  @PersonalData.EntitySemantics : 'ContractRelated'
   entity LeaveRequest {
-    @PersonalData.FieldSemantics : 'LegalGroundID'
+    @PersonalData.FieldSemantics : 'ContractRelatedID'
     key leaveRequestId : Integer64;
     leaveType : String(32) not null;
     leaveStartDate : Date not null;

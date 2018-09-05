@@ -77,6 +77,7 @@ Terms for contact and address information are defined in the [Communication voca
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="DataSubject" />
               <Annotation Term="Core.Description">
                 <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor</String>
@@ -86,6 +87,7 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="DataSubjectDetails" />
               <Annotation Term="Core.Description">
                 <String>The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress</String>
@@ -95,6 +97,7 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="Consent" />
               <Annotation Term="Core.Description" String="The entities of this set represent a consent" />
               <Annotation Term="Core.LongDescription">
@@ -110,17 +113,27 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="ConsentDependent" />
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ConsentRelated" />
               <Annotation Term="Core.Description"
-                String="The entities of this set represent data whose processing depends on explicit consent" />
-              <Annotation Term="Core.LongDescription">
-                <String>Consent-dependent data needs to be deleted if the consent is withdrawn.</String>
-              </Annotation>
+                String="The entities of this set represent data whose processing is related to an explicit consent" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalGround" />
-              <Annotation Term="Core.Description"
-                String="Provides information regarding the legal ground (e.g. order or contract) for processing personal data" />
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ContractRelated" />
+              <Annotation Term="Core.Description" String="The entities of this set represent data that is related to a contract" />
+              <Annotation Term="Core.LongDescription">
+                <String>A contract is a long-term agreement with customers that allows them to buy goods or services at special conditions, such as lower prices, based on specific terms that have been negotiated beforehand. Products or services are released (ordered, or called off) from a contract over a certain timeframe.  
+
+Types of contracts include:
+
+- Sales contracts
+
+- Lease contracts
+
+- Service contracts
+              </String>
+              </Annotation>
             </Record>
           </Collection>
         </Annotation>
@@ -138,15 +151,18 @@ Terms for contact and address information are defined in the [Communication voca
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="DataSubjectID" />
               <Annotation Term="Core.Description" String="The unique identifier for a data subject" />
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="DataSubjectIDType" />
               <Annotation Term="Core.Description"
                 String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="ConsentID" />
               <Annotation Term="Core.Description" String="The unique identifier for a consent" />
               <Annotation Term="Core.LongDescription">
@@ -158,6 +174,7 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="ConsentPurposeID" />
               <Annotation Term="Core.Description" String="The unique identifier for the purpose of a consent" />
               <Annotation Term="Core.LongDescription">
@@ -167,9 +184,10 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="LegalGroundID" />
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ContractRelatedID" />
               <Annotation Term="Core.Description"
-                String="The unique identifier for the legal ground (e.g. a contractual agreement) that requires processing of personal data" />
+                String="The unique identifier for transactional data that is related to a contract that requires processing of personal data" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -182,6 +200,7 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
