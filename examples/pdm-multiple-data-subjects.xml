@@ -241,25 +241,25 @@
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.IsPersonal" />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/RegisteredPhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.IsPersonal" />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/UserProfileId">
         <v4:Annotation Term="PersonalData.IsUserID" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.IsPersonal" />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/AdditionalPhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.IsPersonal />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.CustomerMaster/CreditCardNumber">
-        <v4:Annotation Term="PersonalData.IsSensitive" />
+        <v4:Annotation Term="PersonalData.IsPotentiallySensitive" />
       </v4:Annotations>
 
 
@@ -312,19 +312,19 @@
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeEmailId">
         <v4:Annotation Term="Communication.IsEmailAddress" />
-        <v4:Annotation Term="PersonalData.IsPersonal />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeePhoneNumber">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.IsPersonal />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber1">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.IsPersonal />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
       <v4:Annotations Target="SapAuctionSolution.EmployeeMaster/EmployeeAdditionalPhoneNumber2">
         <v4:Annotation Term="Communication.IsPhoneNumber" />
-        <v4:Annotation Term="PersonalData.IsPersonal />
+        <v4:Annotation Term="PersonalData.IsPotentiallyPersonal" />
       </v4:Annotations>
 
 

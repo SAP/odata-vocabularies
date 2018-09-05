@@ -153,7 +153,7 @@
         <Annotation Term="Core.Description" String="Email address, e.g. foo@bar.com"/>
       </Annotations>
       <Annotations Target="gdpr.gra.sample.Employee/genderCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="PersonalData.IsSensitive"/>
+        <Annotation Term="PersonalData.IsPotentiallySensitive"/>
       </Annotations>
 
 

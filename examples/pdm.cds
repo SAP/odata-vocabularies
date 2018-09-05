@@ -28,7 +28,7 @@ service sample {
     firstName : String(256) not null;
     middleName : String(256);
     lastName : String(256) not null;
-    @PersonalData.IsSensitive
+    @PersonalData.IsPotentiallySensitive
     genderCode : String(1);
     birthDate : Date; 
     addresses : Association to many Address on addresses.employee = $self;

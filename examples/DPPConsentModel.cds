@@ -34,7 +34,7 @@ context ConsentModel {
         @PersonalData.FieldSemantics: 'DataSubjectID'                // this is a "technical" id 
         DataSubjectId                   : String(128) not null;
 
-        @PersonalData.IsPersonal
+        @PersonalData.IsPotentiallyPersonal
         DataSubjectFormattedDescription : String(255);
 
         GrantedAt                       : Timestamp;
@@ -94,7 +94,7 @@ static "type": @PersonalData.EntitySemantics: 'DataSubject' / 'LegalGround' / ..
 
 **** Fourth level   --> Fill the relavent name value pairs into the audit log API 
 
-@PersonalData.FieldSemantics/IsPersonal            --> personal data like e-mail-address, birthday, name, ...
+@PersonalData.FieldSemantics/IsPotentiallyPersonal            --> personal data like e-mail-address, birthday, name, ...
 (here the changes have to be tracked into the API as name-value-pairs containing "old" image and/or "new" image depending on the operation type like Insert, Update, Delete)
 
 TODO: what about data marked as sensitive? Should those values appear in the audit log at all?

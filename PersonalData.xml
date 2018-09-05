@@ -192,9 +192,9 @@ Terms for contact and address information are defined in the [Communication voca
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="IsPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPotentiallyPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains personal data" />
+        <Annotation Term="Core.Description" String="Property contains potentially personal data" />
         <Annotation Term="Core.LongDescription">
           <String>Personal data is information relating to an identified or identifiable natural person (data subject).
 
@@ -204,9 +204,9 @@ See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-
         </Annotation>
       </Term>
 
-      <Term Name="IsSensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains sensitive personal data" />
+        <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
           <String>Sensitive data is a colloquial term usually including the following data:
 
