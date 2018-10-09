@@ -15,13 +15,13 @@ Terms</h2>
 <tbody>
 <tr>
 <td align="left">Dimension</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="Dimension"></a>A property holding the key of a dimension in an analytical context</td>
 </tr>
 <tr>
 <td align="left">Measure</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="Measure"></a>A property holding the numeric value of a measure in an analytical context</td>
 </tr>

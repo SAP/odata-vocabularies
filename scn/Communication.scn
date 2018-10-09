@@ -4,10 +4,10 @@ Communication Vocabulary</h1>
 <p>Terms for annotating communication-relevant information</p>
 <p>These terms are inspired by</p>
 <ul>
-<li>RFC6350 vCard (<a href="http://tools.ietf.org/html/rfc6350">http://tools.ietf.org/html/rfc6350</a>)</li>
-<li>RFC5545 iCalendar (<a href="http://tools.ietf.org/html/rfc5545">http://tools.ietf.org/html/rfc5545</a>)</li>
-<li>RFC5322 Internet Message Format (<a href="http://tools.ietf.org/html/rfc5322">http://tools.ietf.org/html/rfc5322</a>)</li>
-<li>RFC6351 xCard: vCard XML Representation (<a href="https://tools.ietf.org/html/rfc6351">https://tools.ietf.org/html/rfc6351</a>)</li>
+<li>RFC6350 vCard (<a href="http://tools.ietf.org/html/rfc6350" rel="nofollow">http://tools.ietf.org/html/rfc6350</a>)</li>
+<li>RFC5545 iCalendar (<a href="http://tools.ietf.org/html/rfc5545" rel="nofollow">http://tools.ietf.org/html/rfc5545</a>)</li>
+<li>RFC5322 Internet Message Format (<a href="http://tools.ietf.org/html/rfc5322" rel="nofollow">http://tools.ietf.org/html/rfc5322</a>)</li>
+<li>RFC6351 xCard: vCard XML Representation (<a href="https://tools.ietf.org/html/rfc6351" rel="nofollow">https://tools.ietf.org/html/rfc6351</a>)</li>
 </ul>
 <h2>
 Terms</h2>
@@ -34,13 +34,13 @@ Terms</h2>
 </tr>
 <tr>
 <td align="left">IsEmailAddress</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsEmailAddress"></a>Property contains an email address</td>
 </tr>
 <tr>
 <td align="left">IsPhoneNumber</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsPhoneNumber"></a>Property contains a phone number</td>
 </tr>

@@ -7,15 +7,15 @@ Definition</h2>
 <p>Personal Data is any information relating to an identified or identifiable natural person ("data subject").</p>
 <p>An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.</p>
 <p>Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.</p>
-<p>This vocabulary defines terms specific to the European <a href="https://ec.europa.eu/info/law/law-topic/data-protection_en">General Data Protection Regulation (GDPR)</a>.</p>
+<p>This vocabulary defines terms specific to the European <a href="https://ec.europa.eu/info/law/law-topic/data-protection_en" rel="nofollow">General Data Protection Regulation (GDPR)</a>.</p>
 <p>Terms for contact and address information are defined in the <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Communication#">Communication vocabulary</a>.</p>
 <h3>
 References</h3>
 <ul>
-<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform_en">European Commission: Reform of EU data protection rules</a></li>
-<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en">European Commission: Rules for business and organisations</a></li>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform_en" rel="nofollow">European Commission: Reform of EU data protection rules</a></li>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en" rel="nofollow">European Commission: Rules for business and organisations</a></li>
 <li>
-<a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en">European Commission: Legal grounds for processing data</a>.</li>
+<a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en" rel="nofollow">European Commission: Legal grounds for processing data</a>.</li>
 </ul>
 <h2>
 Terms</h2>
@@ -30,9 +30,9 @@ Terms</h2>
 <tbody>
 <tr>
 <td align="left">IsPotentiallySensitive</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag">Tag</a></td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
-<a name="IsPotentiallySensitive"></a>Property contains potentially sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts<br/>See also: <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en">What personal data is considered sensitive?</a></p>
+<a name="IsPotentiallySensitive"></a>Property contains potentially sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>-  Personal data subject to professional secrecy<br/>-  Personal data relating to criminal or administrative offences<br/>-  Personal data concerning bank or credit card accounts<br/>See also: <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en" rel="nofollow">What personal data is considered sensitive?</a></p>
 </td>
 </tr>
 </tbody>
