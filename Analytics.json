@@ -1,0 +1,83 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Aggregation",
+                    "$Namespace": "Org.OData.Aggregation.V1"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Analytics.v1": {
+        "$Alias": "Analytics",
+        "@Core.Description": "Terms for annotating analytical resources",
+        "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://wiki.scn.sap.com/wiki/x/gwWKGw"
+            }
+        ],
+        "Dimension": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$BaseTerm": "Aggregation.Groupable",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "A property holding the key of a dimension in an analytical context"
+        },
+        "Measure": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$BaseTerm": "Aggregation.Aggregatable",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
+        },
+        "RolledUpPropertyCount": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Edm.Int16",
+            "@Common.Experimental": true,
+            "@Core.Description": "Number of properties in the entity instance that have been aggregated away"
+        },
+        "DrillURL": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "\n            URL to retrieve more detailed data related to a node of a recursive hierarchy. \n            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.  \n          ",
+            "@Core.IsURL": true
+        },
+        "PlanningAction": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "ActionImport"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": " Processes or generates plan data. Its logic may have side-effects on entity sets.\n          "
+        }
+    }
+}

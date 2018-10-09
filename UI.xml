@@ -768,12 +768,12 @@ The trend is
           <Annotation Term="Core.Description"
             String="For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0." />
         </Property>
-        <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.PrimitiveType)" Nullable="false">
+        <Property Name="ValuesForSequentialColorLevels" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
             String="All values in this collection should be assigned to levels of the same color." />
         </Property>
-        <Property Name="EmphasizedValues" Type="Collection(Edm.PrimitiveType)" Nullable="false">
+        <Property Name="EmphasizedValues" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be emphasized." />
         </Property>

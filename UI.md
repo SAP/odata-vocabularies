@@ -430,8 +430,8 @@ Property|Type|Description
 [Dimension](UI.xml#L764)|PropertyPath|
 [Role](UI.xml#L765)|[ChartDimensionRoleType](#ChartDimensionRoleType)|
 [HierarchyLevel](UI.xml#L766) *(Experimental)*|Int32|For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0.
-[ValuesForSequentialColorLevels](UI.xml#L771) *(Experimental)*|\[PrimitiveType\]|All values in this collection should be assigned to levels of the same color.
-[EmphasizedValues](UI.xml#L776) *(Experimental)*|\[PrimitiveType\]|All values in this collection should be emphasized.
+[ValuesForSequentialColorLevels](UI.xml#L771) *(Experimental)*|\[String\]|All values in this collection should be assigned to levels of the same color.
+[EmphasizedValues](UI.xml#L776) *(Experimental)*|\[String\]|All values in this collection should be emphasized.
 
 ## <a name="ChartMeasureAttributeType"></a>[ChartMeasureAttributeType](UI.xml#L782)
 
