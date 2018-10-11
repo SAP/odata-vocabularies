@@ -399,6 +399,13 @@ Terms</h2>
 <td align="left">
 <a name="ChangedBy"></a>Last editor</td>
 </tr>
+<tr>
+<td align="left">OriginalProtocolVersion</td>
+<td align="left">String</td>
+<td align="left">
+<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values <code>2.0</code> and <code>3.0</code>
+</td>
+</tr>
 </tbody>
 </table>
 <h2>

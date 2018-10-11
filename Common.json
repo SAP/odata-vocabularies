@@ -1395,7 +1395,6 @@
             "$AppliesTo": [
                 "Schema"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`"
         }
     }

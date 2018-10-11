@@ -97,7 +97,7 @@ Term|Type|Description
 [CreatedBy](Common.xml#L1188)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
 [ChangedAt](Common.xml#L1192)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
 [ChangedBy](Common.xml#L1196)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](Common.xml#L1208) *(Experimental)*|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[OriginalProtocolVersion](Common.xml#L1208)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L90)
 

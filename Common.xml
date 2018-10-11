@@ -1206,7 +1206,6 @@ Upon modification field control logic is invoked so that meta-information like h
       <!-- Metadata annotations for converters -->
 
       <Term Name="OriginalProtocolVersion" Type="Edm.String" AppliesTo="Schema">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`" />
       </Term>
