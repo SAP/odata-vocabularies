@@ -150,7 +150,7 @@ Terms</h2>
 <td align="left">ThingPerspective</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
-<a name="ThingPerspective"></a>This term is a Thing Perspective</td>
+<a name="ThingPerspective"></a>The annotated term is a Thing Perspective</td>
 </tr>
 <tr>
 <td align="left">IsSummary</td>
@@ -1407,7 +1407,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">DataPoint</td>
 <td align="left">AnnotationPath</td>
-<td align="left">Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure</td>
+<td align="left">Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure</td>
 </tr>
 </tbody>
 </table>

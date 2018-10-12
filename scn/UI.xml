@@ -670,7 +670,12 @@ The trend is
         <Property Name="Measure" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartMeasureRoleType"/>
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure"/>
+          <Annotation Term="Core.Description" String="Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure"/>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.DataPoint</String>
+            </Collection>
+          </Annotation>
         </Property>
         
       </ComplexType>
@@ -738,6 +743,28 @@ The trend is
         <Annotation Term="Core.Description" String="Facet that refers to a thing perspective, e.g. LineItem"/>
         <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description" String="Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge"/>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Communication.Address</String>
+              <String>Communication.Contact</String>
+              <String>UI.Badge</String>
+              <String>UI.Chart</String>
+              <String>UI.Contacts</String>
+              <String>UI.DataPoint</String>
+              <String>UI.FieldGroup</String>
+              <String>UI.GeoLocation</String>
+              <String>UI.GeoLocations</String>
+              <String>UI.HeaderInfo</String>
+              <String>UI.Identification</String>
+              <String>UI.KPI</String>
+              <String>UI.LineItem</String>
+              <String>UI.MediaResource</String>
+              <String>UI.PresentationVariant</String>
+              <String>UI.SelectionFields</String>
+              <String>UI.SelectionPresentationVariant</String>
+              <String>UI.StatusInfo</String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
       <ComplexType Name="ReferenceURLFacet" BaseType="UI.Facet">
@@ -976,7 +1003,7 @@ The trend is
       <!-- basic type definitions for reuse -->
 
       <Term Name="ThingPerspective" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
-        <Annotation Term="Core.Description" String="This term is a Thing Perspective"/>
+        <Annotation Term="Core.Description" String="The annotated term is a Thing Perspective"/>
       </Term>
       <Term Name="IsSummary" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term"/>
@@ -1088,6 +1115,16 @@ The trend is
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
         <Property Name="Target" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields"/>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Communication.Address</String>
+              <String>Communication.Contact</String>
+              <String>UI.Chart</String>
+              <String>UI.ConnectedFields</String>
+              <String>UI.DataPoint</String>
+              <String>UI.FieldGroup</String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 

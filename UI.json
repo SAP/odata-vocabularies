@@ -875,7 +875,10 @@
             "DataPoint": {
                 "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Annotation path MUST end in UI.DataPoint and the DataPoint Value must be the same property as in Measure"
+                "@Core.Description": "Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure",
+                "@Validation.AllowedTerms": [
+                    "UI.DataPoint"
+                ]
             },
             "UseSequentialColorLevels": {
                 "$Type": "Edm.Boolean",
@@ -1005,7 +1008,27 @@
             "@Core.Description": "Facet that refers to a thing perspective, e.g. LineItem",
             "Target": {
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge"
+                "@Core.Description": "Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge",
+                "@Validation.AllowedTerms": [
+                    "Communication.Address",
+                    "Communication.Contact",
+                    "UI.Badge",
+                    "UI.Chart",
+                    "UI.Contacts",
+                    "UI.DataPoint",
+                    "UI.FieldGroup",
+                    "UI.GeoLocation",
+                    "UI.GeoLocations",
+                    "UI.HeaderInfo",
+                    "UI.Identification",
+                    "UI.KPI",
+                    "UI.LineItem",
+                    "UI.MediaResource",
+                    "UI.PresentationVariant",
+                    "UI.SelectionFields",
+                    "UI.SelectionPresentationVariant",
+                    "UI.StatusInfo"
+                ]
             }
         },
         "ReferenceURLFacet": {
@@ -1274,7 +1297,7 @@
             "$AppliesTo": [
                 "Term"
             ],
-            "@Core.Description": "This term is a Thing Perspective"
+            "@Core.Description": "The annotated term is a Thing Perspective"
         },
         "IsSummary": {
             "$Kind": "Term",
@@ -1448,7 +1471,15 @@
             "Target": {
                 "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields"
+                "@Core.Description": "Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields",
+                "@Validation.AllowedTerms": [
+                    "Communication.Address",
+                    "Communication.Contact",
+                    "UI.Chart",
+                    "UI.ConnectedFields",
+                    "UI.DataPoint",
+                    "UI.FieldGroup"
+                ]
             }
         },
         "DataFieldForActionAbstract": {
