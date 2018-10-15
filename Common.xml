@@ -292,7 +292,6 @@ If the annotation evaluates to false, the unmasked property value can be request
       <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject" Type="Collection(Edm.String)" Nullable="false"
         AppliesTo="EntitySet EntityType Property"
       >
-        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-4243" />
         <Annotation Term="Core.Description"
           String="List of actions that are not available in the current state of the instance of the Semantic Object" />
       </Term>

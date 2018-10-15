@@ -196,7 +196,9 @@
           <Annotation Term="Core.Description" String="Name of the Semantic Object property"/>
         </Property>
       </ComplexType>
-      
+      <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntitySet EntityType Property">
+        <Annotation Term="Core.Description" String="List of actions that are not available in the current state of the instance of the Semantic Object"/>
+      </Term>
 
       <Term Name="IsInstanceAnnotation" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"/>

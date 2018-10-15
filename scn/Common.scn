@@ -117,6 +117,12 @@ Terms</h2>
 </td>
 </tr>
 <tr>
+<td align="left">SemanticObjectUnavailableActions</td>
+<td align="left">[String]</td>
+<td align="left">
+<a name="SemanticObjectUnavailableActions"></a>List of actions that are not available in the current state of the instance of the Semantic Object</td>
+</tr>
+<tr>
 <td align="left">IsInstanceAnnotation</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">

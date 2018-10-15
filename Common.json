@@ -365,7 +365,6 @@
                 "EntityType",
                 "Property"
             ],
-            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-4243",
             "@Core.Description": "List of actions that are not available in the current state of the instance of the Semantic Object"
         },
         "IsInstanceAnnotation": {
