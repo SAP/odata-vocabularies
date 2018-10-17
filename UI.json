@@ -86,6 +86,11 @@
                 "$Nullable": true,
                 "@Core.IsURL": true,
                 "@Core.Description": "Image URL for the entity type"
+            },
+            "Initials": {
+                "$Nullable": true,
+                "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-9032",
+                "@Core.Description": "Latin letters to be used in case no ImageUrl or TypeImageUrl is present"
             }
         },
         "Identification": {

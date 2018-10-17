@@ -64,6 +64,10 @@
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="Image URL for the entity type" />
         </Property>
+        <Property Name="Initials" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-9032" />
+          <Annotation Term="Core.Description" String="Latin letters to be used in case no ImageUrl or TypeImageUrl is present" />
+        </Property>
       </ComplexType>
 
       <Term Name="Identification" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">

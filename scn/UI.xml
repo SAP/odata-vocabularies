@@ -61,6 +61,7 @@
           <Annotation Term="Core.IsURL"/>
           <Annotation Term="Core.Description" String="Image URL for the entity type"/>
         </Property>
+        
       </ComplexType>
 
       <Term Name="Identification" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
