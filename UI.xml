@@ -336,8 +336,8 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         <Property Name="SampleSize" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description">
             <String>
-           	  Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
-           	</String>
+              Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
+            </String>
           </Annotation>
         </Property>
         <Property Name="ReferencePeriod" Type="UI.ReferencePeriod" Nullable="true">
@@ -781,6 +781,11 @@ The trend is
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="All values in this collection should be emphasized." />
         </Property>
+        <Property Name="EmphasisLabels" Type="UI.EmphasisLabelType" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified." />
+        </Property>        
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -814,6 +819,14 @@ The trend is
         <Member Name="Axis3" />
       </EnumType>
 
+      <ComplexType Name="EmphasisLabelType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring." />
+        <Property Name="EmphasizedValuesLabel" Type="Edm.String" Nullable="false" />
+        <Property Name="NonEmphasizedValuesLabel" Type="Edm.String" Nullable="true" />
+      </ComplexType>
+
       <Term Name="ValueCriticality" Type="Collection(UI.ValueCriticalityType)" Nullable="false" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
@@ -827,6 +840,28 @@ The trend is
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
+      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description">
+          <String>
+              Assign labels to criticalities. This information can be used for semantic coloring. 
+              A label for a criticality is required, if more than one value of the annotated property has been assigned to the same criticality.    
+              There must be no more than one label per criticality.
+          </String>
+        </Annotation> 
+      </Term>
+
+      <ComplexType Name="CriticalityLabelType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+                    String="Assigns a label to a criticality. This information can be used for semantic coloring." />
+        <Property Name="Criticality" Type="UI.CriticalityType" Nullable="false" />
+        <Property Name="Label" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Core.Description" String="Criticality label" />
+        </Property>  
+      </ComplexType>
+      
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description"

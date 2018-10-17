@@ -405,7 +405,7 @@
             "SampleSize": {
                 "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
-                "@Core.Description": "\n           \t  Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.\n           \t"
+                "@Core.Description": "\n              Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.\n            "
             },
             "ReferencePeriod": {
                 "$Nullable": true,
@@ -865,6 +865,12 @@
                 "$Collection": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "All values in this collection should be emphasized."
+            },
+            "EmphasisLabels": {
+                "$Nullable": true,
+                "$Type": "UI.EmphasisLabelType",
+                "@Common.Experimental": true,
+                "@Core.Description": "Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified."
             }
         },
         "ChartMeasureAttributeType": {
@@ -904,6 +910,17 @@
             "Axis2": 1,
             "Axis3": 2
         },
+        "EmphasisLabelType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring.",
+            "EmphasizedValuesLabel": {
+
+            },
+            "NonEmphasizedValuesLabel": {
+                "$Nullable": true
+            }
+        },
         "ValueCriticality": {
             "$Kind": "Term",
             "$Collection": true,
@@ -926,6 +943,28 @@
             "Criticality": {
                 "$Nullable": true,
                 "$Type": "UI.CriticalityType"
+            }
+        },
+        "CriticalityLabels": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "UI.CriticalityLabelType",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "\n              Assign labels to criticalities. This information can be used for semantic coloring. \n              A label for a criticality is required, if more than one value of the annotated property has been assigned to the same criticality.    \n              There must be no more than one label per criticality.\n          "
+        },
+        "CriticalityLabelType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Assigns a label to a criticality. This information can be used for semantic coloring.",
+            "Criticality": {
+                "$Type": "UI.CriticalityType"
+            },
+            "Label": {
+                "@Core.IsLanguageDependent": true,
+                "@Core.Description": "Criticality label"
             }
         },
         "SelectionFields": {
@@ -1639,15 +1678,21 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "0",
+                    "Value": {
+                        "$Int": "0"
+                    },
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": "1",
+                    "Value": {
+                        "$Int": "1"
+                    },
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": "2",
+                    "Value": {
+                        "$Int": "2"
+                    },
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]
