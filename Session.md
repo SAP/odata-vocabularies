@@ -33,7 +33,9 @@ Also the client needs to adhere to a strict choreography of
 
 This choreography is (intentionally) similar to the choreography for [Draft Handling](https://experience.sap.com/fiori-design-web/draft-handling/).
 
-Data modification requests will fail outside of a session. This is a safety mechanism for clients that do not know the session choreography.
+Data modification requests outside of a session are allowed and have their usual OData semantics.
+This allows e.g. using the same service for a list report with actions and for an editable object page, 
+combined as one UI app.
         
 
 
@@ -41,15 +43,15 @@ Data modification requests will fail outside of a session. This is a safety mech
 
 Term|Type|Description
 :---|:---|:----------
-[StickySessionRequired](Session.xml#L69) *(Experimental)*|[StickySessionRequiredType](#StickySessionRequiredType)|<a name="StickySessionRequired"></a>The annotated entity set allows data modification only within a sticky session
+[StickySessionSupported](Session.xml#L71) *(Experimental)*|[StickySessionSupportedType](#StickySessionSupportedType)|<a name="StickySessionSupported"></a>The annotated entity set allows data modification only within a sticky session
 
-## <a name="StickySessionRequiredType"></a>[StickySessionRequiredType](Session.xml#L93) *(Experimental)*
+## <a name="StickySessionSupportedType"></a>[StickySessionSupportedType](Session.xml#L95) *(Experimental)*
 Actions for managing data modification within a sticky session
 
 Property|Type|Description
 :-------|:---|:----------
-[NewAction](Session.xml#L96)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for creating a new entities in the targeted entity set or collection<p>Signature:<br/>- Binding parameter is collection of type of annotated entity set<br/>- No non-binding parameters<br/>- No return type <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
-[EditAction](Session.xml#L117)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is type of annotated entity set <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action returns the targeted entity and initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
-[PreparationAction](Session.xml#L138)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- No return type <br/>If called within a sticky session the sticky session continues. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>
-[SaveAction](Session.xml#L154)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is type of annotated entity set <br/>On success this action returns the newly created or edited entity and the sticky session is terminated. <br/>On failure the sticky session is kept alive.</p>
-[DiscardAction](Session.xml#L170)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session<p>Signature:<br/>- No parameters<br/>- No return type <br/>If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>
+[NewAction](Session.xml#L98)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection<p>Signature:<br/>- Binding parameter is collection of type of annotated entity set<br/>- No non-binding parameters<br/>- No return type <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
+[EditAction](Session.xml#L119)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is same as binding parameter type <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action returns the targeted entity and initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
+[PreparationAction](Session.xml#L140)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is same as binding parameter type <br/>On success this action returns the modified targeted entity. <br/>If called within a sticky session the sticky session continues. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>
+[SaveAction](Session.xml#L158)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is same as binding parameter type <br/>On success this action returns the newly created or edited entity and the sticky session is terminated. <br/>On failure the sticky session is kept alive.</p>
+[DiscardAction](Session.xml#L174)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session<p>Signature:<br/>- No parameters<br/>- No return type <br/>If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>

@@ -62,11 +62,13 @@ Also the client needs to adhere to a strict choreography of
 
 This choreography is (intentionally) similar to the choreography for [Draft Handling](https://experience.sap.com/fiori-design-web/draft-handling/).
 
-Data modification requests will fail outside of a session. This is a safety mechanism for clients that do not know the session choreography.
+Data modification requests outside of a session are allowed and have their usual OData semantics.
+This allows e.g. using the same service for a list report with actions and for an editable object page, 
+combined as one UI app.
         </String>
       </Annotation>
 
-      <Term Name="StickySessionRequired" Type="Session.StickySessionRequiredType" AppliesTo="EntitySet">
+      <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The annotated entity set allows data modification only within a sticky session" />
@@ -90,12 +92,12 @@ Data modification requests will fail outside of a session. This is a safety mech
           </Annotation>
         -->
       </Term>
-      <ComplexType Name="StickySessionRequiredType">
+      <ComplexType Name="StickySessionSupportedType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Actions for managing data modification within a sticky session" />
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description"
-            String="Bound action that initiates a sticky session for creating a new entities in the targeted entity set or collection" />
+            String="Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
 
@@ -124,7 +126,7 @@ Otherwise:
 
 - No non-binding parameters
 
-- Return type is type of annotated entity set 
+- Return type is same as binding parameter type 
 
 If called within a sticky session the sticky session continues. 
 
@@ -144,7 +146,9 @@ Otherwise:
 
 - No non-binding parameters
 
-- No return type 
+- Return type is same as binding parameter type 
+
+On success this action returns the modified targeted entity. 
 
 If called within a sticky session the sticky session continues. 
 
@@ -160,7 +164,7 @@ If called outside of a sticky session the action fails and does not initiate a s
 
 - No non-binding parameters
 
-- Return type is type of annotated entity set 
+- Return type is same as binding parameter type 
 
 On success this action returns the newly created or edited entity and the sticky session is terminated. 
 
