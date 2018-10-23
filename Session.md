@@ -20,9 +20,9 @@ of the session stickiness because browsers automatically send cookies on subsequ
 However, cookies are shared across browser tabs and windows, and requests from different tabs or windows would be dispatched to the same server session.
 Again this poses a problem for classic ABAP code which was built under the assumption that each server session is tied to at most one client instance.
 
-This means that the client application has to be aware of the service's limitations and cooperate to route calls from each client instance (browser tab or window) 
+This means that the client application has to be aware of the service's limitations and cooperate to route calls from each client application instance (browser tab or window) 
 to a different server session. The ABAP server allows this by sending the session id in the response header `sap-contextid`, 
-which client instances will need to echo in subsequent requests.
+which client application instances will need to echo as a request header in subsequent requests.
 
 Also the client needs to adhere to a strict choreography of 
 - initiate session
@@ -48,8 +48,8 @@ Actions for managing data modification within a sticky session
 
 Property|Type|Description
 :-------|:---|:----------
-[NewActions](Session.xml#L96)|\[[QualifiedName](Common.md#QualifiedName)\]|List of bound actions that initiate a sticky session and create a new entity<p>Multiple actions are allowed to support 'create by reference' from different sources.</p>
-[EditAction](Session.xml#L102)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity
-[PreparationAction](Session.xml#L106)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity
-[SaveAction](Session.xml#L109)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>On success this action returns the newly created or edited entity and the sticky session is terminated. On failure the sticky session is kept alive.</p>
-[DiscardAction](Session.xml#L114)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session
+[NewAction](Session.xml#L96)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for creating a new entities in the targeted entity set or collection<p>Signature:<br/>- Binding parameter is collection of type of annotated entity set<br/>- No non-binding parameters<br/>- No return type <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
+[EditAction](Session.xml#L117)|[QualifiedName](Common.md#QualifiedName)|Bound action that initiates a sticky session for editing the targeted entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is type of annotated entity set <br/>If called within a sticky session the sticky session continues. <br/>Otherwise:<br/>- On success this action returns the targeted entity and initiates a sticky session.<br/>- On failure no sticky session is initiated.</p>
+[PreparationAction](Session.xml#L138)|[QualifiedName](Common.md#QualifiedName)|Bound action that prepares (checks, auto-fills) an entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- No return type <br/>If called within a sticky session the sticky session continues. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>
+[SaveAction](Session.xml#L154)|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<p>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is type of annotated entity set <br/>On success this action returns the newly created or edited entity and the sticky session is terminated. <br/>On failure the sticky session is kept alive.</p>
+[DiscardAction](Session.xml#L170)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session<p>Signature:<br/>- No parameters<br/>- No return type <br/>If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. <br/>If called outside of a sticky session the action fails and does not initiate a session.</p>
