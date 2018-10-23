@@ -11,7 +11,7 @@
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Session.v1" Alias="Session">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
-        <String>Terms for services requiring sticky sessions for data modification</String>
+        <String>Terms for services supporting sticky sessions for data modification</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2018-07-26 © Copyright 2018 SAP SE. All rights reserved</String>
@@ -75,13 +75,9 @@ combined as one UI app.
         <!-- TODO: adapt to final resolution of https://issues.oasis-open.org/browse/ODATA-1194
           <Annotation Term="Core.Example">
           <Record>
-          <Annotation Term="Legacy.SessionOnlyStateRequired">
+          <Annotation Term="Legacy.SessionOnlyStateSupported">
           <Record>
-          <PropertyValue Property="NewActions">
-          <Collection>
-          <String>...</String>
-          </Collection>
-          </PropertyValue>
+          <PropertyValue Property="NewActions" String="..." />
           <PropertyValue Property="EditAction" String="..." />
           <PropertyValue Property="PreparationAction" String="..." />
           <PropertyValue Property="SaveAction" String="..." />

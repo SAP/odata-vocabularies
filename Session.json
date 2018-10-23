@@ -21,7 +21,7 @@
     "com.sap.vocabularies.Session.v1": {
         "$Alias": "Session",
         "@Common.Experimental": true,
-        "@Core.Description": "Terms for services requiring sticky sessions for data modification",
+        "@Core.Description": "Terms for services supporting sticky sessions for data modification",
         "@Core.Description#Published": "2018-07-26 © Copyright 2018 SAP SE. All rights reserved",
         "@Core.Links": [
             {
