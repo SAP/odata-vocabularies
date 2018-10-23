@@ -273,8 +273,8 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         <Property Name="SampleSize" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description">
             <String>
-           	  Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
-           	</String>
+              Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
+            </String>
           </Annotation>
         </Property>
         <Property Name="ReferencePeriod" Type="UI.ReferencePeriod" Nullable="true">
@@ -665,6 +665,7 @@ The trend is
         
         
         
+                
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -694,8 +695,14 @@ The trend is
       </EnumType>
 
       
+
+      
       
 
+      
+
+      
+      
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective"/>
         <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type"/>
