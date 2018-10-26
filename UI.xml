@@ -1420,12 +1420,10 @@ The trend is
       </ComplexType>
 
       <Term Name="Criticality" Type="UI.CriticalityType" AppliesTo="Annotation">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String=" Service-calculated criticality, alternative to UI.CriticalityCalculation" />
       </Term>
 
       <Term Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" AppliesTo="Annotation">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to UI.Criticality" />
       </Term>
 

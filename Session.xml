@@ -162,7 +162,7 @@ If called outside of a sticky session the action fails and does not initiate a s
 
 - Return type is same as binding parameter type 
 
-On success this action returns the newly created or edited entity and the sticky session is terminated. 
+On success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. 
 
 On failure the sticky session is kept alive.</String>
           </Annotation>

@@ -1638,7 +1638,6 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": " Service-calculated criticality, alternative to UI.CriticalityCalculation"
         },
         "CriticalityCalculation": {
@@ -1648,7 +1647,6 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Parameters for client-calculated criticality, alternative to UI.Criticality"
         },
         "OrderBy": {

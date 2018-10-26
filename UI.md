@@ -45,11 +45,11 @@ Term|Type|Description
 [Hidden](UI.xml#L1262)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<p>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature.</p>
 [HiddenFilter](UI.xml#L1269)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<p>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all.</p>
 [DataFieldDefault](UI.xml#L1276) *(Experimental)*|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<p>Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.</p>
-[Criticality](UI.xml#L1422) *(Experimental)*|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](UI.xml#L1427) *(Experimental)*|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[OrderBy](UI.xml#L1432) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
-[RecommendationState](UI.xml#L1440) *(Experimental)*|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
-[RecommendationList](UI.xml#L1472) *(Experimental)*|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+[Criticality](UI.xml#L1422)|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](UI.xml#L1426)|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[OrderBy](UI.xml#L1430) *(Experimental)*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
+[RecommendationState](UI.xml#L1438) *(Experimental)*|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+[RecommendationList](UI.xml#L1470) *(Experimental)*|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L43)
 
@@ -818,7 +818,7 @@ Property|Type|Description
 [Url](UI.xml#L1412)|URL|Target of the hyperlink
 [UrlContentType](UI.xml#L1416)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
 
-## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1448) *(Experimental)*
+## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1446) *(Experimental)*
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -827,25 +827,25 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](UI.xml#L1456)|regular - with human or default input, no recommendation
-[1](UI.xml#L1460)|highlighted - without human input and with recommendation
-[2](UI.xml#L1464)|warning - with human or default input and with recommendation
+[0](UI.xml#L1454)|regular - with human or default input, no recommendation
+[1](UI.xml#L1458)|highlighted - without human input and with recommendation
+[2](UI.xml#L1462)|warning - with human or default input and with recommendation
 
-## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1481) *(Experimental)*
+## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1479) *(Experimental)*
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](UI.xml#L1487)|String|Resource path of a collection of recommended values
-[RankProperty](UI.xml#L1490)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](UI.xml#L1494)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](UI.xml#L1485)|String|Resource path of a collection of recommended values
+[RankProperty](UI.xml#L1488)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](UI.xml#L1492)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
-## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1499) *(Experimental)*
+## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1497) *(Experimental)*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](UI.xml#L1501)|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](UI.xml#L1504)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+[LocalDataProperty](UI.xml#L1499)|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](UI.xml#L1502)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
