@@ -373,8 +373,7 @@ If the annotation evaluates to false, the unmasked property value can be request
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
           <Annotation Term="Core.LongDescription">
-            <String>Example: in a travel expense report the property `DestinationCountry` is 
-            `inapplicable` if trip type is 'domestic', and `mandatory` if trip type is 'international'.</String>
+            <String>Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">

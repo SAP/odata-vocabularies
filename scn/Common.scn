@@ -543,7 +543,7 @@ Terms</h2>
 <tr>
 <td align="left">Inapplicable</td>
 <td align="right">0</td>
-<td align="left">Property has no meaning in the current entity state<p>Example: in a travel expense report the property <code>DestinationCountry</code> is              <code>inapplicable</code> if trip type is 'domestic', and <code>mandatory</code> if trip type is 'international'.</p>
+<td align="left">Property has no meaning in the current entity state<p>Example: in a travel expense report the property <code>DestinationCountry</code> is inapplicable if trip type is domestic, and mandatory if trip type is international.</p>
 </td>
 </tr>
 <tr>

@@ -465,7 +465,7 @@
             "ReadOnly@Core.Description": "Property value cannot be changed",
             "Inapplicable": 0,
             "Inapplicable@Core.Description": "Property has no meaning in the current entity state",
-            "Inapplicable@Core.LongDescription": "Example: in a travel expense report the property `DestinationCountry` is \n            `inapplicable` if trip type is 'domestic', and `mandatory` if trip type is 'international'.",
+            "Inapplicable@Core.LongDescription": "Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
             "Hidden": 0,
             "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
             "Hidden@Core.LongDescription": "To statically hide a property on a UI use `UI.Hidden` instead",
