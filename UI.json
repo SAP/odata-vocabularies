@@ -1677,21 +1677,15 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": {
-                        "$Int": "0"
-                    },
+                    "Value": "0",
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": {
-                        "$Int": "1"
-                    },
+                    "Value": "1",
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": {
-                        "$Int": "2"
-                    },
+                    "Value": "2",
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]
