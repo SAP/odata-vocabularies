@@ -783,7 +783,8 @@
             "HorizontalWaterfall": 35,
             "HorizontalCombinationDual": 36,
             "HorizontalCombinationStackedDual": 37,
-            "Donut100": 38
+            "Donut100": 38,
+            "Donut100@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7369"
         },
         "ChartAxisScalingType": {
             "$Kind": "ComplexType",
