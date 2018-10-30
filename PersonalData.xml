@@ -78,7 +78,7 @@ Terms for contact and address information are defined in the [Communication voca
           <Collection>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="PotentialDataSubject" />
+              <PropertyValue Property="Value" String="DataSubject" />
               <Annotation Term="Core.Description">
                 <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor</String>
               </Annotation>
@@ -88,7 +88,7 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="PotentialDataSubjectDetails" />
+              <PropertyValue Property="Value" String="DataSubjectDetails" />
               <Annotation Term="Core.Description">
                 <String>The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress</String>
               </Annotation>
@@ -152,12 +152,12 @@ Types of contracts include:
           <Collection>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="PotentialDataSubjectID" />
+              <PropertyValue Property="Value" String="DataSubjectID" />
               <Annotation Term="Core.Description" String="The unique identifier for a data subject" />
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="PotentialDataSubjectIDType" />
+              <PropertyValue Property="Value" String="SubjectIDType" />
               <Annotation Term="Core.Description"
                 String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>

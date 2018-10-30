@@ -72,13 +72,13 @@
             "@Validation.AllowedValues": [
                 {
                     "@Common.Experimental": true,
-                    "Value": "PotentialDataSubject",
+                    "Value": "DataSubject",
                     "@Core.Description": "The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor",
                     "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
                 },
                 {
                     "@Common.Experimental": true,
-                    "Value": "PotentialDataSubjectDetails",
+                    "Value": "DataSubjectDetails",
                     "@Core.Description": "The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress",
                     "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
                 },
@@ -120,12 +120,12 @@
             "@Validation.AllowedValues": [
                 {
                     "@Common.Experimental": true,
-                    "Value": "PotentialDataSubjectID",
+                    "Value": "DataSubjectID",
                     "@Core.Description": "The unique identifier for a data subject"
                 },
                 {
                     "@Common.Experimental": true,
-                    "Value": "PotentialDataSubjectIDType",
+                    "Value": "SubjectIDType",
                     "@Core.Description": "The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number."
                 },
                 {
