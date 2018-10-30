@@ -705,6 +705,7 @@ The trend is
         <Member Name="HorizontalWaterfall" />
         <Member Name="HorizontalCombinationDual" />
         <Member Name="HorizontalCombinationStackedDual" />
+        <Member Name="Donut100" />
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 

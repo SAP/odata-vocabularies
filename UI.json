@@ -782,7 +782,8 @@
             "VerticalBullet": 34,
             "HorizontalWaterfall": 35,
             "HorizontalCombinationDual": 36,
-            "HorizontalCombinationStackedDual": 37
+            "HorizontalCombinationStackedDual": 37,
+            "Donut100": 38
         },
         "ChartAxisScalingType": {
             "$Kind": "ComplexType",
@@ -1676,15 +1677,21 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "0",
+                    "Value": {
+                        "$Int": "0"
+                    },
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": "1",
+                    "Value": {
+                        "$Int": "1"
+                    },
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": "2",
+                    "Value": {
+                        "$Int": "2"
+                    },
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]
