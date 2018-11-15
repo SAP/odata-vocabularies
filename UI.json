@@ -1515,7 +1515,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
             "Target": {
-                "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields",
                 "@Validation.AllowedTerms": [

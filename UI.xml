@@ -707,7 +707,7 @@ The trend is
         <Member Name="HorizontalCombinationStackedDual" />
         <Member Name="Donut100">
           <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7369" />
-	</Member>
+        </Member>
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>
 
@@ -788,7 +788,7 @@ The trend is
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
             String="Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified." />
-        </Property>        
+        </Property>
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -851,20 +851,20 @@ The trend is
               A label for a criticality is required, if more than one value of the annotated property has been assigned to the same criticality.    
               There must be no more than one label per criticality.
           </String>
-        </Annotation> 
+        </Annotation>
       </Term>
 
       <ComplexType Name="CriticalityLabelType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
-                    String="Assigns a label to a criticality. This information can be used for semantic coloring." />
+          String="Assigns a label to a criticality. This information can be used for semantic coloring." />
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="false" />
         <Property Name="Label" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Criticality label" />
-        </Property>  
+        </Property>
       </ComplexType>
-      
+
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description"
@@ -1311,7 +1311,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
-        <Property Name="Target" Type="Edm.AnnotationPath">
+        <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description"
             String="Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields" />
           <Annotation Term="Validation.AllowedTerms">
@@ -1363,7 +1363,7 @@ The trend is
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
         </Property>
-        <Property Name="Action" Type="Edm.String">
+        <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description"
             String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
@@ -1397,7 +1397,7 @@ The trend is
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
         </Property>
-        <Property Name="Action" Type="Edm.String">
+        <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description"
             String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
