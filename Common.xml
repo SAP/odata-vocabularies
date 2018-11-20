@@ -360,7 +360,6 @@ If the annotation evaluates to false, the unmasked property value can be request
       </Term>
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property" />
-        <Annotation Term="Core.LongDescription" String="Control state of a property" />
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property must have a non-null value" />
         </Member>

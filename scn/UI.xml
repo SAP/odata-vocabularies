@@ -666,7 +666,7 @@ The trend is
         
         
         
-                
+        
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
@@ -703,7 +703,7 @@ The trend is
       
 
       
-      
+
       <Term Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective"/>
         <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type"/>
@@ -1122,7 +1122,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
-        <Property Name="Target" Type="Edm.AnnotationPath">
+        <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description" String="Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields"/>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
@@ -1167,7 +1167,7 @@ The trend is
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>
-        <Property Name="Action" Type="Edm.String">
+        <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."/>
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -1195,7 +1195,7 @@ The trend is
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>
-        <Property Name="Action" Type="Edm.String">
+        <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."/>
         </Property>
       </ComplexType>

@@ -469,8 +469,7 @@
             "Hidden": 0,
             "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
             "Hidden@Core.LongDescription": "To statically hide a property on a UI use `UI.Hidden` instead",
-            "@Core.Description": "Control state of a property",
-            "@Core.LongDescription": "Control state of a property"
+            "@Core.Description": "Control state of a property"
         },
         "ExceptionCategory": {
             "$Kind": "Term",
