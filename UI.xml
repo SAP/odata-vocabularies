@@ -839,7 +839,9 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
-        <Property Name="Value" Type="Edm.PrimitiveType" />
+        <Property Name="Value" Type="Edm.PrimitiveType">
+          <Annotation Term="Core.Description" String="MUST be a fixed value of primitive type" />
+	</Property>
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
