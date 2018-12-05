@@ -920,22 +920,39 @@ The minimum structure is
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" AppliesTo="EntitySet">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description"
+                String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
-        </Property>
-        <Property Name="ValidationFunction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
-            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
                 <PropertyValue Property="Description"
-                  String="Use `PreparationAction` instead which can as a side-effect auto-fill missing information" />
+                  String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
+              </Record>
+            </Collection>
+          </Annotation>
+          <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
+        </Property>
+        <Property Name="ValidationFunction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description"
+                  String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
               </Record>
             </Collection>
           </Annotation>
@@ -992,7 +1009,6 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Revisions">
-            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -1004,14 +1020,26 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description"
             String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
+        <Property Name="TriggerAction" Type="Common.QualifiedName">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
+          <Annotation Term="Core.Description" String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
+        </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Use `TriggerAction` instead" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="This side effect is deferred until invoking the Preparation action" />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
         <Annotation Term="Core.Revisions">
-          <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -1021,7 +1049,6 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         </Annotation>
         <Member Name="ValidationMessage" Value="1">
           <Annotation Term="Core.Revisions">
-            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -1045,7 +1072,6 @@ Upon modification preparation logic is performed that determines additional valu
         </Member>
         <Member Name="FieldControlChange" Value="4">
           <Annotation Term="Core.Revisions">
-            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -1063,7 +1089,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <!-- Section: Default Values -->
       <Term Name="DerivedDefaultValue" Type="Edm.String" AppliesTo="Property">
-        <!-- <Annotation Term="Common.IsFunctionImport" /> -->
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context.</String>
         </Annotation>
@@ -1095,7 +1121,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </Term>
 
       <Term Name="DerivedFilterDefaultValue" Type="Edm.String" AppliesTo="Property">
-        <!-- <Annotation Term="Common.IsFunctionImport" /> -->
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</String>
         </Annotation>

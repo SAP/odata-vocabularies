@@ -1116,6 +1116,12 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
+                }
+            ],
             "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
         },
         "DraftNodeType": {
@@ -1123,6 +1129,12 @@
             "PreparationAction": {
                 "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
+                    }
+                ],
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
@@ -1131,10 +1143,9 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Use `PreparationAction` instead which can as a side-effect auto-fill missing information"
+                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
                     }
                 ],
-                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Description": "Function that validates whether a draft document is ready for activation"
             }
         },
@@ -1211,13 +1222,25 @@
                         "Description": "All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`."
                     }
                 ],
-                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Description": "One or more of the targets may show these effects. If not specified, any effect is possible."
+            },
+            "TriggerAction": {
+                "$Nullable": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
+                "@Core.Description": "Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters."
             },
             "OnPreparation": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Common.Experimental": true,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Use `TriggerAction` instead"
+                    }
+                ],
                 "@Core.Description": "This side effect is deferred until invoking the Preparation action"
             }
         },
@@ -1231,7 +1254,6 @@
                     "Description": "Use `ValueChange` instead"
                 }
             ],
-            "ValidationMessage@Core.Revisions@Common.Experimental": true,
             "ValidationMessage@Core.Description": "Validation messages are assigned to a target",
             "ValidationMessage@Core.LongDescription": "This side effect type indicates that validation messages may result from changes of source properties or entities.  \nThus, a validation request can be sent either in conjunction with or separately after a modifying request. \nValidation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.",
             "ValueChange": 2,
@@ -1244,7 +1266,6 @@
                     "Description": "Use `ValueChange` instead"
                 }
             ],
-            "FieldControlChange@Core.Revisions@Common.Experimental": true,
             "FieldControlChange@Core.Description": "The value of the Common.FieldControl annotation of a target changes",
             "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  \nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined.",
             "@Core.Revisions": [
@@ -1252,8 +1273,7 @@
                     "Kind": "Deprecated",
                     "Description": "`ValueChange` is the only surviving member"
                 }
-            ],
-            "@Core.Revisions@Common.Experimental": true
+            ]
         },
         "DerivedDefaultValue": {
             "$Kind": "Term",
@@ -1261,6 +1281,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Function import to derive a default value for the property from a given context.",
             "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated property.\n\n            Arguments passed to the function import are used as context for deriving the default value. \n            The function import returns this default value, or null in case such a value could not be determined.\n          "
         },
@@ -1289,6 +1310,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Function import to derive a default value for the property from a given context in order to use it in filter expressions.",
             "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter\n            entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the\n            type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated\n            property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
         },
