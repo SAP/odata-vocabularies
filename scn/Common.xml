@@ -630,28 +630,14 @@
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
-            </Record>
-          </Collection>
-        </Annotation>
+        
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
-              </Record>
-            </Collection>
-          </Annotation>
+          
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation"/>
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
@@ -659,7 +645,8 @@
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
+                <!-- -->
+                <PropertyValue Property="Description" String="Separate validation without side-effects is not useful"/>
               </Record>
             </Collection>
           </Annotation>
@@ -691,7 +678,9 @@
         <Annotation Term="Core.LongDescription">
           <String>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
-            
+
+Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
+
 Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
 only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</String>
         </Annotation>
@@ -771,6 +760,8 @@ Upon modification field control logic is invoked so that meta-information like h
       </EnumType>
 
       <!-- Section: Default Values -->
+      
+
       
 
       <Term Name="FilterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Property">

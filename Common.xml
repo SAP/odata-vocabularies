@@ -921,6 +921,7 @@ The minimum structure is
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" AppliesTo="EntitySet">
         <Annotation Term="Core.Revisions">
+          <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -936,6 +937,7 @@ The minimum structure is
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
+            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -951,8 +953,8 @@ The minimum structure is
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description"
-                  String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
+                <!-- -->
+                <PropertyValue Property="Description" String="Separate validation without side-effects is not useful" />
               </Record>
             </Collection>
           </Annotation>
@@ -1025,7 +1027,8 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         <Property Name="TriggerAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
-          <Annotation Term="Core.LongDescription" String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
+          <Annotation Term="Core.LongDescription"
+            String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
         </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />
@@ -1118,8 +1121,8 @@ Upon modification field control logic is invoked so that meta-information like h
             - the parameters of the action or function to call
                       </String>
         </Annotation>
-      </Term>      
-      
+      </Term>
+
       <Term Name="DerivedDefaultValue" Type="Edm.String" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="This has been experimental for three years, consider to delete it" />
         <Annotation Term="Core.Description">

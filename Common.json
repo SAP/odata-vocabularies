@@ -1122,6 +1122,7 @@
                     "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
                 }
             ],
+            "@Core.Revisions@Common.Experimental": true,
             "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
         },
         "DraftNodeType": {
@@ -1135,6 +1136,7 @@
                         "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
                     }
                 ],
+                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
@@ -1143,7 +1145,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
+                        "Description": "Separate validation without side-effects is not useful"
                     }
                 ],
                 "@Core.Description": "Function that validates whether a draft document is ready for activation"
