@@ -987,7 +987,9 @@ The minimum structure is
         <Annotation Term="Core.LongDescription">
           <String>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
-            
+
+Side effects can happen immediately when modifying the entity, or they can be deferred and triggered after several modifying requests via the `TriggerAction`.
+
 Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
 only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</String>
         </Annotation>
