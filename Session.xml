@@ -72,21 +72,19 @@ combined as one UI app.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The annotated entity set allows data modification only within a sticky session" />
-        <!-- TODO: adapt to final resolution of https://issues.oasis-open.org/browse/ODATA-1194
-          <Annotation Term="Core.Example">
+        <Annotation Term="Core.Example">
           <Record>
-          <Annotation Term="Legacy.SessionOnlyStateSupported">
-          <Record>
-          <PropertyValue Property="NewActions" String="..." />
-          <PropertyValue Property="EditAction" String="..." />
-          <PropertyValue Property="PreparationAction" String="..." />
-          <PropertyValue Property="SaveAction" String="..." />
-          <PropertyValue Property="DiscardAction" String="..." />
+            <Annotation Term="Session.SessionOnlyStateSupported">
+              <Record>
+                <PropertyValue Property="NewActions" String="..." />
+                <PropertyValue Property="EditAction" String="..." />
+                <PropertyValue Property="PreparationAction" String="..." />
+                <PropertyValue Property="SaveAction" String="..." />
+                <PropertyValue Property="DiscardAction" String="..." />
+              </Record>
+            </Annotation>
           </Record>
-          </Annotation>
-          </Record>
-          </Annotation>
-        -->
+        </Annotation>
       </Term>
       <ComplexType Name="StickySessionSupportedType">
         <Annotation Term="Common.Experimental" />

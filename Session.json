@@ -42,7 +42,16 @@
                 "EntitySet"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity set allows data modification only within a sticky session"
+            "@Core.Description": "The annotated entity set allows data modification only within a sticky session",
+            "@Core.Example": {
+                "@Session.SessionOnlyStateSupported": {
+                    "NewActions": "...",
+                    "EditAction": "...",
+                    "PreparationAction": "...",
+                    "SaveAction": "...",
+                    "DiscardAction": "..."
+                }
+            }
         },
         "StickySessionSupportedType": {
             "$Kind": "ComplexType",
