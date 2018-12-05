@@ -1023,7 +1023,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         <Property Name="TriggerAction" Type="Common.QualifiedName">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
-          <Annotation Term="Core.Description" String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
+          <Annotation Term="Core.LongDescription" String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
         </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />

@@ -630,16 +630,39 @@
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" AppliesTo="EntitySet">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation"/>
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
-          
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Function that validates whether a draft document is ready for activation"/>
         </Property>
       </ComplexType>
@@ -685,15 +708,37 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target."/>
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
-          
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`."/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible."/>
         </Property>
         
+        
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
-        
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="`ValueChange` is the only surviving member"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Member Name="ValidationMessage" Value="1">
-          
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Use `ValueChange` instead"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target"/>
           <Annotation Term="Core.LongDescription">
             <String>This side effect type indicates that validation messages may result from changes of source properties or entities.  
@@ -709,7 +754,14 @@ Upon modification preparation logic is performed that determines additional valu
           </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
-          
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Use `ValueChange` instead"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes"/>
           <Annotation Term="Core.LongDescription">
             <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  
@@ -719,26 +771,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </EnumType>
 
       <!-- Section: Default Values -->
-      <Term Name="DerivedDefaultValue" Type="Edm.String" AppliesTo="Property">
-        <!-- <Annotation Term="Common.IsFunctionImport" /> -->
-        <Annotation Term="Core.Description">
-          <String>Function import to derive a default value for the property from a given context.</String>
-        </Annotation>
-        <Annotation Term="Core.LongDescription">
-          <String>
-            Function import has two parameters of complex types:
-
-            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property
-
-            - `properties`, a structure resembling the type of the entity set of the annotated property
-
-            The return type must be of the same type as the annotated property.
-
-            Arguments passed to the function import are used as context for deriving the default value. 
-            The function import returns this default value, or null in case such a value could not be determined.
-          </String>
-        </Annotation>
-      </Term>
+      
 
       <Term Name="FilterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A default value for the property to be used in filter expressions."/>
@@ -746,29 +779,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       
 
-      <Term Name="DerivedFilterDefaultValue" Type="Edm.String" AppliesTo="Property">
-        <!-- <Annotation Term="Common.IsFunctionImport" /> -->
-        <Annotation Term="Core.Description">
-          <String>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</String>
-        </Annotation>
-        <Annotation Term="Core.LongDescription">
-          <String>
-            Function import has two parameters of complex types:
-
-            - `parameters`, a structure resembling the entity type the parameter
-            entity set related to the entity set of the annotated property
-
-            - `properties`, a structure resembling the
-            type of the entity set of the annotated property
-
-            The return type must be of the same type as the annotated
-            property.
-
-            Arguments passed to the function import are used as context for deriving the default value.
-            The function import returns this default value, or null in case such a value could not be determined.
-          </String>
-        </Annotation>
-      </Term>
+      
 
       <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="List of sort criteria"/>

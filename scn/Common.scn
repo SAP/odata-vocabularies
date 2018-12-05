@@ -325,10 +325,11 @@ Terms</h2>
 <a name="DraftRoot"></a>Root entities of business documents that support the draft pattern</td>
 </tr>
 <tr>
-<td align="left">DraftNode</td>
+<td align="left">DraftNode <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#DraftNodeType">DraftNodeType</a></td>
 <td align="left">
-<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern</td>
+<a name="DraftNode"></a>Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
 </tr>
 <tr>
 <td align="left">DraftActivationVia</td>
@@ -349,24 +350,10 @@ Terms</h2>
 <a name="SideEffects"></a>Describes side-effects of modification operations</td>
 </tr>
 <tr>
-<td align="left">DerivedDefaultValue</td>
-<td align="left">String</td>
-<td align="left">
-<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>             Function import has two parameters of complex types:<br/>            - <code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/>            - <code>properties</code>, a structure resembling the type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated property.<br/>            Arguments passed to the function import are used as context for deriving the default value.              The function import returns this default value, or null in case such a value could not be determined.           </p>
-</td>
-</tr>
-<tr>
 <td align="left">FilterDefaultValue</td>
 <td align="left">PrimitiveType</td>
 <td align="left">
 <a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.</td>
-</tr>
-<tr>
-<td align="left">DerivedFilterDefaultValue</td>
-<td align="left">String</td>
-<td align="left">
-<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>             Function import has two parameters of complex types:<br/>            - <code>parameters</code>, a structure resembling the entity type the parameter             entity set related to the entity set of the annotated property<br/>            - <code>properties</code>, a structure resembling the             type of the entity set of the annotated property<br/>            The return type must be of the same type as the annotated             property.<br/>            Arguments passed to the function import are used as context for deriving the default value.             The function import returns this default value, or null in case such a value could not be determined.           </p>
-</td>
 </tr>
 <tr>
 <td align="left">SortOrder</td>
@@ -817,14 +804,18 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
-<td align="left"><em>PreparationAction</em></td>
+<td align="left">
+<em>PreparationAction</em> <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
-<td align="left">Action that prepares a draft document for later activation</td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
 </tr>
 <tr>
-<td align="left"><em>ValidationFunction</em></td>
+<td align="left">
+<em>ValidationFunction</em> <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
-<td align="left">Function that validates whether a draft document is ready for activation</td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
 </tr>
 <tr>
 <td align="left">ActivationAction</td>
@@ -860,14 +851,16 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
-<td align="left">PreparationAction</td>
+<td align="left">PreparationAction <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
-<td align="left">Action that prepares a draft document for later activation</td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
 </tr>
 <tr>
-<td align="left">ValidationFunction</td>
+<td align="left">ValidationFunction <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
-<td align="left">Function that validates whether a draft document is ready for activation</td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
 </tr>
 </tbody>
 </table>
@@ -916,14 +909,16 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.</td>
 </tr>
 <tr>
-<td align="left">EffectTypes</td>
+<td align="left">EffectTypes <em>(Deprecated)</em>
+</td>
 <td align="left"><a href="#EffectType">EffectType</a></td>
-<td align="left">One or more of the targets may show these effects. If not specified, any effect is possible.</td>
+<td align="left">All side effects are essentially value changes, differentiation not needed. Do not use together with <code>OnPreparation</code>.</td>
 </tr>
 </tbody>
 </table>
 <h2>
-<a name="EffectType"></a>EffectType</h2>
+<a name="EffectType"></a>EffectType <em>(Deprecated)</em>
+</h2>
 <table>
 <thead>
 <tr>
@@ -934,10 +929,10 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </thead>
 <tbody>
 <tr>
-<td align="left">ValidationMessage</td>
-<td align="right">1</td>
-<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities.   Thus, a validation request can be sent either in conjunction with or separately after a modifying request.  Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+<td align="left">ValidationMessage <em>(Deprecated)</em>
 </td>
+<td align="right">1</td>
+<td align="left">Use <code>ValueChange</code> instead</td>
 </tr>
 <tr>
 <td align="left">ValueChange</td>
@@ -946,10 +941,10 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </td>
 </tr>
 <tr>
-<td align="left">FieldControlChange</td>
-<td align="right">4</td>
-<td align="left">The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.   Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+<td align="left">FieldControlChange <em>(Deprecated)</em>
 </td>
+<td align="right">4</td>
+<td align="left">Use <code>ValueChange</code> instead</td>
 </tr>
 </tbody>
 </table>
