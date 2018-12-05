@@ -306,7 +306,7 @@ Changes to the source properties or source entities may have side-effects on the
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
 
-Side effects can happen immediately when modifying the entity, or they can be deferred and triggered after several modifying requests via the `TriggerAction`.
+Side effects without a `TriggerAction` happen immediately when modifying the entity. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
 Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
 only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.
