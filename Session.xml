@@ -76,9 +76,8 @@ combined as one UI app.
           <Record>
             <Annotation Term="Session.SessionOnlyStateSupported">
               <Record>
-                <PropertyValue Property="NewActions" String="..." />
+                <PropertyValue Property="NewAction" String="..." />
                 <PropertyValue Property="EditAction" String="..." />
-                <PropertyValue Property="PreparationAction" String="..." />
                 <PropertyValue Property="SaveAction" String="..." />
                 <PropertyValue Property="DiscardAction" String="..." />
               </Record>
@@ -129,24 +128,6 @@ Otherwise:
 - On success this action returns the targeted entity and initiates a sticky session.
 
 - On failure no sticky session is initiated.</String>
-          </Annotation>
-        </Property>
-        <Property Name="PreparationAction" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Bound action that prepares (checks, auto-fills) an entity" />
-          <Annotation Term="Core.LongDescription">
-            <String>Signature:
-
-- Binding parameter is type of annotated entity set
-
-- No non-binding parameters
-
-- Return type is same as binding parameter type 
-
-On success this action returns the modified targeted entity. 
-
-If called within a sticky session the sticky session continues. 
-
-If called outside of a sticky session the action fails and does not initiate a session.</String>
           </Annotation>
         </Property>
         <Property Name="SaveAction" Type="Common.QualifiedName" Nullable="false">

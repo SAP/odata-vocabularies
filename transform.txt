@@ -2,6 +2,7 @@
 # file
 
 Analytics.xml
+CodeList.xml
 Common.xml
 Communication.xml
 Hierarchy.xml

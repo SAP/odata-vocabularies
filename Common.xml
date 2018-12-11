@@ -1028,7 +1028,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
           <Annotation Term="Core.LongDescription"
-            String="Binding parameter type of the action MUST be the entity type annotated with `SideEffects`. The action MUST NOT have any additional parameters." />
+            String="Binding parameter type of the action is the entity type annotated with `SideEffects`. The action does not have any additional parameters. The return type is the same as the binding parameter type. On success this action returns the modified targeted entity." />
         </Property>
         <Property Name="OnPreparation" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />

@@ -45,9 +45,8 @@
             "@Core.Description": "The annotated entity set allows data modification only within a sticky session",
             "@Core.Example": {
                 "@Session.SessionOnlyStateSupported": {
-                    "NewActions": "...",
+                    "NewAction": "...",
                     "EditAction": "...",
-                    "PreparationAction": "...",
                     "SaveAction": "...",
                     "DiscardAction": "..."
                 }
@@ -66,11 +65,6 @@
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Bound action that initiates a sticky session for editing the targeted entity",
                 "@Core.LongDescription": "Signature:\n\n- Binding parameter is type of annotated entity set\n\n- No non-binding parameters\n\n- Return type is same as binding parameter type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n\n- On success this action returns the targeted entity and initiates a sticky session.\n\n- On failure no sticky session is initiated."
-            },
-            "PreparationAction": {
-                "$Type": "Common.QualifiedName",
-                "@Core.Description": "Bound action that prepares (checks, auto-fills) an entity",
-                "@Core.LongDescription": "Signature:\n\n- Binding parameter is type of annotated entity set\n\n- No non-binding parameters\n\n- Return type is same as binding parameter type \n\nOn success this action returns the modified targeted entity. \n\nIf called within a sticky session the sticky session continues. \n\nIf called outside of a sticky session the action fails and does not initiate a session."
             },
             "SaveAction": {
                 "$Type": "Common.QualifiedName",
