@@ -319,7 +319,7 @@ Property|Type|Description
 [TargetProperties](Common.xml#L1006)|\[PropertyPath\]|These properties will be affected if the value of one of the sources changes
 [TargetEntities](Common.xml#L1010)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
 [EffectTypes](Common.xml#L1014) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`.
-[TriggerAction](Common.xml#L1027) *(Experimental)*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the action is the entity type annotated with `SideEffects`. The action does not have any additional parameters. The return type is the same as the binding parameter type. On success this action returns the modified targeted entity.</p>
+[TriggerAction](Common.xml#L1027) *(Experimental)*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
 [OnPreparation](Common.xml#L1033) *(Experimental)* *(Deprecated)*|Boolean|Use `TriggerAction` instead
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L1046) *(Deprecated)*

@@ -1231,7 +1231,7 @@
                 "$Type": "Common.QualifiedName",
                 "@Common.Experimental": true,
                 "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
-                "@Core.LongDescription": "Binding parameter type of the action is the entity type annotated with `SideEffects`. The action does not have any additional parameters. The return type is the same as the binding parameter type. On success this action returns the modified targeted entity."
+                "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
             },
             "OnPreparation": {
                 "$Type": "Edm.Boolean",
