@@ -156,7 +156,7 @@
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": " Edm.PrimitiveType",
+            "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "Property"
             ],
@@ -167,7 +167,7 @@
         "UnitSpecificPrecision": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": " Edm.PrimitiveType",
+            "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "Property"
             ],
