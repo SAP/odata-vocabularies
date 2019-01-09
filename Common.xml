@@ -153,18 +153,6 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsCurrencyCode" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Contains a currency code" />
-        <Annotation Term="Core.RequiresType" String="Edm.String" />
-      </Term>
-
-      <Term Name="IsUnitOfMeasure" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Contains a unit of measure" />
-        <Annotation Term="Core.RequiresType" String="Edm.String" />
-      </Term>
-
       <Term Name="UnitSpecificScale" Type="Edm.Byte" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"

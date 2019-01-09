@@ -153,30 +153,6 @@
             "@Core.Description": "Contains just uppercase characters",
             "@Core.RequiresType": "Edm.String"
         },
-        "IsCurrencyCode": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Property",
-                "Parameter"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Contains a currency code",
-            "@Core.RequiresType": "Edm.String"
-        },
-        "IsUnitOfMeasure": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Property",
-                "Parameter"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Contains a unit of measure",
-            "@Core.RequiresType": "Edm.String"
-        },
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Nullable": true,

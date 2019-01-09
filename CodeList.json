@@ -66,6 +66,25 @@
                 "$Nullable": true,
                 "@Core.Description": "Name of the entity set for the code list"
             }
+        },
+        "StandardCode": {
+            "$Kind": "Term",
+            "$Type": "Edm.PropertyPath",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Property containing standard code values"
+        },
+        "ExternalCode": {
+            "$Kind": "Term",
+            "$Type": "Edm.PropertyPath",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Property containing code values that can be used for visualization",
+            "@Core.LongDescription": "The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization."
         }
     }
 }

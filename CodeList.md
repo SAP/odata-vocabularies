@@ -10,6 +10,8 @@ Term|Type|Description
 :---|:---|:----------
 [CurrencyCodes](CodeList.xml#L35) *(Experimental)*|[CodeListSource](#CodeListSource)|<a name="CurrencyCodes"></a>An entity set containing the code list for currencies
 [UnitsOfMeasure](CodeList.xml#L40) *(Experimental)*|[CodeListSource](#CodeListSource)|<a name="UnitsOfMeasure"></a>An entity set containing the code list for units of measure
+[StandardCode](CodeList.xml#L57) *(Experimental)*|PropertyPath|<a name="StandardCode"></a>Property containing standard code values
+[ExternalCode](CodeList.xml#L62) *(Experimental)*|PropertyPath|<a name="ExternalCode"></a>Property containing code values that can be used for visualization<p>The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization.</p>
 
 ## <a name="CodeListSource"></a>[CodeListSource](CodeList.xml#L45) *(Experimental)*
 An entity set containing the code list for currencies
