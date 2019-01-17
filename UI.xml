@@ -131,32 +131,30 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Group of semantically connected fields with a representation template and an optional label" />
-        <!-- TODO: adapt to final resolution of https://issues.oasis-open.org/browse/ODATA-1194
-          <Annotation Term="Core.Example">
+        <Annotation Term="Core.Example">
           <Record>
-          <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
-          <Record>
-          <PropertyValue Property="Label" String="Material" />
-          <PropertyValue Property="Template" String="{MaterialName} - {MaterialClassName}" />
-          <PropertyValue Property="Data">
-          <Record>
-          <PropertyValue Property="MaterialName">
-          <Record Type="com.sap.vocabularies.UI.v1.DataField">
-          <PropertyValue Property="Value" Path="Material" />
+            <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
+              <Record>
+                <PropertyValue Property="Label" String="Material" />
+                <PropertyValue Property="Template" String="{MaterialName} - {MaterialClassName}" />
+                <PropertyValue Property="Data">
+                  <Record>
+                    <PropertyValue Property="MaterialName">
+                      <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                        <PropertyValue Property="Value" Path="Material" />
+                      </Record>
+                    </PropertyValue>
+                    <PropertyValue Property="MaterialClassName">
+                      <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                        <PropertyValue Property="Value" Path="MaterialClass" />
+                      </Record>
+                    </PropertyValue>
+                  </Record>
+                </PropertyValue>
+              </Record>
+            </Annotation>
           </Record>
-          </PropertyValue>
-          <PropertyValue Property="MaterialClassName">
-          <Record Type="com.sap.vocabularies.UI.v1.DataField">
-          <PropertyValue Property="Value" Path="MaterialClass" />
-          </Record>
-          </PropertyValue>
-          </Record>
-          </PropertyValue>
-          </Record>
-          </Annotation>
-          </Record>
-          </Annotation>
-        -->
+        </Annotation>
       </Term>
       <ComplexType Name="ConnectedFieldsType">
         <Annotation Term="Common.Experimental" />
@@ -841,7 +839,7 @@ The trend is
           String="Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring." />
         <Property Name="Value" Type="Edm.PrimitiveType">
           <Annotation Term="Core.Description" String="MUST be a fixed value of primitive type" />
-	</Property>
+        </Property>
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 

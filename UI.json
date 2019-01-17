@@ -198,7 +198,27 @@
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Group of semantically connected fields with a representation template and an optional label"
+            "@Core.Description": "Group of semantically connected fields with a representation template and an optional label",
+            "@Core.Example": {
+                "@UI.ConnectedFields#Material": {
+                    "Label": "Material",
+                    "Template": "{MaterialName} - {MaterialClassName}",
+                    "Data": {
+                        "MaterialName": {
+                            "@type": "#com.sap.vocabularies.UI.v1.DataField",
+                            "Value": {
+                                "$Path": "Material"
+                            }
+                        },
+                        "MaterialClassName": {
+                            "@type": "#com.sap.vocabularies.UI.v1.DataField",
+                            "Value": {
+                                "$Path": "MaterialClass"
+                            }
+                        }
+                    }
+                }
+            }
         },
         "ConnectedFieldsType": {
             "$Kind": "ComplexType",
