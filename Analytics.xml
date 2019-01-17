@@ -19,7 +19,8 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2" />
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -28,11 +29,13 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true"
+        AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
-      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true"
+        AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
@@ -45,8 +48,8 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>
-            URL to retrieve more detailed data related to a node of a recursive hierarchy. 
-            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.  
+            URL to retrieve more detailed data related to a node of a recursive hierarchy.
+            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.
           </String>
         </Annotation>
         <Annotation Term="Core.IsURL" />
@@ -59,6 +62,29 @@
           </String>
         </Annotation>
       </Term>
+
+      <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Statement to aggregate property values with a specified aggregation method." />
+      </Term>
+      <ComplexType Name="AggregatedPropertyType">
+        <Property Name="Name" Type="Common.SimpleIdentifier">
+          <Annotation Term="Core.Description"
+            String="Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target." />
+        </Property>
+        <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied." />
+        </Property>
+        <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property whose values shall be aggregated." />
+        </Property>
+        <!-- following term not yet finalized with OASIS TC 
+        <Annotation Term="Validation.ApplicableTerms">
+         <Collection>
+          <String>Common.Label</String> 
+         </Collection>
+        </Annotation> -->
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

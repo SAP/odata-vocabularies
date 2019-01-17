@@ -66,7 +66,7 @@
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "\n            URL to retrieve more detailed data related to a node of a recursive hierarchy. \n            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.  \n          ",
+            "@Core.Description": "\n            URL to retrieve more detailed data related to a node of a recursive hierarchy.\n            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.\n          ",
             "@Core.IsURL": true
         },
         "PlanningAction": {
@@ -78,6 +78,28 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": " Processes or generates plan data. Its logic may have side-effects on entity sets.\n          "
+        },
+        "AggregatedProperty": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Analytics.AggregatedPropertyType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Statement to aggregate property values with a specified aggregation method."
+        },
+        "AggregatedPropertyType": {
+            "$Kind": "ComplexType",
+            "Name": {
+                "$Nullable": true,
+                "$Type": "Common.SimpleIdentifier",
+                "@Core.Description": "Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target."
+            },
+            "AggregationMethod": {
+                "@Core.Description": "Name of the standard or custom aggregation method to be applied."
+            },
+            "AggregatableProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property whose values shall be aggregated."
+            }
         }
     }
 }
