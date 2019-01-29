@@ -1136,7 +1136,7 @@
             ],
             "@Core.Description": "Draft entities in this set are indirectly activated via draft entities in the referenced entity sets"
         },
-        "EditFieldFor": {
+        "EditableFieldFor": {
             "$Kind": "Term",
             "$Nullable": true,
             "$Type": "Edm.PropertyPath",

@@ -955,7 +955,7 @@ The minimum structure is
           String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
       </Term>
 
-      <Term Name="EditFieldFor" Type="Edm.PropertyPath" AppliesTo="Property">
+      <Term Name="EditableFieldFor" Type="Edm.PropertyPath" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated property is an editable field for the referenced key property" />
       </Term>
