@@ -5,6 +5,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
   </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics">
@@ -40,6 +43,25 @@
       
 
       
+
+      
+      <ComplexType Name="AggregatedPropertyType">
+        <Property Name="Name" Type="Common.SimpleIdentifier">
+          <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target."/>
+        </Property>
+        <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied."/>
+        </Property>
+        <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property whose values shall be aggregated."/>
+        </Property>
+        <!-- following term not yet finalized with OASIS TC 
+        <Annotation Term="Validation.ApplicableTerms">
+         <Collection>
+          <String>Common.Label</String> 
+         </Collection>
+        </Annotation> -->
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

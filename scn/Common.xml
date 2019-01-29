@@ -654,6 +654,8 @@
         <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets"/>
       </Term>
 
+      
+
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The SimpleIdentifier of an OData construct in scope"/>
       </TypeDefinition>

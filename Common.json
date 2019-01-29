@@ -1136,6 +1136,16 @@
             ],
             "@Core.Description": "Draft entities in this set are indirectly activated via draft entities in the referenced entity sets"
         },
+        "EditFieldFor": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Edm.PropertyPath",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated property is an editable field for the referenced key property"
+        },
         "SimpleIdentifier": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
