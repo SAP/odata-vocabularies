@@ -49,11 +49,27 @@
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Plural form of the name of the main entity type" />
         </Property>
-        <Property Name="Title" Type="UI.DataField" Nullable="false">
+        <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="false">
           <Annotation Term="Core.Description" String="Title, e.g. for overview pages" />
+          <Annotation Term="Core.LongDescription"
+            String="This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields)." />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataField</String>
+              <String>UI.DataFieldForAnnotation</String>
+            </Collection>
+          </Annotation>
         </Property>
-        <Property Name="Description" Type="UI.DataField" Nullable="true">
+        <Property Name="Description" Type="UI.DataFieldAbstract" Nullable="true">
           <Annotation Term="Core.Description" String="Description, e.g. for overview pages" />
+          <Annotation Term="Core.LongDescription"
+            String="This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields)." />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataField</String>
+              <String>UI.DataFieldForAnnotation</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="ImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
@@ -128,7 +144,6 @@
       </ComplexType>
 
       <Term Name="ConnectedFields" Type="UI.ConnectedFieldsType" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Group of semantically connected fields with a representation template and an optional label" />
         <Annotation Term="Core.Example">

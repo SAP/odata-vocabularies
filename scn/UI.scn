@@ -50,6 +50,12 @@ Terms</h2>
 <a name="FieldGroup"></a>Group of fields with an optional label</td>
 </tr>
 <tr>
+<td align="left">ConnectedFields</td>
+<td align="left"><a href="#ConnectedFieldsType">ConnectedFieldsType</a></td>
+<td align="left">
+<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label (Example)</td>
+</tr>
+<tr>
 <td align="left">GeoLocations</td>
 <td align="left">[<a href="#GeoLocationType">GeoLocationType</a>]</td>
 <td align="left">
@@ -252,13 +258,15 @@ Terms</h2>
 </tr>
 <tr>
 <td align="left">Title</td>
-<td align="left"><a href="#DataField">DataField</a></td>
-<td align="left">Title, e.g. for overview pages</td>
+<td align="left"><a href="#DataFieldAbstract">DataFieldAbstract</a></td>
+<td align="left">Title, e.g. for overview pages<p>This can be a <a href="#DataField"><code>DataField</code></a> and any of its children, or a <a href="#DataFieldForAnnotation"><code>DataFieldForAnnotation</code></a> targeting <a href="#ConnectedFields"><code>ConnectedFields</code></a>.</p>
+</td>
 </tr>
 <tr>
 <td align="left">Description</td>
-<td align="left"><a href="#DataField">DataField</a></td>
-<td align="left">Description, e.g. for overview pages</td>
+<td align="left"><a href="#DataFieldAbstract">DataFieldAbstract</a></td>
+<td align="left">Description, e.g. for overview pages<p>This can be a <a href="#DataField"><code>DataField</code></a> and any of its children, or a <a href="#DataFieldForAnnotation"><code>DataFieldForAnnotation</code></a> targeting <a href="#ConnectedFields"><code>ConnectedFields</code></a>.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ImageUrl</td>

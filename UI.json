@@ -69,13 +69,23 @@
                 "@Core.Description": "Plural form of the name of the main entity type"
             },
             "Title": {
-                "$Type": "UI.DataField",
-                "@Core.Description": "Title, e.g. for overview pages"
+                "$Type": "UI.DataFieldAbstract",
+                "@Core.Description": "Title, e.g. for overview pages",
+                "@Core.LongDescription": "This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields).",
+                "@Validation.DerivedTypeConstraint": [
+                    "UI.DataField",
+                    "UI.DataFieldForAnnotation"
+                ]
             },
             "Description": {
                 "$Nullable": true,
-                "$Type": "UI.DataField",
-                "@Core.Description": "Description, e.g. for overview pages"
+                "$Type": "UI.DataFieldAbstract",
+                "@Core.Description": "Description, e.g. for overview pages",
+                "@Core.LongDescription": "This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields).",
+                "@Validation.DerivedTypeConstraint": [
+                    "UI.DataField",
+                    "UI.DataFieldForAnnotation"
+                ]
             },
             "ImageUrl": {
                 "$Nullable": true,
@@ -197,7 +207,6 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Group of semantically connected fields with a representation template and an optional label",
             "@Core.Example": {
                 "@UI.ConnectedFields#Material": {
