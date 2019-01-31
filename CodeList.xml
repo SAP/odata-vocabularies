@@ -45,11 +45,11 @@
       <ComplexType Name="CodeListSource">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="An entity set containing the code list for currencies" />
-        <Property Name="Url" Type="Edm.String">
+        <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of a CSDL document describing an entity set for a code list" />
         </Property>
-        <Property Name="CollectionPath" Type="Edm.String">
+        <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the entity set for the code list" />
         </Property>
       </ComplexType>

@@ -58,12 +58,10 @@
             "@Common.Experimental": true,
             "@Core.Description": "An entity set containing the code list for currencies",
             "Url": {
-                "$Nullable": true,
                 "@Core.IsURL": true,
                 "@Core.Description": "URL of a CSDL document describing an entity set for a code list"
             },
             "CollectionPath": {
-                "$Nullable": true,
                 "@Core.Description": "Name of the entity set for the code list"
             }
         },
