@@ -9,7 +9,6 @@
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList">
-      <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for Code Lists</String>
       </Annotation>
@@ -55,12 +54,10 @@
       </ComplexType>
 
       <Term Name="StandardCode" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property containing standard code values" />
       </Term>
 
       <Term Name="ExternalCode" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property containing code values that can be used for visualization" />
         <Annotation Term="Core.LongDescription"
           String="The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization." />

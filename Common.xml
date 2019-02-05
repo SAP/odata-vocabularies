@@ -154,7 +154,6 @@
       </Term>
 
       <Term Name="UnitSpecificScale" Type="Edm.PrimitiveType" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The number of fractional decimal digits of a currency amount or measured quantity" />
         <Annotation Term="Core.LongDescription"
