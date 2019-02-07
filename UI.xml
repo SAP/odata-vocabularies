@@ -52,7 +52,7 @@
         <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="false">
           <Annotation Term="Core.Description" String="Title, e.g. for overview pages" />
           <Annotation Term="Core.LongDescription"
-            String="This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields)." />
+            String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
@@ -63,7 +63,7 @@
         <Property Name="Description" Type="UI.DataFieldAbstract" Nullable="true">
           <Annotation Term="Core.Description" String="Description, e.g. for overview pages" />
           <Annotation Term="Core.LongDescription"
-            String="This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields)." />
+            String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
@@ -193,7 +193,7 @@
           </Annotation>
           <Annotation Term="Core.Description" String="Dictionary of template variables" />
           <Annotation Term="Core.LongDescription"
-            String="Each template variable used in `Template` must be assigned a value here. The value must be of type [`UI.DataFieldAbstract`](#DataFieldAbstract)" />
+            String="Each template variable used in `Template` must be assigned a value here. The value must be of type [DataFieldAbstract](#DataFieldAbstract)" />
         </Property>
       </ComplexType>
 
@@ -1288,7 +1288,7 @@ The trend is
         <Annotation Term="Core.Description"
           String="Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true." />
         <Annotation Term="Core.LongDescription"
-          String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all." />
+          String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all." />
       </Term>
 
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">

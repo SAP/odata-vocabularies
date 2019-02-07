@@ -71,7 +71,7 @@
             "Title": {
                 "$Type": "UI.DataFieldAbstract",
                 "@Core.Description": "Title, e.g. for overview pages",
-                "@Core.LongDescription": "This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields).",
+                "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
                     "UI.DataField",
                     "UI.DataFieldForAnnotation"
@@ -81,7 +81,7 @@
                 "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
                 "@Core.Description": "Description, e.g. for overview pages",
-                "@Core.LongDescription": "This can be a [`DataField`](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [`ConnectedFields`](#ConnectedFields).",
+                "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
                     "UI.DataField",
                     "UI.DataFieldForAnnotation"
@@ -249,7 +249,7 @@
                     "UI.DataFieldAbstract"
                 ],
                 "@Core.Description": "Dictionary of template variables",
-                "@Core.LongDescription": "Each template variable used in `Template` must be assigned a value here. The value must be of type [`UI.DataFieldAbstract`](#DataFieldAbstract)"
+                "@Core.LongDescription": "Each template variable used in `Template` must be assigned a value here. The value must be of type [DataFieldAbstract](#DataFieldAbstract)"
             }
         },
         "GeoLocations": {
@@ -1497,7 +1497,7 @@
                 "Property"
             ],
             "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
-            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [`UI.Hidden`](#Hidden) that are not rendered at all."
+            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."
         },
         "DataFieldDefault": {
             "$Kind": "Term",
