@@ -1598,7 +1598,7 @@
             "$BaseType": "UI.DataFieldForActionAbstract",
             "@Core.Description": "Triggers intent-based UI navigation",
             "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.",
-            "@Core.LongDescription": "The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.",
+            "@Core.LongDescription": "The navigation intent is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)), the data field represents a navigation trigger.",
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },
@@ -1624,7 +1624,7 @@
         "DataFieldWithAction": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
-            "@Core.Description": "The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.",
+            "@Core.Description": "The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value.",
             "Action": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
@@ -1634,7 +1634,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
             "@Core.Description": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object",
-            "@Core.LongDescription": "The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.",
+            "@Core.LongDescription": "The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },

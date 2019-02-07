@@ -770,7 +770,7 @@ Property|Type|Description
 [Value](UI.xml#L1395)|PrimitiveType|The data field's value
 
 ## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1401): [DataField](#DataField)
-The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to DataFieldForAction which is not tied to a specific data value.
+The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
@@ -784,7 +784,7 @@ Property|Type|Description
 ## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1410): [DataField](#DataField)
 The navigation intent is is expressed as a Semantic Object and optionally an Action on that object
 
-The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to DataFieldForIntentBasedNavigation which is not tied to a specific data value.
+The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
