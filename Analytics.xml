@@ -84,8 +84,13 @@
         <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property whose values shall be aggregated." />
         </Property>
-        <!-- following term not yet finalized with OASIS TC <Annotation Term="Validation.ApplicableTerms"> <Collection> <String>Common.Label</String> 
-          </Collection> </Annotation> -->
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation vocabulary 
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Label</String>  <!- - more in the future as needed - ->
+          </Collection>
+        </Annotation>
+        -->
       </ComplexType>
 
       <Term Name="CustomAggregate" BaseTerm="Aggregation.CustomAggregate" Type="Core.Tag" AppliesTo="EntityType ComplexType EntityContainer">

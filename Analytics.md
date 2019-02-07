@@ -14,7 +14,7 @@ Term|Type|Description
 [DrillURL](Analytics.xml#L53) *(Experimental)*|URL|<a name="DrillURL"></a>URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.
 [PlanningAction](Analytics.xml#L64) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.
 [AggregatedProperty](Analytics.xml#L72) *(Experimental)*|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Statement to aggregate property values with a specified aggregation method.
-[CustomAggregate](Analytics.xml#L91)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CustomAggregate"></a>
+[CustomAggregate](Analytics.xml#L96)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CustomAggregate"></a>
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L76)
 
