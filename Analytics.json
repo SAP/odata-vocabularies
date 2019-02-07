@@ -126,7 +126,9 @@
                 "EntityType",
                 "ComplexType",
                 "EntityContainer"
-            ]
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it."
         }
     }
 }
