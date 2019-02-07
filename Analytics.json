@@ -17,6 +17,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Validation",
+                    "$Namespace": "Org.OData.Validation.V1"
+                }
+            ]
+        },
         "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
             "$Include": [
                 {
@@ -108,6 +116,17 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property whose values shall be aggregated."
             }
+        },
+        "CustomAggregate": {
+            "$Kind": "Term",
+            "$BaseTerm": "Aggregation.CustomAggregate",
+            "$Nullable": true,
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "EntityContainer"
+            ]
         }
     }
 }
