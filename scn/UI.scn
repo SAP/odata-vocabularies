@@ -2197,7 +2197,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldForAction"></a>DataFieldForAction: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
-<p>The action is NOT tied to a data value (in contrast to DataFieldWithAction)</p>
+<p>Triggers an OData action</p>
+<p>The action is NOT tied to a data value (in contrast to <a href="#DataFieldWithAction"></a>).</p>
 <table>
 <thead>
 <tr>
@@ -2275,8 +2276,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
-<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object</p>
-<p>The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger.</p>
+<p>Triggers intent-based UI navigation</p>
+<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.</p>
 <table>
 <thead>
 <tr>

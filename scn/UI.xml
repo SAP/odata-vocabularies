@@ -1188,7 +1188,8 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldForAction" BaseType="UI.DataFieldForActionAbstract">
-        <Annotation Term="Core.Description" String="The action is NOT tied to a data value (in contrast to DataFieldWithAction)"/>
+        <Annotation Term="Core.Description" String="Triggers an OData action"/>
+        <Annotation Term="Core.LongDescription" String="The action is NOT tied to a data value (in contrast to [](#DataFieldWithAction))."/>
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope"/>
         </Property>
@@ -1202,7 +1203,8 @@ The trend is
       </EnumType>
 
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
-        <Annotation Term="Core.Description" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object"/>
+        <Annotation Term="Core.Description" String="Triggers intent-based UI navigation"/>
+        <Annotation Term="Core.LongDescription" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object."/>
         <Annotation Term="Core.LongDescription" String="The navigation intent is NOT tied to a data value (in contrast to DataFieldWithIntentBasedNavigation), the data field represents a navigation trigger."/>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
