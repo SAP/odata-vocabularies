@@ -2198,7 +2198,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <a name="DataFieldForAction"></a>DataFieldForAction: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
 <p>Triggers an OData action</p>
-<p>The action is NOT tied to a data value (in contrast to <a href="#DataFieldWithAction"></a>).</p>
+<p>The action is NOT tied to a data value (in contrast to <a href="#DataFieldWithAction">DataFieldWithAction</a>).</p>
 <table>
 <thead>
 <tr>

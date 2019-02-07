@@ -714,7 +714,7 @@ Property|Type|Description
 ## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1357): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers an OData action
 
-The action is NOT tied to a data value (in contrast to [](#DataFieldWithAction)).
+The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).
 
 Property|Type|Description
 :-------|:---|:----------
