@@ -80,6 +80,16 @@
             ],
             "@Core.Description": "Property containing code values that can be used for visualization",
             "@Core.LongDescription": "The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization."
+        },
+        "IsConfigurationDeprecationCode": {
+            "$Kind": "Term",
+            "$Type": "Edm.Boolean",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-10262",
+            "@Core.Description": "Property contains a Configuration Deprecation Code",
+            "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
         }
     }
 }
