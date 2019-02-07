@@ -49,7 +49,7 @@
         </Property>
         <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="false">
           <Annotation Term="Core.Description" String="Title, e.g. for overview pages"/>
-          <Annotation Term="Core.LongDescription" String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)."/>
+          <Annotation Term="Core.LongDescription" String="This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)."/>
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
@@ -59,7 +59,7 @@
         </Property>
         <Property Name="Description" Type="UI.DataFieldAbstract" Nullable="true">
           <Annotation Term="Core.Description" String="Description, e.g. for overview pages"/>
-          <Annotation Term="Core.LongDescription" String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)."/>
+          <Annotation Term="Core.LongDescription" String="This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)."/>
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>

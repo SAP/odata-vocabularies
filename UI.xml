@@ -52,7 +52,7 @@
         <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="false">
           <Annotation Term="Core.Description" String="Title, e.g. for overview pages" />
           <Annotation Term="Core.LongDescription"
-            String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
+            String="This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
@@ -63,7 +63,7 @@
         <Property Name="Description" Type="UI.DataFieldAbstract" Nullable="true">
           <Annotation Term="Core.Description" String="Description, e.g. for overview pages" />
           <Annotation Term="Core.LongDescription"
-            String="This can be a [DataField](#DataField) and any of its children, or a [`DataFieldForAnnotation`](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
+            String="This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)." />
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
@@ -1296,7 +1296,7 @@ The trend is
         <Annotation Term="Core.Description"
           String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
         <Annotation Term="Core.LongDescription"
-          String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type `DataField` and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
+          String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
       </Term>
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">

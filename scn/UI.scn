@@ -259,13 +259,13 @@ Terms</h2>
 <tr>
 <td align="left">Title</td>
 <td align="left"><a href="#DataFieldAbstract">DataFieldAbstract</a></td>
-<td align="left">Title, e.g. for overview pages<p>This can be a <a href="#DataField">DataField</a> and any of its children, or a <a href="#DataFieldForAnnotation"><code>DataFieldForAnnotation</code></a> targeting <a href="#ConnectedFields">ConnectedFields</a>.</p>
+<td align="left">Title, e.g. for overview pages<p>This can be a <a href="#DataField">DataField</a> and any of its children, or a <a href="#DataFieldForAnnotation">DataFieldForAnnotation</a> targeting <a href="#ConnectedFields">ConnectedFields</a>.</p>
 </td>
 </tr>
 <tr>
 <td align="left">Description</td>
 <td align="left"><a href="#DataFieldAbstract">DataFieldAbstract</a></td>
-<td align="left">Description, e.g. for overview pages<p>This can be a <a href="#DataField">DataField</a> and any of its children, or a <a href="#DataFieldForAnnotation"><code>DataFieldForAnnotation</code></a> targeting <a href="#ConnectedFields">ConnectedFields</a>.</p>
+<td align="left">Description, e.g. for overview pages<p>This can be a <a href="#DataField">DataField</a> and any of its children, or a <a href="#DataFieldForAnnotation">DataFieldForAnnotation</a> targeting <a href="#ConnectedFields">ConnectedFields</a>.</p>
 </td>
 </tr>
 <tr>
