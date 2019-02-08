@@ -688,6 +688,11 @@
                 "$Type": "UI.DataPointType",
                 "@Core.Description": "Data point, either specified inline or referencing another annotation via Path"
             },
+            "AdditionalDataPoints": {
+                "$Collection": true,
+                "$Type": "UI.DataPointType",
+                "@Core.Description": "Additional data points, either specified inline or referencing another annotation via Path"
+            },
             "Detail": {
                 "$Nullable": true,
                 "$Type": "UI.KPIDetailType",
