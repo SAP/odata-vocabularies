@@ -691,7 +691,8 @@
             "AdditionalDataPoints": {
                 "$Collection": true,
                 "$Type": "UI.DataPointType",
-                "@Core.Description": "Additional data points, either specified inline or referencing another annotation via Path"
+                "@Core.Description": "Additional data points, either specified inline or referencing another annotation via Path",
+                "@Core.LongDescription": "Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons"
             },
             "Detail": {
                 "$Nullable": true,

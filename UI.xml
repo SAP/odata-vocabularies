@@ -617,6 +617,8 @@ The trend is
         </Property>
         <Property Name="AdditionalDataPoints" Type="Collection(UI.DataPointType)" Nullable="false">
           <Annotation Term="Core.Description" String="Additional data points, either specified inline or referencing another annotation via Path" />
+          <Annotation Term="Core.LongDescription"
+	    String="Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons" />
         </Property>
         <Property Name="Detail" Type="UI.KPIDetailType">
           <Annotation Term="Core.Description"
