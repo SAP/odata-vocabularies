@@ -615,6 +615,9 @@ The trend is
           <Annotation Term="Core.Description"
             String="Data point, either specified inline or referencing another annotation via Path" />
         </Property>
+        <Property Name="AdditionalDataPoints" Type="Collection(UI.DataPointType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Additional data points, either specified inline or referencing another annotation via Path" />
+        </Property>
         <Property Name="Detail" Type="UI.KPIDetailType">
           <Annotation Term="Core.Description"
             String="Contains information about KPI details, especially drill-down presentations" />
