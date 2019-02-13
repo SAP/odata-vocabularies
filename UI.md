@@ -14,7 +14,7 @@ Term|Type|Description
 [LineItem](UI.xml#L122)|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="LineItem"></a>Collection of data fields for representation in a table or list
 [StatusInfo](UI.xml#L127)|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="StatusInfo"></a>Collection of data fields describing the status of an entity
 [FieldGroup](UI.xml#L132)|[FieldGroupType](#FieldGroupType)|<a name="FieldGroup"></a>Group of fields with an optional label
-[ConnectedFields](UI.xml#L146)|[ConnectedFieldsType](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label
+[ConnectedFields](UI.xml#L146)|[ConnectedFieldsType](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](UI.xml#L149))
 [GeoLocations](UI.xml#L216)|\[[GeoLocationType](#GeoLocationType)\]|<a name="GeoLocations"></a>Collection of geographic locations
 [GeoLocation](UI.xml#L220)|[GeoLocationType](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
 [Contacts](UI.xml#L240)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<p>Each collection item MUST reference an annotation of a Communication.Contact</p>
