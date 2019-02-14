@@ -664,13 +664,6 @@ The minimum structure is
       <ComplexType Name="ValueListParameterDisplayOnly" BaseType="Common.ValueListParameter">
         <Annotation Term="Core.Description" String="Value list property that is not used to fill the edited entity" />
       </ComplexType>
-      <ComplexType Name="ValueListParameterConstantFilter" BaseType="Common.ValueListParameter">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-10515" />
-        <Annotation Term="Core.Description" String="Value list property is filtered using `eq` comparison with the filter value" />
-        <Property Name="FilterValue" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Constant value for `eq` comparison after appropriate type-cast" />
-        </Property>
-      </ComplexType>
       <ComplexType Name="ValueListParameterFilterOnly" BaseType="Common.ValueListParameter">
         <Annotation Term="Core.Description"
           String="Value list property that is used to filter the value list, not connected to the edited entity" />

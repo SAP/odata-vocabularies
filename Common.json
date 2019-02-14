@@ -800,15 +800,6 @@
             "$BaseType": "Common.ValueListParameter",
             "@Core.Description": "Value list property that is not used to fill the edited entity"
         },
-        "ValueListParameterConstantFilter": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Common.ValueListParameter",
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-10515",
-            "@Core.Description": "Value list property is filtered using `eq` comparison with the filter value",
-            "FilterValue": {
-                "@Core.Description": "Constant value for `eq` comparison after appropriate type-cast"
-            }
-        },
         "ValueListParameterFilterOnly": {
             "$Kind": "ComplexType",
             "$BaseType": "Common.ValueListParameter",
