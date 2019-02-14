@@ -2055,7 +2055,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <em><a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a></em>
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
-<li><a href="#DataFieldForModificationOperation">DataFieldForModificationOperation</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
 </ul>
 </li>
@@ -2170,7 +2169,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
-<li><a href="#DataFieldForModificationOperation">DataFieldForModificationOperation</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
 </ul>
 <table>
@@ -2290,56 +2288,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">ChangeSet</td>
 <td align="right">1</td>
 <td align="left">Group all actions into a single change set</td>
-</tr>
-</tbody>
-</table>
-<h2>
-<a name="DataFieldForModificationOperation"></a>DataFieldForModificationOperation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
-</h2>
-<p>Triggers a data modification operation</p>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><em>Label</em></td>
-<td align="left">String</td>
-<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
-</tr>
-<tr>
-<td align="left"><em>Criticality</em></td>
-<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
-<td align="left">Criticality of the data field value</td>
-</tr>
-<tr>
-<td align="left"><em>CriticalityRepresentation</em></td>
-<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
-<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
-</tr>
-<tr>
-<td align="left"><em>IconUrl</em></td>
-<td align="left">URL</td>
-<td align="left">Optional icon</td>
-</tr>
-<tr>
-<td align="left"><em>Inline</em></td>
-<td align="left">Boolean</td>
-<td align="left">Action should be placed close to (or even inside) the visualized term</td>
-</tr>
-<tr>
-<td align="left"><em>Determining</em></td>
-<td align="left">Boolean</td>
-<td align="left">Determines whether the action completes a process step (e.g. approve, reject).</td>
-</tr>
-<tr>
-<td align="left">Operation</td>
-<td align="left"><a href="#ModificationOperationType">ModificationOperationType</a></td>
-<td align="left">Modification operation to trigger</td>
 </tr>
 </tbody>
 </table>
@@ -2583,7 +2531,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 <a name="DataFieldWithNavigationPath"></a>DataFieldWithNavigationPath: <a href="#DataField">DataField</a>
 </h2>
 <p>A piece of data that allows navigating to related data</p>
-<p>It should be rendered as a hyperlink.</p>
+<p>It should be rendered as a hyperlink</p>
 <table>
 <thead>
 <tr>
@@ -2628,6 +2576,8 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 <h2>
 <a name="DataFieldWithUrl"></a>DataFieldWithUrl: <a href="#DataField">DataField</a>
 </h2>
+<p>A piece of data that allows navigating to other information on the Web</p>
+<p>It should be rendered as a hyperlink</p>
 <table>
 <thead>
 <tr>

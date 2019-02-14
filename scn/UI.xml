@@ -1245,12 +1245,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <ComplexType Name="DataFieldForModificationOperation" BaseType="UI.DataFieldForActionAbstract">
-        <Annotation Term="Core.Description" String="Triggers a data modification operation"/>
-        <Property Name="Operation" Type="UI.ModificationOperationType" Nullable="false">
-          <Annotation Term="Core.Description" String="Modification operation to trigger"/>
-        </Property>
-      </ComplexType>
+      
       <EnumType Name="ModificationOperationType">
         <Member Name="Create">
           <Annotation Term="Core.Description" String="Create a new data entity"/>
@@ -1328,9 +1323,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       <ComplexType Name="DataFieldWithNavigationPath" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows navigating to related data"/>
-        <Annotation Term="Core.LongDescription">
-          <String>It should be rendered as a hyperlink.</String>
-        </Annotation>
+        <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink"/>
         <Property Name="Target" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types</String>
@@ -1339,6 +1332,8 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </ComplexType>
 
       <ComplexType Name="DataFieldWithUrl" BaseType="UI.DataField">
+        <Annotation Term="Core.Description" String="A piece of data that allows navigating to other information on the Web"/>
+        <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink"/>
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target of the hyperlink"/>
           <Annotation Term="Core.IsURL"/>

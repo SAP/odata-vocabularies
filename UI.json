@@ -1607,6 +1607,7 @@
         "DataFieldForModificationOperation": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldForActionAbstract",
+            "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
             "@Core.Description": "Triggers a data modification operation",
             "Operation": {
                 "$Type": "UI.ModificationOperationType",
@@ -1677,7 +1678,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows navigating to related data",
-            "@Core.LongDescription": "It should be rendered as a hyperlink.",
+            "@Core.LongDescription": "It should be rendered as a hyperlink",
             "Target": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types"
@@ -1686,6 +1687,8 @@
         "DataFieldWithUrl": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
+            "@Core.Description": "A piece of data that allows navigating to other information on the Web",
+            "@Core.LongDescription": "It should be rendered as a hyperlink",
             "Url": {
                 "@Core.Description": "Target of the hyperlink",
                 "@Core.IsURL": true
