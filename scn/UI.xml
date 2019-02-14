@@ -16,8 +16,21 @@
       <Annotation Term="Core.Description">
         <String>Terms for presenting data in user interfaces</String>
       </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>The SAP UI Vocabulary aims to optimize usage of data in UI channels.
+It focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the 
+UI technologies or devices used to visualize the data.
+
+These usage patterns represent certain semantic views on business data, some of them very general, 
+others centering around the concept of a Thing, i.e. something tangible to end users. 
+Examples for Things are semantic object instances or business object instances. 
+One example for a usage pattern is the collection of properties which helps the user to identify a Thing, 
+the [UI.Identification](#Identification) term. 
+Another example is the [UI.LineItem](#LineItem) term, which is a set of properties suitable for visualizing 
+a collection of business object instances, e.g. as a list or table.</String>
+      </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
-        <String>2017-02-15 © Copyright 2013 SAP AG. All rights reserved</String>
+        <String>2019-02-14 © Copyright 2013 SAP SE. All rights reserved</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
@@ -546,6 +559,10 @@ The trend is
         <Property Name="DataPoint" Type="UI.DataPointType" Nullable="false">
           <Annotation Term="Core.Description" String="Data point, either specified inline or referencing another annotation via Path"/>
         </Property>
+        <Property Name="AdditionalDataPoints" Type="Collection(UI.DataPointType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Additional data points, either specified inline or referencing another annotation via Path"/>
+          <Annotation Term="Core.LongDescription" String="Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons"/>
+        </Property>
         <Property Name="Detail" Type="UI.KPIDetailType">
           <Annotation Term="Core.Description" String="Contains information about KPI details, especially drill-down presentations"/>
         </Property>
@@ -710,6 +727,17 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
+          vocabulary
+          <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Core.Description"
+          String="When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined
+          from the value of the ChartMeasureAttributeType/Measure property " />
+          <Collection>
+          <String>Analytics.AggregatedProperty</String>
+          </Collection>
+          </Annotation>
+        -->
         <Property Name="Measure" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartMeasureRoleType"/>
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
@@ -1136,6 +1164,16 @@ The trend is
       
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
+        <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action"/>
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
+          vocabulary
+          <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+          <String>UI.Hidden</String>
+          <String>UI.Importance</String>
+          </Collection>
+          </Annotation>
+        -->
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs"/>
           <Annotation Term="Core.IsLanguageDependent"/>
@@ -1147,7 +1185,7 @@ The trend is
           <Annotation Term="Core.Description" String="Decides if criticality is visualized in addition by means of an icon"/>
         </Property>
         <Property Name="IconUrl" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Optional icon to decorate the value"/>
+          <Annotation Term="Core.Description" String="Optional icon"/>
           <Annotation Term="Core.IsURL"/>
         </Property>
       </ComplexType>
@@ -1162,6 +1200,7 @@ The trend is
       </EnumType>
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Core.Description" String="A structured piece of data described by an annotation"/>
         <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description" String="Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields"/>
           <Annotation Term="Validation.AllowedTerms">
@@ -1178,7 +1217,7 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldForActionAbstract" BaseType="UI.DataFieldAbstract" Abstract="true">
-        <Annotation Term="Core.Description" String="Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation"/>
+        <Annotation Term="Core.Description" String="Triggers an action"/>
         <Property Name="Inline" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Action should be placed close to (or even inside) the visualized term"/>
         </Property>
@@ -1198,14 +1237,39 @@ The trend is
         </Property>
       </ComplexType>
       <EnumType Name="OperationGroupingType">
-        <Member Name="Isolated"/>
-        <Member Name="ChangeSet"/>
+        <Member Name="Isolated">
+          <Annotation Term="Core.Description" String="Invoke each action in isolation from other actions"/>
+        </Member>
+        <Member Name="ChangeSet">
+          <Annotation Term="Core.Description" String="Group all actions into a single change set"/>
+        </Member>
+      </EnumType>
+
+      <ComplexType Name="DataFieldForModificationOperation" BaseType="UI.DataFieldForActionAbstract">
+        <Annotation Term="Core.Description" String="Triggers a data modification operation"/>
+        <Property Name="Operation" Type="UI.ModificationOperationType" Nullable="false">
+          <Annotation Term="Core.Description" String="Modification operation to trigger"/>
+        </Property>
+      </ComplexType>
+      <EnumType Name="ModificationOperationType">
+        <Member Name="Create">
+          <Annotation Term="Core.Description" String="Create a new data entity"/>
+        </Member>
+        <Member Name="Update">
+          <Annotation Term="Core.Description" String="Edit an existing data entity"/>
+        </Member>
+        <Member Name="Delete">
+          <Annotation Term="Core.Description" String="Delete an existing data entity"/>
+        </Member>
       </EnumType>
 
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="Triggers intent-based UI navigation"/>
-        <Annotation Term="Core.LongDescription" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object."/>
-        <Annotation Term="Core.LongDescription" String="The navigation intent is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)), the data field represents a navigation trigger."/>
+        <Annotation Term="Core.LongDescription">
+          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          
+It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."</String>
+        </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>
@@ -1218,6 +1282,20 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Core.Description" String="A piece of data"/>
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
+          vocabulary
+          <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Core.Description"
+          String="When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined
+          from the value of the DataField/Value property " />
+          <Collection>
+          <String>UI.Hidden</String>
+          <String>UI.Importance</String>
+          <String>Analytics.AggregatedProperty</String>
+          </Collection>
+          </Annotation>
+        -->
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="The data field's value"/>
           <Annotation Term="Core.IsLanguageDependent"/>
@@ -1225,15 +1303,21 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldWithAction" BaseType="UI.DataField">
-        <Annotation Term="Core.Description" String="The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value."/>
+        <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action"/>
+        <Annotation Term="Core.LongDescription" String="The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value."/>
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope"/>
         </Property>
       </ComplexType>
 
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
-        <Annotation Term="Core.Description" String="The navigation intent is is expressed as a Semantic Object and optionally an Action on that object"/>
-        <Annotation Term="Core.LongDescription" String="The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value."/>
+        <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          
+It is tied to a data value which should be rendered as a hyperlink. 
+This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
+        </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object"/>
         </Property>
@@ -1243,6 +1327,10 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="DataFieldWithNavigationPath" BaseType="UI.DataField">
+        <Annotation Term="Core.Description" String="A piece of data that allows navigating to related data"/>
+        <Annotation Term="Core.LongDescription">
+          <String>It should be rendered as a hyperlink.</String>
+        </Annotation>
         <Property Name="Target" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types</String>

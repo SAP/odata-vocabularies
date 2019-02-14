@@ -37,7 +37,8 @@
     "com.sap.vocabularies.UI.v1": {
         "$Alias": "UI",
         "@Core.Description": "Terms for presenting data in user interfaces",
-        "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
+        "@Core.LongDescription": "The SAP UI Vocabulary aims to optimize usage of data in UI channels.\nIt focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the \nUI technologies or devices used to visualize the data.\n\nThese usage patterns represent certain semantic views on business data, some of them very general, \nothers centering around the concept of a Thing, i.e. something tangible to end users. \nExamples for Things are semantic object instances or business object instances. \nOne example for a usage pattern is the collection of properties which helps the user to identify a Thing, \nthe [UI.Identification](#Identification) term. \nAnother example is the [UI.LineItem](#LineItem) term, which is a set of properties suitable for visualizing \na collection of business object instances, e.g. as a list or table.",
+        "@Core.Description#Published": "2019-02-14 © Copyright 2013 SAP SE. All rights reserved",
         "@Core.Links": [
             {
                 "rel": "latest-version",
@@ -1519,6 +1520,7 @@
         "DataFieldAbstract": {
             "$Kind": "ComplexType",
             "$Abstract": true,
+            "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
             "Label": {
                 "$Nullable": true,
                 "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
@@ -1536,7 +1538,7 @@
             },
             "IconUrl": {
                 "$Nullable": true,
-                "@Core.Description": "Optional icon to decorate the value",
+                "@Core.Description": "Optional icon",
                 "@Core.IsURL": true
             }
         },
@@ -1550,6 +1552,7 @@
         "DataFieldForAnnotation": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
+            "@Core.Description": "A structured piece of data described by an annotation",
             "Target": {
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields",
@@ -1567,7 +1570,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
             "$Abstract": true,
-            "@Core.Description": "Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation",
+            "@Core.Description": "Triggers an action",
             "Inline": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
@@ -1597,14 +1600,33 @@
         "OperationGroupingType": {
             "$Kind": "EnumType",
             "Isolated": 0,
-            "ChangeSet": 1
+            "Isolated@Core.Description": "Invoke each action in isolation from other actions",
+            "ChangeSet": 1,
+            "ChangeSet@Core.Description": "Group all actions into a single change set"
+        },
+        "DataFieldForModificationOperation": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.DataFieldForActionAbstract",
+            "@Core.Description": "Triggers a data modification operation",
+            "Operation": {
+                "$Type": "UI.ModificationOperationType",
+                "@Core.Description": "Modification operation to trigger"
+            }
+        },
+        "ModificationOperationType": {
+            "$Kind": "EnumType",
+            "Create": 0,
+            "Create@Core.Description": "Create a new data entity",
+            "Update": 1,
+            "Update@Core.Description": "Edit an existing data entity",
+            "Delete": 2,
+            "Delete@Core.Description": "Delete an existing data entity"
         },
         "DataFieldForIntentBasedNavigation": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldForActionAbstract",
             "@Core.Description": "Triggers intent-based UI navigation",
-            "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.",
-            "@Core.LongDescription": "The navigation intent is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)), the data field represents a navigation trigger.",
+            "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n          \nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).\"",
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },
@@ -1621,6 +1643,7 @@
         "DataField": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
+            "@Core.Description": "A piece of data",
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "The data field's value",
@@ -1630,7 +1653,8 @@
         "DataFieldWithAction": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
-            "@Core.Description": "The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value.",
+            "@Core.Description": "A piece of data that allows triggering an OData action",
+            "@Core.LongDescription": "The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.",
             "Action": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
@@ -1639,8 +1663,8 @@
         "DataFieldWithIntentBasedNavigation": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
-            "@Core.Description": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object",
-            "@Core.LongDescription": "The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
+            "@Core.Description": "A piece of data that allows triggering intent-based UI navigation",
+            "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n          \nIt is tied to a data value which should be rendered as a hyperlink. \nThis is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },
@@ -1652,6 +1676,8 @@
         "DataFieldWithNavigationPath": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
+            "@Core.Description": "A piece of data that allows navigating to related data",
+            "@Core.LongDescription": "It should be rendered as a hyperlink.",
             "Target": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types"

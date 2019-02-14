@@ -2,6 +2,16 @@
 UI Vocabulary</h1>
 <p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">com.sap.vocabularies.UI.v1</a></strong></p>
 <p>Terms for presenting data in user interfaces</p>
+<p>The SAP UI Vocabulary aims to optimize usage of data in UI channels.
+It focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the
+UI technologies or devices used to visualize the data.</p>
+<p>These usage patterns represent certain semantic views on business data, some of them very general,
+others centering around the concept of a Thing, i.e. something tangible to end users.
+Examples for Things are semantic object instances or business object instances.
+One example for a usage pattern is the collection of properties which helps the user to identify a Thing,
+the <a href="#Identification">UI.Identification</a> term.
+Another example is the <a href="#LineItem">UI.LineItem</a> term, which is a set of properties suitable for visualizing
+a collection of business object instances, e.g. as a list or table.</p>
 <h2>
 Terms</h2>
 <table>
@@ -958,6 +968,12 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">DataPoint</td>
 <td align="left"><a href="#DataPointType">DataPointType</a></td>
 <td align="left">Data point, either specified inline or referencing another annotation via Path</td>
+</tr>
+<tr>
+<td align="left">AdditionalDataPoints</td>
+<td align="left">[<a href="#DataPointType">DataPointType</a>]</td>
+<td align="left">Additional data points, either specified inline or referencing another annotation via Path<p>Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons</p>
+</td>
 </tr>
 <tr>
 <td align="left">Detail</td>
@@ -2031,6 +2047,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldAbstract"></a><em>DataFieldAbstract</em>
 </h2>
+<p>Elementary building block that represents a piece of data and/or allows triggering an action</p>
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#DataFieldForAnnotation">DataFieldForAnnotation</a></li>
@@ -2038,6 +2055,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <em><a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a></em>
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
+<li><a href="#DataFieldForModificationOperation">DataFieldForModificationOperation</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
 </ul>
 </li>
@@ -2078,7 +2096,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">IconUrl</td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 </tbody>
 </table>
@@ -2108,6 +2126,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldForAnnotation"></a>DataFieldForAnnotation: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
+<p>A structured piece of data described by an annotation</p>
 <table>
 <thead>
 <tr>
@@ -2135,7 +2154,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left">Target</td>
@@ -2147,10 +2166,11 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldForActionAbstract"></a><em>DataFieldForActionAbstract</em>: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
-<p>Abstract type to bundle DataFieldForAction and DataFieldForIntentBasedNavigation</p>
+<p>Triggers an action</p>
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#DataFieldForAction">DataFieldForAction</a></li>
+<li><a href="#DataFieldForModificationOperation">DataFieldForModificationOperation</a></li>
 <li><a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a></li>
 </ul>
 <table>
@@ -2180,7 +2200,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left">Inline</td>
@@ -2226,7 +2246,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Inline</em></td>
@@ -2264,20 +2284,19 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left">Isolated</td>
 <td align="right">0</td>
-<td align="left"></td>
+<td align="left">Invoke each action in isolation from other actions</td>
 </tr>
 <tr>
 <td align="left">ChangeSet</td>
 <td align="right">1</td>
-<td align="left"></td>
+<td align="left">Group all actions into a single change set</td>
 </tr>
 </tbody>
 </table>
 <h2>
-<a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
+<a name="DataFieldForModificationOperation"></a>DataFieldForModificationOperation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
-<p>Triggers intent-based UI navigation</p>
-<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.</p>
+<p>Triggers a data modification operation</p>
 <table>
 <thead>
 <tr>
@@ -2305,7 +2324,87 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
+</tr>
+<tr>
+<td align="left"><em>Inline</em></td>
+<td align="left">Boolean</td>
+<td align="left">Action should be placed close to (or even inside) the visualized term</td>
+</tr>
+<tr>
+<td align="left"><em>Determining</em></td>
+<td align="left">Boolean</td>
+<td align="left">Determines whether the action completes a process step (e.g. approve, reject).</td>
+</tr>
+<tr>
+<td align="left">Operation</td>
+<td align="left"><a href="#ModificationOperationType">ModificationOperationType</a></td>
+<td align="left">Modification operation to trigger</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ModificationOperationType"></a>ModificationOperationType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Create</td>
+<td align="right">0</td>
+<td align="left">Create a new data entity</td>
+</tr>
+<tr>
+<td align="left">Update</td>
+<td align="right">1</td>
+<td align="left">Edit an existing data entity</td>
+</tr>
+<tr>
+<td align="left">Delete</td>
+<td align="right">2</td>
+<td align="left">Delete an existing data entity</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
+</h2>
+<p>Triggers intent-based UI navigation</p>
+<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.</p>
+<p>It is NOT tied to a data value (in contrast to <a href="#DataFieldWithIntentBasedNavigation">DataFieldWithIntentBasedNavigation</a>)."</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>Label</em></td>
+<td align="left">String</td>
+<td align="left">A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left"><em>Criticality</em></td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left">Criticality of the data field value</td>
+</tr>
+<tr>
+<td align="left"><em>CriticalityRepresentation</em></td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
+<td align="left"><em>IconUrl</em></td>
+<td align="left">URL</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Inline</em></td>
@@ -2337,6 +2436,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataField"></a>DataField: <a href="#DataFieldAbstract">DataFieldAbstract</a>
 </h2>
+<p>A piece of data</p>
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#DataFieldWithAction">DataFieldWithAction</a></li>
@@ -2371,7 +2471,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left">Value</td>
@@ -2383,7 +2483,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldWithAction"></a>DataFieldWithAction: <a href="#DataField">DataField</a>
 </h2>
-<p>The action is tied to a data value which could be render as a button or link that triggers the action. This is in contrast to <a href="#DataFieldForAction">DataFieldForAction</a> which is not tied to a specific data value.</p>
+<p>A piece of data that allows triggering an OData action</p>
+<p>The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to <a href="#DataFieldForAction">DataFieldForAction</a>) which is not tied to a specific data value.</p>
 <table>
 <thead>
 <tr>
@@ -2411,7 +2512,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Value</em></td>
@@ -2428,8 +2529,10 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldWithIntentBasedNavigation"></a>DataFieldWithIntentBasedNavigation: <a href="#DataField">DataField</a>
 </h2>
-<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object</p>
-<p>The navigation intent is tied to a data value which should be rendered as a hyperlink. This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a> which is not tied to a specific data value.</p>
+<p>A piece of data that allows triggering intent-based UI navigation</p>
+<p>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.</p>
+<p>It is tied to a data value which should be rendered as a hyperlink.
+This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldForIntentBasedNavigation</a> which is not tied to a specific data value.</p>
 <table>
 <thead>
 <tr>
@@ -2457,7 +2560,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Value</em></td>
@@ -2479,6 +2582,8 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <h2>
 <a name="DataFieldWithNavigationPath"></a>DataFieldWithNavigationPath: <a href="#DataField">DataField</a>
 </h2>
+<p>A piece of data that allows navigating to related data</p>
+<p>It should be rendered as a hyperlink.</p>
 <table>
 <thead>
 <tr>
@@ -2506,7 +2611,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Value</em></td>
@@ -2550,7 +2655,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <tr>
 <td align="left"><em>IconUrl</em></td>
 <td align="left">URL</td>
-<td align="left">Optional icon to decorate the value</td>
+<td align="left">Optional icon</td>
 </tr>
 <tr>
 <td align="left"><em>Value</em></td>
