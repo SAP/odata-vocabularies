@@ -1081,7 +1081,7 @@ The trend is
             <String>Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.
               For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type
               shall be modeled with different presentation variants. 
-              A reference to `UI.Lineitem` should always be part of collection (least common denominator for renderers).
+              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).
               The first entry of the collection is the default visualization.
             </String>
           </Annotation>
