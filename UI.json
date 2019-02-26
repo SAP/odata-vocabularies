@@ -934,6 +934,12 @@
                 "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "All measures for which this setting is true should be assigned to levels of the same color."
+            },
+            "IsAdditive": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "This measure is additive and can be used in whole-part charts, e.g. the Donut"
             }
         },
         "ChartDimensionRoleType": {
@@ -1219,7 +1225,7 @@
             "Visualizations": {
                 "$Collection": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants. \n              A reference to `UI.Lineitem` should always be part of collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            "
+                "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants. \n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            "
             },
             "RequestAtLeast": {
                 "$Collection": true,
