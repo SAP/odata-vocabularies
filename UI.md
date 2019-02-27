@@ -459,7 +459,7 @@ Property|Type|Description
 [Role](UI.xml#L839)|[ChartMeasureRoleType](#ChartMeasureRoleType)|
 [DataPoint](UI.xml#L840)|AnnotationPath|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure
 [UseSequentialColorLevels](UI.xml#L849) *(Experimental)*|Boolean|All measures for which this setting is true should be assigned to levels of the same color.
-[IsAdditive](UI.xml#L854) *(Experimental)*|Boolean|This measure is additive and can be used in whole-part charts, e.g. the Donut
+[Accumulative](UI.xml#L854) *(Experimental)*|Boolean|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
 ## <a name="ChartDimensionRoleType"></a>[ChartDimensionRoleType](UI.xml#L861)
 

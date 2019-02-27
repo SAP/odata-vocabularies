@@ -851,10 +851,10 @@ The trend is
           <Annotation Term="Core.Description"
             String="All measures for which this setting is true should be assigned to levels of the same color." />
         </Property>
-        <Property Name="IsAdditive" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="Accumulative" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description"
-            String="This measure is additive and can be used in whole-part charts, e.g. the Donut" />
+            String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
         </Property>
       </ComplexType>
 
