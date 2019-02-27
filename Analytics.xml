@@ -69,9 +69,9 @@
         </Annotation>
       </Term>
 
-      <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType">
+      <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Statement to aggregate property values with a specified aggregation method." />
+        <Annotation Term="Core.Description" String="Specifications how to aggregate property values with a specified aggregation method." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier">

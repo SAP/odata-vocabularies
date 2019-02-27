@@ -95,12 +95,12 @@
             "@Common.Experimental": true,
             "@Core.Description": " Processes or generates plan data. Its logic may have side-effects on entity sets.\n          "
         },
-        "AggregatedProperty": {
+        "AggregatedProperties": {
             "$Kind": "Term",
-            "$Nullable": true,
+            "$Collection": true,
             "$Type": "Analytics.AggregatedPropertyType",
             "@Common.Experimental": true,
-            "@Core.Description": "Statement to aggregate property values with a specified aggregation method."
+            "@Core.Description": "Specifications how to aggregate property values with a specified aggregation method."
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
