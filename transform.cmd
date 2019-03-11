@@ -30,7 +30,13 @@ for /F "eol=# tokens=1" %%F in (%~n0.txt) do (
 	)
 )
 
-if %done%==false echo Don't know how to %~n0 %1
+if %done%==false (
+  if exist "%1" (
+    call :process %1 %SCN%
+  ) else (
+    echo Don't know how to %~n0 %1
+  )
+)
 
 endlocal
 exit /b
