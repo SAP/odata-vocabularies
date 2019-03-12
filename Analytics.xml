@@ -35,14 +35,20 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
       <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+        AppliesTo="Property"
+      >
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
+      </Term>
+
+      <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
       <Term Name="RolledUpPropertyCount" Type="Edm.Int16"> <!-- instance annotation -->
@@ -71,7 +77,8 @@
 
       <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Specifications how to aggregate property values with a specified aggregation method." />
+        <Annotation Term="Core.Description"
+          String="Specifications how to aggregate property values with a specified aggregation method." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier">
@@ -84,25 +91,30 @@
         <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property whose values shall be aggregated." />
         </Property>
-        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation vocabulary 
-        <Annotation Term="Validation.ApplicableTerms">
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
+          vocabulary
+          <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>Common.Label</String>  <!- - more in the future as needed - ->
+          <String>Common.Label</String> <!- - more in the future as needed - ->
           </Collection>
-        </Annotation>
+          </Annotation>
         -->
       </ComplexType>
 
-      <Term Name="CustomAggregate" BaseTerm="Aggregation.CustomAggregate" Type="Core.Tag" AppliesTo="EntityType ComplexType EntityContainer">
+      <Term Name="CustomAggregate" BaseTerm="Aggregation.CustomAggregate" Type="Core.Tag"
+        AppliesTo="EntityType ComplexType EntityContainer"
+      >
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it." />
+        <Annotation Term="Core.Description"
+          String="Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it." />
 
-        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation vocabulary 
-        <Annotation Term="Validation.ApplicableTerms">
+        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
+          vocabulary
+          <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>Common.Label</String>  <!- - more in the future as needed - ->
+          <String>Common.Label</String> <!- - more in the future as needed - ->
           </Collection>
-        </Annotation>
+          </Annotation>
         -->
       </Term>
 

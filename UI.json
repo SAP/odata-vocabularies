@@ -934,12 +934,6 @@
                 "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "All measures for which this setting is true should be assigned to levels of the same color."
-            },
-            "Accumulative": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
             }
         },
         "ChartDimensionRoleType": {
