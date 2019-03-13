@@ -123,7 +123,10 @@
             "AggregatableProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property whose values shall be aggregated."
-            }
+            },
+            "@Validation.ApplicableTerms": [
+                "Common.Label"
+            ]
         },
         "CustomAggregate": {
             "$Kind": "Term",
@@ -136,7 +139,10 @@
                 "EntityContainer"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it."
+            "@Core.Description": "Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it.",
+            "@Validation.ApplicableTerms": [
+                "Common.Label"
+            ]
         }
     }
 }

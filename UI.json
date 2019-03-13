@@ -913,6 +913,10 @@
         },
         "ChartMeasureAttributeType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Analytics.AggregatedProperty"
+            ],
+            "@Validation.ApplicableTerms@Core.Description": "When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the ChartMeasureAttributeType/Measure property ",
             "Measure": {
                 "$Nullable": true,
                 "$Type": "Edm.PropertyPath"
@@ -1521,6 +1525,10 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden",
+                "UI.Importance"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
@@ -1645,6 +1653,12 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "A piece of data",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden",
+                "UI.Importance",
+                "Analytics.AggregatedProperty"
+            ],
+            "@Validation.ApplicableTerms@Core.Description": "When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the DataField/Value property ",
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "The data field's value",
