@@ -128,21 +128,13 @@
                 "Common.Label"
             ]
         },
-        "CustomAggregate": {
-            "$Kind": "Term",
-            "$BaseTerm": "Aggregation.CustomAggregate",
-            "$Nullable": true,
-            "$Type": "Core.Tag",
-            "$AppliesTo": [
-                "EntityType",
-                "ComplexType",
-                "EntityContainer"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it.",
-            "@Validation.ApplicableTerms": [
-                "Common.Label"
-            ]
+        "$Annotations": {
+            "Aggregation.CustomAggregate": {
+                "@Validation.ApplicableTerms": [
+                    "Common.Label"
+                ],
+                "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it."
+            }
         }
     }
 }

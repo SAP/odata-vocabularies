@@ -98,19 +98,14 @@
         </Annotation>
       </ComplexType>
 
-      <Term Name="CustomAggregate" BaseTerm="Aggregation.CustomAggregate" Type="Core.Tag"
-        AppliesTo="EntityType ComplexType EntityContainer"
-      >
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Derived from term CustomAggregate in the OASIS OData Aggregation vocabulary, adding a list of other terms that can be annotated to it." />
-
+      <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
           <Collection>
             <String>Common.Label</String> <!-- more in the future as needed -->
           </Collection>
-        </Annotation>
-      </Term>
+       </Annotation> 
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>
