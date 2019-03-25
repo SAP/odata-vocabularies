@@ -60,14 +60,11 @@
         <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property whose values shall be aggregated."/>
         </Property>
-        <!-- term ApplicableTerms defined in https://issues.oasis-open.org/browse/ODATA-1271, but not yet included in the OASIS OData Validation
-          vocabulary
-          <Annotation Term="Validation.ApplicableTerms">
+        <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-          <String>Common.Label</String> <!- - more in the future as needed - ->
+            <String>Common.Label</String> <!-- more in the future as needed -->
           </Collection>
-          </Annotation>
-        -->
+        </Annotation>
       </ComplexType>
 
       

@@ -70,6 +70,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Property containing standard code values"
         },
         "ExternalCode": {
@@ -78,6 +79,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Property containing code values that can be used for visualization",
             "@Core.LongDescription": "The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization."
         },
