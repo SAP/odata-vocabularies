@@ -80,6 +80,7 @@
           String="Specifications how to aggregate property values with a specified aggregation method." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Name" Type="Common.SimpleIdentifier">
           <Annotation Term="Core.Description"
             String="Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target." />

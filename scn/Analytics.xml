@@ -52,22 +52,7 @@
       
 
       
-      <ComplexType Name="AggregatedPropertyType">
-        <Property Name="Name" Type="Common.SimpleIdentifier">
-          <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target."/>
-        </Property>
-        <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied."/>
-        </Property>
-        <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property whose values shall be aggregated."/>
-        </Property>
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>Common.Label</String> <!-- more in the future as needed -->
-          </Collection>
-        </Annotation>
-      </ComplexType>
+      
 
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">

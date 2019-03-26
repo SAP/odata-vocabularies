@@ -16,11 +16,11 @@ Term|Type|Description
 [PlanningAction](Analytics.xml#L69) *(Experimental)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.
 [AggregatedProperties](Analytics.xml#L77) *(Experimental)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Specifications how to aggregate property values with a specified aggregation method.
 
-## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L82)
+## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L82) *(Experimental)*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Analytics.xml#L83)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target.
-[AggregationMethod](Analytics.xml#L87)|String|Name of the standard or custom aggregation method to be applied.
-[AggregatableProperty](Analytics.xml#L90)|PropertyPath|Property whose values shall be aggregated.
+[Name](Analytics.xml#L84)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target.
+[AggregationMethod](Analytics.xml#L88)|String|Name of the standard or custom aggregation method to be applied.
+[AggregatableProperty](Analytics.xml#L91)|PropertyPath|Property whose values shall be aggregated.

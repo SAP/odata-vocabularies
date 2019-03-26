@@ -33,31 +33,3 @@ Terms</h2>
 </tr>
 </tbody>
 </table>
-<h2>
-<a name="AggregatedPropertyType"></a>AggregatedPropertyType</h2>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Name</td>
-<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target.</td>
-</tr>
-<tr>
-<td align="left">AggregationMethod</td>
-<td align="left">String</td>
-<td align="left">Name of the standard or custom aggregation method to be applied.</td>
-</tr>
-<tr>
-<td align="left">AggregatableProperty</td>
-<td align="left">PropertyPath</td>
-<td align="left">Property whose values shall be aggregated.</td>
-</tr>
-</tbody>
-</table>

@@ -111,6 +111,7 @@
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
+            "@Common.Experimental": true,
             "Name": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
