@@ -582,7 +582,6 @@ The minimum structure is
             String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath" />
         </Property>
         <Property Name="SelectionVariantQualifier" Type="Common.SimpleIdentifier">
-          <Annotation Term="Common.Experimental" String="Requested by Markus Königstein" />
           <Annotation Term="Core.Description"
             String="Optional combination of parameters and filters to query the value help entity set" />
           <Annotation Term="Core.LongDescription"

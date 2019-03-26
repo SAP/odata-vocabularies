@@ -25,6 +25,12 @@ Terms</h2>
 <td align="left">
 <a name="Measure"></a>A property holding the numeric value of a measure in an analytical context</td>
 </tr>
+<tr>
+<td align="left">AccumulativeMeasure</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="AccumulativeMeasure"></a>The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut</td>
+</tr>
 </tbody>
 </table>
 <h2>

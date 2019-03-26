@@ -41,7 +41,9 @@
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context"/>
       </Term>
 
-      
+      <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"/>
+      </Term>
 
       
 
@@ -67,7 +69,14 @@
         </Annotation>
       </ComplexType>
 
-      
+      <Annotations Target="Aggregation.CustomAggregate">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it."/>
+          <Collection>
+            <String>Common.Label</String> <!-- more in the future as needed -->
+          </Collection>
+       </Annotation> 
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>

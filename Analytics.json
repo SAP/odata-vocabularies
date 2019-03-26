@@ -73,7 +73,6 @@
             "$BaseTerm": "Analytics.Measure",
             "$Type": "Edm.Boolean",
             "$DefaultValue": true,
-            "@Common.Experimental": true,
             "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
         },
         "RolledUpPropertyCount": {

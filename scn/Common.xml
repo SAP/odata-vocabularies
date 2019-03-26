@@ -371,7 +371,10 @@
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart"/>
           <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath"/>
         </Property>
-        
+        <Property Name="SelectionVariantQualifier" Type="Common.SimpleIdentifier">
+          <Annotation Term="Core.Description" String="Optional combination of parameters and filters to query the value help entity set"/>
+          <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath"/>
+        </Property>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties"/>
         </Property>

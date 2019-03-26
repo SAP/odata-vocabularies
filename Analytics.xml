@@ -46,7 +46,6 @@
       </Term>
 
       <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>

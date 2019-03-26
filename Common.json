@@ -694,7 +694,6 @@
             "SelectionVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
-                "@Common.Experimental": "Requested by Markus Königstein",
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath"
             },
