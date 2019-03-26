@@ -443,7 +443,7 @@
             "Inapplicable@Core.LongDescription": "Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
             "Hidden": 0,
             "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
-            "Hidden@Core.LongDescription": "To statically hide a property on a UI use `UI.Hidden` instead",
+            "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead",
             "@Core.Description": "Control state of a property"
         },
         "ExceptionCategory": {
@@ -689,13 +689,13 @@
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
-                "@Core.LongDescription": "Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath"
+                "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath"
             },
             "SelectionVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
-                "@Core.LongDescription": "Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath"
+                "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
             },
             "Parameters": {
                 "$Collection": true,
@@ -748,14 +748,14 @@
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
-                "@Core.LongDescription": "Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation"
+                "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation"
             },
             "SelectionVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
                 "@Common.Experimental": "Requested by Markus Königstein",
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
-                "@Core.LongDescription": "Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath"
+                "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
             },
             "Parameters": {
                 "$Collection": true,

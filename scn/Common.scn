@@ -541,7 +541,7 @@ Terms</h2>
 <tr>
 <td align="left">Hidden</td>
 <td align="right">0</td>
-<td align="left">Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use <code>UI.Hidden</code> instead</p>
+<td align="left">Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#Hidden">UI.Hidden</a> instead</p>
 </td>
 </tr>
 </tbody>
@@ -614,13 +614,13 @@ Terms</h2>
 <tr>
 <td align="left">PresentationVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath</p>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#PresentationVariant">UI.PresentationVariant</a> on the entity set identified via CollectionPath</p>
 </td>
 </tr>
 <tr>
 <td align="left">SelectionVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath</p>
+<td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#SelectionVariant">UI.SelectionVariant</a> on the entity set identified via CollectionPath</p>
 </td>
 </tr>
 <tr>
@@ -654,7 +654,7 @@ Terms</h2>
 <tr>
 <td align="left">PresentationVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
-<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#PresentationVariant">UI.PresentationVariant</a> on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
 </td>
 </tr>
 <tr>

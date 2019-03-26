@@ -149,7 +149,7 @@ Member|Value|Description
 [Optional](Common.xml#L353)|3|Property may have a value or be null
 [ReadOnly](Common.xml#L356)|1|Property value cannot be changed
 [Inapplicable](Common.xml#L359)|0|Property has no meaning in the current entity state<p>Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</p>
-[Hidden](Common.xml#L365)|0|Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use `UI.Hidden` instead</p>
+[Hidden](Common.xml#L365)|0|Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead</p>
 
 ## <a name="ApplicationType"></a>[ApplicationType](Common.xml#L381) *(Experimental)*
 
@@ -201,8 +201,8 @@ Property|Type|Description
 [CollectionPath](Common.xml#L566)|String|Resource path of an OData collection with possible values, relative to CollectionRoot
 [CollectionRoot](Common.xml#L570)|String|Service root of the value list collection; not specified means local to the document containing the annotation
 [SearchSupported](Common.xml#L574)|Boolean|Value list supports the $search query option<p>The value of the target property is used as the search expression instead of in $filter</p>
-[PresentationVariantQualifier](Common.xml#L579)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the entity set identified via CollectionPath</p>
-[SelectionVariantQualifier](Common.xml#L584)|[SimpleIdentifier](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath</p>
+[PresentationVariantQualifier](Common.xml#L579)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath</p>
+[SelectionVariantQualifier](Common.xml#L584)|[SimpleIdentifier](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath</p>
 [Parameters](Common.xml#L590)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListMappingType"></a>[ValueListMappingType](Common.xml#L613)
@@ -212,8 +212,8 @@ Property|Type|Description
 :-------|:---|:----------
 [Label](Common.xml#L614)|String|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L619)|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-[PresentationVariantQualifier](Common.xml#L623)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.PresentationVariant on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
-[SelectionVariantQualifier](Common.xml#L628) *(Experimental)*|[SimpleIdentifier](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term com.sap.vocabularies.UI.v1.SelectionVariant on the entity set identified via CollectionPath</p>
+[PresentationVariantQualifier](Common.xml#L623)|[SimpleIdentifier](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
+[SelectionVariantQualifier](Common.xml#L628) *(Experimental)*|[SimpleIdentifier](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath</p>
 [Parameters](Common.xml#L635)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 ## <a name="ValueListParameter"></a>[*ValueListParameter*](Common.xml#L641)

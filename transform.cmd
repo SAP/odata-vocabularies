@@ -81,6 +81,7 @@ exit /b
             -e "s/com\.sap\.vocabularies\.\([^.]\+\)\.v1\.md#/https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+\1#/g" ^
             -e "s/\"Common\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Common#/g" ^
             -e "s/\"Communication\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Communication#/g" ^
+            -e "s/\"UI\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+UI#/g" ^
             scn\%~n1.html > scn\%~n1.scn 
     git.exe --no-pager diff scn\%~n1.scn
     del scn\%~n1.md scn\%~n1.html
