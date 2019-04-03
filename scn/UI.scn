@@ -2292,34 +2292,6 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
-<a name="ModificationOperationType"></a>ModificationOperationType</h2>
-<table>
-<thead>
-<tr>
-<th align="left">Member</th>
-<th align="right">Value</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Create</td>
-<td align="right">0</td>
-<td align="left">Create a new data entity</td>
-</tr>
-<tr>
-<td align="left">Update</td>
-<td align="right">1</td>
-<td align="left">Edit an existing data entity</td>
-</tr>
-<tr>
-<td align="left">Delete</td>
-<td align="right">2</td>
-<td align="left">Delete an existing data entity</td>
-</tr>
-</tbody>
-</table>
-<h2>
 <a name="DataFieldForIntentBasedNavigation"></a>DataFieldForIntentBasedNavigation: <a href="#DataFieldForActionAbstract">DataFieldForActionAbstract</a>
 </h2>
 <p>Triggers intent-based UI navigation</p>

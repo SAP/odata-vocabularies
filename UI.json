@@ -1510,6 +1510,36 @@
             "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
             "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."
         },
+        "CreateHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
+            "@Core.Description": "Determines visibility of New button",
+            "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the New button"
+        },
+        "UpdateHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
+            "@Core.Description": "Determines visibility of Edit and Save buttons",
+            "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the Edit and Save buttons"
+        },
+        "DeleteHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
+            "@Core.Description": "Determines visibility of Delete button",
+            "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the Delete button"
+        },
         "DataFieldDefault": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -1611,25 +1641,6 @@
             "Isolated@Core.Description": "Invoke each action in isolation from other actions",
             "ChangeSet": 1,
             "ChangeSet@Core.Description": "Group all actions into a single change set"
-        },
-        "DataFieldForModificationOperation": {
-            "$Kind": "ComplexType",
-            "$BaseType": "UI.DataFieldForActionAbstract",
-            "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
-            "@Core.Description": "Triggers a data modification operation",
-            "Operation": {
-                "$Type": "UI.ModificationOperationType",
-                "@Core.Description": "Modification operation to trigger"
-            }
-        },
-        "ModificationOperationType": {
-            "$Kind": "EnumType",
-            "Create": 0,
-            "Create@Core.Description": "Create a new data entity",
-            "Update": 1,
-            "Update@Core.Description": "Edit an existing data entity",
-            "Delete": 2,
-            "Delete@Core.Description": "Delete an existing data entity"
         },
         "DataFieldForIntentBasedNavigation": {
             "$Kind": "ComplexType",

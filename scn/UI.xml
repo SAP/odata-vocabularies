@@ -1158,6 +1158,12 @@ The trend is
 
       
 
+      
+
+      
+
+      
+
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action"/>
         <Annotation Term="Validation.ApplicableTerms">
@@ -1234,19 +1240,6 @@ The trend is
         </Member>
         <Member Name="ChangeSet">
           <Annotation Term="Core.Description" String="Group all actions into a single change set"/>
-        </Member>
-      </EnumType>
-
-      
-      <EnumType Name="ModificationOperationType">
-        <Member Name="Create">
-          <Annotation Term="Core.Description" String="Create a new data entity"/>
-        </Member>
-        <Member Name="Update">
-          <Annotation Term="Core.Description" String="Edit an existing data entity"/>
-        </Member>
-        <Member Name="Delete">
-          <Annotation Term="Core.Description" String="Delete an existing data entity"/>
         </Member>
       </EnumType>
 

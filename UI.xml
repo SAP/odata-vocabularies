@@ -1318,6 +1318,30 @@ The trend is
           String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all." />
       </Term>
 
+      <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental"
+          String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
+        <Annotation Term="Core.Description" String="Determines visibility of New button" />
+        <Annotation Term="Core.LongDescription"
+          String="The annotation value should be a (path) expression to dynamically hide or render the New button" />
+      </Term>
+
+      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental"
+          String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
+        <Annotation Term="Core.Description" String="Determines visibility of Edit and Save buttons" />
+        <Annotation Term="Core.LongDescription"
+          String="The annotation value should be a (path) expression to dynamically hide or render the Edit and Save buttons" />
+      </Term>
+
+      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental"
+          String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
+        <Annotation Term="Core.Description" String="Determines visibility of Delete button" />
+        <Annotation Term="Core.LongDescription"
+          String="The annotation value should be a (path) expression to dynamically hide or render the Delete button" />
+      </Term>
+
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
@@ -1408,26 +1432,6 @@ The trend is
         </Member>
         <Member Name="ChangeSet">
           <Annotation Term="Core.Description" String="Group all actions into a single change set" />
-        </Member>
-      </EnumType>
-
-      <ComplexType Name="DataFieldForModificationOperation" BaseType="UI.DataFieldForActionAbstract">
-        <Annotation Term="Common.Experimental"
-          String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
-        <Annotation Term="Core.Description" String="Triggers a data modification operation" />
-        <Property Name="Operation" Type="UI.ModificationOperationType" Nullable="false">
-          <Annotation Term="Core.Description" String="Modification operation to trigger" />
-        </Property>
-      </ComplexType>
-      <EnumType Name="ModificationOperationType">
-        <Member Name="Create">
-          <Annotation Term="Core.Description" String="Create a new data entity" />
-        </Member>
-        <Member Name="Update">
-          <Annotation Term="Core.Description" String="Edit an existing data entity" />
-        </Member>
-        <Member Name="Delete">
-          <Annotation Term="Core.Description" String="Delete an existing data entity" />
         </Member>
       </EnumType>
 
