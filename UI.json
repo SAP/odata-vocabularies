@@ -1517,7 +1517,7 @@
                 "EntitySet"
             ],
             "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
-            "@Core.Description": "Determines visibility of New button",
+            "@Core.Description": "Determines visibility of the New button",
             "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the New button"
         },
         "UpdateHidden": {
@@ -1527,7 +1527,7 @@
                 "EntitySet"
             ],
             "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
-            "@Core.Description": "Determines visibility of Edit and Save buttons",
+            "@Core.Description": "Determines visibility of the Edit and Save buttons",
             "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the Edit and Save buttons"
         },
         "DeleteHidden": {
@@ -1537,7 +1537,7 @@
                 "EntitySet"
             ],
             "@Common.Experimental": "FERAP #109, \\\\dwdf213\\ABAP\\80_Cross_Topics\\Model-driven Programming Model\\FE_RAP_ActionItems.xlsx",
-            "@Core.Description": "Determines visibility of Delete button",
+            "@Core.Description": "Determines visibility of the Delete button",
             "@Core.LongDescription": "The annotation value should be a (path) expression to dynamically hide or render the Delete button"
         },
         "DataFieldDefault": {

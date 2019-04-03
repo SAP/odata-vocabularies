@@ -1321,7 +1321,7 @@ The trend is
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental"
           String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
-        <Annotation Term="Core.Description" String="Determines visibility of New button" />
+        <Annotation Term="Core.Description" String="Determines visibility of the New button" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a (path) expression to dynamically hide or render the New button" />
       </Term>
@@ -1329,7 +1329,7 @@ The trend is
       <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental"
           String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
-        <Annotation Term="Core.Description" String="Determines visibility of Edit and Save buttons" />
+        <Annotation Term="Core.Description" String="Determines visibility of the Edit and Save buttons" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a (path) expression to dynamically hide or render the Edit and Save buttons" />
       </Term>
@@ -1337,7 +1337,7 @@ The trend is
       <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental"
           String="FERAP #109, \\dwdf213\ABAP\80_Cross_Topics\Model-driven Programming Model\FE_RAP_ActionItems.xlsx" />
-        <Annotation Term="Core.Description" String="Determines visibility of Delete button" />
+        <Annotation Term="Core.Description" String="Determines visibility of the Delete button" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a (path) expression to dynamically hide or render the Delete button" />
       </Term>
