@@ -27,7 +27,7 @@ process() {
     -L -IN ${gen_file_basename}.normalized.xml -OUT ${gen_file_basename}.tmp.json
   json_reformat < ${gen_file_basename}.tmp.json > ${gen_file_basename}.json
   if [ $? -eq 0 ] ; then
-    rm -f ${gen_file_basename}.tmp.json
+    rm -f ${gen_file_basename}.normalized.xml ${gen_file_basename}.tmp.json
     git --no-pager diff --ignore-space-at-eol ${gen_file_basename}.json 2>/dev/null
   fi
 
