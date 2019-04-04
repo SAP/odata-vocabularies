@@ -374,6 +374,11 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         </Property>
         <Property Name="CriticalityLabels" Type="Edm.AnnotationPath" Nullable="true">
           <Annotation Term="Core.Description" String="Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.CriticalityLabels</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="CriticalityRepresentation" Type="UI.CriticalityRepresentationType" Nullable="true">
           <Annotation Term="Common.Experimental" />

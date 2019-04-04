@@ -450,7 +450,10 @@
             "CriticalityLabels": {
                 "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels"
+                "@Core.Description": "Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels",
+                "@Validation.AllowedTerms": [
+                    "UI.CriticalityLabels"
+                ]
             },
             "CriticalityRepresentation": {
                 "$Nullable": true,
