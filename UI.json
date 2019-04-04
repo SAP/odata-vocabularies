@@ -1547,9 +1547,8 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization",
-            "@Core.LongDescription": "Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield."
+            "@Core.LongDescription": "Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield."
         },
         "DataFieldAbstract": {
             "$Kind": "ComplexType",

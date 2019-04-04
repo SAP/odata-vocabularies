@@ -232,6 +232,13 @@ Terms</h2>
 </td>
 </tr>
 <tr>
+<td align="left">DataFieldDefault</td>
+<td align="left"><a href="#DataFieldAbstract">DataFieldAbstract</a></td>
+<td align="left">
+<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<p>Only concrete subtypes of <a href="#DataFieldAbstract">DataFieldAbstract</a> can be used for a DataFieldDefault. For type <a href="#DataField">DataField</a> and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the <code>Value</code> of the datafield.</p>
+</td>
+</tr>
+<tr>
 <td align="left">Criticality</td>
 <td align="left"><a href="#CriticalityType">CriticalityType</a></td>
 <td align="left">

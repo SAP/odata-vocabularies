@@ -1343,11 +1343,10 @@ The trend is
       </Term>
 
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
         <Annotation Term="Core.LongDescription"
-          String="Only concrete subtypes of DataFieldAbstract can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
+          String="Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
       </Term>
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
