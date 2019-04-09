@@ -551,6 +551,11 @@ Terms</h2>
 <td align="left">Service-calculated criticality, alternative to CriticalityCalculation</td>
 </tr>
 <tr>
+<td align="left">CriticalityLabels</td>
+<td align="left">AnnotationPath</td>
+<td align="left">Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels</td>
+</tr>
+<tr>
 <td align="left">CriticalityCalculation</td>
 <td align="left"><a href="#CriticalityCalculationType">CriticalityCalculationType</a></td>
 <td align="left">Parameters for client-calculated criticality, alternative to Criticality</td>

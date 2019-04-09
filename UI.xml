@@ -19,15 +19,15 @@
       </Annotation>
       <Annotation Term="Core.LongDescription">
         <String>The SAP UI Vocabulary aims to optimize usage of data in UI channels.
-It focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the 
+It focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the
 UI technologies or devices used to visualize the data.
 
-These usage patterns represent certain semantic views on business data, some of them very general, 
-others centering around the concept of a Thing, i.e. something tangible to end users. 
-Examples for Things are semantic object instances or business object instances. 
-One example for a usage pattern is the collection of properties which helps the user to identify a Thing, 
-the [UI.Identification](#Identification) term. 
-Another example is the [UI.LineItem](#LineItem) term, which is a set of properties suitable for visualizing 
+These usage patterns represent certain semantic views on business data, some of them very general,
+others centering around the concept of a Thing, i.e. something tangible to end users.
+Examples for Things are semantic object instances or business object instances.
+One example for a usage pattern is the collection of properties which helps the user to identify a Thing,
+the [UI.Identification](#Identification) term.
+Another example is the [UI.LineItem](#LineItem) term, which is a set of properties suitable for visualizing
 a collection of business object instances, e.g. as a list or table.</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
@@ -372,6 +372,14 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
           <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to CriticalityCalculation" />
         </Property>
+        <Property Name="CriticalityLabels" Type="Edm.AnnotationPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.CriticalityLabels</String>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="CriticalityRepresentation" Type="UI.CriticalityRepresentationType" Nullable="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Decides if criticality is visualized in addition by means of an icon" />
@@ -486,7 +494,7 @@ For improvement direction `Maximize`, the criticality is calculated using the lo
   - Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue
   - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue
   - Negative if the value is lower than DeviationRangeLowValue
-             
+
 Thresholds are optional. For unassigned values, defaults are determined in this order:
   - For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)
   - For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue
@@ -572,10 +580,10 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
         <Annotation Term="Core.Description" String="Describes how to calculate the trend of a value" />
         <Annotation Term="Core.LongDescription">
           <String>
-By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values. 
+By default, the calculation is done by comparing the difference between Value and ReferenceValue to the threshold values.
 If IsRelativeDifference is set, the difference of Value and ReferenceValue is divided by ReferenceValue and the relative difference is compared.
 
-The trend is 
+The trend is
   - StrongUp if the difference is greater than or equal to StrongUpDifference
   - Up if the difference is less than StrongUpDifference and greater than or equal to UpDifference
   - Sideways if the difference  is less than UpDifference and greater than DownDifference
@@ -764,7 +772,7 @@ The trend is
         </Member>
         <Member Name="FixedScale">
           <Annotation Term="Core.Description">
-            <String>Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. 
+            <String>Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default.
         For stacking chart types with multiple measures, they are taken from ChartAxisScalingType/FixedScaleMultipleStackedMeasuresBoundaryValues.
             </String>
           </Annotation>
@@ -885,12 +893,12 @@ The trend is
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
-      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property">
+      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>
-              Assign labels to criticalities. This information can be used for semantic coloring. 
-              A label for a criticality is required, if more than one value of the annotated property has been assigned to the same criticality.    
+              Assign labels to criticalities. This information can be used for semantic coloring.
+              When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality.
               There must be no more than one label per criticality.
           </String>
         </Annotation>
@@ -1045,7 +1053,7 @@ The trend is
         </Property>
         <Property Name="GroupBy" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, 
+            <String>Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups,
             one for each combination of value properties in the queried collection. The sequence specifies a certain level
             of aggregation for the queried collection, and every group instance will provide aggregated values for
             properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy,
@@ -1054,8 +1062,8 @@ The trend is
         </Property>
         <Property Name="TotalBy" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation 
-            are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences 
+            <String>Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation
+            are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences
             (q1), (q1, q2), ... introduces an additional aggregation level included in the result.</String>
           </Annotation>
         </Property>
@@ -1077,7 +1085,7 @@ The trend is
           <Annotation Term="Core.Description">
             <String>Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.
               For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type
-              shall be modeled with different presentation variants. 
+              shall be modeled with different presentation variants.
               A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).
               The first entry of the collection is the default visualization.
             </String>
@@ -1090,7 +1098,7 @@ The trend is
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description">
-            <String>Properties that should be presented for filtering a collection of entities. 
+            <String>Properties that should be presented for filtering a collection of entities.
             Can be provided inline or as a reference to a `UI.SelectionFields` annotation via Path.</String>
           </Annotation>
         </Property>
@@ -1414,7 +1422,7 @@ The trend is
         <Annotation Term="Core.Description" String="Triggers intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
           <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
-          
+
 It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."</String>
         </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
@@ -1462,8 +1470,8 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
           <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
-          
-It is tied to a data value which should be rendered as a hyperlink. 
+
+It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
         </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
