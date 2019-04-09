@@ -1156,12 +1156,6 @@ The trend is
         <Annotation Term="Core.LongDescription" String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."/>
       </Term>
 
-      
-
-      
-
-      
-
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization"/>
         <Annotation Term="Core.LongDescription" String="Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield."/>
