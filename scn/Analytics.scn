@@ -27,7 +27,7 @@ Terms</h2>
 </tr>
 <tr>
 <td align="left">AccumulativeMeasure</td>
-<td align="left">Boolean</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="AccumulativeMeasure"></a>The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut</td>
 </tr>

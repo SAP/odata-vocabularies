@@ -50,7 +50,7 @@
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
-      <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+      <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
         <Annotation Term="Core.Description"
           String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
