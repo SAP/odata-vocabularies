@@ -21,7 +21,13 @@
             <PropertyValue Property="rel" String="latest-version" />
             <!-- TODO: insert correct page id -->
             <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.xml?api=v2" />
+              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <!-- TODO: insert correct page id -->
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />

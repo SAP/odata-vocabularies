@@ -85,6 +85,14 @@ exit /b
             scn\%~n1.html > scn\%~n1.scn 
     git.exe --no-pager diff scn\%~n1.scn
     del scn\%~n1.md scn\%~n1.html
+    
+    java.exe org.apache.xalan.xslt.Process -L -XSL ..\odata-vocabularies\tools\V4-CSDL-normalize-Target.xsl -IN scn\%1 -OUT "scn\%~n1.normalized.xml"
+    java.exe org.apache.xalan.xslt.Process -L -XSL ..\odata-vocabularies\tools\V4-CSDL-to-JSON.xsl -IN "scn\%~n1.normalized.xml" -OUT "scn\%~n1.tmp.json"
+    json_reformat.exe < "scn\%~n1.tmp.json" > "scn\%~n1.json"
+    if not errorlevel 1 (
+      del "scn\%~n1.normalized.xml" "scn\%~n1.tmp.json"
+      git.exe -C %~dp1 --no-pager diff "scn\%~n1.json"  2>nul
+    )
   )
   echo:
 

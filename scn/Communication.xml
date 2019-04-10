@@ -23,7 +23,11 @@ These terms are inspired by
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version"/>
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json"/>
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby"/>

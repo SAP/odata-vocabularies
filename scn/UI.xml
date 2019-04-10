@@ -36,7 +36,11 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version"/>
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json"/>
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby"/>

@@ -20,7 +20,12 @@
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
             <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2" />
+              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />

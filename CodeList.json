@@ -25,7 +25,11 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.xml?api=v2"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.json"
+            },
+            {
+                "rel": "alternate",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.xml"
             },
             {
                 "rel": "describedby",

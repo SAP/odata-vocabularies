@@ -41,7 +41,11 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json"
+            },
+            {
+                "rel": "alternate",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml"
             },
             {
                 "rel": "describedby",

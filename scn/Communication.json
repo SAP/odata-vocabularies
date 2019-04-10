@@ -1,0 +1,494 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Communication.v1": {
+        "$Alias": "Communication",
+        "@Core.Description": "Terms for annotating communication-relevant information",
+        "@Core.LongDescription": "\nThese terms are inspired by\n- RFC6350 vCard (http://tools.ietf.org/html/rfc6350)\n- RFC5545 iCalendar (http://tools.ietf.org/html/rfc5545)\n- RFC5322 Internet Message Format (http://tools.ietf.org/html/rfc5322)\n- RFC6351 xCard: vCard XML Representation (https://tools.ietf.org/html/rfc6351)\n        ",
+        "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json"
+            },
+            {
+                "rel": "alternate",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://wiki.scn.sap.com/wiki/x/ux_7Gg"
+            }
+        ],
+        "Contact": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Communication.ContactType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Address book entry"
+        },
+        "ContactType": {
+            "$Kind": "ComplexType",
+            "fn": {
+                "$Nullable": true,
+                "@Core.Description": "Full name"
+            },
+            "n": {
+                "$Nullable": true,
+                "$Type": "Communication.NameType",
+                "@Core.Description": "Name"
+            },
+            "nickname": {
+                "$Nullable": true,
+                "@Core.Description": "Nickname"
+            },
+            "photo": {
+                "$Nullable": true,
+                "@Core.Description": "Image or photograph",
+                "@Core.IsURL": true
+            },
+            "bday": {
+                "$Nullable": true,
+                "$Type": "Edm.Date",
+                "@Core.Description": "Birthday"
+            },
+            "anniversary": {
+                "$Nullable": true,
+                "$Type": "Edm.Date",
+                "@Core.Description": "Date of marriage, or equivalent"
+            },
+            "gender": {
+                "$Nullable": true,
+                "$Type": "Communication.GenderType",
+                "@Core.Description": "Sex and gender identity"
+            },
+            "title": {
+                "$Nullable": true,
+                "@Core.Description": "Position or job title"
+            },
+            "role": {
+                "$Nullable": true,
+                "@Core.Description": "Function or part played in a particular situation"
+            },
+            "org": {
+                "$Nullable": true,
+                "@Core.Description": "Organization Name defined by X.520"
+            },
+            "orgunit": {
+                "$Nullable": true,
+                "@Core.Description": "Organization Unit defined by X.520"
+            },
+            "kind": {
+                "$Nullable": true,
+                "$Type": "Communication.KindType",
+                "@Core.Description": "Kind of contact"
+            },
+            "note": {
+                "$Nullable": true,
+                "@Core.Description": "Supplemental information or a comment associated with the contact"
+            },
+            "adr": {
+                "$Collection": true,
+                "$Type": "Communication.AddressType",
+                "@Core.Description": "Addresses"
+            },
+            "tel": {
+                "$Collection": true,
+                "$Type": "Communication.PhoneNumberType",
+                "@Core.Description": "Phone numbers"
+            },
+            "email": {
+                "$Collection": true,
+                "$Type": "Communication.EmailAddressType",
+                "@Core.Description": "Email addresses"
+            },
+            "geo": {
+                "$Collection": true,
+                "$Type": "Communication.GeoDataType",
+                "@Core.Description": "Geographic locations"
+            },
+            "url": {
+                "$Collection": true,
+                "$Type": "Communication.UrlType",
+                "@Core.Description": "URLs"
+            }
+        },
+        "NameType": {
+            "$Kind": "ComplexType",
+            "surname": {
+                "$Nullable": true,
+                "@Core.Description": "Surname or family name"
+            },
+            "given": {
+                "$Nullable": true,
+                "@Core.Description": "Given name"
+            },
+            "additional": {
+                "$Nullable": true,
+                "@Core.Description": "Additional names"
+            },
+            "prefix": {
+                "$Nullable": true,
+                "@Core.Description": "Honorific prefix(es)"
+            },
+            "suffix": {
+                "$Nullable": true,
+                "@Core.Description": "Honorific suffix(es)"
+            }
+        },
+        "Address": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Communication.AddressType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Address"
+        },
+        "AddressType": {
+            "$Kind": "ComplexType",
+            "building": {
+                "$Nullable": true,
+                "@Core.Description": "Building identifier"
+            },
+            "street": {
+                "$Nullable": true,
+                "@Core.Description": "Street address"
+            },
+            "district": {
+                "$Nullable": true,
+                "@Core.Description": "Territorial administrative organization in a large city"
+            },
+            "locality": {
+                "$Nullable": true,
+                "@Core.Description": "City or similar"
+            },
+            "region": {
+                "$Nullable": true,
+                "@Core.Description": "State, province, or similar"
+            },
+            "code": {
+                "$Nullable": true,
+                "@Core.Description": "Postal code"
+            },
+            "country": {
+                "$Nullable": true,
+                "@Core.Description": "Country name",
+                "@Core.IsLanguageDependent": true
+            },
+            "pobox": {
+                "$Nullable": true,
+                "@Core.Description": "Post office box"
+            },
+            "ext": {
+                "$Nullable": true,
+                "@Core.Description": "Extended address (e.g., apartment or suite number)"
+            },
+            "careof": {
+                "$Nullable": true,
+                "@Core.Description": "An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee"
+            },
+            "label": {
+                "$Nullable": true,
+                "@Core.Description": "Delivery address label; plain-text string representing the formatted address, may contain line breaks"
+            },
+            "type": {
+                "$Nullable": true,
+                "$Type": "Communication.ContactInformationType",
+                "@Core.Description": "Address type"
+            }
+        },
+        "PhoneNumberType": {
+            "$Kind": "ComplexType",
+            "uri": {
+                "$Nullable": true,
+                "@Core.Description": "This SHOULD use the tel: URL schema defined in RFC3966",
+                "@Core.IsURL": true
+            },
+            "type": {
+                "$Nullable": true,
+                "$Type": "Communication.PhoneType",
+                "@Core.Description": "Telephone type"
+            }
+        },
+        "EmailAddressType": {
+            "$Kind": "ComplexType",
+            "address": {
+                "$Nullable": true,
+                "@Core.Description": "Email address"
+            },
+            "type": {
+                "$Nullable": true,
+                "$Type": "Communication.ContactInformationType",
+                "@Core.Description": "Address type"
+            }
+        },
+        "GeoDataType": {
+            "$Kind": "ComplexType",
+            "uri": {
+                "$Nullable": true,
+                "@Core.Description": "This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint",
+                "@Core.IsURL": true
+            },
+            "type": {
+                "$Nullable": true,
+                "$Type": "Communication.ContactInformationType",
+                "@Core.Description": "Address type"
+            }
+        },
+        "UrlType": {
+            "$Kind": "ComplexType",
+            "uri": {
+                "$Nullable": true,
+                "@Core.Description": "This MUST use the URL schema defined in RFC3986",
+                "@Core.IsURL": true
+            },
+            "type": {
+                "$Nullable": true,
+                "$Type": "Communication.ContactInformationType",
+                "@Core.Description": "URL type"
+            }
+        },
+        "KindType": {
+            "$Kind": "EnumType",
+            "individual": 0,
+            "individual@Core.Description": "A single person or entity",
+            "group": 1,
+            "group@Core.Description": "A group of persons or entities",
+            "org": 2,
+            "org@Core.Description": "An organization",
+            "location": 3,
+            "location@Core.Description": "A named geographical place"
+        },
+        "ContactInformationType": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "work": 1,
+            "work@Core.Description": "Related to an individual's work place",
+            "home": 2,
+            "home@Core.Description": "Related to an indivdual's personal life",
+            "preferred": 4,
+            "preferred@Core.Description": "Preferred-use contact information"
+        },
+        "PhoneType": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "work": 1,
+            "work@Core.Description": "Work telephone number",
+            "home": 2,
+            "home@Core.Description": "Private telephone number",
+            "preferred": 4,
+            "preferred@Core.Description": "Preferred-use telephone number",
+            "voice": 8,
+            "voice@Core.Description": "Voice telephone number",
+            "cell": 16,
+            "cell@Core.Description": "Cellular or mobile telephone number",
+            "fax": 32,
+            "fax@Core.Description": "Facsimile telephone number",
+            "video": 64,
+            "video@Core.Description": "Video conferencing telephone number"
+        },
+        "GenderType": {
+            "$Kind": "EnumType",
+            "M": 0,
+            "M@Core.Description": "male",
+            "F": 1,
+            "F@Core.Description": "female",
+            "O": 2,
+            "O@Core.Description": "other",
+            "N": 3,
+            "N@Core.Description": "not applicable",
+            "U": 4,
+            "U@Core.Description": "unknown"
+        },
+        "IsEmailAddress": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Property contains an email address"
+        },
+        "IsPhoneNumber": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Property contains a phone number"
+        },
+        "Event": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Communication.EventData",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Calendar entry"
+        },
+        "EventData": {
+            "$Kind": "ComplexType",
+            "summary": {
+                "$Nullable": true,
+                "@Core.Description": "Short description of the event"
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "More complete description"
+            },
+            "categories": {
+                "$Collection": true,
+                "@Core.Description": "Categories or subtypes of the event"
+            },
+            "dtstart": {
+                "$Nullable": true,
+                "$Type": "Edm.DateTimeOffset",
+                "$Precision": 0,
+                "@Core.Description": "Start date and time of the event"
+            },
+            "dtend": {
+                "$Nullable": true,
+                "$Type": "Edm.DateTimeOffset",
+                "$Precision": 0,
+                "@Core.Description": "Date and time by which the event ends, alternative to duration"
+            },
+            "duration": {
+                "$Nullable": true,
+                "$Type": "Edm.Duration",
+                "$Precision": 0,
+                "@Core.Description": "Duration of the event, alternative to dtend"
+            },
+            "class": {
+                "$Nullable": true,
+                "@Core.Description": "Access classification, e.g. PUBLIC, PRIVATE, CONFIDENTIAL"
+            },
+            "status": {
+                "$Nullable": true,
+                "@Core.Description": "Confirmation status, e.g. CONFIRMED, TENTATIVE, CANCELLED"
+            },
+            "location": {
+                "$Nullable": true,
+                "@Core.Description": "Intended venue of the event"
+            },
+            "transp": {
+                "$Nullable": true,
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Time transparency for busy time searches, true = free, false = blocked"
+            },
+            "wholeday": {
+                "$Nullable": true,
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Wholeday event"
+            },
+            "fbtype": {
+                "$Nullable": true,
+                "@Core.Description": "Free or busy time type, e.g. FREE, BUSY, BUSY-TENTATIVE"
+            }
+        },
+        "Task": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Communication.TaskData",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Task list entry"
+        },
+        "TaskData": {
+            "$Kind": "ComplexType",
+            "summary": {
+                "$Nullable": true,
+                "@Core.Description": "Short description of the task"
+            },
+            "description": {
+                "$Nullable": true,
+                "@Core.Description": "More complete description of the task"
+            },
+            "due": {
+                "$Nullable": true,
+                "$Type": "Edm.DateTimeOffset",
+                "$Precision": 0,
+                "@Core.Description": "Date and time that a to-do is expected to be completed"
+            },
+            "completed": {
+                "$Nullable": true,
+                "$Type": "Edm.DateTimeOffset",
+                "$Precision": 0,
+                "@Core.Description": "Date and time that a to-do was actually completed"
+            },
+            "percentcomplete": {
+                "$Nullable": true,
+                "$Type": "Edm.Byte",
+                "@Core.Description": "Percent completion of a to-do, e.g. 50 for half done"
+            },
+            "priority": {
+                "$Nullable": true,
+                "$Type": "Edm.Byte",
+                "@Core.Description": "Relative priority, 0 = undefined, 1 = highest, 9 = lowest"
+            }
+        },
+        "Message": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Communication.MessageData",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Email message"
+        },
+        "MessageData": {
+            "$Kind": "ComplexType",
+            "from": {
+                "$Nullable": true,
+                "@Core.Description": "Author(s) of the message"
+            },
+            "sender": {
+                "$Nullable": true,
+                "@Core.Description": "Agent responsible for the actual transmission of the message, e.g. a secretary"
+            },
+            "to": {
+                "$Collection": true,
+                "@Core.Description": "List of primary recipients"
+            },
+            "cc": {
+                "$Collection": true,
+                "@Core.Description": "List of other recipients (carbon copy)"
+            },
+            "bcc": {
+                "$Collection": true,
+                "@Core.Description": "List of recipients whose addresses are not to be revealed (blind carbon copy)"
+            },
+            "subject": {
+                "$Nullable": true,
+                "@Core.Description": "Topic of the message"
+            },
+            "body": {
+                "$Nullable": true,
+                "@Core.Description": "Main part of the message"
+            },
+            "keywords": {
+                "$Collection": true,
+                "@Core.Description": "List of important words and phrases that might be useful for the recipient"
+            },
+            "received": {
+                "$Nullable": true,
+                "$Type": "Edm.DateTimeOffset",
+                "$Precision": 0,
+                "@Core.Description": "Date and time the message was received"
+            }
+        }
+    }
+}

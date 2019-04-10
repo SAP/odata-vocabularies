@@ -20,7 +20,11 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version"/>
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json"/>
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby"/>
