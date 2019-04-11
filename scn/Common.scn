@@ -344,6 +344,12 @@ Terms</h2>
 <a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets</td>
 </tr>
 <tr>
+<td align="left">EditableFieldFor</td>
+<td align="left">PropertyPath</td>
+<td align="left">
+<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property</td>
+</tr>
+<tr>
 <td align="left">SemanticKey</td>
 <td align="left">[PropertyPath]</td>
 <td align="left">

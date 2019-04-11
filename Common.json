@@ -1145,7 +1145,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "The annotated property is an editable field for the referenced key property"
         },
         "SimpleIdentifier": {

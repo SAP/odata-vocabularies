@@ -21,13 +21,11 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -369,7 +367,8 @@ If the annotation evaluates to false, the unmasked property value can be request
         </Member>
         <Member Name="Hidden" Value="0">
           <Annotation Term="Core.Description" String="Deprecated synonymn for Inapplicable, do not use" />
-          <Annotation Term="Core.LongDescription" String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
+          <Annotation Term="Core.LongDescription"
+            String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
         </Member>
       </EnumType>
 
@@ -959,7 +958,6 @@ The minimum structure is
       </Term>
 
       <Term Name="EditableFieldFor" Type="Edm.PropertyPath" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated property is an editable field for the referenced key property" />
       </Term>
 
