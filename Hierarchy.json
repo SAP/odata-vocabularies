@@ -16,6 +16,14 @@
                     "$Namespace": "Org.OData.Aggregation.V1"
                 }
             ]
+        },
+        "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Hierarchy.v1": {
