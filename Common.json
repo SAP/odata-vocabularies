@@ -1185,17 +1185,23 @@
             "SourceProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Changes to the values of one or more of these properties will affect the targets"
+                "@Core.Description": "Changes to the values of one or more of these properties may affect the targets"
             },
             "SourceEntities": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Changes to one or more of these entities will affect the targets. An empty path means the annotation target."
+                "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
             },
             "TargetProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These properties will be affected if the value of one of the sources changes"
+                "@Core.Description": "These properties may be affected if the value of one of the sources changes"
+            },
+            "TargetOperations": {
+                "$Collection": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "The availability of these actions or functions may be affected if the value of one of the sources changes"
             },
             "TargetEntities": {
                 "$Collection": true,

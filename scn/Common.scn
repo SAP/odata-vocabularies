@@ -907,17 +907,17 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <tr>
 <td align="left">SourceProperties</td>
 <td align="left">[PropertyPath]</td>
-<td align="left">Changes to the values of one or more of these properties will affect the targets</td>
+<td align="left">Changes to the values of one or more of these properties may affect the targets</td>
 </tr>
 <tr>
 <td align="left">SourceEntities</td>
 <td align="left">[NavigationPropertyPath]</td>
-<td align="left">Changes to one or more of these entities will affect the targets. An empty path means the annotation target.</td>
+<td align="left">Changes to one or more of these entities may affect the targets. An empty path means the annotation target.</td>
 </tr>
 <tr>
 <td align="left">TargetProperties</td>
 <td align="left">[PropertyPath]</td>
-<td align="left">These properties will be affected if the value of one of the sources changes</td>
+<td align="left">These properties may be affected if the value of one of the sources changes</td>
 </tr>
 <tr>
 <td align="left">TargetEntities</td>
