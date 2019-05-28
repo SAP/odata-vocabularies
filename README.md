@@ -16,4 +16,6 @@ Standard vocabularies
 * [Capabilities: API capabilities (sorting, filtering, ...)](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Capabilities.V1.md)
 * [Core: API and vocabulary documentation](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md)
 * [Measures: Monetary amounts and measured quantities](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Measures.V1.md)
+* [Repeatability: Repeatable requests](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md)  - *experimental*
+* [Temporal: Time-dependent data](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md)  - *experimental*
 * [Validation: Validation rules](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md)
