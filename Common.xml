@@ -326,10 +326,26 @@ If the annotation evaluates to false, the unmasked property value can be request
         </Annotation>
       </Term>
       <ComplexType Name="FilterExpressionRestrictionType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="Property" Type="Edm.PropertyPath" />
         <Property Name="AllowedExpressions" Type="Common.FilterExpressionType" />
       </ComplexType>
       <EnumType Name="FilterExpressionType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Member Name="SingleValue">
           <Annotation Term="Core.Description" String="a single 'eq' clause" />
         </Member>

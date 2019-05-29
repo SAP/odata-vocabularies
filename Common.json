@@ -402,6 +402,12 @@
         },
         "FilterExpressionRestrictionType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use term Capabilities.FilterRestrictions instead"
+                }
+            ],
             "Property": {
                 "$Nullable": true,
                 "$Type": "Edm.PropertyPath"
@@ -418,7 +424,13 @@
             "MultiValue": 1,
             "MultiValue@Core.Description": "one or more 'eq' clauses, separated by 'or'",
             "SingleInterval": 2,
-            "SingleInterval@Core.Description": "at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause"
+            "SingleInterval@Core.Description": "at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use term Capabilities.FilterRestrictions instead"
+                }
+            ]
         },
         "FieldControl": {
             "$Kind": "Term",
