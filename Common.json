@@ -362,6 +362,7 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)"
         },
@@ -372,6 +373,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Specifies whether the annotated entity can be updated"
         },
@@ -382,6 +384,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Specifies whether the annotated entity can be deleted"
         },

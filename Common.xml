@@ -292,6 +292,7 @@ If the annotation evaluates to false, the unmasked property value can be request
       </Term>
 
       <Term Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
           <String>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</String>
@@ -299,6 +300,7 @@ If the annotation evaluates to false, the unmasked property value can be request
       </Term>
 
       <Term Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
           <String>Specifies whether the annotated entity can be updated</String>
@@ -306,6 +308,7 @@ If the annotation evaluates to false, the unmasked property value can be request
       </Term>
 
       <Term Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
           <String>Specifies whether the annotated entity can be deleted</String>

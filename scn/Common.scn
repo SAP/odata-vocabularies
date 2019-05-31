@@ -136,24 +136,6 @@ Terms</h2>
 <a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied</td>
 </tr>
 <tr>
-<td align="left">Insertable</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</td>
-</tr>
-<tr>
-<td align="left">Updatable</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Updatable"></a>Specifies whether the annotated entity can be updated</td>
-</tr>
-<tr>
-<td align="left">Deletable</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Deletable"></a>Specifies whether the annotated entity can be deleted</td>
-</tr>
-<tr>
 <td align="left">FilterExpressionRestrictions <em>(Deprecated)</em>
 </td>
 <td align="left">[<a href="#FilterExpressionRestrictionType">FilterExpressionRestrictionType</a>]</td>

@@ -257,36 +257,6 @@
             ],
             "@Core.Description": "Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"
         },
-        "Insertable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "NavigationProperty"
-            ],
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)"
-        },
-        "Updatable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the annotated entity can be updated"
-        },
-        "Deletable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the annotated entity can be deleted"
-        },
         "FilterExpressionRestrictions": {
             "$Kind": "Term",
             "$Collection": true,
