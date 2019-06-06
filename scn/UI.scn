@@ -364,6 +364,37 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
+<a name="ConnectedFieldsType"></a>ConnectedFieldsType</h2>
+<p>Group of semantically connected fields with a representation template and an optional label</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Label for the connected fields</td>
+</tr>
+<tr>
+<td align="left">Template</td>
+<td align="left">String</td>
+<td align="left">Template for representing the connected fields<p>Template variables are identifiers enclosed in curly braces, e.g. <code>{MaterialName} - {MaterialClassName}</code>. The <code>Data</code> collection assigns values to the template variables.</p>
+</td>
+</tr>
+<tr>
+<td align="left">Data</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Dictionary" rel="nofollow">Dictionary</a></td>
+<td align="left">Dictionary of template variables<p>Each template variable used in <code>Template</code> must be assigned a value here. The value must be of type <a href="#DataFieldAbstract">DataFieldAbstract</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
 <a name="GeoLocationType"></a>GeoLocationType</h2>
 <p>Properties that define a geographic location</p>
 <table>

@@ -178,7 +178,27 @@ a collection of business object instances, e.g. as a list or table.</String>
           </Record>
         </Annotation>
       </Term>
-      
+      <ComplexType Name="ConnectedFieldsType">
+        <Annotation Term="Core.Description" String="Group of semantically connected fields with a representation template and an optional label"/>
+        <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.IsLanguageDependent"/>
+          <Annotation Term="Core.Description" String="Label for the connected fields"/>
+        </Property>
+        <Property Name="Template" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsLanguageDependent"/>
+          <Annotation Term="Core.Description" String="Template for representing the connected fields"/>
+          <Annotation Term="Core.LongDescription" String="Template variables are identifiers enclosed in curly braces, e.g. `{MaterialName} - {MaterialClassName}`. The `Data` collection assigns values to the template variables."/>
+        </Property>
+        <Property Name="Data" Type="Core.Dictionary" Nullable="false">
+          <Annotation Term="Validation.OpenPropertyTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldAbstract</String>
+            </Collection>
+          </Annotation>
+          <Annotation Term="Core.Description" String="Dictionary of template variables"/>
+          <Annotation Term="Core.LongDescription" String="Each template variable used in `Template` must be assigned a value here. The value must be of type [DataFieldAbstract](#DataFieldAbstract)"/>
+        </Property>
+      </ComplexType>
 
       <!-- Under Discussion
         <Term Name="GeoPoints" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">

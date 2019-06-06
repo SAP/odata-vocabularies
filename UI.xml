@@ -189,7 +189,6 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Annotation>
       </Term>
       <ComplexType Name="ConnectedFieldsType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Group of semantically connected fields with a representation template and an optional label" />
         <Property Name="Label" Type="Edm.String" Nullable="true">

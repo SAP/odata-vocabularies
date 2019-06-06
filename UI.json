@@ -236,7 +236,6 @@
         },
         "ConnectedFieldsType": {
             "$Kind": "ComplexType",
-            "@Common.Experimental": true,
             "@Core.Description": "Group of semantically connected fields with a representation template and an optional label",
             "Label": {
                 "$Nullable": true,

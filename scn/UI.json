@@ -229,6 +229,28 @@
                 }
             }
         },
+        "ConnectedFieldsType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Group of semantically connected fields with a representation template and an optional label",
+            "Label": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true,
+                "@Core.Description": "Label for the connected fields"
+            },
+            "Template": {
+                "@Core.IsLanguageDependent": true,
+                "@Core.Description": "Template for representing the connected fields",
+                "@Core.LongDescription": "Template variables are identifiers enclosed in curly braces, e.g. `{MaterialName} - {MaterialClassName}`. The `Data` collection assigns values to the template variables."
+            },
+            "Data": {
+                "$Type": "Core.Dictionary",
+                "@Validation.OpenPropertyTypeConstraint": [
+                    "UI.DataFieldAbstract"
+                ],
+                "@Core.Description": "Dictionary of template variables",
+                "@Core.LongDescription": "Each template variable used in `Template` must be assigned a value here. The value must be of type [DataFieldAbstract](#DataFieldAbstract)"
+            }
+        },
         "GeoLocations": {
             "$Kind": "Term",
             "$Collection": true,
