@@ -278,7 +278,9 @@
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state"/>
           <Annotation Term="Core.LongDescription">
-            <String>Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international. This value does not make sense as a static annotation value.</String>
+            <String>This value does not make sense as a static annotation value.
+
+Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">

@@ -331,7 +331,7 @@
             "ReadOnly@Core.LongDescription": "To statically make a property read-only use [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead",
             "Inapplicable": 0,
             "Inapplicable@Core.Description": "Property has no meaning in the current entity state",
-            "Inapplicable@Core.LongDescription": "Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international. This value does not make sense as a static annotation value.",
+            "Inapplicable@Core.LongDescription": "This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
             "Hidden": 0,
             "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
             "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead",
