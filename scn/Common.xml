@@ -264,18 +264,21 @@
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property"/>
         <Member Name="Mandatory" Value="7">
-          <Annotation Term="Core.Description" String="Property must have a non-null value"/>
+          <Annotation Term="Core.Description" String="Property must have a value"/>
+          <Annotation Term="Core.LongDescription" String="When used as a static annotation value, it means that the property must be sent in create requests. To statically exclude the `null` value, use the standard type facet `Nullable` with a value of `false`."/>
         </Member>
         <Member Name="Optional" Value="3">
-          <Annotation Term="Core.Description" String="Property may have a value or be null"/>
+          <Annotation Term="Core.Description" String="Property may have a value"/>
+          <Annotation Term="Core.LongDescription" String="This value does not make sense as a static annotation value."/>
         </Member>
         <Member Name="ReadOnly" Value="1">
           <Annotation Term="Core.Description" String="Property value cannot be changed"/>
+          <Annotation Term="Core.LongDescription" String="To statically make a property read-only use [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead"/>
         </Member>
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state"/>
           <Annotation Term="Core.LongDescription">
-            <String>Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
+            <String>Example: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international. This value does not make sense as a static annotation value.</String>
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">

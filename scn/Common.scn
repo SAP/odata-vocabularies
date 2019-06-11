@@ -510,22 +510,25 @@ Terms</h2>
 <tr>
 <td align="left">Mandatory</td>
 <td align="right">7</td>
-<td align="left">Property must have a non-null value</td>
+<td align="left">Property must have a value<p>When used as a static annotation value, it means that the property must be sent in create requests. To statically exclude the <code>null</code> value, use the standard type facet <code>Nullable</code> with a value of <code>false</code>.</p>
+</td>
 </tr>
 <tr>
 <td align="left">Optional</td>
 <td align="right">3</td>
-<td align="left">Property may have a value or be null</td>
+<td align="left">Property may have a value<p>This value does not make sense as a static annotation value.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ReadOnly</td>
 <td align="right">1</td>
-<td align="left">Property value cannot be changed</td>
+<td align="left">Property value cannot be changed<p>To statically make a property read-only use <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed" rel="nofollow">Core.Computed</a> instead</p>
+</td>
 </tr>
 <tr>
 <td align="left">Inapplicable</td>
 <td align="right">0</td>
-<td align="left">Property has no meaning in the current entity state<p>Example: in a travel expense report the property <code>DestinationCountry</code> is inapplicable if trip type is domestic, and mandatory if trip type is international.</p>
+<td align="left">Property has no meaning in the current entity state<p>Example: in a travel expense report the property <code>DestinationCountry</code> is inapplicable if trip type is domestic, and mandatory if trip type is international. This value does not make sense as a static annotation value.</p>
 </td>
 </tr>
 <tr>
