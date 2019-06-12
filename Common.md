@@ -145,9 +145,9 @@ Control state of a property
 
 Member|Value|Description
 :-----|----:|:----------
-[Mandatory](Common.xml#L372)|7|Property must have a value<p>When used as a static annotation value, it means that the property must be sent in create requests. To statically exclude the `null` value, use the standard type facet `Nullable` with a value of `false`.</p>
+[Mandatory](Common.xml#L372)|7|Property is mandatory from a business perspective<p>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md).</p>
 [Optional](Common.xml#L377)|3|Property may have a value<p>This value does not make sense as a static annotation value.</p>
-[ReadOnly](Common.xml#L381)|1|Property value cannot be changed<p>To statically make a property read-only use [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead</p>
+[ReadOnly](Common.xml#L381)|1|Property value cannot be changed<p>To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead</p>
 [Inapplicable](Common.xml#L386)|0|Property has no meaning in the current entity state<p>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</p>
 [Hidden](Common.xml#L394)|0|Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead</p>
 

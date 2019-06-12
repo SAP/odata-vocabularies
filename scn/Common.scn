@@ -510,7 +510,7 @@ Terms</h2>
 <tr>
 <td align="left">Mandatory</td>
 <td align="right">7</td>
-<td align="left">Property must have a value<p>When used as a static annotation value, it means that the property must be sent in create requests. To statically exclude the <code>null</code> value, use the standard type facet <code>Nullable</code> with a value of <code>false</code>.</p>
+<td align="left">Property is mandatory from a business perspective<p>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet <code>Nullable</code> with a value of <code>false</code> to exclude the <code>null</code> value, or terms from the <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md" rel="nofollow">Validation vocabulary</a>.</p>
 </td>
 </tr>
 <tr>
@@ -522,7 +522,7 @@ Terms</h2>
 <tr>
 <td align="left">ReadOnly</td>
 <td align="right">1</td>
-<td align="left">Property value cannot be changed<p>To statically make a property read-only use <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed" rel="nofollow">Core.Computed</a> instead</p>
+<td align="left">Property value cannot be changed<p>To statically mark a property as read-only use term <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed" rel="nofollow">Core.Computed</a> instead</p>
 </td>
 </tr>
 <tr>

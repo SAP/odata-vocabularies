@@ -370,9 +370,9 @@ If the annotation evaluates to false, the unmasked property value can be request
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property" />
         <Member Name="Mandatory" Value="7">
-          <Annotation Term="Core.Description" String="Property must have a value" />
+          <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription"
-            String="When used as a static annotation value, it means that the property must be sent in create requests. To statically exclude the `null` value, use the standard type facet `Nullable` with a value of `false`." />
+            String="This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md)." />
         </Member>
         <Member Name="Optional" Value="3">
           <Annotation Term="Core.Description" String="Property may have a value" />
@@ -381,7 +381,7 @@ If the annotation evaluates to false, the unmasked property value can be request
         <Member Name="ReadOnly" Value="1">
           <Annotation Term="Core.Description" String="Property value cannot be changed" />
           <Annotation Term="Core.LongDescription"
-            String="To statically make a property read-only use [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead" />
+            String="To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead" />
         </Member>
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
