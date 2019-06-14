@@ -1322,26 +1322,26 @@ The trend is
           String="Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature." />
       </Term>
 
-      <Term Name="CreateHidden" Type="Core.Tag" AppliesTo="EntitySet EntityType">
+      <Term Name="CreateHidden" Type="Core.Tag" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
         <Annotation Term="Core.Description"
-          String="EntitySets annotated with this term can control the visibility of the create action dynamically" />
+          String="EntitySets annotated with this term can control the visibility of the create operation dynamically" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>     
 
-      <Term Name="UpdateHidden" Type="Core.Tag" AppliesTo="EntitySet EntityType">
+      <Term Name="UpdateHidden" Type="Core.Tag" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
         <Annotation Term="Core.Description"
-          String="EntitySets annotated with this term can control the visibility of the edit/save action dynamically" />
+          String="EntitySets annotated with this term can control the visibility of the edit/save operation dynamically" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>
 
-      <Term Name="DeleteHidden" Type="Core.Tag" AppliesTo="EntitySet EntityType">
+      <Term Name="DeleteHidden" Type="Core.Tag" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
         <Annotation Term="Core.Description"
-          String="EntitySets annotated with this term can control the visibility of the delete action dynamically" />
+          String="EntitySets annotated with this term can control the visibility of the delete operation dynamically" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>           

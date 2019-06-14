@@ -1517,11 +1517,10 @@
             "$Nullable": true,
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet",
-                "EntityType"
+                "EntitySet"
             ],
             "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
-            "@Core.Description": "EntitySets annotated with this term can control the visibility of the create action dynamically",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the create operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
         "UpdateHidden": {
@@ -1529,11 +1528,10 @@
             "$Nullable": true,
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet",
-                "EntityType"
+                "EntitySet"
             ],
             "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
-            "@Core.Description": "EntitySets annotated with this term can control the visibility of the edit/save action dynamically",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the edit/save operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
         "DeleteHidden": {
@@ -1541,11 +1539,10 @@
             "$Nullable": true,
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet",
-                "EntityType"
+                "EntitySet"
             ],
             "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
-            "@Core.Description": "EntitySets annotated with this term can control the visibility of the delete action dynamically",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the delete operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
         "HiddenFilter": {
