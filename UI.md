@@ -15,7 +15,6 @@ the [UI.Identification](#Identification) term.
 Another example is the [UI.LineItem](#LineItem) term, which is a set of properties suitable for visualizing
 a collection of business object instances, e.g. as a list or table.
 
-
 ## Terms
 
 Term|Type|Description
