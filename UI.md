@@ -16,7 +16,6 @@ Another example is the [UI.LineItem](#LineItem) term, which is a set of properti
 a collection of business object instances, e.g. as a list or table.
 
 
-
 ## Terms
 
 Term|Type|Description
