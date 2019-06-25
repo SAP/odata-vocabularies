@@ -74,6 +74,7 @@
                 "@Core.Description": "Plural form of the name of the main entity type"
             },
             "Title": {
+                "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
                 "@Core.Description": "Title, e.g. for overview pages",
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
@@ -1751,15 +1752,15 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "0",
+                    "Value": 0,
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": "1",
+                    "Value": 1,
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": "2",
+                    "Value": 2,
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]
