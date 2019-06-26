@@ -676,6 +676,44 @@
             ],
             "@Core.Description": "The annotated entity type has one or more containment navigation properties.\n            An instance of the annotated entity type provides the context required for determining\n            the target entity sets reached by these containment navigation properties."
         },
+        "WeakReferentialConstraint": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Common.WeakReferentialConstraintType",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "for references to code lists and master data",
+            "@Core.Description": "A referential constraint to a reference set that is not reachable via a navigation property",
+            "@Core.LongDescription": "A weak referential constraint can be used in cases where the reference service cannot be located at design-time"
+        },
+        "WeakReferentialConstraintType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": "for references to code lists and master data",
+            "ReferenceRoot": {
+                "@Core.Description": "URI of the service containing the reference set",
+                "@Core.LongDescription": "Need not be a uniform resource locator, for cases where the actual location of the reference service is not static or not known at design-time."
+            },
+            "ReferencePath": {
+                "@Core.Description": "Resource path of an OData collection with reference values, relative to ReferenceRoot"
+            },
+            "ForeignKeys": {
+                "$Collection": true,
+                "$Type": "Common.ForeignKeyType",
+                "@Core.Description": "Instructions on how to construct the value list request and consume response properties"
+            }
+        },
+        "ForeignKeyType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": "for references to code lists and master data",
+            "Property": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Path to property of the annotated entity set"
+            },
+            "ReferencedProperty": {
+                "@Core.Description": "Path to property in reference set, format is identical to PropertyPath annotations"
+            }
+        },
         "ValueList": {
             "$Kind": "Term",
             "$Nullable": true,
