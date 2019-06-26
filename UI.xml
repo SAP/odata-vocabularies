@@ -1604,6 +1604,13 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
+      <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="Property"
+      >
+        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-xxxxx" />
+        <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

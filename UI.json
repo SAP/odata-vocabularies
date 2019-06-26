@@ -1815,6 +1815,16 @@
             "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "ExcludeFromNavigationContext": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-xxxxx",
+            "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
         }
     }
 }
