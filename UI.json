@@ -1823,7 +1823,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-xxxxx",
+            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHE1-3736",
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
         }
     }
