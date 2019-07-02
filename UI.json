@@ -1514,7 +1514,7 @@
         },
         "CreateHidden": {
             "$Kind": "Term",
-            "$Nullable": true,
+            "$Nullable": false,
             "$Type": "Core.Tag",
             "$AppliesTo": [
                 "EntitySet"
@@ -1525,7 +1525,7 @@
         },
         "UpdateHidden": {
             "$Kind": "Term",
-            "$Nullable": true,
+            "$Nullable": false,
             "$Type": "Core.Tag",
             "$AppliesTo": [
                 "EntitySet"
@@ -1536,7 +1536,7 @@
         },
         "DeleteHidden": {
             "$Kind": "Term",
-            "$Nullable": true,
+            "$Nullable": false,
             "$Type": "Core.Tag",
             "$AppliesTo": [
                 "EntitySet"
