@@ -183,7 +183,7 @@
                 "EntityType"
             ],
             "@Core.Description": "Entity representing an n:m association with attributes",
-            "@Common.MinOccurs": "2"
+            "@Common.MinOccurs": 2
         },
         "DerivedNavigation": {
             "$Kind": "Term",

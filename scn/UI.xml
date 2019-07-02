@@ -64,7 +64,7 @@ a collection of business object instances, e.g. as a list or table.</String>
           <Annotation Term="Core.IsLanguageDependent"/>
           <Annotation Term="Core.Description" String="Plural form of the name of the main entity type"/>
         </Property>
-        <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="false">
+        <Property Name="Title" Type="UI.DataFieldAbstract" Nullable="true">
           <Annotation Term="Core.Description" String="Title, e.g. for overview pages"/>
           <Annotation Term="Core.LongDescription" String="This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields)."/>
           <Annotation Term="Validation.DerivedTypeConstraint">
@@ -305,7 +305,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="Core.Description" String="Visualization of a single point of data, typically a number; may also be textual, e.g. a status value"/>
       </Term>
       <ComplexType Name="DataPointType">
-        <Property Name="Title" Type="Edm.String" Nullable="false">
+        <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the data point"/>
           <Annotation Term="Core.IsLanguageDependent"/>
         </Property>
@@ -1363,6 +1363,10 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       
 
+
+      
+
+      
 
       
 

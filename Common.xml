@@ -565,6 +565,40 @@ The minimum structure is
         </Annotation>
       </Term>
 
+      <Term Name="WeakReferentialConstraint" Type="Common.WeakReferentialConstraintType" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
+        <Annotation Term="Core.Description"
+          String="A referential constraint to a reference set that is not reachable via a navigation property" />
+        <Annotation Term="Core.LongDescription"
+          String="A weak referential constraint can be used in cases where the reference service cannot be located at design-time" />
+      </Term>
+      <ComplexType Name="WeakReferentialConstraintType">
+        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
+        <Property Name="ReferenceRoot" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="URI of the service containing the reference set" />
+          <Annotation Term="Core.LongDescription"
+            String="Need not be a uniform resource locator, for cases where the actual location of the reference service is not static or not known at design-time." />
+        </Property>
+        <Property Name="ReferencePath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="Resource path of an OData collection with reference values, relative to ReferenceRoot" />
+        </Property>
+        <Property Name="ForeignKeys" Type="Collection(Common.ForeignKeyType)" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="Instructions on how to construct the value list request and consume response properties" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ForeignKeyType">
+        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to property of the annotated entity set" />
+        </Property>
+        <Property Name="ReferencedProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="Path to property in reference set, format is identical to PropertyPath annotations" />
+        </Property>
+      </ComplexType>
+
 
       <!-- Section: Value Help -->
       <Term Name="ValueList" Type="Common.ValueListType" AppliesTo="Property Parameter">

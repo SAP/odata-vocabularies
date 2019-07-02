@@ -74,6 +74,7 @@
                 "@Core.Description": "Plural form of the name of the main entity type"
             },
             "Title": {
+                "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
                 "@Core.Description": "Title, e.g. for overview pages",
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
@@ -382,6 +383,7 @@
         "DataPointType": {
             "$Kind": "ComplexType",
             "Title": {
+                "$Nullable": true,
                 "@Core.Description": "Title of the data point",
                 "@Core.IsLanguageDependent": true
             },

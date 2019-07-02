@@ -74,6 +74,7 @@
                 "@Core.Description": "Plural form of the name of the main entity type"
             },
             "Title": {
+                "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
                 "@Core.Description": "Title, e.g. for overview pages",
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
@@ -387,6 +388,7 @@
         "DataPointType": {
             "$Kind": "ComplexType",
             "Title": {
+                "$Nullable": true,
                 "@Core.Description": "Title of the data point",
                 "@Core.IsLanguageDependent": true
             },
@@ -1783,15 +1785,15 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "0",
+                    "Value": 0,
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": "1",
+                    "Value": 1,
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": "2",
+                    "Value": 2,
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]
@@ -1835,6 +1837,27 @@
             "ValueListProperty": {
                 "@Core.Description": "Path to property in the collection of recommended values. Format is identical to PropertyPath annotations."
             }
+        },
+        "ApplyMultiUnitBehaviorForSortingAndFiltering": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
+            "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
+            "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "ExcludeFromNavigationContext": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHE1-3736",
+            "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
         }
     }
 }
