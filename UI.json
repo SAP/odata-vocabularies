@@ -1514,6 +1514,36 @@
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
             "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature."
         },
+        "CreateHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
+            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+        },
+        "UpdateHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
+            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+        },
+        "DeleteHidden": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
+            "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
+            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+        },
         "HiddenFilter": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
