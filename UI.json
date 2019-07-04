@@ -926,10 +926,6 @@
         },
         "ChartMeasureAttributeType": {
             "$Kind": "ComplexType",
-            "@Validation.ApplicableTerms": [
-                "Analytics.AggregatedProperty"
-            ],
-            "@Validation.ApplicableTerms@Core.Description": "When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the ChartMeasureAttributeType/Measure property ",
             "Measure": {
                 "$Nullable": true,
                 "$Type": "Edm.PropertyPath"
@@ -1679,8 +1675,7 @@
             "@Core.Description": "A piece of data",
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
-                "UI.Importance",
-                "Analytics.AggregatedProperty"
+                "UI.Importance"
             ],
             "@Validation.ApplicableTerms@Core.Description": "When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the DataField/Value property ",
             "Value": {
@@ -1782,15 +1777,15 @@
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
                 {
-                    "Value": 0,
+                    "Value": "0",
                     "@Core.Description": "regular - with human or default input, no recommendation"
                 },
                 {
-                    "Value": 1,
+                    "Value": "1",
                     "@Core.Description": "highlighted - without human input and with recommendation"
                 },
                 {
-                    "Value": 2,
+                    "Value": "2",
                     "@Core.Description": "warning - with human or default input and with recommendation"
                 }
             ]

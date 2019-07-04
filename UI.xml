@@ -836,14 +836,6 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Annotation Term="Validation.ApplicableTerms">
-          <Annotation Term="Core.Description"
-            String="When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined
-          from the value of the ChartMeasureAttributeType/Measure property " />
-          <Collection>
-            <String>Analytics.AggregatedProperty</String>
-          </Collection>
-        </Annotation>
         <Property Name="Measure" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
@@ -1475,7 +1467,6 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
-            <String>Analytics.AggregatedProperty</String>
           </Collection>
         </Annotation>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
