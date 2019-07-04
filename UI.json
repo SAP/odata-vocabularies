@@ -1677,7 +1677,6 @@
                 "UI.Hidden",
                 "UI.Importance"
             ],
-            "@Validation.ApplicableTerms@Core.Description": "When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the DataField/Value property ",
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "The data field's value",
