@@ -79,10 +79,17 @@
         </Annotation>
       </Term>
 
-      <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false">
+      <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
-          String="Specifications how to aggregate property values with a specified aggregation method." />
+          String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
+        <Annotation Term="Core.LongDescription">
+          <String>
+            Other annotations may refer to these dynamic properties in property paths to leverage the results of the aggregate expression 
+            determined in the context of an entity collection of the annotated type.
+          </String>
+        </Annotation>
+
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Annotation Term="Common.Experimental" />

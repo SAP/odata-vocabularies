@@ -110,8 +110,12 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Analytics.AggregatedPropertyType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
             "@Common.Experimental": true,
-            "@Core.Description": "Specifications how to aggregate property values with a specified aggregation method."
+            "@Core.Description": "Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.",
+            "@Core.LongDescription": "\n            Other annotations may refer to these dynamic properties in property paths to leverage the results of the aggregate expression \n            determined in the context of an entity collection of the annotated type.\n          "
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
