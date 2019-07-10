@@ -452,6 +452,11 @@ A renderer should take an optional `Common.Text` annotation into consideration.
           <String>
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
+The value to be compared is
+  - Value - if ReferenceValue is not specified
+  - Value sub ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is not specified or specified as false
+  - (Value sub ReferenceValue) divBy ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is specified as true
+
 For improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be
   - Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue
   - Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
@@ -476,6 +481,8 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
   - For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue
           </String>
         </Annotation>
+        
+        
         <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
           <Annotation Term="Core.Description" String="Describes in which direction the value improves"/>
         </Property>
@@ -759,12 +766,6 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Annotation Term="Validation.ApplicableTerms">
-          <Annotation Term="Core.Description" String="When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the ChartMeasureAttributeType/Measure property "/>
-          <Collection>
-            <String>Analytics.AggregatedProperty</String>
-          </Collection>
-        </Annotation>
         <Property Name="Measure" Type="Edm.PropertyPath"/>
         <Property Name="Role" Type="UI.ChartMeasureRoleType"/>
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
@@ -1183,11 +1184,11 @@ The trend is
         <Annotation Term="Core.LongDescription" String="Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature."/>
       </Term>
 
-           
+      
 
       
 
-                 
+      
 
       <Term Name="HiddenFilter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true."/>
@@ -1299,11 +1300,9 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data"/>
         <Annotation Term="Validation.ApplicableTerms">
-          <Annotation Term="Core.Description" String="When applying Analytics.AggregatedProperty: Analytics.AggregatedProperty/Name must not be assigned, because it is determined           from the value of the DataField/Value property "/>
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
-            <String>Analytics.AggregatedProperty</String>
           </Collection>
         </Annotation>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">

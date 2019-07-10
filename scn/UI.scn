@@ -743,6 +743,12 @@ Terms</h2>
 </h2>
 <p>Describes how to calculate the criticality of a value depending on the improvement direction</p>
 <p>The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.</p>
+<p>The value to be compared is</p>
+<ul>
+<li>Value - if ReferenceValue is not specified</li>
+<li>Value sub ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is not specified or specified as false</li>
+<li>(Value sub ReferenceValue) divBy ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is specified as true</li>
+</ul>
 <p>For improvement direction <code>Target</code>, the criticality is calculated using both low and high threshold values. It will be</p>
 <ul>
 <li>Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue</li>
