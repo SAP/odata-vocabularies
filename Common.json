@@ -1137,6 +1137,12 @@
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Action that activates a draft document"
             },
+            "DiscardAction": {
+                "$Nullable": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Action that discards a draft document"
+            },
             "EditAction": {
                 "$Nullable": true,
                 "$Type": "Common.QualifiedName",

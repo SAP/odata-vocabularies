@@ -966,10 +966,14 @@ The minimum structure is
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document" />
         </Property>
-        <Property Name="EditAction" Type="Common.QualifiedName">
+        <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Action that discards a draft document" />
+        </Property>
+        <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
         </Property>
-        <Property Name="NewAction" Type="Common.QualifiedName">
+        <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description"
             String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription"
