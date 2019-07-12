@@ -172,6 +172,14 @@
       </Term>
 
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term `AlternateKeys` from the OASIS Core vocabulary instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description"
           String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
       </Term>
