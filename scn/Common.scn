@@ -75,10 +75,11 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">SecondaryKey</td>
+<td align="left">SecondaryKey <em>(Deprecated)</em>
+</td>
 <td align="left">[PropertyPath]</td>
 <td align="left">
-<a name="SecondaryKey"></a>The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers.</td>
+<a name="SecondaryKey"></a>Use term <code>AlternateKeys</code> from the OASIS Core vocabulary instead</td>
 </tr>
 <tr>
 <td align="left">MinOccurs</td>

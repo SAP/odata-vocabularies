@@ -227,7 +227,7 @@
                 "EntityType"
             ],
             "@Core.Description": "Entity representing an n:m association with attributes",
-            "@Common.MinOccurs": "2"
+            "@Common.MinOccurs": 2
         },
         "DerivedNavigation": {
             "$Kind": "Term",
@@ -595,19 +595,19 @@
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "1",
+                    "Value": 1,
                     "@Core.Description": "Success - no action required"
                 },
                 {
-                    "Value": "2",
+                    "Value": 2,
                     "@Core.Description": "Information - no action required"
                 },
                 {
-                    "Value": "3",
+                    "Value": 3,
                     "@Core.Description": "Warning - action may be required"
                 },
                 {
-                    "Value": "4",
+                    "Value": 4,
                     "@Core.Description": "Error - action is required"
                 }
             ]
