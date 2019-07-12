@@ -295,7 +295,7 @@ Property|Type|Description
 [*ValidationFunction*](Common.xml#L1001) *(Deprecated)*|[QualifiedName](#QualifiedName)|Separate validation without side-effects is not useful
 [ActivationAction](Common.xml#L958)|[QualifiedName](#QualifiedName)|Action that activates a draft document
 [EditAction](Common.xml#L961)|[QualifiedName](#QualifiedName)|Action that creates an edit draft
-[NewAction](Common.xml#L964)|[QualifiedName](#QualifiedName)|Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft<p>New drafts may also be created by POSTing an empty entity without any properties to the entity set.</p>
+[NewAction](Common.xml#L964)|[QualifiedName](#QualifiedName)|Action that creates a new draft<p>New drafts may also be created by POSTing an empty entity without any properties to the entity set.</p>
 
 ## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L987)
 

@@ -1139,7 +1139,7 @@
             "NewAction": {
                 "$Nullable": true,
                 "$Type": "Common.QualifiedName",
-                "@Core.Description": "Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft",
+                "@Core.Description": "Action that creates a new draft",
                 "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
             }
         },
