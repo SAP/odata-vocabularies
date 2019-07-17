@@ -481,6 +481,11 @@ A renderer should take an optional `Common.Text` annotation into consideration.
           <String>
 The calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.
 
+The value to be compared is
+  - Value - if ReferenceValue is not specified
+  - Value sub ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is not specified or specified as false
+  - (Value sub ReferenceValue) divBy ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is specified as true
+
 For improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be
   - Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue
   - Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue
@@ -505,6 +510,15 @@ Thresholds are optional. For unassigned values, defaults are determined in this 
   - For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue
           </String>
         </Annotation>
+        <Property Name="ReferenceValue" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description"
+            String="Reference value for the calculation, e.g. number of sales for the last year" />
+        </Property>
+        <Property Name="IsRelativeDifference" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Calculate with a relative difference" />
+        </Property>
         <Property Name="ImprovementDirection" Type="UI.ImprovementDirectionType" Nullable="false">
           <Annotation Term="Core.Description" String="Describes in which direction the value improves" />
         </Property>
@@ -1316,15 +1330,17 @@ The trend is
       </Term>
 
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
+        <Annotation Term="Common.Experimental"
+          String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description"
           String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a path to another property from the same or an associated EntitySet." />
-      </Term>     
+      </Term>
 
       <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
+        <Annotation Term="Common.Experimental"
+          String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description"
           String="EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically" />
         <Annotation Term="Core.LongDescription"
@@ -1332,12 +1348,13 @@ The trend is
       </Term>
 
       <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf"/>
+        <Annotation Term="Common.Experimental"
+          String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description"
           String="EntitySets annotated with this term can control the visibility of the Delete operation dynamically" />
         <Annotation Term="Core.LongDescription"
           String="The annotation value should be a path to another property from the same or an associated EntitySet." />
-      </Term>           
+      </Term>
 
       <Term Name="HiddenFilter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description"
@@ -1612,15 +1629,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         AppliesTo="EntityContainer"
       >
         <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
-        <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
-        <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+        <Annotation Term="Core.Description"
+          String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
+        <Annotation Term="Core.LongDescription"
+          String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
-      <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property"
-      >
+      <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHE1-3736" />
-        <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
+        <Annotation Term="Core.Description"
+          String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
     </Schema>
