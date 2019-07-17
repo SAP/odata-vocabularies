@@ -185,6 +185,12 @@
             ],
             "$Collection": true,
             "$Type": "Edm.PropertyPath",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use term `AlternateKeys` from the OASIS Core vocabulary instead"
+                }
+            ],
             "@Core.Description": "The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers."
         },
         "MinOccurs": {
@@ -1131,6 +1137,12 @@
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Action that activates a draft document"
             },
+            "DiscardAction": {
+                "$Nullable": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Action that discards a draft document"
+            },
             "EditAction": {
                 "$Nullable": true,
                 "$Type": "Common.QualifiedName",
@@ -1139,7 +1151,7 @@
             "NewAction": {
                 "$Nullable": true,
                 "$Type": "Common.QualifiedName",
-                "@Core.Description": "Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft",
+                "@Core.Description": "Action that creates a new draft",
                 "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
             }
         },

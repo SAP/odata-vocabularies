@@ -145,6 +145,14 @@
       
 
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Use term `AlternateKeys` from the OASIS Core vocabulary instead"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers."/>
       </Term>
 
@@ -636,11 +644,12 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document"/>
         </Property>
-        <Property Name="EditAction" Type="Common.QualifiedName">
+        
+        <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates an edit draft"/>
         </Property>
-        <Property Name="NewAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Description" String="Action that creates a new draft. It may have overloads that allow referencing other business documents that are used to pre-fill the new draft"/>
+        <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that creates a new draft"/>
           <Annotation Term="Core.LongDescription" String="New drafts may also be created by POSTing an empty entity without any properties to the entity set."/>
         </Property>
       </ComplexType>
