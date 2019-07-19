@@ -1,0 +1,53 @@
+<h1>
+CodeList Vocabulary</h1>
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml?api=v2">com.sap.vocabularies.CodeList.v1</a></strong></p>
+<p>Terms for Code Lists</p>
+<h2>
+Terms</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CurrencyCodes</td>
+<td align="left"><a href="#CodeListSource">CodeListSource</a></td>
+<td align="left">
+<a name="CurrencyCodes"></a>An entity set containing the code list for currencies</td>
+</tr>
+<tr>
+<td align="left">UnitsOfMeasure</td>
+<td align="left"><a href="#CodeListSource">CodeListSource</a></td>
+<td align="left">
+<a name="UnitsOfMeasure"></a>An entity set containing the code list for units of measure</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="CodeListSource"></a>CodeListSource</h2>
+<p>An entity set containing the code list for currencies</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Url</td>
+<td align="left">URL</td>
+<td align="left">URL of a CSDL document describing an entity set for a code list</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Name of the entity set for the code list</td>
+</tr>
+</tbody>
+</table>

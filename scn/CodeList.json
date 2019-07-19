@@ -1,0 +1,69 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        },
+        "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.CodeList.v1": {
+        "$Alias": "CodeList",
+        "@Core.Description": "Terms for Code Lists",
+        "@Core.Description#Published": "2018-12-04 © Copyright 2018 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json"
+            },
+            {
+                "rel": "alternate",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://wiki.scn.sap.com/wiki/x/s4k7Hw"
+            }
+        ],
+        "CurrencyCodes": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "CodeList.CodeListSource",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "An entity set containing the code list for currencies"
+        },
+        "UnitsOfMeasure": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "CodeList.CodeListSource",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "An entity set containing the code list for units of measure"
+        },
+        "CodeListSource": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "An entity set containing the code list for currencies",
+            "Url": {
+                "@Core.IsURL": true,
+                "@Core.Description": "URL of a CSDL document describing an entity set for a code list"
+            },
+            "CollectionPath": {
+                "@Core.Description": "Name of the entity set for the code list"
+            }
+        }
+    }
+}

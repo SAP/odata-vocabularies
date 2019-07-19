@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList">
+      <Annotation Term="Core.Description">
+        <String>Terms for Code Lists</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-12-04 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json"/>
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby"/>
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/s4k7Hw"/>
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="An entity set containing the code list for currencies"/>
+      </Term>
+
+      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="An entity set containing the code list for units of measure"/>
+      </Term>
+
+      <ComplexType Name="CodeListSource">
+        <Annotation Term="Core.Description" String="An entity set containing the code list for currencies"/>
+        <Property Name="Url" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL"/>
+          <Annotation Term="Core.Description" String="URL of a CSDL document describing an entity set for a code list"/>
+        </Property>
+        <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the entity set for the code list"/>
+        </Property>
+      </ComplexType>
+
+      
+
+      
+
+      
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
