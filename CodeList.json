@@ -25,15 +25,15 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.json"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json"
             },
             {
                 "rel": "alternate",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/CodeList.xml"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml"
             },
             {
                 "rel": "describedby",
-                "href": "https://wiki.scn.sap.com/wiki/x/gwWKGw"
+                "href": "https://wiki.scn.sap.com/wiki/x/s4k7Hw"
             }
         ],
         "CurrencyCodes": {
@@ -43,7 +43,6 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "An entity set containing the code list for currencies"
         },
         "UnitsOfMeasure": {
@@ -53,12 +52,10 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "An entity set containing the code list for units of measure"
         },
         "CodeListSource": {
             "$Kind": "ComplexType",
-            "@Common.Experimental": true,
             "@Core.Description": "An entity set containing the code list for currencies",
             "Url": {
                 "@Core.IsURL": true,

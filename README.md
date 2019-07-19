@@ -1,7 +1,7 @@
 # SAP Vocabularies
 SAP Vocabularies for annotating OData services 
 * [Analytics: Analytical resources](Analytics.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/gwWKGw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=462030211)
-* [CodeList: Code Lists](CodeList.md) - *experimental*
+* [CodeList: Code Lists](CodeList.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/s4k7Hw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=523995571)
 * [Common: Semantics common to all types of APIs](Common.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/vh_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470974)
 * [Communication: Contact information based on vCard](Communication.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/ux_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470971)
 * [Hierarchy: Hierarchies](Hierarchy.md) - *experimental*
