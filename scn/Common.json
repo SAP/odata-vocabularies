@@ -882,7 +882,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`."
+                        "Description": "All side effects are essentially value changes, differentiation not needed."
                     }
                 ],
                 "@Core.Description": "One or more of the targets may show these effects. If not specified, any effect is possible."

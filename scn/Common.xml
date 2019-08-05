@@ -731,13 +731,12 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`."/>
+                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed."/>
               </Record>
             </Collection>
           </Annotation>
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible."/>
         </Property>
-        
         
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">

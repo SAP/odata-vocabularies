@@ -916,7 +916,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">EffectTypes <em>(Deprecated)</em>
 </td>
 <td align="left"><a href="#EffectType">EffectType</a></td>
-<td align="left">All side effects are essentially value changes, differentiation not needed. Do not use together with <code>OnPreparation</code>.</td>
+<td align="left">All side effects are essentially value changes, differentiation not needed.</td>
 </tr>
 </tbody>
 </table>

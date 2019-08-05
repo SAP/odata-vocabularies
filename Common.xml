@@ -1090,7 +1090,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
                 <PropertyValue Property="Description"
-                  String="All side effects are essentially value changes, differentiation not needed. Do not use together with `OnPreparation`." />
+                  String="All side effects are essentially value changes, differentiation not needed." />
               </Record>
             </Collection>
           </Annotation>
@@ -1102,18 +1102,6 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
           <Annotation Term="Core.LongDescription"
             String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
-        </Property>
-        <Property Name="OnPreparation" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `TriggerAction` instead" />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="This side effect is deferred until invoking the Preparation action" />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
