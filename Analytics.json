@@ -123,7 +123,7 @@
             "Name": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
-                "@Core.Description": "Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target."
+                "@Core.Description": "Name the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
                 "@Core.Description": "Name of the standard or custom aggregation method to be applied."

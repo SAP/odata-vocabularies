@@ -21,6 +21,6 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Analytics.xml#L96)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value. Can be omitted, if it will be derived from the annotated target.
+[Name](Analytics.xml#L96)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value.
 [AggregationMethod](Analytics.xml#L100)|String|Name of the standard or custom aggregation method to be applied.
 [AggregatableProperty](Analytics.xml#L103)|PropertyPath|Property whose values shall be aggregated.
