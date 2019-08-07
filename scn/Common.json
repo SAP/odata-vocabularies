@@ -892,30 +892,18 @@
             "$Kind": "EnumType",
             "$IsFlags": true,
             "ValidationMessage": 1,
-            "ValidationMessage@Core.Revisions": [
-                {
-                    "Kind": "Deprecated",
-                    "Description": "Use `ValueChange` instead"
-                }
-            ],
             "ValidationMessage@Core.Description": "Validation messages are assigned to a target",
             "ValidationMessage@Core.LongDescription": "This side effect type indicates that validation messages may result from changes of source properties or entities.  \nThus, a validation request can be sent either in conjunction with or separately after a modifying request. \nValidation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.",
             "ValueChange": 2,
             "ValueChange@Core.Description": "The value of a target changes",
             "ValueChange@Core.LongDescription": "This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.  \nUpon modification preparation logic is performed that determines additional values to be stored in the draft document.",
             "FieldControlChange": 4,
-            "FieldControlChange@Core.Revisions": [
-                {
-                    "Kind": "Deprecated",
-                    "Description": "Use `ValueChange` instead"
-                }
-            ],
             "FieldControlChange@Core.Description": "The value of the Common.FieldControl annotation of a target changes",
             "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  \nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined.",
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "`ValueChange` is the only surviving member"
+                    "Description": "All side effects are essentially value changes, differentiation not needed."
                 }
             ]
         },

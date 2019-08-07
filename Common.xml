@@ -974,8 +974,7 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Action that creates a new draft" />
+          <Annotation Term="Core.Description" String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription"
             String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
         </Property>
@@ -1109,19 +1108,12 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="`ValueChange` is the only surviving member" />
+              <PropertyValue Property="Description"
+                String="All side effects are essentially value changes, differentiation not needed." />
             </Record>
           </Collection>
         </Annotation>
         <Member Name="ValidationMessage" Value="1">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `ValueChange` instead" />
-              </Record>
-            </Collection>
-          </Annotation>
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target" />
           <Annotation Term="Core.LongDescription">
             <String>This side effect type indicates that validation messages may result from changes of source properties or entities.  
@@ -1137,14 +1129,6 @@ Upon modification preparation logic is performed that determines additional valu
           </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `ValueChange` instead" />
-              </Record>
-            </Collection>
-          </Annotation>
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes" />
           <Annotation Term="Core.LongDescription">
             <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  

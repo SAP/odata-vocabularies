@@ -933,10 +933,10 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </thead>
 <tbody>
 <tr>
-<td align="left">ValidationMessage <em>(Deprecated)</em>
-</td>
+<td align="left">ValidationMessage</td>
 <td align="right">1</td>
-<td align="left">Use <code>ValueChange</code> instead</td>
+<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities.   Thus, a validation request can be sent either in conjunction with or separately after a modifying request.  Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ValueChange</td>
@@ -945,10 +945,10 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 </td>
 </tr>
 <tr>
-<td align="left">FieldControlChange <em>(Deprecated)</em>
-</td>
+<td align="left">FieldControlChange</td>
 <td align="right">4</td>
-<td align="left">Use <code>ValueChange</code> instead</td>
+<td align="left">The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.   Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+</td>
 </tr>
 </tbody>
 </table>
