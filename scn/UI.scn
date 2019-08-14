@@ -109,6 +109,20 @@ Terms</h2>
 <a name="Chart"></a>Visualization of multiple data points</td>
 </tr>
 <tr>
+<td align="left">ValueCriticality <em>(Experimental)</em>
+</td>
+<td align="left">[<a href="#ValueCriticalityType">ValueCriticalityType</a>]</td>
+<td align="left">
+<a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.</td>
+</tr>
+<tr>
+<td align="left">CriticalityLabels <em>(Experimental)</em>
+</td>
+<td align="left">[<a href="#CriticalityLabelType">CriticalityLabelType</a>]</td>
+<td align="left">
+<a name="CriticalityLabels"></a>Assign labels to criticalities. This information can be used for semantic coloring. When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality. There must be no more than one label per criticality.</td>
+</tr>
+<tr>
 <td align="left">SelectionFields</td>
 <td align="left">[PropertyPath]</td>
 <td align="left">
@@ -225,6 +239,30 @@ Terms</h2>
 </td>
 </tr>
 <tr>
+<td align="left">CreateHidden <em>(Experimental)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="CreateHidden"></a>EntitySets annotated with this term can control the visibility of the Create operation dynamically<p>The annotation value should be a path to another property from the same or an associated EntitySet.</p>
+</td>
+</tr>
+<tr>
+<td align="left">UpdateHidden <em>(Experimental)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="UpdateHidden"></a>EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically<p>The annotation value should be a path to another property from the same or an associated EntitySet.</p>
+</td>
+</tr>
+<tr>
+<td align="left">DeleteHidden <em>(Experimental)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="DeleteHidden"></a>EntitySets annotated with this term can control the visibility of the Delete operation dynamically<p>The annotation value should be a path to another property from the same or an associated EntitySet.</p>
+</td>
+</tr>
+<tr>
 <td align="left">HiddenFilter</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -249,6 +287,44 @@ Terms</h2>
 <td align="left"><a href="#CriticalityCalculationType">CriticalityCalculationType</a></td>
 <td align="left">
 <a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality</td>
+</tr>
+<tr>
+<td align="left">OrderBy <em>(Experimental)</em>
+</td>
+<td align="left">PropertyPath</td>
+<td align="left">
+<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property <code>SizeCode</code> has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
+</td>
+</tr>
+<tr>
+<td align="left">RecommendationState <em>(Experimental)</em>
+</td>
+<td align="left"><a href="#RecommendationStateType">RecommendationStateType</a></td>
+<td align="left">
+<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+</td>
+</tr>
+<tr>
+<td align="left">RecommendationList <em>(Experimental)</em>
+</td>
+<td align="left"><a href="#RecommendationListType">RecommendationListType</a></td>
+<td align="left">
+<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+</td>
+</tr>
+<tr>
+<td align="left">ApplyMultiUnitBehaviorForSortingAndFiltering <em>(Experimental)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on <a href="https://experience.sap.com/fiori-design/" rel="nofollow">https://experience.sap.com/fiori-design/</a></p>
+</td>
+</tr>
+<tr>
+<td align="left">ExcludeFromNavigationContext</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context</td>
 </tr>
 </tbody>
 </table>
@@ -294,6 +370,12 @@ Terms</h2>
 <td align="left">TypeImageUrl</td>
 <td align="left">URL</td>
 <td align="left">Image URL for the entity type</td>
+</tr>
+<tr>
+<td align="left">Initials <em>(Experimental)</em>
+</td>
+<td align="left">String</td>
+<td align="left">Latin letters to be used in case no ImageUrl or TypeImageUrl is present</td>
 </tr>
 </tbody>
 </table>
@@ -587,6 +669,12 @@ Terms</h2>
 <td align="left">Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels</td>
 </tr>
 <tr>
+<td align="left">CriticalityRepresentation <em>(Experimental)</em>
+</td>
+<td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
+<td align="left">Decides if criticality is visualized in addition by means of an icon</td>
+</tr>
+<tr>
 <td align="left">CriticalityCalculation</td>
 <td align="left"><a href="#CriticalityCalculationType">CriticalityCalculationType</a></td>
 <td align="left">Parameters for client-calculated criticality, alternative to Criticality</td>
@@ -717,6 +805,12 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
+<td align="left">VeryNegative <em>(Experimental)</em>
+</td>
+<td align="right">-1</td>
+<td align="left">Very negative / dark-red status - risk - out of stock - late</td>
+</tr>
+<tr>
 <td align="left">Neutral</td>
 <td align="right">0</td>
 <td align="left">Neutral / grey status - inactive - open - in progress</td>
@@ -735,6 +829,12 @@ Terms</h2>
 <td align="left">Positive</td>
 <td align="right">3</td>
 <td align="left">Positive / green status - completed - available - on track - acceptable</td>
+</tr>
+<tr>
+<td align="left">VeryPositive <em>(Experimental)</em>
+</td>
+<td align="right">4</td>
+<td align="left">Very positive / blue status - above max stock - excess</td>
 </tr>
 </tbody>
 </table>
@@ -816,9 +916,28 @@ Terms</h2>
 <td align="left">Highest value that is considered critical</td>
 </tr>
 <tr>
+<td align="left">ReferenceValue <em>(Experimental)</em>
+</td>
+<td align="left">PrimitiveType</td>
+<td align="left">Reference value for the calculation, e.g. number of sales for the last year</td>
+</tr>
+<tr>
+<td align="left">IsRelativeDifference <em>(Experimental)</em>
+</td>
+<td align="left">Boolean</td>
+<td align="left">Calculate with a relative difference</td>
+</tr>
+<tr>
 <td align="left">ImprovementDirection</td>
 <td align="left"><a href="#ImprovementDirectionType">ImprovementDirectionType</a></td>
 <td align="left">Describes in which direction the value improves</td>
+</tr>
+<tr>
+<td align="left">ConstantThresholds <em>(Experimental)</em>
+</td>
+<td align="left">[<a href="#LevelThresholdsType">LevelThresholdsType</a>]</td>
+<td align="left">List of thresholds depending on the aggregation level as a set of constant values<p>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -828,6 +947,7 @@ Terms</h2>
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#CriticalityCalculationType">CriticalityCalculationType</a></li>
+<li><a href="#LevelThresholdsType">LevelThresholdsType</a></li>
 </ul>
 <table>
 <thead>
@@ -896,6 +1016,56 @@ Terms</h2>
 <td align="left">Maximize</td>
 <td align="right">3</td>
 <td align="left">Higher is better</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="LevelThresholdsType"></a>LevelThresholdsType: <a href="#CriticalityThresholdsType">CriticalityThresholdsType</a> <em>(Experimental)</em>
+</h2>
+<p>Thresholds for an aggregation level</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>AcceptanceRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left"><em>AcceptanceRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered positive</td>
+</tr>
+<tr>
+<td align="left"><em>ToleranceRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left"><em>ToleranceRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered neutral</td>
+</tr>
+<tr>
+<td align="left"><em>DeviationRangeLowValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Lowest value that is considered critical</td>
+</tr>
+<tr>
+<td align="left"><em>DeviationRangeHighValue</em></td>
+<td align="left">PrimitiveType</td>
+<td align="left">Highest value that is considered critical</td>
+</tr>
+<tr>
+<td align="left">AggregationLevel</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">An unordered tuple of dimensions, i.e. properties which are intended to be used for grouping in aggregating requests. In analytical UIs, e.g. an analytical chart, the aggregation level typically corresponds to the visible dimensions.</td>
 </tr>
 </tbody>
 </table>
@@ -1007,6 +1177,12 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">ID</td>
 <td align="left">String</td>
 <td align="left">Optional identifier to reference this instance from an external context</td>
+</tr>
+<tr>
+<td align="left">ShortDescription <em>(Experimental)</em>
+</td>
+<td align="left">String</td>
+<td align="left">Very short description</td>
 </tr>
 <tr>
 <td align="left">SelectionVariant</td>
@@ -1323,6 +1499,12 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="right">37</td>
 <td align="left"></td>
 </tr>
+<tr>
+<td align="left">Donut100 <em>(Experimental)</em>
+</td>
+<td align="right">38</td>
+<td align="left"></td>
+</tr>
 </tbody>
 </table>
 <h2>
@@ -1466,6 +1648,30 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left"><a href="#ChartDimensionRoleType">ChartDimensionRoleType</a></td>
 <td align="left"></td>
 </tr>
+<tr>
+<td align="left">HierarchyLevel <em>(Experimental)</em>
+</td>
+<td align="left">Int32</td>
+<td align="left">For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0.</td>
+</tr>
+<tr>
+<td align="left">ValuesForSequentialColorLevels <em>(Experimental)</em>
+</td>
+<td align="left">[String]</td>
+<td align="left">All values in this collection should be assigned to levels of the same color.</td>
+</tr>
+<tr>
+<td align="left">EmphasizedValues <em>(Experimental)</em>
+</td>
+<td align="left">[String]</td>
+<td align="left">All values in this collection should be emphasized.</td>
+</tr>
+<tr>
+<td align="left">EmphasisLabels <em>(Experimental)</em>
+</td>
+<td align="left"><a href="#EmphasisLabelType">EmphasisLabelType</a></td>
+<td align="left">Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified.</td>
+</tr>
 </tbody>
 </table>
 <h2>
@@ -1493,6 +1699,12 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">DataPoint</td>
 <td align="left">AnnotationPath</td>
 <td align="left">Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure</td>
+</tr>
+<tr>
+<td align="left">UseSequentialColorLevels <em>(Experimental)</em>
+</td>
+<td align="left">Boolean</td>
+<td align="left">All measures for which this setting is true should be assigned to levels of the same color.</td>
 </tr>
 </tbody>
 </table>
@@ -1549,6 +1761,81 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">Axis3</td>
 <td align="right">2</td>
 <td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="EmphasisLabelType"></a>EmphasisLabelType <em>(Experimental)</em>
+</h2>
+<p>Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EmphasizedValuesLabel</td>
+<td align="left">String</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">NonEmphasizedValuesLabel</td>
+<td align="left">String</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueCriticalityType"></a>ValueCriticalityType <em>(Experimental)</em>
+</h2>
+<p>Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Value</td>
+<td align="left">PrimitiveType</td>
+<td align="left">MUST be a fixed value of primitive type</td>
+</tr>
+<tr>
+<td align="left">Criticality</td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="CriticalityLabelType"></a>CriticalityLabelType <em>(Experimental)</em>
+</h2>
+<p>Assigns a label to a criticality. This information can be used for semantic coloring.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Criticality</td>
+<td align="left"><a href="#CriticalityType">CriticalityType</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Criticality label</td>
 </tr>
 </tbody>
 </table>
@@ -1776,6 +2063,12 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">RequestAtLeast</td>
 <td align="left">[PropertyPath]</td>
 <td align="left">Properties that should always be included in the result of the queried collection</td>
+</tr>
+<tr>
+<td align="left">SelectionFields <em>(Experimental)</em>
+</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a <code>UI.SelectionFields</code> annotation via Path.</td>
 </tr>
 </tbody>
 </table>
@@ -2643,6 +2936,89 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 <td align="left">MediaType</td>
 <td align="left">Media type of the hyperlink target, e.g. <code>video/mp4</code>
 </td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="RecommendationStateType"></a>RecommendationStateType <em>(Experimental)</em>
+</h2>
+<p><strong>Type:</strong> Byte</p>
+<p>Indicates whether a field contains or has a recommended value</p>
+<p>Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Allowed Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">0</td>
+<td align="left">regular - with human or default input, no recommendation</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">highlighted - without human input and with recommendation</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">warning - with human or default input and with recommendation</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="RecommendationListType"></a>RecommendationListType <em>(Experimental)</em>
+</h2>
+<p>Reference to a recommendation list</p>
+<p>A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of a collection of recommended values</td>
+</tr>
+<tr>
+<td align="left">RankProperty</td>
+<td align="left">String</td>
+<td align="left">Name of the property within the collection of recommended values that describes the rank of the recommendation</td>
+</tr>
+<tr>
+<td align="left">Binding</td>
+<td align="left">[<a href="#RecommendationBinding">RecommendationBinding</a>]</td>
+<td align="left">List of pairs of a local property and recommended value property</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="RecommendationBinding"></a>RecommendationBinding <em>(Experimental)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to editable property for which recommended values exist</td>
+</tr>
+<tr>
+<td align="left">ValueListProperty</td>
+<td align="left">String</td>
+<td align="left">Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.</td>
 </tr>
 </tbody>
 </table>
