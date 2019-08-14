@@ -85,8 +85,9 @@
           String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
-            Other annotations may refer to these dynamic properties in property paths to leverage the results of the aggregate expression 
-            determined in the context of an entity collection of the annotated type.
+            Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the 
+			given entity type to leverage the results of the aggregate expression determined in the context of an entity collection of 
+			the annotated type.
           </String>
         </Annotation>
 
