@@ -47,14 +47,14 @@ exit /b
   <nul (set/p _any=%~n1)
 
   java.exe org.apache.xalan.xslt.Process -XSL ..\odata-vocabularies\tools\Vocab-to-MarkDown.xsl -PARAM use-alias-as-filename YES -PARAM odata-vocabularies-url https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/ -L -IN %1 -OUT %~n1.md
-  git.exe --no-pager diff --color-words="[^[:space:]]|^(#L[0-9]+)" %~n1.md
+  git.exe --no-pager diff --ignore-space-at-eol --color-words="[^[:space:]]|^(#L[0-9]+)" %~n1.md
 
   java.exe org.apache.xalan.xslt.Process -L -XSL ..\odata-vocabularies\tools\V4-CSDL-normalize-Target.xsl -IN %1 -OUT "%FILENAME%.normalized.xml"
   java.exe org.apache.xalan.xslt.Process -L -XSL ..\odata-vocabularies\tools\V4-CSDL-to-JSON.xsl -IN "%FILENAME%.normalized.xml" -OUT "%FILENAME%.tmp.json"
   json_reformat.exe < "%FILENAME%.tmp.json" > "%FILENAME%.json"
   if not errorlevel 1 (
     del "%FILENAME%.normalized.xml" "%FILENAME%.tmp.json"
-    git.exe -C %~dp1 --no-pager diff "%FILENAME%.json"  2>nul
+    git.exe -C %~dp1 --no-pager --ignore-space-at-eol diff "%FILENAME%.json"  2>nul
   )
   
   if /I [%2] == [/scn] (
