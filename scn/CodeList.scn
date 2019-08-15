@@ -26,14 +26,14 @@ Terms</h2>
 <a name="UnitsOfMeasure"></a>An entity set containing the code list for units of measure</td>
 </tr>
 <tr>
-<td align="left">StandardCode <em>(Experimental)</em>
+<td align="left">StandardCode <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PropertyPath</td>
 <td align="left">
 <a name="StandardCode"></a>Property containing standard code values</td>
 </tr>
 <tr>
-<td align="left">ExternalCode <em>(Experimental)</em>
+<td align="left">ExternalCode <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PropertyPath</td>
 <td align="left">
@@ -41,7 +41,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">IsConfigurationDeprecationCode <em>(Experimental)</em>
+<td align="left">IsConfigurationDeprecationCode <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">

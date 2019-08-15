@@ -47,7 +47,7 @@
         "Experimental": {
             "$Kind": "Term",
             "$Nullable": true,
-            "@Core.Description": "Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning.",
+            "@Core.Description": "Terms, types, and properties annotated with this term are experimental and can be changed incompatibly or removed completely any time without prior warning.",
             "@Core.LongDescription": "Do not use or rely on experimental terms, types, and properties in production environments."
         },
         "ServiceVersion": {
@@ -253,37 +253,6 @@
             ],
             "@Core.Revisions@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
             "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
-        },
-        "Masking": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Common.MaskingType",
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
-            "@Core.Revisions": [
-                {
-                    "Kind": "Deprecated",
-                    "Description": "Use terms `MaskedValue` and `MaskedAlways` instead"
-                }
-            ],
-            "@Core.Description": "Property contains sensitive data that should be masked on UIs"
-        },
-        "MaskingType": {
-            "$Kind": "ComplexType",
-            "@Core.Description": "Describes masking behavior for sensitive data",
-            "@Common.Experimental": true,
-            "Value": {
-                "$Nullable": true,
-                "$Type": "Edm.PrimitiveType",
-                "@Core.Description": "Replacement value that should be visible on a UI instead of the actual value of the masked property"
-            },
-            "Always": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "If false, the property value is initially masked and can be unmasked on user interaction"
-            }
         },
         "MaskedValue": {
             "$Kind": "Term",

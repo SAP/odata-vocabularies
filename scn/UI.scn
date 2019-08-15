@@ -109,14 +109,14 @@ Terms</h2>
 <a name="Chart"></a>Visualization of multiple data points</td>
 </tr>
 <tr>
-<td align="left">ValueCriticality <em>(Experimental)</em>
+<td align="left">ValueCriticality <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[<a href="#ValueCriticalityType">ValueCriticalityType</a>]</td>
 <td align="left">
 <a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.</td>
 </tr>
 <tr>
-<td align="left">CriticalityLabels <em>(Experimental)</em>
+<td align="left">CriticalityLabels <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[<a href="#CriticalityLabelType">CriticalityLabelType</a>]</td>
 <td align="left">
@@ -239,7 +239,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">CreateHidden <em>(Experimental)</em>
+<td align="left">CreateHidden <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -247,7 +247,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">UpdateHidden <em>(Experimental)</em>
+<td align="left">UpdateHidden <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -255,7 +255,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">DeleteHidden <em>(Experimental)</em>
+<td align="left">DeleteHidden <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -289,7 +289,7 @@ Terms</h2>
 <a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality</td>
 </tr>
 <tr>
-<td align="left">OrderBy <em>(Experimental)</em>
+<td align="left">OrderBy <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PropertyPath</td>
 <td align="left">
@@ -297,7 +297,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">RecommendationState <em>(Experimental)</em>
+<td align="left">RecommendationState <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#RecommendationStateType">RecommendationStateType</a></td>
 <td align="left">
@@ -305,7 +305,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">RecommendationList <em>(Experimental)</em>
+<td align="left">RecommendationList <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#RecommendationListType">RecommendationListType</a></td>
 <td align="left">
@@ -313,7 +313,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">ApplyMultiUnitBehaviorForSortingAndFiltering <em>(Experimental)</em>
+<td align="left">ApplyMultiUnitBehaviorForSortingAndFiltering <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -372,7 +372,7 @@ Terms</h2>
 <td align="left">Image URL for the entity type</td>
 </tr>
 <tr>
-<td align="left">Initials <em>(Experimental)</em>
+<td align="left">Initials <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">Latin letters to be used in case no ImageUrl or TypeImageUrl is present</td>
@@ -669,7 +669,7 @@ Terms</h2>
 <td align="left">Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels</td>
 </tr>
 <tr>
-<td align="left">CriticalityRepresentation <em>(Experimental)</em>
+<td align="left">CriticalityRepresentation <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#CriticalityRepresentationType">CriticalityRepresentationType</a></td>
 <td align="left">Decides if criticality is visualized in addition by means of an icon</td>
@@ -805,7 +805,7 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
-<td align="left">VeryNegative <em>(Experimental)</em>
+<td align="left">VeryNegative <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="right">-1</td>
 <td align="left">Very negative / dark-red status - risk - out of stock - late</td>
@@ -831,7 +831,7 @@ Terms</h2>
 <td align="left">Positive / green status - completed - available - on track - acceptable</td>
 </tr>
 <tr>
-<td align="left">VeryPositive <em>(Experimental)</em>
+<td align="left">VeryPositive <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="right">4</td>
 <td align="left">Very positive / blue status - above max stock - excess</td>
@@ -916,13 +916,13 @@ Terms</h2>
 <td align="left">Highest value that is considered critical</td>
 </tr>
 <tr>
-<td align="left">ReferenceValue <em>(Experimental)</em>
+<td align="left">ReferenceValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PrimitiveType</td>
 <td align="left">Reference value for the calculation, e.g. number of sales for the last year</td>
 </tr>
 <tr>
-<td align="left">IsRelativeDifference <em>(Experimental)</em>
+<td align="left">IsRelativeDifference <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">Calculate with a relative difference</td>
@@ -933,7 +933,7 @@ Terms</h2>
 <td align="left">Describes in which direction the value improves</td>
 </tr>
 <tr>
-<td align="left">ConstantThresholds <em>(Experimental)</em>
+<td align="left">ConstantThresholds <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[<a href="#LevelThresholdsType">LevelThresholdsType</a>]</td>
 <td align="left">List of thresholds depending on the aggregation level as a set of constant values<p>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.</p>
@@ -1020,7 +1020,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="LevelThresholdsType"></a>LevelThresholdsType: <a href="#CriticalityThresholdsType">CriticalityThresholdsType</a> <em>(Experimental)</em>
+<a name="LevelThresholdsType"></a>LevelThresholdsType: <a href="#CriticalityThresholdsType">CriticalityThresholdsType</a> <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p>Thresholds for an aggregation level</p>
 <table>
@@ -1179,7 +1179,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">Optional identifier to reference this instance from an external context</td>
 </tr>
 <tr>
-<td align="left">ShortDescription <em>(Experimental)</em>
+<td align="left">ShortDescription <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">Very short description</td>
@@ -1500,7 +1500,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">Donut100 <em>(Experimental)</em>
+<td align="left">Donut100 <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="right">38</td>
 <td align="left"></td>
@@ -1649,25 +1649,25 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left"></td>
 </tr>
 <tr>
-<td align="left">HierarchyLevel <em>(Experimental)</em>
+<td align="left">HierarchyLevel <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Int32</td>
 <td align="left">For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0.</td>
 </tr>
 <tr>
-<td align="left">ValuesForSequentialColorLevels <em>(Experimental)</em>
+<td align="left">ValuesForSequentialColorLevels <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[String]</td>
 <td align="left">All values in this collection should be assigned to levels of the same color.</td>
 </tr>
 <tr>
-<td align="left">EmphasizedValues <em>(Experimental)</em>
+<td align="left">EmphasizedValues <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[String]</td>
 <td align="left">All values in this collection should be emphasized.</td>
 </tr>
 <tr>
-<td align="left">EmphasisLabels <em>(Experimental)</em>
+<td align="left">EmphasisLabels <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#EmphasisLabelType">EmphasisLabelType</a></td>
 <td align="left">Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified.</td>
@@ -1701,7 +1701,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure</td>
 </tr>
 <tr>
-<td align="left">UseSequentialColorLevels <em>(Experimental)</em>
+<td align="left">UseSequentialColorLevels <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">All measures for which this setting is true should be assigned to levels of the same color.</td>
@@ -1765,7 +1765,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
-<a name="EmphasisLabelType"></a>EmphasisLabelType <em>(Experimental)</em>
+<a name="EmphasisLabelType"></a>EmphasisLabelType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p>Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring.</p>
 <table>
@@ -1790,7 +1790,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
-<a name="ValueCriticalityType"></a>ValueCriticalityType <em>(Experimental)</em>
+<a name="ValueCriticalityType"></a>ValueCriticalityType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p>Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring.</p>
 <table>
@@ -1815,7 +1815,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 </tbody>
 </table>
 <h2>
-<a name="CriticalityLabelType"></a>CriticalityLabelType <em>(Experimental)</em>
+<a name="CriticalityLabelType"></a>CriticalityLabelType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p>Assigns a label to a criticality. This information can be used for semantic coloring.</p>
 <table>
@@ -2065,7 +2065,7 @@ If IsRelativeDifference is set, the difference of Value and ReferenceValue is di
 <td align="left">Properties that should always be included in the result of the queried collection</td>
 </tr>
 <tr>
-<td align="left">SelectionFields <em>(Experimental)</em>
+<td align="left">SelectionFields <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[PropertyPath]</td>
 <td align="left">Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a <code>UI.SelectionFields</code> annotation via Path.</td>
@@ -2940,7 +2940,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationStateType"></a>RecommendationStateType <em>(Experimental)</em>
+<a name="RecommendationStateType"></a>RecommendationStateType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p><strong>Type:</strong> Byte</p>
 <p>Indicates whether a field contains or has a recommended value</p>
@@ -2968,7 +2968,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationListType"></a>RecommendationListType <em>(Experimental)</em>
+<a name="RecommendationListType"></a>RecommendationListType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p>Reference to a recommendation list</p>
 <p>A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.</p>
@@ -2999,7 +2999,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationBinding"></a>RecommendationBinding <em>(Experimental)</em>
+<a name="RecommendationBinding"></a>RecommendationBinding <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <table>
 <thead>

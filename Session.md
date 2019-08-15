@@ -43,9 +43,9 @@ combined as one UI app.
 
 Term|Type|Description
 :---|:---|:----------
-[StickySessionSupported](Session.xml#L77) *(Experimental)*|[StickySessionSupportedType](#StickySessionSupportedType)|<a name="StickySessionSupported"></a>The annotated entity set allows data modification only within a sticky session ([Example](Session.xml#L81))
+[StickySessionSupported](Session.xml#L77) *([Experimental](Common.md#Experimental))*|[StickySessionSupportedType](#StickySessionSupportedType)|<a name="StickySessionSupported"></a>The annotated entity set allows data modification only within a sticky session ([Example](Session.xml#L81))
 
-## <a name="StickySessionSupportedType"></a>[StickySessionSupportedType](Session.xml#L94) *(Experimental)*
+## <a name="StickySessionSupportedType"></a>[StickySessionSupportedType](Session.xml#L94) *([Experimental](Common.md#Experimental))*
 Actions for managing data modification within a sticky session
 
 Property|Type|Description

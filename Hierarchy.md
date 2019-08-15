@@ -8,9 +8,9 @@ Terms for Hierarchies
 
 Term|Type|Description
 :---|:---|:----------
-[RecursiveHierarchy](Hierarchy.xml#L43) *(Experimental)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[RecursiveHierarchy](Hierarchy.xml#L43) *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
 
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Hierarchy.xml#L47) *(Experimental)*
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Hierarchy.xml#L47) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description

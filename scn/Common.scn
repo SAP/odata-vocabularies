@@ -14,11 +14,11 @@ Terms</h2>
 </thead>
 <tbody>
 <tr>
-<td align="left">Experimental <em>(Experimental)</em>
-</td>
+<td align="left">Experimental</td>
 <td align="left">String</td>
 <td align="left">
-<a name="Experimental"></a>Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning</td>
+<a name="Experimental"></a>Terms, types, and properties annotated with this term are experimental and can be changed incompatibly or removed completely any time without prior warning.<p>Do not use or rely on experimental terms, types, and properties in production environments.</p>
+</td>
 </tr>
 <tr>
 <td align="left">ServiceVersion</td>
@@ -57,14 +57,14 @@ Terms</h2>
 <a name="Text"></a>A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.</td>
 </tr>
 <tr>
-<td align="left">TextFor <em>(Experimental)</em>
+<td align="left">TextFor <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PropertyPath</td>
 <td align="left">
 <a name="TextFor"></a>The annotated property contains a descriptive text for values of the referenced property.</td>
 </tr>
 <tr>
-<td align="left">IsLanguageIdentifier <em>(Experimental)</em>
+<td align="left">IsLanguageIdentifier <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -96,7 +96,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">UnitSpecificPrecision <em>(Experimental)</em>
+<td align="left">UnitSpecificPrecision <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PrimitiveType</td>
 <td align="left">
@@ -142,14 +142,7 @@ Terms</h2>
 <a name="Masked"></a>Use terms <code>MaskedValue</code> and <code>MaskedAlways</code> instead</td>
 </tr>
 <tr>
-<td align="left">Masking <em>(Experimental)</em> <em>(Deprecated)</em>
-</td>
-<td align="left"><a href="#MaskingType">MaskingType</a></td>
-<td align="left">
-<a name="Masking"></a>Use terms <code>MaskedValue</code> and <code>MaskedAlways</code> instead</td>
-</tr>
-<tr>
-<td align="left">MaskedValue <em>(Experimental)</em>
+<td align="left">MaskedValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">
@@ -157,7 +150,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">MaskedAlways <em>(Experimental)</em>
+<td align="left">MaskedAlways <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -190,21 +183,21 @@ Terms</h2>
 <a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied</td>
 </tr>
 <tr>
-<td align="left">Insertable <em>(Experimental)</em>
+<td align="left">Insertable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">
 <a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</td>
 </tr>
 <tr>
-<td align="left">Updatable <em>(Experimental)</em>
+<td align="left">Updatable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">
 <a name="Updatable"></a>Specifies whether the annotated entity can be updated</td>
 </tr>
 <tr>
-<td align="left">Deletable <em>(Experimental)</em>
+<td align="left">Deletable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">Boolean</td>
 <td align="left">
@@ -225,42 +218,42 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">ExceptionCategory <em>(Experimental)</em>
+<td align="left">ExceptionCategory <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">
 <a name="ExceptionCategory"></a>A machine-readable exception category</td>
 </tr>
 <tr>
-<td align="left">Application <em>(Experimental)</em>
+<td align="left">Application <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#ApplicationType">ApplicationType</a></td>
 <td align="left">
 <a name="Application"></a>...</td>
 </tr>
 <tr>
-<td align="left">Timestamp <em>(Experimental)</em>
+<td align="left">Timestamp <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">DateTimeOffset</td>
 <td align="left">
 <a name="Timestamp"></a>...</td>
 </tr>
 <tr>
-<td align="left">TransactionId <em>(Experimental)</em>
+<td align="left">TransactionId <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">
 <a name="TransactionId"></a>...</td>
 </tr>
 <tr>
-<td align="left">ErrorResolution <em>(Experimental)</em>
+<td align="left">ErrorResolution <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#ErrorResolutionType">ErrorResolutionType</a></td>
 <td align="left">
 <a name="ErrorResolution"></a>Hints for resolving this error</td>
 </tr>
 <tr>
-<td align="left">Messages <em>(Experimental)</em>
+<td align="left">Messages <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[ComplexType]</td>
 <td align="left">
@@ -268,7 +261,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">longtextUrl <em>(Experimental)</em>
+<td align="left">longtextUrl <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">URL</td>
 <td align="left">
@@ -276,7 +269,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">numericSeverity <em>(Experimental)</em>
+<td align="left">numericSeverity <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#NumericMessageSeverityType">NumericMessageSeverityType</a></td>
 <td align="left">
@@ -284,7 +277,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">MaximumNumericMessageSeverity <em>(Experimental)</em>
+<td align="left">MaximumNumericMessageSeverity <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#NumericMessageSeverityType">NumericMessageSeverityType</a></td>
 <td align="left">
@@ -322,7 +315,7 @@ Terms</h2>
 <a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.</td>
 </tr>
 <tr>
-<td align="left">WeakReferentialConstraint <em>(Experimental)</em>
+<td align="left">WeakReferentialConstraint <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#WeakReferentialConstraintType">WeakReferentialConstraintType</a></td>
 <td align="left">
@@ -446,35 +439,35 @@ Terms</h2>
 <a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting of at least seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3,})([0-9]{3})</td>
 </tr>
 <tr>
-<td align="left">IsFiscalQuarter <em>(Experimental)</em>
+<td align="left">IsFiscalQuarter <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsFiscalQuarter"></a>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]</td>
 </tr>
 <tr>
-<td align="left">IsFiscalYearQuarter <em>(Experimental)</em>
+<td align="left">IsFiscalYearQuarter <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsFiscalYearQuarter"></a>Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</td>
 </tr>
 <tr>
-<td align="left">IsFiscalWeek <em>(Experimental)</em>
+<td align="left">IsFiscalWeek <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsFiscalWeek"></a>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</td>
 </tr>
 <tr>
-<td align="left">IsFiscalYearWeek <em>(Experimental)</em>
+<td align="left">IsFiscalYearWeek <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsFiscalYearWeek"></a>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</td>
 </tr>
 <tr>
-<td align="left">IsDayOfFiscalYear <em>(Experimental)</em>
+<td align="left">IsDayOfFiscalYear <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
@@ -530,7 +523,7 @@ Terms</h2>
 <a name="SideEffects"></a>Describes side-effects of modification operations</td>
 </tr>
 <tr>
-<td align="left">DefaultValuesFunction <em>(Experimental)</em>
+<td align="left">DefaultValuesFunction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
 <td align="left">
@@ -538,7 +531,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">DerivedDefaultValue <em>(Experimental)</em>
+<td align="left">DerivedDefaultValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">
@@ -552,14 +545,14 @@ Terms</h2>
 <a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.</td>
 </tr>
 <tr>
-<td align="left">FilterDefaultValueHigh <em>(Experimental)</em>
+<td align="left">FilterDefaultValueHigh <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">PrimitiveType</td>
 <td align="left">
 <a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.</td>
 </tr>
 <tr>
-<td align="left">DerivedFilterDefaultValue <em>(Experimental)</em>
+<td align="left">DerivedFilterDefaultValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">String</td>
 <td align="left">
@@ -632,31 +625,6 @@ Terms</h2>
 <td align="left">html</td>
 <td align="right">1</td>
 <td align="left">Plain text with markup that can validly appear directly within an HTML DIV element</td>
-</tr>
-</tbody>
-</table>
-<h2>
-<a name="MaskingType"></a>MaskingType <em>(Experimental)</em>
-</h2>
-<p>Describes masking behavior for sensitive data</p>
-<table>
-<thead>
-<tr>
-<th align="left">Property</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Value</td>
-<td align="left">PrimitiveType</td>
-<td align="left">Replacement value that should be visible on a UI instead of the actual value of the masked property</td>
-</tr>
-<tr>
-<td align="left">Always</td>
-<td align="left">Boolean</td>
-<td align="left">If false, the property value is initially masked and can be unmasked on user interaction</td>
 </tr>
 </tbody>
 </table>
@@ -782,7 +750,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="ApplicationType"></a>ApplicationType <em>(Experimental)</em>
+<a name="ApplicationType"></a>ApplicationType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <table>
 <thead>
@@ -816,7 +784,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="ErrorResolutionType"></a>ErrorResolutionType <em>(Experimental)</em>
+<a name="ErrorResolutionType"></a>ErrorResolutionType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <table>
 <thead>
@@ -845,7 +813,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="NumericMessageSeverityType"></a>NumericMessageSeverityType <em>(Experimental)</em>
+<a name="NumericMessageSeverityType"></a>NumericMessageSeverityType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <p><strong>Type:</strong> Byte</p>
 <p>Classifies an end-user message as info, success, warning, or error</p>
@@ -909,7 +877,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="WeakReferentialConstraintType"></a>WeakReferentialConstraintType <em>(Experimental)</em>
+<a name="WeakReferentialConstraintType"></a>WeakReferentialConstraintType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <table>
 <thead>
@@ -939,7 +907,7 @@ Terms</h2>
 </tbody>
 </table>
 <h2>
-<a name="ForeignKeyType"></a>ForeignKeyType <em>(Experimental)</em>
+<a name="ForeignKeyType"></a>ForeignKeyType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </h2>
 <table>
 <thead>
@@ -1041,7 +1009,7 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">SelectionVariantQualifier <em>(Experimental)</em>
+<td align="left">SelectionVariantQualifier <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
 <td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#SelectionVariant">UI.SelectionVariant</a> on the entity set identified via CollectionPath</p>
@@ -1225,7 +1193,7 @@ Terms</h2>
 <td align="left">Action that activates a draft document</td>
 </tr>
 <tr>
-<td align="left">DiscardAction <em>(Experimental)</em>
+<td align="left">DiscardAction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
 <td align="left">Action that discards a draft document</td>
@@ -1313,7 +1281,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">These properties may be affected if the value of one of the sources changes</td>
 </tr>
 <tr>
-<td align="left">TargetOperations <em>(Experimental)</em>
+<td align="left">TargetOperations <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[String]</td>
 <td align="left">The availability of these actions or functions may be affected if the value of one of the sources changes<p>The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments.</p>
@@ -1331,7 +1299,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">All side effects are essentially value changes, differentiation not needed.</td>
 </tr>
 <tr>
-<td align="left">TriggerAction <em>(Experimental)</em>
+<td align="left">TriggerAction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left"><a href="#QualifiedName">QualifiedName</a></td>
 <td align="left">Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with <code>SideEffects</code>. The action does not have any additional parameters and does not return anything. It either succeeds with <code>204 No Content</code> or it fails with <code>4xx</code> or <code>5xx</code>.</p>
