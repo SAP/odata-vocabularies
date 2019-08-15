@@ -47,8 +47,8 @@
         "Experimental": {
             "$Kind": "Term",
             "$Nullable": true,
-            "@Common.Experimental": true,
-            "@Core.Description": "Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning"
+            "@Core.Description": "Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning.",
+            "@Core.LongDescription": "Do not use or rely on experimental terms, types, and properties in production environments."
         },
         "ServiceVersion": {
             "$Kind": "Term",

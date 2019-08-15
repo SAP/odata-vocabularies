@@ -35,9 +35,11 @@
       </Annotation>
 
       <Term Name="Experimental" Type="Edm.String">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
-          <String>Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning</String>
+          <String>Terms, types, and properties annotated with this term are experimental and can be changed or removed any time without prior warning.</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Do not use or rely on experimental terms, types, and properties in production environments.</String>
         </Annotation>
       </Term>
 
