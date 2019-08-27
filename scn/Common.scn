@@ -261,11 +261,11 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">addditionalTargets <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+<td align="left">additionalTargets <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
 </td>
 <td align="left">[String]</td>
 <td align="left">
-<a name="addditionalTargets"></a>Additional targets for the message<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
+<a name="additionalTargets"></a>Additional targets for the message<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
 </td>
 </tr>
 <tr>

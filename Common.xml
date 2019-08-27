@@ -460,7 +460,7 @@ The minimum structure is
           </String>
         </Annotation>
       </Term>
-      <Term Name="addditionalTargets" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Record">
+      <Term Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Additional targets for the message" />
