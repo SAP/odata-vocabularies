@@ -535,7 +535,7 @@
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Additional targets for the message",
-            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within then `details` array of an OData error response"
+            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
         },
         "longtextUrl": {
             "$Kind": "Term",
@@ -546,7 +546,7 @@
             "@Core.IsURL": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Location of the message long text",
-            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within then `details` array of an OData error response"
+            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
         },
         "numericSeverity": {
             "$Kind": "Term",
@@ -554,7 +554,7 @@
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
-            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within then `details` array of an OData error response"
+            "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
         },
         "MaximumNumericMessageSeverity": {
             "$Kind": "Term",

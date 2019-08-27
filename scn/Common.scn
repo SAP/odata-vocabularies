@@ -257,7 +257,15 @@ Terms</h2>
 </td>
 <td align="left">[ComplexType]</td>
 <td align="left">
-<a name="Messages"></a>Collection of end-user messages<p>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.<br/>The minimum structure is  <br/>- code: Edm.String <br/>- message: Edm.String <br/>- target: Edm.String nullable  <br/>- transition: Edm.Boolean<br/>- numericSeverity: Edm.Byte<br/>- longtextUrl: Edm.String nullable             </p>
+<a name="Messages"></a>Collection of end-user messages<p>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.<br/>The minimum structure is  <br/>- code: Edm.String <br/>- message: Edm.String <br/>- target: Edm.String nullable  <br/>- additionalTargets: Collection(Edm.String)  <br/>- transition: Edm.Boolean<br/>- numericSeverity: Edm.Byte<br/>- longtextUrl: Edm.String nullable             </p>
+</td>
+</tr>
+<tr>
+<td align="left">addditionalTargets <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[String]</td>
+<td align="left">
+<a name="addditionalTargets"></a>Additional targets for the message<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
 </td>
 </tr>
 <tr>
@@ -265,7 +273,7 @@ Terms</h2>
 </td>
 <td align="left">URL</td>
 <td align="left">
-<a name="longtextUrl"></a>Location of the message long text<p>This instance annotation can be applied to the <code>error</code> object of an OData error response</p>
+<a name="longtextUrl"></a>Location of the message long text<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
 </td>
 </tr>
 <tr>
@@ -273,7 +281,7 @@ Terms</h2>
 </td>
 <td align="left"><a href="#NumericMessageSeverityType">NumericMessageSeverityType</a></td>
 <td align="left">
-<a name="numericSeverity"></a>Classifies an end-user message as info, success, warning, or error<p>This instance annotation can be applied to the <code>error</code> object of an OData error response</p>
+<a name="numericSeverity"></a>Classifies an end-user message as info, success, warning, or error<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
 </td>
 </tr>
 <tr>
