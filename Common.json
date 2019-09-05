@@ -816,6 +816,12 @@
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
             },
+            "FetchValues": {
+                "$Nullable": true,
+                "$Type": "Common.FetchValuesType",
+                "@Common.Experimental": true,
+                "@Core.Description": "Hint on when to fetch values"
+            },
             "PresentationVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
@@ -825,7 +831,6 @@
             "SelectionVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
-                "@Common.Experimental": "Requested by Markus Königstein",
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
             },

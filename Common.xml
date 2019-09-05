@@ -703,13 +703,16 @@ The minimum structure is
           <Annotation Term="Core.Description"
             String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
+        <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Hint on when to fetch values" />
+        </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
           <Annotation Term="Core.LongDescription"
             String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
         </Property>
         <Property Name="SelectionVariantQualifier" Type="Common.SimpleIdentifier">
-          <Annotation Term="Common.Experimental" String="Requested by Markus Königstein" />
           <Annotation Term="Core.Description"
             String="Optional combination of parameters and filters to query the value help entity set" />
           <Annotation Term="Core.LongDescription"

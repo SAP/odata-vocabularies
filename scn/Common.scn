@@ -1044,14 +1044,19 @@ Terms</h2>
 <td align="left">Resource path of an OData collection with possible values, relative to the document containing the value list mapping</td>
 </tr>
 <tr>
+<td align="left">FetchValues <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#FetchValuesType">FetchValuesType</a></td>
+<td align="left">Hint on when to fetch values</td>
+</tr>
+<tr>
 <td align="left">PresentationVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
 <td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#PresentationVariant">UI.PresentationVariant</a> on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
 </td>
 </tr>
 <tr>
-<td align="left">SelectionVariantQualifier <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
+<td align="left">SelectionVariantQualifier</td>
 <td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
 <td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#SelectionVariant">UI.SelectionVariant</a> on the entity set identified via CollectionPath</p>
 </td>
