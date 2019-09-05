@@ -731,6 +731,12 @@
                 "@Core.Description": "Value list supports the $search query option",
                 "@Core.LongDescription": "The value of the target property is used as the search expression instead of in $filter"
             },
+            "FetchValues": {
+                "$Nullable": true,
+                "$Type": "Common.FetchValuesType",
+                "@Common.Experimental": true,
+                "@Core.Description": "Hint on when to fetch values"
+            },
             "PresentationVariantQualifier": {
                 "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
@@ -748,6 +754,26 @@
                 "$Type": "Common.ValueListParameter",
                 "@Core.Description": "Instructions on how to construct the value list request and consume response properties"
             }
+        },
+        "FetchValuesType": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.Byte",
+            "@Common.Experimental": true,
+            "@Core.Description": "Hint on when to fetch values",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": 1,
+                    "@Core.Description": "Fetch values immediately without filter"
+                },
+                {
+                    "Value": 2,
+                    "@Core.Description": "Fetch values with a filter"
+                },
+                {
+                    "Value": 3,
+                    "@Core.Description": "Fetch count immediately, then depending on count do 1 or 2"
+                }
+            ]
         },
         "ValueListWithFixedValues": {
             "$Kind": "Term",
