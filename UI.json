@@ -1841,17 +1841,6 @@
                 "@Core.Description": "Path to property in the collection of recommended values. Format is identical to PropertyPath annotations."
             }
         },
-        "ApplyMultiUnitBehaviorForSortingAndFiltering": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
-            "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
-            "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
-        },
         "ExcludeFromNavigationContext": {
             "$Kind": "Term",
             "$Type": "Core.Tag",

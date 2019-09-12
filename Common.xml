@@ -1331,6 +1331,17 @@ Upon modification field control logic is invoked so that meta-information like h
           String="Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`" />
       </Term>
 
+      <!-- Odds and ends -->
+      <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="EntityContainer"
+      >
+        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
+        <Annotation Term="Core.Description"
+          String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
+        <Annotation Term="Core.LongDescription"
+          String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

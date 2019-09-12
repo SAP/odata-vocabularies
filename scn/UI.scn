@@ -313,14 +313,6 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">ApplyMultiUnitBehaviorForSortingAndFiltering <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
-<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
-<td align="left">
-<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on <a href="https://experience.sap.com/fiori-design/" rel="nofollow">https://experience.sap.com/fiori-design/</a></p>
-</td>
-</tr>
-<tr>
 <td align="left">ExcludeFromNavigationContext</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">

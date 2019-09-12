@@ -99,6 +99,7 @@ Term|Type|Description
 [ChangedAt](Common.xml#L1313)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
 [ChangedBy](Common.xml#L1317)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 [OriginalProtocolVersion](Common.xml#L1329)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1337) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L95)
 

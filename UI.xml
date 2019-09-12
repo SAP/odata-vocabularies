@@ -1625,16 +1625,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Property>
       </ComplexType>
 
-      <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityContainer"
-      >
-        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
-        <Annotation Term="Core.Description"
-          String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
-        <Annotation Term="Core.LongDescription"
-          String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
-      </Term>
-
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description"
           String="The contents of this property must not be propagated to the app-to-app navigation context" />

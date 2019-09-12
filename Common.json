@@ -1481,6 +1481,17 @@
                 "Schema"
             ],
             "@Core.Description": "Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`"
+        },
+        "ApplyMultiUnitBehaviorForSortingAndFiltering": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
+            "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
+            "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
         }
     }
 }
