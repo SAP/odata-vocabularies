@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -9,7 +9,6 @@
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Session.v1" Alias="Session">
-      <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for services supporting sticky sessions for data modification</String>
       </Annotation>
@@ -20,20 +19,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <!-- TODO: insert correct page id -->
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Session.xml" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/528121860/Session.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <!-- TODO: insert correct page id -->
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Session.json" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/528121860/Session.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <!-- TODO: insert correct page link -->
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/gwWKGw" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/BIB6Hw" />
           </Record>
         </Collection>
       </Annotation>
@@ -75,9 +69,7 @@ combined as one UI app.
       </Annotation>
 
       <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The annotated entity set allows data modification only within a sticky session" />
+        <Annotation Term="Core.Description" String="The annotated entity set allows data modification only within a sticky session" />
         <Annotation Term="Core.Example">
           <Record>
             <Annotation Term="Session.SessionOnlyStateSupported">
@@ -92,11 +84,9 @@ combined as one UI app.
         </Annotation>
       </Term>
       <ComplexType Name="StickySessionSupportedType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Actions for managing data modification within a sticky session" />
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection" />
+          <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
 
@@ -116,8 +106,7 @@ Otherwise:
           </Annotation>
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Bound action that initiates a sticky session for editing the targeted entity" />
+          <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
 
@@ -153,8 +142,7 @@ On failure the sticky session is kept alive.</String>
           </Annotation>
         </Property>
         <Property Name="DiscardAction" Type="Common.SimpleIdentifier" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Action import for an unbound action that discards all changes and terminates the sticky session" />
+          <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
 

@@ -6,7 +6,7 @@ SAP Vocabularies for annotating OData services
 * [Communication: Contact information based on vCard](Communication.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/ux_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470971)
 * [Hierarchy: Hierarchies](Hierarchy.md) - *experimental*
 * [PersonalData: Personal data / GDPR](PersonalData.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/tQGXHQ) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=496435637)
-* [Session: Sticky Sessions](Session.md) - *experimental*
+* [Session: Sticky Sessions](Session.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/BIB6Hw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=528121860)
 * [UI: Representing data in user interfaces](UI.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/uB_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470968)
 
 # OASIS Vocabularies
