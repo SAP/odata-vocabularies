@@ -77,6 +77,7 @@ exit /b
             -e "s/\"Common\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470974\/Common.xml?api=v2\"/g" ^
             -e "s/\"Communication\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470971\/Communication.xml?api=v2\"/g" ^
             -e "s/\"PersonalData\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/496435637\/PersonalData.xml?api=v2\"/g" ^
+            -e "s/\"Session\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/528121860\/Session.xml?api=v2\"/g" ^
             -e "s/\"UI\.xml\"/\"https:\/\/wiki.scn.sap.com\/wiki\/download\/attachments\/448470968\/UI.xml?api=v2\"/g" ^
             -e "s/com\.sap\.vocabularies\.\([^.]\+\)\.v1\.md#/https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+\1#/g" ^
             -e "s/\"Common\.md#/\"https:\/\/wiki.scn.sap.com\/wiki\/display\/EmTech\/OData+4.0+Vocabularies+-+SAP+Common#/g" ^

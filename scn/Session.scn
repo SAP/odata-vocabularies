@@ -1,6 +1,6 @@
 <h1>
 Session Vocabulary</h1>
-<p><strong>Namespace: <a href="Session.xml">com.sap.vocabularies.Session.v1</a></strong></p>
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/528121860/Session.xml?api=v2">com.sap.vocabularies.Session.v1</a></strong></p>
 <p>Terms for services supporting sticky sessions for data modification</p>
 <p>Building REST APIs on top of ABAP code that has been written for classic session-based communication is hard and sometimes not economically feasible.</p>
 <p>HTTP is not connection-based, meaning that each request may be sent over a different TCP connection.
