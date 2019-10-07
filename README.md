@@ -1,5 +1,5 @@
 # SAP Vocabularies
-SAP Vocabularies for annotating OData services 
+SAP Vocabularies for annotating OData services - [SCN Wiki](https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies)
 * [Analytics: Analytical resources](Analytics.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/gwWKGw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=462030211)
 * [CodeList: Code Lists](CodeList.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/s4k7Hw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=523995571)
 * [Common: Semantics common to all types of APIs](Common.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/vh_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470974)
