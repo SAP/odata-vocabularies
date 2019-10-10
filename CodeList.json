@@ -25,7 +25,7 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json.txt"
             },
             {
                 "rel": "alternate",

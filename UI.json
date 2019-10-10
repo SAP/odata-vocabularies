@@ -42,7 +42,7 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json.txt"
             },
             {
                 "rel": "alternate",

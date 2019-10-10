@@ -33,7 +33,7 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.json"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.json.txt"
             },
             {
                 "rel": "alternate",

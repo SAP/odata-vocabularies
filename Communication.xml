@@ -30,7 +30,7 @@ These terms are inspired by
           <Record>
             <PropertyValue Property="rel" String="alternate" />
             <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json" />
+              String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json.txt" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />

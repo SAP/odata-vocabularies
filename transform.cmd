@@ -86,6 +86,8 @@ exit /b
             scn\%~n1.html > scn\%~n1.scn 
     git.exe --no-pager diff scn\%~n1.scn
     del scn\%~n1.md scn\%~n1.html
+    
+    copy "%FILENAME%.json" scn\%~n1.json.txt >nul
   )
   echo:
 

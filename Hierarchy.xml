@@ -28,7 +28,7 @@
           <Record>
             <PropertyValue Property="rel" String="alternate" />
             <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.json" />
+            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.json.txt" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />

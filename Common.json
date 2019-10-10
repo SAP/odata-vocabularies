@@ -33,7 +33,7 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json"
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json.txt"
             },
             {
                 "rel": "alternate",

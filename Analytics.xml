@@ -31,7 +31,7 @@
           <Record>
             <PropertyValue Property="rel" String="alternate" />
             <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json" />
+              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json.txt" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
