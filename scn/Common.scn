@@ -338,6 +338,14 @@ Terms</h2>
 </td>
 </tr>
 <tr>
+<td align="left">ValueListRelevantQualifiers <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[<a href="#SimpleIdentifier">SimpleIdentifier</a>]</td>
+<td align="left">
+<a name="ValueListRelevantQualifiers"></a>List of qualifiers of relevant ValueList annotations<p>The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties.</p>
+</td>
+</tr>
+<tr>
 <td align="left">ValueListWithFixedValues</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">

@@ -775,6 +775,14 @@
                 }
             ]
         },
+        "ValueListRelevantQualifiers": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Common.SimpleIdentifier",
+            "@Common.Experimental": true,
+            "@Core.Description": "List of qualifiers of relevant ValueList annotations",
+            "@Core.LongDescription": "The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties."
+        },
         "ValueListWithFixedValues": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
