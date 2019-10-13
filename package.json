@@ -1,0 +1,20 @@
+{
+  "name": "sap-vocabularies",
+  "version": "0.0.0",
+  "description": "Convert SAP vocabularies in CSDL XML to CSDL JSON and GitHub Flavored Markdown",
+  "files": [
+    "lib/*"
+  ],
+  "dependencies": {
+    "odata-csdl": "oasis-tcs/odata-csdl-schemas",
+    "odata-vocabularies": "oasis-tcs/odata-vocabularies"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "build": "node lib/transform.js"
+  },
+  "author": "",
+  "license": ""
+}
