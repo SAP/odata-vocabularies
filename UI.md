@@ -149,7 +149,7 @@ Property|Type|Description
 [Title](UI.xml#L323)|String|Title of the data point
 [Description](UI.xml#L327)|String|Short description
 [LongDescription](UI.xml#L331)|String|Full description
-[Value](UI.xml#L335)|PrimitiveType|Numeric value<p> The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.             </p>
+[Value](UI.xml#L335)|PrimitiveType|Numeric value<p>The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.</p>
 [TargetValue](UI.xml#L347)|PrimitiveType|Target value
 [ForecastValue](UI.xml#L350)|PrimitiveType|Forecast value
 [MinimumValue](UI.xml#L353)|Decimal|Minimum value (for output rendering)
