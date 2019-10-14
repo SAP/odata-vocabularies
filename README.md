@@ -19,3 +19,21 @@ Standard vocabularies
 * [Repeatability: Repeatable requests](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md)  - *experimental*
 * [Temporal: Time-dependent data](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md)  - *experimental*
 * [Validation: Validation rules](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md)
+
+# Hints for Vocabulary Editors
+
+The tools in this repository only require [Node.js](https://nodejs.org/) to be installed.
+
+## Installation
+
+Clone or download this repository, go to its root folder and type
+```sh
+npm install
+```
+
+## Editing
+
+Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
+```sh
+npm run build
+```
