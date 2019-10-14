@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         },
@@ -24,12 +24,12 @@
         "@Core.Description#Published": "2018-12-04 © Copyright 2018 SAP SE. All rights reserved",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json.txt"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json.txt"
             },
             {
                 "rel": "describedby",
@@ -38,8 +38,8 @@
         ],
         "CurrencyCodes": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "CodeList.CodeListSource",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -47,8 +47,8 @@
         },
         "UnitsOfMeasure": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "CodeList.CodeListSource",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],

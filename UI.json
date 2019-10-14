@@ -12,8 +12,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Validation",
-                    "$Namespace": "Org.OData.Validation.V1"
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         },
@@ -41,12 +41,12 @@
         "@Core.Description#Published": "2019-02-14 © Copyright 2013 SAP SE. All rights reserved",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json.txt"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json.txt"
             },
             {
                 "rel": "describedby",
@@ -55,8 +55,8 @@
         ],
         "HeaderInfo": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.HeaderInfoType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -74,8 +74,8 @@
                 "@Core.Description": "Plural form of the name of the main entity type"
             },
             "Title": {
-                "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
+                "$Nullable": true,
                 "@Core.Description": "Title, e.g. for overview pages",
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
@@ -84,8 +84,8 @@
                 ]
             },
             "Description": {
-                "$Nullable": true,
                 "$Type": "UI.DataFieldAbstract",
+                "$Nullable": true,
                 "@Core.Description": "Description, e.g. for overview pages",
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
@@ -121,8 +121,8 @@
         },
         "Badge": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.BadgeType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -150,13 +150,13 @@
                 "@Core.Description": "Image URL for the entity type"
             },
             "MainInfo": {
-                "$Nullable": true,
                 "$Type": "UI.DataField",
+                "$Nullable": true,
                 "@Core.Description": "Main information on the business card"
             },
             "SecondaryInfo": {
-                "$Nullable": true,
                 "$Type": "UI.DataField",
+                "$Nullable": true,
                 "@Core.Description": "Additional information on the business card"
             }
         },
@@ -182,8 +182,8 @@
         },
         "FieldGroup": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.FieldGroupType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "Action",
@@ -208,8 +208,8 @@
         },
         "ConnectedFields": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.ConnectedFieldsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -269,8 +269,8 @@
         },
         "GeoLocation": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.GeoLocationType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -281,24 +281,24 @@
             "$Kind": "ComplexType",
             "@Core.Description": "Properties that define a geographic location",
             "Latitude": {
-                "$Nullable": true,
                 "$Type": "Edm.Double",
+                "$Nullable": true,
                 "@Core.Description": "Geographic latitude"
             },
             "Longitude": {
-                "$Nullable": true,
                 "$Type": "Edm.Double",
+                "$Nullable": true,
                 "@Core.Description": "Geographic longitude"
             },
             "Location": {
-                "$Nullable": true,
                 "$Type": "Edm.GeographyPoint",
+                "$Nullable": true,
                 "$SRID": "variable",
                 "@Core.Description": "A point in a round-earth coordinate system"
             },
             "Address": {
-                "$Nullable": true,
                 "$Type": "Communication.AddressType",
+                "$Nullable": true,
                 "@Core.Description": "vCard-style address"
             }
         },
@@ -315,8 +315,8 @@
         },
         "MediaResource": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.MediaResourceType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -335,19 +335,19 @@
                 "@Core.IsMediaType": true
             },
             "ByteSize": {
-                "$Nullable": true,
                 "$Type": "Edm.Int64",
+                "$Nullable": true,
                 "@Core.Description": "Resource size in bytes"
             },
             "ChangedAt": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Date of last change"
             },
             "Thumbnail": {
-                "$Nullable": true,
                 "$Type": "UI.ImageType",
+                "$Nullable": true,
                 "@Core.Description": "Thumbnail image"
             },
             "Title": {
@@ -355,8 +355,8 @@
                 "@Core.Description": "Resource title"
             },
             "Description": {
-                "$Nullable": true,
                 "$Type": "UI.DataField",
+                "$Nullable": true,
                 "@Core.Description": "Resource description"
             }
         },
@@ -377,8 +377,8 @@
         },
         "DataPoint": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.DataPointType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -408,82 +408,82 @@
                 "@Core.LongDescription": "\nThe value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.\n\nIt could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`.\nPercentage values are annotated with `UoM.Unit = '%'`.\nA renderer should take an optional `Common.Text` annotation into consideration.\n            "
             },
             "TargetValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Target value"
             },
             "ForecastValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Forecast value"
             },
             "MinimumValue": {
-                "$Nullable": true,
                 "$Type": "Edm.Decimal",
+                "$Nullable": true,
                 "@Core.Description": "Minimum value (for output rendering)"
             },
             "MaximumValue": {
-                "$Nullable": true,
                 "$Type": "Edm.Decimal",
+                "$Nullable": true,
                 "@Core.Description": "Maximum value (for output rendering)"
             },
             "ValueFormat": {
-                "$Nullable": true,
                 "$Type": "UI.NumberFormat",
+                "$Nullable": true,
                 "@Core.Description": "Number format"
             },
             "Visualization": {
-                "$Nullable": true,
                 "$Type": "UI.VisualizationType",
+                "$Nullable": true,
                 "@Core.Description": "Preferred visualization"
             },
             "SampleSize": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "\n              Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.\n            "
             },
             "ReferencePeriod": {
-                "$Nullable": true,
                 "$Type": "UI.ReferencePeriod",
+                "$Nullable": true,
                 "@Core.Description": "Reference period"
             },
             "Criticality": {
-                "$Nullable": true,
                 "$Type": "UI.CriticalityType",
+                "$Nullable": true,
                 "@Core.Description": "Service-calculated criticality, alternative to CriticalityCalculation"
             },
             "CriticalityLabels": {
-                "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
                 "@Core.Description": "Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels",
                 "@Validation.AllowedTerms": [
                     "UI.CriticalityLabels"
                 ]
             },
             "CriticalityRepresentation": {
-                "$Nullable": true,
                 "$Type": "UI.CriticalityRepresentationType",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Decides if criticality is visualized in addition by means of an icon"
             },
             "CriticalityCalculation": {
-                "$Nullable": true,
                 "$Type": "UI.CriticalityCalculationType",
+                "$Nullable": true,
                 "@Core.Description": "Parameters for client-calculated criticality, alternative to Criticality"
             },
             "Trend": {
-                "$Nullable": true,
                 "$Type": "UI.TrendType",
+                "$Nullable": true,
                 "@Core.Description": "Service-calculated trend, alternative to TrendCalculation"
             },
             "TrendCalculation": {
-                "$Nullable": true,
                 "$Type": "UI.TrendCalculationType",
+                "$Nullable": true,
                 "@Core.Description": "Parameters for client-calculated trend, alternative to Trend"
             },
             "Responsible": {
-                "$Nullable": true,
                 "$Type": "Communication.ContactType",
+                "$Nullable": true,
                 "@Core.Description": "Contact person"
             }
         },
@@ -491,13 +491,13 @@
             "$Kind": "ComplexType",
             "@Core.Description": "Describes how to visualise a number",
             "ScaleFactor": {
-                "$Nullable": true,
                 "$Type": "Edm.Decimal",
+                "$Nullable": true,
                 "@Core.Description": "Display value in *ScaleFactor* units, e.g. 1000 for k (kilo), 1e6 for M (Mega)"
             },
             "NumberOfFractionalDigits": {
-                "$Nullable": true,
                 "$Type": "Edm.Byte",
+                "$Nullable": true,
                 "@Core.Description": "Number of fractional digits of the scaled value to be visualized"
             }
         },
@@ -525,20 +525,21 @@
                 "@Core.IsLanguageDependent": true
             },
             "Start": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Start of the reference period"
             },
             "End": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "End of the reference period"
             }
         },
         "CriticalityType": {
             "$Kind": "EnumType",
+            "@Core.Description": "Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)",
             "VeryNegative": -1,
             "VeryNegative@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898",
             "VeryNegative@Core.Description": "Very negative / dark-red status - risk - out of stock - late",
@@ -552,8 +553,7 @@
             "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
             "VeryPositive": 4,
             "VeryPositive@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898",
-            "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess",
-            "@Core.Description": "Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)"
+            "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess"
         },
         "CriticalityCalculationType": {
             "$Kind": "ComplexType",
@@ -561,8 +561,8 @@
             "@Core.Description": "Describes how to calculate the criticality of a value depending on the improvement direction",
             "@Core.LongDescription": "\nThe calculation is done by comparing a value to the threshold values relevant for the specified improvement direction.\n\nThe value to be compared is\n  - Value - if ReferenceValue is not specified\n  - Value sub ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is not specified or specified as false\n  - (Value sub ReferenceValue) divBy ReferenceValue – if ReferenceValue is specified and IsRelativeDifference is specified as true\n\nFor improvement direction `Target`, the criticality is calculated using both low and high threshold values. It will be\n  - Positive if the value is greater than or equal to AcceptanceRangeLowValue and lower than or equal to AcceptanceRangeHighValue\n  - Neutral if the value is greater than or equal to ToleranceRangeLowValue and lower than AcceptanceRangeLowValue OR greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue\n  - Critical if the value is greater than or equal to DeviationRangeLowValue and lower than ToleranceRangeLowValue OR greater than ToleranceRangeHighValue  and lower than or equal to DeviationRangeHighValue\n  - Negative if the value is lower than DeviationRangeLowValue or greater than DeviationRangeHighValue\n\nFor improvement direction `Minimize`, the criticality is calculated using the high threshold values. It is\n  - Positive if the value is lower than or equal to AcceptanceRangeHighValue\n  - Neutral if the value is  greater than AcceptanceRangeHighValue and lower than or equal to ToleranceRangeHighValue\n  - Critical if the value is greater than ToleranceRangeHighValue and lower than or equal to DeviationRangeHighValue\n  - Negative if the value is greater than DeviationRangeHighValue\n\nFor improvement direction `Maximize`, the criticality is calculated using the low threshold values. It is\n  - Positive if the value is greater than or equal to AcceptanceRangeLowValue\n  - Neutral if the value is less than AcceptanceRangeLowValue and greater than or equal to ToleranceRangeLowValue\n  - Critical if the value is lower than ToleranceRangeLowValue and greater than or equal to DeviationRangeLowValue\n  - Negative if the value is lower than DeviationRangeLowValue\n\nThresholds are optional. For unassigned values, defaults are determined in this order:\n  - For DeviationRange, an omitted LowValue translates into the smallest possible number (-INF), an omitted HighValue translates into the largest possible number (+INF)\n  - For ToleranceRange, an omitted LowValue will be initialized with DeviationRangeLowValue, an omitted HighValue will be initialized with DeviationRangeHighValue\n  - For AcceptanceRange, an omitted LowValue will be initialized with ToleranceRangeLowValue, an omitted HighValue will be initialized with ToleranceRangeHighValue\n          ",
             "ReferenceValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Reference value for the calculation, e.g. number of sales for the last year"
             },
@@ -588,45 +588,45 @@
             "$Kind": "ComplexType",
             "@Core.Description": "Thresholds for calculating the criticality of a value",
             "AcceptanceRangeLowValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Lowest value that is considered positive"
             },
             "AcceptanceRangeHighValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Highest value that is considered positive"
             },
             "ToleranceRangeLowValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Lowest value that is considered neutral"
             },
             "ToleranceRangeHighValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Highest value that is considered neutral"
             },
             "DeviationRangeLowValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Lowest value that is considered critical"
             },
             "DeviationRangeHighValue": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Highest value that is considered critical"
             }
         },
         "ImprovementDirectionType": {
             "$Kind": "EnumType",
+            "@Core.Description": "Describes which direction of a value change is seen as an improvement",
             "Minimize": 1,
             "Minimize@Core.Description": "Lower is better",
             "Target": 2,
             "Target@Core.Description": "Closer to the target is better",
             "Maximize": 3,
-            "Maximize@Core.Description": "Higher is better",
-            "@Core.Description": "Describes which direction of a value change is seen as an improvement"
+            "Maximize@Core.Description": "Higher is better"
         },
         "LevelThresholdsType": {
             "$Kind": "ComplexType",
@@ -641,6 +641,7 @@
         },
         "TrendType": {
             "$Kind": "EnumType",
+            "@Core.Description": "The trend of a value",
             "StrongUp": 1,
             "StrongUp@Core.Description": "Value grows strongly",
             "Up": 2,
@@ -650,8 +651,7 @@
             "Down": 4,
             "Down@Core.Description": "Value shrinks",
             "StrongDown": 5,
-            "StrongDown@Core.Description": "Value shrinks strongly",
-            "@Core.Description": "The trend of a value"
+            "StrongDown@Core.Description": "Value shrinks strongly"
         },
         "TrendCalculationType": {
             "$Kind": "ComplexType",
@@ -685,8 +685,8 @@
         },
         "KPI": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.KPIType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -721,16 +721,16 @@
                 "@Core.LongDescription": "Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons"
             },
             "Detail": {
-                "$Nullable": true,
                 "$Type": "UI.KPIDetailType",
+                "$Nullable": true,
                 "@Core.Description": "Contains information about KPI details, especially drill-down presentations"
             }
         },
         "KPIDetailType": {
             "$Kind": "ComplexType",
             "DefaultPresentationVariant": {
-                "$Nullable": true,
                 "$Type": "UI.PresentationVariantType",
+                "$Nullable": true,
                 "@Core.Description": "Presentation variant, either specified inline or referencing another annotation via Path"
             },
             "AlternativePresentationVariants": {
@@ -749,8 +749,8 @@
         },
         "Chart": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.ChartDefinitionType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -774,8 +774,8 @@
                 "@Core.Description": "Chart type"
             },
             "AxisScaling": {
-                "$Nullable": true,
                 "$Type": "UI.ChartAxisScalingType",
+                "$Nullable": true,
                 "@Core.Description": "Describes the scale of the chart value axes"
             },
             "Measures": {
@@ -855,13 +855,13 @@
                 "@Core.Description": "Scale is fixed or adapts automatically to rendered values"
             },
             "AutoScaleBehavior": {
-                "$Nullable": true,
                 "$Type": "UI.ChartAxisAutoScaleBehaviorType",
+                "$Nullable": true,
                 "@Core.Description": "Settings for automatic scaling"
             },
             "FixedScaleMultipleStackedMeasuresBoundaryValues": {
-                "$Nullable": true,
                 "$Type": "UI.FixedScaleMultipleStackedMeasuresBoundaryValuesType",
+                "$Nullable": true,
                 "@Core.Description": "Boundary values for fixed scaling of a stacking chart type with multiple measures"
             }
         },
@@ -906,16 +906,16 @@
         "ChartDimensionAttributeType": {
             "$Kind": "ComplexType",
             "Dimension": {
-                "$Nullable": true,
-                "$Type": "Edm.PropertyPath"
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true
             },
             "Role": {
-                "$Nullable": true,
-                "$Type": "UI.ChartDimensionRoleType"
+                "$Type": "UI.ChartDimensionRoleType",
+                "$Nullable": true
             },
             "HierarchyLevel": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "For a dimension with a hierarchy, members are selected from this level. The root node of the hierarchy is at level 0."
             },
@@ -930,8 +930,8 @@
                 "@Core.Description": "All values in this collection should be emphasized."
             },
             "EmphasisLabels": {
-                "$Nullable": true,
                 "$Type": "UI.EmphasisLabelType",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified."
             }
@@ -939,16 +939,16 @@
         "ChartMeasureAttributeType": {
             "$Kind": "ComplexType",
             "Measure": {
-                "$Nullable": true,
-                "$Type": "Edm.PropertyPath"
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true
             },
             "Role": {
-                "$Nullable": true,
-                "$Type": "UI.ChartMeasureRoleType"
+                "$Type": "UI.ChartMeasureRoleType",
+                "$Nullable": true
             },
             "DataPoint": {
-                "$Nullable": true,
                 "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
                 "@Core.Description": "Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure",
                 "@Validation.AllowedTerms": [
                     "UI.DataPoint"
@@ -977,9 +977,7 @@
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
             "@Core.Description": "Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring.",
-            "EmphasizedValuesLabel": {
-
-            },
+            "EmphasizedValuesLabel": {},
             "NonEmphasizedValuesLabel": {
                 "$Nullable": true
             }
@@ -1000,13 +998,13 @@
             "@Common.Experimental": true,
             "@Core.Description": "Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring.",
             "Value": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "MUST be a fixed value of primitive type"
             },
             "Criticality": {
-                "$Nullable": true,
-                "$Type": "UI.CriticalityType"
+                "$Type": "UI.CriticalityType",
+                "$Nullable": true
             }
         },
         "CriticalityLabels": {
@@ -1156,8 +1154,8 @@
         },
         "SelectionPresentationVariant": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.SelectionPresentationVariantType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1187,8 +1185,8 @@
         },
         "PresentationVariant": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.PresentationVariantType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1208,8 +1206,8 @@
                 "@Core.Description": "Name of the presentation variant"
             },
             "MaxItems": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
+                "$Nullable": true,
                 "@Core.Description": "Maximum number of items that should be included in the result"
             },
             "SortOrder": {
@@ -1261,8 +1259,8 @@
         },
         "SelectionVariant": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.SelectionVariantType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1363,8 +1361,8 @@
                 "@Core.Description": "Single value or lower interval boundary"
             },
             "High": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Upper interval boundary"
             }
         },
@@ -1377,6 +1375,7 @@
         },
         "SelectionRangeOptionType": {
             "$Kind": "EnumType",
+            "@Core.Description": "Comparison operator",
             "EQ": 0,
             "EQ@Core.Description": "Equal to",
             "BT": 1,
@@ -1396,8 +1395,7 @@
             "GT": 8,
             "GT@Core.Description": "Greater than",
             "LT": 9,
-            "LT@Core.Description": "Less than",
-            "@Core.Description": "Comparison operator"
+            "LT@Core.Description": "Less than"
         },
         "ThingPerspective": {
             "$Kind": "Term",
@@ -1472,8 +1470,8 @@
         },
         "TextArrangement": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.TextArrangementType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "EntityType"
@@ -1494,8 +1492,8 @@
         },
         "Importance": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.ImportanceType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "Record"
@@ -1564,8 +1562,8 @@
         },
         "DataFieldDefault": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.DataFieldAbstract",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1586,13 +1584,13 @@
                 "@Core.IsLanguageDependent": true
             },
             "Criticality": {
-                "$Nullable": true,
                 "$Type": "UI.CriticalityType",
+                "$Nullable": true,
                 "@Core.Description": "Criticality of the data field value"
             },
             "CriticalityRepresentation": {
-                "$Nullable": true,
                 "$Type": "UI.CriticalityRepresentationType",
+                "$Nullable": true,
                 "@Core.Description": "Decides if criticality is visualized in addition by means of an icon"
             },
             "IconUrl": {
@@ -1627,8 +1625,8 @@
         },
         "DataFieldForActionAbstract": {
             "$Kind": "ComplexType",
-            "$BaseType": "UI.DataFieldAbstract",
             "$Abstract": true,
+            "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "Triggers an action",
             "Inline": {
                 "$Type": "Edm.Boolean",
@@ -1651,8 +1649,8 @@
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
             },
             "InvocationGrouping": {
-                "$Nullable": true,
                 "$Type": "UI.OperationGroupingType",
+                "$Nullable": true,
                 "@Core.Description": "Expresses how invocations of this action on multiple instances should be grouped"
             }
         },
@@ -1745,8 +1743,8 @@
         },
         "Criticality": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.CriticalityType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1754,8 +1752,8 @@
         },
         "CriticalityCalculation": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.CriticalityCalculationType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1763,8 +1761,8 @@
         },
         "OrderBy": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PropertyPath",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1774,8 +1772,8 @@
         },
         "RecommendationState": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.RecommendationStateType",
+            "$Nullable": true,
             "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "@Core.Description": "Indicates whether a field contains or has a recommended value",
             "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
@@ -1803,8 +1801,8 @@
         },
         "RecommendationList": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "UI.RecommendationListType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"

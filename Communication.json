@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         }
@@ -17,12 +17,12 @@
         "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json.txt"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json.txt"
             },
             {
                 "rel": "describedby",
@@ -31,8 +31,8 @@
         ],
         "Contact": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Communication.ContactType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -45,8 +45,8 @@
                 "@Core.Description": "Full name"
             },
             "n": {
-                "$Nullable": true,
                 "$Type": "Communication.NameType",
+                "$Nullable": true,
                 "@Core.Description": "Name"
             },
             "nickname": {
@@ -59,18 +59,18 @@
                 "@Core.IsURL": true
             },
             "bday": {
-                "$Nullable": true,
                 "$Type": "Edm.Date",
+                "$Nullable": true,
                 "@Core.Description": "Birthday"
             },
             "anniversary": {
-                "$Nullable": true,
                 "$Type": "Edm.Date",
+                "$Nullable": true,
                 "@Core.Description": "Date of marriage, or equivalent"
             },
             "gender": {
-                "$Nullable": true,
                 "$Type": "Communication.GenderType",
+                "$Nullable": true,
                 "@Core.Description": "Sex and gender identity"
             },
             "title": {
@@ -90,8 +90,8 @@
                 "@Core.Description": "Organization Unit defined by X.520"
             },
             "kind": {
-                "$Nullable": true,
                 "$Type": "Communication.KindType",
+                "$Nullable": true,
                 "@Core.Description": "Kind of contact"
             },
             "note": {
@@ -149,8 +149,8 @@
         },
         "Address": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Communication.AddressType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -204,8 +204,8 @@
                 "@Core.Description": "Delivery address label; plain-text string representing the formatted address, may contain line breaks"
             },
             "type": {
-                "$Nullable": true,
                 "$Type": "Communication.ContactInformationType",
+                "$Nullable": true,
                 "@Core.Description": "Address type"
             }
         },
@@ -217,8 +217,8 @@
                 "@Core.IsURL": true
             },
             "type": {
-                "$Nullable": true,
                 "$Type": "Communication.PhoneType",
+                "$Nullable": true,
                 "@Core.Description": "Telephone type"
             }
         },
@@ -229,8 +229,8 @@
                 "@Core.Description": "Email address"
             },
             "type": {
-                "$Nullable": true,
                 "$Type": "Communication.ContactInformationType",
+                "$Nullable": true,
                 "@Core.Description": "Address type"
             }
         },
@@ -242,8 +242,8 @@
                 "@Core.IsURL": true
             },
             "type": {
-                "$Nullable": true,
                 "$Type": "Communication.ContactInformationType",
+                "$Nullable": true,
                 "@Core.Description": "Address type"
             }
         },
@@ -255,8 +255,8 @@
                 "@Core.IsURL": true
             },
             "type": {
-                "$Nullable": true,
                 "$Type": "Communication.ContactInformationType",
+                "$Nullable": true,
                 "@Core.Description": "URL type"
             }
         },
@@ -332,8 +332,8 @@
         },
         "Event": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Communication.EventData",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -354,21 +354,20 @@
                 "@Core.Description": "Categories or subtypes of the event"
             },
             "dtstart": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Start date and time of the event"
             },
             "dtend": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Date and time by which the event ends, alternative to duration"
             },
             "duration": {
-                "$Nullable": true,
                 "$Type": "Edm.Duration",
-                "$Precision": 0,
+                "$Nullable": true,
                 "@Core.Description": "Duration of the event, alternative to dtend"
             },
             "class": {
@@ -384,13 +383,13 @@
                 "@Core.Description": "Intended venue of the event"
             },
             "transp": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$Nullable": true,
                 "@Core.Description": "Time transparency for busy time searches, true = free, false = blocked"
             },
             "wholeday": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$Nullable": true,
                 "@Core.Description": "Wholeday event"
             },
             "fbtype": {
@@ -400,8 +399,8 @@
         },
         "Task": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Communication.TaskData",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -418,32 +417,32 @@
                 "@Core.Description": "More complete description of the task"
             },
             "due": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Date and time that a to-do is expected to be completed"
             },
             "completed": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Date and time that a to-do was actually completed"
             },
             "percentcomplete": {
-                "$Nullable": true,
                 "$Type": "Edm.Byte",
+                "$Nullable": true,
                 "@Core.Description": "Percent completion of a to-do, e.g. 50 for half done"
             },
             "priority": {
-                "$Nullable": true,
                 "$Type": "Edm.Byte",
+                "$Nullable": true,
                 "@Core.Description": "Relative priority, 0 = undefined, 1 = highest, 9 = lowest"
             }
         },
         "Message": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Communication.MessageData",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -484,8 +483,8 @@
                 "@Core.Description": "List of important words and phrases that might be useful for the recipient"
             },
             "received": {
-                "$Nullable": true,
                 "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Date and time the message was received"
             }

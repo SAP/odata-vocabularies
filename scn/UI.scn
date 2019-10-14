@@ -607,7 +607,7 @@ Terms</h2>
 <tr>
 <td align="left">Value</td>
 <td align="left">PrimitiveType</td>
-<td align="left">Numeric value<p> The value is typically provided via a <code>Path</code> construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either <code>UoM.ISOCurrency</code> or <code>UoM.Unit</code>. Percentage values are annotated with <code>UoM.Unit = '%'</code>. A renderer should take an optional <code>Common.Text</code> annotation into consideration.             </p>
+<td align="left">Numeric value<p>The value is typically provided via a <code>Path</code> construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either <code>UoM.ISOCurrency</code> or <code>UoM.Unit</code>. Percentage values are annotated with <code>UoM.Unit = '%'</code>. A renderer should take an optional <code>Common.Text</code> annotation into consideration.</p>
 </td>
 </tr>
 <tr>

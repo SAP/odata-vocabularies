@@ -45,7 +45,7 @@ Terms</h2>
 </td>
 <td align="left">Boolean</td>
 <td align="left">
-<a name="IsConfigurationDeprecationCode"></a>Property contains a Configuration Deprecation Code<p>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code <code>W</code>), or revoked (deprecation code <code>E</code>). </p>
+<a name="IsConfigurationDeprecationCode"></a>Property contains a Configuration Deprecation Code<p>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code <code>W</code>), or revoked (deprecation code <code>E</code>).</p>
 </td>
 </tr>
 </tbody>

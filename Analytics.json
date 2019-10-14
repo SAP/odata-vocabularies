@@ -4,24 +4,24 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Aggregation",
-                    "$Namespace": "Org.OData.Aggregation.V1"
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Validation",
-                    "$Namespace": "Org.OData.Validation.V1"
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         },
@@ -40,12 +40,12 @@
         "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json.txt"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json.txt"
             },
             {
                 "rel": "describedby",
@@ -55,34 +55,34 @@
         "Dimension": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$BaseTerm": "Aggregation.Groupable",
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property"
             ],
+            "$BaseTerm": "Aggregation.Groupable",
             "@Core.Description": "A property holding the key of a dimension in an analytical context"
         },
         "Measure": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$BaseTerm": "Aggregation.Aggregatable",
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property"
             ],
+            "$BaseTerm": "Aggregation.Aggregatable",
             "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
         },
         "AccumulativeMeasure": {
             "$Kind": "Term",
-            "$BaseTerm": "Analytics.Measure",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
+            "$BaseTerm": "Analytics.Measure",
             "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
         },
         "RolledUpPropertyCount": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Int16",
+            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "Number of properties in the entity instance that have been aggregated away"
         },
@@ -121,8 +121,8 @@
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
             "Name": {
-                "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
                 "@Core.Description": "Name the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
@@ -138,10 +138,10 @@
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {
+                "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
                 "@Validation.ApplicableTerms": [
                     "Common.Label"
-                ],
-                "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it."
+                ]
             }
         }
     }

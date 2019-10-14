@@ -4,24 +4,24 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Validation",
-                    "$Namespace": "Org.OData.Validation.V1"
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Aggregation",
-                    "$Namespace": "Org.OData.Aggregation.V1"
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
                 }
             ]
         }
@@ -32,12 +32,12 @@
         "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP SE. All rights reserved.",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json.txt"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.json.txt"
             },
             {
                 "rel": "describedby",
@@ -52,8 +52,8 @@
         },
         "ServiceVersion": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Int32",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -61,8 +61,8 @@
         },
         "ServiceSchemaVersion": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Int32",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -97,8 +97,8 @@
         },
         "TextFor": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PropertyPath",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -118,8 +118,8 @@
         },
         "TextFormat": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.TextFormatType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -159,8 +159,8 @@
         },
         "UnitSpecificScale": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -169,8 +169,8 @@
         },
         "UnitSpecificPrecision": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -180,11 +180,11 @@
         },
         "SecondaryKey": {
             "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PropertyPath",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "$Collection": true,
-            "$Type": "Edm.PropertyPath",
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
@@ -195,6 +195,8 @@
         },
         "MinOccurs": {
             "$Kind": "Term",
+            "$Type": "Edm.Int64",
+            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -202,12 +204,12 @@
                 "Term",
                 "Parameter"
             ],
-            "$Nullable": true,
-            "$Type": "Edm.Int64",
             "@Core.Description": "The annotated set or collection contains at least this number of items"
         },
         "MaxOccurs": {
             "$Kind": "Term",
+            "$Type": "Edm.Int64",
+            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -215,8 +217,6 @@
                 "Term",
                 "Parameter"
             ],
-            "$Nullable": true,
-            "$Type": "Edm.Int64",
             "@Core.Description": "The annotated set or collection contains at most this number of items"
         },
         "AssociationEntity": {
@@ -231,8 +231,8 @@
         },
         "DerivedNavigation": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.NavigationPropertyPath",
+            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty"
             ],
@@ -245,13 +245,13 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Core.Revisions@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
                     "Description": "Use terms `MaskedValue` and `MaskedAlways` instead"
                 }
             ],
-            "@Core.Revisions@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
             "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
         },
         "MaskedValue": {
@@ -288,7 +288,6 @@
         },
         "SemanticObjectMapping": {
             "$Kind": "Term",
-            "$BaseTerm": "Common.SemanticObject",
             "$Collection": true,
             "$Type": "Common.SemanticObjectMappingType",
             "$AppliesTo": [
@@ -296,6 +295,7 @@
                 "EntityType",
                 "Property"
             ],
+            "$BaseTerm": "Common.SemanticObject",
             "@Core.Description": "Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object",
             "@Core.LongDescription": "This allows \"renaming\" of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their \"local\" name."
         },
@@ -312,13 +312,13 @@
         },
         "SemanticObjectUnavailableActions": {
             "$Kind": "Term",
-            "$BaseTerm": "Common.SemanticObject",
             "$Collection": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
                 "Property"
             ],
+            "$BaseTerm": "Common.SemanticObject",
             "@Core.Description": "List of actions that are not available in the current state of the instance of the Semantic Object"
         },
         "IsInstanceAnnotation": {
@@ -387,33 +387,33 @@
                 }
             ],
             "Property": {
-                "$Nullable": true,
-                "$Type": "Edm.PropertyPath"
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true
             },
             "AllowedExpressions": {
-                "$Nullable": true,
-                "$Type": "Common.FilterExpressionType"
+                "$Type": "Common.FilterExpressionType",
+                "$Nullable": true
             }
         },
         "FilterExpressionType": {
             "$Kind": "EnumType",
-            "SingleValue": 0,
-            "SingleValue@Core.Description": "a single 'eq' clause",
-            "MultiValue": 1,
-            "MultiValue@Core.Description": "one or more 'eq' clauses, separated by 'or'",
-            "SingleInterval": 2,
-            "SingleInterval@Core.Description": "at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause",
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
                     "Description": "Use term Capabilities.FilterRestrictions instead"
                 }
-            ]
+            ],
+            "SingleValue": 0,
+            "SingleValue@Core.Description": "a single 'eq' clause",
+            "MultiValue": 1,
+            "MultiValue@Core.Description": "one or more 'eq' clauses, separated by 'or'",
+            "SingleInterval": 2,
+            "SingleInterval@Core.Description": "at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause"
         },
         "FieldControl": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.FieldControlType",
+            "$Nullable": true,
             "$DefaultValue": "Optional",
             "$AppliesTo": [
                 "Property",
@@ -426,6 +426,7 @@
         "FieldControlType": {
             "$Kind": "EnumType",
             "$UnderlyingType": "Edm.Byte",
+            "@Core.Description": "Control state of a property",
             "Mandatory": 7,
             "Mandatory@Core.Description": "Property is mandatory from a business perspective",
             "Mandatory@Core.LongDescription": "This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md).",
@@ -440,8 +441,7 @@
             "Inapplicable@Core.LongDescription": "This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
             "Hidden": 0,
             "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
-            "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead",
-            "@Core.Description": "Control state of a property"
+            "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead"
         },
         "ExceptionCategory": {
             "$Kind": "Term",
@@ -452,8 +452,8 @@
         },
         "Application": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.ApplicationType",
+            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -480,9 +480,8 @@
         },
         "Timestamp": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.DateTimeOffset",
-            "$Precision": 0,
+            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -496,8 +495,8 @@
         },
         "ErrorResolution": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.ErrorResolutionType",
+            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "Hints for resolving this error",
             "@Common.IsInstanceAnnotation": true
@@ -558,12 +557,12 @@
         },
         "MaximumNumericMessageSeverity": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.NumericMessageSeverityType",
-            "$BaseTerm": "Common.Messages",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$BaseTerm": "Common.Messages",
             "@Common.Experimental": true,
             "@Core.Description": "The maximum severity of all end-user messages attached to an entity, null if no messages are attached",
             "@Core.LongDescription": "This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)"
@@ -615,8 +614,8 @@
         },
         "RelatedRecursiveHierarchy": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.AnnotationPath",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -624,8 +623,8 @@
         },
         "Interval": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.IntervalType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -664,8 +663,8 @@
         },
         "WeakReferentialConstraint": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.WeakReferentialConstraintType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -702,8 +701,8 @@
         },
         "ValueList": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.ValueListType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -732,20 +731,20 @@
                 "@Core.LongDescription": "The value of the target property is used as the search expression instead of in $filter"
             },
             "FetchValues": {
-                "$Nullable": true,
                 "$Type": "Common.FetchValuesType",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
-                "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath"
             },
             "SelectionVariantQualifier": {
-                "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
             },
@@ -805,8 +804,8 @@
         },
         "ValueListMapping": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.ValueListMappingType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -825,20 +824,20 @@
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
             },
             "FetchValues": {
-                "$Nullable": true,
                 "$Type": "Common.FetchValuesType",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
-                "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation"
             },
             "SelectionVariantQualifier": {
-                "$Nullable": true,
                 "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
             },
@@ -1142,8 +1141,8 @@
         },
         "DraftRoot": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.DraftRootType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1157,56 +1156,56 @@
                 "@Core.Description": "Action that activates a draft document"
             },
             "DiscardAction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Action that discards a draft document"
             },
             "EditAction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
                 "@Core.Description": "Action that creates an edit draft"
             },
             "NewAction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
                 "@Core.Description": "Action that creates a new draft",
                 "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
             }
         },
         "DraftNode": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.DraftNodeType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
+            "@Core.Revisions@Common.Experimental": true,
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
                     "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
                 }
             ],
-            "@Core.Revisions@Common.Experimental": true,
             "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
         },
         "DraftNodeType": {
             "$Kind": "ComplexType",
             "PreparationAction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
+                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
                         "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
                     }
                 ],
-                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
@@ -1227,8 +1226,8 @@
         },
         "EditableFieldFor": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PropertyPath",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1246,17 +1245,17 @@
         },
         "SemanticKey": {
             "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PropertyPath",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "$Collection": true,
-            "$Type": "Edm.PropertyPath",
             "@Core.Description": "The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity"
         },
         "SideEffects": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.SideEffectsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
@@ -1296,8 +1295,8 @@
                 "@Core.Description": "These entities will be affected if the value of one of the sources changes. An empty path means the annotation target."
             },
             "EffectTypes": {
-                "$Nullable": true,
                 "$Type": "Common.EffectType",
+                "$Nullable": true,
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
@@ -1307,8 +1306,8 @@
                 "@Core.Description": "One or more of the targets may show these effects. If not specified, any effect is possible."
             },
             "TriggerAction": {
-                "$Nullable": true,
                 "$Type": "Common.QualifiedName",
+                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
                 "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
@@ -1317,6 +1316,12 @@
         "EffectType": {
             "$Kind": "EnumType",
             "$IsFlags": true,
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "All side effects are essentially value changes, differentiation not needed."
+                }
+            ],
             "ValidationMessage": 1,
             "ValidationMessage@Core.Description": "Validation messages are assigned to a target",
             "ValidationMessage@Core.LongDescription": "This side effect type indicates that validation messages may result from changes of source properties or entities.  \nThus, a validation request can be sent either in conjunction with or separately after a modifying request. \nValidation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.",
@@ -1325,18 +1330,12 @@
             "ValueChange@Core.LongDescription": "This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.  \nUpon modification preparation logic is performed that determines additional values to be stored in the draft document.",
             "FieldControlChange": 4,
             "FieldControlChange@Core.Description": "The value of the Common.FieldControl annotation of a target changes",
-            "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  \nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined.",
-            "@Core.Revisions": [
-                {
-                    "Kind": "Deprecated",
-                    "Description": "All side effects are essentially value changes, differentiation not needed."
-                }
-            ]
+            "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  \nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined."
         },
         "DefaultValuesFunction": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.QualifiedName",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "NavigationProperty",
@@ -1359,8 +1358,8 @@
         },
         "FilterDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1368,8 +1367,8 @@
         },
         "FilterDefaultValueHigh": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1404,41 +1403,40 @@
                 "@Core.Description": "Sort property"
             },
             "Descending": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$Nullable": true,
                 "@Core.Description": "Sort direction, ascending if not specified otherwise"
             }
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
-            "$BaseTerm": "Aggregation.RecursiveHierarchy",
-            "$Nullable": true,
             "$Type": "Common.RecursiveHierarchyType",
+            "$Nullable": true,
+            "$BaseTerm": "Aggregation.RecursiveHierarchy",
             "@Core.Description": "Defines a recursive hierarchy."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "ExternalNodeKeyProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Property holding the external human-readable key identifying the node"
             },
             "NodeDescendantCountProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Property holding the descendant count for a hierarchy node. \n            The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering \n            only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer \n            data type."
             },
             "NodeDrillStateProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Property holding the drill state of a hierarchy node. The drill state is indicated \n            by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its \n            children are included in the result collection. For a collapsed node, the children are included in the entity set, but \n            they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request \n            filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.\n            "
             }
         },
         "CreatedAt": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.DateTimeOffset",
-            "$Precision": 0,
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1447,8 +1445,8 @@
         },
         "CreatedBy": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.UserID",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1457,9 +1455,8 @@
         },
         "ChangedAt": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.DateTimeOffset",
-            "$Precision": 0,
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1468,8 +1465,8 @@
         },
         "ChangedBy": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Common.UserID",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
