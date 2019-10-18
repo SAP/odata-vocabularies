@@ -1556,7 +1556,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
 
       <Term Name="RecommendationState" Type="UI.RecommendationStateType">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>
@@ -1564,7 +1563,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <TypeDefinition Name="RecommendationStateType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
         <Annotation Term="Core.LongDescription">
           <String>Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.</String>
@@ -1588,7 +1586,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </TypeDefinition>
 
       <Term Name="RecommendationList" Type="UI.RecommendationListType" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description"
           String="Specifies how to get a list of recommended values for a property or parameter" />
         <Annotation Term="Core.LongDescription">
@@ -1597,7 +1594,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <ComplexType Name="RecommendationListType">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Annotation Term="Core.Description" String="Reference to a recommendation list" />
         <Annotation Term="Core.LongDescription">
           <String>A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.</String>
@@ -1615,7 +1611,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </ComplexType>
 
       <ComplexType Name="RecommendationBinding">
-        <Annotation Term="Common.Experimental" String="See https://wiki.wdf.sap.corp/wiki/x/a7Ate" />
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to editable property for which recommended values exist" />
         </Property>

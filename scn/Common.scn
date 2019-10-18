@@ -508,11 +508,10 @@ Terms</h2>
 <a name="DraftRoot"></a>Root entities of business documents that support the draft pattern</td>
 </tr>
 <tr>
-<td align="left">DraftNode <em>(Deprecated)</em>
-</td>
+<td align="left">DraftNode</td>
 <td align="left"><a href="#DraftNodeType">DraftNodeType</a></td>
 <td align="left">
-<a name="DraftNode"></a>Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
+<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern</td>
 </tr>
 <tr>
 <td align="left">DraftActivationVia</td>

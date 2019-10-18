@@ -63,9 +63,9 @@ Term|Type|Description
 [Criticality](UI.xml#L1542)|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
 [CriticalityCalculation](UI.xml#L1546)|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
 [OrderBy](UI.xml#L1550) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<p>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.</p>
-[RecommendationState](UI.xml#L1558) *([Experimental](Common.md#Experimental))*|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
-[RecommendationList](UI.xml#L1590) *([Experimental](Common.md#Experimental))*|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
-[ExcludeFromNavigationContext](UI.xml#L1628)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[RecommendationState](UI.xml#L1558)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+[RecommendationList](UI.xml#L1588)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
+[ExcludeFromNavigationContext](UI.xml#L1623)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L60)
 
@@ -857,7 +857,7 @@ Property|Type|Description
 [Url](UI.xml#L1532)|URL|Target of the hyperlink
 [UrlContentType](UI.xml#L1536)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
 
-## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1566) *([Experimental](Common.md#Experimental))*
+## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1565)
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -866,25 +866,25 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](UI.xml#L1574)|regular - with human or default input, no recommendation
-[1](UI.xml#L1578)|highlighted - without human input and with recommendation
-[2](UI.xml#L1582)|warning - with human or default input and with recommendation
+[0](UI.xml#L1572)|regular - with human or default input, no recommendation
+[1](UI.xml#L1576)|highlighted - without human input and with recommendation
+[2](UI.xml#L1580)|warning - with human or default input and with recommendation
 
-## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1599) *([Experimental](Common.md#Experimental))*
+## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1596)
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](UI.xml#L1605)|String|Resource path of a collection of recommended values
-[RankProperty](UI.xml#L1608)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](UI.xml#L1612)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](UI.xml#L1601)|String|Resource path of a collection of recommended values
+[RankProperty](UI.xml#L1604)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](UI.xml#L1608)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
-## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1617) *([Experimental](Common.md#Experimental))*
+## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1613)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](UI.xml#L1619)|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](UI.xml#L1622)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+[LocalDataProperty](UI.xml#L1614)|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](UI.xml#L1617)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.

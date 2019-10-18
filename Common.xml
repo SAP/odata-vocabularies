@@ -930,15 +930,6 @@ The minimum structure is
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Revisions">
-          <Annotation Term="Common.Experimental" />
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
-            </Record>
-          </Collection>
-        </Annotation>
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
@@ -946,7 +937,6 @@ The minimum structure is
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
-            <Annotation Term="Common.Experimental" />
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -961,7 +951,6 @@ The minimum structure is
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <!-- -->
                 <PropertyValue Property="Description" String="Separate validation without side-effects is not useful" />
               </Record>
             </Collection>

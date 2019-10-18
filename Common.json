@@ -1180,13 +1180,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Revisions@Common.Experimental": true,
-            "@Core.Revisions": [
-                {
-                    "Kind": "Deprecated",
-                    "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
-                }
-            ],
             "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
         },
         "DraftNodeType": {
@@ -1194,7 +1187,6 @@
             "PreparationAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Revisions@Common.Experimental": true,
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",

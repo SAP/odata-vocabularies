@@ -297,16 +297,14 @@ Terms</h2>
 </td>
 </tr>
 <tr>
-<td align="left">RecommendationState <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
+<td align="left">RecommendationState</td>
 <td align="left"><a href="#RecommendationStateType">RecommendationStateType</a></td>
 <td align="left">
 <a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 </td>
 </tr>
 <tr>
-<td align="left">RecommendationList <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
+<td align="left">RecommendationList</td>
 <td align="left"><a href="#RecommendationListType">RecommendationListType</a></td>
 <td align="left">
 <a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
@@ -2932,8 +2930,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationStateType"></a>RecommendationStateType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</h2>
+<a name="RecommendationStateType"></a>RecommendationStateType</h2>
 <p><strong>Type:</strong> Byte</p>
 <p>Indicates whether a field contains or has a recommended value</p>
 <p>Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.</p>
@@ -2960,8 +2957,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationListType"></a>RecommendationListType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</h2>
+<a name="RecommendationListType"></a>RecommendationListType</h2>
 <p>Reference to a recommendation list</p>
 <p>A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.</p>
 <table>
@@ -2991,8 +2987,7 @@ This is in contrast to <a href="#DataFieldForIntentBasedNavigation">DataFieldFor
 </tbody>
 </table>
 <h2>
-<a name="RecommendationBinding"></a>RecommendationBinding <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</h2>
+<a name="RecommendationBinding"></a>RecommendationBinding</h2>
 <table>
 <thead>
 <tr>

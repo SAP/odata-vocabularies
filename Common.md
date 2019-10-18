@@ -83,24 +83,24 @@ Term|Type|Description
 [IsFiscalYearVariant](Common.xml#L896)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
 [MutuallyExclusiveTerm](Common.xml#L904)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
 [DraftRoot](Common.xml#L910)|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
-[DraftNode](Common.xml#L932) *(Deprecated)*|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[DraftActivationVia](Common.xml#L973)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
-[EditableFieldFor](Common.xml#L977)|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
-[SemanticKey](Common.xml#L989)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](Common.xml#L993)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DefaultValuesFunction](Common.xml#L1075) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<p>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call</p>
-[DerivedDefaultValue](Common.xml#L1105) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
-[FilterDefaultValue](Common.xml#L1126)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](Common.xml#L1130) *([Experimental](Common.md#Experimental))*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](Common.xml#L1135) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
-[SortOrder](Common.xml#L1159)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.</p>
-[RecursiveHierarchy](Common.xml#L1191)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[CreatedAt](Common.xml#L1223)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L1227)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L1231)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L1235)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](Common.xml#L1247)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1252) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
+[DraftNode](Common.xml#L932)|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
+[DraftActivationVia](Common.xml#L962)|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
+[EditableFieldFor](Common.xml#L966)|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
+[SemanticKey](Common.xml#L978)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
+[SideEffects](Common.xml#L982)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DefaultValuesFunction](Common.xml#L1064) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<p>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call</p>
+[DerivedDefaultValue](Common.xml#L1094) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+[FilterDefaultValue](Common.xml#L1115)|PrimitiveType|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](Common.xml#L1119) *([Experimental](Common.md#Experimental))*|PrimitiveType|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](Common.xml#L1124) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+[SortOrder](Common.xml#L1148)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.</p>
+[RecursiveHierarchy](Common.xml#L1180)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[CreatedAt](Common.xml#L1212)|DateTimeOffset|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L1216)|[UserID](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L1220)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L1224)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
+[OriginalProtocolVersion](Common.xml#L1236)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1241) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L90)
 
@@ -298,14 +298,14 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*PreparationAction*](Common.xml#L947) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[*ValidationFunction*](Common.xml#L959) *(Deprecated)*|[QualifiedName](#QualifiedName)|Separate validation without side-effects is not useful
+[*PreparationAction*](Common.xml#L938) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[*ValidationFunction*](Common.xml#L949) *(Deprecated)*|[QualifiedName](#QualifiedName)|Separate validation without side-effects is not useful
 [ActivationAction](Common.xml#L916)|[QualifiedName](#QualifiedName)|Action that activates a draft document
 [DiscardAction](Common.xml#L919) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|Action that discards a draft document
 [EditAction](Common.xml#L923)|[QualifiedName](#QualifiedName)|Action that creates an edit draft
 [NewAction](Common.xml#L926)|[QualifiedName](#QualifiedName)|Action that creates a new draft<p>New drafts may also be created by POSTing an empty entity without any properties to the entity set.</p>
 
-## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L946)
+## <a name="DraftNodeType"></a>[DraftNodeType](Common.xml#L937)
 
 
 **Derived Types:**
@@ -313,20 +313,20 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[PreparationAction](Common.xml#L947) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[ValidationFunction](Common.xml#L959) *(Deprecated)*|[QualifiedName](#QualifiedName)|Separate validation without side-effects is not useful
+[PreparationAction](Common.xml#L938) *(Deprecated)*|[QualifiedName](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[ValidationFunction](Common.xml#L949) *(Deprecated)*|[QualifiedName](#QualifiedName)|Separate validation without side-effects is not useful
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L981)
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Common.xml#L970)
 **Type:** String
 
 The SimpleIdentifier of an OData construct in scope
 
-## <a name="QualifiedName"></a>[QualifiedName](Common.xml#L985)
+## <a name="QualifiedName"></a>[QualifiedName](Common.xml#L974)
 **Type:** String
 
 The QualifiedName of an OData construct in scope
 
-## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L996)
+## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L985)
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -339,41 +339,41 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](Common.xml#L1007)|\[PropertyPath\]|Changes to the values of one or more of these properties may affect the targets
-[SourceEntities](Common.xml#L1010)|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[TargetProperties](Common.xml#L1013)|\[PropertyPath\]|These properties may be affected if the value of one of the sources changes
-[TargetOperations](Common.xml#L1016) *([Experimental](Common.md#Experimental))*|\[String\]|The availability of these actions or functions may be affected if the value of one of the sources changes<p>The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments.</p>
-[TargetEntities](Common.xml#L1021)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
-[EffectTypes](Common.xml#L1024) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed.
-[TriggerAction](Common.xml#L1035) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
+[SourceProperties](Common.xml#L996)|\[PropertyPath\]|Changes to the values of one or more of these properties may affect the targets
+[SourceEntities](Common.xml#L999)|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
+[TargetProperties](Common.xml#L1002)|\[PropertyPath\]|These properties may be affected if the value of one of the sources changes
+[TargetOperations](Common.xml#L1005) *([Experimental](Common.md#Experimental))*|\[String\]|The availability of these actions or functions may be affected if the value of one of the sources changes<p>The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments.</p>
+[TargetEntities](Common.xml#L1010)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
+[EffectTypes](Common.xml#L1013) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed.
+[TriggerAction](Common.xml#L1024) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L1041) *(Deprecated)*
+## <a name="EffectType"></a>[EffectType](Common.xml#L1030) *(Deprecated)*
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[ValidationMessage](Common.xml#L1050)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
-[ValueChange](Common.xml#L1058)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L1065)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+[ValidationMessage](Common.xml#L1039)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+[ValueChange](Common.xml#L1047)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+[FieldControlChange](Common.xml#L1054)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
 
-## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1167)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L1168)|PropertyPath|Sort property
-[Descending](Common.xml#L1171)|Boolean|Sort direction, ascending if not specified otherwise
-
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L1196)
+## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1156)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](Common.xml#L1197)|PropertyPath|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](Common.xml#L1200)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](Common.xml#L1208)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[Property](Common.xml#L1157)|PropertyPath|Sort property
+[Descending](Common.xml#L1160)|Boolean|Sort direction, ascending if not specified otherwise
 
-## <a name="UserID"></a>[UserID](Common.xml#L1239)
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Common.xml#L1185)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ExternalNodeKeyProperty](Common.xml#L1186)|PropertyPath|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](Common.xml#L1189)|PropertyPath|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](Common.xml#L1197)|PropertyPath|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+
+## <a name="UserID"></a>[UserID](Common.xml#L1228)
 **Type:** String
 
 User ID

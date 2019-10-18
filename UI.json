@@ -1774,14 +1774,12 @@
             "$Kind": "Term",
             "$Type": "UI.RecommendationStateType",
             "$Nullable": true,
-            "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "@Core.Description": "Indicates whether a field contains or has a recommended value",
             "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
         },
         "RecommendationStateType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "@Core.Description": "Indicates whether a field contains or has a recommended value",
             "@Core.LongDescription": "Editable fields for which a recommendation has been pre-filled or that have recommendations that differ from existing human input need to be highlighted.",
             "@Validation.AllowedValues": [
@@ -1807,13 +1805,11 @@
                 "Property",
                 "Parameter"
             ],
-            "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "@Core.Description": "Specifies how to get a list of recommended values for a property or parameter",
             "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
         },
         "RecommendationListType": {
             "$Kind": "ComplexType",
-            "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "@Core.Description": "Reference to a recommendation list",
             "@Core.LongDescription": "A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.",
             "CollectionPath": {
@@ -1830,7 +1826,6 @@
         },
         "RecommendationBinding": {
             "$Kind": "ComplexType",
-            "@Common.Experimental": "See https://wiki.wdf.sap.corp/wiki/x/a7Ate",
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to editable property for which recommended values exist"
