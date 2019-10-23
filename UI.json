@@ -220,13 +220,13 @@
                     "Template": "{MaterialName} - {MaterialClassName}",
                     "Data": {
                         "MaterialName": {
-                            "@type": "#com.sap.vocabularies.UI.v1.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "Material"
                             }
                         },
                         "MaterialClassName": {
-                            "@type": "#com.sap.vocabularies.UI.v1.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "MaterialClass"
                             }
