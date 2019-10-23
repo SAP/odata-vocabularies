@@ -330,39 +330,6 @@
             ],
             "@Core.Description": "Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied"
         },
-        "Insertable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "NavigationProperty"
-            ],
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)"
-        },
-        "Updatable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the annotated entity can be updated"
-        },
-        "Deletable": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Specifies whether the annotated entity can be deleted"
-        },
         "FilterExpressionRestrictions": {
             "$Kind": "Term",
             "$Collection": true,
@@ -698,6 +665,17 @@
             "ReferencedProperty": {
                 "@Core.Description": "Path to property in reference set, format is identical to PropertyPath annotations"
             }
+        },
+        "IsNaturalPerson": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType",
+                "Annotation"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person"
         },
         "ValueList": {
             "$Kind": "Term",

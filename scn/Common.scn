@@ -183,27 +183,6 @@ Terms</h2>
 <a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied</td>
 </tr>
 <tr>
-<td align="left">Insertable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Insertable"></a>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</td>
-</tr>
-<tr>
-<td align="left">Updatable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Updatable"></a>Specifies whether the annotated entity can be updated</td>
-</tr>
-<tr>
-<td align="left">Deletable <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
-<td align="left">Boolean</td>
-<td align="left">
-<a name="Deletable"></a>Specifies whether the annotated entity can be deleted</td>
-</tr>
-<tr>
 <td align="left">FilterExpressionRestrictions <em>(Deprecated)</em>
 </td>
 <td align="left">[<a href="#FilterExpressionRestrictionType">FilterExpressionRestrictionType</a>]</td>
@@ -329,6 +308,13 @@ Terms</h2>
 <td align="left">
 <a name="WeakReferentialConstraint"></a>A referential constraint to a reference set that is not reachable via a navigation property<p>A weak referential constraint can be used in cases where the reference service cannot be located at design-time</p>
 </td>
+</tr>
+<tr>
+<td align="left">IsNaturalPerson <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsNaturalPerson"></a>The annotated entity type (e.g. <code>Employee</code>) or annotation (e.g. <code>IsImageUrl</code>) represents a natural person</td>
 </tr>
 <tr>
 <td align="left">ValueList</td>

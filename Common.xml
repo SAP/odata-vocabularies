@@ -254,6 +254,7 @@ If the annotation evaluates to false, the unmasked property value can be request
         <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied" />
       </Term>
 
+      <!-- use Capabilities instead
       <Term Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
@@ -277,6 +278,7 @@ If the annotation evaluates to false, the unmasked property value can be request
           <String>Specifies whether the annotated entity can be deleted</String>
         </Annotation>
       </Term>
+      -->
 
       <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
@@ -545,6 +547,11 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Path to property in reference set, format is identical to PropertyPath annotations" />
         </Property>
       </ComplexType>
+
+      <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
+      </Term>
 
 
       <!-- Section: Value Help -->
