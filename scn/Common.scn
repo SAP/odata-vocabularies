@@ -1366,6 +1366,13 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with <code>SideEffects</code>. The action does not have any additional parameters and does not return anything. It either succeeds with <code>204 No Content</code> or it fails with <code>4xx</code> or <code>5xx</code>.</p>
 </td>
 </tr>
+<tr>
+<td align="left">TriggeredIndicator <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">Boolean</td>
+<td align="left">Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h2>
