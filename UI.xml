@@ -1272,6 +1272,22 @@ The trend is
         <Annotation Term="Core.Description"
           String="Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.IsNaturalPerson</String>
+          </Collection>
+        </Annotation>
+      </Term>
+
+      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description"
+          String="Properties annotated with this term MUST be a stream property annotated with a MIME type image" />
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.IsNaturalPerson</String>
+          </Collection>
+        </Annotation>
       </Term>
 
       <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue">
@@ -1554,6 +1570,13 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
           String="Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode." />
       </Term>
 
+      <Term Name="ParameterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Define default values for action parameters" />
+        <Annotation Term="Core.LongDescription"
+          String="For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.
+            Whereas for bound actions the bound entity and its properties and associated properties can be used as default values" />
+      </Term>
 
       <Term Name="RecommendationState" Type="UI.RecommendationStateType">
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
