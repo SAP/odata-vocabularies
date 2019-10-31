@@ -1280,6 +1280,7 @@ The trend is
       </Term>
 
       <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description"
           String="Properties annotated with this term MUST be a stream property annotated with a MIME type image" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />

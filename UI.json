@@ -1467,6 +1467,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image",
             "@Core.RequiresType": "Edm.Stream",
             "@Validation.ApplicableTerms": [

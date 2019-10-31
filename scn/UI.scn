@@ -213,7 +213,8 @@ Terms</h2>
 <a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image</td>
 </tr>
 <tr>
-<td align="left">IsImage</td>
+<td align="left">IsImage <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
 <td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
 <td align="left">
 <a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image</td>
