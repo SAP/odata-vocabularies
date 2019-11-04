@@ -1009,11 +1009,6 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
         <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
         </Property>
-        <Property Name="TargetOperations" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="The availability of these actions or functions may be affected if the value of one of the sources changes" />
-          <Annotation Term="Core.LongDescription" String="The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments." />
-        </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target." />
         </Property>

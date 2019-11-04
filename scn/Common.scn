@@ -1328,13 +1328,6 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
 <td align="left">These properties may be affected if the value of one of the sources changes</td>
 </tr>
 <tr>
-<td align="left">TargetOperations <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
-</td>
-<td align="left">[String]</td>
-<td align="left">The availability of these actions or functions may be affected if the value of one of the sources changes<p>The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments.</p>
-</td>
-</tr>
-<tr>
 <td align="left">TargetEntities</td>
 <td align="left">[NavigationPropertyPath]</td>
 <td align="left">These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.</td>
