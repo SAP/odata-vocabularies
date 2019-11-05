@@ -1796,7 +1796,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "Define default values for action parameters",
-            "@Core.LongDescription": "For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.\r\n            Whereas for bound actions the bound entity and its properties and associated properties can be used as default values"
+            "@Core.LongDescription": "For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.\n            Whereas for bound actions the bound entity and its properties and associated properties can be used as default values"
         },
         "RecommendationState": {
             "$Kind": "Term",

@@ -1253,12 +1253,6 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "These properties may be affected if the value of one of the sources changes"
             },
-            "TargetOperations": {
-                "$Collection": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "The availability of these actions or functions may be affected if the value of one of the sources changes",
-                "@Core.LongDescription": "The values in this collection are paths that consist of zero or more navigation segments and end in the qualified name of an action or function that can be bound to the entity type identified by the navigation segments."
-            },
             "TargetEntities": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",

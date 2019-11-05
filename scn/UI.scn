@@ -308,13 +308,8 @@ Terms</h2>
 </td>
 <td align="left">PrimitiveType</td>
 <td align="left">
-<a name="ParameterDefaultValue"></a>Define default values for action parameters<p>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.</p>
+<a name="ParameterDefaultValue"></a>Define default values for action parameters<p>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values</p>
 </td>
-</tr>
-<tr>
-<td align="left">Whereas for bound actions the bound entity and its properties and associated properties can be used as default values</td>
-<td align="left"></td>
-<td align="left"></td>
 </tr>
 <tr>
 <td align="left">RecommendationState</td>
