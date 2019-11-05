@@ -1455,7 +1455,24 @@
                 "Term"
             ],
             "@Core.Description": "Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image",
-            "@Core.RequiresType": "Edm.String"
+            "@Core.RequiresType": "Edm.String",
+            "@Validation.ApplicableTerms": [
+                "Common.IsNaturalPerson"
+            ]
+        },
+        "IsImage": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image",
+            "@Core.RequiresType": "Edm.Stream",
+            "@Validation.ApplicableTerms": [
+                "Common.IsNaturalPerson"
+            ]
         },
         "MultiLineText": {
             "$Kind": "Term",
@@ -1769,6 +1786,17 @@
             "@Common.Experimental": true,
             "@Core.Description": "Sort by the referenced property instead of by the annotated property",
             "@Core.LongDescription": "Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode."
+        },
+        "ParameterDefaultValue": {
+            "$Kind": "Term",
+            "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Define default values for action parameters",
+            "@Core.LongDescription": "For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.\r\n            Whereas for bound actions the bound entity and its properties and associated properties can be used as default values"
         },
         "RecommendationState": {
             "$Kind": "Term",
