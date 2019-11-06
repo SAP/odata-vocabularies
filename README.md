@@ -9,6 +9,7 @@ SAP Vocabularies for annotating OData services - [SCN Wiki](https://wiki.scn.sap
 * [Session: Sticky Sessions](Session.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/BIB6Hw) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=528121860)
 * [UI: Representing data in user interfaces](UI.md) - [SCN Wiki](https://wiki.scn.sap.com/wiki/x/uB_7Gg) - [Upload](https://wiki.scn.sap.com/wiki/pages/viewpageattachments.action?pageId=448470968)
 
+
 # OASIS Vocabularies
 Standard vocabularies
 * [Aggregation: Aggregation capabilities and hierarchy functions](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Aggregation.V1.md)
@@ -19,6 +20,7 @@ Standard vocabularies
 * [Repeatability: Repeatable requests](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md)  - *experimental*
 * [Temporal: Time-dependent data](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md)  - *experimental*
 * [Validation: Validation rules](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md)
+
 
 # Hints for Vocabulary Editors
 
