@@ -1075,6 +1075,7 @@ Terms</h2>
 <p><strong>Derived Types:</strong></p>
 <ul>
 <li><a href="#ValueListParameterIn">ValueListParameterIn</a></li>
+<li><a href="#ValueListParameterConstantIn">ValueListParameterConstantIn</a></li>
 <li><a href="#ValueListParameterInOut">ValueListParameterInOut</a></li>
 <li><a href="#ValueListParameterOut">ValueListParameterOut</a></li>
 <li><a href="#ValueListParameterDisplayOnly">ValueListParameterDisplayOnly</a></li>
@@ -1116,7 +1117,31 @@ Terms</h2>
 <tr>
 <td align="left">LocalDataProperty</td>
 <td align="left">PropertyPath</td>
-<td align="left">Path to property that is used to filter/search the value list</td>
+<td align="left">Path to property that is used to filter the value list with <code>eq</code> comparison</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterConstantIn"></a>ValueListParameterConstantIn: <a href="#ValueListParameter">ValueListParameter</a> <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Constant value that is used to filter the value list with <code>eq</code> comparison</td>
 </tr>
 </tbody>
 </table>
@@ -1140,7 +1165,7 @@ Terms</h2>
 <tr>
 <td align="left">LocalDataProperty</td>
 <td align="left">PropertyPath</td>
-<td align="left">Path to property that is used to filter/search the value list or filled from response</td>
+<td align="left">Path to property that is used to filter the value list with <code>startswith</code> comparison and filled from the picked value list item</td>
 </tr>
 </tbody>
 </table>

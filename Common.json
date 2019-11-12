@@ -837,7 +837,16 @@
             "$BaseType": "Common.ValueListParameter",
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Path to property that is used to filter/search the value list"
+                "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+            }
+        },
+        "ValueListParameterConstantIn": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Common.ValueListParameter",
+            "@Common.Experimental": true,
+            "LocalDataProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison"
             }
         },
         "ValueListParameterInOut": {
@@ -845,7 +854,7 @@
             "$BaseType": "Common.ValueListParameter",
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Path to property that is used to filter/search the value list or filled from response"
+                "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
             }
         },
         "ValueListParameterOut": {

@@ -678,12 +678,18 @@ The minimum structure is
       </ComplexType>
       <ComplexType Name="ValueListParameterIn" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter/search the value list" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ValueListParameterConstantIn" BaseType="Common.ValueListParameter">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter/search the value list or filled from response" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterOut" BaseType="Common.ValueListParameter">
