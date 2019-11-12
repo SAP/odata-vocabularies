@@ -681,9 +681,9 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
       </ComplexType>
-      <ComplexType Name="ValueListParameterConstantIn" BaseType="Common.ValueListParameter">
+      <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
         <Annotation Term="Common.Experimental" />
-        <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
+        <Property Name="Constant" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison" />
         </Property>
       </ComplexType>

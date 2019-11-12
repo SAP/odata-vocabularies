@@ -840,12 +840,11 @@
                 "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
             }
         },
-        "ValueListParameterConstantIn": {
+        "ValueListParameterConstant": {
             "$Kind": "ComplexType",
             "$BaseType": "Common.ValueListParameter",
             "@Common.Experimental": true,
-            "LocalDataProperty": {
-                "$Type": "Edm.PropertyPath",
+            "Constant": {
                 "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison"
             }
         },

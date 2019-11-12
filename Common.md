@@ -244,7 +244,7 @@ Property|Type|Description
 
 **Derived Types:**
 - [ValueListParameterIn](#ValueListParameterIn)
-- [ValueListParameterConstantIn](#ValueListParameterConstantIn)
+- [ValueListParameterConstant](#ValueListParameterConstant)
 - [ValueListParameterInOut](#ValueListParameterInOut)
 - [ValueListParameterOut](#ValueListParameterOut)
 - [ValueListParameterDisplayOnly](#ValueListParameterDisplayOnly)
@@ -262,13 +262,13 @@ Property|Type|Description
 [*ValueListProperty*](Common.xml#L675)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L680)|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
 
-## <a name="ValueListParameterConstantIn"></a>[ValueListParameterConstantIn](Common.xml#L684): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
+## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](Common.xml#L684): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L675)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
-[LocalDataProperty](Common.xml#L686)|PropertyPath|Constant value that is used to filter the value list with `eq` comparison
+[Constant](Common.xml#L686)|String|Constant value that is used to filter the value list with `eq` comparison
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L690): [ValueListParameter](#ValueListParameter)
 
