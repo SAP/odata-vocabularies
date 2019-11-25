@@ -26,9 +26,9 @@ And please create a pull request with a proposed fix to the bug instead of an is
 
 Please keep changes to a minimum, e.g. preserve line ends, indentation, line breaks etc.
 
-For proposed terms and term properties: provide a usage example.
+Provide a usage example for proposed terms and term properties.
 
-The XML files are the source of truth, don't edit the Markdown or JSON files. Follow the [Hints for Vocabulary Editors](#hints-for-vocabulary-editors) below.
+The XML files are the source of truth, don't edit the Markdown or JSON files! Direct edits to the Markdown or JSON files will be lost after the next build. Follow the [Hints for Vocabulary Editors](#hints-for-vocabulary-editors) below.
 
 
 ### Contributor License Agreement
