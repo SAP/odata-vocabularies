@@ -28,12 +28,10 @@ Please keep changes to a minimum, e.g. preserve line ends, indentation, line bre
 
 For proposed terms and term properties: provide a usage example.
 
-The XML files are the source of truth, don't edit the Markdown or JSON files.
-
-After editing an XML file, execute `npm run build` in the repository root to refresh the Markdown and JSON files. This of course requires to run `npm install` once after forking and cloning the repository.
+The XML files are the source of truth, don't edit the Markdown or JSON files. Follow the [Hints for Vocabulary Editors](#hints-for-vocabulary-editors) below.
 
 
-## Contributor License Agreement
+### Contributor License Agreement
 
 When you contribute (code, documentation, examples, or anything else), you have to be aware that your contribution is covered by the same [Apache 2.0 License](LICENSE) that is applied to the SAP Vocabularies themselves.
 In particular you need to agree to the Individual Contributor License Agreement,
@@ -41,7 +39,7 @@ which can be [found here](https://gist.github.com/CLAassistant/bd1ea8ec8aa035741
 (This applies to all contributors, including those contributing on behalf of a company). If you agree to its content, you simply have to click on the link posted by the CLA assistant as a comment to the pull request. Click it to check the CLA, then accept it on the following screen if you agree to it. CLA assistant will save this decision for upcoming contributions and will notify you if there is any change to the CLA in the meantime.
 
 
-## Company Contributors
+### Company Contributors
 
 If employees of a company contribute code, in addition to the individual agreement above, there needs to be one company agreement submitted. This is mainly for the protection of the contributing employees.
 
@@ -52,3 +50,26 @@ A company representative authorized to do so needs to download, fill, and print 
 * Send it by traditional letter to: OSPO Core, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany
 
 The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
+
+
+## Hints for Vocabulary Editors
+
+The tools in this repository only require [Node.js](https://nodejs.org/) to be installed.
+
+
+### Installation
+
+Clone or download this repository, go to its root folder and type
+
+```sh
+npm install
+```
+
+
+### Editing
+
+Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
+
+```sh
+npm run build
+```

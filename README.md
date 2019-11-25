@@ -17,26 +17,3 @@ This repository defines the following SAP vocabularies:
 * [UI: Representing data in user interfaces](vocabularies/UI.md)
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
-
-
-## Hints for Vocabulary Editors
-
-The tools in this repository only require [Node.js](https://nodejs.org/) to be installed.
-
-
-### Installation
-
-Clone or download this repository, go to its root folder and type
-
-```sh
-npm install
-```
-
-
-### Editing
-
-Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
-
-```sh
-npm run build
-```
