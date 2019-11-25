@@ -1,0 +1,101 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        },
+        "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Hierarchy.v1": {
+        "$Alias": "Hierarchy",
+        "@Core.Description": "Terms for Hierarchies",
+        "@Core.Description#Published": "2018-01-31 © Copyright 2018 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.json.txt"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.wdf.sap.corp/odata/vocabularies/blob/master/Hierarchy.md"
+            }
+        ],
+        "RecursiveHierarchy": {
+            "$Kind": "Term",
+            "$Type": "Hierarchy.RecursiveHierarchyType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "$BaseTerm": "Aggregation.RecursiveHierarchy",
+            "@Common.Experimental": true,
+            "@Core.Description": "Defines a recursive hierarchy."
+        },
+        "RecursiveHierarchyType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "ParentNodeProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property holding the parent hierarchy node value"
+            },
+            "ExternalKeyProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property holding the external key value for a node"
+            },
+            "ValueProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property for whose values the hierarchy is defined"
+            },
+            "DescendantCountProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the number of descendants of a node",
+                "@Core.LongDescription": "The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type."
+            },
+            "DrillStateProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the drill state of a node",
+                "@Core.LongDescription": "The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set."
+            },
+            "SiblingRankProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the sibling rank of a node",
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0."
+            },
+            "PreorderRankProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the preorder rank of a node",
+                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0."
+            }
+        }
+    }
+}

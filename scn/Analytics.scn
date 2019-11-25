@@ -1,0 +1,93 @@
+<h1>
+Analytics Vocabulary</h1>
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml?api=v2">com.sap.vocabularies.Analytics.v1</a></strong></p>
+<p>Terms for annotating analytical resources</p>
+<h2>
+Terms</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Dimension</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="Dimension"></a>A property holding the key of a dimension in an analytical context</td>
+</tr>
+<tr>
+<td align="left">Measure</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="Measure"></a>A property holding the numeric value of a measure in an analytical context</td>
+</tr>
+<tr>
+<td align="left">AccumulativeMeasure</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="AccumulativeMeasure"></a>The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut</td>
+</tr>
+<tr>
+<td align="left">RolledUpPropertyCount <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">Int16</td>
+<td align="left">
+<a name="RolledUpPropertyCount"></a>Number of properties in the entity instance that have been aggregated away</td>
+</tr>
+<tr>
+<td align="left">DrillURL <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">URL</td>
+<td align="left">
+<a name="DrillURL"></a>URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.</td>
+</tr>
+<tr>
+<td align="left">PlanningAction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.</td>
+</tr>
+<tr>
+<td align="left">AggregatedProperties <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[<a href="#AggregatedPropertyType">AggregatedPropertyType</a>]</td>
+<td align="left">
+<a name="AggregatedProperties"></a>Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.<p>Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the given entity type to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="AggregatedPropertyType"></a>AggregatedPropertyType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Name</td>
+<td align="left"><a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Name the dynamic property holding the aggregated value.</td>
+</tr>
+<tr>
+<td align="left">AggregationMethod</td>
+<td align="left">String</td>
+<td align="left">Name of the standard or custom aggregation method to be applied.</td>
+</tr>
+<tr>
+<td align="left">AggregatableProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property whose values shall be aggregated.</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Personal Data</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2018-01-24 © Copyright 2018 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href"
+              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.json.txt" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/tQGXHQ" />
+          </Record>
+        </Collection>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+## Definition
+
+Personal Data is any information relating to an identified or identifiable natural person ("data subject"). 
+
+An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.
+
+Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.
+
+This vocabulary defines terms specific to the European [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en).
+
+Terms for contact and address information are defined in the [Communication vocabulary](Communication.md#).
+
+### References
+- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)
+- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)
+- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).
+       </String>
+      </Annotation>
+
+      <Term Name="EntitySemantics" Type="PersonalData.EntitySemanticsType" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
+      </Term>
+      <Term Name="DataSubjectRole" Type="Edm.String" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
+        <Annotation Term="Core.LongDescription">
+          <String>Values are application-specific.         
+          Can be a static value or a `Path` expression If the role varies per entity</String>
+        </Annotation>
+      </Term>
+      <Term Name="DataSubjectRoleDescription" Type="Edm.String" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsLanguageDependent" />
+        <Annotation Term="Core.Description"
+          String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
+        <Annotation Term="Core.LongDescription">
+          <String>Values are application-specific.         
+          Can be a static value or a `Path` expression If the role varies per entity</String>
+        </Annotation>
+      </Term>
+      <TypeDefinition Name="EntitySemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary meaning of the data contained in the annotated entity set" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataSubject" />
+              <Annotation Term="Core.Description">
+                <String>The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor</String>
+              </Annotation>
+              <Annotation Term="Core.LongDescription">
+                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataSubjectDetails" />
+              <Annotation Term="Core.Description">
+                <String>The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress</String>
+              </Annotation>
+              <Annotation Term="Core.LongDescription">
+                <String>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="Consent" />
+              <Annotation Term="Core.Description" String="The entities of this set represent a consent" />
+              <Annotation Term="Core.LongDescription">
+                <String>A consent is the action of the data subject confirming that 
+                the usage of his or her personal data shall be allowed for a given purpose. 
+                A consent functionality allows the storage of a consent record in relation 
+                to a specific purpose and shows if a data subject has granted, withdrawn, 
+                or denied consent.
+                
+                A purpose is the information that specifies the reason and the goal for the
+                processing of a specific set of personal data. As a rule, the purpose
+                references the relevant legal basis for the processing of personal data.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ConsentRelated" />
+              <Annotation Term="Core.Description"
+                String="The entities of this set represent data whose processing is related to an explicit consent" />
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ContractRelated" />
+              <Annotation Term="Core.Description" String="The entities of this set represent data that is related to a contract" />
+              <Annotation Term="Core.LongDescription">
+                <String>A contract is a long-term agreement with customers that allows them to buy goods or services at special conditions, such as lower prices, based on specific terms that have been negotiated beforehand. Products or services are released (ordered, or called off) from a contract over a certain timeframe.  
+
+Types of contracts include:
+
+- Sales contracts
+
+- Lease contracts
+
+- Service contracts
+              </String>
+              </Annotation>
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+      <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
+        <Annotation Term="Core.LongDescription"
+          String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
+      </Term>
+      <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Primary meaning of a data field" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataSubjectID" />
+              <Annotation Term="Core.Description" String="The unique identifier for a data subject" />
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="SubjectIDType" />
+              <Annotation Term="Core.Description"
+                String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ConsentID" />
+              <Annotation Term="Core.Description" String="The unique identifier for a consent" />
+              <Annotation Term="Core.LongDescription">
+                <String>A consent is the action of the data subject confirming that 
+                the usage of his or her personal data shall be allowed for a given purpose. 
+                A consent functionality allows the storage of a consent record in relation 
+                to a specific purpose and shows if a data subject has granted, withdrawn, 
+                or denied consent.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ConsentPurposeID" />
+              <Annotation Term="Core.Description" String="The unique identifier for the purpose of a consent" />
+              <Annotation Term="Core.LongDescription">
+                <String>The purpose of a consent is the information that specifies the reason and the goal for
+                the processing of a specific set of personal data. As a rule, the purpose
+                references the relevant legal basis for the processing of personal data.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ContractRelatedID" />
+              <Annotation Term="Core.Description"
+                String="The unique identifier for transactional data that is related to a contract that requires processing of personal data" />
+              <Annotation Term="Core.LongDescription">
+                <String>Examples:
+
+                - Sales Contract ID
+
+                - Purchase Contract ID
+
+                - Service Contract ID
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="LegalEntityID" />
+              <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
+              <Annotation Term="Core.LongDescription">
+                <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+              </Annotation>
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+      <Term Name="IsPotentiallyPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property contains potentially personal data" />
+        <Annotation Term="Core.LongDescription">
+          <String>Personal data is information relating to an identified or identifiable natural person (data subject).
+
+Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
+
+See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
+        <Annotation Term="Core.LongDescription">
+          <String>Sensitive data is a colloquial term usually including the following data:
+
+-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation
+
+-  Personal data subject to professional secrecy
+
+-  Personal data relating to criminal or administrative offences
+
+-  Personal data concerning bank or credit card accounts
+
+See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="IsUserID" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property contains a user id" />
+        <Annotation Term="Core.LongDescription"
+          String="A user id is a unique identifier for an individual who interacts with the services supplied by a system" />
+      </Term>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

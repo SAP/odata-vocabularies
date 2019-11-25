@@ -1,0 +1,1468 @@
+<h1>
+Common Vocabulary</h1>
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">com.sap.vocabularies.Common.v1</a></strong></p>
+<p>Common terms for all SAP vocabularies</p>
+<h2>
+Terms</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Experimental</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Experimental"></a>Terms, types, and properties annotated with this term are experimental and can be changed incompatibly or removed completely any time without prior warning.<p>Do not use or rely on experimental terms, types, and properties in production environments.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ServiceVersion</td>
+<td align="left">Int32</td>
+<td align="left">
+<a name="ServiceVersion"></a>1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI</td>
+</tr>
+<tr>
+<td align="left">ServiceSchemaVersion</td>
+<td align="left">Int32</td>
+<td align="left">
+<a name="ServiceSchemaVersion"></a>0 for first schema version within a service version, incremented when schema changes compatibly</td>
+</tr>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Label"></a>A short, human-readable text suitable for labels and captions in UIs</td>
+</tr>
+<tr>
+<td align="left">Heading</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Heading"></a>A short, human-readable text suitable for column headings in UIs</td>
+</tr>
+<tr>
+<td align="left">QuickInfo</td>
+<td align="left">String</td>
+<td align="left">
+<a name="QuickInfo"></a>A short, human-readable text suitable for tool tips in UIs</td>
+</tr>
+<tr>
+<td align="left">Text</td>
+<td align="left">String</td>
+<td align="left">
+<a name="Text"></a>A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.</td>
+</tr>
+<tr>
+<td align="left">TextFor <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">PropertyPath</td>
+<td align="left">
+<a name="TextFor"></a>The annotated property contains a descriptive text for values of the referenced property.</td>
+</tr>
+<tr>
+<td align="left">IsLanguageIdentifier <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsLanguageIdentifier"></a>An identifier to distinguish multiple texts in different languages for the same entity</td>
+</tr>
+<tr>
+<td align="left">TextFormat</td>
+<td align="left"><a href="#TextFormatType">TextFormatType</a></td>
+<td align="left">
+<a name="TextFormat"></a>Human-readable text that may contain formatting information</td>
+</tr>
+<tr>
+<td align="left">IsDigitSequence</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsDigitSequence"></a>Contains only digits</td>
+</tr>
+<tr>
+<td align="left">IsUpperCase</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsUpperCase"></a>Contains just uppercase characters</td>
+</tr>
+<tr>
+<td align="left">UnitSpecificScale</td>
+<td align="left">PrimitiveType</td>
+<td align="left">
+<a name="UnitSpecificScale"></a>The number of fractional decimal digits of a currency amount or measured quantity<p>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device.</p>
+</td>
+</tr>
+<tr>
+<td align="left">UnitSpecificPrecision <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">PrimitiveType</td>
+<td align="left">
+<a name="UnitSpecificPrecision"></a>The number of significant decimal digits of a currency amount or measured quantity<p>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device.</p>
+</td>
+</tr>
+<tr>
+<td align="left">SecondaryKey <em>(Deprecated)</em>
+</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="SecondaryKey"></a>Use term <code>AlternateKeys</code> from the OASIS Core vocabulary instead</td>
+</tr>
+<tr>
+<td align="left">MinOccurs</td>
+<td align="left">Int64</td>
+<td align="left">
+<a name="MinOccurs"></a>The annotated set or collection contains at least this number of items</td>
+</tr>
+<tr>
+<td align="left">MaxOccurs</td>
+<td align="left">Int64</td>
+<td align="left">
+<a name="MaxOccurs"></a>The annotated set or collection contains at most this number of items</td>
+</tr>
+<tr>
+<td align="left">AssociationEntity</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">
+<a name="AssociationEntity"></a>Entity representing an n:m association with attributes</td>
+</tr>
+<tr>
+<td align="left">DerivedNavigation</td>
+<td align="left">NavigationPropertyPath</td>
+<td align="left">
+<a name="DerivedNavigation"></a>Shortcut for a multi-segment navigation, contains the long path with all its segments</td>
+</tr>
+<tr>
+<td align="left">Masked <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="Masked"></a>Use terms <code>MaskedValue</code> and <code>MaskedAlways</code> instead</td>
+</tr>
+<tr>
+<td align="left">MaskedValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="MaskedValue"></a>Property contains sensitive data that is by default not transferred<p>By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces.</p>
+</td>
+</tr>
+<tr>
+<td align="left">MaskedAlways <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="MaskedAlways"></a>Property contains sensitive data that is by default not transferred<p>If the annotation evaluates to true, the unmasked property value is never transferred in responses.<br/>If the annotation evaluates to false, the unmasked property value can be requested with the custom query option <code>masked-values=false</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left">SemanticObject</td>
+<td align="left">String</td>
+<td align="left">
+<a name="SemanticObject"></a>Name of the Semantic Object represented as this entity type or identified by this property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectMapping</td>
+<td align="left">[<a href="#SemanticObjectMappingType">SemanticObjectMappingType</a>]</td>
+<td align="left">
+<a name="SemanticObjectMapping"></a>Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object<p>This allows "renaming" of properties in the current context to match property names of the Semantic Object, e.g. <code>SenderPartyID</code> to <code>PartyID</code>. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their "local" name.</p>
+</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectUnavailableActions</td>
+<td align="left">[String]</td>
+<td align="left">
+<a name="SemanticObjectUnavailableActions"></a>List of actions that are not available in the current state of the instance of the Semantic Object</td>
+</tr>
+<tr>
+<td align="left">IsInstanceAnnotation</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsInstanceAnnotation"></a>Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied</td>
+</tr>
+<tr>
+<td align="left">FilterExpressionRestrictions <em>(Deprecated)</em>
+</td>
+<td align="left">[<a href="#FilterExpressionRestrictionType">FilterExpressionRestrictionType</a>]</td>
+<td align="left">
+<a name="FilterExpressionRestrictions"></a>Use term Capabilities.FilterRestrictions instead</td>
+</tr>
+<tr>
+<td align="left">FieldControl</td>
+<td align="left"><a href="#FieldControlType">FieldControlType</a></td>
+<td align="left">
+<a name="FieldControl"></a>Control state of a property<p>This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a <code>Path</code> expression.<br/>In the dynamic case the property referenced by the <code>Path</code> expression MUST be of type <code>Edm.Byte</code> to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ExceptionCategory <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="ExceptionCategory"></a>A machine-readable exception category</td>
+</tr>
+<tr>
+<td align="left">Application <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#ApplicationType">ApplicationType</a></td>
+<td align="left">
+<a name="Application"></a>...</td>
+</tr>
+<tr>
+<td align="left">Timestamp <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">
+<a name="Timestamp"></a>...</td>
+</tr>
+<tr>
+<td align="left">TransactionId <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="TransactionId"></a>...</td>
+</tr>
+<tr>
+<td align="left">ErrorResolution <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#ErrorResolutionType">ErrorResolutionType</a></td>
+<td align="left">
+<a name="ErrorResolution"></a>Hints for resolving this error</td>
+</tr>
+<tr>
+<td align="left">Messages <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[ComplexType]</td>
+<td align="left">
+<a name="Messages"></a>Collection of end-user messages<p>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.<br/>The minimum structure is <br/>- code: Edm.String <br/>- message: Edm.String <br/>- target: Edm.String nullable <br/>- additionalTargets: Collection(Edm.String) <br/>- transition: Edm.Boolean<br/>- numericSeverity: Edm.Byte<br/>- longtextUrl: Edm.String nullable</p>
+</td>
+</tr>
+<tr>
+<td align="left">additionalTargets <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[String]</td>
+<td align="left">
+<a name="additionalTargets"></a>Additional targets for the message<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
+</td>
+</tr>
+<tr>
+<td align="left">longtextUrl <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">URL</td>
+<td align="left">
+<a name="longtextUrl"></a>Location of the message long text<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
+</td>
+</tr>
+<tr>
+<td align="left">numericSeverity <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#NumericMessageSeverityType">NumericMessageSeverityType</a></td>
+<td align="left">
+<a name="numericSeverity"></a>Classifies an end-user message as info, success, warning, or error<p>This instance annotation can be applied to the <code>error</code> object and the objects within the <code>details</code> array of an OData error response</p>
+</td>
+</tr>
+<tr>
+<td align="left">MaximumNumericMessageSeverity <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#NumericMessageSeverityType">NumericMessageSeverityType</a></td>
+<td align="left">
+<a name="MaximumNumericMessageSeverity"></a>The maximum severity of all end-user messages attached to an entity, null if no messages are attached<p>This metadata annotation can be applied to entity types that are also annotated with term <a href="#Messages"><code>Common.Messages</code></a></p>
+</td>
+</tr>
+<tr>
+<td align="left">IsActionCritical</td>
+<td align="left">Boolean</td>
+<td align="left">
+<a name="IsActionCritical"></a>Criticality of the function or action to enforce a warning or similar before it's executed</td>
+</tr>
+<tr>
+<td align="left">Attributes</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="Attributes"></a>Attributes related to this property, which may occur in denormalized entity types</td>
+</tr>
+<tr>
+<td align="left">RelatedRecursiveHierarchy</td>
+<td align="left">AnnotationPath</td>
+<td align="left">
+<a name="RelatedRecursiveHierarchy"></a>A recursive hierarchy related to this property. The annotation path must end in Aggregation.RecursiveHierarchy.</td>
+</tr>
+<tr>
+<td align="left">Interval</td>
+<td align="left"><a href="#IntervalType">IntervalType</a></td>
+<td align="left">
+<a name="Interval"></a>An interval with lower and upper boundaries described by two properties</td>
+</tr>
+<tr>
+<td align="left">ResultContext</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.</td>
+</tr>
+<tr>
+<td align="left">WeakReferentialConstraint <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#WeakReferentialConstraintType">WeakReferentialConstraintType</a></td>
+<td align="left">
+<a name="WeakReferentialConstraint"></a>A referential constraint to a reference set that is not reachable via a navigation property<p>A weak referential constraint can be used in cases where the reference service cannot be located at design-time</p>
+</td>
+</tr>
+<tr>
+<td align="left">IsNaturalPerson <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsNaturalPerson"></a>The annotated entity type (e.g. <code>Employee</code>) or annotation (e.g. <code>IsImageUrl</code>) represents a natural person</td>
+</tr>
+<tr>
+<td align="left">ValueList</td>
+<td align="left"><a href="#ValueListType">ValueListType</a></td>
+<td align="left">
+<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter<p>The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ValueListRelevantQualifiers <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">[<a href="#SimpleIdentifier">SimpleIdentifier</a>]</td>
+<td align="left">
+<a name="ValueListRelevantQualifiers"></a>List of qualifiers of relevant ValueList annotations<p>The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ValueListWithFixedValues</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values</td>
+</tr>
+<tr>
+<td align="left">ValueListReferences</td>
+<td align="left">[URL]</td>
+<td align="left">
+<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property</td>
+</tr>
+<tr>
+<td align="left">ValueListMapping</td>
+<td align="left"><a href="#ValueListMappingType">ValueListMappingType</a></td>
+<td align="left">
+<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<p>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers.</p>
+</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})</td>
+</tr>
+<tr>
+<td align="left">IsCalendarHalfyear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarHalfyear"></a>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit. The string matches the regex pattern [1-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarQuarter</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarQuarter"></a>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarMonth"></a>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. The string matches the regex pattern 0[1-9]|1[0-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarWeek</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarWeek"></a>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</td>
+</tr>
+<tr>
+<td align="left">IsDayOfCalendarMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsDayOfCalendarMonth"></a>Day number relative to a calendar month. Valid values are between 1 and 31.</td>
+</tr>
+<tr>
+<td align="left">IsDayOfCalendarYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsDayOfCalendarYear"></a>Day number relative to a calendar year. Valid values are between 1 and 366.</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearHalfyear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearHalfyear"></a>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-2]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearQuarter</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearQuarter"></a>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearMonth</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearMonth"></a>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])</td>
+</tr>
+<tr>
+<td align="left">IsCalendarYearWeek</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarYearWeek"></a>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</td>
+</tr>
+<tr>
+<td align="left">IsCalendarDate</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsCalendarDate"></a>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYear</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYear"></a>Property encodes a fiscal year number as string following the logical pattern YYYY(Y*) consisting of at least four digits. The string matches the regex pattern [1-9][0-9]{3,}</td>
+</tr>
+<tr>
+<td align="left">IsFiscalPeriod</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalPeriod"></a>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. The string matches the regex pattern [0-9]{3}</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearPeriod</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting of at least seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3,})([0-9]{3})</td>
+</tr>
+<tr>
+<td align="left">IsFiscalQuarter <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalQuarter"></a>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearQuarter <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearQuarter"></a>Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</td>
+</tr>
+<tr>
+<td align="left">IsFiscalWeek <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalWeek"></a>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearWeek <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearWeek"></a>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</td>
+</tr>
+<tr>
+<td align="left">IsDayOfFiscalYear <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsDayOfFiscalYear"></a>Day number relative to a fiscal year. Valid values are between 1 and 371.</td>
+</tr>
+<tr>
+<td align="left">IsFiscalYearVariant</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant</td>
+</tr>
+<tr>
+<td align="left">MutuallyExclusiveTerm</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied</td>
+</tr>
+<tr>
+<td align="left">DraftRoot</td>
+<td align="left"><a href="#DraftRootType">DraftRootType</a></td>
+<td align="left">
+<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern</td>
+</tr>
+<tr>
+<td align="left">DraftNode</td>
+<td align="left"><a href="#DraftNodeType">DraftNodeType</a></td>
+<td align="left">
+<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern</td>
+</tr>
+<tr>
+<td align="left">DraftActivationVia</td>
+<td align="left">[<a href="#SimpleIdentifier">SimpleIdentifier</a>]</td>
+<td align="left">
+<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets</td>
+</tr>
+<tr>
+<td align="left">EditableFieldFor</td>
+<td align="left">PropertyPath</td>
+<td align="left">
+<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property</td>
+</tr>
+<tr>
+<td align="left">SemanticKey</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">
+<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity</td>
+</tr>
+<tr>
+<td align="left">SideEffects</td>
+<td align="left"><a href="#SideEffectsType">SideEffectsType</a></td>
+<td align="left">
+<a name="SideEffects"></a>Describes side-effects of modification operations</td>
+</tr>
+<tr>
+<td align="left">DefaultValuesFunction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">
+<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<p>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call</p>
+</td>
+</tr>
+<tr>
+<td align="left">DerivedDefaultValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<p>Function import has two parameters of complex types:<br/> - <code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - <code>properties</code>, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+</td>
+</tr>
+<tr>
+<td align="left">FilterDefaultValue</td>
+<td align="left">PrimitiveType</td>
+<td align="left">
+<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.</td>
+</tr>
+<tr>
+<td align="left">FilterDefaultValueHigh <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">PrimitiveType</td>
+<td align="left">
+<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.</td>
+</tr>
+<tr>
+<td align="left">DerivedFilterDefaultValue <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<p>Function import has two parameters of complex types:<br/> - <code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - <code>properties</code>, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p>
+</td>
+</tr>
+<tr>
+<td align="left">SortOrder</td>
+<td align="left">[<a href="#SortOrderType">SortOrderType</a>]</td>
+<td align="left">
+<a name="SortOrder"></a>List of sort criteria<p>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.</p>
+</td>
+</tr>
+<tr>
+<td align="left">RecursiveHierarchy</td>
+<td align="left"><a href="#RecursiveHierarchyType">RecursiveHierarchyType</a></td>
+<td align="left">
+<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.</td>
+</tr>
+<tr>
+<td align="left">CreatedAt</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">
+<a name="CreatedAt"></a>Creation timestamp</td>
+</tr>
+<tr>
+<td align="left">CreatedBy</td>
+<td align="left"><a href="#UserID">UserID</a></td>
+<td align="left">
+<a name="CreatedBy"></a>First editor</td>
+</tr>
+<tr>
+<td align="left">ChangedAt</td>
+<td align="left">DateTimeOffset</td>
+<td align="left">
+<a name="ChangedAt"></a>Last modification timestamp</td>
+</tr>
+<tr>
+<td align="left">ChangedBy</td>
+<td align="left"><a href="#UserID">UserID</a></td>
+<td align="left">
+<a name="ChangedBy"></a>Last editor</td>
+</tr>
+<tr>
+<td align="left">OriginalProtocolVersion</td>
+<td align="left">String</td>
+<td align="left">
+<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values <code>2.0</code> and <code>3.0</code>
+</td>
+</tr>
+<tr>
+<td align="left">ApplyMultiUnitBehaviorForSortingAndFiltering <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on <a href="https://experience.sap.com/fiori-design/" rel="nofollow">https://experience.sap.com/fiori-design/</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="TextFormatType"></a>TextFormatType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">plain</td>
+<td align="right">0</td>
+<td align="left">Plain text, line breaks represented as the character 0x0A</td>
+</tr>
+<tr>
+<td align="left">html</td>
+<td align="right">1</td>
+<td align="left">Plain text with markup that can validly appear directly within an HTML DIV element</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="SemanticObjectMappingType"></a>SemanticObjectMappingType</h2>
+<p>Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LocalProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to a local property that provides the value for the Semantic Object property</td>
+</tr>
+<tr>
+<td align="left">SemanticObjectProperty</td>
+<td align="left">String</td>
+<td align="left">Name of the Semantic Object property</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType <em>(Deprecated)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">PropertyPath</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">AllowedExpressions</td>
+<td align="left"><a href="#FilterExpressionType">FilterExpressionType</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FilterExpressionType"></a>FilterExpressionType <em>(Deprecated)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SingleValue</td>
+<td align="right">0</td>
+<td align="left">a single 'eq' clause</td>
+</tr>
+<tr>
+<td align="left">MultiValue</td>
+<td align="right">1</td>
+<td align="left">one or more 'eq' clauses, separated by 'or'</td>
+</tr>
+<tr>
+<td align="left">SingleInterval</td>
+<td align="right">2</td>
+<td align="left">at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FieldControlType"></a>FieldControlType</h2>
+<p>Control state of a property</p>
+<table>
+<thead>
+<tr>
+<th align="left">Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Mandatory</td>
+<td align="right">7</td>
+<td align="left">Property is mandatory from a business perspective<p>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet <code>Nullable</code> with a value of <code>false</code> to exclude the <code>null</code> value, or terms from the <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md" rel="nofollow">Validation vocabulary</a>.</p>
+</td>
+</tr>
+<tr>
+<td align="left">Optional</td>
+<td align="right">3</td>
+<td align="left">Property may have a value<p>This value does not make sense as a static annotation value.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ReadOnly</td>
+<td align="right">1</td>
+<td align="left">Property value cannot be changed<p>To statically mark a property as read-only use term <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed" rel="nofollow">Core.Computed</a> instead</p>
+</td>
+</tr>
+<tr>
+<td align="left">Inapplicable</td>
+<td align="right">0</td>
+<td align="left">Property has no meaning in the current entity state<p>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property <code>DestinationCountry</code> is inapplicable if trip type is domestic, and mandatory if trip type is international.</p>
+</td>
+</tr>
+<tr>
+<td align="left">Hidden</td>
+<td align="right">0</td>
+<td align="left">Deprecated synonymn for Inapplicable, do not use<p>To statically hide a property on a UI use <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#Hidden">UI.Hidden</a> instead</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ApplicationType"></a>ApplicationType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Component</td>
+<td align="left">String</td>
+<td align="left">Software component of service implementation</td>
+</tr>
+<tr>
+<td align="left">ServiceRepository</td>
+<td align="left">String</td>
+<td align="left">...</td>
+</tr>
+<tr>
+<td align="left">ServiceId</td>
+<td align="left">String</td>
+<td align="left">...</td>
+</tr>
+<tr>
+<td align="left">ServiceVersion</td>
+<td align="left">String</td>
+<td align="left">...</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ErrorResolutionType"></a>ErrorResolutionType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Analysis</td>
+<td align="left">String</td>
+<td align="left">Short hint on how to analyze this error</td>
+</tr>
+<tr>
+<td align="left">Note</td>
+<td align="left">String</td>
+<td align="left">Note for error resolution</td>
+</tr>
+<tr>
+<td align="left">AdditionalNote</td>
+<td align="left">String</td>
+<td align="left">Additional note for error resolution</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="NumericMessageSeverityType"></a>NumericMessageSeverityType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<p><strong>Type:</strong> Byte</p>
+<p>Classifies an end-user message as info, success, warning, or error</p>
+<table>
+<thead>
+<tr>
+<th align="left">Allowed Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">Success - no action required</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Information - no action required</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Warning - action may be required</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Error - action is required</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="IntervalType"></a>IntervalType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LowerBoundary</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the lower interval boundary</td>
+</tr>
+<tr>
+<td align="left">LowerBoundaryIncluded</td>
+<td align="left">Boolean</td>
+<td align="left">The lower boundary value is included in the interval</td>
+</tr>
+<tr>
+<td align="left">UpperBoundary</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the upper interval boundary</td>
+</tr>
+<tr>
+<td align="left">UpperBoundaryIncluded</td>
+<td align="left">Boolean</td>
+<td align="left">The upper boundary value is included in the interval</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="WeakReferentialConstraintType"></a>WeakReferentialConstraintType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ReferenceRoot</td>
+<td align="left">String</td>
+<td align="left">URI of the service containing the reference set<p>Need not be a uniform resource locator, for cases where the actual location of the reference service is not static or not known at design-time.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ReferencePath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with reference values, relative to ReferenceRoot</td>
+</tr>
+<tr>
+<td align="left">ForeignKeys</td>
+<td align="left">[<a href="#ForeignKeyType">ForeignKeyType</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ForeignKeyType"></a>ForeignKeyType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property of the annotated entity set</td>
+</tr>
+<tr>
+<td align="left">ReferencedProperty</td>
+<td align="left">String</td>
+<td align="left">Path to property in reference set, format is identical to PropertyPath annotations</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListType"></a>ValueListType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Headline for value list, fallback is the label of the property or parameter</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with possible values, relative to CollectionRoot</td>
+</tr>
+<tr>
+<td align="left">CollectionRoot</td>
+<td align="left">String</td>
+<td align="left">Service root of the value list collection; not specified means local to the document containing the annotation</td>
+</tr>
+<tr>
+<td align="left">SearchSupported</td>
+<td align="left">Boolean</td>
+<td align="left">Value list supports the $search query option<p>The value of the target property is used as the search expression instead of in $filter</p>
+</td>
+</tr>
+<tr>
+<td align="left">FetchValues <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#FetchValuesType">FetchValuesType</a></td>
+<td align="left">Hint on when to fetch values</td>
+</tr>
+<tr>
+<td align="left">PresentationVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#PresentationVariant">UI.PresentationVariant</a> on the entity set identified via CollectionPath</p>
+</td>
+</tr>
+<tr>
+<td align="left">SelectionVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#SelectionVariant">UI.SelectionVariant</a> on the entity set identified via CollectionPath</p>
+</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ValueListParameter">ValueListParameter</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FetchValuesType"></a>FetchValuesType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<p><strong>Type:</strong> Byte</p>
+<p>Hint on when to fetch values</p>
+<table>
+<thead>
+<tr>
+<th align="left">Allowed Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left">Fetch values immediately without filter</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Fetch values with a filter</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Fetch count immediately, then depending on count do 1 or 2</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListMappingType"></a>ValueListMappingType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Label</td>
+<td align="left">String</td>
+<td align="left">Headline for value list, fallback is the label of the property or parameter</td>
+</tr>
+<tr>
+<td align="left">CollectionPath</td>
+<td align="left">String</td>
+<td align="left">Resource path of an OData collection with possible values, relative to the document containing the value list mapping</td>
+</tr>
+<tr>
+<td align="left">FetchValues <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#FetchValuesType">FetchValuesType</a></td>
+<td align="left">Hint on when to fetch values</td>
+</tr>
+<tr>
+<td align="left">PresentationVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#PresentationVariant">UI.PresentationVariant</a> on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
+</td>
+</tr>
+<tr>
+<td align="left">SelectionVariantQualifier</td>
+<td align="left"><a href="#SimpleIdentifier">SimpleIdentifier</a></td>
+<td align="left">Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+UI#SelectionVariant">UI.SelectionVariant</a> on the entity set identified via CollectionPath</p>
+</td>
+</tr>
+<tr>
+<td align="left">Parameters</td>
+<td align="left">[<a href="#ValueListParameter">ValueListParameter</a>]</td>
+<td align="left">Instructions on how to construct the value list request and consume response properties</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameter"></a><em>ValueListParameter</em>
+</h2>
+<p><strong>Derived Types:</strong></p>
+<ul>
+<li><a href="#ValueListParameterIn">ValueListParameterIn</a></li>
+<li><a href="#ValueListParameterConstant">ValueListParameterConstant</a></li>
+<li><a href="#ValueListParameterInOut">ValueListParameterInOut</a></li>
+<li><a href="#ValueListParameterOut">ValueListParameterOut</a></li>
+<li><a href="#ValueListParameterDisplayOnly">ValueListParameterDisplayOnly</a></li>
+<li><a href="#ValueListParameterFilterOnly">ValueListParameterFilterOnly</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ValueListProperty</td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterIn"></a>ValueListParameterIn: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is used to filter the value list with <code>eq</code> comparison</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterConstant"></a>ValueListParameterConstant: <a href="#ValueListParameter">ValueListParameter</a> <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">Constant</td>
+<td align="left">String</td>
+<td align="left">Constant value that is used to filter the value list with <code>eq</code> comparison</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterInOut"></a>ValueListParameterInOut: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is used to filter the value list with <code>startswith</code> comparison and filled from the picked value list item</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterOut"></a>ValueListParameterOut: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+<tr>
+<td align="left">LocalDataProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Path to property that is filled from response</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterDisplayOnly"></a>ValueListParameterDisplayOnly: <a href="#ValueListParameter">ValueListParameter</a>
+</h2>
+<p>Value list property that is not used to fill the edited entity</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="ValueListParameterFilterOnly"></a>ValueListParameterFilterOnly: <a href="#ValueListParameter">ValueListParameter</a> <em>(Deprecated)</em>
+</h2>
+<p>Value list property that is used to filter the value list, not connected to the edited entity</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>ValueListProperty</em></td>
+<td align="left">String</td>
+<td align="left">Path to property in response structure. Format is identical to PropertyPath annotations.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="DraftRootType"></a>DraftRootType: <a href="#DraftNodeType">DraftNodeType</a>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<em>PreparationAction</em> <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
+</tr>
+<tr>
+<td align="left">
+<em>ValidationFunction</em> <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Separate validation without side-effects is not useful</td>
+</tr>
+<tr>
+<td align="left">ActivationAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that activates a draft document</td>
+</tr>
+<tr>
+<td align="left">DiscardAction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that discards a draft document</td>
+</tr>
+<tr>
+<td align="left">EditAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that creates an edit draft</td>
+</tr>
+<tr>
+<td align="left">NewAction</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Action that creates a new draft<p>New drafts may also be created by POSTing an empty entity without any properties to the entity set.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="DraftNodeType"></a>DraftNodeType</h2>
+<p><strong>Derived Types:</strong></p>
+<ul>
+<li><a href="#DraftRootType">DraftRootType</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PreparationAction <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Use <code>TriggerAction</code> of <a href="#SideEffects"><code>SideEffects</code> annotation</a> instead</td>
+</tr>
+<tr>
+<td align="left">ValidationFunction <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Separate validation without side-effects is not useful</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="SimpleIdentifier"></a>SimpleIdentifier</h2>
+<p><strong>Type:</strong> String</p>
+<p>The SimpleIdentifier of an OData construct in scope</p>
+<h2>
+<a name="QualifiedName"></a>QualifiedName</h2>
+<p><strong>Type:</strong> String</p>
+<p>The QualifiedName of an OData construct in scope</p>
+<h2>
+<a name="SideEffectsType"></a>SideEffectsType</h2>
+<p>Changes to the source properties or source entities may have side-effects on the target properties or entities.</p>
+<p>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
+An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.</p>
+<p>Side effects without a <code>TriggerAction</code> happen immediately when modifying one of the source properties or source entities. Side effects with a <code>TriggerAction</code> are deferred until explicitly triggered via the <code>TriggerAction</code>.</p>
+<p>Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning,
+only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SourceProperties</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">Changes to the values of one or more of these properties may affect the targets</td>
+</tr>
+<tr>
+<td align="left">SourceEntities</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">Changes to one or more of these entities may affect the targets. An empty path means the annotation target.</td>
+</tr>
+<tr>
+<td align="left">TargetProperties</td>
+<td align="left">[PropertyPath]</td>
+<td align="left">These properties may be affected if the value of one of the sources changes</td>
+</tr>
+<tr>
+<td align="left">TargetEntities</td>
+<td align="left">[NavigationPropertyPath]</td>
+<td align="left">These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.</td>
+</tr>
+<tr>
+<td align="left">EffectTypes <em>(Deprecated)</em>
+</td>
+<td align="left"><a href="#EffectType">EffectType</a></td>
+<td align="left">All side effects are essentially value changes, differentiation not needed.</td>
+</tr>
+<tr>
+<td align="left">TriggerAction <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#QualifiedName">QualifiedName</a></td>
+<td align="left">Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with <code>SideEffects</code>. The action does not have any additional parameters and does not return anything. It either succeeds with <code>204 No Content</code> or it fails with <code>4xx</code> or <code>5xx</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left">TriggeredIndicator <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">Boolean</td>
+<td align="left">Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="EffectType"></a>EffectType <em>(Deprecated)</em>
+</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Flag Member</th>
+<th align="right">Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ValidationMessage</td>
+<td align="right">1</td>
+<td align="left">Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ValueChange</td>
+<td align="right">2</td>
+<td align="left">The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+</td>
+</tr>
+<tr>
+<td align="left">FieldControlChange</td>
+<td align="right">4</td>
+<td align="left">The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="SortOrderType"></a>SortOrderType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Property</td>
+<td align="left">PropertyPath</td>
+<td align="left">Sort property</td>
+</tr>
+<tr>
+<td align="left">Descending</td>
+<td align="left">Boolean</td>
+<td align="left">Sort direction, ascending if not specified otherwise</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="RecursiveHierarchyType"></a>RecursiveHierarchyType</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ExternalNodeKeyProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the external human-readable key identifying the node</td>
+</tr>
+<tr>
+<td align="left">NodeDescendantCountProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.</td>
+</tr>
+<tr>
+<td align="left">NodeDrillStateProperty</td>
+<td align="left">PropertyPath</td>
+<td align="left">Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="UserID"></a>UserID</h2>
+<p><strong>Type:</strong> String</p>
+<p>User ID</p>

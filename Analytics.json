@@ -1,0 +1,148 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        },
+        "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Analytics.v1": {
+        "$Alias": "Analytics",
+        "@Core.Description": "Terms for annotating analytical resources",
+        "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json.txt"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://wiki.scn.sap.com/wiki/x/gwWKGw"
+            }
+        ],
+        "Dimension": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "$BaseTerm": "Aggregation.Groupable",
+            "@Core.Description": "A property holding the key of a dimension in an analytical context"
+        },
+        "Measure": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "$BaseTerm": "Aggregation.Aggregatable",
+            "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
+        },
+        "AccumulativeMeasure": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$BaseTerm": "Analytics.Measure",
+            "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
+        },
+        "RolledUpPropertyCount": {
+            "$Kind": "Term",
+            "$Type": "Edm.Int16",
+            "$Nullable": true,
+            "@Common.Experimental": true,
+            "@Core.Description": "Number of properties in the entity instance that have been aggregated away"
+        },
+        "DrillURL": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "\n            URL to retrieve more detailed data related to a node of a recursive hierarchy.\n            Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.\n          ",
+            "@Core.IsURL": true
+        },
+        "PlanningAction": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "ActionImport"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": " Processes or generates plan data. Its logic may have side-effects on entity sets.\n          "
+        },
+        "AggregatedProperties": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Analytics.AggregatedPropertyType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.",
+            "@Core.LongDescription": "\n            Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the \n\t\t\tgiven entity type to leverage the results of the aggregate expression determined in the context of an entity collection of \n\t\t\tthe annotated type.\n          "
+        },
+        "AggregatedPropertyType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "Name": {
+                "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
+                "@Core.Description": "Name the dynamic property holding the aggregated value."
+            },
+            "AggregationMethod": {
+                "@Core.Description": "Name of the standard or custom aggregation method to be applied."
+            },
+            "AggregatableProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property whose values shall be aggregated."
+            },
+            "@Validation.ApplicableTerms": [
+                "Common.Label"
+            ]
+        },
+        "$Annotations": {
+            "Aggregation.CustomAggregate": {
+                "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
+                "@Validation.ApplicableTerms": [
+                    "Common.Label"
+                ]
+            }
+        }
+    }
+}

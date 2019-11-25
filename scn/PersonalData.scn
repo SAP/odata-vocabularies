@@ -1,0 +1,179 @@
+<h1>
+PersonalData Vocabulary</h1>
+<p><strong>Namespace: <a href="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml?api=v2">com.sap.vocabularies.PersonalData.v1</a></strong></p>
+<p>Terms for annotating Personal Data</p>
+<h2>
+Definition</h2>
+<p>Personal Data is any information relating to an identified or identifiable natural person ("data subject").</p>
+<p>An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.</p>
+<p>Personal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.</p>
+<p>This vocabulary defines terms specific to the European <a href="https://ec.europa.eu/info/law/law-topic/data-protection_en" rel="nofollow">General Data Protection Regulation (GDPR)</a>.</p>
+<p>Terms for contact and address information are defined in the <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Communication#">Communication vocabulary</a>.</p>
+<h3>
+References</h3>
+<ul>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform_en" rel="nofollow">European Commission: Reform of EU data protection rules</a></li>
+<li><a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en" rel="nofollow">European Commission: Rules for business and organisations</a></li>
+<li>
+<a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en" rel="nofollow">European Commission: Legal grounds for processing data</a>.</li>
+</ul>
+<h2>
+Terms</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Term</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EntitySemantics <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#EntitySemanticsType">EntitySemanticsType</a></td>
+<td align="left">
+<a name="EntitySemantics"></a>Primary meaning of the entities in the annotated entity set</td>
+</tr>
+<tr>
+<td align="left">DataSubjectRole <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DataSubjectRole"></a>Role of the data subjects in this set (e.g. employee, customer)<p>Values are application-specific. Can be a static value or a <code>Path</code> expression If the role varies per entity</p>
+</td>
+</tr>
+<tr>
+<td align="left">DataSubjectRoleDescription <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">String</td>
+<td align="left">
+<a name="DataSubjectRoleDescription"></a>Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)<p>Values are application-specific. Can be a static value or a <code>Path</code> expression If the role varies per entity</p>
+</td>
+</tr>
+<tr>
+<td align="left">FieldSemantics <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="#FieldSemanticsType">FieldSemanticsType</a></td>
+<td align="left">
+<a name="FieldSemantics"></a>Primary meaning of the personal data contained in the annotated property<p>Changes to values of annotated properties are tracked in the audit log.<br/><em>TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)</em></p>
+</td>
+</tr>
+<tr>
+<td align="left">IsPotentiallyPersonal <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsPotentiallyPersonal"></a>Property contains potentially personal data<p>Personal data is information relating to an identified or identifiable natural person (data subject).<br/>Note: properties annotated with <a href="#FieldSemantics"><code>FieldSemantics</code></a> need not be additionally annotated with this term.<br/>See also: <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en" rel="nofollow">What is personal data?</a></p>
+</td>
+</tr>
+<tr>
+<td align="left">IsPotentiallySensitive</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsPotentiallySensitive"></a>Property contains potentially sensitive personal data<p>Sensitive data is a colloquial term usually including the following data:<br/>- Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>- Personal data subject to professional secrecy<br/>- Personal data relating to criminal or administrative offences<br/>- Personal data concerning bank or credit card accounts<br/>See also: <a href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en" rel="nofollow">What personal data is considered sensitive?</a></p>
+</td>
+</tr>
+<tr>
+<td align="left">IsUserID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left"><a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag" rel="nofollow">Tag</a></td>
+<td align="left">
+<a name="IsUserID"></a>Property contains a user id<p>A user id is a unique identifier for an individual who interacts with the services supplied by a system</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="EntitySemanticsType"></a>EntitySemanticsType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<p><strong>Type:</strong> String</p>
+<p>Primary meaning of the data contained in the annotated entity set</p>
+<table>
+<thead>
+<tr>
+<th align="left">Allowed Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DataSubject <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The entities of this set describe a data subject (an identified or identifiable natural person), e.g. Customer, Vendor<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with <a href="#FieldSemantics">FieldSemantics</a>.</p>
+</td>
+</tr>
+<tr>
+<td align="left">DataSubjectDetails <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The entities of this set contain details to a data subject (an identified or identifiable natural person) but do not by themselves identify/describe a data subject, e.g. CustomerAddress<p>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with <a href="#FieldSemantics">FieldSemantics</a>.</p>
+</td>
+</tr>
+<tr>
+<td align="left">Consent <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The entities of this set represent a consent<p>A consent is the action of the data subject confirming that the usage of his or her personal data shall be allowed for a given purpose. A consent functionality allows the storage of a consent record in relation to a specific purpose and shows if a data subject has granted, withdrawn, or denied consent. A purpose is the information that specifies the reason and the goal for the processing of a specific set of personal data. As a rule, the purpose references the relevant legal basis for the processing of personal data.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ConsentRelated <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The entities of this set represent data whose processing is related to an explicit consent</td>
+</tr>
+<tr>
+<td align="left">ContractRelated <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The entities of this set represent data that is related to a contract<p>A contract is a long-term agreement with customers that allows them to buy goods or services at special conditions, such as lower prices, based on specific terms that have been negotiated beforehand. Products or services are released (ordered, or called off) from a contract over a certain timeframe. <br/>Types of contracts include:<br/>- Sales contracts<br/>- Lease contracts<br/>- Service contracts</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a name="FieldSemanticsType"></a>FieldSemanticsType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</h2>
+<p><strong>Type:</strong> String</p>
+<p>Primary meaning of a data field</p>
+<table>
+<thead>
+<tr>
+<th align="left">Allowed Value</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DataSubjectID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The unique identifier for a data subject</td>
+</tr>
+<tr>
+<td align="left">SubjectIDType <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number.</td>
+</tr>
+<tr>
+<td align="left">ConsentID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The unique identifier for a consent<p>A consent is the action of the data subject confirming that the usage of his or her personal data shall be allowed for a given purpose. A consent functionality allows the storage of a consent record in relation to a specific purpose and shows if a data subject has granted, withdrawn, or denied consent.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ConsentPurposeID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The unique identifier for the purpose of a consent<p>The purpose of a consent is the information that specifies the reason and the goal for the processing of a specific set of personal data. As a rule, the purpose references the relevant legal basis for the processing of personal data.</p>
+</td>
+</tr>
+<tr>
+<td align="left">ContractRelatedID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The unique identifier for transactional data that is related to a contract that requires processing of personal data<p>Examples:<br/> - Sales Contract ID<br/> - Purchase Contract ID<br/> - Service Contract ID</p>
+</td>
+</tr>
+<tr>
+<td align="left">LegalEntityID <em>(<a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#Experimental">Experimental</a>)</em>
+</td>
+<td align="left">The unique identifier of a legal entity<p>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</p>
+</td>
+</tr>
+</tbody>
+</table>

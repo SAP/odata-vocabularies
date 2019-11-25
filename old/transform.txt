@@ -1,0 +1,11 @@
+# XML vocabulary files to transform into MarkDown and HTML
+# file
+
+Analytics.xml
+CodeList.xml
+Common.xml
+Communication.xml
+Hierarchy.xml
+PersonalData.xml
+Session.xml
+UI.xml
