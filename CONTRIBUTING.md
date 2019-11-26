@@ -28,7 +28,7 @@ Please keep changes to a minimum, e.g. preserve line ends, indentation, line bre
 
 Provide a usage example for proposed terms and term properties.
 
-The XML files are the source of truth, don't edit the Markdown or JSON files! Direct edits to the Markdown or JSON files will be lost after the next build. Follow the [Hints for Vocabulary Editors](#hints-for-vocabulary-editors) below.
+The XML files are the source of truth, don't edit the Markdown or JSON files! Direct edits to the Markdown or JSON files will be lost after the next build. See [README - Download and Installation](README.md#download-and-installation).
 
 
 ### Contributor License Agreement
@@ -50,26 +50,3 @@ A company representative authorized to do so needs to download, fill, and print 
 * Send it by traditional letter to: OSPO Core, Dietmar-Hopp-Allee 16, 69190 Walldorf, Germany
 
 The form contains a list of employees who are authorized to contribute on behalf of your company. When this list changes, please let us know.
-
-
-## Hints for Vocabulary Editors
-
-The tools in this repository only require [Node.js](https://nodejs.org/) to be installed.
-
-
-### Installation
-
-Clone or download this repository, go to its root folder and type
-
-```sh
-npm install
-```
-
-
-### Editing
-
-Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
-
-```sh
-npm run build
-```

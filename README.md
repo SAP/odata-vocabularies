@@ -23,33 +23,49 @@ These vocabularies complement the [OASIS OData Vocabularies](https://github.com/
 
 ## Requirements
 
-...
+Each vocabulary in this repository is described by three files: the `*.xml` source file, an auto-generated equivalent `*.json` representation, and a `*.md` Markdown description, also auto-generated from the `*.xml` source.
 
-This section should describe the requirements, hardware and software, that are used with your project. This section should list any expected SAP software that is necessary to run this project, if applicable. Also include any other requirements which are necessary (or optional) to use this project.
+No specific tools are needed to use these vocabulary files.
 
-Any external requirements must be hyperlinked to the site where that software, or that documentation, can be found.
+Contributors to this repository will need to run the generators, which require [Node.js](https://nodejs.org/) to be installed.
 
 
 ## Download and Installation
 
-... (move back here from CONTRIBUTING.md or just reference it?)
+The tools in this repository are only needed by contributors to refresh the `*.json` and `*.md` files after changing the `*.xml` source files. These tools require [Node.js](https://nodejs.org/) to be installed.
 
-Note: This section is the most likely to fail the review cycle. Please review carefully.
+
+### Installation
+
+Clone or download this repository, go to its root folder and type
+
+```sh
+npm install
+```
+
+
+### Editing
+
+Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
+
+```sh
+npm run build
+```
 
 
 ## Known Issues
 
-...
+No known issues.
 
 
 ## How to obtain support
 
-...
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## Contributing
 
-... (link to CONTRIBUTING.md)
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## License
