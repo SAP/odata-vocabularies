@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -23,24 +23,22 @@
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
             <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
             <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
             <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.wdf.sap.corp/odata/vocabularies/blob/master/Hierarchy.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy"
-        AppliesTo="EntityType ComplexType"
-      >
+      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" AppliesTo="EntityType ComplexType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
@@ -57,23 +55,19 @@
         </Property>
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
-          <Annotation Term="Core.LongDescription"
-            String="The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type." />
+          <Annotation Term="Core.LongDescription" String="The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type." />
         </Property>
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
-          <Annotation Term="Core.LongDescription"
-            String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
+          <Annotation Term="Core.LongDescription" String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the sibling rank of a node" />
-          <Annotation Term="Core.LongDescription"
-            String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0." />
+          <Annotation Term="Core.LongDescription" String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0." />
         </Property>
         <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the preorder rank of a node" />
-          <Annotation Term="Core.LongDescription"
-            String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0." />
+          <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0." />
         </Property>
       </ComplexType>
 

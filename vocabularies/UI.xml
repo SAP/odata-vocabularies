@@ -37,15 +37,15 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/uB_7Gg" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.md" />
           </Record>
         </Collection>
       </Annotation>

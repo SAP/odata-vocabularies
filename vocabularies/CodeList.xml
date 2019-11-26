@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -19,17 +19,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/CodeList.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/523995571/CodeList.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/CodeList.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/s4k7Hw" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/CodeList.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -61,8 +59,7 @@
       <Term Name="ExternalCode" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property containing code values that can be used for visualization" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization." />
+        <Annotation Term="Core.LongDescription" String="The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization." />
       </Term>
 
       <Term Name="IsConfigurationDeprecationCode" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">

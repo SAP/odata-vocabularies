@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -24,17 +24,15 @@ These terms are inspired by
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Communication.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Communication.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/ux_7Gg" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Communication.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -156,12 +154,10 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="Extended address (e.g., apartment or suite number)" />
         </Property>
         <Property Name="careof" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee" />
+          <Annotation Term="Core.Description" String="An intermediary who is responsible for transferring a piece of mail between the postal system and the final addressee" />
         </Property>
         <Property Name="label" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Delivery address label; plain-text string representing the formatted address, may contain line breaks" />
+          <Annotation Term="Core.Description" String="Delivery address label; plain-text string representing the formatted address, may contain line breaks" />
         </Property>
         <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
           <Annotation Term="Core.Description" String="Address type" />
@@ -189,8 +185,7 @@ These terms are inspired by
 
       <ComplexType Name="GeoDataType">
         <Property Name="uri" Type="Edm.String">
-          <Annotation Term="Core.Description"
-            String="This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint" />
+          <Annotation Term="Core.Description" String="This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint" />
           <Annotation Term="Core.IsURL" />
         </Property>
         <Property Name="type" Type="Communication.ContactInformationType" Nullable="true">
@@ -362,8 +357,7 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="Author(s) of the message" />
         </Property>
         <Property Name="sender" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Agent responsible for the actual transmission of the message, e.g. a secretary" />
+          <Annotation Term="Core.Description" String="Agent responsible for the actual transmission of the message, e.g. a secretary" />
         </Property>
         <Property Name="to" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of primary recipients" />
@@ -372,8 +366,7 @@ These terms are inspired by
           <Annotation Term="Core.Description" String="List of other recipients (carbon copy)" />
         </Property>
         <Property Name="bcc" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="List of recipients whose addresses are not to be revealed (blind carbon copy)" />
+          <Annotation Term="Core.Description" String="List of recipients whose addresses are not to be revealed (blind carbon copy)" />
         </Property>
         <Property Name="subject" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Topic of the message" />

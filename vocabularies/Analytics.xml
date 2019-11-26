@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -25,17 +25,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://wiki.scn.sap.com/wiki/x/gwWKGw" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -44,23 +42,22 @@
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
-      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true"
-        AppliesTo="Property"
-      >
+      <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
       <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
-        <Annotation Term="Core.Description"
-          String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
+        <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
-      <Term Name="RolledUpPropertyCount" Type="Edm.Int16"> <!-- instance annotation -->
+      <Term Name="RolledUpPropertyCount" Type="Edm.Int16">
+        <!-- instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Number of properties in the entity instance that have been aggregated away" />
       </Term>
 
-      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType"> <!-- metadata annotation that can also appear as instance annotation -->
+      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType">
+        <!-- metadata annotation that can also appear as instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>
@@ -81,8 +78,7 @@
 
       <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
+        <Annotation Term="Core.Description" String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
             Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the 
@@ -95,8 +91,7 @@
       <ComplexType Name="AggregatedPropertyType">
         <Annotation Term="Common.Experimental" />
         <Property Name="Name" Type="Common.SimpleIdentifier">
-          <Annotation Term="Core.Description"
-            String="Name the dynamic property holding the aggregated value." />
+          <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value." />
         </Property>
         <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied." />
@@ -117,7 +112,7 @@
           <Collection>
             <String>Common.Label</String> <!-- more in the future as needed -->
           </Collection>
-       </Annotation> 
+        </Annotation>
       </Annotations>
 
     </Schema>

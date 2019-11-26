@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -22,13 +22,11 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/PersonalData.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.json.txt" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/PersonalData.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -72,8 +70,7 @@ Terms for contact and address information are defined in the [Communication voca
       <Term Name="DataSubjectRoleDescription" Type="Edm.String" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsLanguageDependent" />
-        <Annotation Term="Core.Description"
-          String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
+        <Annotation Term="Core.Description" String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
           <String>Values are application-specific.         
           Can be a static value or a `Path` expression If the role varies per entity</String>
@@ -123,8 +120,7 @@ Terms for contact and address information are defined in the [Communication voca
             <Record>
               <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="ConsentRelated" />
-              <Annotation Term="Core.Description"
-                String="The entities of this set represent data whose processing is related to an explicit consent" />
+              <Annotation Term="Core.Description" String="The entities of this set represent data whose processing is related to an explicit consent" />
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
@@ -150,8 +146,7 @@ Types of contracts include:
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
-        <Annotation Term="Core.LongDescription"
-          String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
+        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
@@ -166,8 +161,7 @@ Types of contracts include:
             <Record>
               <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="SubjectIDType" />
-              <Annotation Term="Core.Description"
-                String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
+              <Annotation Term="Core.Description" String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
@@ -194,8 +188,7 @@ Types of contracts include:
             <Record>
               <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="ContractRelatedID" />
-              <Annotation Term="Core.Description"
-                String="The unique identifier for transactional data that is related to a contract that requires processing of personal data" />
+              <Annotation Term="Core.Description" String="The unique identifier for transactional data that is related to a contract that requires processing of personal data" />
               <Annotation Term="Core.LongDescription">
                 <String>Examples:
 
@@ -251,8 +244,7 @@ See also: [What personal data is considered sensitive?](https://ec.europa.eu/inf
       <Term Name="IsUserID" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains a user id" />
-        <Annotation Term="Core.LongDescription"
-          String="A user id is a unique identifier for an individual who interacts with the services supplied by a system" />
+        <Annotation Term="Core.LongDescription" String="A user id is a unique identifier for an individual who interacts with the services supplied by a system" />
       </Term>
     </Schema>
   </edmx:DataServices>

@@ -42,15 +42,15 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.json.txt"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.json"
             },
             {
                 "rel": "describedby",
-                "href": "https://wiki.scn.sap.com/wiki/x/uB_7Gg"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.md"
             }
         ],
         "HeaderInfo": {

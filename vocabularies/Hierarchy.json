@@ -33,15 +33,15 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.xml"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://github.wdf.sap.corp/pages/odata/vocabularies/Hierarchy.json.txt"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.json"
             },
             {
                 "rel": "describedby",
-                "href": "https://github.wdf.sap.corp/odata/vocabularies/blob/master/Hierarchy.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.md"
             }
         ],
         "RecursiveHierarchy": {
