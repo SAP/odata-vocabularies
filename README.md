@@ -18,8 +18,6 @@ This repository defines the following SAP vocabularies:
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
 
-# !!! TODO from here !!!
-
 
 ## Requirements
 
