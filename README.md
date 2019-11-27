@@ -35,7 +35,7 @@ The tools in this repository are only needed by contributors to refresh the `*.j
 
 ### Installation
 
-Clone or download this repository, go to its root folder and type
+Clone or download this repository, go to its root folder, and type
 
 ```sh
 npm install
@@ -44,7 +44,7 @@ npm install
 
 ### Editing
 
-Edit only the XML vocabulary files, then refresh the Markdown files and the CSDL JSON files with
+Edit only the XML files, then refresh the JSON and  Markdown files with
 
 ```sh
 npm run build
