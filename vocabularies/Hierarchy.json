@@ -17,7 +17,7 @@
                 }
             ]
         },
-        "https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
