@@ -22,17 +22,14 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.xml" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <!-- TODO: replace with SCN link once published -->
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.json" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <!-- TODO: replace with SCN link once published -->
             <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.md" />
           </Record>
         </Collection>

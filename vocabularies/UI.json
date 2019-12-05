@@ -42,11 +42,11 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.xml"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.json"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/UI.json"
             },
             {
                 "rel": "describedby",

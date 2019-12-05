@@ -41,11 +41,11 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.xml"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.json"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json"
             },
             {
                 "rel": "describedby",

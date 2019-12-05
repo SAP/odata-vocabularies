@@ -33,11 +33,11 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common.xml"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common.json"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Common.json"
             },
             {
                 "rel": "describedby",

@@ -33,11 +33,11 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/PersonalData.xml"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/PersonalData.json"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.json"
             },
             {
                 "rel": "describedby",
