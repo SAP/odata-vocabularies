@@ -24,6 +24,14 @@
                     "$Alias": "Aggregation"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Common.v1": {
@@ -830,7 +838,10 @@
             "$Abstract": true,
             "ValueListProperty": {
                 "@Core.Description": "Path to property in response structure. Format is identical to PropertyPath annotations."
-            }
+            },
+            "@Validation.ApplicableTerms": [
+                "UI.Importance"
+            ]
         },
         "ValueListParameterIn": {
             "$Kind": "ComplexType",
@@ -854,7 +865,10 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
-            }
+            },
+            "@Validation.ApplicableTerms": [
+                "UI.Importance"
+            ]
         },
         "ValueListParameterOut": {
             "$Kind": "ComplexType",
@@ -862,12 +876,18 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is filled from response"
-            }
+            },
+            "@Validation.ApplicableTerms": [
+                "UI.Importance"
+            ]
         },
         "ValueListParameterDisplayOnly": {
             "$Kind": "ComplexType",
             "$BaseType": "Common.ValueListParameter",
-            "@Core.Description": "Value list property that is not used to fill the edited entity"
+            "@Core.Description": "Value list property that is not used to fill the edited entity",
+            "@Validation.ApplicableTerms": [
+                "UI.Importance"
+            ]
         },
         "ValueListParameterFilterOnly": {
             "$Kind": "ComplexType",
