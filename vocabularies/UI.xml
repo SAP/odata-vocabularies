@@ -1573,6 +1573,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
+      
 
       <Term Name="VisualizationRecommendations" Type="UI.VisualizationRecommendationsType" AppliesTo="Property Record">
         <Annotation Term="Core.Description" String="Recommendations for visualizing a property or data field" />
