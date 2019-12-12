@@ -1710,7 +1710,8 @@
             "@Core.Description": "A piece of data",
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
-                "UI.Importance"
+                "UI.Importance",
+                "UI.VisualizationRecommendations"
             ],
             "Value": {
                 "$Type": "Edm.PrimitiveType",
@@ -1878,6 +1879,24 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
+        },
+        "VisualizationRecommendations": {
+            "$Kind": "Term",
+            "$Type": "UI.VisualizationRecommendationsType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Record"
+            ],
+            "@Core.Description": "Recommendations for visualizing a property or data field"
+        },
+        "VisualizationRecommendationsType": {
+            "$Kind": "ComplexType",
+            "DefaultNumberOfCharacters": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Core.Description": "Default display width for textual visualization in characters"
+            }
         }
     }
 }

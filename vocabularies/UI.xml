@@ -1431,6 +1431,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
+            <String>UI.VisualizationRecommendations</String>
           </Collection>
         </Annotation>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
@@ -1572,6 +1573,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
+
+      <Term Name="VisualizationRecommendations" Type="UI.VisualizationRecommendationsType" AppliesTo="Property Record">
+        <Annotation Term="Core.Description" String="Recommendations for visualizing a property or data field" />
+      </Term>
+
+      <ComplexType Name="VisualizationRecommendationsType">
+        <Property Name="DefaultNumberOfCharacters" Type="Edm.Int32">
+          <Annotation Term="Core.Description" String="Default display width for textual visualization in characters" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>
