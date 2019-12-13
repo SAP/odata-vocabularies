@@ -68,7 +68,7 @@ Term|Type|Description
 [RecommendationState](UI.xml#L1511)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [RecommendationList](UI.xml#L1541)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1573)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[VisualizationRecommendations](UI.xml#L1578)|[VisualizationRecommendationsType](#VisualizationRecommendationsType)|<a name="VisualizationRecommendations"></a>Recommendations for visualizing a property or data field
+[VisualizationRecommendations](UI.xml#L1578) *([Experimental](Common.md#Experimental))*|[VisualizationRecommendationsType](#VisualizationRecommendationsType)|<a name="VisualizationRecommendations"></a>Recommendations for visualizing a property or data field
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L59)
 
@@ -892,9 +892,9 @@ Property|Type|Description
 [LocalDataProperty](UI.xml#L1565)|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](UI.xml#L1568)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
-## <a name="VisualizationRecommendationsType"></a>[VisualizationRecommendationsType](UI.xml#L1582)
+## <a name="VisualizationRecommendationsType"></a>[VisualizationRecommendationsType](UI.xml#L1583) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultNumberOfCharacters](UI.xml#L1583)|Int32|Default display width for textual visualization in characters
+[DefaultNumberOfCharacters](UI.xml#L1585) *([Experimental](Common.md#Experimental))*|Int32|Default display width for textual visualization in characters

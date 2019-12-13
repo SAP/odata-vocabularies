@@ -1888,13 +1888,16 @@
                 "Property",
                 "Record"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Recommendations for visualizing a property or data field"
         },
         "VisualizationRecommendationsType": {
             "$Kind": "ComplexType",
+            "@Common.Experimental": true,
             "DefaultNumberOfCharacters": {
                 "$Type": "Edm.Int32",
                 "$Nullable": true,
+                "@Common.Experimental": true,
                 "@Core.Description": "Default display width for textual visualization in characters"
             }
         }
