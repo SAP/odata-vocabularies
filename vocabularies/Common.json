@@ -837,7 +837,7 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "ValueListProperty": {
-                "@Core.Description": "Path to property in response structure. Format is identical to PropertyPath annotations."
+                "@Core.Description": "Path to property in the value list . Format is identical to PropertyPath annotations."
             },
             "@Validation.ApplicableTerms": [
                 "UI.Importance"
@@ -856,7 +856,7 @@
             "$BaseType": "Common.ValueListParameter",
             "@Common.Experimental": true,
             "Constant": {
-                "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison"
+                "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values"
             }
         },
         "ValueListParameterInOut": {

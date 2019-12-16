@@ -252,14 +252,14 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ValueListProperty](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[ValueListProperty](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 ## <a name="ValueListParameterIn"></a>[ValueListParameterIn](Common.xml#L687): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L688)|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
 
 ## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](Common.xml#L692): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
@@ -267,15 +267,15 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
-[Constant](Common.xml#L694)|String|Constant value that is used to filter the value list with `eq` comparison
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[Constant](Common.xml#L694)|String|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L698): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L699)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
 
 ## <a name="ValueListParameterOut"></a>[ValueListParameterOut](Common.xml#L708): [ValueListParameter](#ValueListParameter)
@@ -283,7 +283,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L709)|PropertyPath|Path to property that is filled from response
 
 ## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](Common.xml#L718): [ValueListParameter](#ValueListParameter)
@@ -291,14 +291,14 @@ Value list property that is not used to fill the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L726): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 Value list property that is used to filter the value list, not connected to the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](Common.xml#L678)|String|Path to property in response structure. Format is identical to PropertyPath annotations.
+[*ValueListProperty*](Common.xml#L678)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L951): [DraftNodeType](#DraftNodeType)
 
