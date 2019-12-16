@@ -692,7 +692,7 @@ The minimum structure is
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
         <Annotation Term="Common.Experimental" />
         <Property Name="Constant" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values" />
+          <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">

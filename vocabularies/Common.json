@@ -856,7 +856,7 @@
             "$BaseType": "Common.ValueListParameter",
             "@Common.Experimental": true,
             "Constant": {
-                "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values"
+                "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)"
             }
         },
         "ValueListParameterInOut": {
