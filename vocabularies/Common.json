@@ -1085,7 +1085,7 @@
                 "Property"
             ],
             "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
-            "@Core.Description": "Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of\n          an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. \n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]",
+            "@Core.Description": "Property encodes a fiscal year and quarter as string following the logical pattern YYYY(Y*)Q consisting of\n          at least five digits, where the last digit represents the quarter. \n          The string matches the regex pattern [1-9][0-9]{3,}[1-4]",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
         },
@@ -1109,7 +1109,7 @@
                 "Property"
             ],
             "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
-            "@Core.Description": "Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an\n          optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. \n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])",
+            "@Core.Description": "Property encodes a fiscal year and week as string following the logical pattern YYYY(Y*)WW consisting of \n          at least six digits, where the last two digits represent the week number in the year. \n          The string matches the regex pattern [1-9][0-9]{3,}(0[1-9]|[1-4][0-9]|5[0-3])",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
         },

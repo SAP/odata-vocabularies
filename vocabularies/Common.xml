@@ -895,9 +895,9 @@ The minimum structure is
       <Term Name="IsFiscalYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/rsZCdg" />
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of
-          an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. 
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</String>
+          <String>Property encodes a fiscal year and quarter as string following the logical pattern YYYY(Y*)Q consisting of
+          at least five digits, where the last digit represents the quarter. 
+          The string matches the regex pattern [1-9][0-9]{3,}[1-4]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -914,9 +914,9 @@ The minimum structure is
       <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/rsZCdg" />
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an
-          optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. 
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</String>
+          <String>Property encodes a fiscal year and week as string following the logical pattern YYYY(Y*)WW consisting of 
+          at least six digits, where the last two digits represent the week number in the year. 
+          The string matches the regex pattern [1-9][0-9]{3,}(0[1-9]|[1-4][0-9]|5[0-3])</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
