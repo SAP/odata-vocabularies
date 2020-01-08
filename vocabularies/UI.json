@@ -1551,7 +1551,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
@@ -1561,7 +1560,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
@@ -1571,7 +1569,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf",
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
         },
