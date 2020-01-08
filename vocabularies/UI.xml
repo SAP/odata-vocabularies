@@ -1301,19 +1301,16 @@ The trend is
       </Term>
 
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>
 
       <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>
 
       <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11204 and https://wiki.wdf.sap.corp/wiki/x/eckHf" />
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Delete operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or an associated EntitySet." />
       </Term>
