@@ -1699,6 +1699,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Determines whether  a context needs to be passed to the target of this navigation."
+            },
+            "Mapping": {
+                "$Collection": true,
+                "$Type": "Common.SemanticObjectMappingType",
+                "@Core.Description": "Maps properties of the annotated entity type to properties of the Semantic Object"
             }
         },
         "DataField": {
@@ -1736,6 +1741,11 @@
             "Action": {
                 "$Nullable": true,
                 "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
+            },
+            "Mapping": {
+                "$Collection": true,
+                "$Type": "Common.SemanticObjectMappingType",
+                "@Core.Description": "Maps properties of the annotated entity type to properties of the Semantic Object"
             }
         },
         "DataFieldWithNavigationPath": {
