@@ -1710,10 +1710,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "A piece of data",
-            "@Validation.ApplicableTerms": [
-                "UI.Hidden",
-                "UI.Importance"
-            ],
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "The data field's value",
