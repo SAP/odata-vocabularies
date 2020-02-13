@@ -1427,12 +1427,6 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data" />
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>UI.Hidden</String>
-            <String>UI.Importance</String>
-          </Collection>
-        </Annotation>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="The data field's value" />
           <Annotation Term="Core.IsLanguageDependent" />
