@@ -24,3 +24,4 @@ Property|Type|Description
 [Name](Analytics.xml#L93)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value.
 [AggregationMethod](Analytics.xml#L96)|String|Name of the standard or custom aggregation method to be applied.
 [AggregatableProperty](Analytics.xml#L99)|PropertyPath|Property whose values shall be aggregated.
+@Common.Label|[Label](Common.md#Label)|Annotation
