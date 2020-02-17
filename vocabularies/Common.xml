@@ -593,7 +593,6 @@ The minimum structure is
           <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
@@ -610,7 +609,6 @@ The minimum structure is
       </ComplexType>
 
       <TypeDefinition Name="FetchValuesType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
@@ -658,7 +656,6 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">

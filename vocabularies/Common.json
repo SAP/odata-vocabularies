@@ -719,7 +719,6 @@
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
@@ -743,7 +742,6 @@
         "FetchValuesType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Hint on when to fetch values",
             "@Validation.AllowedValues": [
                 {
@@ -812,7 +810,6 @@
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
