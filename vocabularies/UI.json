@@ -1540,6 +1540,7 @@
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
+                "NavigationProperty",
                 "Record"
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
@@ -1577,7 +1578,8 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "NavigationProperty"
             ],
             "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
             "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."
