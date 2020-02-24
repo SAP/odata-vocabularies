@@ -1544,7 +1544,7 @@
                 "Record"
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
-            "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature."
+            "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
         },
         "CreateHidden": {
             "$Kind": "Term",
@@ -1582,7 +1582,7 @@
                 "NavigationProperty"
             ],
             "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
-            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."
+            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users.\n          The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all.\n          If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations."
         },
         "DataFieldDefault": {
             "$Kind": "Term",

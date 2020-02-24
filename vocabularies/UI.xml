@@ -1297,7 +1297,10 @@ The trend is
 
       <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record">
         <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true." />
-        <Annotation Term="Core.LongDescription" String="Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature." />
+        <Annotation Term="Core.LongDescription">
+          <String>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.
+          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.</String>
+        </Annotation>
       </Term>
 
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
@@ -1317,7 +1320,11 @@ The trend is
 
       <Term Name="HiddenFilter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Core.Description" String="Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true." />
-        <Annotation Term="Core.LongDescription" String="Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all." />
+        <Annotation Term="Core.LongDescription">
+          <String>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users.
+          The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all.
+          If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.</String>
+        </Annotation>
       </Term>
 
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
