@@ -1034,7 +1034,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target." />
+          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Revisions">
