@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ODM.v1" Alias="odm">
+      <Annotation Term="Core.Description">
+        <String>Terms for One Domain Model</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-03-03 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ODM.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ODM.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ODM.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="codeList" Type="Core.Tag" AppliesTo="EntityType EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Represents a list of code values" />
+      </Term>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
