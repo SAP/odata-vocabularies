@@ -31,7 +31,7 @@
 
       <Term Name="codeList" Type="Core.Tag" AppliesTo="EntityType EntitySet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Represents a list of code values" />
+        <Annotation Term="Core.Description" String="The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list" />
       </Term>
 
     </Schema>

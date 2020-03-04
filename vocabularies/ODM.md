@@ -8,4 +8,4 @@ Terms for One Domain Model
 
 Term|Type|Description
 :---|:---|:----------
-[codeList](ODM.xml#L32)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="codeList"></a>Represents a list of code values
+[codeList](ODM.xml#L32)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="codeList"></a>The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list
