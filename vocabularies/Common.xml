@@ -1269,11 +1269,27 @@ Upon modification field control logic is invoked so that meta-information like h
       </Term>
 
       <!-- Odds and ends -->
+
       <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
+
+      <Term Name="WhyNotAvailable" Type="Edm.String" AppliesTo="Annotation">
+        <Annotation Term="Core.Description" String="A short, human-readable text describing why the action, function, or operation is not available" />
+        <Annotation Term="Core.LongDescription" String="The text is only used if [Core.OperationAvailable](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#OperationAvailable) evaluates to `false`" />
+        <Annotation Term="Core.IsLanguageDependent" />
+      </Term>
+
+      <Annotations Target="Core.OperationAvailable">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
+          <Collection>
+            <String>Common.WhyNotAvailable</String>
+          </Collection>
+        </Annotation>
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>

@@ -98,7 +98,8 @@ Term|Type|Description
 [ChangedAt](Common.xml#L1251)|DateTimeOffset|<a name="ChangedAt"></a>Last modification timestamp
 [ChangedBy](Common.xml#L1255)|[UserID](#UserID)|<a name="ChangedBy"></a>Last editor
 [OriginalProtocolVersion](Common.xml#L1267)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1272) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
+[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1273) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
+[WhyNotAvailable](Common.xml#L1279)|String|<a name="WhyNotAvailable"></a>A short, human-readable text describing why the action, function, or operation is not available<p>The text is only used if [Core.OperationAvailable](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#OperationAvailable) evaluates to `false`</p>
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L93)
 

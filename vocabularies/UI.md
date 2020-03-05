@@ -722,8 +722,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [Target](UI.xml#L1370)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields
 
 ## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1385): [DataFieldAbstract](#DataFieldAbstract)
@@ -739,8 +739,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [Inline](UI.xml#L1387)|Boolean|Action should be placed close to (or even inside) the visualized term
 [Determining](UI.xml#L1390)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 
@@ -755,8 +755,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Inline*](UI.xml#L1387)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1390)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 [Action](UI.xml#L1398)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
@@ -783,8 +783,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Inline*](UI.xml#L1387)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1390)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 [SemanticObject](UI.xml#L1421)|String|Name of the Semantic Object
@@ -807,8 +807,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [Value](UI.xml#L1437)|PrimitiveType|The data field's value
 
 ## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1443): [DataField](#DataField)
@@ -822,8 +822,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Value*](UI.xml#L1437)|PrimitiveType|The data field's value
 [Action](UI.xml#L1446)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
@@ -841,8 +841,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Value*](UI.xml#L1437)|PrimitiveType|The data field's value
 [SemanticObject](UI.xml#L1459)|String|Name of the Semantic Object
 [Action](UI.xml#L1462)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
@@ -859,8 +859,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Value*](UI.xml#L1437)|PrimitiveType|The data field's value
 [Target](UI.xml#L1473)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
@@ -875,8 +875,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1347)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1350)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1353)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
+*@UI.Hidden*|[Hidden](#Hidden)|Annotation
+*@UI.Importance*|[Importance](#Importance)|Annotation
 [*Value*](UI.xml#L1437)|PrimitiveType|The data field's value
 [Url](UI.xml#L1483)|URL|Target of the hyperlink
 [UrlContentType](UI.xml#L1487)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
