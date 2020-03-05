@@ -838,10 +838,7 @@
             "$Abstract": true,
             "ValueListProperty": {
                 "@Core.Description": "Path to property in the value list . Format is identical to PropertyPath annotations."
-            },
-            "@Validation.ApplicableTerms": [
-                "UI.Importance"
-            ]
+            }
         },
         "ValueListParameterIn": {
             "$Kind": "ComplexType",

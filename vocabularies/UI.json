@@ -220,13 +220,13 @@
                     "Template": "{MaterialName} - {MaterialClassName}",
                     "Data": {
                         "MaterialName": {
-                            "@type": "#UI.DataField",
+                            "@odata.type": "#UI.DataField",
                             "Value": {
                                 "$Path": "Material"
                             }
                         },
                         "MaterialClassName": {
-                            "@type": "#UI.DataField",
+                            "@odata.type": "#UI.DataField",
                             "Value": {
                                 "$Path": "MaterialClass"
                             }
@@ -1540,10 +1540,11 @@
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
+                "NavigationProperty",
                 "Record"
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
-            "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature."
+            "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
         },
         "CreateHidden": {
             "$Kind": "Term",
@@ -1552,7 +1553,7 @@
                 "EntitySet"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
-            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+            "@Core.LongDescription": "The annotation value should be a path to another property from a related entity."
         },
         "UpdateHidden": {
             "$Kind": "Term",
@@ -1561,7 +1562,7 @@
                 "EntitySet"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
-            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+            "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
         },
         "DeleteHidden": {
             "$Kind": "Term",
@@ -1570,17 +1571,18 @@
                 "EntitySet"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
-            "@Core.LongDescription": "The annotation value should be a path to another property from the same or an associated EntitySet."
+            "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
         },
         "HiddenFilter": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "NavigationProperty"
             ],
             "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
-            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all."
+            "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users.\n          The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all.\n          If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations."
         },
         "DataFieldDefault": {
             "$Kind": "Term",
@@ -1699,6 +1701,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Determines whether  a context needs to be passed to the target of this navigation."
+            },
+            "Mapping": {
+                "$Collection": true,
+                "$Type": "Common.SemanticObjectMappingType",
+                "@Core.Description": "Maps properties of the annotated entity type to properties of the Semantic Object"
             }
         },
         "DataField": {
@@ -1737,6 +1744,11 @@
             "Action": {
                 "$Nullable": true,
                 "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
+            },
+            "Mapping": {
+                "$Collection": true,
+                "$Type": "Common.SemanticObjectMappingType",
+                "@Core.Description": "Maps properties of the annotated entity type to properties of the Semantic Object"
             }
         },
         "DataFieldWithNavigationPath": {
