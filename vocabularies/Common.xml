@@ -678,11 +678,6 @@ The minimum structure is
         <Property Name="ValueListProperty" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property in the value list . Format is identical to PropertyPath annotations." />
         </Property>
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>UI.Importance</String>
-          </Collection>
-        </Annotation>
       </ComplexType>
       <ComplexType Name="ValueListParameterIn" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
