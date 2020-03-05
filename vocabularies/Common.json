@@ -1500,12 +1500,14 @@
             "$AppliesTo": [
                 "Annotation"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "A short, human-readable text describing why the action, function, or operation is not available",
             "@Core.LongDescription": "The text is only used if [Core.OperationAvailable](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#OperationAvailable) evaluates to `false`",
             "@Core.IsLanguageDependent": true
         },
         "$Annotations": {
             "Core.OperationAvailable": {
+                "@Validation.ApplicableTerms@Common.Experimental": true,
                 "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
                 "@Validation.ApplicableTerms": [
                     "Common.WhyNotAvailable"

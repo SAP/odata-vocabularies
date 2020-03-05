@@ -1277,6 +1277,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </Term>
 
       <Term Name="WhyNotAvailable" Type="Edm.String" AppliesTo="Annotation">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A short, human-readable text describing why the action, function, or operation is not available" />
         <Annotation Term="Core.LongDescription" String="The text is only used if [Core.OperationAvailable](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#OperationAvailable) evaluates to `false`" />
         <Annotation Term="Core.IsLanguageDependent" />
@@ -1284,6 +1285,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <Annotations Target="Core.OperationAvailable">
         <Annotation Term="Validation.ApplicableTerms">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
           <Collection>
             <String>Common.WhyNotAvailable</String>
