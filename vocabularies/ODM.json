@@ -8,10 +8,19 @@
                     "$Alias": "Core"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.ODM.v1": {
         "$Alias": "odm",
+        "@Common.Experimental": true,
         "@Core.Description": "Terms for One Domain Model",
         "@Core.Description#Published": "2020-03-03 © Copyright 2020 SAP SE. All rights reserved",
         "@Core.Links": [
