@@ -12,6 +12,7 @@ This repository defines the following SAP vocabularies:
 * [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 * [Communication: Contact information based on vCard](vocabularies/Communication.md)
 * [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - *experimental*
+* [ODM: One Domain Model](vocabularies/ODM.md) - *experimental*
 * [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 * [Session: Sticky Sessions](vocabularies/Session.md)
 * [UI: Representing data in user interfaces](vocabularies/UI.md)
