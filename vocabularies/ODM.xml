@@ -8,7 +8,7 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ODM.v1" Alias="odm">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.odm.v1" Alias="odm">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for One Domain Model</String>
