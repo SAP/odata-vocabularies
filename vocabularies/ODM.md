@@ -1,5 +1,5 @@
-# odm Vocabulary
-**Namespace: [com.sap.vocabularies.odm.v1](ODM.xml)**
+# ODM Vocabulary
+**Namespace: [com.sap.vocabularies.ODM.v1](ODM.xml)**
 
 Terms for One Domain Model
 
