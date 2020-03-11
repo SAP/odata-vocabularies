@@ -1,0 +1,78 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Graph.v1": {
+        "$Alias": "Graph",
+        "@Common.Experimental": true,
+        "@Core.Description": "Terms for SAP Graph",
+        "@Core.Description#Published": "2020-03-11 © Copyright 2020 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Graph.md"
+            }
+        ],
+        "links": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Graph.link",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Navigation links"
+        },
+        "link": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Navigation link",
+            "title": {
+                "$Nullable": true,
+                "@Core.Description": "Title of the navigation link"
+            },
+            "entity": {
+                "$Nullable": true,
+                "@Core.Description": "Name of the target entity"
+            },
+            "operation": {
+                "$Nullable": true,
+                "@Core.Description": "Operation to call on the target entity, one of `get-list` and `get-single`"
+            },
+            "parameters": {
+                "$Type": "Edm.ComplexType",
+                "$Nullable": true,
+                "@Core.Description": "Map of parameter names in the target operation to property paths in the annotated entity type"
+            },
+            "filter": {
+                "$Type": "Edm.ComplexType",
+                "$Nullable": true,
+                "@Core.Description": "Map of single-valued property paths in the target entity to property paths in the annotated entity type",
+                "@Core.LongDescription": "Can only be used with operation `get-list` and is used to construct a `$filter` expression"
+            }
+        }
+    }
+}
