@@ -63,13 +63,13 @@
                 "@Core.Description": "Operation to call on the target entity, one of `Read` and `ReadByKey`"
             },
             "parameters": {
-                "$Type": "Edm.ComplexType",
-                "$Nullable": true,
+                "$Collection": true,
+                "$Type": "graph.binding",
                 "@Core.Description": "Map of parameter names in the target operation to property paths in the annotated entity type"
             },
             "filter": {
-                "$Type": "Edm.ComplexType",
-                "$Nullable": true,
+                "$Collection": true,
+                "$Type": "graph.binding",
                 "@Core.Description": "Map of single-valued property paths in the target entity to property paths in the annotated entity type",
                 "@Core.LongDescription": "Can only be used with operation `Read` and is used to construct a `$filter` expression"
             }
