@@ -18,8 +18,8 @@
             ]
         }
     },
-    "com.sap.vocabularies.odm.v1": {
-        "$Alias": "odm",
+    "com.sap.vocabularies.ODM.v1": {
+        "$Alias": "ODM",
         "@Common.Experimental": true,
         "@Core.Description": "Terms for One Domain Model",
         "@Core.Description#Published": "2020-03-03 © Copyright 2020 SAP SE. All rights reserved",
