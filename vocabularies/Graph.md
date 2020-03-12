@@ -16,7 +16,15 @@ Navigation link
 Property|Type|Description
 :-------|:---|:----------
 [title](Graph.xml#L43)|String|Title of the navigation link
-[entity](Graph.xml#L46)|String|Name of the target entity
-[operation](Graph.xml#L49)|String|Operation to call on the target entity, one of `get-list` and `get-single`
+[target](Graph.xml#L46)|String|Name of the target entity set
+[operation](Graph.xml#L49)|String|Operation to call on the target entity, one of `Read` and `ReadByKey`
 [parameters](Graph.xml#L52)|ComplexType|Map of parameter names in the target operation to property paths in the annotated entity type
-[filter](Graph.xml#L55)|ComplexType|Map of single-valued property paths in the target entity to property paths in the annotated entity type<p>Can only be used with operation `get-list` and is used to construct a `$filter` expression</p>
+[filter](Graph.xml#L55)|ComplexType|Map of single-valued property paths in the target entity to property paths in the annotated entity type<p>Can only be used with operation `Read` and is used to construct a `$filter` expression</p>
+
+## <a name="binding"></a>[binding](Graph.xml#L61)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[source](Graph.xml#L62)|PropertyPath|Path to primitive property in the annotated entity type
+[target](Graph.xml#L65)|PropertyPath|Path to primitive property in the target entity set

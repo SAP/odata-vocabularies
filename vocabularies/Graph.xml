@@ -43,18 +43,27 @@
         <Property Name="title" Type="Edm.String">
           <Annotation Term="Core.Description" String="Title of the navigation link" />
         </Property>
-        <Property Name="entity" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Name of the target entity" />
+        <Property Name="target" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Name of the target entity set" />
         </Property>
         <Property Name="operation" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Operation to call on the target entity, one of `get-list` and `get-single`" />
+          <Annotation Term="Core.Description" String="Operation to call on the target entity, one of `Read` and `ReadByKey`" />
         </Property>
         <Property Name="parameters" Type="Edm.ComplexType">
           <Annotation Term="Core.Description" String="Map of parameter names in the target operation to property paths in the annotated entity type" />
         </Property>
         <Property Name="filter" Type="Edm.ComplexType">
           <Annotation Term="Core.Description" String="Map of single-valued property paths in the target entity to property paths in the annotated entity type" />
-          <Annotation Term="Core.LongDescription" String="Can only be used with operation `get-list` and is used to construct a `$filter` expression" />
+          <Annotation Term="Core.LongDescription" String="Can only be used with operation `Read` and is used to construct a `$filter` expression" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="binding">
+        <Property Name="source" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Path to primitive property in the annotated entity type" />
+        </Property>
+        <Property Name="target" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Path to primitive property in the target entity set" />
         </Property>
       </ComplexType>
 
