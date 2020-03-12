@@ -49,10 +49,10 @@
         <Property Name="operation" Type="Edm.String">
           <Annotation Term="Core.Description" String="Operation to call on the target entity, one of `Read` and `ReadByKey`" />
         </Property>
-        <Property Name="parameters" Type="Collection(graph.binding)">
+        <Property Name="parameters" Type="Collection(Graph.binding)">
           <Annotation Term="Core.Description" String="Map of parameter names in the target operation to property paths in the annotated entity type" />
         </Property>
-        <Property Name="filter" Type="Collection(graph.binding)">
+        <Property Name="filter" Type="Collection(Graph.binding)">
           <Annotation Term="Core.Description" String="Map of single-valued property paths in the target entity to property paths in the annotated entity type" />
           <Annotation Term="Core.LongDescription" String="Can only be used with operation `Read` and is used to construct a `$filter` expression" />
         </Property>
