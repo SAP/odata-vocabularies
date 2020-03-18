@@ -54,13 +54,13 @@
                 "$Nullable": true,
                 "@Core.Description": "Title of the navigation link"
             },
+            "alias": {
+                "$Nullable": true,
+                "@Core.Description": "Name of the virtual navigation property"
+            },
             "target": {
                 "$Nullable": true,
                 "@Core.Description": "Name of the target entity set"
-            },
-            "operation": {
-                "$Nullable": true,
-                "@Core.Description": "Operation to call on the target entity, one of `Read` and `ReadByKey`"
             },
             "parameters": {
                 "$Collection": true,
@@ -71,7 +71,7 @@
                 "$Collection": true,
                 "$Type": "Graph.binding",
                 "@Core.Description": "Map of single-valued property paths in the target entity to property paths in the annotated entity type",
-                "@Core.LongDescription": "Can only be used with operation `Read` and is used to construct a `$filter` expression"
+                "@Core.LongDescription": "Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set"
             }
         },
         "binding": {
