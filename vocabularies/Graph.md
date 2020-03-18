@@ -16,10 +16,10 @@ Navigation link
 Property|Type|Description
 :-------|:---|:----------
 [title](Graph.xml#L43)|String|Title of the navigation link
-[target](Graph.xml#L46)|String|Name of the target entity set
-[operation](Graph.xml#L49)|String|Operation to call on the target entity, one of `Read` and `ReadByKey`
+[alias](Graph.xml#L46)|String|Name of the virtual navigation property
+[target](Graph.xml#L49)|String|Name of the target entity set
 [parameters](Graph.xml#L52)|\[[binding](#binding)\]|Map of parameter names in the target operation to property paths in the annotated entity type
-[filter](Graph.xml#L55)|\[[binding](#binding)\]|Map of single-valued property paths in the target entity to property paths in the annotated entity type<p>Can only be used with operation `Read` and is used to construct a `$filter` expression</p>
+[filter](Graph.xml#L55)|\[[binding](#binding)\]|Map of single-valued property paths in the target entity to property paths in the annotated entity type<p>Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set</p>
 
 ## <a name="binding"></a>[binding](Graph.xml#L61)
 
