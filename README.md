@@ -11,7 +11,9 @@ This repository defines the following SAP vocabularies:
 * [CodeList: Code Lists](vocabularies/CodeList.md) 
 * [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 * [Communication: Contact information based on vCard](vocabularies/Communication.md)
+* [Graph: SAP Graph](vocabularies/Graph.md) - *experimental*
 * [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - *experimental*
+* [ODM: One Domain Model](vocabularies/ODM.md) - *experimental*
 * [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 * [Session: Sticky Sessions](vocabularies/Session.md)
 * [UI: Representing data in user interfaces](vocabularies/UI.md)
