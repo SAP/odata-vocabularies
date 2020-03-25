@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Graph.v1" Alias="Graph">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for SAP Graph</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-03-11 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Graph.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="links" Type="Collection(Graph.link)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Navigation links" />
+      </Term>
+
+      <ComplexType Name="link">
+        <Annotation Term="Core.Description" String="Navigation link" />
+        <Property Name="title" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Title of the navigation link" />
+        </Property>
+        <Property Name="alias" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Name of the virtual navigation property" />
+        </Property>
+        <Property Name="target" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Name of the target entity set" />
+        </Property>
+        <Property Name="parameters" Type="Collection(Graph.binding)">
+          <Annotation Term="Core.Description" String="Map of parameter names in the target operation to property paths in the annotated entity type" />
+        </Property>
+        <Property Name="filter" Type="Collection(Graph.binding)">
+          <Annotation Term="Core.Description" String="Map of single-valued property paths in the target entity to property paths in the annotated entity type" />
+          <Annotation Term="Core.LongDescription" String="Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="binding">
+        <Property Name="source" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Path to primitive property in the annotated entity type" />
+        </Property>
+        <Property Name="target" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Path to primitive property in the target entity set" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

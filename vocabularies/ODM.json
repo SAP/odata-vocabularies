@@ -1,0 +1,52 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.ODM.v1": {
+        "$Alias": "ODM",
+        "@Common.Experimental": true,
+        "@Core.Description": "Terms for One Domain Model",
+        "@Core.Description#Published": "2020-03-03 © Copyright 2020 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ODM.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ODM.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ODM.md"
+            }
+        ],
+        "codeList": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType",
+                "EntitySet"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list"
+        }
+    }
+}
