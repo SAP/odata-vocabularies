@@ -682,7 +682,6 @@
                 "EntityType",
                 "Annotation"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person"
         },
         "ValueList": {
@@ -1069,7 +1068,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
             "@Core.Description": "Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. \n          The string matches the regex pattern [1-4]",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
@@ -1081,7 +1079,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
             "@Core.Description": "Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of\n          five digits, where the last digit represents the quarter. \n          The string matches the regex pattern [1-9][0-9]{3}[1-4]",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
@@ -1093,7 +1090,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
             "@Core.Description": "Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. \n          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
@@ -1105,7 +1101,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
             "@Core.Description": "Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of \n          six digits, where the last two digits represent the week number in the year. \n          The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
@@ -1117,7 +1112,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/rsZCdg",
             "@Core.Description": "Day number relative to a fiscal year. Valid values are between 1 and 371.",
             "@Core.RequiresType": "Edm.String",
             "@Common.MutuallyExclusiveTerm#DatePart": true
