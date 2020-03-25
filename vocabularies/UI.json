@@ -220,13 +220,13 @@
                     "Template": "{MaterialName} - {MaterialClassName}",
                     "Data": {
                         "MaterialName": {
-                            "@type": "#UI.DataField",
+                            "@odata.type": "#UI.DataField",
                             "Value": {
                                 "$Path": "Material"
                             }
                         },
                         "MaterialClassName": {
-                            "@type": "#UI.DataField",
+                            "@odata.type": "#UI.DataField",
                             "Value": {
                                 "$Path": "MaterialClass"
                             }
