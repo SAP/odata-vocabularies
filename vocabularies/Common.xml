@@ -619,10 +619,6 @@ The minimum structure is
               <PropertyValue Property="Value" Int="2" />
               <Annotation Term="Core.Description" String="Fetch values with a filter" />
             </Record>
-            <Record>
-              <PropertyValue Property="Value" Int="3" />
-              <Annotation Term="Core.Description" String="Fetch count immediately, then depending on count do 1 or 2" />
-            </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
