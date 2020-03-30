@@ -47,6 +47,17 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list"
+        },
+        "root": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity set contains root entities",
+            "@Core.LongDescription": "Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology."
         }
     }
 }
