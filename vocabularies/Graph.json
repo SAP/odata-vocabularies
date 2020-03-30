@@ -49,6 +49,7 @@
         },
         "link": {
             "$Kind": "ComplexType",
+            "@Common.Experimental": true,
             "@Core.Description": "Navigation link",
             "title": {
                 "$Nullable": true,
@@ -76,6 +77,7 @@
         },
         "binding": {
             "$Kind": "ComplexType",
+            "@Common.Experimental": true,
             "source": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
