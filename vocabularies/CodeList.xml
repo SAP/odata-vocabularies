@@ -63,7 +63,6 @@
       </Term>
 
       <Term Name="IsConfigurationDeprecationCode" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-10262" />
         <Annotation Term="Core.Description" String="Property contains a Configuration Deprecation Code" />
         <Annotation Term="Core.LongDescription">
           <String>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). </String>
