@@ -39,6 +39,7 @@
       </Term>
 
       <ComplexType Name="link">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Navigation link" />
         <Property Name="title" Type="Edm.String">
           <Annotation Term="Core.Description" String="Title of the navigation link" />
@@ -59,6 +60,7 @@
       </ComplexType>
 
       <ComplexType Name="binding">
+        <Annotation Term="Common.Experimental" />
         <Property Name="source" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Path to primitive property in the annotated entity type" />
         </Property>
