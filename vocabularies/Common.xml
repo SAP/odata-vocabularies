@@ -1015,8 +1015,8 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
-only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.</String>
+Special case "Actions": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these properties may affect the targets" />
@@ -1028,7 +1028,7 @@ only TargetProperties and TargetEntities are relevant. They are addressed via th
           <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. An empty path means the annotation target." />
+          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Revisions">
