@@ -1495,7 +1495,6 @@
         },
         "Placeholder": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
