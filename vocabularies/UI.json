@@ -1493,6 +1493,15 @@
             "@Core.Description": "Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)",
             "@Core.RequiresType": "Edm.String"
         },
+        "Placeholder": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
+            "@Core.IsLanguageDependent": true
+        },
         "TextArrangement": {
             "$Kind": "Term",
             "$Type": "UI.TextArrangementType",

@@ -1253,6 +1253,12 @@ The trend is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
+        <Annotation Term="Core.IsLanguageDependent" />
+      </Term>
+
       <Term Name="TextArrangement" Type="UI.TextArrangementType" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
