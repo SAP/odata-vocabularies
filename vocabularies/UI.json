@@ -32,6 +32,14 @@
                     "$Alias": "Common"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.HTML5.v1",
+                    "$Alias": "HTML5"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.UI.v1": {
@@ -1609,7 +1617,8 @@
             "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
-                "UI.Importance"
+                "UI.Importance",
+                "HTML5.CssDefaults"
             ],
             "Label": {
                 "$Nullable": true,
