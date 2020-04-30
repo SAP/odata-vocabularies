@@ -14,7 +14,7 @@
         <String>Terms for HTML5</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>The HTML5 Vocabulary provides rendering hints for HTML5 clients</String>
+        <String>The HTML5 vocabulary provides rendering hints for HTML5 clients</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2020-04-21 © Copyright 2020 SAP SE. All rights reserved</String>
@@ -38,13 +38,20 @@
 
       <Term Name="CssDefaults" Type="HTML5.CssDefaultsType" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="CSS definitions for e.g. UI.DataFieldAbstract annotations" />
+        <Annotation Term="Core.Description" String="CSS definitions that may be used as defaults" />
+        <Annotation Term="Core.LongDescription" String="This term can applied to e.g. UI.DataFieldAbstract records" />
       </Term>
 
       <ComplexType Name="CssDefaultsType">
         <Annotation Term="Common.Experimental" />
         <Property Name="width" Type="Edm.String">
-          <Annotation Term="Core.Description" String="css: width" />
+          <Annotation Term="Core.Description" String="css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width" />
+          <Annotation Term="Core.LongDescription">
+            <String>
+              The property allows all values specified for the original css width property.
+              Note that clients consuming this annotation may only support selected length units.
+            </String>
+          </Annotation>
         </Property>
       </ComplexType>
 
