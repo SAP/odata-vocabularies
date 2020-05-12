@@ -1261,7 +1261,7 @@
             "SourceProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Changes to the values of one or more of these properties may affect the targets"
+                "@Core.Description": "Changes to the values of one or more of these structural properties may affect the targets"
             },
             "SourceEntities": {
                 "$Collection": true,
@@ -1270,8 +1270,8 @@
             },
             "TargetProperties": {
                 "$Collection": true,
-                "@Core.Description": "These properties may be affected if the value of one of the sources changes",
-                "@Core.LongDescription": "The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` appended to a path meaning all properties directly reached via this path"
+                "@Core.Description": "These structural properties may be affected if the value of one of the sources changes",
+                "@Core.LongDescription": "The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path"
             },
             "TargetEntities": {
                 "$Collection": true,

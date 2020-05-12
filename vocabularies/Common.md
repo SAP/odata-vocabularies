@@ -349,9 +349,9 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](Common.xml#L1021)|\[PropertyPath\]|Changes to the values of one or more of these properties may affect the targets
+[SourceProperties](Common.xml#L1021)|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
 [SourceEntities](Common.xml#L1024)|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[TargetProperties](Common.xml#L1027)|\[String\]|These properties may be affected if the value of one of the sources changes<p>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` appended to a path meaning all properties directly reached via this path</p>
+[TargetProperties](Common.xml#L1027)|\[String\]|These structural properties may be affected if the value of one of the sources changes<p>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path</p>
 [TargetEntities](Common.xml#L1031)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
 [EffectTypes](Common.xml#L1034) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed.
 [TriggerAction](Common.xml#L1045) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
