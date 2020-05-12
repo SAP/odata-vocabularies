@@ -1270,8 +1270,8 @@
             },
             "TargetProperties": {
                 "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These properties may be affected if the value of one of the sources changes"
+                "@Core.Description": "These properties may be affected if the value of one of the sources changes",
+                "@Core.LongDescription": "The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` appended to a path meaning all properties directly reached via this path"
             },
             "TargetEntities": {
                 "$Collection": true,

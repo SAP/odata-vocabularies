@@ -1024,8 +1024,9 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
-        <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
+          <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` appended to a path meaning all properties directly reached via this path" />
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
