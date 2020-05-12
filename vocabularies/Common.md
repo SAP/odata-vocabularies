@@ -268,7 +268,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L677)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constant](Common.xml#L688)|String|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+[Constant](Common.xml#L688)|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L692): [ValueListParameter](#ValueListParameter)
 
