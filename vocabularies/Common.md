@@ -277,7 +277,10 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L677)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L693)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterOut"></a>[ValueListParameterOut](Common.xml#L702): [ValueListParameter](#ValueListParameter)
 
@@ -286,7 +289,10 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L677)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L703)|PropertyPath|Path to property that is filled from response
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](Common.xml#L712): [ValueListParameter](#ValueListParameter)
 Value list property that is not used to fill the edited entity
@@ -294,7 +300,10 @@ Value list property that is not used to fill the edited entity
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L677)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L720): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 Value list property that is used to filter the value list, not connected to the edited entity
