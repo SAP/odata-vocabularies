@@ -267,7 +267,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L670)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constant](Common.xml#L681)|String|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+[Constant](Common.xml#L681)|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L685): [ValueListParameter](#ValueListParameter)
 
@@ -276,7 +276,10 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L670)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L686)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterOut"></a>[ValueListParameterOut](Common.xml#L695): [ValueListParameter](#ValueListParameter)
 
@@ -285,7 +288,10 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L670)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L696)|PropertyPath|Path to property that is filled from response
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](Common.xml#L705): [ValueListParameter](#ValueListParameter)
 Value list property that is not used to fill the edited entity
@@ -293,7 +299,10 @@ Value list property that is not used to fill the edited entity
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L670)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-@UI.Importance|[Importance](UI.md#Importance)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L713): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 Value list property that is used to filter the value list, not connected to the edited entity
@@ -343,15 +352,15 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case "Actions": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, 
-only TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.
+Special case "Actions": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
 
 Property|Type|Description
 :-------|:---|:----------
 [SourceProperties](Common.xml#L1014)|\[PropertyPath\]|Changes to the values of one or more of these properties may affect the targets
 [SourceEntities](Common.xml#L1017)|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
 [TargetProperties](Common.xml#L1020)|\[PropertyPath\]|These properties may be affected if the value of one of the sources changes
-[TargetEntities](Common.xml#L1023)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. An empty path means the annotation target.
+[TargetEntities](Common.xml#L1023)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
 [EffectTypes](Common.xml#L1026) *(Deprecated)*|[EffectType](#EffectType)|All side effects are essentially value changes, differentiation not needed.
 [TriggerAction](Common.xml#L1037) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
 [TriggeredIndicator](Common.xml#L1042) *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
