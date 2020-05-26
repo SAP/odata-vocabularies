@@ -706,9 +706,12 @@ Property|Type|Description
 [Criticality](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [CriticalityRepresentation](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [IconUrl](UI.xml#L1367)|URL|Optional icon
-@UI.Hidden|[Hidden](#Hidden)|Annotation
-@UI.Importance|[Importance](#Importance)|Annotation
-@HTML5.CssDefaults|[CssDefaults](HTML5.md#CssDefaults)|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](UI.xml#L1373)
 
@@ -727,10 +730,13 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [Target](UI.xml#L1384)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](UI.xml#L1399): [DataFieldAbstract](#DataFieldAbstract)
 Triggers an action
@@ -745,11 +751,14 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [Inline](UI.xml#L1401)|Boolean|Action should be placed close to (or even inside) the visualized term
 [Determining](UI.xml#L1404)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldForAction"></a>[DataFieldForAction](UI.xml#L1409): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers an OData action
@@ -762,13 +771,16 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Inline*](UI.xml#L1401)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1404)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 [Action](UI.xml#L1412)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 [InvocationGrouping](UI.xml#L1415)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="OperationGroupingType"></a>[OperationGroupingType](UI.xml#L1419)
 
@@ -791,15 +803,18 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Inline*](UI.xml#L1401)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1404)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 [SemanticObject](UI.xml#L1435)|String|Name of the Semantic Object
 [Action](UI.xml#L1438)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 [RequiresContext](UI.xml#L1441)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
 [Mapping](UI.xml#L1444)|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataField"></a>[DataField](UI.xml#L1449): [DataFieldAbstract](#DataFieldAbstract)
 A piece of data
@@ -816,10 +831,13 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [Value](UI.xml#L1451)|PrimitiveType|The data field's value
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldWithAction"></a>[DataFieldWithAction](UI.xml#L1457): [DataField](#DataField)
 A piece of data that allows triggering an OData action
@@ -832,11 +850,14 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Value*](UI.xml#L1451)|PrimitiveType|The data field's value
 [Action](UI.xml#L1460)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](UI.xml#L1465): [DataField](#DataField)
 A piece of data that allows triggering intent-based UI navigation
@@ -852,13 +873,16 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Value*](UI.xml#L1451)|PrimitiveType|The data field's value
 [SemanticObject](UI.xml#L1473)|String|Name of the Semantic Object
 [Action](UI.xml#L1476)|String|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 [Mapping](UI.xml#L1479)|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](UI.xml#L1484): [DataField](#DataField)
 A piece of data that allows navigating to related data
@@ -871,11 +895,14 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Value*](UI.xml#L1451)|PrimitiveType|The data field's value
 [Target](UI.xml#L1487)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](UI.xml#L1494): [DataField](#DataField)
 A piece of data that allows navigating to other information on the Web
@@ -888,12 +915,15 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-*@UI.Hidden*|[Hidden](#Hidden)|Annotation
-*@UI.Importance*|[Importance](#Importance)|Annotation
-*@HTML5.CssDefaults*|[CssDefaults](HTML5.md#CssDefaults)|Annotation
 [*Value*](UI.xml#L1451)|PrimitiveType|The data field's value
 [Url](UI.xml#L1497)|URL|Target of the hyperlink
 [UrlContentType](UI.xml#L1501)|MediaType|Media type of the hyperlink target, e.g. `video/mp4`
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [CssDefaults](HTML5.md#CssDefaults)
 
 ## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1535)
 **Type:** Byte
