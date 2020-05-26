@@ -50,10 +50,10 @@
         <Property Name="target" Type="Edm.String">
           <Annotation Term="Core.Description" String="Name of the target entity set" />
         </Property>
-        <Property Name="parameters" Type="Collection(Graph.binding)">
+        <Property Name="parameters" Type="Collection(Graph.binding)" Nullable="false">
           <Annotation Term="Core.Description" String="Map of parameter names in the target operation to property paths in the annotated entity type" />
         </Property>
-        <Property Name="filter" Type="Collection(Graph.binding)">
+        <Property Name="filter" Type="Collection(Graph.binding)" Nullable="false">
           <Annotation Term="Core.Description" String="Map of single-valued property paths in the target entity to property paths in the annotated entity type" />
           <Annotation Term="Core.LongDescription" String="Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set" />
         </Property>
