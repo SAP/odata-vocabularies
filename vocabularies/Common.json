@@ -253,7 +253,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Revisions@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
+            "@Core.Revisions@Common.Experimental": true,
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
@@ -268,7 +268,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/TGSxdQ",
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces."
@@ -280,7 +280,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/TGSxdQ",
+            "@Common.Experimental": true,
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "If the annotation evaluates to true, the unmasked property value is never transferred in responses.\n\nIf the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`."
         },
@@ -1485,7 +1485,7 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
+            "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
         }

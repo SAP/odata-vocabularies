@@ -97,7 +97,7 @@ a collection of business object instances, e.g. as a list or table.</String>
           <Annotation Term="Core.Description" String="Image URL for the entity type" />
         </Property>
         <Property Name="Initials" Type="Edm.String" Nullable="true">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-9032" />
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Latin letters to be used in case no ImageUrl or TypeImageUrl is present" />
         </Property>
       </ComplexType>
@@ -446,7 +446,7 @@ A renderer should take an optional `Common.Text` annotation into consideration.
       <EnumType Name="CriticalityType">
         <Annotation Term="Core.Description" String="Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)" />
         <Member Name="VeryNegative" Value="-1">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898" />
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Very negative / dark-red status - risk - out of stock - late" />
         </Member>
         <Member Name="Neutral" Value="0">
@@ -462,7 +462,7 @@ A renderer should take an optional `Common.Text` annotation into consideration.
           <Annotation Term="Core.Description" String="Positive / green status - completed - available - on track - acceptable" />
         </Member>
         <Member Name="VeryPositive" Value="4">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898" />
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
         </Member>
       </EnumType>
@@ -742,7 +742,7 @@ The trend is
         <Member Name="HorizontalCombinationDual" />
         <Member Name="HorizontalCombinationStackedDual" />
         <Member Name="Donut100">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7369" />
+          <Annotation Term="Common.Experimental" />
         </Member>
         <!-- Future: GeoPie, GeoBubble, ChoroplethMap -->
       </EnumType>

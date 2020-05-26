@@ -90,7 +90,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-10262",
+            "@Common.Experimental": true,
             "@Core.Description": "Property contains a Configuration Deprecation Code",
             "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
         }
