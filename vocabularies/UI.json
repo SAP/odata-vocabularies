@@ -32,6 +32,14 @@
                     "$Alias": "Common"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.HTML5.v1",
+                    "$Alias": "HTML5"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.UI.v1": {
@@ -1493,6 +1501,15 @@
             "@Core.Description": "Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)",
             "@Core.RequiresType": "Edm.String"
         },
+        "Placeholder": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
+            "@Core.IsLanguageDependent": true
+        },
         "TextArrangement": {
             "$Kind": "Term",
             "$Type": "UI.TextArrangementType",
@@ -1598,9 +1615,11 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
+            "@Core.LongDescription": "By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and\n          and the default css settings (as the width) of the data field can be influenced. ",
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
-                "UI.Importance"
+                "UI.Importance",
+                "HTML5.CssDefaults"
             ],
             "Label": {
                 "$Nullable": true,
