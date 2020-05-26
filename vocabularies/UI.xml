@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="UI" Namespace="com.sap.vocabularies.UI.v1">
       <Annotation Term="Core.Description">
@@ -1253,6 +1256,12 @@ The trend is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
+        <Annotation Term="Core.IsLanguageDependent" />
+      </Term>
+
       <Term Name="TextArrangement" Type="UI.TextArrangementType" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
@@ -1334,10 +1343,15 @@ The trend is
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action" />
+        <Annotation Term="Core.LongDescription" >
+          <String>By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
+          and the default css settings (as the width) of the data field can be influenced. </String>
+        </Annotation>
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
+            <String>HTML5.CssDefaults</String>
           </Collection>
         </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
