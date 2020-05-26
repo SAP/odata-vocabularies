@@ -1441,7 +1441,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
         </Property>
-        <Property Name="Mapping" Type="Collection(Common.SemanticObjectMappingType)">
+        <Property Name="Mapping" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false">
           <Annotation Term="Core.Description" String="Maps properties of the annotated entity type to properties of the Semantic Object" />
         </Property>
       </ComplexType>
@@ -1476,7 +1476,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
-        <Property Name="Mapping" Type="Collection(Common.SemanticObjectMappingType)">
+        <Property Name="Mapping" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false">
           <Annotation Term="Core.Description" String="Maps properties of the annotated entity type to properties of the Semantic Object" />
         </Property>
       </ComplexType>
