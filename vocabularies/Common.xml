@@ -201,7 +201,7 @@
 
       <Term Name="Masked" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Revisions">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951" />
+          <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -215,7 +215,7 @@
       </Term>
 
       <Term Name="MaskedValue" Type="Edm.String" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/TGSxdQ" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
         <Annotation Term="Core.LongDescription">
@@ -224,7 +224,7 @@
       </Term>
 
       <Term Name="MaskedAlways" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/TGSxdQ" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
         <Annotation Term="Core.LongDescription">
           <String>If the annotation evaluates to true, the unmasked property value is never transferred in responses.
@@ -1264,7 +1264,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <!-- Odds and ends -->
       <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
