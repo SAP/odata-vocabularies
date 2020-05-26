@@ -852,6 +852,7 @@
             "$BaseType": "Common.ValueListParameter",
             "@Common.Experimental": true,
             "Constant": {
+                "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)"
             }
         },
@@ -1256,7 +1257,7 @@
         "SideEffectsType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Changes to the source properties or source entities may have side-effects on the target properties or entities.",
-            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case \"Actions\": here the change trigger is the action invocation, so SourceProperties and SourceEntities have no meaning, \nonly TargetProperties and TargetEntities are relevant. They are addressed via the binding parameter of the action.",
+            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case \"Actions\": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.",
             "SourceProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -1275,7 +1276,7 @@
             "TargetEntities": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These entities will be affected if the value of one of the sources changes. An empty path means the annotation target."
+                "@Core.Description": "These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target."
             },
             "EffectTypes": {
                 "$Type": "Common.EffectType",
