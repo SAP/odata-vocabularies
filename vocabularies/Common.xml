@@ -592,7 +592,6 @@ The minimum structure is
           <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
@@ -609,7 +608,6 @@ The minimum structure is
       </ComplexType>
 
       <TypeDefinition Name="FetchValuesType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
@@ -620,10 +618,6 @@ The minimum structure is
             <Record>
               <PropertyValue Property="Value" Int="2" />
               <Annotation Term="Core.Description" String="Fetch values with a filter" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" Int="3" />
-              <Annotation Term="Core.Description" String="Fetch count immediately, then depending on count do 1 or 2" />
             </Record>
           </Collection>
         </Annotation>
@@ -657,7 +651,6 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
@@ -1019,13 +1012,14 @@ Special case where the side effect is annotated on an action: here the change tr
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Changes to the values of one or more of these properties may affect the targets" />
+          <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
         </Property>
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
-        <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
+        <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
+          <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
