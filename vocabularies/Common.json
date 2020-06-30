@@ -253,7 +253,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Revisions@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951",
+            "@Core.Revisions@Common.Experimental": true,
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
@@ -268,7 +268,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/TGSxdQ",
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces."
@@ -280,7 +280,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": "https://wiki.wdf.sap.corp/wiki/x/TGSxdQ",
+            "@Common.Experimental": true,
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "If the annotation evaluates to true, the unmasked property value is never transferred in responses.\n\nIf the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`."
         },
@@ -1257,7 +1257,7 @@
         "SideEffectsType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Changes to the source properties or source entities may have side-effects on the target properties or entities.",
-            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case \"Actions\": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.",
+            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.",
             "SourceProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -1485,7 +1485,7 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Common.Experimental": "See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126",
+            "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
         },
