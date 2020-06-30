@@ -352,7 +352,7 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case "Actions": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
 
 Property|Type|Description
