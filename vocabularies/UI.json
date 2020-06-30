@@ -113,7 +113,7 @@
             },
             "Initials": {
                 "$Nullable": true,
-                "@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-9032",
+                "@Common.Experimental": true,
                 "@Core.Description": "Latin letters to be used in case no ImageUrl or TypeImageUrl is present"
             }
         },
@@ -552,7 +552,7 @@
             "$Kind": "EnumType",
             "@Core.Description": "Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)",
             "VeryNegative": -1,
-            "VeryNegative@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898",
+            "VeryNegative@Common.Experimental": true,
             "VeryNegative@Core.Description": "Very negative / dark-red status - risk - out of stock - late",
             "Neutral": 0,
             "Neutral@Core.Description": "Neutral / grey status - inactive - open - in progress",
@@ -563,7 +563,7 @@
             "Positive": 3,
             "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
             "VeryPositive": 4,
-            "VeryPositive@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7898",
+            "VeryPositive@Common.Experimental": true,
             "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess"
         },
         "CriticalityCalculationType": {
@@ -856,7 +856,7 @@
             "HorizontalCombinationDual": 36,
             "HorizontalCombinationStackedDual": 37,
             "Donut100": 38,
-            "Donut100@Common.Experimental": "https://sapjira.wdf.sap.corp/browse/FIORITECHP1-7369"
+            "Donut100@Common.Experimental": true
         },
         "ChartAxisScalingType": {
             "$Kind": "ComplexType",

@@ -201,7 +201,7 @@
 
       <Term Name="Masked" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Revisions">
-          <Annotation Term="Common.Experimental" String="https://sapjira.wdf.sap.corp/browse/FIORITECHE1-951" />
+          <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
@@ -215,7 +215,7 @@
       </Term>
 
       <Term Name="MaskedValue" Type="Edm.String" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/TGSxdQ" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
         <Annotation Term="Core.LongDescription">
@@ -224,7 +224,7 @@
       </Term>
 
       <Term Name="MaskedAlways" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" String="https://wiki.wdf.sap.corp/wiki/x/TGSxdQ" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
         <Annotation Term="Core.LongDescription">
           <String>If the annotation evaluates to true, the unmasked property value is never transferred in responses.
@@ -1015,7 +1015,7 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case "Actions": here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -1264,7 +1264,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <!-- Odds and ends -->
       <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" String="See https://sapjira.wdf.sap.corp/browse/FIORITECHP1-11126" />
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
