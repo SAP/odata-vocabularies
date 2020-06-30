@@ -1012,13 +1012,14 @@ Special case where the side effect is annotated on an action: here the change tr
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Changes to the values of one or more of these properties may affect the targets" />
+          <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
         </Property>
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
-        <Property Name="TargetProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These properties may be affected if the value of one of the sources changes" />
+        <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
+          <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
