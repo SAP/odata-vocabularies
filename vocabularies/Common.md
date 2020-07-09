@@ -3,6 +3,7 @@
 
 Common terms for all SAP vocabularies
 
+
 ## Terms
 
 Term|Type|Description
