@@ -27,9 +27,11 @@
           </Record>
         </Collection>
       </Annotation>
+      
       <Term Name="ConversionExit" AppliesTo="Property" Type="Edm.String">
         <Annotation Term="Core.Description" String="ABAP conversion exit used to output this property" />
       </Term>
+      
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
