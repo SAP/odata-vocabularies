@@ -1,0 +1,40 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.ABAP.v1": {
+        "$Alias": "ABAP",
+        "@Core.Description": "Terms for ABAP-specific annotations",
+        "@Core.Description#Published": "2020-07-08 © Copyright 2020 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ABAP.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ABAP.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ABAP.md"
+            }
+        ],
+        "ConversionExit": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "ABAP conversion exit used to output this property"
+        }
+    }
+}
