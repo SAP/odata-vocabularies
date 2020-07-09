@@ -718,7 +718,6 @@
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
@@ -742,7 +741,6 @@
         "FetchValuesType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Hint on when to fetch values",
             "@Validation.AllowedValues": [
                 {
@@ -752,10 +750,6 @@
                 {
                     "Value": 2,
                     "@Core.Description": "Fetch values with a filter"
-                },
-                {
-                    "Value": 3,
-                    "@Core.Description": "Fetch count immediately, then depending on count do 1 or 2"
                 }
             ]
         },
@@ -811,7 +805,6 @@
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
