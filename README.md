@@ -21,6 +21,8 @@ This repository defines the following SAP vocabularies:
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
 
+Check the [annotation cheat-sheet](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html) to learn how to construct an annotation value from a term definition, or vice versa.
+
 
 ## Requirements
 
