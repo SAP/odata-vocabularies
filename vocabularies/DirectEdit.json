@@ -1,0 +1,62 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.DirectEdit.v1": {
+        "$Alias": "DirectEdit",
+        "@Core.Description": "Terms for Direct-Edit User Interfaces",
+        "@Core.Description#Published": "2020-07-10 © Copyright 2020 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/DirectEdit.md"
+            }
+        ],
+        "SideEffects": {
+            "$Kind": "Term",
+            "$Type": "DirectEdit.SideEffectsType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Determine side effects of client-side data modification"
+        },
+        "SideEffectsType": {
+            "$Kind": "ComplexType",
+            "@Core.LongDescription": "A direct-edit side-effect consists of:\n\n- a list of possible triggers, _preliminary_ syntax:\n  - `Path:` followed by a path to the property whose change triggered the side-effects determination \n  - `Action:` followed by the name of the (UI) action that triggered the side-effects determination\n\n- an action bound to the entity set with the following non-binding parameters:\n  - `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property\n  - `Data` of a complex type that is structure-compatible with the entity type of the annotated entity set, \n    i.e. all primitive leaf properties have the same type as the corresponding property of the entity type and are nullable",
+            "Triggers": {
+                "$Collection": true,
+                "@Core.Description": "List of possible triggers for determining side effects"
+            },
+            "CalculationAction": {
+                "$Type": "Common.QualifiedName",
+                "@Core.Description": "Name of the action for determining side effects"
+            }
+        }
+    }
+}

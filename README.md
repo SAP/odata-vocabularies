@@ -8,9 +8,10 @@ SAP Vocabularies for semantic markup of structured data published via [OData](ht
 This repository defines the following SAP vocabularies:
 
 * [Analytics: Analytical resources](vocabularies/Analytics.md)
-* [CodeList: Code Lists](vocabularies/CodeList.md) 
+* [CodeList: Code Lists](vocabularies/CodeList.md)
 * [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 * [Communication: Contact information based on vCard](vocabularies/Communication.md)
+* [DirectEdit: Terms for Direct-Edit User Interfaces](vocabularies/DirectEdit.md) - *experimental*
 * [Graph: SAP Graph](vocabularies/Graph.md) - *experimental*
 * [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - *experimental*
 * [ODM: One Domain Model](vocabularies/ODM.md) - *experimental*

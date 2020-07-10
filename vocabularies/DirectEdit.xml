@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.DirectEdit.v1" Alias="DirectEdit">
+      <Annotation Term="Core.Description">
+        <String>Terms for Direct-Edit User Interfaces</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-07-10 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/DirectEdit.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="SideEffects" Type="DirectEdit.SideEffectsType" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Determine side effects of client-side data modification" />
+      </Term>
+
+      <ComplexType Name="SideEffectsType">
+        <Annotation Term="Core.LongDescription">
+          <String>A direct-edit side-effect consists of:
+
+- a list of possible triggers, _preliminary_ syntax:
+  - `Path:` followed by a path to the property whose change triggered the side-effects determination 
+  - `Action:` followed by the name of the (UI) action that triggered the side-effects determination
+
+- an action bound to the entity set with the following non-binding parameters:
+  - `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property
+  - `Data` of a complex type that is structure-compatible with the entity type of the annotated entity set, 
+    i.e. all primitive leaf properties have the same type as the corresponding property of the entity type and are nullable</String>
+        </Annotation>
+      <Property Name="Triggers" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of possible triggers for determining side effects" />
+        </Property>
+        <Property Name="CalculationAction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the action for determining side effects" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
