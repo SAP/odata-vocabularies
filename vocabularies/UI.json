@@ -1647,7 +1647,9 @@
             "WithIcon": 0,
             "WithIcon@Core.Description": "Criticality is represented with an icon",
             "WithoutIcon": 1,
-            "WithoutIcon@Core.Description": "Criticality is represented without icon, e.g. only via text color"
+            "WithoutIcon@Core.Description": "Criticality is represented without icon, e.g. only via text color",
+            "OnlyIcon": 2,
+            "OnlyIcon@Core.Description": "Criticality is represented only by using an icon"
         },
         "DataFieldForAnnotation": {
             "$Kind": "ComplexType",
