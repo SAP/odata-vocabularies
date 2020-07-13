@@ -33,7 +33,7 @@
         <Annotation Term="Core.Description" String="ABAP conversion exit used to output this property" />
         <Annotation Term="Core.LongDescription">
           <String>A conversion exit may influence the behavior of $filter and $orderby operations, which are carried out on the internal property values.
-            For example, a property `Month` my be ordered `"Jan" < "Feb"`.</String>
+            For example, a property `Month` my be ordered `"Jan" &lt; "Feb"`.</String>
         </Annotation>
       </Term>
       
