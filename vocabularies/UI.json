@@ -1649,6 +1649,7 @@
             "WithoutIcon": 1,
             "WithoutIcon@Core.Description": "Criticality is represented without icon, e.g. only via text color",
             "OnlyIcon": 2,
+            "OnlyIcon@Common.Experimental": true,
             "OnlyIcon@Core.Description": "Criticality is represented only by using an icon"
         },
         "DataFieldForAnnotation": {
