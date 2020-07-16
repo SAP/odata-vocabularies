@@ -8,4 +8,4 @@ Terms for ABAP-specific annotations
 
 Term|Type|Description
 :---|:---|:----------
-[ConversionExit](ABAP.xml#L32)|String|<a name="ConversionExit"></a>ABAP conversion exit used to output this property<p>A conversion exit may influence the behavior of $filter and $orderby operations, which are carried out on the internal property values. For example, a property `Month` my be ordered `"Jan" < "Feb"`.</p>
+[ConversionExit](ABAP.xml#L32)|String|<a name="ConversionExit"></a>ABAP conversion exit used to output this property<p>A conversion exit may influence the behavior of $filter and $orderby operations, which are carried out on the internal property values. For example, a property `Month` may be ordered `"Jan" < "Feb"`.</p>
