@@ -35,7 +35,7 @@
           <String>Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>Applied to a property with `Type="Edm.String"` and `MaxLength="4"`, this means `"2" &lt; "11"`, because `"0002" &lt; "0011"`.
+          <String>Applied to a property with `Type="Edm.String"` and `MaxLength="4"`, this means `"2" &lt; "11" &lt; "2A"`, because `"0002" &lt; "0011" &lt; "2A"`.
             This behavior corresponds to the ABAP conversion exit `ALPHA`.</String>
         </Annotation>
       </Term>
