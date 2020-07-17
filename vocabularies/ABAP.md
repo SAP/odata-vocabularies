@@ -8,4 +8,4 @@ Terms for ABAP-specific annotations
 
 Term|Type|Description
 :---|:---|:----------
-[ConversionExit](ABAP.xml#L32)|String|<a name="ConversionExit"></a>ABAP conversion exit used to output this property<p>A conversion exit may influence the behavior of $filter and $orderby operations, which are carried out on the internal property values. For example, a property `Month` may be ordered `"Jan" < "Feb"`.</p>
+[IsRightAlignedIfNumeric](ABAP.xml#L32)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsRightAlignedIfNumeric"></a>Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.<p>Applied to a property with `Type="Edm.String"` and `MaxLength="4"`, this means `"2" < "11"`, because `"0002" < "0011"`. This behavior corresponds to the ABAP conversion exit `ALPHA`.</p>
