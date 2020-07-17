@@ -29,11 +29,14 @@
         </Collection>
       </Annotation>
       
-      <Term Name="ConversionExit" AppliesTo="Property" Type="Edm.String">
-        <Annotation Term="Core.Description" String="ABAP conversion exit used to output this property" />
+      <Term Name="IsRightAlignedIfNumeric" AppliesTo="Term Property" Type="Core.Tag">
+        <Annotation Term="Core.RequiresType" String="Edm.String" />
+        <Annotation Term="Core.Description">
+          <String>Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.</String>
+        </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>A conversion exit may influence the behavior of $filter and $orderby operations, which are carried out on the internal property values.
-            For example, a property `Month` may be ordered `"Jan" &lt; "Feb"`.</String>
+          <String>Applied to a property with `Type="Edm.String"` and `MaxLength="4"`, this means `"2" &lt; "11"`, because `"0002" &lt; "0011"`.
+            This behavior corresponds to the ABAP conversion exit `ALPHA`.</String>
         </Annotation>
       </Term>
       
