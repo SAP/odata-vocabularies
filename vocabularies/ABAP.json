@@ -38,7 +38,7 @@
             ],
             "@Core.RequiresType": "Edm.String",
             "@Core.Description": "Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.",
-            "@Core.LongDescription": "Applied to a property with `Type=\"Edm.String\"` and `MaxLength=\"4\"`, this means `\"2\" < \"11\"`, because `\"0002\" < \"0011\"`.\n            This behavior corresponds to the ABAP conversion exit `ALPHA`."
+            "@Core.LongDescription": "Applied to a property with `Type=\"Edm.String\"` and `MaxLength=\"4\"`, this means `\"2\" < \"11\" < \"2A\"`, because `\"0002\" < \"0011\" < \"2A\"`.\n            This behavior corresponds to the ABAP conversion exit `ALPHA`."
         }
     }
 }
