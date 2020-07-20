@@ -32,6 +32,7 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$Nullable": true,
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "Term",
                 "Property"
