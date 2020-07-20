@@ -41,6 +41,7 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$Nullable": true,
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityType",
                 "EntitySet"
@@ -52,6 +53,7 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$Nullable": true,
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
