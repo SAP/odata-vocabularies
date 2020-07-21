@@ -945,7 +945,7 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription" String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
         </Property>
-        <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="true">
+        <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
           <Annotation Term="Core.Description" String="Additional action that create a new draft" />
           <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard new action that create a new draft." />
         </Property>
