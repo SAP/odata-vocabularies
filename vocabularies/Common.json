@@ -1162,6 +1162,13 @@
                 "$Nullable": true,
                 "@Core.Description": "Action that creates a new draft",
                 "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+            },
+            "AdditionalNewActions": {
+                "$Collection": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Additional actions that create a new draft",
+                "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
             }
         },
         "DraftNode": {
