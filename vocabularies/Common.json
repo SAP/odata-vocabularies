@@ -1226,6 +1226,12 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The QualifiedName of an OData construct in scope"
         },
+        "ActionOverload": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of an action with an optional overload",
+            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
+        },
         "SemanticKey": {
             "$Kind": "Term",
             "$Collection": true,

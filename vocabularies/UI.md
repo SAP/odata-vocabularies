@@ -774,7 +774,7 @@ Property|Type|Description
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
 [*Inline*](UI.xml#L1405)|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](UI.xml#L1408)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](UI.xml#L1416)|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[Action](UI.xml#L1416)|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 [InvocationGrouping](UI.xml#L1419)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
 **Applicable Annotation Terms:**

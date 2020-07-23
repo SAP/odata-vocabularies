@@ -1691,7 +1691,7 @@
             "@Core.Description": "Triggers an OData action",
             "@Core.LongDescription": "The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).",
             "Action": {
-                "$Type": "Common.QualifiedName",
+                "$Type": "Common.ActionOverload",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
             },
             "InvocationGrouping": {
