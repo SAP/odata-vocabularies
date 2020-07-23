@@ -1409,7 +1409,7 @@ The trend is
       <ComplexType Name="DataFieldForAction" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="Triggers an OData action" />
         <Annotation Term="Core.LongDescription" String="The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction))." />
-        <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
+        <Property Name="Action" Type="Common.ActionOverload" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
         </Property>
         <Property Name="InvocationGrouping" Type="UI.OperationGroupingType">
