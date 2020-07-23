@@ -772,10 +772,10 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1361)|[CriticalityType](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1364)|[CriticalityRepresentationType](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1367)|URL|Optional icon
-[*Inline*](UI.xml#L1401)|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](UI.xml#L1404)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](UI.xml#L1412)|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
-[InvocationGrouping](UI.xml#L1415)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*Inline*](UI.xml#L1405)|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](UI.xml#L1408)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[Action](UI.xml#L1416)|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[InvocationGrouping](UI.xml#L1419)|[OperationGroupingType](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
 **Applicable Annotation Terms:**
 
