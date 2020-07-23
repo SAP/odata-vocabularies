@@ -998,7 +998,8 @@ The minimum structure is
         <Annotation Term="Core.LongDescription">
           <String>The qualified name of an action optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
-            or by empty parentheses to identify the unbound overload</String>
+            or by empty parentheses to identify the unbound overload.</String>
+
         </Annotation>
       </TypeDefinition>
       
