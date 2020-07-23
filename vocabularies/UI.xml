@@ -1377,6 +1377,10 @@ The trend is
         <Member Name="WithoutIcon">
           <Annotation Term="Core.Description" String="Criticality is represented without icon, e.g. only via text color" />
         </Member>
+        <Member Name="OnlyIcon">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Criticality is represented only by using an icon" />
+        </Member>
       </EnumType>
 
       <ComplexType Name="DataFieldForAnnotation" BaseType="UI.DataFieldAbstract">
