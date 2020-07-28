@@ -1331,12 +1331,19 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.ParameterAbstract",
             "@Core.Description": "Expression-valued parameter",
-            "PropertyName": {
+            "ParameterName": {
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Path to a key property of a parameter entity type"
             },
-            "PropertyExpression": {
-                "@Core.Description": "Expression that yields the value for the key property"
+            "ParameterAlias": {
+                "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
+                "@Core.Description": "Parameter alias (without leading @)",
+                "@Core.LongDescription": "If this is absent, the consumer may choose an alias. If `ParameterName` is present, the alias is used for this parameter. It can also be referenced from other `UI.ExpressionParameter`s within the same `UI.SelectionVariant/Parameters`."
+            },
+            "ParameterValue": {
+                "@Core.Description": "ABNF parameterValue into which the alias expands"
             }
         },
         "IntervalParameter": {
