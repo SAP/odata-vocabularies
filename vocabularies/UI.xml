@@ -1120,6 +1120,15 @@ The trend is
           <Annotation Term="Core.Description" String="Value for the key property" />
         </Property>
       </ComplexType>
+      <ComplexType Name="ExpressionParameter" BaseType="UI.ParameterAbstract">
+        <Annotation Term="Core.Description" String="Expression-valued parameter" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to a key property of a parameter entity type" />
+        </Property>
+        <Property Name="PropertyExpression" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Expression that yields the value for the key property" />
+        </Property>
+      </ComplexType>
       <ComplexType Name="IntervalParameter" BaseType="UI.ParameterAbstract">
         <Annotation Term="Core.Description" String="Interval parameter formed with a 'from' and a 'to' property" />
         <Property Name="PropertyNameFrom" Type="Edm.PropertyPath" Nullable="false">
