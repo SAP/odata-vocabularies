@@ -1327,6 +1327,18 @@
                 "@Core.Description": "Value for the key property"
             }
         },
+        "ExpressionParameter": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.ParameterAbstract",
+            "@Core.Description": "Expression-valued parameter",
+            "PropertyName": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Path to a key property of a parameter entity type"
+            },
+            "PropertyExpression": {
+                "@Core.Description": "Expression that yields the value for the key property"
+            }
+        },
         "IntervalParameter": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.ParameterAbstract",
