@@ -5,29 +5,36 @@
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="selectionvariant.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-      <Annotations Target="my.container/someset">
+      <Annotations Target="my.container/QueryResult">
         <Annotation Term="UI.SelectionVariant">
+          <!-- This annotation shall lead to the following GET request URL:
+               ~/QueryParameters(P_Ledger=@default,P_Date=@currentLow,P_DateTo=@currentHigh)/Results
+               ?@currentLow=SAP.lowerBoundary(Set=@current)
+               &@currentHigh=SAP.upperBoundary(Set=@current)
+               &@current=SAP.FiscalDateFunction(P_DateFunctionID='CurrentPeriod')
+               &@default=SAP.DefaultLedger()
+          -->
           <Record>
             <PropertyValue Property="Parameters">
               <Collection>
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_Ledger" />
-                  <PropertyValue Property="ParameterAlias" String="default" />
-                  <PropertyValue Property="AliasExpression" String="SAP.DefaultLedger()" />
+                  <PropertyValue Property="ParameterAlias" String="default" /> <!-- if omitted, a different alias may be chosen -->
+                  <PropertyValue Property="ParameterValue" String="SAP.DefaultLedger()" />
                 </Record>
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_DateFrom" />
                   <PropertyValue Property="ParameterAlias" String="currentLow" />
-                  <PropertyValue Property="AliasExpression" String="SAP.lowerBoundary(Set=@current)" />
+                  <PropertyValue Property="ParameterValue" String="SAP.lowerBoundary(Set=@current)" />
                 </Record>
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_DateTo" />
                   <PropertyValue Property="ParameterAlias" String="currentHigh" />
-                  <PropertyValue Property="AliasExpression" String="SAP.lowerBoundary(Set=@current)" />
+                  <PropertyValue Property="ParameterValue" String="SAP.lowerBoundary(Set=@current)" />
                 </Record>
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterAlias" String="current" />
-                  <PropertyValue Property="AliasExpression" String="SAP.FiscalDateFunction(P_DateFunctionID='CurrentPeriod')" />
+                  <PropertyValue Property="ParameterValue" String="SAP.FiscalDateFunction(P_DateFunctionID='CurrentPeriod')" />
                 </Record>
               </Collection>
             </PropertyValue>
