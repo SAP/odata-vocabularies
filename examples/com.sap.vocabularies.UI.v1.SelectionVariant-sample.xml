@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="selectionvariant.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotations Target="my.container/someset">
+        <Annotation Term="UI.SelectionVariant">
+          <Record>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="UI.ExpressionParameter">
+                  <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_Ledger" />
+                  <PropertyValue Property="ParameterAlias" String="default" />
+                  <PropertyValue Property="AliasExpression" String="SAP.DefaultLedger()" />
+                </Record>
+                <Record Type="UI.ExpressionParameter">
+                  <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_DateFrom" />
+                  <PropertyValue Property="ParameterAlias" String="currentLow" />
+                  <PropertyValue Property="AliasExpression" String="SAP.lowerBoundary(Set=@current)" />
+                </Record>
+                <Record Type="UI.ExpressionParameter">
+                  <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_DateTo" />
+                  <PropertyValue Property="ParameterAlias" String="currentHigh" />
+                  <PropertyValue Property="AliasExpression" String="SAP.lowerBoundary(Set=@current)" />
+                </Record>
+                <Record Type="UI.ExpressionParameter">
+                  <PropertyValue Property="ParameterAlias" String="current" />
+                  <PropertyValue Property="AliasExpression" String="SAP.FiscalDateFunction(P_DateFunctionID='CurrentPeriod')" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
