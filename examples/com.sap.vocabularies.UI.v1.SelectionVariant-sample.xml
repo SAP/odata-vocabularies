@@ -30,7 +30,7 @@
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterName" PropertyPath="Parameters/P_DateTo" />
                   <PropertyValue Property="ParameterAlias" String="currentHigh" />
-                  <PropertyValue Property="ParameterValue" String="SAP.lowerBoundary(Set=@current)" />
+                  <PropertyValue Property="ParameterValue" String="SAP.upperBoundary(Set=@current)" />
                 </Record>
                 <Record Type="UI.ExpressionParameter">
                   <PropertyValue Property="ParameterAlias" String="current" />
