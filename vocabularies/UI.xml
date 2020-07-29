@@ -1121,13 +1121,18 @@ The trend is
         </Property>
       </ComplexType>
       <ComplexType Name="ExpressionParameter" BaseType="UI.ParameterAbstract">
-        <Annotation Term="Core.Description" String="Expression-valued parameter" />
+        <Annotation Term="Core.Description" String="Parameter value given as an expression (ABNF parameterValue)" />
+        <Annotation Term="Core.LongDescription">
+          <String>An instance of this type defines a parameter (if `ParameterName` is present) and/or an alias (if `ParameterAlias` is present).
+            The aliases can be referenced from all `Parameters` and from the `FilterExpression` in the `UI.SelectionVariant`.</String>
+        </Annotation>
         <Property Name="ParameterName" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Path to a key property of a parameter entity type" />
+          <Annotation Term="Core.LongDescription" String="If this is absent, the instance defines only an alias to be referenced elsewhere in the `UI.SelectionVariant`." />
         </Property>
         <Property Name="ParameterAlias" Type="Common.SimpleIdentifier">
-          <Annotation Term="Core.Description" String="Parameter alias (without leading @)" />
-          <Annotation Term="Core.LongDescription" String="If this is absent, the consumer may choose an alias. If `ParameterName` is present, the alias is used for this parameter. It can also be referenced from other `UI.ExpressionParameter`s within the same `UI.SelectionVariant/Parameters`." />
+          <Annotation Term="Core.Description" String="Parameter alias (without leading @) to be used for this `ParameterName`" />
+          <Annotation Term="Core.LongDescription" String="If this is absent, the consumer chooses an alias." />
         </Property>
         <Property Name="ParameterValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="ABNF parameterValue into which the alias expands" />
