@@ -30,12 +30,10 @@ A _constant annotation value_ can be provided as a [corresponding JSON value](ht
 
 See [Constant Annotation Values](#constant-annotation-values) for a list of all primitiv types and example values for them.
 
-A _dynamic annotation value_ can be provided for the same term using a [value path expression](https://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html#sec_ValuePath).
+A _dynamic annotation value_ can be provided for the same term using a [CDS path expression](https://cap.cloud.sap/docs/cds/cql#path-expressions) that could be used in a SELECT clause.
 
-```json
-"@Vocab.StringTerm": {
-  "$Path": "SomeStringProperty"
-}
+```swift
+@Vocab.StringTerm: Some.String.Property
 ```
 
 The property referenced via the value path expression, here `SomeStringProperty` needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
