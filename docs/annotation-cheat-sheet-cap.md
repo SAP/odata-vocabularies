@@ -32,11 +32,11 @@ See [Constant Annotation Values](#constant-annotation-values) for a list of all 
 
 A _dynamic annotation value_ can be provided for the same term using a [CDS path expression](https://cap.cloud.sap/docs/cds/cql#path-expressions) that could be used in a SELECT clause.
 
-```swift
-@Vocab.StringTerm: Some.String.Property
+```cdl
+@Vocab.StringTerm: Some.StringProperty
 ```
 
-The property referenced via the value path expression, here `SomeStringProperty` needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
+The property referenced via the value path expression, here `Some.StringProperty` needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
 
 ## Collections
 
