@@ -27,8 +27,6 @@ To learn how to construct an annotation value from a term definition, or vice ve
 * [Annotation Cheat-Sheet for CSDL XML](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html)
 * [Annotation Cheat-Sheet for CAP CDS](docs/annotation-cheat-sheet-cap.md)
 
-Check the [annotation cheat-sheet](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html) to learn how to construct an annotation value from a term definition, or vice versa.
-
 
 ## Requirements
 
