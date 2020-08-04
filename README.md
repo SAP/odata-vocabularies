@@ -74,7 +74,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-
-## License
-
-Copyright (c) 2016 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache License Version 2.0, except as noted otherwise in the [LICENSE file](LICENSE).
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/odata-vocabularies)](https://api.reuse.software/info/github.com/SAP/odata-vocabularies)
