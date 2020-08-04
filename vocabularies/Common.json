@@ -173,7 +173,7 @@
                 "Property",
                 "Parameter"
             ],
-            "@Core.Description": "Annotated property or parameter is a currency"
+            "@Core.Description": "Annotated property or parameter is a currency code"
         },
         "IsUnit": {
             "$Kind": "Term",
