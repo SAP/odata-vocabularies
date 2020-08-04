@@ -155,7 +155,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsISOCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Annotated property or parameter is a currency" />
       </Term>
 
