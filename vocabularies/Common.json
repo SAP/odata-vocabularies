@@ -165,6 +165,26 @@
             "@Core.Description": "Contains just uppercase characters",
             "@Core.RequiresType": "Edm.String"
         },
+        "IsCurrency": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Core.Description": "Annotated property or parameter is a currency code"
+        },
+        "IsUnit": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Core.Description": "Annotated property or parameter is a unit of measure"
+        },
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
