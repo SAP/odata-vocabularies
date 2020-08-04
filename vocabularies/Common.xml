@@ -156,7 +156,8 @@
       </Term>
 
       <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="Annotated property or parameter is a currency" />
+        <Annotation Term="Core.Description" String="Annotated property or parameter is a currency code" />
+
       </Term>
 
       <Term Name="IsUnit" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
