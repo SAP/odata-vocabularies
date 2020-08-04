@@ -165,7 +165,7 @@
             "@Core.Description": "Contains just uppercase characters",
             "@Core.RequiresType": "Edm.String"
         },
-        "IsISOCurrency": {
+        "IsCurrency": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
