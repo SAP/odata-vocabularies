@@ -29,7 +29,7 @@
         </Collection>
       </Annotation>
       
-      <Term Name="IsRightAlignedIfNumeric" AppliesTo="Term Property" Type="Core.Tag" DefaultValue="true">
+      <Term Name="IsRightAlignedIfNumeric" AppliesTo="Term Property" Type="Core.Tag" Nullable="false" DefaultValue="true">
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Core.Description">
           <String>Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.</String>
