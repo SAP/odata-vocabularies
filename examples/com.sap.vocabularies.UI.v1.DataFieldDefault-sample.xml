@@ -10,20 +10,20 @@
     <Schema Namespace="datafielddefault.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Annotations Target="my.container/QueryResult/PostingDate">
         <!-- Based on these annotations, the filter facet for the PostingDate property shall, in addition to the usual date picker,
-             be displayed with two input helps
+             offer two input helps
              * one computes the PostingDate based on a fiscal date function that is chosen from the FiscalDateFunctions entity set, e.g., "current period"
              * one computes the PostingDate based on a Gregorian date function that is chosen from the GregorianDateFunctions entity set, e.g., "today".
-             In both cases the computation happens on the server, when an OData request like in com.sap.vocabularies.UI.v1.SelectionVariant.xml is executed.
+             In both cases the computation happens on the server, when an OData request like in com.sap.vocabularies.UI.v1.SelectionVariant-sample.xml is executed.
         -->
         <Annotation Term="UI.DataFieldDefault" Qualifier="FiscalDateFunction">
-          <Record Type="UI.DataFieldWithValueHelp">
+          <Record Type="UI.DataFieldWithValueFunction">
             <PropertyValue Property="Label" String="Fiscal date function" />
             <PropertyValue Property="Value" Path="PostingDate" />
             <PropertyValue Property="Action" String="SAP.FiscalDateFunction" />
           </Record>
         </Annotation>
         <Annotation Term="UI.DataFieldDefault" Qualifier="GregorianDateFunction">
-          <Record Type="UI.DataFieldWithValueHelp">
+          <Record Type="UI.DataFieldWithValueFunction">
             <PropertyValue Property="Label" String="Gregorian date function" />
             <PropertyValue Property="Value" Path="PostingDate" />
             <PropertyValue Property="Action" String="SAP.GregorianDateFunction" />
