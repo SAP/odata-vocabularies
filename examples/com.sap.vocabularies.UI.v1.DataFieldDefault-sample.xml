@@ -8,11 +8,11 @@
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="datafielddefault.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-      <Annotations Target="my.container/QueryResult/PostingDate">
-        <!-- Based on these annotations, the filter facet for the PostingDate property shall, in addition to the usual date picker,
+      <Annotations Target="my.container/QueryParameters/P_Date">
+        <!-- Based on these annotations, the facet filter for the P_Date parameter shall, in addition to the usual date picker,
              offer two input helps
-             * one computes the PostingDate based on a fiscal date function that is chosen from the FiscalDateFunctions entity set, e.g., "current period"
-             * one computes the PostingDate based on a Gregorian date function that is chosen from the GregorianDateFunctions entity set, e.g., "today".
+             * one computes the P_Date based on a fiscal date function that is chosen from the FiscalDateFunctions entity set, e.g., "current period"
+             * one computes the P_Date based on a Gregorian date function that is chosen from the GregorianDateFunctions entity set, e.g., "today".
              In both cases the computation happens on the server, when an OData request like in com.sap.vocabularies.UI.v1.SelectionVariant-sample.xml is executed.
         -->
         <Annotation Term="UI.DataFieldDefault" Qualifier="FiscalDateFunction">
