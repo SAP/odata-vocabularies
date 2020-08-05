@@ -1750,11 +1750,11 @@
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
             }
         },
-        "DataFieldWithValueHelp": {
+        "DataFieldWithValueFunction": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldWithAction",
-            "@Core.Description": "A piece of data that can be filled with a value help",
-            "@Core.LongDescription": "The action is an OData Function or FunctionImport that returns a value for this piece of data. It should be rendered as a field with an input help."
+            "@Core.Description": "A data field whose value can be computed through an OData function on the OData server",
+            "@Core.LongDescription": "The `Action` is an OData Function or FunctionImport which is triggered on the server during the processing of an OData request, e.g.,\n          - because the function occurs in a `$filter` clause for this data field\n          - or because the function occurs in a parameter alias if the data field is a key property of an entity set.\n          Input fields (e.g., in a filter bar) for this data field should be rendered with an additional input help.\n          Unlike a [value list](Common.md#ValueList), such an input help does not yield a literal but a function expression (ABNF commonExpr)."
         },
         "DataFieldWithIntentBasedNavigation": {
             "$Kind": "ComplexType",
