@@ -1466,6 +1466,11 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
       </ComplexType>
 
+      <ComplexType Name="DataFieldWithValueHelp" BaseType="UI.DataFieldWithAction">
+        <Annotation Term="Core.Description" String="A piece of data that can be filled with a value help" />
+        <Annotation Term="Core.LongDescription" String="The action is an OData Function or FunctionImport that returns a value for this piece of data. It should be rendered as a field with an input help." />
+      </ComplexType>
+
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
