@@ -1750,6 +1750,12 @@
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
             }
         },
+        "DataFieldWithValueHelp": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.DataFieldWithAction",
+            "@Core.Description": "A piece of data that can be filled with a value help",
+            "@Core.LongDescription": "The action is an OData Function or FunctionImport that returns a value for this piece of data. It should be rendered as a field with an input help."
+        },
         "DataFieldWithIntentBasedNavigation": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
