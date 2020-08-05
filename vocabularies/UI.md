@@ -872,7 +872,7 @@ The `Action` is an OData Function or FunctionImport which is triggered on the se
           - because the function occurs in a `$filter` clause for this data field
           - or because the function occurs in a parameter alias if the data field is a key property of an entity set.
           Input fields (e.g., in a filter bar) for this data field should be rendered with an additional input help.
-          Unlike a [value list](Common.md#ValueList), such an input help does not yield a literal (`PostingDate eq '2020-08-01')
+          Unlike a [value list](Common.md#ValueList), such an input help does not yield a literal (`PostingDate eq '2020-08-01'`)
           but a function expression (`PostingDate eq SAP.today()`) which is re-evaluated per request execution even if the request URL has been bookmarked.
 
 Property|Type|Description
