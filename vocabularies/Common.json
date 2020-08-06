@@ -791,6 +791,16 @@
             ],
             "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"
         },
+        "ValueListForValidation": {
+            "$Kind": "Term",
+            "$DefaultValue": 0,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
+        },
         "ValueListReferences": {
             "$Kind": "Term",
             "$Collection": true,
