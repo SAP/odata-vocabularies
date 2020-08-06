@@ -793,7 +793,6 @@
         },
         "ValueListForValidation": {
             "$Kind": "Term",
-            "$DefaultValue": 0,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
