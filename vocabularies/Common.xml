@@ -642,6 +642,11 @@ The minimum structure is
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
       </Term>
 
+      <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
+      </Term>
+
       <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
