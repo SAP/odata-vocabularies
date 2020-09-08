@@ -1814,7 +1814,6 @@
         "Emphasized": {
             "$Kind": "Term",
             "$Type": "Edm.Boolean",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Record"
