@@ -1800,7 +1800,7 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Core.Description": " Service-calculated criticality, alternative to UI.CriticalityCalculation"
+            "@Core.Description": "Service-calculated criticality, alternative to UI.CriticalityCalculation"
         },
         "CriticalityCalculation": {
             "$Kind": "Term",
@@ -1813,7 +1813,7 @@
         },
         "Emphasized": {
             "$Kind": "Term",
-            "$Type": "Edm.Boolean",
+            "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Record"
