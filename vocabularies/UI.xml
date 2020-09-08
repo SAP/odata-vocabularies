@@ -1516,7 +1516,8 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to UI.Criticality" />
       </Term>
 
-      <Term Name="Emphasized" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Record">
+      <Term Name="Emphasized" Type="Edm.Boolean" DefaultValue="true" Nullable="false" AppliesTo="Record">
+
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Highlight something that is of special interest" />
         <Annotation Term="Core.LongDescription" String="The usage of a property or operation should be highlighted as it's of special interest for the end user" />
