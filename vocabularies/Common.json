@@ -867,6 +867,12 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Bool",
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
         },
         "ValueListParameterConstant": {
@@ -884,6 +890,12 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Bool",
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
             "@Validation.ApplicableTerms": [
                 "UI.Importance"
