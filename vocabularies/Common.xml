@@ -689,7 +689,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Bool" Default="true">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Bool" Default="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
@@ -704,7 +704,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Bool" Default="true">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Bool" Default="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
