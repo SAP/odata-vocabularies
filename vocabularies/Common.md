@@ -263,7 +263,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L684)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L689)|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
-[InitialValueIsSignificant](Common.xml#L692) *([Experimental](Common.md#Experimental))*|Bool|Initial value, e.g. empty string, is a valid and significant value
+[InitialValueIsSignificant](Common.xml#L692) *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 ## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](Common.xml#L697): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
 
@@ -280,7 +280,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L684)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L704)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-[InitialValueIsSignificant](Common.xml#L707) *([Experimental](Common.md#Experimental))*|Bool|Initial value, e.g. empty string, is a valid and significant value
+[InitialValueIsSignificant](Common.xml#L707) *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 **Applicable Annotation Terms:**
 

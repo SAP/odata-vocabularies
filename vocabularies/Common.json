@@ -869,7 +869,7 @@
                 "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
             },
             "InitialValueIsSignificant": {
-                "$Type": "Edm.Bool",
+                "$Type": "Edm.Boolean",
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
@@ -891,7 +891,7 @@
                 "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
             },
             "InitialValueIsSignificant": {
-                "$Type": "Edm.Bool",
+                "$Type": "Edm.Boolean",
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
