@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -33,9 +33,15 @@
         </Collection>
       </Annotation>
 
-      <Term Name="codeList" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType EntitySet">
+      <Term Name="codeList" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list" />
+      </Term>
+
+      <Term Name="deprecated" Type="Edm.String" Nullable="false" AppliesTo="EntitySet EntityType Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Mark entity sets, types, or properties as deprecated" />
+        <Annotation Term="Core.LongDescription" String="In general used when a new definition or an alternative to the marked element is already there. Can also be used  to denote that a field or feature will change in future. An explanation about the alternative (for example, 'use field XYZ instead') must be provided." />
       </Term>
 
       <Term Name="root" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">

@@ -43,11 +43,22 @@
             "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntityType",
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list"
+        },
+        "deprecated": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntitySet",
+                "EntityType",
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Mark entity sets, types, or properties as deprecated",
+            "@Core.LongDescription": "In general used when a new definition or an alternative to the marked element is already there. Can also be used  to denote that a field or feature will change in future. An explanation about the alternative (for example, 'use field XYZ instead') must be provided."
         },
         "root": {
             "$Kind": "Term",
