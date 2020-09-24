@@ -1073,7 +1073,6 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
         <Property Name="TriggerAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
           <Annotation Term="Core.LongDescription" String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
         </Property>
