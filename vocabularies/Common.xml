@@ -592,6 +592,7 @@ The minimum structure is
         </Property>
         <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
