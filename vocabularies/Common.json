@@ -725,6 +725,7 @@
             "QuickInfo": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
                 "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
@@ -836,6 +837,7 @@
             "QuickInfo": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
                 "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
