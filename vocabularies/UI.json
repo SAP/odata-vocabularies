@@ -1327,6 +1327,27 @@
                 "@Core.Description": "Value for the key property"
             }
         },
+        "ExpressionParameter": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.ParameterAbstract",
+            "@Core.Description": "Parameter value given as an expression (ABNF parameterValue)",
+            "@Core.LongDescription": "An instance of this type defines a parameter (if `ParameterName` is present) and/or an alias (if `ParameterAlias` is present).\n            The aliases can be referenced from all `Parameters` and from the `FilterExpression` in the `UI.SelectionVariant`.",
+            "ParameterName": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Path to a key property of a parameter entity type",
+                "@Core.LongDescription": "If this is absent, the instance defines only an alias to be referenced elsewhere in the `UI.SelectionVariant`."
+            },
+            "ParameterAlias": {
+                "$Type": "Common.SimpleIdentifier",
+                "$Nullable": true,
+                "@Core.Description": "Parameter alias (without leading @) to be used for this `ParameterName`",
+                "@Core.LongDescription": "If this is absent, the consumer chooses an alias."
+            },
+            "ParameterValue": {
+                "@Core.Description": "ABNF parameterValue into which the alias expands"
+            }
+        },
         "IntervalParameter": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.ParameterAbstract",
