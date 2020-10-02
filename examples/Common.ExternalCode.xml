@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="Common.ExternalCode.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <!--
+        TODO: define how the preferred approach interacts with ValueList
+      -->
+
+      <Annotations Target="my.type/internalCodeProperty" Qualifier="one">
+        <!-- 
+          Pro: simple extension of existing mechanism
+          Con: does not work if "visible code" consists of multiple fields
+
+          Works also for multi-part keys if applied to each key part
+
+          Bernhard Siewert prefers this approach as it keeps the semantics of what is the leading code/id
+
+          If ExternalCode is present, the "internal" code is never shown
+         -->
+        <Annotation Term="Common.ExternalCode" Path="related/externalProperty" />
+        <Annotation Term="Common.Text" Path="related/textProperty">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextFirst" />
+        </Annotation>
+      </Annotations>
+
+      <Annotations Target="my.type/internalCodeProperty" Qualifier="two">
+        <!-- 
+          Pro: flexible text representation, also works for multi-part keys
+          Con: in edit mode it is not clear what has to be edited, and how
+
+          TODO: clarify interaction between ConnectedFields and Common.Text+UI.TextArrangement on the underlying fields
+         -->
+        <Annotation Term="UI.CodeRepresentation" AnnotationPath="related/@UI.ConnectedFields#three" />
+      </Annotations>
+
+      <!--
+        Not preferred, too much overlap with UI.ConnectedFields
+      -->
+      <Annotations Target="my.type/internalCodeProperty" Qualifier="three">
+        <Annotation Term="Common.ExternalCodes">
+          <Collection>
+            <Path>related/externalProperty1</Path>
+            <Path>related/externalProperty2</Path>
+          </Collection>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
