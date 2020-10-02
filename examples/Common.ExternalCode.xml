@@ -19,6 +19,9 @@
           Con: does not work if "visible code" consists of multiple fields
 
           Works also for multi-part keys if applied to each key part
+          Works also if the multi-part code is complemented by a calculated single field
+
+            "externalCode": "mycontrollingarea,mycostcenter,2021"
 
           Bernhard Siewert prefers this approach as it keeps the semantics of what is the leading code/id
 
