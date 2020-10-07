@@ -70,6 +70,8 @@ Term|Type|Description
 [RecommendationState](UI.xml#L1538)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [RecommendationList](UI.xml#L1568)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1600)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[UserInteraction](UI.xml#L1604)|[UserInteractionType](#UserInteractionType)|<a name="UserInteraction"></a>When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user
+[UserInteractionSimple](UI.xml#L1607)|\[PrimitiveType\]|<a name="UserInteractionSimple"></a>When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
@@ -958,3 +960,19 @@ Property|Type|Description
 :-------|:---|:----------
 [LocalDataProperty](UI.xml#L1592)|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](UI.xml#L1595)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+
+## <a name="UserInteractionType"></a>[UserInteractionType](UI.xml#L1610)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Method](UI.xml#L1611)|[UserInteractionMethod](#UserInteractionMethod)|
+[Target](UI.xml#L1612)|\[PropertyPath\]|The properties to be set to the additional information obtained from the user<p>If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified</p>
+
+## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1617)
+
+
+Member|Value|Description
+:-----|----:|:----------
+[ChooseSingle](UI.xml#L1618)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
+[ChooseMultiple](UI.xml#L1621)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request

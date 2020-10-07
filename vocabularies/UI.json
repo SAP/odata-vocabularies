@@ -1916,6 +1916,43 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
+        },
+        "UserInteraction": {
+            "$Kind": "Term",
+            "$Type": "UI.UserInteractionType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user"
+        },
+        "UserInteractionSimple": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PrimitiveType",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"
+        },
+        "UserInteractionType": {
+            "$Kind": "ComplexType",
+            "Method": {
+                "$Type": "UI.UserInteractionMethod"
+            },
+            "Target": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "The properties to be set to the additional information obtained from the user",
+                "@Core.LongDescription": "If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified"
+            }
+        },
+        "UserInteractionMethod": {
+            "$Kind": "EnumType",
+            "ChooseSingle": 1,
+            "ChooseSingle@Core.Description": "The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request",
+            "ChooseMultiple": 2,
+            "ChooseMultiple@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"
         }
     }
 }
