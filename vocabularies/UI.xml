@@ -1613,7 +1613,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
           <Annotation Term="Core.Description" String="The properties to be set to the additional information obtained from the user"/>
           <Annotation Term="Core.LongDescription" String="If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified"/>
         </Property>
-      <ComplexType>
+      </ComplexType>
       <EnumType Name="UserInteractionMethod">
         <Member Name="ChooseSingle" Value="1">
           <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request"/>
