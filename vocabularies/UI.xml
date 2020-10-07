@@ -1601,6 +1601,28 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
-    </Schema>
+      <Term Name="UserInteraction" Type="UI.UserInteractionType" AppliesTo="NavigationProperty">
+        <Annotation Term="Core.Description" String="When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user"/>
+      </Term>
+      <Term Name="UserInteractionSimple" Type="Collection(Edm.PrimitiveType)" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"/>
+      </Term>
+      <ComplexType Name="UserInteractionType">
+        <Property Name="Method" Type="UI.UserInteractionMethod" Nullable="false"/>
+        <Property Name="Target" Type="Collection(Edm.PropertyPath)">
+          <Annotation Term="Core.Description" String="The properties to be set to the additional information obtained from the user"/>
+          <Annotation Term="Core.LongDescription" String="If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified"/>
+        </Property>
+      <ComplexType>
+      <EnumType Name="UserInteractionMethod">
+        <Member Name="ChooseSingle" Value="1">
+          <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request"/>
+        </Member>
+        <Member Name="ChooseMultiple" Value="2">
+          <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"/>
+        </Member>
+      </EnumType>
+
+   </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
