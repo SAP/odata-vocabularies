@@ -422,26 +422,25 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
       </ComplexType>
 
       <Term Name="Messages" Type="Collection(Edm.ComplexType)" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of end-user messages" />
         <Annotation Term="Core.LongDescription">
           <String>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.
 
-The minimum structure is  
+The minimum structure is
 
-- code: Edm.String 
+- `code: Edm.String`
 
-- message: Edm.String 
+- `message: Edm.String`
 
-- target: Edm.String nullable  
+- `target: Edm.String nullable`
 
-- additionalTargets: Collection(Edm.String)  
+- `additionalTargets: Collection(Edm.String)`
 
-- transition: Edm.Boolean
+- `transition: Edm.Boolean`
 
-- numericSeverity: Edm.Byte
+- `numericSeverity: Edm.Byte`
 
-- longtextUrl: Edm.String nullable  
+- `longtextUrl: Edm.String nullable`
           </String>
         </Annotation>
       </Term>
