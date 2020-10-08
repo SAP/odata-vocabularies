@@ -1924,7 +1924,8 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
-            "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user"
+            "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user",
+            "@Core.LongDescription": "A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed."
         },
         "UserInteractionSimple": {
             "$Kind": "Term",
@@ -1938,7 +1939,8 @@
         "UserInteractionType": {
             "$Kind": "ComplexType",
             "Method": {
-                "$Type": "UI.UserInteractionMethod"
+                "$Type": "UI.UserInteractionMethod",
+                "@Core.Description": "The method for interacting with the user"
             },
             "Target": {
                 "$Collection": true,
