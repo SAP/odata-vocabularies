@@ -17,4 +17,4 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[width](HTML5.xml#L47)|String|css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width<p>The property allows all values specified for the original css width property. Note that clients consuming this annotation may only support selected length units.</p>
+[width](HTML5.xml#L47)|String?|css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width<p>The property allows all values specified for the original css width property. Note that clients consuming this annotation may only support selected length units.</p>
