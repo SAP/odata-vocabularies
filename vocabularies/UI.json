@@ -1800,7 +1800,7 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Core.Description": " Service-calculated criticality, alternative to UI.CriticalityCalculation"
+            "@Core.Description": "Service-calculated criticality, alternative to UI.CriticalityCalculation"
         },
         "CriticalityCalculation": {
             "$Kind": "Term",
@@ -1810,6 +1810,17 @@
                 "Annotation"
             ],
             "@Core.Description": "Parameters for client-calculated criticality, alternative to UI.Criticality"
+        },
+        "Emphasized": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Highlight something that is of special interest",
+            "@Core.LongDescription": "The usage of a property or operation should be highlighted as it's of special interest for the end user"
         },
         "OrderBy": {
             "$Kind": "Term",

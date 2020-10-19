@@ -422,26 +422,25 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
       </ComplexType>
 
       <Term Name="Messages" Type="Collection(Edm.ComplexType)" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of end-user messages" />
         <Annotation Term="Core.LongDescription">
           <String>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.
 
-The minimum structure is  
+The minimum structure is
 
-- code: Edm.String 
+- `code: Edm.String`
 
-- message: Edm.String 
+- `message: Edm.String`
 
-- target: Edm.String nullable  
+- `target: Edm.String nullable`
 
-- additionalTargets: Collection(Edm.String)  
+- `additionalTargets: Collection(Edm.String)`
 
-- transition: Edm.Boolean
+- `transition: Edm.Boolean`
 
-- numericSeverity: Edm.Byte
+- `numericSeverity: Edm.Byte`
 
-- longtextUrl: Edm.String nullable  
+- `longtextUrl: Edm.String nullable`
           </String>
         </Annotation>
       </Term>
@@ -590,6 +589,11 @@ The minimum structure is
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
+        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
+        </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
         </Property>
@@ -660,6 +664,11 @@ The minimum structure is
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
+        </Property>
+        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
@@ -1073,7 +1082,6 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
           <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
         <Property Name="TriggerAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
           <Annotation Term="Core.LongDescription" String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
         </Property>

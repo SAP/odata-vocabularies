@@ -516,9 +516,8 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.ComplexType",
-            "@Common.Experimental": true,
             "@Core.Description": "Collection of end-user messages",
-            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is  \n\n- code: Edm.String \n\n- message: Edm.String \n\n- target: Edm.String nullable  \n\n- additionalTargets: Collection(Edm.String)  \n\n- transition: Edm.Boolean\n\n- numericSeverity: Edm.Byte\n\n- longtextUrl: Edm.String nullable  \n          "
+            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
         },
         "additionalTargets": {
             "$Kind": "Term",
@@ -722,6 +721,12 @@
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
             },
+            "QuickInfo": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
+            },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
             },
@@ -827,6 +832,12 @@
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
+            },
+            "QuickInfo": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
@@ -1337,7 +1348,6 @@
             "TriggerAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
                 "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
             },
