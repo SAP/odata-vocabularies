@@ -88,7 +88,6 @@
 
       </Term>
       <ComplexType Name="AggregatedPropertyType">
-        <Annotation Term="Common.Experimental" />
         <Property Name="Name" Type="Common.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value." />
         </Property>
