@@ -120,7 +120,6 @@
             "$Kind": "ComplexType",
             "Name": {
                 "$Type": "Common.SimpleIdentifier",
-                "$Nullable": true,
                 "@Core.Description": "Name the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
