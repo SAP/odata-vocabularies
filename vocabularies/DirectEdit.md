@@ -8,7 +8,7 @@ Terms for Direct-Edit User Interfaces
 
 Term|Type|Description
 :---|:---|:----------
-[SideEffects](DirectEdit.xml#L35) *([Experimental](Common.md#Experimental))*|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
+[SideEffects](DirectEdit.xml#L35) *([Experimental](Common.md#Experimental))*|[SideEffectsType?](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
 
 ## <a name="SideEffectsType"></a>[SideEffectsType](DirectEdit.xml#L40)
 
@@ -23,15 +23,14 @@ A direct-edit side-effect consists of:
   - `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
     or cast-compatible: the qualifier of the `Sideeffects` annotation
   - `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property
-  - `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it, 
+  - `Data` of a complex type that is structure-compatible with the entity type of the annotated entity set, 
     i.e.
     - all primitive properties are cast-compatible with corresponding properties of the entity type and are nullable,
     - all complex properties are structure-compatible with corresponding complex or navigation properties
       (for related entities necessary for side-effect determination)
-    - it may contain properties without a corresponding property in the entity type
-        - it may omit properties of the entity type
-        
-    The return type of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,
+    - it may contain properties without a corresponding property in the entity type, e.g. for end-user messages
+  
+    The return type of the action also needs to be structure-compatible with the entity type of the annotated entity set,
     it can be the same type as for `Data`.
 
 Property|Type|Description
