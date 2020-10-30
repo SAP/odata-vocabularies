@@ -165,6 +165,26 @@
             "@Core.Description": "Contains just uppercase characters",
             "@Core.RequiresType": "Edm.String"
         },
+        "IsCurrency": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Core.Description": "Annotated property or parameter is a currency code"
+        },
+        "IsUnit": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Core.Description": "Annotated property or parameter is a unit of measure"
+        },
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
@@ -496,9 +516,8 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.ComplexType",
-            "@Common.Experimental": true,
             "@Core.Description": "Collection of end-user messages",
-            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is  \n\n- code: Edm.String \n\n- message: Edm.String \n\n- target: Edm.String nullable  \n\n- additionalTargets: Collection(Edm.String)  \n\n- transition: Edm.Boolean\n\n- numericSeverity: Edm.Byte\n\n- longtextUrl: Edm.String nullable  \n          "
+            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
         },
         "additionalTargets": {
             "$Kind": "Term",
@@ -702,6 +721,12 @@
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
             },
+            "QuickInfo": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
+            },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
             },
@@ -771,6 +796,15 @@
             ],
             "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"
         },
+        "ValueListForValidation": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
+        },
         "ValueListReferences": {
             "$Kind": "Term",
             "$Collection": true,
@@ -798,6 +832,12 @@
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
+            },
+            "QuickInfo": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
@@ -838,6 +878,11 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Boolean",
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
         },
         "ValueListParameterConstant": {
@@ -855,6 +900,11 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Boolean",
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
             "@Validation.ApplicableTerms": [
                 "UI.Importance"
@@ -1162,6 +1212,13 @@
                 "$Nullable": true,
                 "@Core.Description": "Action that creates a new draft",
                 "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+            },
+            "AdditionalNewActions": {
+                "$Collection": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Additional actions that create a new draft",
+                "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
             }
         },
         "DraftNode": {
@@ -1226,6 +1283,12 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The QualifiedName of an OData construct in scope"
         },
+        "ActionOverload": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of an action with an optional overload",
+            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
+        },
         "SemanticKey": {
             "$Kind": "Term",
             "$Collection": true,
@@ -1285,7 +1348,6 @@
             "TriggerAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
                 "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
             },

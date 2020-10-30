@@ -1647,7 +1647,10 @@
             "WithIcon": 0,
             "WithIcon@Core.Description": "Criticality is represented with an icon",
             "WithoutIcon": 1,
-            "WithoutIcon@Core.Description": "Criticality is represented without icon, e.g. only via text color"
+            "WithoutIcon@Core.Description": "Criticality is represented without icon, e.g. only via text color",
+            "OnlyIcon": 2,
+            "OnlyIcon@Common.Experimental": true,
+            "OnlyIcon@Core.Description": "Criticality is represented only by using an icon"
         },
         "DataFieldForAnnotation": {
             "$Kind": "ComplexType",
@@ -1688,7 +1691,7 @@
             "@Core.Description": "Triggers an OData action",
             "@Core.LongDescription": "The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).",
             "Action": {
-                "$Type": "Common.QualifiedName",
+                "$Type": "Common.ActionOverload",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
             },
             "InvocationGrouping": {
@@ -1797,7 +1800,7 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Core.Description": " Service-calculated criticality, alternative to UI.CriticalityCalculation"
+            "@Core.Description": "Service-calculated criticality, alternative to UI.CriticalityCalculation"
         },
         "CriticalityCalculation": {
             "$Kind": "Term",
@@ -1807,6 +1810,17 @@
                 "Annotation"
             ],
             "@Core.Description": "Parameters for client-calculated criticality, alternative to UI.Criticality"
+        },
+        "Emphasized": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Highlight something that is of special interest",
+            "@Core.LongDescription": "The usage of a property or operation should be highlighted as it's of special interest for the end user"
         },
         "OrderBy": {
             "$Kind": "Term",
