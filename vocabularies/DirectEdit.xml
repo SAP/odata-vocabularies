@@ -47,7 +47,7 @@
 
 - an action bound to the entity set with the following non-binding parameters:
   - `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
-    or cast-compatible: the qualifier of the `Sideeffects` annotation
+    or cast-compatible: the qualifier of the `SideEffects` annotation
   - `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property
   - `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it, 
   i.e.
