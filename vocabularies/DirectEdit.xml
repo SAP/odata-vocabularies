@@ -32,7 +32,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="SideEffects" Type="DirectEdit.SideEffectsType" AppliesTo="EntitySet">
+      <Term Name="SideEffects" Type="DirectEdit.SideEffectsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Determine side effects of client-side data modification" />
       </Term>

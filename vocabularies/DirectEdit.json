@@ -39,7 +39,6 @@
         "SideEffects": {
             "$Kind": "Term",
             "$Type": "DirectEdit.SideEffectsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],

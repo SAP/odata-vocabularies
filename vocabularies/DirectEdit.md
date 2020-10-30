@@ -8,7 +8,7 @@ Terms for Direct-Edit User Interfaces
 
 Term|Type|Description
 :---|:---|:----------
-[SideEffects](DirectEdit.xml#L35) *([Experimental](Common.md#Experimental))*|[SideEffectsType?](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
+[SideEffects](DirectEdit.xml#L35) *([Experimental](Common.md#Experimental))*|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
 
 ## <a name="SideEffectsType"></a>[SideEffectsType](DirectEdit.xml#L40)
 
