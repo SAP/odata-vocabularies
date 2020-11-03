@@ -1920,10 +1920,11 @@
         "DisplayTimeZone": {
             "$Kind": "Term",
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "Parameter"
             ],
             "@Core.Description": "The point in time represented by the annotated property shall be presented in the context of the given time zone",
-            "@Core.LongDescription": "A value of `USER` means the current user's (i.e., their browser's) time zone.",
+            "@Core.LongDescription": "A value of `USER` means the current user's (i.e., their browser's) time zone. This is also the expected behavior in the absence of this annotation.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         }
     }
