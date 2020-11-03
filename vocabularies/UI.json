@@ -1916,6 +1916,15 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
+        },
+        "DisplayTimeZone": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The point in time represented by the annotated property shall be presented in the context of the given time zone",
+            "@Core.LongDescription": "A value of `USER` means the current user's (i.e., their browser's) time zone.",
+            "@Core.RequiresType": "Edm.DateTimeOffset"
         }
     }
 }
