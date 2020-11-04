@@ -463,7 +463,11 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         </Member>
         <Member Name="VeryPositive" Value="4">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
+          <Annotation Term="Core.Description" String="Very positive - above max stock - excess" />
+        </Member>
+        <Member Name="Information" Value="5">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Information - noticable - informative" />
         </Member>
       </EnumType>
 

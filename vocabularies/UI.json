@@ -564,7 +564,10 @@
             "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
             "VeryPositive": 4,
             "VeryPositive@Common.Experimental": true,
-            "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess"
+            "VeryPositive@Core.Description": "Very positive - above max stock - excess",
+            "Information": 5,
+            "Information@Common.Experimental": true,
+            "Information@Core.Description": "Information - noticable - informative"
         },
         "CriticalityCalculationType": {
             "$Kind": "ComplexType",
