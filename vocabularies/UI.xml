@@ -1606,7 +1606,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.LongDescription">
           <String>The value list for time zones is not prescribed by this vocabulary.
             
-In the absence of this annotation, points in time are typically presented in the current user's (i.e., their browser's) time zone.</String>
+In the absence of this annotation, points in time are typically presented in the current user's time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
