@@ -1603,7 +1603,11 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       <Term Name="DisplayTimeZone" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property shall be presented in the context of the given time zone"/>
-        <Annotation Term="Core.LongDescription" String="A value of `USER` means the current user's (i.e., their browser's) time zone. This is also the expected behavior in the absence of this annotation."/>
+        <Annotation Term="Core.LongDescription">
+          <String>The value list for time zones is not prescribed by this vocabulary.
+            
+In the absence of this annotation, points in time are typically presented in the current user's (i.e., their browser's) time zone.</String>
+        </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
 
