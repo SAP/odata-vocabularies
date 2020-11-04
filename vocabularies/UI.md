@@ -70,7 +70,7 @@ Term|Type|Description
 [RecommendationState](UI.xml#L1538)|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [RecommendationList](UI.xml#L1568)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1600)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DisplayTimeZone](UI.xml#L1604)|String|<a name="DisplayTimeZone"></a>The point in time represented by the annotated property shall be presented in the context of the given time zone<p>A value of `USER` means the current user's (i.e., their browser's) time zone. This is also the expected behavior in the absence of this annotation.</p>
+[DisplayTimeZone](UI.xml#L1604)|String|<a name="DisplayTimeZone"></a>The point in time represented by the annotated property shall be presented in the context of the given time zone<p>The value list for time zones is not prescribed by this vocabulary. In the absence of this annotation, points in time are typically presented in the current user's (i.e., their browser's) time zone.</p>
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 

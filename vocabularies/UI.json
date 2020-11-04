@@ -1924,7 +1924,7 @@
                 "Parameter"
             ],
             "@Core.Description": "The point in time represented by the annotated property shall be presented in the context of the given time zone",
-            "@Core.LongDescription": "A value of `USER` means the current user's (i.e., their browser's) time zone. This is also the expected behavior in the absence of this annotation.",
+            "@Core.LongDescription": "The value list for time zones is not prescribed by this vocabulary.\n            \nIn the absence of this annotation, points in time are typically presented in the current user's (i.e., their browser's) time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         }
     }
