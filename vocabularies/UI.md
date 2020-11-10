@@ -673,7 +673,7 @@ Member|Value|Description
 :-----|----:|:----------
 [TextFirst](UI.xml#L1274)|0|Text is first, followed by the code/ID (e.g. in parentheses)
 [TextLast](UI.xml#L1277)|1|Code/ID is first, followed by the text (e.g. separated by a dash)
-[TextSeparate](UI.xml#L1280)|2|Code/ID and text are represented separately
+[TextSeparate](UI.xml#L1280)|2|Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)
 [TextOnly](UI.xml#L1283)|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
 
 ## <a name="ImportanceType"></a>[ImportanceType](UI.xml#L1299)

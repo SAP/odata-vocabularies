@@ -1278,7 +1278,7 @@ The trend is
           <Annotation Term="Core.Description" String="Code/ID is first, followed by the text (e.g. separated by a dash)" />
         </Member>
         <Member Name="TextSeparate">
-          <Annotation Term="Core.Description" String="Code/ID and text are represented separately" />
+          <Annotation Term="Core.Description" String="Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)" />
         </Member>
         <Member Name="TextOnly">
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
