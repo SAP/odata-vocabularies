@@ -716,16 +716,13 @@
         },
         "ValueListType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
@@ -828,16 +825,13 @@
         },
         "ValueListMappingType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"

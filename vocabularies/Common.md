@@ -210,8 +210,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](Common.xml#L588)|String?|Headline for value list, fallback is the label of the property or parameter
-[QuickInfo](Common.xml#L592) *([Experimental](Common.md#Experimental))*|String?|Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter
+[Label](Common.xml#L593)|String?|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L597)|String|Resource path of an OData collection with possible values, relative to CollectionRoot
 [CollectionRoot](Common.xml#L600)|String?|Service root of the value list collection; not specified means local to the document containing the annotation
 [SearchSupported](Common.xml#L603)|Boolean|Value list supports the $search query option<p>The value of the target property is used as the search expression instead of in $filter</p>
@@ -219,6 +218,10 @@ Property|Type|Description
 [PresentationVariantQualifier](Common.xml#L610)|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath</p>
 [SelectionVariantQualifier](Common.xml#L614)|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath</p>
 [Parameters](Common.xml#L618)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+
+**Applicable Annotation Terms:**
+
+- [QuickInfo](#QuickInfo)
 
 ## <a name="FetchValuesType"></a>[FetchValuesType](Common.xml#L623)
 **Type:** Byte
@@ -235,13 +238,16 @@ Allowed Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](Common.xml#L664)|String?|Headline for value list, fallback is the label of the property or parameter
-[QuickInfo](Common.xml#L668) *([Experimental](Common.md#Experimental))*|String?|Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter
+[Label](Common.xml#L669)|String?|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L673)|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
 [FetchValues](Common.xml#L676)|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
 [PresentationVariantQualifier](Common.xml#L679)|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<p>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation</p>
 [SelectionVariantQualifier](Common.xml#L683)|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<p>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath</p>
 [Parameters](Common.xml#L687)|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+
+**Applicable Annotation Terms:**
+
+- [QuickInfo](#QuickInfo)
 
 ## <a name="ValueListParameter"></a>[*ValueListParameter*](Common.xml#L692)
 

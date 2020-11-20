@@ -585,14 +585,14 @@ The minimum structure is
           - - InOut: LocalDataProperty = CountryCode, ValueListProperty = CountryCode
           - - InOut: LocalDataProperty = RegionCode, ValueListProperty = Code
         -->
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
@@ -661,14 +661,14 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
       </Term>
       <ComplexType Name="ValueListMappingType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
