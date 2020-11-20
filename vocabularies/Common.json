@@ -716,6 +716,9 @@
         },
         "ValueListType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
@@ -822,6 +825,9 @@
         },
         "ValueListMappingType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
