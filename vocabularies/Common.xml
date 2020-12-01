@@ -1063,8 +1063,11 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
-        <Property Name="SourceAnnotations" Type="Collection(Edm.AnnotationPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Each `Edm.AnnotationPath` must be valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet). Changes to the values of one or more of the referenced structural properties may affect the targets." />
+        <Property Name="SourceFacets" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description">
+            <String>Each `Edm.AnnotationPath` must describe a UI facet, i.e., must be valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet).
+              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced facets.</String>
+          </Annotation>
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
