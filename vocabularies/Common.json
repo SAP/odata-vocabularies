@@ -1318,6 +1318,11 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
             },
+            "SourceAnnotations": {
+                "$Collection": true,
+                "$Type": "Edm.AnnotationPath",
+                "@Core.Description": "Each `Edm.AnnotationPath` must be valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet). Changes to the values of one or more of the referenced structural properties may affect the targets."
+            },
             "TargetProperties": {
                 "$Collection": true,
                 "@Core.Description": "These structural properties may be affected if the value of one of the sources changes",
