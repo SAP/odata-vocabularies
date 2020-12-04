@@ -382,7 +382,7 @@ Property|Type|Description
 :-------|:---|:----------
 [SourceProperties](Common.xml#L1060)|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
 [SourceEntities](Common.xml#L1063)|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[SourceFacets](Common.xml#L1066)|\[AnnotationPath\]|A collection of `Edm.AnnotationPath`s that are also valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet), i.e., that reference a UI facet. The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI facets.
+[SourceFacets](Common.xml#L1066)|\[AnnotationPath\]|A collection of annotation paths that are also valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet), i.e., that reference a UI facet. The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI facets.
 [TargetProperties](Common.xml#L1072)|\[String\]|These structural properties may be affected if the value of one of the sources changes<p>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path</p>
 [TargetEntities](Common.xml#L1076)|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
 [EffectTypes](Common.xml#L1079) *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
