@@ -1318,10 +1318,30 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
             },
-            "SourceFacets": {
+            "SourcePerspective": {
                 "$Collection": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "A collection of annotation paths that are also valid for [`UI.ReferenceFacet/Target`](UI.md#ReferenceFacet), i.e., that reference a UI facet.\n              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI facets."
+                "@Core.Description": "A collection of annotation paths that reference a UI perspective.\n              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI perspectives.",
+                "@Validation.AllowedTerms": [
+                    "Communication.Address",
+                    "Communication.Contact",
+                    "UI.Badge",
+                    "UI.Chart",
+                    "UI.Contacts",
+                    "UI.DataPoint",
+                    "UI.FieldGroup",
+                    "UI.GeoLocation",
+                    "UI.GeoLocations",
+                    "UI.HeaderInfo",
+                    "UI.Identification",
+                    "UI.KPI",
+                    "UI.LineItem",
+                    "UI.MediaResource",
+                    "UI.PresentationVariant",
+                    "UI.SelectionFields",
+                    "UI.SelectionPresentationVariant",
+                    "UI.StatusInfo"
+                ]
             },
             "TargetProperties": {
                 "$Collection": true,
