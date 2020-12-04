@@ -1063,7 +1063,7 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
-        <Property Name="SourcePerspective" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+        <Property Name="SourcePerspectives" Type="Collection(Edm.AnnotationPath)" Nullable="false">
           <Annotation Term="Core.Description">
             <String>A collection of annotation paths that reference a UI perspective.
               The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI perspectives.</String>
