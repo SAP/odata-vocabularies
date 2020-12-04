@@ -1318,7 +1318,7 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
             },
-            "SourcePerspective": {
+            "SourcePerspectives": {
                 "$Collection": true,
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "A collection of annotation paths that reference a UI perspective.\n              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI perspectives.",
