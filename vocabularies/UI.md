@@ -968,7 +968,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Method](UI.xml#L1617)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
-[Target](UI.xml#L1620)|\[PropertyPath\]|The properties to be set to the additional information obtained from the user
+[Target](UI.xml#L1620)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user
 
 ## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1624)
 

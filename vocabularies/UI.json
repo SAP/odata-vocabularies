@@ -1948,8 +1948,8 @@
             },
             "Target": {
                 "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "The properties to be set to the additional information obtained from the user"
+                "$Type": "Common.ValueListParameterOut",
+                "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user"
             }
         },
         "UserInteractionMethod": {
