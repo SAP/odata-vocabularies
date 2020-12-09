@@ -1946,8 +1946,7 @@
             "Target": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "The properties to be set to the additional information obtained from the user",
-                "@Core.LongDescription": "If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified"
+                "@Core.Description": "The properties to be set to the additional information obtained from the user"
             }
         },
         "UserInteractionMethod": {

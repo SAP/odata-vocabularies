@@ -967,12 +967,12 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Method](UI.xml#L1613)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
-[Target](UI.xml#L1616)|\[PropertyPath\]|The properties to be set to the additional information obtained from the user<p>If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified</p>
+[Target](UI.xml#L1616)|\[PropertyPath\]|The properties to be set to the additional information obtained from the user
 
-## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1621)
+## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1620)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[ChooseSingle](UI.xml#L1622)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
-[ChooseMultiple](UI.xml#L1625)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
+[ChooseSingle](UI.xml#L1621)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
+[ChooseMultiple](UI.xml#L1624)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
