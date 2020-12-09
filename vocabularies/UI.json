@@ -1950,7 +1950,7 @@
                 "$Collection": true,
                 "$Type": "Common.ValueListParameterOut",
                 "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user",
-                "@Core.LongDescription": "The additional information obtained from the user is treated like a value list, but one that was sent by the server rather than requested by the user."
+                "@Core.LongDescription": "This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,\n              but one that was sent by the server rather than requested by the user."
             }
         },
         "UserInteractionMethod": {
