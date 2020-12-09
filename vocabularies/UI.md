@@ -968,13 +968,13 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Method](UI.xml#L1617)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
-[Target](UI.xml#L1620)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user
+[Parameters](UI.xml#L1620)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<p>The additional information obtained from the user is treated like a value list, but one that was sent by the server rather than requested by the user.</p>
 
-## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1624)
+## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1625)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[ChooseSingle](UI.xml#L1625)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
-[ChooseMultiple](UI.xml#L1628)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
-[Confirm](UI.xml#L1631)|3|The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
+[ChooseSingle](UI.xml#L1626)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
+[ChooseMultiple](UI.xml#L1629)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
+[Confirm](UI.xml#L1632)|3|The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode

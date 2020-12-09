@@ -1946,10 +1946,11 @@
                 "$Type": "UI.UserInteractionMethod",
                 "@Core.Description": "The method for interacting with the user"
             },
-            "Target": {
+            "Parameters": {
                 "$Collection": true,
                 "$Type": "Common.ValueListParameterOut",
-                "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user"
+                "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user",
+                "@Core.LongDescription": "The additional information obtained from the user is treated like a value list, but one that was sent by the server rather than requested by the user."
             }
         },
         "UserInteractionMethod": {
