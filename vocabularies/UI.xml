@@ -1606,7 +1606,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <Term Name="UserInteraction" Type="UI.UserInteractionType" AppliesTo="NavigationProperty">
-        <Annotation Term="Core.Description" String="When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user"/>
+        <Annotation Term="Core.Description" String="When the annotated navigation property occurs in a response, the UI shall use the corresponding entity or collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user"/>
         <Annotation Term="Core.LongDescription" String="A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed."/>
       </Term>
       <Term Name="UserInteractionSimple" Type="Collection(Edm.PrimitiveType)" AppliesTo="Property">
@@ -1627,6 +1627,9 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Member>
         <Member Name="ChooseMultiple" Value="2">
           <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"/>
+        </Member>
+        <Member Name="Confirm" Value="3">
+          <Annotation Term="Core.Description" String="The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in &quot;effective&quot; mode"/>
         </Member>
       </EnumType>
 
