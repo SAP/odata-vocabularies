@@ -24,9 +24,12 @@
             <Annotation Term="Core.Description" String="Please choose a product"/>
             <Record>
               <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
-              <PropertyValue Property="Target">
+              <PropertyValue Property="Parameters">
                 <Collection>
-                  <PropertyPath>ExchangeProduct/NewProduct</PropertyPath>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
                 </Collection>
               </PropertyValue>
             </Record>
@@ -37,9 +40,12 @@
             <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
             <Record>
               <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.Confirm"/>
-              <PropertyValue Property="Target">
+              <PropertyValue Property="Parameters">
                 <Collection>
-                  <PropertyPath>ExchangeProduct/NewProduct</PropertyPath>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
                 </Collection>
               </PropertyValue>
             </Record>
