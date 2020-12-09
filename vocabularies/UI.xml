@@ -1613,9 +1613,8 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Property Name="Method" Type="UI.UserInteractionMethod" Nullable="false">
           <Annotation Term="Core.Description" String="The method for interacting with the user"/>
         </Property>
-        <Property Name="Target" Type="Collection(Edm.PropertyPath)">
+        <Property Name="Target" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The properties to be set to the additional information obtained from the user"/>
-          <Annotation Term="Core.LongDescription" String="If the annotated NavigationProperty has a ReferentialConstraint, a Target need not be specified"/>
         </Property>
       </ComplexType>
       <EnumType Name="UserInteractionMethod">
