@@ -1619,7 +1619,10 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Property>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameterOut)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions how to fill properties with the additional information obtained from the user"/>
-          <Annotation Term="Core.LongDescription" String="The additional information obtained from the user is treated like a value list, but one that was sent by the server rather than requested by the user."/>
+          <Annotation Term="Core.LongDescription">
+            <String>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,
+              but one that was sent by the server rather than requested by the user.</String>
+          </Annotation>
         </Property>
       </ComplexType>
       <EnumType Name="UserInteractionMethod">
