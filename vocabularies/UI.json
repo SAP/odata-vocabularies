@@ -1937,7 +1937,7 @@
                 "Property"
             ],
             "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value, unless `null` was chosen"
+            "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"
         },
         "UserInteractionType": {
             "$Kind": "ComplexType",
