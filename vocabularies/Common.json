@@ -25,6 +25,14 @@
                 }
             ]
         },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Communication.v1",
+                    "$Alias": "Communication"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
             "$Include": [
                 {
