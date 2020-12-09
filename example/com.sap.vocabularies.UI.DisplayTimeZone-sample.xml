@@ -7,7 +7,7 @@
     <edmx:Include Namespace="com.sap.gateway.functions.standard" Alias="SAP" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="datetimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="displaytimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
         <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset">
           <!-- This timestamp shall be displayed in the context of its time zone, but the time zone shall
