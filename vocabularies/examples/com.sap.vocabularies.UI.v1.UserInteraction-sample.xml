@@ -16,6 +16,7 @@
            (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
            from which the user must then choose, and the request must be repeated with the chosen key
            (POST ~/SalesOrderItems(...)/ExchangeProduct?NewProduct='...').
+           But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose.
       -->
       <EntityType Name="SalesOrderItem">
         <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)">
@@ -23,6 +24,19 @@
             <Annotation Term="Core.Description" String="Please choose a product"/>
             <Record>
               <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
+              <PropertyValue Property="Target">
+                <Collection>
+                  <PropertyPath>ExchangeProduct/NewProduct</PropertyPath>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
+        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
+            <Record>
+              <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.Confirm"/>
               <PropertyValue Property="Target">
                 <Collection>
                   <PropertyPath>ExchangeProduct/NewProduct</PropertyPath>
