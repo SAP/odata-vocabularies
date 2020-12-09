@@ -81,6 +81,18 @@
         <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
+      <Term Name="ExternalID" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
+      </Term>
+
+      <Term Name="ExternalIDs" Type="Collection(Edm.String)" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
+      </Term>
+
       <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="An identifier to distinguish multiple texts in different languages for the same entity" />
