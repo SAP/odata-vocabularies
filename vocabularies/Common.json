@@ -114,6 +114,26 @@
             "@Core.RequiresType": "Edm.String",
             "@Core.Description": "The annotated property contains a descriptive text for values of the referenced property."
         },
+        "ExternalID": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
+            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
+        },
+        "ExternalIDs": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
+            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids."
+        },
         "IsLanguageIdentifier": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
