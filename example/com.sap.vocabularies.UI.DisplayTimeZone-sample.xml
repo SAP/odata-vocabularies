@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata4/standard-functions.xml">
+    <edmx:Include Namespace="com.sap.gateway.functions.standard" Alias="SAP" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="datetimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="WorkerTimeSheet">
+        <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset">
+          <!-- This timestamp shall be displayed in the context of its time zone, but the time zone shall
+               be represented simply by the timezoneOffset, e.g., 2020-12-09-T06:00:00+05:00 as Dec 09 2020, 6am, +05:00
+          -->
+          <Annotation Term="UI.DisplayTimeZone">
+            <Apply Function="SAP.timezoneOffset">
+              <Path>ClockInDateTime</Path>
+            </Apply>
+          </Annotation>
+        </Property>
+      </EntityType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>      
