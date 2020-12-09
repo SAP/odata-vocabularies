@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata4/product.xml">
+    <edmx:Include Namespace="com.sap.gateway.entities.product" Alias="Product" />
+  </edmx:Reference>  
+  <edmx:DataServices>
+    <Schema Namespace="userinteraction.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <!-- The action "exchange product in a sales order item" is triggered by the user on a sales order item
+           (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
+           from which the user must then choose, and the request must be repeated with the chosen key
+           (POST ~/SalesOrderItems(...)/ExchangeProduct?NewProduct='...').
+      -->
+      <EntityType Name="SalesOrderItem">
+        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Please choose a product"/>
+            <Record>
+              <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
+              <PropertyValue Property="Target">
+                <Collection>
+                  <PropertyPath>ExchangeProduct/NewProduct</PropertyPath>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
+      </EntityType>
+      <Action Name="ExchangeProduct" IsBound="true">
+        <Parameter Name="item" Type="Self.SalesOrderItem" Nullable="false"/>
+        <Parameter Name="NewProduct" Type="Edm.String"/>
+        <ReturnType Type="Self.SalesOrderItem"/>
+      </Action>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>      
