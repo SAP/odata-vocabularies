@@ -1927,7 +1927,7 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
-            "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the corresponding collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user",
+            "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the corresponding entity or collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user",
             "@Core.LongDescription": "A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed."
         },
         "UserInteractionSimple": {
@@ -1957,7 +1957,9 @@
             "ChooseSingle": 1,
             "ChooseSingle@Core.Description": "The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request",
             "ChooseMultiple": 2,
-            "ChooseMultiple@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"
+            "ChooseMultiple@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request",
+            "Confirm": 3,
+            "Confirm@Core.Description": "The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in \"effective\" mode"
         }
     }
 }
