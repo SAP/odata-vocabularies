@@ -1606,6 +1606,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.LongDescription" String="A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed."/>
       </Term>
       <Term Name="UserInteractionSimple" Type="Collection(Edm.PrimitiveType)" AppliesTo="Property">
+        <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"/>
       </Term>
       <ComplexType Name="UserInteractionType">
