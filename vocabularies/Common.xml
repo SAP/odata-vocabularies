@@ -451,14 +451,12 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Location of the message long text" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
