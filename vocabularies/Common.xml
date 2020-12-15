@@ -467,7 +467,6 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>

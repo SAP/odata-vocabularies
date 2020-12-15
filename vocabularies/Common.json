@@ -562,7 +562,6 @@
         "NumericMessageSeverityType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
