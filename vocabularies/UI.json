@@ -1571,7 +1571,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from a related entity."
@@ -1580,7 +1581,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
@@ -1589,7 +1591,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
