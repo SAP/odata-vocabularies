@@ -126,7 +126,7 @@
                 },
                 {
                     "@Common.Experimental": true,
-                    "Value": "SubjectIDType",
+                    "Value": "DataSubjectIDType",
                     "@Core.Description": "The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number."
                 },
                 {
@@ -137,7 +137,7 @@
                 },
                 {
                     "@Common.Experimental": true,
-                    "Value": "ConsentPurposeID",
+                    "Value": "PurposeID",
                     "@Core.Description": "The unique identifier for the purpose of a consent",
                     "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
                 },

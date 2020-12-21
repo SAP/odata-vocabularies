@@ -132,7 +132,7 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="SubjectIDType" />
+              <PropertyValue Property="Value" String="DataSubjectIDType" />
               <Annotation Term="Core.Description" String="The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number." />
             </Record>
             <Record>
@@ -149,7 +149,7 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="ConsentPurposeID" />
+              <PropertyValue Property="Value" String="PurposeID" />
               <Annotation Term="Core.Description" String="The unique identifier for the purpose of a consent" />
               <Annotation Term="Core.LongDescription">
                 <String>The purpose of a consent is the information that specifies the reason and the goal for
