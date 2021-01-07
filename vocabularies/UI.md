@@ -810,7 +810,7 @@ Property|Type|Description
 [*Determining*](UI.xml#L1412)|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 [SemanticObject](UI.xml#L1443)|String|Name of the Semantic Object
 [Action](UI.xml#L1446)|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[NavigationAvailable](UI.xml#L1449) *([Experimental](Common.md#Experimental))*|Boolean?|The navigation intent is for that user with the selected context and parameters available
+[NavigationAvailable](UI.xml#L1449) *([Experimental](Common.md#Experimental))*|Boolean|The navigation intent is for that user with the selected context and parameters available
 [RequiresContext](UI.xml#L1453)|Boolean|Determines whether a context needs to be passed to the target of this navigation.
 [Mapping](UI.xml#L1456)|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
 
