@@ -1446,6 +1446,10 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
+        <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
+        </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
         </Property>

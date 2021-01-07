@@ -1726,6 +1726,12 @@
                 "$Nullable": true,
                 "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
             },
+            "NavigationAvailable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "The navigation intent is for that user with the selected context and parameters available"
+            },
             "RequiresContext": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
