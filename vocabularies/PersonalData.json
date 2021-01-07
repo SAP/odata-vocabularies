@@ -152,6 +152,12 @@
                     "Value": "LegalEntityID",
                     "@Core.Description": "The unique identifier of a legal entity",
                     "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
+                },
+                {
+                    "@Common.Experimental": true,
+                    "Value": "UserID",
+                    "@Core.Description": "The unique identifier of a user",
+                    "@Core.LongDescription": "A user is an individual who interacts with the services supplied by a system."
                 }
             ]
         },
@@ -175,17 +181,6 @@
             ],
             "@Core.Description": "Property contains potentially sensitive personal data",
             "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n\n-  Personal data subject to professional secrecy\n\n-  Personal data relating to criminal or administrative offences\n\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
-        },
-        "IsUserID": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Property contains a user id",
-            "@Core.LongDescription": "A user id is a unique identifier for an individual who interacts with the services supplied by a system"
         }
     }
 }

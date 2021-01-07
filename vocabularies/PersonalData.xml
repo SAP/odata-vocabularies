@@ -180,6 +180,14 @@ Terms for contact and address information are defined in the [Communication voca
                 <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
               </Annotation>
             </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="UserID" />
+              <Annotation Term="Core.Description" String="The unique identifier of a user" />
+              <Annotation Term="Core.LongDescription">
+                <String>A user is an individual who interacts with the services supplied by a system.</String>
+              </Annotation>
+            </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
@@ -211,12 +219,6 @@ See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-
 
 See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
         </Annotation>
-      </Term>
-
-      <Term Name="IsUserID" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains a user id" />
-        <Annotation Term="Core.LongDescription" String="A user id is a unique identifier for an individual who interacts with the services supplied by a system" />
       </Term>
     </Schema>
   </edmx:DataServices>
