@@ -1280,7 +1280,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action with an optional overload",
-            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
+            "@Core.LongDescription": "The qualified name of an action followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
         },
         "SemanticKey": {
             "$Kind": "Term",
