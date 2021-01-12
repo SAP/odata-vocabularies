@@ -363,9 +363,9 @@ The QualifiedName of an OData construct in scope
 
 The qualified name of an action with an optional overload
 
-The qualified name of an action optionally followed by parentheses 
+The qualified name of an action followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
-            or by empty parentheses to identify the unbound overload.
+            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
 ## <a name="SideEffectsType"></a>[SideEffectsType](Common.xml#L1046)
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
