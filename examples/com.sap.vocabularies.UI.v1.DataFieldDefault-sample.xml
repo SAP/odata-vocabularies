@@ -22,14 +22,14 @@
           <Record Type="UI.DataFieldWithValueFunction">
             <PropertyValue Property="Label" String="Fiscal date function" />
             <PropertyValue Property="Value" Path="P_Date" />
-            <PropertyValue Property="Action" String="SAP.FiscalDateFunction" />
+            <PropertyValue Property="Action" String="SAP.FiscalDateFunction()" />
           </Record>
         </Annotation>
         <Annotation Term="UI.DataFieldDefault" Qualifier="GregorianDateFunction">
           <Record Type="UI.DataFieldWithValueFunction">
             <PropertyValue Property="Label" String="Gregorian date function" />
             <PropertyValue Property="Value" Path="P_Date" />
-            <PropertyValue Property="Action" String="SAP.GregorianDateFunction" />
+            <PropertyValue Property="Action" String="SAP.GregorianDateFunction()" />
           </Record>
         </Annotation>
       </Annotations>
