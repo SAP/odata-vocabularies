@@ -87,11 +87,13 @@
         <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
       </Term>
 
-      <Term Name="ExternalIDs" Type="Collection(Edm.String)" AppliesTo="Property">
+      <!--
+      <Term Name="ExternalIDs" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
       </Term>
+      -->
 
       <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
@@ -463,14 +465,12 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Location of the message long text" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
@@ -481,7 +481,6 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
@@ -597,14 +596,14 @@ The minimum structure is
           - - InOut: LocalDataProperty = CountryCode, ValueListProperty = CountryCode
           - - InOut: LocalDataProperty = RegionCode, ValueListProperty = Code
         -->
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
@@ -673,14 +672,14 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
       </Term>
       <ComplexType Name="ValueListMappingType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
@@ -710,7 +709,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" Default="false" Nullable="false">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
@@ -725,7 +724,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" Default="false" Nullable="false">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>

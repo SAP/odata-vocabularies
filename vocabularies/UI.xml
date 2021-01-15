@@ -1308,7 +1308,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record">
+      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record Parameter">
         <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true." />
         <Annotation Term="Core.LongDescription">
           <String>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.
@@ -1316,17 +1316,17 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from a related entity." />
       </Term>
 
-      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
 
-      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Delete operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
@@ -1445,6 +1445,10 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
         <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
+        </Property>
+        <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />

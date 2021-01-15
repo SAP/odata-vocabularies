@@ -124,16 +124,6 @@
             "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
             "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
         },
-        "ExternalIDs": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids."
-        },
         "IsLanguageIdentifier": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -555,7 +545,6 @@
             "$AppliesTo": [
                 "Record"
             ],
-            "@Common.Experimental": true,
             "@Core.IsURL": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Location of the message long text",
@@ -564,7 +553,6 @@
         "numericSeverity": {
             "$Kind": "Term",
             "$Type": "Common.NumericMessageSeverityType",
-            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
@@ -584,7 +572,6 @@
         "NumericMessageSeverityType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
@@ -736,16 +723,13 @@
         },
         "ValueListType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
@@ -848,16 +832,13 @@
         },
         "ValueListMappingType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
@@ -901,6 +882,7 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
@@ -923,6 +905,7 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
