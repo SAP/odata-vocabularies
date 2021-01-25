@@ -1546,6 +1546,28 @@
             "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "ActionSemantics": {
+            "$Kind": "Term",
+            "$Type": "Common.ActionSemanticsType",
+            "$AppliesTo": [
+                "Action"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Semantics of a bound action"
+        },
+        "ActionSemanticsType": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Semantics of a bound action",
+            "@Validation.AllowedValues": [
+                {
+                    "@Common.Experimental": true,
+                    "Value": "create",
+                    "@Core.Description": "Creates an instance",
+                    "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
+                }
+            ]
         }
     }
 }

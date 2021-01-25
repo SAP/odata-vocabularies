@@ -103,6 +103,7 @@ Term|Type|Description
 [ChangedBy](Common.xml#L1299)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
 [OriginalProtocolVersion](Common.xml#L1311)|String?|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
 [ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1316) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
+[ActionSemantics](Common.xml#L1322) *([Experimental](Common.md#Experimental))*|[ActionSemanticsType](#ActionSemanticsType)|<a name="ActionSemantics"></a>Semantics of a bound action
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L107)
 
@@ -419,3 +420,12 @@ Property|Type|Description
 **Type:** String
 
 User ID
+
+## <a name="ActionSemanticsType"></a>[ActionSemanticsType](Common.xml#L1326)
+**Type:** String
+
+Semantics of a bound action
+
+Allowed Value|Description
+:------------|:----------
+[create](Common.xml#L1330) *([Experimental](Common.md#Experimental))*|Creates an instance<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>

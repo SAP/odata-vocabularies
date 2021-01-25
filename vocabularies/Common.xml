@@ -1319,6 +1319,24 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
+      <Term Name="ActionSemantics" Type="Common.ActionSemanticsType" Nullable="false" AppliesTo="Action">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Semantics of a bound action" />
+      </Term>
+      <TypeDefinition Name="ActionSemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Semantics of a bound action" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="create" />
+              <Annotation Term="Core.Description" String="Creates an instance" />
+              <Annotation Term="Core.LongDescription" String="Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity." />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
