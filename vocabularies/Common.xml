@@ -1329,8 +1329,14 @@ Upon modification field control logic is invoked so that meta-information like h
           <Collection>
             <Record>
               <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="copy" />
+              <Annotation Term="Core.Description" String="Creates an instance by copying an existing instance of the same type" />
+              <Annotation Term="Core.LongDescription" String="Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity." />
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="create" />
-              <Annotation Term="Core.Description" String="Creates an instance" />
+              <Annotation Term="Core.Description" String="Creates an instance, optionally with copying data from one or more existing instances of a different type" />
               <Annotation Term="Core.LongDescription" String="Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity." />
             </Record>
           </Collection>

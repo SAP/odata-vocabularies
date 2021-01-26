@@ -1563,8 +1563,14 @@
             "@Validation.AllowedValues": [
                 {
                     "@Common.Experimental": true,
+                    "Value": "copy",
+                    "@Core.Description": "Creates an instance by copying an existing instance of the same type",
+                    "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
+                },
+                {
+                    "@Common.Experimental": true,
                     "Value": "create",
-                    "@Core.Description": "Creates an instance",
+                    "@Core.Description": "Creates an instance, optionally with copying data from one or more existing instances of a different type",
                     "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
                 }
             ]

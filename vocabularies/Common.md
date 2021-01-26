@@ -428,4 +428,5 @@ Semantics of a bound action
 
 Allowed Value|Description
 :------------|:----------
-[create](Common.xml#L1330) *([Experimental](Common.md#Experimental))*|Creates an instance<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
+[copy](Common.xml#L1330) *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
+[create](Common.xml#L1336) *([Experimental](Common.md#Experimental))*|Creates an instance, optionally with copying data from one or more existing instances of a different type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
