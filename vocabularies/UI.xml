@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
@@ -1285,13 +1285,15 @@ The trend is
         </Member>
       </EnumType>
 
-      <!-- Under discussion
-        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
-        <Annotation Term="Core.Description">
-        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
+      <Term Name="DisplayTimeZone" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
+        <Annotation Term="Validation.Pattern" String="^[+-]?[0-9][0-9]:[0-5][0-9]$" />
+        <Annotation Term="Core.Description" String="Display the annotated timestamp field in this time zone" />
+        <Annotation Term="Core.LongDescription">
+          <String>The display time zone is represented as an offset ±hh:mm and can be a path expression</String>
         </Annotation>
-        </Term>
-      -->
+      </Term>
 
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
@@ -1347,7 +1349,7 @@ The trend is
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action" />
-        <Annotation Term="Core.LongDescription" >
+        <Annotation Term="Core.LongDescription">
           <String>By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
           and the default css settings (as the width) of the data field can be influenced. </String>
         </Annotation>
@@ -1448,7 +1450,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
         <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available" />
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />

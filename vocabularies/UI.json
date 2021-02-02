@@ -1535,6 +1535,18 @@
             "TextOnly": 3,
             "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
         },
+        "DisplayTimeZone": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.RequiresType": "Edm.DateTimeOffset",
+            "@Validation.Pattern": "^[+-]?[0-9][0-9]:[0-5][0-9]$",
+            "@Core.Description": "Display the annotated timestamp field in this time zone",
+            "@Core.LongDescription": "The display time zone is represented as an offset ±hh:mm and can be a path expression"
+        },
         "Importance": {
             "$Kind": "Term",
             "$Type": "UI.ImportanceType",
