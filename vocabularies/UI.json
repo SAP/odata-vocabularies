@@ -416,7 +416,7 @@
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "Numeric value",
-                "@Core.LongDescription": "\nThe value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.\n\nIt could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`.\nPercentage values are annotated with `UoM.Unit = '%'`.\nA renderer should take an optional `Common.Text` annotation into consideration.\n            "
+                "@Core.LongDescription": "\nThe value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.\n\nIt could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`.\nPercentage values are annotated with `UoM.Unit = '%'`.\nA renderer should take an optional [Common.Text](Common.md#Text) annotation into consideration.\n            "
             },
             "TargetValue": {
                 "$Type": "Edm.PrimitiveType",
@@ -1545,7 +1545,7 @@
             "@Core.RequiresType": "Edm.DateTimeOffset",
             "@Validation.Pattern": "^[+-]?[0-9][0-9]:[0-5][0-9]$",
             "@Core.Description": "Display the annotated timestamp field in this time zone",
-            "@Core.LongDescription": "The display time zone is represented as an offset ±hh:mm and can be a path expression"
+            "@Core.LongDescription": "The display time zone is represented as an offset ±hh:mm and can be a path expression.\nIf a path expression is used to reference a field containing the numeric offset,\nthis offset field can in turn be annotated with `Common.Text` pointing to a third field\ncontaining a textual description of the display time zone."
         },
         "Importance": {
             "$Kind": "Term",
