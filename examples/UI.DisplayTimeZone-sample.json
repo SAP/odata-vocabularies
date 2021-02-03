@@ -25,7 +25,7 @@
                 "$Type": "Edm.DateTimeOffset",
                 "$Nullable": true,
                 "$Precision": 0,
-                "@UI.DisplayTimeZone": {
+                "@UI.DisplayTimezoneOffset": {
                     "$Path": "dispTzOffset"
                 },
                 "@Core.Description": "The point in time when this thing is ready"

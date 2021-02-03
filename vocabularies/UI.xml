@@ -1285,7 +1285,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="DisplayTimeZone" Type="Edm.String" AppliesTo="Property">
+      <Term Name="DisplayTimezoneOffset" Type="Edm.String" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Validation.Pattern" String="^[+-]?[0-9][0-9]:[0-5][0-9]$" />
         <Annotation Term="Core.Description" String="Display the annotated timestamp field in this time zone" />

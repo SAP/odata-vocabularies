@@ -11,7 +11,7 @@
 
       <ComplexType Name="Thing">
         <Property Name="readyAt" Type="Edm.DateTimeOffset">
-          <Annotation Term="UI.DisplayTimeZone" Path="dispTzOffset" />
+          <Annotation Term="UI.DisplayTimezoneOffset" Path="dispTzOffset" />
           <Annotation Term="Core.Description" String="The point in time when this thing is ready" />
         </Property>
         <Property Name="dispTzOffset" Type="Edm.String">
