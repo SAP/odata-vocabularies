@@ -1531,7 +1531,7 @@
             "TextLast": 1,
             "TextLast@Core.Description": "Code/ID is first, followed by the text (e.g. separated by a dash)",
             "TextSeparate": 2,
-            "TextSeparate@Core.Description": "Code/ID and text are represented separately",
+            "TextSeparate@Core.Description": "Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)",
             "TextOnly": 3,
             "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
         },
@@ -1561,7 +1561,8 @@
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty",
-                "Record"
+                "Record",
+                "Parameter"
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
             "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
@@ -1570,7 +1571,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from a related entity."
@@ -1579,7 +1581,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
@@ -1588,7 +1591,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
@@ -1721,6 +1725,12 @@
             "Action": {
                 "$Nullable": true,
                 "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
+            },
+            "NavigationAvailable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "The navigation intent is for that user with the selected context and parameters available"
             },
             "RequiresContext": {
                 "$Type": "Edm.Boolean",
