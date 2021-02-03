@@ -1268,7 +1268,7 @@ The trend is
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
-        <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
+        <Annotation Term="Core.LongDescription" String="If used for a single property the [Common.Text](Common.md#Text) annotation is annotated" />
       </Term>
       <EnumType Name="TextArrangementType">
         <Member Name="TextFirst">
@@ -1292,7 +1292,7 @@ The trend is
         <Annotation Term="Core.LongDescription">
           <String>The display time zone is represented as an offset ±hh:mm and can be a path expression.
 If a path expression is used to reference a field containing the numeric offset,
-this offset field can in turn be annotated with `Common.Text` pointing to a third field
+this offset field can in turn be annotated with [Common.Text](Common.md#Text) pointing to a third field
 containing the symbolic name or textual description of the display time zone.</String>
         </Annotation>
       </Term>

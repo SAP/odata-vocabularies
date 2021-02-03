@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="UI.DisplayTimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <ComplexType Name="Thing">
+        <Property Name="readyAt" Type="Edm.DateTimeOffset">
+          <Annotation Term="UI.DisplayTimeZone" Path="dispTzOffset" />
+          <Annotation Term="Core.Description" String="The point in time when this thing is ready" />
+        </Property>
+        <Property Name="dispTzOffset" Type="Edm.String">
+          <Annotation Term="Common.Text" Path="dispTzText" />
+          <Annotation Term="Core.Description" String="Time zone offset used for displaying readyAt" />
+        </Property>
+        <Property Name="dispTzText" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Textual representation of dispTzOffset, e.g. 'CET'" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

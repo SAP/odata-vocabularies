@@ -1,0 +1,46 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        }
+    },
+    "UI.DisplayTimezone.sample": {
+        "Thing": {
+            "$Kind": "ComplexType",
+            "readyAt": {
+                "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
+                "$Precision": 0,
+                "@UI.DisplayTimeZone": {
+                    "$Path": "dispTzOffset"
+                },
+                "@Core.Description": "The point in time when this thing is ready"
+            },
+            "dispTzOffset": {
+                "$Nullable": true,
+                "@Common.Text": {
+                    "$Path": "dispTzText"
+                },
+                "@Core.Description": "Time zone offset used for displaying readyAt"
+            },
+            "dispTzText": {
+                "$Nullable": true,
+                "@Core.Description": "Textual representation of dispTzOffset, e.g. 'CET'"
+            }
+        }
+    }
+}
