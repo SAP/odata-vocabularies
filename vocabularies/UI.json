@@ -1539,7 +1539,8 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "Parameter"
             ],
             "@Common.Experimental": true,
             "@Core.RequiresType": "Edm.DateTimeOffset",
