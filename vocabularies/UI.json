@@ -1930,13 +1930,15 @@
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
         },
-        "DisplayTimeZone": {
+        "DisplayTimezone": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
+                "EntityContainer",
                 "Property",
                 "Parameter"
             ],
-            "@Core.Description": "The point in time represented by the annotated property shall be presented in the context of the given time zone",
+            "@Core.Description": "The point in time represented by the annotated property or all points in time in this entity container shall be presented in the context of the given time zone",
             "@Core.LongDescription": "The value list for time zones is not prescribed by this vocabulary.\nThe `Edm.DateTimeOffset` in the annotated property SHOULD contain a [timezoneOffset](https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#vp-dt-timezone) that corresponds to the time zone.\nIn the absence of this annotation, points in time are typically presented in the current user's time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         }
