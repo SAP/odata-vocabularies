@@ -1612,8 +1612,9 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or all points in time in this entity container shall be presented in the context of the given time zone"/>
         <Annotation Term="Core.LongDescription">
           <String>The value list for time zones is not prescribed by this vocabulary.
-The `Edm.DateTimeOffset` in the annotated property SHOULD contain a [timezoneOffset](https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#vp-dt-timezone) that corresponds to the time zone.
-In the absence of this annotation, points in time are typically presented in the current user's time zone.</String>
+            If a [IANA](https://www.iana.org/time-zones) time zone is specified, browsers can perform the necessary conversion.
+            Otherwise, the `Edm.DateTimeOffset` in the annotated property SHOULD contain a [timezoneOffset](https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#vp-dt-timezone) that corresponds to the time zone.
+            In the absence of this annotation, points in time are typically presented in the current user's time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
