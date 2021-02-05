@@ -1930,7 +1930,7 @@
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
         },
-        "DisplayTimezone": {
+        "Timezone": {
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
