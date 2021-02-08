@@ -16,14 +16,6 @@
                     "$Alias": "Common"
                 }
             ]
-        },
-        "/sap/opu/odata4/standard-functions.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.gateway.functions.standard",
-                    "$Alias": "SAP"
-                }
-            ]
         }
     },
     "displaytimezone.sample": {
