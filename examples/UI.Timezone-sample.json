@@ -8,17 +8,9 @@
                     "$Alias": "UI"
                 }
             ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.UI.v1",
-                    "$Alias": "Common"
-                }
-            ]
         }
     },
-    "displaytimezone.sample": {
+    "timezone.sample": {
         "WorkerTimeSheet": {
             "$Kind": "EntityType",
             "ClockInDateTime": {
