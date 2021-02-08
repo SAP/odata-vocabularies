@@ -1934,7 +1934,6 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityContainer",
                 "Property",
                 "Parameter"
             ],
