@@ -1600,7 +1600,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
-      <Term Name="Timezone" Type="Edm.String" AppliesTo="EntityContainer Property Parameter">
+      <Term Name="Timezone" Type="Edm.String" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or all points in time in this entity container shall be presented in the context of the given time zone"/>
         <Annotation Term="Core.LongDescription">
