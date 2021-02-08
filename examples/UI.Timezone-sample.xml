@@ -6,9 +6,6 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="Common" />
   </edmx:Reference>
-  <edmx:Reference Uri="/sap/opu/odata4/standard-functions.xml">
-    <edmx:Include Namespace="com.sap.gateway.functions.standard" Alias="SAP" />
-  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="displaytimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
