@@ -34,43 +34,11 @@
                 "$Nullable": true,
                 "$Precision": 0,
                 "@UI.Timezone": {
-                    "$Function": "SAP.timezoneOffset",
-                    "$Apply": [
-                        {
-                            "$Path": "ClockInDateTime"
-                        }
-                    ]
+                    "$Path": "ClockInTimezone"
                 }
-            }
-        },
-        "WorkerDateTimeSheet": {
-            "$Kind": "EntityType",
-            "ClockInDate": {
-                "$Type": "Edm.Date",
+            },
+            "ClockInTimezone": {
                 "$Nullable": true
-            },
-            "ClockInTime": {
-                "$Type": "Edm.TimeOfDay",
-                "$Nullable": true
-            },
-            "@Common.Timestamp#ClockIn@UI.Timezone": {
-                "$Function": "SAP.timezoneOffset",
-                "$Apply": [
-                    {
-                        "$Path": "@Common.Timestamp#ClockIn"
-                    }
-                ]
-            },
-            "@Common.Timestamp#ClockIn": {
-                "$Function": "SAP.UTCTimestamp",
-                "$Apply": [
-                    {
-                        "$Path": "ClockInDate"
-                    },
-                    {
-                        "$Path": "ClockInTime"
-                    }
-                ]
             }
         }
     }
