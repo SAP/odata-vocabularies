@@ -13,31 +13,9 @@
     <Schema Namespace="displaytimezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
         <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset">
-          <!-- This timestamp shall be presented in the context of its time zone, but the time zone shall
-               be represented simply by the timezoneOffset, e.g., 2020-12-09-T06:00:00+05:00 as Dec 09 2020, 6am, +05:00
-          -->
-          <Annotation Term="UI.Timezone">
-            <Apply Function="SAP.timezoneOffset">
-              <Path>ClockInDateTime</Path>
-            </Apply>
-          </Annotation>
+          <Annotation Term="UI.Timezone" Path="ClockInTimezone"/>
         </Property>
-      </EntityType>
-      <EntityType Name="WorkerDateTimeSheet">
-        <!-- Like WorkerTimeSheet, but with separate date and time properties -->
-        <Property Name="ClockInDate" Type="Edm.Date"/>
-        <Property Name="ClockInTime" Type="Edm.TimeOfDay"/>
-        <Annotation Term="Common.Timestamp" Qualifier="ClockIn">
-          <Apply Function="SAP.UTCTimestamp">
-            <Path>ClockInDate</Path>
-            <Path>ClockInTime</Path>
-          </Apply>
-          <Annotation Term="UI.Timezone">
-            <Apply Function="SAP.timezoneOffset">
-              <Path>@Common.Timestamp#ClockIn</Path>
-            </Apply>
-          </Annotation>
-        </Annotation>
+        <Property Name="ClockInTimezone" Type="Edm.String"/>
       </EntityType>
     </Schema>
   </edmx:DataServices>
