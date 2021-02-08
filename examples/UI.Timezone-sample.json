@@ -1,0 +1,77 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        },
+        "/sap/opu/odata4/standard-functions.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.gateway.functions.standard",
+                    "$Alias": "SAP"
+                }
+            ]
+        }
+    },
+    "displaytimezone.sample": {
+        "WorkerTimeSheet": {
+            "$Kind": "EntityType",
+            "ClockInDateTime": {
+                "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
+                "$Precision": 0,
+                "@UI.Timezone": {
+                    "$Function": "SAP.timezoneOffset",
+                    "$Apply": [
+                        {
+                            "$Path": "ClockInDateTime"
+                        }
+                    ]
+                }
+            }
+        },
+        "WorkerDateTimeSheet": {
+            "$Kind": "EntityType",
+            "ClockInDate": {
+                "$Type": "Edm.Date",
+                "$Nullable": true
+            },
+            "ClockInTime": {
+                "$Type": "Edm.TimeOfDay",
+                "$Nullable": true
+            },
+            "@Common.Timestamp#ClockIn@UI.Timezone": {
+                "$Function": "SAP.timezoneOffset",
+                "$Apply": [
+                    {
+                        "$Path": "@Common.Timestamp#ClockIn"
+                    }
+                ]
+            },
+            "@Common.Timestamp#ClockIn": {
+                "$Function": "SAP.UTCTimestamp",
+                "$Apply": [
+                    {
+                        "$Path": "ClockInDate"
+                    },
+                    {
+                        "$Path": "ClockInTime"
+                    }
+                ]
+            }
+        }
+    }
+}
