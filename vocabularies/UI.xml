@@ -106,6 +106,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Collection of fields identifying the object" />
       </Term>
+
       <Term Name="Badge" Type="UI.BadgeType" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Information usually displayed in the form of a business card" />
