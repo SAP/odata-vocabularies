@@ -70,7 +70,6 @@ Term|Type|Description
 [RecommendationState](UI.xml#L1537)|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [RecommendationList](UI.xml#L1567)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1599)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[Timezone](UI.xml#L1603) *([Experimental](Common.md#Experimental))*|String?|<a name="Timezone"></a>The point in time represented by the annotated property or parameter shall be presented in the given time zone<p>The value list for time zones is not prescribed by this vocabulary. If an [IANA](https://www.iana.org/time-zones) time zone is specified, browsers can perform the necessary conversion. In the absence of this annotation, points in time are typically presented in the current user's time zone.</p>
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
