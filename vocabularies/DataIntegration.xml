@@ -37,7 +37,7 @@
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="com.sap.vocabularies.Integration.v1.OriginalDataType">
+            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalDataType">
 							<Collection>
 								<Record>
 									<PropertyValue Property="Property" Path="CostCenterID"/>
@@ -53,7 +53,7 @@
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="com.sap.vocabularies.Integration.v1.ConversionExit">
+            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.ConversionExit">
 							<Collection>
 								<Record>
 									<PropertyValue Property="Property" Path="CostCenterID"/>
