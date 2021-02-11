@@ -77,7 +77,6 @@
       </Term>
 
       <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
@@ -89,8 +88,7 @@
 
       </Term>
       <ComplexType Name="AggregatedPropertyType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="Name" Type="Common.SimpleIdentifier">
+        <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value." />
         </Property>
         <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">

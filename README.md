@@ -21,7 +21,11 @@ This repository defines the following SAP vocabularies:
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
 
-Check the [annotation cheat-sheet](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html) to learn how to construct an annotation value from a term definition, or vice versa.
+To learn how to construct an annotation value from a term definition, or vice versa, look here:
+
+* [Annotation Cheat-Sheet for CSDL JSON](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet-json.html)
+* [Annotation Cheat-Sheet for CSDL XML](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html)
+* [Annotation Cheat-Sheet for CAP CDS](https://sap.github.io/odata-vocabularies/docs/annotation-cheat-sheet-cap.html)
 
 
 ## Requirements
@@ -70,7 +74,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-
-## License
-
-Copyright (c) 2016 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache License Version 2.0, except as noted otherwise in the [LICENSE file](LICENSE).
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/odata-vocabularies)](https://api.reuse.software/info/github.com/SAP/odata-vocabularies)
