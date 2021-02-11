@@ -12,8 +12,8 @@
     },
     "com.sap.vocabularies.DataIntegration.v1": {
         "$Alias": "DataIntegration",
-        "@Core.Description": "Terms for annotating analytical resources",
-        "@Core.Description#Published": "2017-02-15 © Copyright 2013 SAP AG. All rights reserved",
+        "@Core.Description": "Terms for Data Integration",
+        "@Core.Description#Published": "2021-02-11 © Copyright 2021 SAP AG. All rights reserved",
         "@Core.Links": [
             {
                 "rel": "alternate",
@@ -46,14 +46,7 @@
             "@Core.Description": "Original data type of the annotated property in its source system",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@DataIntegration.OriginalDataType": [
-                    {
-                        "Property": {
-                            "$Path": "CostCenterID"
-                        },
-                        "OriginalDataType": "CHAR(000010)"
-                    }
-                ]
+                "@DataIntegration.OriginalDataType": "CHAR(000010)"
             }
         },
         "ConversionExit": {
@@ -65,14 +58,7 @@
             "@Core.Description": "Identifier that describes the special output conversion of the annotated property in the source system",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@DataIntegration.ConversionExit": [
-                    {
-                        "Property": {
-                            "$Path": "CostCenterID"
-                        },
-                        "ConversionExit": "ALPHA"
-                    }
-                ]
+                "@DataIntegration.ConversionExit": "ALPHA"
             }
         },
         "SourceSystem": {
@@ -87,11 +73,11 @@
         "DeltaMethodType": {
             "$Kind": "EnumType",
             "$IsFlags": true,
-            "INSERT": 0,
+            "INSERT": 1,
             "INSERT@Core.Description": "Delta is supported for inserts",
-            "UPDATE": 1,
+            "UPDATE": 2,
             "UPDATE@Core.Description": "Delta is supported for updates",
-            "DELETE": 2,
+            "DELETE": 4,
             "DELETE@Core.Description": "Delta is supported for deletes"
         },
         "DeltaMethod": {
@@ -101,7 +87,7 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking Supported is true"
+            "@Core.Description": "Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true"
         }
     }
 }
