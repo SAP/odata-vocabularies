@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -29,45 +29,45 @@
         </Collection>
       </Annotation>
 
-			<Term Name="Extractable" Type="Edm.Boolean" DefaultValue="false" Nullable="false" AppliesTo="EntitySet">
-				<Annotation Term="Core.Description" String="Defines if entity set is extractable"/>
-			</Term>
-			<Term Name="OriginalDataType" Type="Edm.String" AppliesTo="Property">
-				<Annotation Term="Core.Description" String="Original data type of the annotated property in its source system"/>
+      <Term Name="Extractable" Type="Edm.Boolean" DefaultValue="false" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Defines if entity set is extractable" />
+      </Term>
+      <Term Name="OriginalDataType" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Original data type of the annotated property in its source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
             <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalDataType" String="CHAR(000010)" />
           </Record>
-				</Annotation>
-			</Term>
-			<Term Name="ConversionExit" Type="Edm.String" AppliesTo="Property">
-				<Annotation Term="Core.Description" String="Identifier that describes the special output conversion of the annotated property in the source system"/>
+        </Annotation>
+      </Term>
+      <Term Name="ConversionExit" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Identifier that describes the special output conversion of the annotated property in the source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
             <Annotation Term="com.sap.vocabularies.DataIntegration.v1.ConversionExit" String="ALPHA" />
           </Record>
-				</Annotation>
-			</Term>
-			<Term Name="SourceSystem" Type="Edm.String" AppliesTo="Container">
-				<Annotation Term="Core.Description" String="Identifier that classifies the type of the source system"/>
+        </Annotation>
+      </Term>
+      <Term Name="SourceSystem" Type="Edm.String" AppliesTo="Container">
+        <Annotation Term="Core.Description" String="Identifier that classifies the type of the source system" />
         <Annotation Term="Core.LongDescription" String="The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA." />
-			</Term>
-			<EnumType Name="DeltaMethodType" IsFlags="true">
-				<Member Name="INSERT" Value="1">
-					<Annotation Term="Core.Description" String="Delta is supported for inserts"/>
-				</Member>
-				<Member Name="UPDATE" Value="2">
-					<Annotation Term="Core.Description" String="Delta is supported for updates"/>
-				</Member>
-				<Member Name="DELETE" Value="4">
-					<Annotation Term="Core.Description" String="Delta is supported for deletes"/>
-				</Member>
-			</EnumType>
-			<Term Name="DeltaMethod" Type="DataIntegration.DeltaMethodType" AppliesTo="EntitySet">
-				<Annotation Term="Core.Description" String="Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true"/>
-			</Term>
-		</Schema>
-	</edmx:DataServices>
+      </Term>
+      <EnumType Name="DeltaMethodType" IsFlags="true">
+        <Member Name="INSERT" Value="1">
+          <Annotation Term="Core.Description" String="Delta is supported for inserts" />
+        </Member>
+        <Member Name="UPDATE" Value="2">
+          <Annotation Term="Core.Description" String="Delta is supported for updates" />
+        </Member>
+        <Member Name="DELETE" Value="4">
+          <Annotation Term="Core.Description" String="Delta is supported for deletes" />
+        </Member>
+      </EnumType>
+      <Term Name="DeltaMethod" Type="DataIntegration.DeltaMethodType" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true" />
+      </Term>
+    </Schema>
+  </edmx:DataServices>
 </edmx:Edmx>
