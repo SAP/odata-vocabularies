@@ -7,10 +7,10 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.DataIntegration.v1" Alias="DataIntegration">
       <Annotation Term="Core.Description">
-        <String>Terms for annotating analytical resources</String>
+        <String>Terms for Data Integration</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
-        <String>2017-02-15 © Copyright 2013 SAP AG. All rights reserved</String>
+        <String>2021-02-11 © Copyright 2021 SAP AG. All rights reserved</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
@@ -37,14 +37,7 @@
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalDataType">
-							<Collection>
-								<Record>
-									<PropertyValue Property="Property" Path="CostCenterID"/>
-									<PropertyValue Property="OriginalDataType" String="CHAR(000010)"/>
-								</Record>
-							</Collection>
-						</Annotation>
+            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalDataType" String="CHAR(000010)" />
           </Record>
 				</Annotation>
 			</Term>
@@ -53,14 +46,7 @@
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.ConversionExit">
-							<Collection>
-								<Record>
-									<PropertyValue Property="Property" Path="CostCenterID"/>
-									<PropertyValue Property="ConversionExit" String="ALPHA"/>
-								</Record>
-							</Collection>
-						</Annotation>
+            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.ConversionExit" String="ALPHA" />
           </Record>
 				</Annotation>
 			</Term>
@@ -69,18 +55,18 @@
         <Annotation Term="Core.LongDescription" String="The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA." />
 			</Term>
 			<EnumType Name="DeltaMethodType" IsFlags="true">
-				<Member Name="INSERT">
+				<Member Name="INSERT" Value="1">
 					<Annotation Term="Core.Description" String="Delta is supported for inserts"/>
 				</Member>
-				<Member Name="UPDATE">
+				<Member Name="UPDATE" Value="2">
 					<Annotation Term="Core.Description" String="Delta is supported for updates"/>
 				</Member>
-				<Member Name="DELETE">
+				<Member Name="DELETE" Value="4">
 					<Annotation Term="Core.Description" String="Delta is supported for deletes"/>
 				</Member>
 			</EnumType>
 			<Term Name="DeltaMethod" Type="DataIntegration.DeltaMethodType" AppliesTo="EntitySet">
-				<Annotation Term="Core.Description" String="Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking Supported is true"/>
+				<Annotation Term="Core.Description" String="Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true"/>
 			</Term>
 		</Schema>
 	</edmx:DataServices>
