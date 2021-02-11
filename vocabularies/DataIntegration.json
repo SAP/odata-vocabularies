@@ -46,7 +46,7 @@
             "@Core.Description": "Original data type of the annotated property in its source system",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@com.sap.vocabularies.Integration.v1.OriginalDataType": [
+                "@DataIntegration.OriginalDataType": [
                     {
                         "Property": {
                             "$Path": "CostCenterID"
@@ -62,10 +62,10 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "Identifier of the special output conversion of the annotated property.",
+            "@Core.Description": "Identifier that describes the special output conversion of the annotated property in the source system",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@com.sap.vocabularies.Integration.v1.ConversionExit": [
+                "@DataIntegration.ConversionExit": [
                     {
                         "Property": {
                             "$Path": "CostCenterID"
@@ -81,7 +81,7 @@
             "$AppliesTo": [
                 "Container"
             ],
-            "@Core.Description": "An identifier that classifies the type of the source system",
+            "@Core.Description": "Identifier that classifies the type of the source system",
             "@Core.LongDescription": "The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA."
         },
         "DeltaMethodType": {
