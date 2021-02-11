@@ -1729,7 +1729,6 @@
             "NavigationAvailable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "The navigation intent is for that user with the selected context and parameters available"
             },
             "RequiresContext": {
