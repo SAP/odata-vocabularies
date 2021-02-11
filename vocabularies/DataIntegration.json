@@ -46,7 +46,7 @@
             "@Core.Description": "Original data type of the annotated property in its source system",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@DataIntegration.OriginalDataType": [
+                "@com.sap.vocabularies.Integration.v1.OriginalDataType": [
                     {
                         "Property": {
                             "$Path": "CostCenterID"
@@ -65,7 +65,7 @@
             "@Core.Description": "Identifier of the special output conversion of the annotated property.",
             "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
             "@Core.Example": {
-                "@DataIntegration.ConversionExit": [
+                "@com.sap.vocabularies.Integration.v1.ConversionExit": [
                     {
                         "Property": {
                             "$Path": "CostCenterID"
