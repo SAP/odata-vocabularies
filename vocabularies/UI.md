@@ -71,7 +71,7 @@ Term|Type|Description
 [RecommendationList](UI.xml#L1572)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1604)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [UserInteraction](UI.xml#L1608)|[UserInteractionType](#UserInteractionType)|<a name="UserInteraction"></a>When the annotated navigation property occurs in a response, the UI shall use the corresponding entity or collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user<p>A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed.</p>
-[UserInteractionSimple](UI.xml#L1612)|\[PrimitiveType\]|<a name="UserInteractionSimple"></a>When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value
+[UserInteractionSimple](UI.xml#L1613)|\[PrimitiveType\]|<a name="UserInteractionSimple"></a>When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
@@ -962,19 +962,19 @@ Property|Type|Description
 [LocalDataProperty](UI.xml#L1596)|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](UI.xml#L1599)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
-## <a name="UserInteractionType"></a>[UserInteractionType](UI.xml#L1616)
+## <a name="UserInteractionType"></a>[UserInteractionType](UI.xml#L1617)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Method](UI.xml#L1617)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
-[Parameters](UI.xml#L1620)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<p>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.</p>
+[Method](UI.xml#L1618)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
+[Parameters](UI.xml#L1621)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<p>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.</p>
 
-## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1628)
+## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1629)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[ChooseSingle](UI.xml#L1629)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
-[ChooseMultiple](UI.xml#L1632)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
-[Confirm](UI.xml#L1635)|3|The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
+[ChooseSingle](UI.xml#L1630)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
+[ChooseMultiple](UI.xml#L1633)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
+[Confirm](UI.xml#L1636)|3|The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
