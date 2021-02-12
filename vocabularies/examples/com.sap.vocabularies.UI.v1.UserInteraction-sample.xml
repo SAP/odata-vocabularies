@@ -7,7 +7,7 @@
     <edmx:Include Namespace="com.sap.gateway.entities.product" Alias="Product" />
   </edmx:Reference>  
   <edmx:DataServices>
-    <Schema Namespace="userinteraction.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <!-- Certain user interactions cannot be handled by one reqeust, because they follow the pattern "user triggers, server offers, user chooses".
            For example, the action "exchange product in a sales order item" is triggered by the user on a sales order item
            (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
@@ -16,44 +16,49 @@
            But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose.
       -->
       <EntityType Name="SalesOrderItem">
-        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)">
-          <Annotation Term="UI.UserInteraction">
-            <Annotation Term="Core.Description" String="Please choose a product"/>
-            <Record>
-              <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
-              <PropertyValue Property="Parameters">
-                <Collection>
-                  <Record>
-                    <PropertyValue Property="ValueListProperty" String="Product"/>
-                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
-                  </Record>
-                </Collection>
-              </PropertyValue>
-            </Record>
-          </Annotation>
-        </NavigationProperty>
-        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct">
-          <Annotation Term="UI.UserInteraction">
-            <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
-            <Record>
-              <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.Confirm"/>
-              <PropertyValue Property="Parameters">
-                <Collection>
-                  <Record>
-                    <PropertyValue Property="ValueListProperty" String="Product"/>
-                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
-                  </Record>
-                </Collection>
-              </PropertyValue>
-            </Record>
-          </Annotation>
-        </NavigationProperty>
+        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)"/>
+        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct"/>
       </EntityType>
       <Action Name="ExchangeProduct" IsBound="true">
-        <Parameter Name="item" Type="Self.SalesOrderItem" Nullable="false"/>
+        <Parameter Name="item" Type="self.SalesOrderItem" Nullable="false"/>
         <Parameter Name="NewProduct" Type="Edm.String"/>
-        <ReturnType Type="Self.SalesOrderItem"/>
+        <ReturnType Type="self.SalesOrderItem"/>
       </Action>
+      <EntityContainer Name="SalesOrderService">
+        <EntitySet Name="SalesOrderItems" EntityType="self.SalesOrder"/>
+      </EntityContainer>
+      <Annotations Target="self.SalesOrderService/SalesOrderItems/_AlternativeProducts">
+        <Annotation Term="UI.UserInteraction">
+          <Annotation Term="Core.Description" String="Please choose a product"/>
+          <Record>
+            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="ValueListProperty" String="Product"/>
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="self.SalesOrderService/SalesOrderItems/_UpgradeProduct">
+        <Annotation Term="UI.UserInteraction">
+          <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
+          <Record>
+            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.Confirm"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="ValueListProperty" String="Product"/>
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>      
