@@ -60,6 +60,12 @@
                 "Property"
             ],
             "$BaseTerm": "Aggregation.Groupable",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since the base term `Aggregation.Groupable` is also deprecated"
+                }
+            ],
             "@Core.Description": "A property holding the key of a dimension in an analytical context"
         },
         "Measure": {
@@ -70,6 +76,12 @@
                 "Property"
             ],
             "$BaseTerm": "Aggregation.Aggregatable",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since the base term `Aggregation.Aggregatable` is also deprecated"
+                }
+            ],
             "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
         },
         "AccumulativeMeasure": {
@@ -77,6 +89,12 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$BaseTerm": "Analytics.Measure",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since the base term [`Measure`](#Measure) is also deprecated"
+                }
+            ],
             "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
         },
         "RolledUpPropertyCount": {
@@ -111,8 +129,10 @@
             "$Collection": true,
             "$Type": "Analytics.AggregatedPropertyType",
             "$AppliesTo": [
-                "EntityType"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.",
             "@Core.LongDescription": "\n            Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the \n\t\t\tgiven entity type to leverage the results of the aggregate expression determined in the context of an entity collection of \n\t\t\tthe annotated type.\n          "
         },
