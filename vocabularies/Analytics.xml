@@ -39,14 +39,38 @@
       </Annotation>
 
       <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated since the base term `Aggregation.Groupable` is also deprecated"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
       <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated since the base term `Aggregation.Aggregatable` is also deprecated"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
       <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated since the base term [`Measure`](#Measure) is also deprecated"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
@@ -76,7 +100,8 @@
         </Annotation>
       </Term>
 
-      <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
+      <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
