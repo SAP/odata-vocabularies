@@ -121,22 +121,11 @@ Property|Type|Description
 [LocalProperty](Common.xml#L279)|PropertyPath|Path to a local property that provides the value for the Semantic Object property
 [SemanticObjectProperty](Common.xml#L282)|String|Name of the Semantic Object property
 
-## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L331) *(Deprecated)*
+## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L320) *(Deprecated)*
+Use term Capabilities.FilterRestrictions instead
 
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L340)|PropertyPath?|
-[AllowedExpressions](Common.xml#L341)|[FilterExpressionType?](#FilterExpressionType)|
-
-## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L343) *(Deprecated)*
-
-
-Member|Value|Description
-:-----|----:|:----------
-[SingleValue](Common.xml#L352)|0|a single 'eq' clause
-[MultiValue](Common.xml#L355)|1|one or more 'eq' clauses, separated by 'or'
-[SingleInterval](Common.xml#L358)|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
+## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L332) *(Deprecated)*
+Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L368)
 Control state of a property
@@ -319,12 +308,8 @@ Property|Type|Description
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L766): [ValueListParameter](#ValueListParameter) *(Deprecated)*
-Value list property that is used to filter the value list, not connected to the edited entity
-
-Property|Type|Description
-:-------|:---|:----------
-[*ValueListProperty*](Common.xml#L715)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L755): [ValueListParameter](#ValueListParameter) *(Deprecated)*
+All filterable properties of the value list can be used to filter
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L986): [DraftNodeType](#DraftNodeType)
 
@@ -390,14 +375,8 @@ Property|Type|Description
 [TriggerAction](Common.xml#L1106)|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
 [TriggeredIndicator](Common.xml#L1110) *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L1116) *(Deprecated)*
-
-
-Flag Member|Value|Description
-:-----|----:|:----------
-[ValidationMessage](Common.xml#L1125)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
-[ValueChange](Common.xml#L1133)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L1140)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+## <a name="EffectType"></a>[EffectType](Common.xml#L1105) *(Deprecated)*
+All side effects are essentially value changes, differentiation not needed.
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1242)
 

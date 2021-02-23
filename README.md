@@ -11,6 +11,7 @@ This repository defines the following SAP vocabularies:
 * [CodeList: Code Lists](vocabularies/CodeList.md) 
 * [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 * [Communication: Contact information based on vCard](vocabularies/Communication.md)
+* [DataIntegration: Data Integration](vocabularies/DataIntegration.md)
 * [Graph: SAP Graph](vocabularies/Graph.md) - *experimental*
 * [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - *experimental*
 * [ODM: One Domain Model](vocabularies/ODM.md) - *experimental*
