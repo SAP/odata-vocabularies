@@ -121,10 +121,10 @@ Property|Type|Description
 [LocalProperty](Common.xml#L279)|PropertyPath|Path to a local property that provides the value for the Semantic Object property
 [SemanticObjectProperty](Common.xml#L282)|String|Name of the Semantic Object property
 
-## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L320) *(Deprecated)*
+## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L331) *(Deprecated)*
 Use term Capabilities.FilterRestrictions instead
 
-## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L332) *(Deprecated)*
+## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L343) *(Deprecated)*
 Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L368)
@@ -308,7 +308,7 @@ Property|Type|Description
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L755): [ValueListParameter](#ValueListParameter) *(Deprecated)*
+## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L766): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 All filterable properties of the value list can be used to filter
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L986): [DraftNodeType](#DraftNodeType)
@@ -375,7 +375,7 @@ Property|Type|Description
 [TriggerAction](Common.xml#L1106)|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<p>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.</p>
 [TriggeredIndicator](Common.xml#L1110) *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
 
-## <a name="EffectType"></a>[EffectType](Common.xml#L1105) *(Deprecated)*
+## <a name="EffectType"></a>[EffectType](Common.xml#L1116) *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1242)
