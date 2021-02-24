@@ -1546,6 +1546,18 @@
             "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "mediaUploadURL": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.RequiresType": "Edm.Stream",
+            "@Core.IsURL": true,
+            "@Core.Description": "URL for uploading new media content to a Document Management Service",
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe uploaded new media resource can be linked to the stream property by changing the `@odata.mediaEditLink` in a subsequent PATCH request.\""
         }
     }
 }

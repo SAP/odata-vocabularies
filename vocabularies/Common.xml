@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -90,7 +90,7 @@
       <!--
       <Term Name="ExternalIDs" Type="Collection(Edm.String)" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated p. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
       </Term>
       -->
@@ -1049,7 +1049,7 @@ The minimum structure is
 
         </Annotation>
       </TypeDefinition>
-      
+
       <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Description" String="The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity" />
       </Term>
@@ -1317,6 +1317,18 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+      </Term>
+
+      <Term Name="mediaUploadURL" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
+        <Annotation Term="Core.LongDescription">
+          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
+The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaEditLink` in a subsequent PATCH request."</String>
+        </Annotation>
       </Term>
 
     </Schema>
