@@ -1328,7 +1328,8 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
         <Annotation Term="Core.LongDescription">
           <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
-The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request.</String>
+The upload request typically uses POST requests with `Content-Type: multipart/form-data`.
+The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request to the OData entity.</String>
         </Annotation>
       </Term>
 
