@@ -103,7 +103,7 @@ Term|Type|Description
 [ChangedBy](Common.xml#L1300)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
 [OriginalProtocolVersion](Common.xml#L1312)|String?|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
 [ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1317) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
-[mediaUploadURL](Common.xml#L1323) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadURL"></a>URL for uploading new media content to a Document Management Service<p>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaEditLink` in a subsequent PATCH request.</p>
+[mediaUploadURL](Common.xml#L1323) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadURL"></a>URL for uploading new media content to a Document Management Service<p>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request.</p>
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L108)
 
@@ -122,10 +122,21 @@ Property|Type|Description
 [SemanticObjectProperty](Common.xml#L272)|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L321) *(Deprecated)*
-Use term Capabilities.FilterRestrictions instead
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Property](Common.xml#L330)|PropertyPath?|
+[AllowedExpressions](Common.xml#L331)|[FilterExpressionType?](#FilterExpressionType)|
 
 ## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L333) *(Deprecated)*
-Use term Capabilities.FilterRestrictions instead
+
+
+Member|Value|Description
+:-----|----:|:----------
+[SingleValue](Common.xml#L342)|0|a single 'eq' clause
+[MultiValue](Common.xml#L345)|1|one or more 'eq' clauses, separated by 'or'
+[SingleInterval](Common.xml#L348)|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L358)
 Control state of a property
@@ -309,7 +320,11 @@ Property|Type|Description
 - [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L756): [ValueListParameter](#ValueListParameter) *(Deprecated)*
-All filterable properties of the value list can be used to filter
+Value list property that is used to filter the value list, not connected to the edited entity
+
+Property|Type|Description
+:-------|:---|:----------
+[*ValueListProperty*](Common.xml#L705)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L976): [DraftNodeType](#DraftNodeType)
 
@@ -376,7 +391,13 @@ Property|Type|Description
 [TriggeredIndicator](Common.xml#L1100) *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L1106) *(Deprecated)*
-All side effects are essentially value changes, differentiation not needed.
+
+
+Flag Member|Value|Description
+:-----|----:|:----------
+[ValidationMessage](Common.xml#L1115)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
+[ValueChange](Common.xml#L1123)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
+[FieldControlChange](Common.xml#L1130)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1232)
 
