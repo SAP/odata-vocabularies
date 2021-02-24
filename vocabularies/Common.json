@@ -1547,7 +1547,7 @@
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
         },
-        "mediaUploadURL": {
+        "mediaUploadLink": {
             "$Kind": "Term",
             "$AppliesTo": [
                 "Property"

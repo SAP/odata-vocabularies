@@ -1320,7 +1320,7 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
-      <Term Name="mediaUploadURL" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
