@@ -1557,7 +1557,7 @@
             "@Core.RequiresType": "Edm.Stream",
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
-            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses POST with `Content-Type: multipart/form-data`.\nThe uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request to the OData entity."
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request to the OData entity."
         }
     }
 }
