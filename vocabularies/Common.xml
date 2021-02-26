@@ -1329,7 +1329,8 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.LongDescription">
           <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
 The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
-The uploaded new media resource can be linked to the stream property by changing the `@odata.mediaReadLink` in a subsequent PATCH request to the OData entity.</String>
+There should only be one form field for the file. The field name of this form field is arbitrary. An additional `filename` parameter in the form field's `Content-Disposition` header, as described in RFC 7578, is expected.  
+If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property of `readLink` that has the download URL as its value. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to this readLink in a subsequent PATCH request to the OData entity.</String>
         </Annotation>
       </Term>
 
