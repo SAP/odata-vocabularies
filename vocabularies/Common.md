@@ -120,21 +120,10 @@ Property|Type|Description
 [SemanticObjectProperty](Common.xml#L260)|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L309) *(Deprecated)*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L318)|PropertyPath?|
-[AllowedExpressions](Common.xml#L319)|[FilterExpressionType?](#FilterExpressionType)|
+Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L321) *(Deprecated)*
-
-
-Member|Value|Description
-:-----|----:|:----------
-[SingleValue](Common.xml#L330)|0|a single 'eq' clause
-[MultiValue](Common.xml#L333)|1|one or more 'eq' clauses, separated by 'or'
-[SingleInterval](Common.xml#L336)|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
+Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L346)
 Control state of a property
@@ -318,11 +307,7 @@ Property|Type|Description
 - [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L747): [ValueListParameter](#ValueListParameter) *(Deprecated)*
-Value list property that is used to filter the value list, not connected to the edited entity
-
-Property|Type|Description
-:-------|:---|:----------
-[*ValueListProperty*](Common.xml#L696)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+All filterable properties of the value list can be used to filter
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L967): [DraftNodeType](#DraftNodeType)
 
@@ -390,13 +375,7 @@ Property|Type|Description
 [TriggeredIndicator](Common.xml#L1120) *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L1126) *(Deprecated)*
-
-
-Flag Member|Value|Description
-:-----|----:|:----------
-[ValidationMessage](Common.xml#L1135)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
-[ValueChange](Common.xml#L1143)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L1150)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+All side effects are essentially value changes, differentiation not needed.
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1252)
 
