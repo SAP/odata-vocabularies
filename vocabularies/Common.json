@@ -114,6 +114,16 @@
             "@Core.RequiresType": "Edm.String",
             "@Core.Description": "The annotated property contains a descriptive text for values of the referenced property."
         },
+        "ExternalID": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
+            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
+        },
         "IsLanguageIdentifier": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -516,9 +526,8 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.ComplexType",
-            "@Common.Experimental": true,
             "@Core.Description": "Collection of end-user messages",
-            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is  \n\n- code: Edm.String \n\n- message: Edm.String \n\n- target: Edm.String nullable  \n\n- additionalTargets: Collection(Edm.String)  \n\n- transition: Edm.Boolean\n\n- numericSeverity: Edm.Byte\n\n- longtextUrl: Edm.String nullable  \n          "
+            "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
         },
         "additionalTargets": {
             "$Kind": "Term",
@@ -536,7 +545,6 @@
             "$AppliesTo": [
                 "Record"
             ],
-            "@Common.Experimental": true,
             "@Core.IsURL": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Location of the message long text",
@@ -545,7 +553,6 @@
         "numericSeverity": {
             "$Kind": "Term",
             "$Type": "Common.NumericMessageSeverityType",
-            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
@@ -565,7 +572,6 @@
         "NumericMessageSeverityType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
@@ -717,6 +723,9 @@
         },
         "ValueListType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
@@ -791,6 +800,15 @@
             ],
             "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"
         },
+        "ValueListForValidation": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
+        },
         "ValueListReferences": {
             "$Kind": "Term",
             "$Collection": true,
@@ -814,6 +832,9 @@
         },
         "ValueListMappingType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
@@ -858,6 +879,12 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
         },
         "ValueListParameterConstant": {
@@ -875,6 +902,12 @@
             "LocalDataProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
+            },
+            "InitialValueIsSignificant": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
             "@Validation.ApplicableTerms": [
                 "UI.Importance"
@@ -1257,7 +1290,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action with an optional overload",
-            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
+            "@Core.LongDescription": "The qualified name of an action followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
         },
         "SemanticKey": {
             "$Kind": "Term",
@@ -1318,7 +1351,6 @@
             "TriggerAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
                 "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
             },
