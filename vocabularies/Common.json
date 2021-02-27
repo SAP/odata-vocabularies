@@ -25,6 +25,14 @@
                 }
             ]
         },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Communication.v1",
+                    "$Alias": "Communication"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
             "$Include": [
                 {
@@ -113,16 +121,6 @@
             "@Common.Experimental": true,
             "@Core.RequiresType": "Edm.String",
             "@Core.Description": "The annotated property contains a descriptive text for values of the referenced property."
-        },
-        "ExternalID": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
         },
         "IsLanguageIdentifier": {
             "$Kind": "Term",
@@ -545,6 +543,7 @@
             "$AppliesTo": [
                 "Record"
             ],
+            "@Common.Experimental": true,
             "@Core.IsURL": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Location of the message long text",
@@ -553,6 +552,7 @@
         "numericSeverity": {
             "$Kind": "Term",
             "$Type": "Common.NumericMessageSeverityType",
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
@@ -572,6 +572,7 @@
         "NumericMessageSeverityType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
+            "@Common.Experimental": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
@@ -882,7 +883,6 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
@@ -905,7 +905,6 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
@@ -1290,7 +1289,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action with an optional overload",
-            "@Core.LongDescription": "The qualified name of an action followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
+            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
         },
         "SemanticKey": {
             "$Kind": "Term",
@@ -1316,7 +1315,7 @@
         "SideEffectsType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Changes to the source properties or source entities may have side-effects on the target properties or entities.",
-            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.",
+            "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties, source entities or source facets. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties`, `SourceEntities` and `SourceFacets` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.",
             "SourceProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -1326,6 +1325,32 @@
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
+            },
+            "SourcePerspectives": {
+                "$Collection": true,
+                "$Type": "Edm.AnnotationPath",
+                "@Common.Experimental": true,
+                "@Core.Description": "A collection of annotation paths that reference a UI perspective.\n              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI perspectives.",
+                "@Validation.AllowedTerms": [
+                    "Communication.Address",
+                    "Communication.Contact",
+                    "UI.Badge",
+                    "UI.Chart",
+                    "UI.Contacts",
+                    "UI.DataPoint",
+                    "UI.FieldGroup",
+                    "UI.GeoLocation",
+                    "UI.GeoLocations",
+                    "UI.HeaderInfo",
+                    "UI.Identification",
+                    "UI.KPI",
+                    "UI.LineItem",
+                    "UI.MediaResource",
+                    "UI.PresentationVariant",
+                    "UI.SelectionFields",
+                    "UI.SelectionPresentationVariant",
+                    "UI.StatusInfo"
+                ]
             },
             "TargetProperties": {
                 "$Collection": true,

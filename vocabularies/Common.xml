@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
@@ -80,20 +83,6 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
-
-      <Term Name="ExternalID" Type="Edm.String" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
-        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
-      </Term>
-
-      <!--
-      <Term Name="ExternalIDs" Type="Collection(Edm.String)" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
-        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
-      </Term>
-      -->
 
       <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
@@ -465,12 +454,14 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Location of the message long text" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
@@ -481,6 +472,7 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
@@ -709,7 +701,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" Default="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
@@ -724,7 +716,7 @@ The minimum structure is
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" Default="false" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
@@ -1043,9 +1035,9 @@ The minimum structure is
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The qualified name of an action followed by parentheses 
+          <String>The qualified name of an action optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
-            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
+            or by empty parentheses to identify the unbound overload.</String>
 
         </Annotation>
       </TypeDefinition>
@@ -1063,9 +1055,9 @@ The minimum structure is
           <String>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
 
-Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
+Side effects without a `TriggerAction` happen immediately when modifying one of the source properties, source entities or source facets. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties`, `SourceEntities` and `SourceFacets` have no meaning, 
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -1073,6 +1065,35 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
         </Property>
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
+        </Property>
+        <Property Name="SourcePerspectives" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description">
+            <String>A collection of annotation paths that reference a UI perspective.
+              The side effect targets may be affected by changes to the values of one or more of the structural properties that make up the referenced UI perspectives.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Communication.Address</String>
+              <String>Communication.Contact</String>
+              <String>UI.Badge</String>
+              <String>UI.Chart</String>
+              <String>UI.Contacts</String>
+              <String>UI.DataPoint</String>
+              <String>UI.FieldGroup</String>
+              <String>UI.GeoLocation</String>
+              <String>UI.GeoLocations</String>
+              <String>UI.HeaderInfo</String>
+              <String>UI.Identification</String>
+              <String>UI.KPI</String>
+              <String>UI.LineItem</String>
+              <String>UI.MediaResource</String>
+              <String>UI.PresentationVariant</String>
+              <String>UI.SelectionFields</String>
+              <String>UI.SelectionPresentationVariant</String>
+              <String>UI.StatusInfo</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
