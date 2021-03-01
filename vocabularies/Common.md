@@ -103,7 +103,8 @@ Term|Type|Description
 [ChangedBy](Common.xml#L1299)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
 [OriginalProtocolVersion](Common.xml#L1311)|String?|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
 [ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1316) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
-[ActionSemantics](Common.xml#L1322) *([Experimental](Common.md#Experimental))*|[ActionSemanticsType](#ActionSemanticsType)|<a name="ActionSemantics"></a>Semantics of a bound action
+[mediaUploadLink](Common.xml#L1322) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<p>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</p>
+[ActionSemantics](Common.xml#L1337) *([Experimental](Common.md#Experimental))*|[ActionSemanticsType](#ActionSemanticsType)|<a name="ActionSemantics"></a>Semantics of a bound action
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L107)
 
@@ -122,21 +123,10 @@ Property|Type|Description
 [SemanticObjectProperty](Common.xml#L271)|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Common.xml#L320) *(Deprecated)*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Property](Common.xml#L329)|PropertyPath?|
-[AllowedExpressions](Common.xml#L330)|[FilterExpressionType?](#FilterExpressionType)|
+Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FilterExpressionType"></a>[FilterExpressionType](Common.xml#L332) *(Deprecated)*
-
-
-Member|Value|Description
-:-----|----:|:----------
-[SingleValue](Common.xml#L341)|0|a single 'eq' clause
-[MultiValue](Common.xml#L344)|1|one or more 'eq' clauses, separated by 'or'
-[SingleInterval](Common.xml#L347)|2|at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause
+Use term Capabilities.FilterRestrictions instead
 
 ## <a name="FieldControlType"></a>[FieldControlType](Common.xml#L357)
 Control state of a property
@@ -320,11 +310,7 @@ Property|Type|Description
 - [Importance](UI.md#Importance)
 
 ## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](Common.xml#L755): [ValueListParameter](#ValueListParameter) *(Deprecated)*
-Value list property that is used to filter the value list, not connected to the edited entity
-
-Property|Type|Description
-:-------|:---|:----------
-[*ValueListProperty*](Common.xml#L704)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+All filterable properties of the value list can be used to filter
 
 ## <a name="DraftRootType"></a>[DraftRootType](Common.xml#L975): [DraftNodeType](#DraftNodeType)
 
@@ -391,13 +377,7 @@ Property|Type|Description
 [TriggeredIndicator](Common.xml#L1099) *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<p>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.</p>
 
 ## <a name="EffectType"></a>[EffectType](Common.xml#L1105) *(Deprecated)*
-
-
-Flag Member|Value|Description
-:-----|----:|:----------
-[ValidationMessage](Common.xml#L1114)|1|Validation messages are assigned to a target<p>This side effect type indicates that validation messages may result from changes of source properties or entities. Thus, a validation request can be sent either in conjunction with or separately after a modifying request. Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</p>
-[ValueChange](Common.xml#L1122)|2|The value of a target changes<p>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities. Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</p>
-[FieldControlChange](Common.xml#L1129)|4|The value of the Common.FieldControl annotation of a target changes<p>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities. Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</p>
+All side effects are essentially value changes, differentiation not needed.
 
 ## <a name="SortOrderType"></a>[SortOrderType](Common.xml#L1231)
 
@@ -421,12 +401,12 @@ Property|Type|Description
 
 User ID
 
-## <a name="ActionSemanticsType"></a>[ActionSemanticsType](Common.xml#L1326)
+## <a name="ActionSemanticsType"></a>[ActionSemanticsType](Common.xml#L1341)
 **Type:** String
 
 Semantics of a bound action
 
 Allowed Value|Description
 :------------|:----------
-[copy](Common.xml#L1330) *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
-[create](Common.xml#L1336) *([Experimental](Common.md#Experimental))*|Creates an instance, optionally with copying data from one or more existing instances of a different type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
+[copy](Common.xml#L1345) *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
+[create](Common.xml#L1351) *([Experimental](Common.md#Experimental))*|Creates an instance, optionally with copying data from one or more existing instances of a different type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
