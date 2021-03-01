@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -1060,7 +1060,7 @@ The minimum structure is
 
         </Annotation>
       </TypeDefinition>
-      
+
       <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Description" String="The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity" />
       </Term>
@@ -1328,6 +1328,21 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+      </Term>
+
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
+        <Annotation Term="Core.LongDescription">
+          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
+The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
+The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.
+If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>
+
+        </Annotation>
       </Term>
 
     </Schema>
