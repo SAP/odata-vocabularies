@@ -9,7 +9,7 @@
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="_vocab" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="_vocab.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="_vocab.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <!-- TODO: put your annotation examples here and remove this comment -->
 
