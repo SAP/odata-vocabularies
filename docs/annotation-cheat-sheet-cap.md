@@ -10,7 +10,7 @@ CAP CDS has the [standard OASIS](https://github.com/oasis-tcs/odata-vocabularies
 and SAP vocabularies built-in,
 their terms can be used without needing to reference the vocabulary,
 as long as the standard qualifiers are used, e.g. `@Core` for the [OASIS Core vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md),
-or `@Common`  for the [SAP Common vocabulary](../vocabularies/Common.md).
+or `@Common` for the [SAP Common vocabulary](../vocabularies/Common.md).
 
 ## Primitive Terms
 
@@ -137,21 +137,21 @@ The property value is provided as an object or array.
 
 The name of the attribute to provide a constant annotation value depends on the type of the term or term property.
 
-| Type of Term or Term Property | Example Value |
-|:-|:-|
-| `Edm.Binary` | `'T0RhdGE'` |
-| `Edm.Boolean` | `true` |
-| `Edm.Date` | `'2000-01-01'` |
-| `Edm.DateTimeOffset` | `'2000-01-01T16:00:00.000Z'` |
-| `Edm.Decimal` | `'3.14'` |
-| `Edm.Duration` | `'P7D'` |
-| Enumeration Type | `#Red` |
-| `Edm.Double` or `Edm.Single` | `3.14` |
-| `Edm.Guid` | `'21EC2020-3AEA-1069-A2DD-08002B30309D'` |
-| `Edm.Int16`, `Edm.Int32`, `Edm.64`, `Edm.Byte`, `Edm.SByte` | `42` |
-| `Edm.Int64` | `'42'` |
-| `Edm.String` | `'annotation value'` |
-| `Edm.TimeOfDay` | `'21:45:00'` |
-| `Edm.AnnotationPath` | `'Product/Supplier/@UI.LineItem'` |
-| `Edm.NavigationPropertyPath` | `Supplier` |
-| `Edm.PropertyPath` | `Details.ChangedAt` |
+| Type of Term or Term Property                               | Example Value                            |
+| :---------------------------------------------------------- | :--------------------------------------- |
+| `Edm.Binary`                                                | `'T0RhdGE'`                              |
+| `Edm.Boolean`                                               | `true`                                   |
+| `Edm.Date`                                                  | `'2000-01-01'`                           |
+| `Edm.DateTimeOffset`                                        | `'2000-01-01T16:00:00.000Z'`             |
+| `Edm.Decimal`                                               | `'3.14'`                                 |
+| `Edm.Duration`                                              | `'P7D'`                                  |
+| Enumeration Type                                            | `#Red`                                   |
+| `Edm.Double` or `Edm.Single`                                | `3.14`                                   |
+| `Edm.Guid`                                                  | `'21EC2020-3AEA-1069-A2DD-08002B30309D'` |
+| `Edm.Int16`, `Edm.Int32`, `Edm.64`, `Edm.Byte`, `Edm.SByte` | `42`                                     |
+| `Edm.Int64`                                                 | `'42'`                                   |
+| `Edm.String`                                                | `'annotation value'`                     |
+| `Edm.TimeOfDay`                                             | `'21:45:00'`                             |
+| `Edm.AnnotationPath`                                        | `'Product/Supplier/@UI.LineItem'`        |
+| `Edm.NavigationPropertyPath`                                | `Supplier`                               |
+| `Edm.PropertyPath`                                          | `Details.ChangedAt`                      |
