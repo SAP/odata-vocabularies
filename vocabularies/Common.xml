@@ -1339,7 +1339,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Semantics of a bound action" />
       </Term>
       <TypeDefinition Name="ActionSemanticsType" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Semantics of a bound action" />
+        <Annotation Term="Core.Description" String="Semantics of a bound action " />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
