@@ -1558,6 +1558,34 @@
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
             "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
+        },
+        "ActionSemantics": {
+            "$Kind": "Term",
+            "$Type": "Common.ActionSemanticsType",
+            "$AppliesTo": [
+                "Action"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Semantics of a bound action"
+        },
+        "ActionSemanticsType": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Semantics of a bound action",
+            "@Validation.AllowedValues": [
+                {
+                    "@Common.Experimental": true,
+                    "Value": "copy",
+                    "@Core.Description": "Creates an instance by copying an existing instance of the same type",
+                    "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
+                },
+                {
+                    "@Common.Experimental": true,
+                    "Value": "create",
+                    "@Core.Description": "Creates an instance, optionally with copying data from one or more existing instances of a different type",
+                    "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
+                }
+            ]
         }
     }
 }

@@ -104,6 +104,7 @@ Term|Type|Description
 [OriginalProtocolVersion](Common.xml#L1311)|String?|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
 [ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1316) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<p>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/</p>
 [mediaUploadLink](Common.xml#L1322) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<p>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</p>
+[ActionSemantics](Common.xml#L1337) *([Experimental](Common.md#Experimental))*|[ActionSemanticsType](#ActionSemanticsType)|<a name="ActionSemantics"></a>Semantics of a bound action
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L107)
 
@@ -399,3 +400,13 @@ Property|Type|Description
 **Type:** String
 
 User ID
+
+## <a name="ActionSemanticsType"></a>[ActionSemanticsType](Common.xml#L1341)
+**Type:** String
+
+Semantics of a bound action
+
+Allowed Value|Description
+:------------|:----------
+[copy](Common.xml#L1345) *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
+[create](Common.xml#L1351) *([Experimental](Common.md#Experimental))*|Creates an instance, optionally with copying data from one or more existing instances of a different type<p>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.</p>
