@@ -81,6 +81,20 @@
         <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
+      <Term Name="ExternalID" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
+      </Term>
+
+      <!--
+      <Term Name="ExternalIDs" Type="Collection(Edm.String)" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
+      </Term>
+      -->
+
       <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="An identifier to distinguish multiple texts in different languages for the same entity" />
@@ -451,14 +465,12 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Location of the message long text" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
@@ -469,7 +481,6 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
@@ -585,14 +596,14 @@ The minimum structure is
           - - InOut: LocalDataProperty = CountryCode, ValueListProperty = CountryCode
           - - InOut: LocalDataProperty = RegionCode, ValueListProperty = Code
         -->
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
@@ -661,14 +672,14 @@ The minimum structure is
         <Annotation Term="Core.LongDescription" String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
       </Term>
       <ComplexType Name="ValueListMappingType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.QuickInfo</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
-        </Property>
-        <Property Name="QuickInfo" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
@@ -1032,9 +1043,9 @@ The minimum structure is
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The qualified name of an action optionally followed by parentheses 
+          <String>The qualified name of an action followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
-            or by empty parentheses to identify the unbound overload.</String>
+            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
 
         </Annotation>
       </TypeDefinition>
@@ -1306,6 +1317,21 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+      </Term>
+
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
+        <Annotation Term="Core.LongDescription">
+          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
+The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
+The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.
+If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>
+
+        </Annotation>
       </Term>
 
     </Schema>
