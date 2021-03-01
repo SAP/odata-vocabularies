@@ -38,7 +38,7 @@
         <Annotation Term="Core.Description" String="The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list" />
       </Term>
 
-      <Term Name="deprecated" Type="Edm.String" Nullable="false" AppliesTo="EntitySet EntityType Property">
+      <Term Name="deprecated" Type="Edm.String" Nullable="false" AppliesTo="EntitySet EntityType ComplexType Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Mark entity sets, types, or properties as deprecated" />
         <Annotation Term="Core.LongDescription" String="In general used when a new definition or an alternative to the marked element is already there. Can also be used  to denote that a field or feature will change in future. An explanation about the alternative (for example, 'use field XYZ instead') must be provided." />

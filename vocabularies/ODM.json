@@ -54,6 +54,7 @@
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
+                "ComplexType",
                 "Property"
             ],
             "@Common.Experimental": true,
