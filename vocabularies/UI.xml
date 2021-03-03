@@ -701,11 +701,9 @@ The trend is
                   <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
 
                   For compatibility, the deprecated value can be computed (in Javascript) as
-```js
-ChartDefinitionType.Measures = ChartDefinitionType.DataPoint
-.filter(dp => dp.Measure)
-.map(dp => ({$PropertyPath: dp.Value.$Path}))
-```</String>
+                  `ChartDefinitionType.Measures = ChartDefinitionType.DataPoint
+                  .filter(dp => dp.Measure)
+                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -721,11 +719,9 @@ ChartDefinitionType.Measures = ChartDefinitionType.DataPoint
                   <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
 
                   For compatibility, the deprecated value can be computed (in Javascript) as
-```js
-ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint
-.filter(dp => dp.Measure)
-.map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))
-```</String>
+                  `ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint
+                  .filter(dp => dp.Measure)
+                  .map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -743,11 +739,9 @@ ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint
                   <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
 
                   For compatibility, the deprecated value can be computed (in Javascript) as
-```js
-ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint
-.filter(dp => dp.Dimension)
-.map(dp => ({$PropertyPath: dp.Value.$Path}))
-```</String>
+                  `ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint
+                  .filter(dp => dp.Dimension)
+                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -763,11 +757,9 @@ ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint
                   <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
 
                   For compatibility, the deprecated value can be computed (in Javascript) as
-```js
-ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint
-.filter(dp => dp.Dimension)
-.map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))
-```</String>
+                  `ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint
+                  .filter(dp => dp.Dimension)
+                  .map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
