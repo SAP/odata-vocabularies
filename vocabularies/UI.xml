@@ -685,18 +685,57 @@ The trend is
         <Property Name="AxisScaling" Type="UI.ChartAxisScalingType" Nullable="true">
           <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
         </Property>
+        <Property Name="DataPoint" Type="Collection(UI.ChartDataPointValue)" Nullable="false">
+          <Annotation Term="Core.Description" String="An ordered collection of values that a chart uses to represent an instance of this entity type as one data point"/>
+          <Annotation Term="Core.LongDescription">
+            <String>For example, a data point consisting of five values may appear as one circle in a bubble chart,
+            with the five values respectively determining the x and y coordinates of its center, its radius, color and texture.</String>
+          </Annotation>
+        </Property>
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
         </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description">
             <String>Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.</String>
           </Annotation>
         </Property>
         <Property Name="Dimensions" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Dimensions of the chart, e.g. x- and y-axis of a bubble chart" />
         </Property>
         <Property Name="DimensionAttributes" Type="Collection(UI.ChartDimensionAttributeType)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description">
             <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
@@ -803,8 +842,39 @@ The trend is
         </Property>
       </ComplexType>
 
+      <ComplexType Name="ChartDataPointValue">
+        <Property Name="Value" Type="Edm.PrimitiveType"/>
+        <Property Name="Dimension" Type="UI.ChartDimensionAttributeType">
+          <Annotation Term="Core.Description" String="Additional attributes for a value that specifies a dimension"/>
+          <Annotation Term="Core.LongDescription">
+            <String>A dimension is a non-numeric value that can, e.g., be represented by the texture or the label of a circle in a bubble chart.
+
+            [`Dimension/Dimension`](#ChartDimensionAttributeType) is ignored.
+            This property is null if the value does not specify a dimension.</String>
+          </Annotation>
+        </Property>
+        <Property Name="Measure" Type="UI.ChartMeasureAttributeType">
+          <Annotation Term="Core.Description" String="Additional attributes for a value that specifies a measure"/>
+          <Annotation Term="Core.LongDescription">
+            <String>A measure is a numeric value that can, e.g., be represented as the radius of a circle in a bubble chart.
+
+            [`Measure/Measure`](#ChartMeasureAttributeType) is ignored.
+            This property is null if the value does not specify a measure.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+
       <ComplexType Name="ChartDimensionAttributeType">
-        <Property Name="Dimension" Type="Edm.PropertyPath" />
+        <Property Name="Dimension" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Ignored by [`UI.ChartDataPointValue/Dimension`](#ChartDataPointValue)"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="Role" Type="UI.ChartDimensionRoleType" />
         <Property Name="HierarchyLevel" Type="Edm.Int32">
           <Annotation Term="Common.Experimental" />
@@ -825,7 +895,16 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Property Name="Measure" Type="Edm.PropertyPath" />
+        <Property Name="Measure" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Ignored by [`UI.ChartDataPointValue/Measure`](#ChartDataPointValue)"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure" />

@@ -792,24 +792,54 @@
                 "$Nullable": true,
                 "@Core.Description": "Describes the scale of the chart value axes"
             },
+            "DataPoint": {
+                "$Collection": true,
+                "$Type": "UI.ChartDataPointValue",
+                "@Core.Description": "An ordered collection of values that a chart uses to represent an instance of this entity type as one data point",
+                "@Core.LongDescription": "For example, a data point consisting of five values may appear as one circle in a bubble chart,\n            with the five values respectively determining the x and y coordinates of its center, its radius, color and texture."
+            },
             "Measures": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"
+                    }
+                ],
                 "@Core.Description": "Measures of the chart, e.g. size and color in a bubble chart"
             },
             "MeasureAttributes": {
                 "$Collection": true,
                 "$Type": "UI.ChartMeasureAttributeType",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"
+                    }
+                ],
                 "@Core.Description": "Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property."
             },
             "Dimensions": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"
+                    }
+                ],
                 "@Core.Description": "Dimensions of the chart, e.g. x- and y-axis of a bubble chart"
             },
             "DimensionAttributes": {
                 "$Collection": true,
                 "$Type": "UI.ChartDimensionAttributeType",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`"
+                    }
+                ],
                 "@Core.Description": "Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property."
             },
             "Actions": {
@@ -917,11 +947,36 @@
                 "@Core.Description": "Maximum value on value axes"
             }
         },
+        "ChartDataPointValue": {
+            "$Kind": "ComplexType",
+            "Value": {
+                "$Type": "Edm.PrimitiveType",
+                "$Nullable": true
+            },
+            "Dimension": {
+                "$Type": "UI.ChartDimensionAttributeType",
+                "$Nullable": true,
+                "@Core.Description": "Additional attributes for a value that specifies a dimension",
+                "@Core.LongDescription": "A dimension is a non-numeric value that can, e.g., be represented by the texture or the label of a circle in a bubble chart.\n\n            [`Dimension/Dimension`](#ChartDimensionAttributeType) is ignored.\n            This property is null if the value does not specify a dimension."
+            },
+            "Measure": {
+                "$Type": "UI.ChartMeasureAttributeType",
+                "$Nullable": true,
+                "@Core.Description": "Additional attributes for a value that specifies a measure",
+                "@Core.LongDescription": "A measure is a numeric value that can, e.g., be represented as the radius of a circle in a bubble chart.\n\n            [`Measure/Measure`](#ChartMeasureAttributeType) is ignored.\n            This property is null if the value does not specify a measure."
+            }
+        },
         "ChartDimensionAttributeType": {
             "$Kind": "ComplexType",
             "Dimension": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true
+                "$Nullable": true,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Ignored by [`UI.ChartDataPointValue/Dimension`](#ChartDataPointValue)"
+                    }
+                ]
             },
             "Role": {
                 "$Type": "UI.ChartDimensionRoleType",
@@ -954,7 +1009,13 @@
             "$Kind": "ComplexType",
             "Measure": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true
+                "$Nullable": true,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Ignored by [`UI.ChartDataPointValue/Measure`](#ChartDataPointValue)"
+                    }
+                ]
             },
             "Role": {
                 "$Type": "UI.ChartMeasureRoleType",
