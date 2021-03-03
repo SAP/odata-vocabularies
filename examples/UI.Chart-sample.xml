@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml"> <!--  oasis-tcs/odata-csdl-schemas#29 -->
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <EntityType Name="Sales">
+        <Annotation Term="UI.Chart">
+          <Record>
+            <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble"/>
+            <PropertyValue Property="DataPoint">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Value" Path="Country"/>
+                  <PropertyValue Property="Dimension" Path="@UI.Chart/DimensionAttributes/0"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Value" Path="Year"/>
+                  <PropertyValue Property="Dimension" Path="@UI.Chart/DimensionAttributes/1"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Value" Path="ProductCategory"/>
+                  <PropertyValue Property="Dimension" Path="@UI.Chart/DimensionAttributes/2"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Value" Path="Amount"/>
+                  <PropertyValue Property="Measure" Path="@UI.Chart/MeasureAttributes/0"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="Dimensions">
+              <Collection>
+                <PropertyPath>Country</PropertyPath>
+                <PropertyPath>Year</PropertyPath>
+                <PropertyPath>ProductCategory</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="DimensionAttributes">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Dimension" PropertyPath="Country"/>
+                  <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Dimension" PropertyPath="Year"/>
+                  <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
+                  <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category2"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="Measures">
+              <Collection>
+                <PropertyPath>Amount</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="MeasureAttributes">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Measure" PropertyPath="Amount"/>
+                  <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis3"/> <!-- radius -->
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,91 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        }
+    },
+    "UI.examples": {
+        "Sales": {
+            "$Kind": "EntityType",
+            "@UI.Chart": {
+                "ChartType": "Bubble",
+                "DataPoint": [
+                    {
+                        "Value": {
+                            "$Path": "Country"
+                        },
+                        "Dimension": {
+                            "$Path": "@UI.Chart/DimensionAttributes/0"
+                        }
+                    },
+                    {
+                        "Value": {
+                            "$Path": "Year"
+                        },
+                        "Dimension": {
+                            "$Path": "@UI.Chart/DimensionAttributes/1"
+                        }
+                    },
+                    {
+                        "Value": {
+                            "$Path": "ProductCategory"
+                        },
+                        "Dimension": {
+                            "$Path": "@UI.Chart/DimensionAttributes/2"
+                        }
+                    },
+                    {
+                        "Value": {
+                            "$Path": "Amount"
+                        },
+                        "Measure": {
+                            "$Path": "@UI.Chart/MeasureAttributes/0"
+                        }
+                    }
+                ],
+                "Dimensions": [
+                    "Country",
+                    "Year",
+                    "ProductCategory"
+                ],
+                "DimensionAttributes": [
+                    {
+                        "Dimension": "Country",
+                        "Role": "Category"
+                    },
+                    {
+                        "Dimension": "Year",
+                        "Role": "Series"
+                    },
+                    {
+                        "Dimension": "ProductCategory",
+                        "Role": "Category2"
+                    }
+                ],
+                "Measures": [
+                    "Amount"
+                ],
+                "MeasureAttributes": [
+                    {
+                        "Measure": "Amount",
+                        "Role": "Axis3"
+                    }
+                ]
+            }
+        }
+    }
+}
