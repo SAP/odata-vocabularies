@@ -698,12 +698,7 @@ The trend is
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
                 <PropertyValue Property="Description">
-                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
-
-                  For compatibility, the deprecated value can be computed (in Javascript) as
-                  `ChartDefinitionType.Measures = ChartDefinitionType.DataPoint
-                  .filter(dp => dp.Measure)
-                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
+                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.Measures = ChartDefinitionType.DataPoint.filter(dp => dp.Measure).map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -716,12 +711,7 @@ The trend is
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
                 <PropertyValue Property="Description">
-                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
-
-                  For compatibility, the deprecated value can be computed (in Javascript) as
-                  `ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint
-                  .filter(dp => dp.Measure)
-                  .map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))`</String>
+                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint.filter(dp => dp.Measure).map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -736,12 +726,7 @@ The trend is
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
                 <PropertyValue Property="Description">
-                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
-
-                  For compatibility, the deprecated value can be computed (in Javascript) as
-                  `ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint
-                  .filter(dp => dp.Dimension)
-                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
+                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint.filter(dp => dp.Dimension).map(dp => ({$PropertyPath: dp.Value.$Path}))`</String>
                 </PropertyValue>
               </Record>
             </Collection>
@@ -754,12 +739,7 @@ The trend is
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
                 <PropertyValue Property="Description">
-                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`
-
-                  For compatibility, the deprecated value can be computed (in Javascript) as
-                  `ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint
-                  .filter(dp => dp.Dimension)
-                  .map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))`</String>
+                  <String>Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint.filter(dp => dp.Dimension).map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))`</String>
                 </PropertyValue>
               </Record>
             </Collection>

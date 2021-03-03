@@ -804,7 +804,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`\n\n                  For compatibility, the deprecated value can be computed (in Javascript) as\n                  `ChartDefinitionType.Measures = ChartDefinitionType.DataPoint\n                  .filter(dp => dp.Measure)\n                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`"
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.Measures = ChartDefinitionType.DataPoint.filter(dp => dp.Measure).map(dp => ({$PropertyPath: dp.Value.$Path}))`"
                     }
                 ],
                 "@Core.Description": "Measures of the chart, e.g. size and color in a bubble chart"
@@ -815,7 +815,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`\n\n                  For compatibility, the deprecated value can be computed (in Javascript) as\n                  `ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint\n                  .filter(dp => dp.Measure)\n                  .map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))`"
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.MeasureAttributes = ChartDefinitionType.DataPoint.filter(dp => dp.Measure).map(dp => Object.assign({Measure: {$PropertyPath: dp.Value.$Path}}, dp.Measure))`"
                     }
                 ],
                 "@Core.Description": "Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property."
@@ -826,7 +826,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`\n\n                  For compatibility, the deprecated value can be computed (in Javascript) as\n                  `ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint\n                  .filter(dp => dp.Dimension)\n                  .map(dp => ({$PropertyPath: dp.Value.$Path}))`"
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.Dimensions = ChartDefinitionType.DataPoint.filter(dp => dp.Dimension).map(dp => ({$PropertyPath: dp.Value.$Path}))`"
                     }
                 ],
                 "@Core.Description": "Dimensions of the chart, e.g. x- and y-axis of a bubble chart"
@@ -837,7 +837,7 @@
                 "@Core.Revisions": [
                     {
                         "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`\n\n                  For compatibility, the deprecated value can be computed (in Javascript) as\n                  `ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint\n                  .filter(dp => dp.Dimension)\n                  .map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))`"
+                        "Description": "Deprecated in favor of `UI.ChartDefinitionType/DataPoint`. For compatibility, the deprecated value can be computed (in Javascript) as `ChartDefinitionType.DimensionAttributes = ChartDefinitionType.DataPoint.filter(dp => dp.Dimension).map(dp => Object.assign({Dimension: {$PropertyPath: dp.Value.$Path}}, dp.Dimension))`"
                     }
                 ],
                 "@Core.Description": "Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property."
