@@ -17,7 +17,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Communication.v1",
@@ -25,7 +25,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
@@ -33,7 +33,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.HTML5.v1",
