@@ -9,7 +9,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
