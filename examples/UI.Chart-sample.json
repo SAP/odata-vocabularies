@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Measures.V1",
+                    "$Alias": "Measures"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
             "$Include": [
                 {
@@ -55,12 +63,21 @@
                         "Measure": {
                             "$Path": "@UI.Chart/MeasureAttributes/0"
                         }
+                    },
+                    {
+                        "Value": {
+                            "$Path": "Amount/@Measures.ISOCurrency"
+                        },
+                        "Dimension": {
+                            "$Path": "@UI.Chart/DimensionAttributes/3"
+                        }
                     }
                 ],
                 "Dimensions": [
                     "Country",
                     "Year",
-                    "ProductCategory"
+                    "ProductCategory",
+                    "Currency"
                 ],
                 "DimensionAttributes": [
                     {
@@ -74,6 +91,10 @@
                     {
                         "Dimension": "ProductCategory",
                         "Role": "Category2"
+                    },
+                    {
+                        "Dimension": "Currency",
+                        "Role": "Category"
                     }
                 ],
                 "Measures": [

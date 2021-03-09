@@ -3,7 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
-
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml"> <!--  oasis-tcs/odata-csdl-schemas#29 -->
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
@@ -32,6 +34,10 @@
                   <PropertyValue Property="Value" Path="Amount"/>
                   <PropertyValue Property="Measure" Path="@UI.Chart/MeasureAttributes/0"/>
                 </Record>
+                <Record>
+                  <PropertyValue Property="Value" Path="Amount/@Measures.ISOCurrency"/>
+                  <PropertyValue Property="Dimension" Path="@UI.Chart/DimensionAttributes/3"/>
+                </Record>
               </Collection>
             </PropertyValue>
             <PropertyValue Property="Dimensions">
@@ -39,6 +45,7 @@
                 <PropertyPath>Country</PropertyPath>
                 <PropertyPath>Year</PropertyPath>
                 <PropertyPath>ProductCategory</PropertyPath>
+                <PropertyPath>Currency</PropertyPath> <!-- cannot use @Measures.ISOCurrency here -->
               </Collection>
             </PropertyValue>
             <PropertyValue Property="DimensionAttributes">
@@ -54,6 +61,10 @@
                 <Record>
                   <PropertyValue Property="Dimension" PropertyPath="ProductCategory"/>
                   <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category2"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Dimension" PropertyPath="Currency"/>
+                  <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
                 </Record>
               </Collection>
             </PropertyValue>
