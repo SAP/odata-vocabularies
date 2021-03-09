@@ -1608,6 +1608,12 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
+      <Function Name="AnyWordStartsWith">
+        <Annotation Term="Core.Description" String="True if any of the words in `Words` starts with the `Prefix`" />
+        <Parameter Name="Words" Type="Edm.String"/>
+        <Parameter Name="Prefix" Type="Edm.String" Nullable="false"/>
+        <ReturnType Type="Edm.Boolean" Nullable="false"/>
+      </Function>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

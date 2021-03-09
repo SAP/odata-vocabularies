@@ -1928,6 +1928,24 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
-        }
+        },
+        "AnyWordStartsWith": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "True if any of the words in `Words` starts with the `Prefix`",
+                "$Parameter": [
+                    {
+                        "$Name": "Words",
+                        "$Nullable": true
+                    },
+                    {
+                        "$Name": "Prefix"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ]
     }
 }
