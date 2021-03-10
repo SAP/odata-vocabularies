@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
@@ -30,6 +38,14 @@
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
                     "$Alias": "Common"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
                 }
             ]
         },
@@ -800,7 +816,11 @@
             "DynamicMeasures": {
                 "$Collection": true,
                 "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Dynamic properties introduced by annotations and used as measures of the chart"
+                "@Core.Description": "Dynamic properties introduced by annotations and used as measures of the chart",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperties",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "MeasureAttributes": {
                 "$Collection": true,

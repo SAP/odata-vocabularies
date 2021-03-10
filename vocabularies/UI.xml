@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
@@ -11,6 +14,9 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
     <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
@@ -690,6 +696,12 @@ The trend is
         </Property>
         <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">

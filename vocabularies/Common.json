@@ -32,6 +32,14 @@
                     "$Alias": "UI"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Common.v1": {
@@ -1456,7 +1464,11 @@
             "DynamicProperty": {
                 "$Type": "Edm.AnnotationPath",
                 "$Nullable": true,
-                "@Core.Description": "Dynamic property defined by an annotation and used as sort property"
+                "@Core.Description": "Dynamic property defined by an annotation and used as sort property",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperties",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Descending": {
                 "$Type": "Edm.Boolean",

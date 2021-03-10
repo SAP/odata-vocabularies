@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Common.v1" Alias="Common">
       <Annotation Term="Core.Description">
@@ -1235,6 +1238,12 @@ Upon modification field control logic is invoked so that meta-information like h
         </Property>
         <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Dynamic property defined by an annotation and used as sort property" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
