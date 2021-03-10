@@ -36,7 +36,7 @@ Either `Property` or `DynamicProperty` must be present
 Property|Type|Description
 :-------|:---|:----------
 [Property](Analytics.xml#L137)|PropertyPath?|Property that is part of the analytical context
-[DynamicProperty](Analytics.xml#L140)|AnnotationPath?|Dynamic property defined by an annotation and that is part of the analytical context
+[DynamicProperty](Analytics.xml#L140)|AnnotationPath?|Dynamic property defined by an annotation that is part of the analytical context
 [Dimension](Analytics.xml#L143)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
 [Measure](Analytics.xml#L146)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](Analytics.xml#L149)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut

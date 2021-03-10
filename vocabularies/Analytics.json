@@ -173,7 +173,7 @@
             "DynamicProperty": {
                 "$Type": "Edm.AnnotationPath",
                 "$Nullable": true,
-                "@Core.Description": "Dynamic property defined by an annotation and that is part of the analytical context"
+                "@Core.Description": "Dynamic property defined by an annotation that is part of the analytical context"
             },
             "Dimension": {
                 "$Type": "Core.Tag",

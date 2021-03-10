@@ -138,7 +138,7 @@
           <Annotation Term="Core.Description" String="Property that is part of the analytical context" />
         </Property>
         <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Dynamic property defined by an annotation and that is part of the analytical context" />
+          <Annotation Term="Core.Description" String="Dynamic property defined by an annotation that is part of the analytical context" />
         </Property>
         <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The property holds the key of a dimension" />
