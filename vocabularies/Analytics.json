@@ -63,7 +63,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Deprecated since the base term `Aggregation.Groupable` is also deprecated"
+                    "Description": "Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)"
                 }
             ],
             "@Core.Description": "A property holding the key of a dimension in an analytical context"
@@ -79,7 +79,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Deprecated since the base term `Aggregation.Aggregatable` is also deprecated"
+                    "Description": "Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)"
                 }
             ],
             "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
@@ -92,7 +92,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Deprecated since the base term [`Measure`](#Measure) is also deprecated"
+                    "Description": "Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)"
                 }
             ],
             "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
@@ -150,6 +150,46 @@
             "@Validation.ApplicableTerms": [
                 "Common.Label"
             ]
+        },
+        "AnalyticalContext": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Analytics.AnalyticalContextType",
+            "$AppliesTo": [
+                "EntitySet",
+                "Collection"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Collection of properties that define an analytical context"
+        },
+        "AnalyticalContextType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Either `Property` or `DynamicProperty` must be present",
+            "Property": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property that is part of the analytical context"
+            },
+            "DynamicProperty": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property defined by an annotation and that is part of the analytical context"
+            },
+            "Dimension": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The property holds the key of a dimension"
+            },
+            "Measure": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The property holds the numeric value of a measure"
+            },
+            "AccumulativeMeasure": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
+            }
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {
