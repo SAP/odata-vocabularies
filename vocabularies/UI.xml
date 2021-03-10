@@ -688,6 +688,9 @@ The trend is
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
         </Property>
+        <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
+        </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.</String>

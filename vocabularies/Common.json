@@ -1447,9 +1447,16 @@
         },
         "SortOrderType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Either `Property` or `DynamicProperty` must be present",
             "Property": {
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Sort property"
+            },
+            "DynamicProperty": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property defined by an annotation and used as sort property"
             },
             "Descending": {
                 "$Type": "Edm.Boolean",

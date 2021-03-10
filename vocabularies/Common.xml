@@ -1229,8 +1229,12 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.Description" String="Either `Property` or `DynamicProperty` must be present" />
+        <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Sort property" />
+        </Property>
+        <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property defined by an annotation and used as sort property" />
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />

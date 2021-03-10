@@ -797,6 +797,11 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Measures of the chart, e.g. size and color in a bubble chart"
             },
+            "DynamicMeasures": {
+                "$Collection": true,
+                "$Type": "Edm.AnnotationPath",
+                "@Core.Description": "Dynamic properties introduced by annotations and used as measures of the chart"
+            },
             "MeasureAttributes": {
                 "$Collection": true,
                 "$Type": "UI.ChartMeasureAttributeType",
