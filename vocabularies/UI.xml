@@ -1059,6 +1059,15 @@ The trend is
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
           </Annotation>
         </Property>
+        <Property Name="DynamicTotal" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Result should include a grand total for the properties specified in Total" />
         </Property>
@@ -1087,6 +1096,15 @@ The trend is
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
+        </Property>
+        <Property Name="RequestAtLeastDynamic" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -1157,8 +1175,18 @@ The trend is
 
       <ComplexType Name="SelectOptionType">
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.LongDescription" String="Either `PropertyName` or `DynamicPropertyName` must be present" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Path to the property" />
+        </Property>
+        <Property Name="DynamicPropertyName" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of value ranges" />
