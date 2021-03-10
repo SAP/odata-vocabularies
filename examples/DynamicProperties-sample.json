@@ -1,0 +1,77 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
+        }
+    },
+    "UI.examples": {
+        "$Annotations": {
+            "Container/me/SalesOrders": {
+                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
+            }
+        },
+        "Sales": {
+            "$Kind": "EntityType",
+            "@Analytics.AggregatedProperties": [
+                {
+                    "Name": "Total",
+                    "AggregationMethod": "sum",
+                    "AggregatableProperty": "Amount"
+                },
+                {
+                    "Name": "Maximum",
+                    "AggregationMethod": "max",
+                    "AggregatableProperty": "Amount"
+                }
+            ],
+            "@UI.Chart": {
+                "ChartType": "Bubble",
+                "Dimensions": [
+                    "Country"
+                ],
+                "Measures": [
+                    "NumberOfOrders"
+                ],
+                "DynamicMeasures": [
+                    "@Analytics.AggregatedProperties/0",
+                    "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                ]
+            },
+            "@UI.PresentationVariant": {
+                "SortOrder": [
+                    {
+                        "Property": "Country"
+                    },
+                    {
+                        "DynamicProperty": "@Analytics.AggregatedProperties/0"
+                    },
+                    {
+                        "DynamicProperty": "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                    }
+                ]
+            }
+        }
+    }
+}

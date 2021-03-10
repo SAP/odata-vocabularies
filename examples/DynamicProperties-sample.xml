@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <Annotations Target="Container/me/SalesOrders">
+        <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal"/>
+      </Annotations>
+      <EntityType Name="Sales">
+        <Annotation Term="Analytics.AggregatedProperties">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Name" String="Total"/>
+              <PropertyValue Property="AggregationMethod" String="sum"/>
+              <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+            </Record>
+            <Record>
+              <PropertyValue Property="Name" String="Maximum"/>
+              <PropertyValue Property="AggregationMethod" String="max"/>
+              <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Chart">
+          <Record>
+            <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble"/>
+            <PropertyValue Property="Dimensions">
+              <Collection>
+                <PropertyPath>Country</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="Measures">
+              <Collection>
+                <PropertyPath>NumberOfOrders</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="DynamicMeasures">
+              <Collection>
+                <AnnotationPath>@Analytics.AggregatedProperties/0</AnnotationPath>
+                <AnnotationPath>/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.PresentationVariant">
+          <Record>
+            <PropertyValue Property="SortOrder">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Property" PropertyPath="Country"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties/0"/>
+                  <PropertyValue Property="Descending" Boolean="True"/>
+                </Record>
+                <Record>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
