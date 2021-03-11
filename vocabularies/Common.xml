@@ -1232,12 +1232,20 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Annotation Term="Core.Description" String="Either `Property` or `DynamicProperty` must be present" />
+        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Sort property" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
+                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Dynamic property defined by an annotation and used as sort property" />
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as sort property" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
               <String>Analytics.AggregatedProperties</String>

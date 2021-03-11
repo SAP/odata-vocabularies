@@ -977,9 +977,19 @@
         },
         "ChartMeasureAttributeType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Exactly one of `Measure` and `DynamicMeasure` must be present",
             "Measure": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true
+            },
+            "DynamicMeasure": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by an annotation and used as a measure in a chart",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperties",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Role": {
                 "$Type": "UI.ChartMeasureRoleType",
@@ -1397,11 +1407,17 @@
         "SelectOptionType": {
             "$Kind": "ComplexType",
             "@Core.Description": "List of value ranges for a single property",
-            "@Core.LongDescription": "Either `PropertyName` or `DynamicPropertyName` must be present",
+            "@Core.LongDescription": "Exactly one of `PropertyName` and `DynamicPropertyName` must be present",
             "PropertyName": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Path to the property"
+                "@Core.Description": "Path to the property",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Modified",
+                        "Description": "Now nullable if `DynamicPropertyName` is present"
+                    }
+                ]
             },
             "DynamicPropertyName": {
                 "$Type": "Edm.AnnotationPath",

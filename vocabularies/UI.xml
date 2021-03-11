@@ -840,7 +840,17 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Property Name="Measure" Type="Edm.PropertyPath" />
+        <Annotation Term="Core.Description" String="Exactly one of `Measure` and `DynamicMeasure` must be present" />
+        <Property Name="Measure" Type="Edm.PropertyPath"/>
+        <Property Name="DynamicMeasure" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperties</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure" />
@@ -1175,9 +1185,17 @@ The trend is
 
       <ComplexType Name="SelectOptionType">
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
-        <Annotation Term="Core.LongDescription" String="Either `PropertyName` or `DynamicPropertyName` must be present" />
+        <Annotation Term="Core.LongDescription" String="Exactly one of `PropertyName` and `DynamicPropertyName` must be present" />
         <Property Name="PropertyName" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Path to the property" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
+                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="DynamicPropertyName" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
