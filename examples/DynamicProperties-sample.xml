@@ -62,7 +62,7 @@
                 </Record>
                 <Record>
                   <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties/0"/>
-                  <PropertyValue Property="Descending" Boolean="True"/>
+                  <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>
                   <PropertyValue Property="DynamicProperty" AnnotationPath="/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
