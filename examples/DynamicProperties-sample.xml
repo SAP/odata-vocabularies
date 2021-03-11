@@ -10,12 +10,14 @@
     <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="DynamicProperties.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
-      <Annotations Target="Container/me/SalesOrders">
-        <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal"/>
-      </Annotations>
       <EntityType Name="Sales">
+        <Key>
+          <PropertyRef Name="Order"/>
+        </Key>
+        <Property Name="Order" Type="Edm.String" Nullable="false"/>
+        <Property Name="Amount" Type="Edm.Decimal"/>
         <Annotation Term="Analytics.AggregatedProperties">
           <Collection>
             <Record>
@@ -70,6 +72,15 @@
           </Record>
         </Annotation>
       </EntityType>
+      <EntityType Name="meType">
+        <NavigationProperty Name="SalesOrders" Type="Collection(DynamicProperties.examples.Sales)" ContainsTarget="true"/>
+      </EntityType>
+      <EntityContainer Name="Container">
+        <Singleton Name="me" Type="DynamicProperties.examples.meType"/>
+      </EntityContainer>
+      <Annotations Target="Container/me/SalesOrders">
+        <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal"/>
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>

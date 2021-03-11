@@ -26,14 +26,18 @@
             ]
         }
     },
-    "UI.examples": {
-        "$Annotations": {
-            "Container/me/SalesOrders": {
-                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
-            }
-        },
+    "DynamicProperties.examples": {
         "Sales": {
             "$Kind": "EntityType",
+            "$Key": [
+                "Order"
+            ],
+            "Order": {},
+            "Amount": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 0
+            },
             "@Analytics.AggregatedProperties": [
                 {
                     "Name": "Total",
@@ -72,6 +76,27 @@
                     }
                 ]
             }
+        },
+        "meType": {
+            "$Kind": "EntityType",
+            "SalesOrders": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "DynamicProperties.examples.Sales",
+                "$ContainsTarget": true
+            }
+        },
+        "Container": {
+            "$Kind": "EntityContainer",
+            "me": {
+                "$Type": "DynamicProperties.examples.meType"
+            }
+        },
+        "$Annotations": {
+            "Container/me/SalesOrders": {
+                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
+            }
         }
-    }
+    },
+    "$EntityContainer": "DynamicProperties.examples.Container"
 }
