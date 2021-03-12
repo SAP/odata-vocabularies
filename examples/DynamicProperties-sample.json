@@ -33,6 +33,10 @@
                 "Order"
             ],
             "Order": {},
+            "Country": {},
+            "NumberOfItems": {
+                "$Type": "Edm.Int16"
+            },
             "Amount": {
                 "$Type": "Edm.Decimal",
                 "$Nullable": true,

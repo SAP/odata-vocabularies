@@ -17,6 +17,8 @@
           <PropertyRef Name="Order"/>
         </Key>
         <Property Name="Order" Type="Edm.String" Nullable="false"/>
+        <Property Name="Country" Type="Edm.String" Nullable="false"/>
+        <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false"/>
         <Property Name="Amount" Type="Edm.Decimal"/>
         <Annotation Term="Analytics.AggregatedProperties" Qualifier="sum">
           <Collection> <!-- collection always has one entry that can be referenced with index segment /0 -->
