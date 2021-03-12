@@ -65,7 +65,7 @@
                     "NumberOfItems"
                 ],
                 "DynamicMeasures": [
-                    "@Analytics.AggregatedProperties#sum/0",
+                    "@Analytics.AggregatedProperties#sum",
                     "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                 ]
             },
@@ -75,7 +75,7 @@
                         "Property": "Country"
                     },
                     {
-                        "DynamicProperty": "@Analytics.AggregatedProperties#sum/0"
+                        "DynamicProperty": "@Analytics.AggregatedProperties#sum"
                     },
                     {
                         "DynamicProperty": "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"

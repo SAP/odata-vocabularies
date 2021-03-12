@@ -21,7 +21,7 @@
         <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false"/>
         <Property Name="Amount" Type="Edm.Decimal"/>
         <Annotation Term="Analytics.AggregatedProperties" Qualifier="sum">
-          <Collection> <!-- collection always has one entry that can be referenced with index segment /0 -->
+          <Collection>
             <Record>
               <PropertyValue Property="Name" String="Total"/>
               <PropertyValue Property="AggregationMethod" String="sum"/>
@@ -53,7 +53,7 @@
             </PropertyValue>
             <PropertyValue Property="DynamicMeasures">
               <Collection>
-                <AnnotationPath>@Analytics.AggregatedProperties#sum/0</AnnotationPath>
+                <AnnotationPath>@Analytics.AggregatedProperties#sum</AnnotationPath>
                 <AnnotationPath>/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
@@ -67,7 +67,7 @@
                   <PropertyValue Property="Property" PropertyPath="Country"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties#sum/0"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties#sum"/>
                   <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>
