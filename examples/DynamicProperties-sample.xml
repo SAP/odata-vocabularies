@@ -18,13 +18,17 @@
         </Key>
         <Property Name="Order" Type="Edm.String" Nullable="false"/>
         <Property Name="Amount" Type="Edm.Decimal"/>
-        <Annotation Term="Analytics.AggregatedProperties">
-          <Collection>
+        <Annotation Term="Analytics.AggregatedProperties" Qualifier="sum">
+          <Collection> <!-- collection always has one entry and can be referenced with index segment /0 -->
             <Record>
               <PropertyValue Property="Name" String="Total"/>
               <PropertyValue Property="AggregationMethod" String="sum"/>
               <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
             </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Analytics.AggregatedProperties" Qualifier="max">
+          <Collection>
             <Record>
               <PropertyValue Property="Name" String="Maximum"/>
               <PropertyValue Property="AggregationMethod" String="max"/>
@@ -42,12 +46,12 @@
             </PropertyValue>
             <PropertyValue Property="Measures">
               <Collection>
-                <PropertyPath>NumberOfOrders</PropertyPath>
+                <PropertyPath>NumberOfItems</PropertyPath>
               </Collection>
             </PropertyValue>
             <PropertyValue Property="DynamicMeasures">
               <Collection>
-                <AnnotationPath>@Analytics.AggregatedProperties/0</AnnotationPath>
+                <AnnotationPath>@Analytics.AggregatedProperties#sum/0</AnnotationPath>
                 <AnnotationPath>/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
@@ -61,7 +65,7 @@
                   <PropertyValue Property="Property" PropertyPath="Country"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties/0"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties#sum/0"/>
                   <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>

@@ -38,12 +38,14 @@
                 "$Nullable": true,
                 "$Scale": 0
             },
-            "@Analytics.AggregatedProperties": [
+            "@Analytics.AggregatedProperties#sum": [
                 {
                     "Name": "Total",
                     "AggregationMethod": "sum",
                     "AggregatableProperty": "Amount"
-                },
+                }
+            ],
+            "@Analytics.AggregatedProperties#max": [
                 {
                     "Name": "Maximum",
                     "AggregationMethod": "max",
@@ -56,10 +58,10 @@
                     "Country"
                 ],
                 "Measures": [
-                    "NumberOfOrders"
+                    "NumberOfItems"
                 ],
                 "DynamicMeasures": [
-                    "@Analytics.AggregatedProperties/0",
+                    "@Analytics.AggregatedProperties#sum/0",
                     "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                 ]
             },
@@ -69,7 +71,7 @@
                         "Property": "Country"
                     },
                     {
-                        "DynamicProperty": "@Analytics.AggregatedProperties/0"
+                        "DynamicProperty": "@Analytics.AggregatedProperties#sum/0"
                     },
                     {
                         "DynamicProperty": "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
