@@ -19,7 +19,7 @@
         <Property Name="Order" Type="Edm.String" Nullable="false"/>
         <Property Name="Amount" Type="Edm.Decimal"/>
         <Annotation Term="Analytics.AggregatedProperties" Qualifier="sum">
-          <Collection> <!-- collection always has one entry and can be referenced with index segment /0 -->
+          <Collection> <!-- collection always has one entry that can be referenced with index segment /0 -->
             <Record>
               <PropertyValue Property="Name" String="Total"/>
               <PropertyValue Property="AggregationMethod" String="sum"/>
