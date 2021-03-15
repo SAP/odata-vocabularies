@@ -1472,7 +1472,7 @@
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by an annotation and used as sort property",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },

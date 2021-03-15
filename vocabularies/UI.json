@@ -818,7 +818,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Dynamic properties introduced by annotations and used as measures of the chart",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },
@@ -987,7 +987,7 @@
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by an annotation and used as a measure in a chart",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },
@@ -1284,7 +1284,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },
@@ -1318,7 +1318,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Dynamic properties introduced by annotations that should always be included in the result of the queried collection",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },
@@ -1424,7 +1424,7 @@
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by annotations for which value ranges are specified",
                 "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperties",
+                    "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
                 ]
             },

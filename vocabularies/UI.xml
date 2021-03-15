@@ -698,7 +698,7 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Analytics.AggregatedProperties</String>
+              <String>Analytics.AggregatedProperty</String>
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
@@ -846,7 +846,7 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Analytics.AggregatedProperties</String>
+              <String>Analytics.AggregatedProperty</String>
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
@@ -1073,7 +1073,7 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Analytics.AggregatedProperties</String>
+              <String>Analytics.AggregatedProperty</String>
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
@@ -1111,7 +1111,7 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Analytics.AggregatedProperties</String>
+              <String>Analytics.AggregatedProperty</String>
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
@@ -1201,7 +1201,7 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Analytics.AggregatedProperties</String>
+              <String>Analytics.AggregatedProperty</String>
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
