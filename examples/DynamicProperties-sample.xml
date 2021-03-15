@@ -20,23 +20,19 @@
         <Property Name="Country" Type="Edm.String" Nullable="false"/>
         <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false"/>
         <Property Name="Amount" Type="Edm.Decimal"/>
-        <Annotation Term="Analytics.AggregatedProperties" Qualifier="sum">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Name" String="Total"/>
-              <PropertyValue Property="AggregationMethod" String="sum"/>
-              <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
-            </Record>
-          </Collection>
+        <Annotation Term="Analytics.AggregatedProperty" Qualifier="sum">
+          <Record>
+            <PropertyValue Property="Name" String="Total"/>
+            <PropertyValue Property="AggregationMethod" String="sum"/>
+            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+          </Record>
         </Annotation>
-        <Annotation Term="Analytics.AggregatedProperties" Qualifier="max">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Name" String="Maximum"/>
-              <PropertyValue Property="AggregationMethod" String="max"/>
-              <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
-            </Record>
-          </Collection>
+        <Annotation Term="Analytics.AggregatedProperty" Qualifier="max">
+          <Record>
+            <PropertyValue Property="Name" String="Maximum"/>
+            <PropertyValue Property="AggregationMethod" String="max"/>
+            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+          </Record>
         </Annotation>
         <Annotation Term="UI.Chart">
           <Record>
@@ -53,7 +49,7 @@
             </PropertyValue>
             <PropertyValue Property="DynamicMeasures">
               <Collection>
-                <AnnotationPath>@Analytics.AggregatedProperties#sum</AnnotationPath>
+                <AnnotationPath>@Analytics.AggregatedProperty#sum</AnnotationPath>
                 <AnnotationPath>/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
@@ -67,7 +63,7 @@
                   <PropertyValue Property="Property" PropertyPath="Country"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperties#sum"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum"/>
                   <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>

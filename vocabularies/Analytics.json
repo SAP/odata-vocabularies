@@ -113,8 +113,23 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)"
+                }
+            ],
             "@Core.Description": "Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.",
             "@Core.LongDescription": "\n            Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the \n\t\t\tgiven entity type to leverage the results of the aggregate expression determined in the context of an entity collection of \n\t\t\tthe annotated type.\n          "
+        },
+        "AggregatedProperty": {
+            "$Kind": "Term",
+            "$Type": "Analytics.AggregatedPropertyType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.",
+            "@Core.LongDescription": "Other annotations may refer in annotation paths to dynamic properties declared using this term\n          to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type."
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",

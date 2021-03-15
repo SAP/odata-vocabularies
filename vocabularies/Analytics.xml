@@ -77,6 +77,14 @@
       </Term>
 
       <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
@@ -85,7 +93,13 @@
 			the annotated type.
           </String>
         </Annotation>
-
+      </Term>
+      <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
+        <Annotation Term="Core.LongDescription">
+          <String>Other annotations may refer in annotation paths to dynamic properties declared using this term
+          to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type.</String>
+        </Annotation>
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
