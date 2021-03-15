@@ -119,6 +119,10 @@
       </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">
+        <Annotation Term="Core.LongDescription">
+          <String>Other annotations may refer in annotation paths to custom aggregates declared using this term
+          to leverage the results of the aggregate expression determined in the context of the annotated entity collection.</String>
+        </Annotation>
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
           <Collection>

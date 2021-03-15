@@ -150,6 +150,7 @@
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {
+                "@Core.LongDescription": "Other annotations may refer in annotation paths to custom aggregates declared using this term\n          to leverage the results of the aggregate expression determined in the context of the annotated entity collection.",
                 "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
                 "@Validation.ApplicableTerms": [
                     "Common.Label"
