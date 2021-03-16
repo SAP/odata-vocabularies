@@ -162,7 +162,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
-            "@Core.LongDescription": "The value list for time zones is not prescribed by this vocabulary.\n            If an [IANA](https://www.iana.org/time-zones) time zone is specified, browsers can perform the necessary conversion.\n            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "IsDigitSequence": {
