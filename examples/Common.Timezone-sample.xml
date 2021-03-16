@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
   <edmx:DataServices>
