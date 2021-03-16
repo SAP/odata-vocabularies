@@ -119,7 +119,7 @@
       </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">
-        <Annotation Term="Core.LongDescription">
+        <Annotation Term="Core.LongDescription" Qualifier="Analytics">
           <String>Other annotations may refer in annotation paths to custom aggregates declared using this term
           to leverage the results of the aggregate expression determined in the context of the annotated entity collection.</String>
         </Annotation>
