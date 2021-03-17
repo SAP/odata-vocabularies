@@ -1346,14 +1346,6 @@ The trend is
         </Member>
       </EnumType>
 
-      <!-- Under discussion
-        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
-        <Annotation Term="Core.Description">
-        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
-        </Annotation>
-        </Term>
-      -->
-
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>
