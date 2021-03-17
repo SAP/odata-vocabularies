@@ -1928,6 +1928,35 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
-        }
+        },
+        "toTimestamp": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`",
+                "$Parameter": [
+                    {
+                        "$Name": "Date",
+                        "$Type": "Edm.Date",
+                        "$Nullable": true
+                    },
+                    {
+                        "$Name": "TimeOfDay",
+                        "$Type": "Edm.TimeOfDay",
+                        "$Nullable": true
+                    },
+                    {
+                        "$Name": "Timezone",
+                        "$Nullable": true,
+                        "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard",
+                        "@Core.LongDescription": "If absent, the time zone of the UI (Fiori Launchpad) is implied"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.DateTimeOffset",
+                    "$Nullable": true,
+                    "$Precision": 0
+                }
+            }
+        ]
     }
 }

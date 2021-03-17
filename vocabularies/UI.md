@@ -71,6 +71,13 @@ Term|Type|Description
 [RecommendationList](UI.xml#L1567)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<p>Intelligent systems can help users by recommending input the user may "prefer".</p>
 [ExcludeFromNavigationContext](UI.xml#L1599)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 
+
+## Functions
+
+Function|Signature|Description
+:-------|:--------|:----------
+[toTimestamp](UI.xml#L1603)|Date:&nbsp;Date?, TimeOfDay:&nbsp;TimeOfDay?, Timezone:&nbsp;String? &rarr;&nbsp;DateTimeOffset?|<a name="toTimestamp"></a>Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`
+
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
 
