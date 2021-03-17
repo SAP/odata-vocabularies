@@ -97,7 +97,7 @@
       <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
-          <String>Other annotations may refer in annotation paths to dynamic properties declared using this term
+          <String>Other annotations may refer in property paths to annotations using this term
           to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type.</String>
         </Annotation>
       </Term>
@@ -120,7 +120,7 @@
 
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Core.LongDescription" Qualifier="Analytics">
-          <String>Other annotations may refer in annotation paths to custom aggregates declared using this term
+          <String>Other annotations may refer in property paths to annotations using this term
           to leverage the results of the aggregate expression determined in the context of the annotated entity collection.</String>
         </Annotation>
         <Annotation Term="Validation.ApplicableTerms">

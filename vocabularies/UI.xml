@@ -3,9 +3,6 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
-    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
-  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
@@ -14,9 +11,6 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
-  </edmx:Reference>
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
     <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
@@ -692,17 +686,7 @@ The trend is
           <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
         </Property>
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
-        </Property>
-        <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
@@ -841,19 +825,7 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Annotation Term="Core.Description" String="Exactly one of `Measure` and `DynamicMeasure` must be present" />
-        <Property Name="Measure" Type="Edm.PropertyPath">
-          <Annotation Term="Common.StructuralPropertyPath"/>
-        </Property>
-        <Property Name="DynamicMeasure" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
-          </Annotation>
-        </Property>
+        <Property Name="Measure" Type="Edm.PropertyPath" />
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure" />
@@ -1068,18 +1040,8 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="Total" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description">
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
-          </Annotation>
-        </Property>
-        <Property Name="DynamicTotal" Type="Collection(Edm.AnnotationPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
           </Annotation>
         </Property>
         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -1109,17 +1071,7 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
-        </Property>
-        <Property Name="RequestAtLeastDynamic" Type="Collection(Edm.AnnotationPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -1190,27 +1142,8 @@ The trend is
 
       <ComplexType Name="SelectOptionType">
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
-        <Annotation Term="Core.LongDescription" String="Exactly one of `PropertyName` and `DynamicPropertyName` must be present" />
-        <Property Name="PropertyName" Type="Edm.PropertyPath">
-          <Annotation Term="Common.StructuralPropertyPath"/>
+        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to the property" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
-                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Property>
-        <Property Name="DynamicPropertyName" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of value ranges" />
@@ -1351,6 +1284,14 @@ The trend is
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
+
+      <!-- Under discussion
+        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
+        <Annotation Term="Core.Description">
+        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
+        </Annotation>
+        </Term>
+      -->
 
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
