@@ -811,6 +811,7 @@
             "Measures": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Common.StructuralPropertyPath": true,
                 "@Core.Description": "Measures of the chart, e.g. size and color in a bubble chart"
             },
             "DynamicMeasures": {
@@ -980,7 +981,8 @@
             "@Core.Description": "Exactly one of `Measure` and `DynamicMeasure` must be present",
             "Measure": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true
+                "$Nullable": true,
+                "@Common.StructuralPropertyPath": true
             },
             "DynamicMeasure": {
                 "$Type": "Edm.AnnotationPath",
@@ -1277,6 +1279,7 @@
             "Total": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Common.StructuralPropertyPath": true,
                 "@Core.Description": "Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy."
             },
             "DynamicTotal": {
@@ -1311,6 +1314,7 @@
             "RequestAtLeast": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Common.StructuralPropertyPath": true,
                 "@Core.Description": "Properties that should always be included in the result of the queried collection"
             },
             "RequestAtLeastDynamic": {
@@ -1411,6 +1415,7 @@
             "PropertyName": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
+                "@Common.StructuralPropertyPath": true,
                 "@Core.Description": "Path to the property",
                 "@Core.Revisions": [
                     {
