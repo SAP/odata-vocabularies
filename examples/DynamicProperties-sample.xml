@@ -10,7 +10,7 @@
     <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="DynamicProperties.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="DynamicProperties.examples" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <EntityType Name="Sales">
         <Key>
@@ -50,7 +50,7 @@
             <PropertyValue Property="DynamicMeasures">
               <Collection>
                 <AnnotationPath>@Analytics.AggregatedProperty#sum</AnnotationPath>
-                <AnnotationPath>/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
+                <AnnotationPath>/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
           </Record>
@@ -67,7 +67,7 @@
                   <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
                 </Record>
               </Collection>
             </PropertyValue>
@@ -80,7 +80,7 @@
       <EntityContainer Name="Container">
         <Singleton Name="me" Type="DynamicProperties.examples.meType"/>
       </EntityContainer>
-      <Annotations Target="Container/me/SalesOrders">
+      <Annotations Target="self.Container/me/SalesOrders">
         <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal"/>
       </Annotations>
 

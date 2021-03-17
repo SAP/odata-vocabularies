@@ -27,6 +27,7 @@
         }
     },
     "DynamicProperties.examples": {
+        "$Alias": "self",
         "Sales": {
             "$Kind": "EntityType",
             "$Key": [
@@ -62,7 +63,7 @@
                 ],
                 "DynamicMeasures": [
                     "@Analytics.AggregatedProperty#sum",
-                    "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                    "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                 ]
             },
             "@UI.PresentationVariant": {
@@ -74,7 +75,7 @@
                         "DynamicProperty": "@Analytics.AggregatedProperty#sum"
                     },
                     {
-                        "DynamicProperty": "/Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                        "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                     }
                 ]
             }
@@ -84,18 +85,18 @@
             "SalesOrders": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "DynamicProperties.examples.Sales",
+                "$Type": "self.Sales",
                 "$ContainsTarget": true
             }
         },
         "Container": {
             "$Kind": "EntityContainer",
             "me": {
-                "$Type": "DynamicProperties.examples.meType"
+                "$Type": "self.meType"
             }
         },
         "$Annotations": {
-            "Container/me/SalesOrders": {
+            "self.Container/me/SalesOrders": {
                 "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
             }
         }
