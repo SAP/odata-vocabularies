@@ -88,6 +88,12 @@
                 "$Nullable": true,
                 "@Core.Description": "Path to primitive property in the target entity set"
             }
+        },
+        "traceId": {
+            "$Kind": "Term",
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "The traceId contains a unique string that is preserved across multiple requests and log files. It helps to diagnose problems by correlating log entries using the traceId."
         }
     }
 }

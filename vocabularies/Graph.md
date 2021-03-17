@@ -9,6 +9,7 @@ Terms for SAP Graph
 Term|Type|Description
 :---|:---|:----------
 [links](Graph.xml#L36) *([Experimental](Common.md#Experimental))*|\[[link](#link)\]|<a name="links"></a>Navigation links
+[traceId](Graph.xml#L72) *([Experimental](Common.md#Experimental))*|String|<a name="traceId"></a>The traceId contains a unique string that is preserved across multiple requests and log files. It helps to diagnose problems by correlating log entries using the traceId.
 
 ## <a name="link"></a>[link](Graph.xml#L41) *([Experimental](Common.md#Experimental))*
 Navigation link
