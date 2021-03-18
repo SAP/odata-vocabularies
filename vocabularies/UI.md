@@ -74,9 +74,14 @@ Term|Type|Description
 
 ## Functions
 
-Function|Signature|Description
-:-------|:--------|:----------
-[toTimestamp](UI.xml#L1603)|Date:&nbsp;Date?, TimeOfDay:&nbsp;TimeOfDay?, Timezone:&nbsp;String? &rarr;&nbsp;DateTimeOffset?|<a name="toTimestamp"></a>Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`
+### <a name="toTimestamp"></a>[toTimestamp](UI.xml#L1603)
+Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`
+Parameter|Type|Description
+:--------|:---|:----------
+[Date](UI.xml#L1605)|Date?|
+[TimeOfDay](UI.xml#L1606)|TimeOfDay?|
+[Timezone](UI.xml#L1607)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<p>If absent, the time zone of the UI (Fiori Launchpad) is implied</p>
+&rarr;|DateTimeOffset?|
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
