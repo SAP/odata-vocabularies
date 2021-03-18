@@ -78,8 +78,8 @@ Term|Type|Description
 True if any of the words in `Words` starts with the `Prefix`
 Parameter|Type|Description
 :--------|:---|:----------
-[Words](UI.xml#L1613)|String?|
-[Prefix](UI.xml#L1614)|String|
+Words|String?|
+Prefix|String|
 &rarr;|Boolean|
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
