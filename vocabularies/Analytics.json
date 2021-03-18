@@ -129,13 +129,13 @@
                 "EntityType"
             ],
             "@Core.Description": "Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.",
-            "@Core.LongDescription": "Other annotations may refer in property paths to annotations using this term\n          to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type."
+            "@Core.LongDescription": "A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value."
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
             "Name": {
                 "$Type": "Common.SimpleIdentifier",
-                "@Core.Description": "Name the dynamic property holding the aggregated value."
+                "@Core.Description": "Name of the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
                 "@Core.Description": "Name of the standard or custom aggregation method to be applied."
@@ -150,7 +150,7 @@
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {
-                "@Core.LongDescription#Analytics": "Other annotations may refer in property paths to annotations using this term\n          to leverage the results of the aggregate expression determined in the context of the annotated entity collection.",
+                "@Core.LongDescription#Analytics": "A property path to an `Aggregation.CustomAggregate` annotation can be used to reference the dynamic property holding the value of the custom aggregate.",
                 "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
                 "@Validation.ApplicableTerms": [
                     "Common.Label"
