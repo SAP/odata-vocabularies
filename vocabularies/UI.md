@@ -74,9 +74,13 @@ Term|Type|Description
 
 ## Functions
 
-Function|Signature|Description
-:-------|:--------|:----------
-[AnyWordStartsWith](UI.xml#L1611)|Words:&nbsp;String?, Prefix:&nbsp;String &rarr;&nbsp;Boolean|<a name="AnyWordStartsWith"></a>True if any of the words in `Words` starts with the `Prefix`
+### <a name="AnyWordStartsWith"></a>[AnyWordStartsWith](UI.xml#L1611)
+True if any of the words in `Words` starts with the `Prefix`
+Parameter|Type|Description
+:--------|:---|:----------
+[Words](UI.xml#L1613)|String?|
+[Prefix](UI.xml#L1614)|String|
+&rarr;|Boolean|
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
