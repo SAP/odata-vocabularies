@@ -12,7 +12,7 @@
     "lib/*"
   ],
   "dependencies": {
-    "odata-csdl": "^0.2.4",
+    "odata-csdl": "^0.2.5",
     "odata-vocabularies": "oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
