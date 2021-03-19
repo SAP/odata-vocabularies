@@ -39,14 +39,38 @@
       </Annotation>
 
       <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
       <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
       <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
@@ -115,6 +139,25 @@
             <String>Common.Label</String> <!-- more in the future as needed -->
           </Collection>
         </Annotation>
+      </ComplexType>
+
+      <Term Name="AnalyticalContext" Type="Collection(Analytics.AnalyticalContextType)" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.Description" String="Collection of properties that define an analytical context" />
+      </Term>
+      <ComplexType Name="AnalyticalContextType">
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property that is part of the analytical context" />
+        </Property>
+        <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The property holds the key of a dimension" />
+        </Property>
+        <Property Name="Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The property holds the numeric value of a measure" />
+        </Property>
+        <Property Name="AccumulativeMeasure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
+        </Property>
       </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">
