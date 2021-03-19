@@ -78,9 +78,9 @@ Term|Type|Description
 Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`
 Parameter|Type|Description
 :--------|:---|:----------
-[Date](UI.xml#L1605)|Date?|
-[TimeOfDay](UI.xml#L1606)|TimeOfDay?|
-[Timezone](UI.xml#L1607)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<p>If absent, the time zone of the UI (Fiori Launchpad) is implied</p>
+Date|Date?|
+TimeOfDay|TimeOfDay?|
+Timezone|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<p>If absent, the time zone of the UI (Fiori Launchpad) is implied</p>
 &rarr;|DateTimeOffset?|
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
