@@ -10,11 +10,11 @@ The HTML5 vocabulary provides rendering hints for HTML5 clients
 
 Term|Type|Description
 :---|:---|:----------
-[CssDefaults](HTML5.xml#L39) *([Experimental](Common.md#Experimental))*|[CssDefaultsType](#CssDefaultsType)|<a name="CssDefaults"></a>CSS definitions that may be used as defaults <p>This term can applied to e.g. UI.DataFieldAbstract records</p>
+[CssDefaults](HTML5.xml#L39) *([Experimental](Common.md#Experimental))*|[CssDefaultsType](#CssDefaultsType)|<a name="CssDefaults"></a>CSS definitions that may be used as defaults<br>This term can applied to e.g. UI.DataFieldAbstract records
 
 ## <a name="CssDefaultsType"></a>[CssDefaultsType](HTML5.xml#L45) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[width](HTML5.xml#L47)|String?|css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width <p>The property allows all values specified for the original css width property. Note that clients consuming this annotation may only support selected length units.</p>
+[width](HTML5.xml#L47)|String?|css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width<br>The property allows all values specified for the original css width property. Note that clients consuming this annotation may only support selected length units.
