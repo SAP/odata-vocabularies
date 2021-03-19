@@ -15,16 +15,16 @@ Term|Type|Description
 [DrillURL](Analytics.xml#L59) *([Experimental](Common.md#Experimental))*|URL?|<a name="DrillURL"></a>URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.
 [PlanningAction](Analytics.xml#L71) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.
 [AggregatedProperties](Analytics.xml#L79) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
-[AggregatedProperty](Analytics.xml#L97)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.<br>Other annotations may refer in annotation paths to dynamic properties declared using this term to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type.
+[AggregatedProperty](Analytics.xml#L97)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.<br>A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value.
 
-## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L104)
+## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L103)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Analytics.xml#L105)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name the dynamic property holding the aggregated value.
-[AggregationMethod](Analytics.xml#L108)|String|Name of the standard or custom aggregation method to be applied.
-[AggregatableProperty](Analytics.xml#L111)|PropertyPath|Property whose values shall be aggregated.
+[Name](Analytics.xml#L104)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
+[AggregationMethod](Analytics.xml#L107)|String|Name of the standard or custom aggregation method to be applied.
+[AggregatableProperty](Analytics.xml#L110)|PropertyPath|Property whose values shall be aggregated.
 
 **Applicable Annotation Terms:**
 

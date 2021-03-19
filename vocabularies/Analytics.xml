@@ -97,13 +97,12 @@
       <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
-          <String>Other annotations may refer in annotation paths to dynamic properties declared using this term
-          to leverage the results of the aggregate expression determined in the context of an entity collection of the annotated type.</String>
+          <String>A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value.</String>
         </Annotation>
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
-          <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value." />
+          <Annotation Term="Core.Description" String="Name of the dynamic property holding the aggregated value." />
         </Property>
         <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied." />
@@ -120,8 +119,7 @@
 
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Core.LongDescription" Qualifier="Analytics">
-          <String>Other annotations may refer in annotation paths to custom aggregates declared using this term
-          to leverage the results of the aggregate expression determined in the context of the annotated entity collection.</String>
+          <String>A property path to an `Aggregation.CustomAggregate` annotation can be used to reference the dynamic property holding the value of the custom aggregate.</String>
         </Annotation>
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />

@@ -12,9 +12,6 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
-  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Common.v1" Alias="Common">
       <Annotation Term="Core.Description">
@@ -115,16 +112,6 @@
           <Annotation Term="Core.Description" String="Plain text with markup that can validly appear directly within an HTML DIV element" />
         </Member>
       </EnumType>
-
-      <Term Name="Timezone" Type="Edm.String" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
-        <Annotation Term="Core.LongDescription">
-          <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
-            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.</String>
-        </Annotation>
-        <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
-      </Term>
 
       <!-- under discussion
         <Term Name="ValidationConstraint" Type="Common.ValidationConstraintType" AppliesTo="Property EntityType ComplexType">
@@ -1242,27 +1229,8 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
-        <Property Name="Property" Type="Edm.PropertyPath">
-          <Annotation Term="Common.StructuralPropertyPath"/>
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Sort property" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
-                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Property>
-        <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as sort property" />
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Analytics.AggregatedProperty</String>
-              <String>Aggregation.CustomAggregate</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
@@ -1364,11 +1332,6 @@ The upload request must contain one multipart representing the content of the fi
 If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>
 
         </Annotation>
-      </Term>
-
-      <Term Name="StructuralPropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a structural property of the entity type that is targeted by the term" />
       </Term>
 
     </Schema>

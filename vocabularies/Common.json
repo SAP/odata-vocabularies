@@ -32,14 +32,6 @@
                     "$Alias": "UI"
                 }
             ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
-                    "$Alias": "Analytics"
-                }
-            ]
         }
     },
     "com.sap.vocabularies.Common.v1": {
@@ -160,18 +152,6 @@
             "plain@Core.Description": "Plain text, line breaks represented as the character 0x0A",
             "html": 1,
             "html@Core.Description": "Plain text with markup that can validly appear directly within an HTML DIV element"
-        },
-        "Timezone": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "Property",
-                "Parameter"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
-            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.",
-            "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "IsDigitSequence": {
             "$Kind": "Term",
@@ -1467,27 +1447,9 @@
         },
         "SortOrderType": {
             "$Kind": "ComplexType",
-            "@Core.Description": "Exactly one of `Property` and `DynamicProperty` must be present",
             "Property": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Common.StructuralPropertyPath": true,
-                "@Core.Description": "Sort property",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Modified",
-                        "Description": "Now nullable if `DynamicProperty` is present"
-                    }
-                ]
-            },
-            "DynamicProperty": {
-                "$Type": "Edm.AnnotationPath",
-                "$Nullable": true,
-                "@Core.Description": "Dynamic property introduced by an annotation and used as sort property",
-                "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperty",
-                    "Aggregation.CustomAggregate"
-                ]
+                "@Core.Description": "Sort property"
             },
             "Descending": {
                 "$Type": "Edm.Boolean",
@@ -1596,17 +1558,6 @@
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
             "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
-        },
-        "StructuralPropertyPath": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Term",
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a structural property of the entity type that is targeted by the term"
         }
     }
 }
