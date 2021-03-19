@@ -12,11 +12,11 @@
     "lib/*"
   ],
   "dependencies": {
-    "odata-csdl": "^0.2.4",
-    "odata-vocabularies": "oasis-tcs/odata-vocabularies"
+    "odata-csdl": "^0.2.5",
+    "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
-    "eslint": "^7.21.0"
+    "eslint": "^7.22.0"
   },
   "scripts": {
     "build": "node lib/transform.js"
