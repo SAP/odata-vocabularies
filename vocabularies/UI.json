@@ -1961,8 +1961,9 @@
         "impliedTimezone": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "A time zone in which the given point in time has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`",
-                "@Core.LongDescription": "If multiple timezones can lead to the same timezone fragment, any of them may be returned.",
+                "@Core.ClientSideOnly": true,
+                "@Core.Description": "A time zone in which the `Timestamp` has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`",
+                "@Core.LongDescription": "The time zone is not uniquely determined by the timezone fragment, but all possible time zones\n          lead to the same offset, i.e., to the same hh:mm:ss representation of the time.",
                 "$Parameter": [
                     {
                         "$Name": "Timestamp",
@@ -1972,7 +1973,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Nullable": true
+                    "$Nullable": true,
+                    "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard"
                 }
             }
         ]

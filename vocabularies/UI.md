@@ -88,14 +88,15 @@ Parameter|Type|Description
 
 ### <a name="impliedTimezone"></a>[impliedTimezone](UI.xml#L1614)
 
-A time zone in which the given point in time has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`
+A time zone in which the `Timestamp` has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`
 
-If multiple timezones can lead to the same timezone fragment, any of them may be returned.
+The time zone is not uniquely determined by the timezone fragment, but all possible time zones
+          lead to the same offset, i.e., to the same hh:mm:ss representation of the time.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Timestamp](UI.xml#L1619)|DateTimeOffset?|
-[&rarr;](UI.xml#L1620)|String?|
+[Timestamp](UI.xml#L1621)|DateTimeOffset?|
+[&rarr;](UI.xml#L1622)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
 
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)

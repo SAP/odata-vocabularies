@@ -1612,12 +1612,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Function>
 
       <Function Name="impliedTimezone">
-        <Annotation Term="Core.Description" String="A time zone in which the given point in time has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`" />
+        <Annotation Term="Core.ClientSideOnly"/>
+        <Annotation Term="Core.Description" String="A time zone in which the `Timestamp` has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`" />
         <Annotation Term="Core.LongDescription">
-          <String>If multiple timezones can lead to the same timezone fragment, any of them may be returned.</String>
+          <String>The time zone is not uniquely determined by the timezone fragment, but all possible time zones
+          lead to the same offset, i.e., to the same hh:mm:ss representation of the time.</String>
         </Annotation>
         <Parameter Name="Timestamp" Type="Edm.DateTimeOffset"/>
-        <ReturnType Type="Edm.String"/>
+        <ReturnType Type="Edm.String">
+          <Annotation Term="Core.Description" String="Time zone according to the [IANA](https://www.iana.org/time-zones) standard" />
+        </ReturnType>
       </Function>
 
     </Schema>
