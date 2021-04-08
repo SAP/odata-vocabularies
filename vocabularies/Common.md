@@ -106,6 +106,23 @@ Term|Type|Description
 [ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1326) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
 [mediaUploadLink](Common.xml#L1332) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 
+
+## Functions
+
+### <a name="impliedTimezone"></a>[impliedTimezone](Common.xml#L1347)
+
+A time zone in which the given point in time has a UTC offset according to the given [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)
+
+The time zone is not uniquely determined by the timezone fragment, but all possible time zones
+          lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation
+          `"Timestamp@Common.Timezone": {"$Function": "Common.impliedTimezone", "$Apply": [{"$Path": "Timestamp"}]}`
+          thus instructs the client to display the `Timestamp` "as is", simply dropping its offset.
+
+Parameter|Type|Description
+:--------|:---|:----------
+Timestamp|DateTimeOffset?|A point in time together with a timezone fragment
+&rarr;|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
+
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L107)
 
 

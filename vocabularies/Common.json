@@ -1570,6 +1570,27 @@
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
             "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
-        }
+        },
+        "impliedTimezone": [
+            {
+                "$Kind": "Function",
+                "@Core.ClientSideOnly": true,
+                "@Core.Description": "A time zone in which the given point in time has a UTC offset according to the given [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)",
+                "@Core.LongDescription": "The time zone is not uniquely determined by the timezone fragment, but all possible time zones\n          lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation\n          `\"Timestamp@Common.Timezone\": {\"$Function\": \"Common.impliedTimezone\", \"$Apply\": [{\"$Path\": \"Timestamp\"}]}`\n          thus instructs the client to display the `Timestamp` \"as is\", simply dropping its offset.",
+                "$Parameter": [
+                    {
+                        "$Name": "Timestamp",
+                        "$Type": "Edm.DateTimeOffset",
+                        "$Nullable": true,
+                        "$Precision": 0,
+                        "@Core.Description": "A point in time together with a timezone fragment"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Nullable": true,
+                    "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard"
+                }
+            }
+        ]
     }
 }

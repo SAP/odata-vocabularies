@@ -1611,23 +1611,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <ReturnType Type="Edm.DateTimeOffset"/>
       </Function>
 
-      <Function Name="impliedTimezone">
-        <Annotation Term="Core.ClientSideOnly"/>
-        <Annotation Term="Core.Description" String="A time zone in which the given point in time has a UTC offset according to the given [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)" />
-        <Annotation Term="Core.LongDescription">
-          <String>The time zone is not uniquely determined by the timezone fragment, but all possible time zones
-          lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation
-          `"Timestamp@Common.Timezone": {"$Function": "UI.impliedTimezone", "$Apply": [{"$Path": "Timestamp"}]}`
-          thus instructs the client to display the `Timestamp` "as is", simply dropping its offset.</String>
-        </Annotation>
-        <Parameter Name="Timestamp" Type="Edm.DateTimeOffset">
-          <Annotation Term="Core.Description" String="A point in time together with a timezone fragment" />
-        </Parameter>
-        <ReturnType Type="Edm.String">
-          <Annotation Term="Core.Description" String="Time zone according to the [IANA](https://www.iana.org/time-zones) standard" />
-        </ReturnType>
-      </Function>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
