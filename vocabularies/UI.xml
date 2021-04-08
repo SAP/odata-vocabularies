@@ -1610,6 +1610,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Parameter>
         <ReturnType Type="Edm.DateTimeOffset"/>
       </Function>
+
+      <Function Name="impliedTimezone">
+        <Annotation Term="Core.Description" String="A time zone in which the given point in time has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`" />
+        <Annotation Term="Core.LongDescription">
+          <String>If multiple timezones can lead to the same timezone fragment, any of them may be returned.</String>
+        </Annotation>
+        <Parameter Name="Timestamp" Type="Edm.DateTimeOffset"/>
+        <ReturnType Type="Edm.String"/>
+      </Function>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

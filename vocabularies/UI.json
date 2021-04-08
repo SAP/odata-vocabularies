@@ -1957,6 +1957,24 @@
                     "$Precision": 0
                 }
             }
+        ],
+        "impliedTimezone": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "A time zone in which the given point in time has the [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) that appears in the `Edm.DateTimeOffset`",
+                "@Core.LongDescription": "If multiple timezones can lead to the same timezone fragment, any of them may be returned.",
+                "$Parameter": [
+                    {
+                        "$Name": "Timestamp",
+                        "$Type": "Edm.DateTimeOffset",
+                        "$Nullable": true,
+                        "$Precision": 0
+                    }
+                ],
+                "$ReturnType": {
+                    "$Nullable": true
+                }
+            }
         ]
     }
 }
