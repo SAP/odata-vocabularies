@@ -29,7 +29,7 @@ Term|Type|Description
 [ConnectedFields](UI.xml#L161)|[ConnectedFieldsType?](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](UI.xml#L163))
 [GeoLocations](UI.xml#L226)|\[[GeoLocationType](#GeoLocationType)\]|<a name="GeoLocations"></a>Collection of geographic locations
 [GeoLocation](UI.xml#L230)|[GeoLocationType?](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
-[Contacts](UI.xml#L250)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact<br>Allowed terms:<br>- [Contact](Communication.md#Contact)
+[Contacts](UI.xml#L250)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact
 [MediaResource](UI.xml#L261)|[MediaResourceType?](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
 [DataPoint](UI.xml#L315)|[DataPointType?](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
 [KPI](UI.xml#L623)|[KPIType?](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
@@ -80,11 +80,10 @@ Representation of the given point in time as an `Edm.DateTimeOffset` whose [time
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Date](UI.xml#L1605)|Date?|
-[TimeOfDay](UI.xml#L1606)|TimeOfDay?|
-[Timezone](UI.xml#L1607)|String?|: Time zone according to the [IANA](https://www.iana.org/time-zones) standard<br>If absent, the time zone of the UI (Fiori Launchpad) is implied
-[&rarr;](UI.xml#L1611)|DateTimeOffset?|
-
+Date|Date?|
+TimeOfDay|TimeOfDay?|
+Timezone|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<br>If absent, the time zone of the UI (Fiori Launchpad) is implied
+&rarr;|DateTimeOffset?|
 
 ### <a name="impliedTimezone"></a>[impliedTimezone](UI.xml#L1614)
 
@@ -94,9 +93,8 @@ If multiple timezones can lead to the same timezone fragment, any of them may be
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Timestamp](UI.xml#L1619)|DateTimeOffset?|
-[&rarr;](UI.xml#L1620)|String?|
-
+Timestamp|DateTimeOffset?|
+&rarr;|String?|
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
@@ -190,7 +188,7 @@ Property|Type|Description
 [SampleSize](UI.xml#L362)|PrimitiveType?|Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
 [ReferencePeriod](UI.xml#L369)|[ReferencePeriod?](#ReferencePeriod)|Reference period
 [Criticality](UI.xml#L372)|[CriticalityType?](#CriticalityType)|Service-calculated criticality, alternative to CriticalityCalculation
-[CriticalityLabels](UI.xml#L375)|AnnotationPath?|Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels<br>Allowed terms:<br>- [CriticalityLabels](#CriticalityLabels)
+[CriticalityLabels](UI.xml#L375)|AnnotationPath?|Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels
 [CriticalityRepresentation](UI.xml#L383) *([Experimental](Common.md#Experimental))*|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [CriticalityCalculation](UI.xml#L387)|[CriticalityCalculationType?](#CriticalityCalculationType)|Parameters for client-calculated criticality, alternative to Criticality
 [Trend](UI.xml#L390)|[TrendType?](#TrendType)|Service-calculated trend, alternative to TrendCalculation
@@ -501,7 +499,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Measure](UI.xml#L828)|PropertyPath?|
 [Role](UI.xml#L829)|[ChartMeasureRoleType?](#ChartMeasureRoleType)|
-[DataPoint](UI.xml#L830)|AnnotationPath?|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure<br>Allowed terms:<br>- [DataPoint](#DataPoint)
+[DataPoint](UI.xml#L830)|AnnotationPath?|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure
 [UseSequentialColorLevels](UI.xml#L838) *([Experimental](Common.md#Experimental))*|Boolean|All measures for which this setting is true should be assigned to levels of the same color.
 
 ## <a name="ChartDimensionRoleType"></a>[ChartDimensionRoleType](UI.xml#L844)
@@ -575,7 +573,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*Label*](UI.xml#L927)|String?|Facet label
 [*ID*](UI.xml#L931)|String?|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Target](UI.xml#L943)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge<br>Allowed terms:<br>- [Address](Communication.md#Address)<br>- [Contact](Communication.md#Contact)<br>- [Badge](#Badge)<br>- [Chart](#Chart)<br>- [Contacts](#Contacts)<br>- [DataPoint](#DataPoint)<br>- [FieldGroup](#FieldGroup)<br>- [GeoLocation](#GeoLocation)<br>- [GeoLocations](#GeoLocations)<br>- [HeaderInfo](#HeaderInfo)<br>- [Identification](#Identification)<br>- [KPI](#KPI)<br>- [LineItem](#LineItem)<br>- [MediaResource](#MediaResource)<br>- [PresentationVariant](#PresentationVariant)<br>- [SelectionFields](#SelectionFields)<br>- [SelectionPresentationVariant](#SelectionPresentationVariant)<br>- [StatusInfo](#StatusInfo)
+[Target](UI.xml#L943)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge
 
 ## <a name="ReferenceURLFacet"></a>[ReferenceURLFacet](UI.xml#L969): [Facet](#Facet)
 Facet that refers to a URL
@@ -611,7 +609,7 @@ Property|Type|Description
 [Total](UI.xml#L1042)|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
 [IncludeGrandTotal](UI.xml#L1047)|Boolean|Result should include a grand total for the properties specified in Total
 [InitialExpansionLevel](UI.xml#L1050)|Int32|Level up to which the hierarchy defined for the queried collection should be expanded initially. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
-[Visualizations](UI.xml#L1056)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers). The first entry of the collection is the default visualization.<br>Allowed terms:<br>- [Chart](#Chart)<br>- [DataPoint](#DataPoint)<br>- [LineItem](#LineItem)
+[Visualizations](UI.xml#L1056)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers). The first entry of the collection is the default visualization.
 [RequestAtLeast](UI.xml#L1073)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection
 [SelectionFields](UI.xml#L1076) *([Experimental](Common.md#Experimental))*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a `UI.SelectionFields` annotation via Path.
 
@@ -760,7 +758,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1357)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1360)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1363)|URL?|Optional icon
-[Target](UI.xml#L1384)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields<br>Allowed terms:<br>- [Address](Communication.md#Address)<br>- [Contact](Communication.md#Contact)<br>- [Chart](#Chart)<br>- [ConnectedFields](#ConnectedFields)<br>- [DataPoint](#DataPoint)<br>- [FieldGroup](#FieldGroup)
+[Target](UI.xml#L1384)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields
 
 **Applicable Annotation Terms:**
 
