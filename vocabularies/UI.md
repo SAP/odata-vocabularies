@@ -90,7 +90,9 @@ Timezone|String?|Time zone according to the [IANA](https://www.iana.org/time-zon
 A time zone in which the given point in time has a UTC offset according to the given [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)
 
 The time zone is not uniquely determined by the timezone fragment, but all possible time zones
-          lead to the same offset, i.e., to the same hh:mm:ss representation of the time.
+          lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation
+          `"Timestamp@Common.Timezone": {"$Function": "UI.impliedTimezone", "$Apply": [{"$Path": "Timestamp"}]}`
+          thus instructs the client to display the `Timestamp` "as is", simply dropping its offset.
 
 Parameter|Type|Description
 :--------|:---|:----------
