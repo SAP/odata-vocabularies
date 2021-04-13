@@ -1285,14 +1285,6 @@ The trend is
         </Member>
       </EnumType>
 
-      <!-- Under discussion
-        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
-        <Annotation Term="Core.Description">
-        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
-        </Annotation>
-        </Term>
-      -->
-
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>
@@ -1447,7 +1439,6 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
         <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">

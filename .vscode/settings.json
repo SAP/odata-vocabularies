@@ -10,5 +10,10 @@
     ],
     "xml.catalogs": [
         "./node_modules/odata-csdl/catalog.xml"
-    ]
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
 }

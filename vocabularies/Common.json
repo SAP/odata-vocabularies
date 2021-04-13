@@ -153,6 +153,18 @@
             "html": 1,
             "html@Core.Description": "Plain text with markup that can validly appear directly within an HTML DIV element"
         },
+        "Timezone": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
+            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.RequiresType": "Edm.DateTimeOffset"
+        },
         "IsDigitSequence": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -1546,6 +1558,18 @@
             "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "mediaUploadLink": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.RequiresType": "Edm.Stream",
+            "@Core.IsURL": true,
+            "@Core.Description": "URL for uploading new media content to a Document Management Service",
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
         }
     }
 }
