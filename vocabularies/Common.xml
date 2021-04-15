@@ -114,12 +114,12 @@
         </Member>
       </EnumType>
 
-      <Term Name="Timezone" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
+      <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
-            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.</String>
+            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
