@@ -1468,6 +1468,7 @@
         "CreatedAt": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],

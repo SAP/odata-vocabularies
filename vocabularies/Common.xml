@@ -1295,7 +1295,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <!-- Metadata annotations that can also appear as instance annotations -->
 
-      <Term Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="false" AppliesTo="EntityType">
+      <Term Name="CreatedAt" Type="Edm.DateTimeOffset" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Creation timestamp" />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
