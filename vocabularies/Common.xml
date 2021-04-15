@@ -71,7 +71,7 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="Text" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="Text" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>

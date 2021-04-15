@@ -14,7 +14,7 @@ Term|Type|Description
 [Label](Common.xml#L59)|String|<a name="Label"></a>A short, human-readable text suitable for labels and captions in UIs
 [Heading](Common.xml#L64)|String|<a name="Heading"></a>A short, human-readable text suitable for column headings in UIs
 [QuickInfo](Common.xml#L69)|String|<a name="QuickInfo"></a>A short, human-readable text suitable for tool tips in UIs
-[Text](Common.xml#L74)|String|<a name="Text"></a>A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.
+[Text](Common.xml#L74)|String?|<a name="Text"></a>A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.
 [TextFor](Common.xml#L79) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="TextFor"></a>The annotated property contains a descriptive text for values of the referenced property.
 [ExternalID](Common.xml#L85) *([Experimental](Common.md#Experimental))*|String|<a name="ExternalID"></a>A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.<br>If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id.
 [IsLanguageIdentifier](Common.xml#L99) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsLanguageIdentifier"></a>An identifier to distinguish multiple texts in different languages for the same entity

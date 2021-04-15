@@ -91,6 +91,7 @@
         },
         "Text": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
