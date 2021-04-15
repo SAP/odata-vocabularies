@@ -40,7 +40,6 @@
         "StickySessionSupported": {
             "$Kind": "Term",
             "$Type": "Session.StickySessionSupportedType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],

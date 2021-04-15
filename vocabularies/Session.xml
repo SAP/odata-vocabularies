@@ -68,7 +68,7 @@ combined as one UI app.
         </String>
       </Annotation>
 
-      <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" AppliesTo="EntitySet">
+      <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="The annotated entity set allows data modification only within a sticky session" />
         <Annotation Term="Core.Example">
           <Record>

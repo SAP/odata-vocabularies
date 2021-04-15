@@ -61,7 +61,6 @@
         "ServiceVersion": {
             "$Kind": "Term",
             "$Type": "Edm.Int32",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -70,7 +69,6 @@
         "ServiceSchemaVersion": {
             "$Kind": "Term",
             "$Type": "Edm.Int32",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -78,25 +76,21 @@
         },
         "Label": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
             "@Core.IsLanguageDependent": true
         },
         "Heading": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for column headings in UIs",
             "@Core.IsLanguageDependent": true
         },
         "QuickInfo": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
             "@Core.IsLanguageDependent": true
         },
         "Text": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -106,7 +100,6 @@
         "TextFor": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -116,7 +109,6 @@
         },
         "ExternalID": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -137,7 +129,6 @@
         "TextFormat": {
             "$Kind": "Term",
             "$Type": "Common.TextFormatType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -155,7 +146,6 @@
         },
         "Timezone": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -210,7 +200,6 @@
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -220,7 +209,6 @@
         "UnitSpecificPrecision": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -246,7 +234,6 @@
         "MinOccurs": {
             "$Kind": "Term",
             "$Type": "Edm.Int64",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -259,7 +246,6 @@
         "MaxOccurs": {
             "$Kind": "Term",
             "$Type": "Edm.Int64",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -282,7 +268,6 @@
         "DerivedNavigation": {
             "$Kind": "Term",
             "$Type": "Edm.NavigationPropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty"
             ],
@@ -462,7 +447,6 @@
         },
         "ExceptionCategory": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "A machine-readable exception category",
             "@Common.IsInstanceAnnotation": true
@@ -470,7 +454,6 @@
         "Application": {
             "$Kind": "Term",
             "$Type": "Common.ApplicationType",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -498,14 +481,12 @@
         "Timestamp": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
         },
         "TransactionId": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -513,7 +494,6 @@
         "ErrorResolution": {
             "$Kind": "Term",
             "$Type": "Common.ErrorResolutionType",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "Hints for resolving this error",
             "@Common.IsInstanceAnnotation": true
@@ -628,7 +608,6 @@
         "RelatedRecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Edm.AnnotationPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -637,7 +616,6 @@
         "Interval": {
             "$Kind": "Term",
             "$Type": "Common.IntervalType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -677,7 +655,6 @@
         "WeakReferentialConstraint": {
             "$Kind": "Term",
             "$Type": "Common.WeakReferentialConstraintType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -725,7 +702,6 @@
         "ValueList": {
             "$Kind": "Term",
             "$Type": "Common.ValueListType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -834,7 +810,6 @@
         "ValueListMapping": {
             "$Kind": "Term",
             "$Type": "Common.ValueListMappingType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -1198,7 +1173,6 @@
         "DraftRoot": {
             "$Kind": "Term",
             "$Type": "Common.DraftRootType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1239,7 +1213,6 @@
         "DraftNode": {
             "$Kind": "Term",
             "$Type": "Common.DraftNodeType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1282,7 +1255,6 @@
         "EditableFieldFor": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1316,7 +1288,6 @@
         "SideEffects": {
             "$Kind": "Term",
             "$Type": "Common.SideEffectsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
@@ -1472,7 +1443,6 @@
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Common.RecursiveHierarchyType",
-            "$Nullable": true,
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
             "@Core.Description": "Defines a recursive hierarchy."
         },
@@ -1497,7 +1467,6 @@
         "CreatedAt": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1542,7 +1511,6 @@
         },
         "OriginalProtocolVersion": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
