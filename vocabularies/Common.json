@@ -110,6 +110,7 @@
         },
         "ExternalID": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
