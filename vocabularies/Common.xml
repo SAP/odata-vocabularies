@@ -102,7 +102,7 @@
       </Term>
 
       <Term Name="TextFormat" Type="Common.TextFormatType" Nullable="false" AppliesTo="Property Parameter ReturnType">
-        <Annotation Term="Core.Description" String="Human-readable text that may contain formatting information" />
+        <Annotation Term="Core.Description" String="The annotated property, parameter, or return type contains human-readable text that may contain formatting information" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
       <EnumType Name="TextFormatType">

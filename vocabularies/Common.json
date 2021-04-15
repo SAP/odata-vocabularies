@@ -136,7 +136,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "Human-readable text that may contain formatting information",
+            "@Core.Description": "The annotated property, parameter, or return type contains human-readable text that may contain formatting information",
             "@Core.RequiresType": "Edm.String"
         },
         "TextFormatType": {
