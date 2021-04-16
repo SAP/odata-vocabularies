@@ -12,6 +12,7 @@
     "lib/*"
   ],
   "dependencies": {
+    "odata-csdl": "^0.2.9",
     "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
