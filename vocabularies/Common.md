@@ -120,8 +120,9 @@ The time zone is not uniquely determined by the timezone fragment, but all possi
 
 Parameter|Type|Description
 :--------|:---|:----------
-Timestamp|DateTimeOffset?|A point in time together with a timezone fragment
-&rarr;|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
+[Timestamp](Common.xml#L1356)|DateTimeOffset?|A point in time together with a timezone fragment
+[&rarr;](Common.xml#L1359)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
+
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L107)
 
