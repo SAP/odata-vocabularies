@@ -148,6 +148,11 @@
       <ComplexType Name="AnalyticalContextType">
         <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property that is part of the analytical context" />
+          <Annotation Term="Core.LongDescription">
+            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
+            or [`Analytics.AggregatedProperty`](#AggregatedPropertyType). In this case the analytical context contains the dynamic property
+            contributed by the aggregation that is defined by the annotation.</String>
+          </Annotation>
         </Property>
         <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The property holds the key of a dimension" />
@@ -161,9 +166,6 @@
       </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">
-        <Annotation Term="Core.LongDescription" Qualifier="Analytics">
-          <String>A property path to an `Aggregation.CustomAggregate` annotation can be used to reference the dynamic property holding the value of the custom aggregate.</String>
-        </Annotation>
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
           <Collection>

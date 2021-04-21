@@ -1461,7 +1461,8 @@
             "$Kind": "ComplexType",
             "Property": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Sort property"
+                "@Core.Description": "Sort property",
+                "@Core.LongDescription": "May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)\n            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the sort property is the dynamic property\n            contributed by the aggregation that is defined by the annotation."
             },
             "Descending": {
                 "$Type": "Edm.Boolean",
