@@ -114,6 +114,16 @@
             "@Core.RequiresType": "Edm.String",
             "@Core.Description": "The annotated property contains a descriptive text for values of the referenced property."
         },
+        "ExternalID": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
+            "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
+        },
         "IsLanguageIdentifier": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -142,6 +152,18 @@
             "plain@Core.Description": "Plain text, line breaks represented as the character 0x0A",
             "html": 1,
             "html@Core.Description": "Plain text with markup that can validly appear directly within an HTML DIV element"
+        },
+        "Timezone": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
+            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            In the absence of this annotation, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "IsDigitSequence": {
             "$Kind": "Term",
@@ -535,7 +557,6 @@
             "$AppliesTo": [
                 "Record"
             ],
-            "@Common.Experimental": true,
             "@Core.IsURL": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Location of the message long text",
@@ -544,7 +565,6 @@
         "numericSeverity": {
             "$Kind": "Term",
             "$Type": "Common.NumericMessageSeverityType",
-            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
@@ -564,7 +584,6 @@
         "NumericMessageSeverityType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Byte",
-            "@Common.Experimental": true,
             "@Core.Description": "Classifies an end-user message as info, success, warning, or error",
             "@Validation.AllowedValues": [
                 {
@@ -716,16 +735,13 @@
         },
         "ValueListType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
@@ -828,16 +844,13 @@
         },
         "ValueListMappingType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Common.QuickInfo"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
-            },
-            "QuickInfo": {
-                "$Nullable": true,
-                "@Core.IsLanguageDependent": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Short text for value list that might be suitable for e.g. tool tips, fallback is the quickinfo of the property or parameter"
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
@@ -881,6 +894,7 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             }
@@ -903,6 +917,7 @@
             },
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
@@ -1287,7 +1302,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action with an optional overload",
-            "@Core.LongDescription": "The qualified name of an action optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload."
+            "@Core.LongDescription": "The qualified name of an action followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
         },
         "SemanticKey": {
             "$Kind": "Term",
@@ -1543,6 +1558,18 @@
             "@Common.Experimental": true,
             "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
             "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
+        },
+        "mediaUploadLink": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.RequiresType": "Edm.Stream",
+            "@Core.IsURL": true,
+            "@Core.Description": "URL for uploading new media content to a Document Management Service",
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
         }
     }
 }

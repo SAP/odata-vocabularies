@@ -463,7 +463,11 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         </Member>
         <Member Name="VeryPositive" Value="4">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
+          <Annotation Term="Core.Description" String="Very positive - above max stock - excess" />
+        </Member>
+        <Member Name="Information" Value="5">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Information - noticable - informative" />
         </Member>
       </EnumType>
 
@@ -1274,20 +1278,12 @@ The trend is
           <Annotation Term="Core.Description" String="Code/ID is first, followed by the text (e.g. separated by a dash)" />
         </Member>
         <Member Name="TextSeparate">
-          <Annotation Term="Core.Description" String="Code/ID and text are represented separately" />
+          <Annotation Term="Core.Description" String="Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)" />
         </Member>
         <Member Name="TextOnly">
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
-
-      <!-- Under discussion
-        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
-        <Annotation Term="Core.Description">
-        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
-        </Annotation>
-        </Term>
-      -->
 
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
@@ -1304,7 +1300,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record">
+      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record Parameter">
         <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true." />
         <Annotation Term="Core.LongDescription">
           <String>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.
@@ -1312,17 +1308,17 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from a related entity." />
       </Term>
 
-      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
 
-      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Delete operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
@@ -1441,6 +1437,9 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
         <Property Name="Action" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
+        </Property>
+        <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
