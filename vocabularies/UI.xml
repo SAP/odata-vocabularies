@@ -1607,7 +1607,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Requests for this container, collection or property must contain a token proving that the user willingly made the request"/>
         <Annotation Term="Core.LongDescription">
-          <String>In the absence of this annotation, the token is not required for GET requests, but is required for all others.</String>
+          <String>In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests.</String>
         </Annotation>
       </Term>
       <ComplexType Name="CSRFTokenRequiredType">
