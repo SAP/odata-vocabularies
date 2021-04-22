@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
@@ -1928,6 +1936,40 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
+        },
+        "CSRFTokenRequired": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "UI.CSRFTokenRequiredType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "Collection",
+                "Property"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Requests for this container, collection or property must contain a token proving that the user willingly made the request",
+            "@Core.LongDescription": "In the absence of this annotation, the token is not required for GET requests, but is required for all others."
+        },
+        "CSRFTokenRequiredType": {
+            "$Kind": "ComplexType",
+            "Method": {
+                "$Type": "Capabilities.HttpMethod",
+                "@Core.Description": "HTTP method of the request requiring the token"
+            },
+            "Location": {
+                "$Type": "UI.CSRFTokenLocation",
+                "@Core.Description": "Locations in the request in one of which the token is expected"
+            }
+        },
+        "CSRFTokenLocation": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "Header": 1,
+            "Header@Core.Description": "Token is expected in the `x-csrf-token` request header",
+            "URL": 2,
+            "URL@Core.Description": "Token is expected in the `x-csrf-token` URL parameter",
+            "Form": 4,
+            "Form@Core.Description": "Token is expected in the `x-csrf-token` parameter of a urlencoded payload"
         }
     }
 }
