@@ -16,8 +16,8 @@ Term|Type|Description
 A direct-edit side-effect consists of:
 
 - a list of possible triggers, _preliminary_ syntax:
-  - `Path:` followed by a path to the property whose change triggered the side-effects determination 
-  - `Action:` followed by the name of the (UI) action that triggered the side-effects determination
+  - `Path:` followed by a path to the property whose change triggers the side-effects determination 
+  - `Action:` followed by the name of the action that is called for the side-effects determination
 
 - an action bound to the entity set with the following non-binding parameters:
   - `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
@@ -25,9 +25,8 @@ A direct-edit side-effect consists of:
   - `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property
   - `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it, 
   i.e.
-    - all primitive properties are cast-compatible with corresponding properties of the entity type and are nullable,
-    - all complex properties are structure-compatible with corresponding complex or navigation properties
-      (for related entities necessary for side-effect determination)
+    - each primitive property that has the same name as a corresponding primitive property of the entity type of the annotated entity set is cast-compatible with the corresponding property and is nullable,
+    - each complex property that has the same name as a corresponding complex or navigation property of the entity type of the annotated entity set is structure-compatible with the corresponding property
     - it may contain properties without a corresponding property in the entity type
     - it may omit properties of the entity type
   
@@ -36,5 +35,5 @@ A direct-edit side-effect consists of:
 
 Property|Type|Description
 :-------|:---|:----------
-[Triggers](DirectEdit.xml#L63)|\[String\]|List of possible triggers for determining side effects
-[CalculationAction](DirectEdit.xml#L66)|[QualifiedName](Common.md#QualifiedName)|Name of the action for determining side effects
+[Triggers](DirectEdit.xml#L62)|\[String\]|List of possible triggers for determining side effects
+[CalculationAction](DirectEdit.xml#L65)|[QualifiedName](Common.md#QualifiedName)|Name of the action for determining side effects
