@@ -45,8 +45,12 @@
             <PropertyValue Property="Measures">
               <Collection>
                 <PropertyPath>NumberOfItems</PropertyPath>
-                <PropertyPath>@Analytics.AggregatedProperty#sum</PropertyPath>
-                <PropertyPath>/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="DynamicMeasures">
+              <Collection>
+                <AnnotationPath>@Analytics.AggregatedProperty#sum</AnnotationPath>
+                <AnnotationPath>/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
           </Record>
@@ -59,11 +63,11 @@
                   <PropertyValue Property="Property" PropertyPath="Country"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="Property" PropertyPath="@Analytics.AggregatedProperty#sum"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum"/>
                   <PropertyValue Property="Descending" Boolean="true"/>
                 </Record>
                 <Record>
-                  <PropertyValue Property="Property" PropertyPath="/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
                 </Record>
               </Collection>
             </PropertyValue>

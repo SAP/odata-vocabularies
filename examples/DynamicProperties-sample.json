@@ -59,7 +59,9 @@
                     "Country"
                 ],
                 "Measures": [
-                    "NumberOfItems",
+                    "NumberOfItems"
+                ],
+                "DynamicMeasures": [
                     "@Analytics.AggregatedProperty#sum",
                     "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                 ]
@@ -70,10 +72,10 @@
                         "Property": "Country"
                     },
                     {
-                        "Property": "@Analytics.AggregatedProperty#sum"
+                        "DynamicProperty": "@Analytics.AggregatedProperty#sum"
                     },
                     {
-                        "Property": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                        "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                     }
                 ]
             }
