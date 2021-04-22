@@ -146,8 +146,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Description": "Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.",
-            "@Core.LongDescription": "A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value."
+            "@Core.Description": "Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type."
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
@@ -179,10 +178,20 @@
         },
         "AnalyticalContextType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Exactly one of `Property` and `DynamicProperty` must be present",
             "Property": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property that is part of the analytical context",
-                "@Core.LongDescription": "May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)\n            or [`Analytics.AggregatedProperty`](#AggregatedPropertyType). In this case the analytical context contains the dynamic property\n            contributed by the aggregation that is defined by the annotation."
+                "$Nullable": true,
+                "@Core.Description": "Property that is part of the analytical context"
+            },
+            "DynamicProperty": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by annotations that is part of the analytical context",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Dimension": {
                 "$Type": "Core.Tag",

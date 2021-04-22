@@ -1239,12 +1239,26 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
+        <Property Name="Property" Type="Edm.PropertyPath">
+          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Sort property" />
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the sort property is the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
+                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as sort property" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
@@ -1347,6 +1361,11 @@ The upload request must contain one multipart representing the content of the fi
 If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>
 
         </Annotation>
+      </Term>
+
+      <Term Name="StructuralPropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a structural property of the entity type that is targeted by the term" />
       </Term>
 
     </Schema>

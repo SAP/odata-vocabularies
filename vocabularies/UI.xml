@@ -686,11 +686,16 @@ The trend is
           <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
         </Property>
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the measure is the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+        </Property>
+        <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
@@ -830,11 +835,17 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
+        <Annotation Term="Core.Description" String="Exactly one of `Measure` and `DynamicMeasure` must be present" />
         <Property Name="Measure" Type="Edm.PropertyPath">
-          <Annotation Term="Core.Description">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the measure is the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+          <Annotation Term="Common.StructuralPropertyPath"/>
+        </Property>
+        <Property Name="DynamicMeasure" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
@@ -1051,16 +1062,21 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="Total" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description">
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
           </Annotation>
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the total is for the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+        </Property>
+        <Property Name="DynamicTotal" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
-        <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Result should include a grand total for the properties specified in Total" />
         </Property>
         <Property Name="InitialExpansionLevel" Type="Edm.Int32" Nullable="false" DefaultValue="1">
@@ -1087,11 +1103,16 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the dynamic property should be included that is
-            contributed by the aggregation that is defined by the annotation.</String>
+        </Property>
+        <Property Name="RequestAtLeastDynamic" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -1163,12 +1184,26 @@ The trend is
 
       <ComplexType Name="SelectOptionType">
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.LongDescription" String="Exactly one of `PropertyName` and `DynamicPropertyName` must be present" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath">
+          <Annotation Term="Common.StructuralPropertyPath"/>
           <Annotation Term="Core.Description" String="Path to the property" />
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](Analytics.md#AggregatedPropertyType). In this case the select option is for the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
+                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="DynamicPropertyName" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">

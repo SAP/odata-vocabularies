@@ -15,28 +15,29 @@ Term|Type|Description
 [DrillURL](Analytics.xml#L83) *([Experimental](Common.md#Experimental))*|URL?|<a name="DrillURL"></a>URL to retrieve more detailed data related to a node of a recursive hierarchy. Annotations with this term MUST include a qualifier to select the hierarchy for which the drill URL is provided.
 [PlanningAction](Analytics.xml#L95) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PlanningAction"></a>Processes or generates plan data. Its logic may have side-effects on entity sets.
 [AggregatedProperties](Analytics.xml#L103) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
-[AggregatedProperty](Analytics.xml#L121)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.<br>A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value.
-[AnalyticalContext](Analytics.xml#L144)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
+[AggregatedProperty](Analytics.xml#L121)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
+[AnalyticalContext](Analytics.xml#L141)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 
-## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L127)
+## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L124)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Analytics.xml#L128)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
-[AggregationMethod](Analytics.xml#L131)|String|Name of the standard or custom aggregation method to be applied.
-[AggregatableProperty](Analytics.xml#L134)|PropertyPath|Property whose values shall be aggregated.
+[Name](Analytics.xml#L125)|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
+[AggregationMethod](Analytics.xml#L128)|String|Name of the standard or custom aggregation method to be applied.
+[AggregatableProperty](Analytics.xml#L131)|PropertyPath|Property whose values shall be aggregated.
 
 **Applicable Annotation Terms:**
 
 - [Label](Common.md#Label)
 
-## <a name="AnalyticalContextType"></a>[AnalyticalContextType](Analytics.xml#L148)
-
+## <a name="AnalyticalContextType"></a>[AnalyticalContextType](Analytics.xml#L145)
+Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Analytics.xml#L149)|PropertyPath|Property that is part of the analytical context<br>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) or [`Analytics.AggregatedProperty`](#AggregatedPropertyType). In this case the analytical context contains the dynamic property contributed by the aggregation that is defined by the annotation.
-[Dimension](Analytics.xml#L157)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
-[Measure](Analytics.xml#L160)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
-[AccumulativeMeasure](Analytics.xml#L163)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+[Property](Analytics.xml#L147)|PropertyPath?|Property that is part of the analytical context
+[DynamicProperty](Analytics.xml#L150)|AnnotationPath?|Dynamic property introduced by annotations that is part of the analytical context<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
+[Dimension](Analytics.xml#L159)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
+[Measure](Analytics.xml#L162)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
+[AccumulativeMeasure](Analytics.xml#L165)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut

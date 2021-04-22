@@ -120,9 +120,6 @@
       </Term>
       <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
-        <Annotation Term="Core.LongDescription">
-          <String>A property path to an `AggregatedProperty` annotation can be used to reference the dynamic property holding the aggregated value.</String>
-        </Annotation>
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
@@ -146,12 +143,17 @@
         <Annotation Term="Core.Description" String="Collection of properties that define an analytical context" />
       </Term>
       <ComplexType Name="AnalyticalContextType">
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
+        <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Property that is part of the analytical context" />
-          <Annotation Term="Core.LongDescription">
-            <String>May also resolve to an annotation with the term [`Aggregation.CustomAggregate`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html)
-            or [`Analytics.AggregatedProperty`](#AggregatedPropertyType). In this case the analytical context contains the dynamic property
-            contributed by the aggregation that is defined by the annotation.</String>
+        </Property>
+        <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations that is part of the analytical context" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
