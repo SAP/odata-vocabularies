@@ -47,7 +47,7 @@
 
 - a list of possible triggers, _preliminary_ syntax:
   - `Path:` followed by a path to the property whose change triggers the side-effects determination 
-  - `Action:` followed by the name of the action that is called for the side-effects determination
+  - `CalculationAction:` followed by the name of the action that is called for the side-effects determination
 
 - an action bound to the entity set with the following non-binding parameters:
   - `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
