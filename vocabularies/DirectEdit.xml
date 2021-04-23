@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -41,6 +41,7 @@
       </Term>
 
       <ComplexType Name="SideEffectsType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>A direct-edit side-effect consists of:
 
@@ -62,7 +63,7 @@
   The return type of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,
   it can be the same type as for `Data`.</String>
         </Annotation>
-      <Property Name="Triggers" Type="Collection(Edm.String)" Nullable="false">
+        <Property Name="Triggers" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of possible triggers for determining side effects" />
           <Annotation Term="Validation.MinItems" Int="1" />
         </Property>

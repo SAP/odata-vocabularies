@@ -10,7 +10,7 @@ Term|Type|Description
 :---|:---|:----------
 [SideEffects](DirectEdit.xml#L38) *([Experimental](Common.md#Experimental))*|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
 
-## <a name="SideEffectsType"></a>[SideEffectsType](DirectEdit.xml#L43)
+## <a name="SideEffectsType"></a>[SideEffectsType](DirectEdit.xml#L43) *([Experimental](Common.md#Experimental))*
 
 
 A direct-edit side-effect consists of:
@@ -35,5 +35,5 @@ A direct-edit side-effect consists of:
 
 Property|Type|Description
 :-------|:---|:----------
-[Triggers](DirectEdit.xml#L65)|\[String\]|List of possible triggers for determining side effects
-[CalculationAction](DirectEdit.xml#L69)|[QualifiedName](Common.md#QualifiedName)|Name of the action for determining side effects
+[Triggers](DirectEdit.xml#L66)|\[String\]|List of possible triggers for determining side effects
+[CalculationAction](DirectEdit.xml#L70)|[QualifiedName](Common.md#QualifiedName)|Name of the action for determining side effects
