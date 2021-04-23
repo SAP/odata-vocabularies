@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
@@ -61,6 +64,7 @@
         </Annotation>
       <Property Name="Triggers" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of possible triggers for determining side effects" />
+          <Annotation Term="Validation.MinItems" Int="1" />
         </Property>
         <Property Name="CalculationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the action for determining side effects" />
