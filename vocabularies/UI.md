@@ -70,7 +70,7 @@ Term|Type|Description
 [RecommendationState](UI.xml#L1540)|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
 [RecommendationList](UI.xml#L1570)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
 [ExcludeFromNavigationContext](UI.xml#L1602)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[CSRFTokenRequired](UI.xml#L1606)|\[[CSRFTokenRequiredType](#CSRFTokenRequiredType)\]|<a name="CSRFTokenRequired"></a>Requests for this container, collection or property must contain a token proving that the user willingly made the request<br>In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests.
+[CSRFTokenRequired](UI.xml#L1606)|\[[CSRFTokenRequiredType](#CSRFTokenRequiredType)\]|<a name="CSRFTokenRequired"></a>Requests involving this container, collection or property must contain a token proving that the user willingly made the request<br>Annotations with this term with a more specific target take precedence over ones with a less specific target. In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests.
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L65)
 
@@ -962,19 +962,19 @@ Property|Type|Description
 [LocalDataProperty](UI.xml#L1594)|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](UI.xml#L1597)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
-## <a name="CSRFTokenRequiredType"></a>[CSRFTokenRequiredType](UI.xml#L1613)
+## <a name="CSRFTokenRequiredType"></a>[CSRFTokenRequiredType](UI.xml#L1614)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Method](UI.xml#L1614)|[HttpMethod](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Capabilities.V1.md#HttpMethod)|HTTP method of the request requiring the token
-[Location](UI.xml#L1617)|[CSRFTokenLocation](#CSRFTokenLocation)|Locations in the request in one of which the token is expected
+[Method](UI.xml#L1615)|[HttpMethod](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Capabilities.V1.md#HttpMethod)|HTTP method of the request requiring the token
+[Location](UI.xml#L1618)|[CSRFTokenLocation](#CSRFTokenLocation)|Locations in the request in one of which the token is expected
 
-## <a name="CSRFTokenLocation"></a>[CSRFTokenLocation](UI.xml#L1621)
+## <a name="CSRFTokenLocation"></a>[CSRFTokenLocation](UI.xml#L1622)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[Header](UI.xml#L1622)|1|Token is expected in the `x-csrf-token` request header
-[URL](UI.xml#L1625)|2|Token is expected in the `x-csrf-token` URL parameter
-[Form](UI.xml#L1628)|4|Token is expected in the `x-csrf-token` parameter of a urlencoded payload
+[Header](UI.xml#L1623)|1|Token is expected in the `x-csrf-token` request header
+[URL](UI.xml#L1626)|2|Token is expected in the `x-csrf-token` URL parameter
+[Form](UI.xml#L1629)|4|Token is expected in the `x-csrf-token` parameter of a urlencoded payload
