@@ -30,14 +30,23 @@
         "WorkerTimeSheetContainer": {
             "$Kind": "EntityContainer",
             "@UI.CSRFTokenRequired": [
-                {}
+                {
+                    "Method": "POST,PUT,PATCH,DELETE",
+                    "Location": "Header"
+                }
             ],
             "TimeSheet": {
                 "$Collection": true,
                 "$Type": "self.WorkerTimeSheet",
                 "@UI.CSRFTokenRequired": [
-                    {},
-                    {}
+                    {
+                        "Method": "GET",
+                        "Location": "URL"
+                    },
+                    {
+                        "Method": "POST",
+                        "Location": "Header,Form"
+                    }
                 ]
             }
         }

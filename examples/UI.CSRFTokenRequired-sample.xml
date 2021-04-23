@@ -15,8 +15,8 @@
         <Annotation Term="UI.CSRFTokenRequired">
           <Collection> <!-- modifying requests are protected -->
             <Record>
-              <PropertyValue Property="Method" EnumValue="Capabilities.HTTPMethod/POST Capabilities.HTTPMethod/PUT Capabilities.HTTPMethod/PATCH Capabilities.HTTPMethod/DELETE"/>
-              <PropertyValue Property="Location" EnumValue="UI.CSRFTokenLocation/Header"/>
+              <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/POST Capabilities.HTTPMethod/PUT Capabilities.HTTPMethod/PATCH Capabilities.HTTPMethod/DELETE"/>
+              <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header"/>
             </Record>
           </Collection>
         </Annotation>
@@ -24,12 +24,12 @@
           <Annotation Term="UI.CSRFTokenRequired">
             <Collection>
               <Record> <!-- GET TimeSheet/Summary?x-csrf-token=... is subject to read-access-logging -->
-                <PropertyValue Property="Method" EnumValue="Capabilities.HTTPMethod/GET"/>
-                <PropertyValue Property="Location" EnumValue="UI.CSRFTokenLocation/URL"/>
+                <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/GET"/>
+                <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/URL"/>
               </Record>
               <Record> <!-- POST TimeSheet/Summary/$query is a variant that does not expose the token in the URL -->
-                <PropertyValue Property="Method" EnumValue="Capabilities.HTTPMethod/POST"/>
-                <PropertyValue Property="Location" EnumValue="UI.CSRFTokenLocation/Header UI.CSRFTokenLocation/Form"/>
+                <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/POST"/>
+                <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header UI.CSRFTokenLocation/Form"/>
               </Record>
             </Collection>
           </Annotation>
