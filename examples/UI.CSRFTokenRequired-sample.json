@@ -20,7 +20,7 @@
     },
     "csrftoken.sample": {
         "$Alias": "self",
-        "WorkerTimeSheet": {
+        "WorkerTimeSheetType": {
             "$Kind": "EntityType",
             "Summary": {
                 "$Type": "Edm.Stream",
@@ -35,13 +35,27 @@
                     "Location": "Header"
                 }
             ],
-            "TimeSheet": {
+            "FactoryCalendar": {
                 "$Collection": true,
-                "$Type": "self.WorkerTimeSheet",
+                "$Type": "self.FactoryCalendarType"
+            },
+            "WorkerTimeSheet": {
+                "$Collection": true,
+                "$Type": "self.WorkerTimeSheetType",
                 "@UI.CSRFTokenRequired": [
                     {
                         "Method": "GET",
-                        "Location": "URL"
+                        "Location": "Header"
+                    }
+                ]
+            }
+        },
+        "$Annotations": {
+            "self.WorkerTimeSheetContainer/WorkerTimeSheet/Summary": {
+                "@UI.CSRFTokenRequired": [
+                    {
+                        "Method": "GET",
+                        "Location": "Header,URL"
                     },
                     {
                         "Method": "POST",
