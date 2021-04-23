@@ -1607,7 +1607,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Requests involving this container, collection or property must contain a token proving that the user willingly made the request"/>
         <Annotation Term="Core.LongDescription">
-          <String>Annotations with this term with a more specific target take precedence over ones with a less specific target.
+          <String>Annotations for a request method with a more specific target take precedence over ones with a less specific target.
           In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests.</String>
         </Annotation>
       </Term>

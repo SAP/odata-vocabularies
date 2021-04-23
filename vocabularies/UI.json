@@ -1948,7 +1948,7 @@
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Requests involving this container, collection or property must contain a token proving that the user willingly made the request",
-            "@Core.LongDescription": "Annotations with this term with a more specific target take precedence over ones with a less specific target.\n          In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests."
+            "@Core.LongDescription": "Annotations for a request method with a more specific target take precedence over ones with a less specific target.\n          In the absence of this annotation, the token is required for POST, PUT, PATCH and DELETE requests."
         },
         "CSRFTokenRequiredType": {
             "$Kind": "ComplexType",
