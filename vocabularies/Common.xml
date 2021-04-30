@@ -1241,7 +1241,7 @@ Upon modification field control logic is invoked so that meta-information like h
       <ComplexType Name="SortOrderType">
         <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
-          <Annotation Term="Common.StructuralPropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath"/>
           <Annotation Term="Core.Description" String="Sort property" />
           <Annotation Term="Core.Revisions">
             <Collection>
@@ -1363,9 +1363,9 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Annotation>
       </Term>
 
-      <Term Name="StructuralPropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
+      <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a structural property of the entity type that is targeted by the term" />
+        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property of an entity type" />
       </Term>
 
     </Schema>
