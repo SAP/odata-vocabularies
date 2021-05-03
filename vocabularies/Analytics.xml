@@ -138,7 +138,7 @@
         </Annotation>
       </ComplexType>
 
-      <Term Name="AnalyticalContext" Type="Collection(Analytics.AnalyticalContextType)" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="AnalyticalContext" Type="Collection(Analytics.AnalyticalContextType)" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Collection of properties that define an analytical context" />
       </Term>

@@ -170,7 +170,6 @@
             "$Collection": true,
             "$Type": "Analytics.AnalyticalContextType",
             "$AppliesTo": [
-                "EntitySet",
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
