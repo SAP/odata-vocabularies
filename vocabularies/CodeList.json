@@ -39,7 +39,6 @@
         "CurrencyCodes": {
             "$Kind": "Term",
             "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -48,7 +47,6 @@
         "UnitsOfMeasure": {
             "$Kind": "Term",
             "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
