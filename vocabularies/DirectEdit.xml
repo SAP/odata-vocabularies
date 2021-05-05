@@ -55,11 +55,11 @@
 - `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
     or cast-compatible: the qualifier of the `SideEffects` annotation
 
-- `Trigger` of type `Edm.String`: the trigger of side-effects determination, see `Triggers` property
+- `Trigger` of type `Edm.String`: the trigger of the side-effects determination, see `Triggers` property
 
 - `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it
 
-The return type of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,
+The **return type** of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,
 it can be the same type as for `Data`.
 
 Structure-compatible means:
