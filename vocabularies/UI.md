@@ -71,6 +71,17 @@ Term|Type|Description
 [RecommendationList](UI.xml#L1567)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
 [ExcludeFromNavigationContext](UI.xml#L1599)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 
+
+## Functions
+
+### <a name="AnyWordStartsWith"></a>[AnyWordStartsWith](UI.xml#L1611)
+True if any of the words in `Words` starts with the `Prefix`
+Parameter|Type|Description
+:--------|:---|:----------
+Words|String?|
+Prefix|String|
+&rarr;|Boolean|
+
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
 
