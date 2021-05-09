@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+    <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="csrftoken.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="WorkerTimeSheetType">
+        <Property Name="Summary" Type="Edm.Stream"/>
+      </EntityType>
+      <EntityContainer Name="WorkerTimeSheetContainer">
+        <Annotation Term="UI.CSRFTokenRequired"> <!-- modifying requests are protected -->
+          <Collection>
+            <Record>
+              <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/POST Capabilities.HTTPMethod/PUT Capabilities.HTTPMethod/PATCH Capabilities.HTTPMethod/DELETE"/>
+              <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <EntitySet Name="FactoryCalendar" EntityType="self.FactoryCalendarType"/> <!--  GET FactoryCalendar is not protected -->
+        <EntitySet Name="WorkerTimeSheet" EntityType="self.WorkerTimeSheetType">
+          <Annotation Term="UI.CSRFTokenRequired"> <!-- GET TimeSheet is subject to read-access-logging, hence protected -->
+            <Collection>
+              <Record>
+                <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/GET"/>
+                <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </EntitySet>
+      </EntityContainer>
+      <Annotations Target="self.WorkerTimeSheetContainer/WorkerTimeSheet/Summary">
+        <!-- Additional token locations must be allowed for download of time sheet summary.
+        The records below take precedence over the container and entity set annotations. -->
+        <Annotation Term="UI.CSRFTokenRequired">
+          <Collection>
+            <Record> <!-- GET TimeSheet/Summary?x-csrf-token=... is a downloadable URL -->
+              <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/GET"/>
+              <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header UI.CSRFTokenLocation/URL"/>
+            </Record>
+            <Record> <!-- POST TimeSheet/Summary/$query is a variant that does not expose the token in the URL -->
+              <PropertyValue Property="Method" EnumMember="Capabilities.HTTPMethod/POST"/>
+              <PropertyValue Property="Location" EnumMember="UI.CSRFTokenLocation/Header UI.CSRFTokenLocation/Form"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

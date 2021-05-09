@@ -1,0 +1,69 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
+        }
+    },
+    "csrftoken.sample": {
+        "$Alias": "self",
+        "WorkerTimeSheetType": {
+            "$Kind": "EntityType",
+            "Summary": {
+                "$Type": "Edm.Stream",
+                "$Nullable": true
+            }
+        },
+        "WorkerTimeSheetContainer": {
+            "$Kind": "EntityContainer",
+            "@UI.CSRFTokenRequired": [
+                {
+                    "Method": "POST,PUT,PATCH,DELETE",
+                    "Location": "Header"
+                }
+            ],
+            "FactoryCalendar": {
+                "$Collection": true,
+                "$Type": "self.FactoryCalendarType"
+            },
+            "WorkerTimeSheet": {
+                "$Collection": true,
+                "$Type": "self.WorkerTimeSheetType",
+                "@UI.CSRFTokenRequired": [
+                    {
+                        "Method": "GET",
+                        "Location": "Header"
+                    }
+                ]
+            }
+        },
+        "$Annotations": {
+            "self.WorkerTimeSheetContainer/WorkerTimeSheet/Summary": {
+                "@UI.CSRFTokenRequired": [
+                    {
+                        "Method": "GET",
+                        "Location": "Header,URL"
+                    },
+                    {
+                        "Method": "POST",
+                        "Location": "Header,Form"
+                    }
+                ]
+            }
+        }
+    },
+    "$EntityContainer": "csrftoken.sample.WorkerTimeSheetContainer"
+}

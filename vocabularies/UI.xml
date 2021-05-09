@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+    <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
@@ -1599,6 +1602,34 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
+
+      <Term Name="CSRFTokenRequired" Type="Collection(UI.CSRFTokenRequiredType)" Nullable="false" AppliesTo="EntityContainer Collection Property">
+        <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.Description" String="Requests involving this container, collection or property must contain a token proving that the user willingly made the request"/>
+        <Annotation Term="Core.LongDescription">
+          <String>Annotations for a request method with a more specific target take precedence over ones with a less specific target.
+          In the absence of this annotation, the token is required in the request header for POST, PUT, PATCH and DELETE requests.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="CSRFTokenRequiredType">
+        <Property Name="Method" Type="Capabilities.HttpMethod" Nullable="false">
+          <Annotation Term="Core.Description" String="HTTP method of the request requiring the token"/>
+        </Property>
+        <Property Name="Location" Type="UI.CSRFTokenLocation" Nullable="false">
+          <Annotation Term="Core.Description" String="Locations in the request in one of which the token is expected"/>
+        </Property>
+      </ComplexType>
+      <EnumType Name="CSRFTokenLocation" IsFlags="true">
+        <Member Name="Header" Value="1">
+          <Annotation Term="Core.Description" String="Token is expected in the `x-csrf-token` request header"/>
+        </Member>
+        <Member Name="URL" Value="2">
+          <Annotation Term="Core.Description" String="Token is expected in the `x-csrf-token` URL parameter"/>
+        </Member>
+        <Member Name="Form" Value="4">
+          <Annotation Term="Core.Description" String="Token is expected in the `x-csrf-token` parameter of a urlencoded payload"/>
+        </Member>
+      </EnumType>
 
     </Schema>
   </edmx:DataServices>
