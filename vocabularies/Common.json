@@ -1571,7 +1571,7 @@
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property of an entity type"
+            "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
         }
     }
 }
