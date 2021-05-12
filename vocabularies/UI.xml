@@ -1609,7 +1609,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <Term Name="ParameterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Parameter">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Define default values for action parameters" />
         <Annotation Term="Core.LongDescription" String="For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.
             Whereas for bound actions the bound entity and its properties and associated properties can be used as default values" />

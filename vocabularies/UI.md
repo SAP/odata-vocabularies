@@ -66,10 +66,10 @@ Term|Type|Description
 [CriticalityCalculation](UI.xml#L1595)|[CriticalityCalculationType?](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
 [Emphasized](UI.xml#L1599) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
 [OrderBy](UI.xml#L1605) *([Experimental](Common.md#Experimental))*|PropertyPath?|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
-[ParameterDefaultValue](UI.xml#L1611) *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
-[RecommendationState](UI.xml#L1618)|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
-[RecommendationList](UI.xml#L1648)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[ExcludeFromNavigationContext](UI.xml#L1680)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[ParameterDefaultValue](UI.xml#L1611)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
+[RecommendationState](UI.xml#L1617)|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
+[RecommendationList](UI.xml#L1647)|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
+[ExcludeFromNavigationContext](UI.xml#L1679)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
@@ -936,7 +936,7 @@ Property|Type|Description
 - [Importance](#Importance)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1625)
+## <a name="RecommendationStateType"></a>[RecommendationStateType](UI.xml#L1624)
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -945,25 +945,25 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](UI.xml#L1632)|regular - with human or default input, no recommendation
-[1](UI.xml#L1636)|highlighted - without human input and with recommendation
-[2](UI.xml#L1640)|warning - with human or default input and with recommendation
+[0](UI.xml#L1631)|regular - with human or default input, no recommendation
+[1](UI.xml#L1635)|highlighted - without human input and with recommendation
+[2](UI.xml#L1639)|warning - with human or default input and with recommendation
 
-## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1655)
+## <a name="RecommendationListType"></a>[RecommendationListType](UI.xml#L1654)
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](UI.xml#L1660)|String|Resource path of a collection of recommended values
-[RankProperty](UI.xml#L1663)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](UI.xml#L1666)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](UI.xml#L1659)|String|Resource path of a collection of recommended values
+[RankProperty](UI.xml#L1662)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](UI.xml#L1665)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
-## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1671)
+## <a name="RecommendationBinding"></a>[RecommendationBinding](UI.xml#L1670)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](UI.xml#L1672)|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](UI.xml#L1675)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+[LocalDataProperty](UI.xml#L1671)|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](UI.xml#L1674)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
