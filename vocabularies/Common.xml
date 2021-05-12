@@ -1255,6 +1255,11 @@ Upon modification field control logic is invoked so that meta-information like h
         </Property>
         <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as sort property" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by the annotation path does not apply to the same collection of entities
+            as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation,
+            this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.</String>
+          </Annotation>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
               <String>Analytics.AggregatedProperty</String>

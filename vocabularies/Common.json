@@ -1450,6 +1450,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by an annotation and used as sort property",
+                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation,\n            this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.",
                 "@Validation.AllowedTerms": [
                     "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
