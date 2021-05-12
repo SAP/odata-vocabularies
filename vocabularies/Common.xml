@@ -1371,7 +1371,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
       <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property of an entity type" />
+        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
       </Term>
 
     </Schema>
