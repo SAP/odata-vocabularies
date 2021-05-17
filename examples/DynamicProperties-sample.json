@@ -66,6 +66,20 @@
                     "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                 ]
             },
+            "@UI.SelectionVariant": {
+                "SelectOptions": [
+                    {
+                        "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
+                        "Ranges": [
+                            {
+                                "Sign": "UI.SelectionRangeSignType.I",
+                                "Option": "UI.SelectionRangeSignType.LE",
+                                "Low": 1000
+                            }
+                        ]
+                    }
+                ]
+            },
             "@UI.PresentationVariant": {
                 "SortOrder": [
                     {
