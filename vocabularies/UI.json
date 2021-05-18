@@ -1301,17 +1301,8 @@
             "RequestAtLeast": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties that should always be included in the result of the queried collection"
-            },
-            "RequestAtLeastDynamic": {
-                "$Collection": true,
-                "$Type": "Edm.AnnotationPath",
-                "@Core.Description": "Dynamic properties introduced by annotations that should always be included in the result of the queried collection",
-                "@Core.LongDescription": "If the annotation referenced by an annotation path does not apply to the same collection of entities\n            as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.",
-                "@Validation.AllowedTerms": [
-                    "Analytics.AggregatedProperty",
-                    "Aggregation.CustomAggregate"
-                ]
+                "@Core.Description": "Properties that should always be included in the result of the queried collection",
+                "@Core.LongDescription": "Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request\n            or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an\n            aggregating OData request."
             },
             "SelectionFields": {
                 "$Collection": true,
@@ -1415,7 +1406,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by annotations for which value ranges are specified",
-                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.",
+                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.\n            \n            For an example, see the `UI.SelectionVariant` annotation in the [example](DynamicProperties-sample.xml).",
                 "@Validation.AllowedTerms": [
                     "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"

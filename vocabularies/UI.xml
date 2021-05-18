@@ -1116,7 +1116,13 @@ The trend is
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
+          <Annotation Term="Core.LongDescription">
+            <String>Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request
+            or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an
+            aggregating OData request.</String>
+          </Annotation>
         </Property>
+        <!--
         <Property Name="RequestAtLeastDynamic" Type="Collection(Edm.AnnotationPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
           <Annotation Term="Core.LongDescription">
@@ -1130,6 +1136,7 @@ The trend is
             </Collection>
           </Annotation>
         </Property>
+        -->
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description">
@@ -1216,7 +1223,9 @@ The trend is
           <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
           <Annotation Term="Core.LongDescription">
             <String>If the annotation referenced by the annotation path does not apply to the same collection of entities
-            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.</String>
+            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.
+            
+            For an example, see the `UI.SelectionVariant` annotation in the [example](DynamicProperties-sample.xml).</String>
           </Annotation>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
