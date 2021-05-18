@@ -1224,8 +1224,7 @@ The trend is
           <Annotation Term="Core.LongDescription">
             <String>If the annotation referenced by the annotation path does not apply to the same collection of entities
             as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.
-            
-            For an example, see the `UI.SelectionVariant` annotation in the [example](DynamicProperties-sample.xml).</String>
+            For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).</String>
           </Annotation>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>

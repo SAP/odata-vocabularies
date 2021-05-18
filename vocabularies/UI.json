@@ -1406,7 +1406,7 @@
                 "$Type": "Edm.AnnotationPath",
                 "$Nullable": true,
                 "@Core.Description": "Dynamic property introduced by annotations for which value ranges are specified",
-                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.\n            \n            For an example, see the `UI.SelectionVariant` annotation in the [example](DynamicProperties-sample.xml).",
+                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.\n            For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).",
                 "@Validation.AllowedTerms": [
                     "Analytics.AggregatedProperty",
                     "Aggregation.CustomAggregate"
