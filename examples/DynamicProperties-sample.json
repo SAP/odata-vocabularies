@@ -72,8 +72,8 @@
                         "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
                         "Ranges": [
                             {
-                                "Sign": "UI.SelectionRangeSignType.I",
-                                "Option": "UI.SelectionRangeSignType.LE",
+                                "Sign": "I",
+                                "Option": "LE",
                                 "Low": 1000
                             }
                         ]

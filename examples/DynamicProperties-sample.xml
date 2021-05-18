@@ -67,8 +67,8 @@
                   <PropertyValue Property="Ranges">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType.I"/>
-                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeSignType.LE"/>
+                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeSignType/LE"/>
                         <PropertyValue Property="Low" Decimal="1000"/>
                       </Record>
                     </Collection>
