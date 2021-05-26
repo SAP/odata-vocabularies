@@ -1,7 +1,7 @@
 {
     "$Version": "4.0",
     "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.UI.v1",

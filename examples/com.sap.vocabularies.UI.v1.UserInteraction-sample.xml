@@ -31,7 +31,7 @@
         <Annotation Term="UI.UserInteraction">
           <Annotation Term="Core.Description" String="Please choose a product"/>
           <Record>
-            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.ChooseSingle"/>
+            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod/ChooseSingle"/>
             <PropertyValue Property="Parameters">
               <Collection>
                 <Record>
@@ -47,7 +47,7 @@
         <Annotation Term="UI.UserInteraction">
           <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
           <Record>
-            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod.Confirm"/>
+            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod/Confirm"/>
             <PropertyValue Property="Parameters">
               <Collection>
                 <Record>
