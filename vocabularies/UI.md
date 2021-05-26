@@ -962,19 +962,35 @@ Property|Type|Description
 [LocalDataProperty](UI.xml#L1587)|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](UI.xml#L1590)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
-## <a name="UserInteractionType"></a>[UserInteractionType](UI.xml#L1608)
+## <a name="UserInteractionType"></a>[*UserInteractionType*](UI.xml#L1608)
+Derived types can add more properties that govern the user interaction
 
+**Derived Types:**
+- [UserInteractionChooseSingle](#UserInteractionChooseSingle)
+- [UserInteractionChooseMultiple](#UserInteractionChooseMultiple)
+- [UserInteractionConfirm](#UserInteractionConfirm)
 
 Property|Type|Description
 :-------|:---|:----------
-[Method](UI.xml#L1609)|[UserInteractionMethod](#UserInteractionMethod)|The method for interacting with the user
-[Parameters](UI.xml#L1612)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.
+[Parameters](UI.xml#L1610)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.
 
-## <a name="UserInteractionMethod"></a>[UserInteractionMethod](UI.xml#L1620)
+## <a name="UserInteractionChooseSingle"></a>[UserInteractionChooseSingle](UI.xml#L1618): [UserInteractionType](#UserInteractionType)
+The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
 
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](UI.xml#L1610)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.
 
-Member|Value|Description
-:-----|----:|:----------
-[ChooseSingle](UI.xml#L1621)|1|The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request
-[ChooseMultiple](UI.xml#L1624)|2|The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
-[Confirm](UI.xml#L1627)|3|The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
+## <a name="UserInteractionChooseMultiple"></a>[UserInteractionChooseMultiple](UI.xml#L1621): [UserInteractionType](#UserInteractionType)
+The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](UI.xml#L1610)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.
+
+## <a name="UserInteractionConfirm"></a>[UserInteractionConfirm](UI.xml#L1624): [UserInteractionType](#UserInteractionType)
+The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](UI.xml#L1610)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.

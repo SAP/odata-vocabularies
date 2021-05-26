@@ -1941,10 +1941,8 @@
         },
         "UserInteractionType": {
             "$Kind": "ComplexType",
-            "Method": {
-                "$Type": "UI.UserInteractionMethod",
-                "@Core.Description": "The method for interacting with the user"
-            },
+            "$Abstract": true,
+            "@Core.Description": "Derived types can add more properties that govern the user interaction",
             "Parameters": {
                 "$Collection": true,
                 "$Type": "Common.ValueListParameterOut",
@@ -1952,14 +1950,20 @@
                 "@Core.LongDescription": "This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,\n              but one that was sent by the server rather than requested by the user."
             }
         },
-        "UserInteractionMethod": {
-            "$Kind": "EnumType",
-            "ChooseSingle": 1,
-            "ChooseSingle@Core.Description": "The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request",
-            "ChooseMultiple": 2,
-            "ChooseMultiple@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request",
-            "Confirm": 3,
-            "Confirm@Core.Description": "The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in \"effective\" mode"
+        "UserInteractionChooseSingle": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.UserInteractionType",
+            "@Core.Description": "The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request"
+        },
+        "UserInteractionChooseMultiple": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.UserInteractionType",
+            "@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"
+        },
+        "UserInteractionConfirm": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.UserInteractionType",
+            "@Core.Description": "The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in \"effective\" mode"
         }
     }
 }

@@ -30,8 +30,7 @@
       <Annotations Target="self.SalesOrderService/SalesOrderItems/_AlternativeProducts">
         <Annotation Term="UI.UserInteraction">
           <Annotation Term="Core.Description" String="Please choose a product"/>
-          <Record>
-            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod/ChooseSingle"/>
+          <Record Type="UI.UserInteractionChooseSingle">
             <PropertyValue Property="Parameters">
               <Collection>
                 <Record>
@@ -46,8 +45,7 @@
       <Annotations Target="self.SalesOrderService/SalesOrderItems/_UpgradeProduct">
         <Annotation Term="UI.UserInteraction">
           <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
-          <Record>
-            <PropertyValue Property="Method" Enum="UI.UserInteractionMethod/Confirm"/>
+          <Record Type="UI.UserInteractionConfirm">
             <PropertyValue Property="Parameters">
               <Collection>
                 <Record>
@@ -61,4 +59,4 @@
       </Annotations>
     </Schema>
   </edmx:DataServices>
-</edmx:Edmx>      
+</edmx:Edmx>
