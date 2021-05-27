@@ -1623,6 +1623,10 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </ComplexType>
       <ComplexType Name="UserInteractionChooseMultiple" BaseType="UI.UserInteractionType">
         <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
+          that contains one instance per chosen entry.</String>
+        </Annotation>
       </ComplexType>
       <ComplexType Name="UserInteractionConfirm" BaseType="UI.UserInteractionType">
         <Annotation Term="Core.Description" String="The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in &quot;effective&quot; mode"/>

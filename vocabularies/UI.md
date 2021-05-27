@@ -985,11 +985,14 @@ Property|Type|Description
 ## <a name="UserInteractionChooseMultiple"></a>[UserInteractionChooseMultiple](UI.xml#L1624): [UserInteractionType](#UserInteractionType)
 The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request
 
+The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
+          that contains one instance per chosen entry.
+
 Property|Type|Description
 :-------|:---|:----------
 [*Parameters*](UI.xml#L1613)|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user.
 
-## <a name="UserInteractionConfirm"></a>[UserInteractionConfirm](UI.xml#L1627): [UserInteractionType](#UserInteractionType)
+## <a name="UserInteractionConfirm"></a>[UserInteractionConfirm](UI.xml#L1631): [UserInteractionType](#UserInteractionType)
 The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
 
 Property|Type|Description

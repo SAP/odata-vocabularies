@@ -1967,7 +1967,8 @@
         "UserInteractionChooseMultiple": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.UserInteractionType",
-            "@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"
+            "@Core.Description": "The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request",
+            "@Core.LongDescription": "The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection\n          that contains one instance per chosen entry."
         },
         "UserInteractionConfirm": {
             "$Kind": "ComplexType",
