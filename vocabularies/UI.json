@@ -1934,7 +1934,6 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
-            "@Core.AppliesViaContainer": true,
             "@Core.Description": "When the annotated navigation property occurs in a response, the UI shall use the addressed entity or collection to immediately interact with the user and then repeat the corresponding request with the additional information obtained from the user",
             "@Core.LongDescription": "A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed."
         },

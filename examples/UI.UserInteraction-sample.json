@@ -25,12 +25,32 @@
             "_AlternativeProducts": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "Product.AlternativeProduct"
+                "$Type": "Product.AlternativeProduct",
+                "@UI.UserInteraction@Core.Description": "Please choose a product",
+                "@UI.UserInteraction": {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionChooseSingle",
+                    "Parameters": [
+                        {
+                            "ValueListProperty": "Product",
+                            "LocalDataProperty": "ExchangeProduct/NewProduct"
+                        }
+                    ]
+                }
             },
             "_UpgradeProduct": {
                 "$Kind": "NavigationProperty",
                 "$Type": "Product.AlternativeProduct",
-                "$Nullable": true
+                "$Nullable": true,
+                "@UI.UserInteraction@Core.Description": "Do you want to upgrade the product?",
+                "@UI.UserInteraction": {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionConfirm",
+                    "Parameters": [
+                        {
+                            "ValueListProperty": "Product",
+                            "LocalDataProperty": "ExchangeProduct/NewProduct"
+                        }
+                    ]
+                }
             }
         },
         "ExchangeProduct": [
@@ -58,32 +78,6 @@
             "SalesOrderItems": {
                 "$Collection": true,
                 "$Type": "self.SalesOrder"
-            }
-        },
-        "$Annotations": {
-            "self.SalesOrderService/SalesOrderItems/_AlternativeProducts": {
-                "@UI.UserInteraction@Core.Description": "Please choose a product",
-                "@UI.UserInteraction": {
-                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionChooseSingle",
-                    "Parameters": [
-                        {
-                            "ValueListProperty": "Product",
-                            "LocalDataProperty": "ExchangeProduct/NewProduct"
-                        }
-                    ]
-                }
-            },
-            "self.SalesOrderService/SalesOrderItems/_UpgradeProduct": {
-                "@UI.UserInteraction@Core.Description": "Do you want to upgrade the product?",
-                "@UI.UserInteraction": {
-                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionConfirm",
-                    "Parameters": [
-                        {
-                            "ValueListProperty": "Product",
-                            "LocalDataProperty": "ExchangeProduct/NewProduct"
-                        }
-                    ]
-                }
             }
         }
     },

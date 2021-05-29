@@ -16,8 +16,36 @@
            But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose.
       -->
       <EntityType Name="SalesOrderItem">
-        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)"/>
-        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct"/>
+        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Please choose a product"/>
+            <Record Type="UI.UserInteractionChooseSingle">
+              <PropertyValue Property="Parameters">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
+        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
+            <Record Type="UI.UserInteractionConfirm">
+              <PropertyValue Property="Parameters">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
       </EntityType>
       <Action Name="ExchangeProduct" IsBound="true">
         <Parameter Name="item" Type="self.SalesOrderItem" Nullable="false"/>
@@ -27,36 +55,6 @@
       <EntityContainer Name="SalesOrderService">
         <EntitySet Name="SalesOrderItems" EntityType="self.SalesOrder"/>
       </EntityContainer>
-      <Annotations Target="self.SalesOrderService/SalesOrderItems/_AlternativeProducts">
-        <Annotation Term="UI.UserInteraction">
-          <Annotation Term="Core.Description" String="Please choose a product"/>
-          <Record Type="UI.UserInteractionChooseSingle">
-            <PropertyValue Property="Parameters">
-              <Collection>
-                <Record>
-                  <PropertyValue Property="ValueListProperty" String="Product"/>
-                  <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="self.SalesOrderService/SalesOrderItems/_UpgradeProduct">
-        <Annotation Term="UI.UserInteraction">
-          <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
-          <Record Type="UI.UserInteractionConfirm">
-            <PropertyValue Property="Parameters">
-              <Collection>
-                <Record>
-                  <PropertyValue Property="ValueListProperty" String="Product"/>
-                  <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
