@@ -8,7 +8,7 @@
   </edmx:Reference>  
   <edmx:DataServices>
     <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-      <!-- Certain user interactions cannot be handled by one reqeust, because they follow the pattern "user triggers, server offers, user chooses".
+      <!-- Certain user interactions cannot be handled by one request, because they follow the pattern "user triggers, server offers, user chooses".
            For example, the action "exchange product in a sales order item" is triggered by the user on a sales order item
            (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
            from which the user must then choose, and the request must be repeated with the chosen key
