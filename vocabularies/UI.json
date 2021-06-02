@@ -1989,7 +1989,7 @@
                 "NavigationProperty"
             ],
             "@Core.Description": "When the annotated navigation property or its `odata.navigationLink` occurs in a response,\n          the UI shall use the addressed entity or collection to immediately interact with the user\n          and then repeat the corresponding request with the additional information obtained from the user",
-            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the annotated navigation property MAY occur in the `innererror` property which has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody).\n          A navigation property thus annotated may be interpreted as not belonging to the object model\n          but containing auxiliary information that is not always needed."
+            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the annotated navigation property MAY occur in a [`ConflictResponse.userInteraction`](ConflictResponse.md#userInteraction) instance annotation.\n          A navigation property thus annotated may be interpreted as not belonging to the object model\n          but containing auxiliary information that is not always needed."
         },
         "UserInteractionSimple": {
             "$Kind": "Term",
@@ -2000,7 +2000,7 @@
             ],
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value",
-            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the instance annotation MAY occur in the `innererror` property which has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)."
+            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the instance annotation MAY occur in a [`ConflictResponse.userInteraction`](ConflictResponse.md#userInteraction) instance annotation."
         },
         "UserInteractionType": {
             "$Kind": "ComplexType",
