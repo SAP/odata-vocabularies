@@ -1690,7 +1690,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="UserInteraction" Type="UI.UserInteractionType" Nullable="false" AppliesTo="NavigationProperty">
         <Annotation Term="Core.Description">
           <String>When the annotated navigation property or its `odata.navigationLink` occurs in a response
-          or in a [`Common.userInteraction`](Common.md#userInteraction) annotation in an error response,
+          or in the [`innererror`] of an error response,
           the UI shall use the addressed entity or collection to immediately interact with the user
           and then repeat the corresponding request with the additional information obtained from the user</String>
         </Annotation>

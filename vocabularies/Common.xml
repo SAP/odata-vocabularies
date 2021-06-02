@@ -481,15 +481,6 @@ The minimum structure is
         <Annotation Term="Core.Description" String="Location of the message long text" />
         <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
-      <Term Name="userInteraction" Type="Edm.Untyped" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Embedded response payload including a navigation property for user interaction" />
-        <Annotation Term="Core.LongDescription">
-          <String>The embedded response payload has the same structure as a successful response payload but is server-side
-          expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction).
-          Overall, the error response can contain multiple such navigation properties.</String>
-        </Annotation>
-      </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
