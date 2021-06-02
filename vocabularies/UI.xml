@@ -1690,7 +1690,8 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="UserInteraction" Type="UI.UserInteractionType" Nullable="false" AppliesTo="NavigationProperty">
         <Annotation Term="Core.Description">
           <String>When the annotated navigation property or its `odata.navigationLink` occurs in a response
-          or in the `innererror` of an error response,
+          or in an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse)
+          in the `innererror` property which has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody),
           the UI shall use the addressed entity or collection to immediately interact with the user
           and then repeat the corresponding request with the additional information obtained from the user</String>
         </Annotation>
@@ -1701,7 +1702,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"/>
       </Term>
       <ComplexType Name="UserInteractionType" Abstract="true">
-        <Annotation Term="Core.Description" String="Derived types can add more properties that govern the user interaction"/>
+        <Annotation Term="Core.Description" String="Derived types can add more properties that govern the user interaction and the repeating of the request"/>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameterOut)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions how to fill properties with the additional information obtained from the user"/>
           <Annotation Term="Core.LongDescription">
