@@ -8,14 +8,10 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ConflictResponse.v1" Alias="ConflictResponse">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ErrorResponse.v1" Alias="ErrorResponse">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
-        <String>Terms for embedding OData responses in cases of conflict into error responses</String>
-      </Annotation>
-      <Annotation Term="Core.LongDescription">
-        <String>A conflict detected by an OData server leads to a response that is somewhere between success and error.
-        This vocabulary offers terms for exposing such conflicts in error responses in a structured manner.</String>
+        <String>Terms for embedding structured data within error responses</String>
       </Annotation>
       <Annotation Term="Core.Description">
         <String>2020-06-02 © Copyright 2021 SAP SE. All rights reserved</String>
@@ -24,24 +20,24 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ConflictResponse.xml" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ConflictResponse.json" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ConflictResponse.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ErrorResponse.md" />
           </Record>
         </Collection>
       </Annotation>
 
       <Term Name="userInteraction" Type="Edm.Untyped" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Response payload embedded into an error response and including data for user interaction" />
+        <Annotation Term="Core.Description" String="Response embedded within an error response and including data for user interaction" />
         <Annotation Term="Core.LongDescription">
-          <String>The embedded response payload describes a conflict that was detected by the server and that
+          <String>The embedded response describes a conflict that was detected by the server and that
           requires user interaction to be resolved before the request can be successfully repeated.
           It has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)
           and is server-side expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction)
