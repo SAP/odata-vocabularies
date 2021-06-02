@@ -552,7 +552,8 @@
                 "Record"
             ],
             "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Response payload including a navigation property for [`UI.UserInteraction`](UI.md#UserInteraction)"
+            "@Core.Description": "Embedded response payload including a navigation property for user interaction",
+            "@Core.LongDescription": "The embedded response payload has the same structure as a successful response payload but is server-side\n          expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction).\n          Overall, the error response can contain multiple such navigation properties."
         },
         "numericSeverity": {
             "$Kind": "Term",
