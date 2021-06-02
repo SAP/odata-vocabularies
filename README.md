@@ -9,10 +9,10 @@ This repository defines the following SAP vocabularies:
 - [Analytics: Analytical resources](vocabularies/Analytics.md)
 - [CodeList: Code Lists](vocabularies/CodeList.md)
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
+- [Common_401: Embedding structured data within error responses](vocabularies/Common_401.md) - _experimental_
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
 - [DataIntegration: Data Integration](vocabularies/DataIntegration.md)
 - [DirectEdit: Terms for Direct-Edit User Interfaces](vocabularies/DirectEdit.md) - _experimental_
-- [ErrorResponse: Embedding structured data within error responses](vocabularies/ErrorResponse.md) - _experimental_
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
 - [ODM: One Domain Model](vocabularies/ODM.md) - _experimental_

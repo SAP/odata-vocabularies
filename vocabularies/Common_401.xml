@@ -8,10 +8,10 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ErrorResponse.v1" Alias="ErrorResponse">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Common_401.v1" Alias="Common_401">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
-        <String>Terms for embedding structured data within error responses</String>
+        <String>Common terms for all SAP vocabularies</String>
       </Annotation>
       <Annotation Term="Core.Description">
         <String>2020-06-02 © Copyright 2021 SAP SE. All rights reserved</String>
@@ -20,15 +20,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.xml" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Common_401.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.json" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Common_401.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ErrorResponse.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common_401.md" />
           </Record>
         </Collection>
       </Annotation>

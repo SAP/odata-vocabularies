@@ -18,22 +18,22 @@
             ]
         }
     },
-    "com.sap.vocabularies.ErrorResponse.v1": {
-        "$Alias": "ErrorResponse",
+    "com.sap.vocabularies.Common_401.v1": {
+        "$Alias": "Common_401",
         "@Common.Experimental": true,
         "@Core.Description": "2020-06-02 © Copyright 2021 SAP SE. All rights reserved",
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.xml"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Common_401.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/ErrorResponse.json"
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Common_401.json"
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ErrorResponse.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common_401.md"
             }
         ],
         "userInteraction": {
