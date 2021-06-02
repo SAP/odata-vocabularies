@@ -545,6 +545,15 @@
             "@Core.Description": "Location of the message long text",
             "@Core.LongDescription": "This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response"
         },
+        "userInteraction": {
+            "$Kind": "Term",
+            "$Type": "Edm.Untyped",
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Response payload including a navigation property for [`UI.UserInteraction`](UI.md#UserInteraction)"
+        },
         "numericSeverity": {
             "$Kind": "Term",
             "$Type": "Common.NumericMessageSeverityType",
