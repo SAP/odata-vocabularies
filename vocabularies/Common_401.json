@@ -44,7 +44,7 @@
             ],
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Data that the server has embedded within an error response to make a callback to the client",
-            "@Core.LongDescription": "The callback data may describe a conflict that was detected by the server\n          and that must be resolved through user interaction before the request can be successfully repeated.\n          This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)\n          and may be server-side expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction)\n          or with an instance annotation [`UI.UserInteractionSimple`](UI.md#UserInteractionSimple).\n          Overall, the error response can contain multiple such navigation properties or instance annotations."
+            "@Core.LongDescription": "This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody).\n          The callback enables the client to adjust the request so that it can be successfully repeated.\n          An example for such a callback is a user interaction to resolve a conflict that was detected by the server,\n          see [`UI.UserInteraction`](UI.md#UserInteraction)."
         }
     }
 }
