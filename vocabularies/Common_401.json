@@ -36,15 +36,15 @@
                 "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common_401.md"
             }
         ],
-        "userInteraction": {
+        "callback": {
             "$Kind": "Term",
             "$Type": "Edm.Untyped",
             "$AppliesTo": [
                 "Record"
             ],
             "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Response embedded within an error response and including data for user interaction",
-            "@Core.LongDescription": "The embedded response describes a conflict that was detected by the server and that\n          requires user interaction to be resolved before the request can be successfully repeated.\n          It has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)\n          and is server-side expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction)\n          or with an instance annotation [`UI.UserInteractionSimple`](UI.md#UserInteractionSimple).\n          Overall, the error response can contain multiple such navigation properties or instance annotations."
+            "@Core.Description": "Data that the server has embedded within an error response to make a callback to the client",
+            "@Core.LongDescription": "The callback data may describe a conflict that was detected by the server\n          and that must be resolved through user interaction before the request can be successfully repeated.\n          This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)\n          and may be server-side expanded with a navigation property that is annotated with [`UI.UserInteraction`](UI.md#UserInteraction)\n          or with an instance annotation [`UI.UserInteractionSimple`](UI.md#UserInteractionSimple).\n          Overall, the error response can contain multiple such navigation properties or instance annotations."
         }
     }
 }

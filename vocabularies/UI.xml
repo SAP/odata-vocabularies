@@ -1695,7 +1695,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Annotation>
         <Annotation Term="Core.LongDescription">
           <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_Common_401),
-          the annotated navigation property MAY occur in a [`Common_401.userInteraction`](Common_401.md#userInteraction) instance annotation.
+          the annotated navigation property MAY occur in a [`Common_401.callback`](Common_401.md#callback) instance annotation.
           A navigation property thus annotated may be interpreted as not belonging to the object model
           but containing auxiliary information that is not always needed.</String>
         </Annotation>
@@ -1705,7 +1705,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"/>
         <Annotation Term="Core.LongDescription">
           <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_Common_401),
-          the instance annotation MAY occur in a [`Common_401.userInteraction`](Common_401.md#userInteraction) instance annotation.</String>
+          the instance annotation MAY occur in a [`Common_401.callback`](Common_401.md#callback) instance annotation.</String>
         </Annotation>
       </Term>
       <ComplexType Name="UserInteractionType" Abstract="true">
