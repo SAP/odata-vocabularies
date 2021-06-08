@@ -205,7 +205,7 @@ Property|Type|Description
 [Label](Common.xml#L615)|String?|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L619)|String|Resource path of an OData collection with possible values, relative to CollectionRoot
 [CollectionRoot](Common.xml#L622)|String?|Service root of the value list collection; not specified means local to the document containing the annotation
-[DistinctValuesSupported](Common.xml#L625)|Boolean?|Indicates that the value list supports a 'distinct' aggregation on the ValueListParameterInOut property
+[DistinctValuesSupported](Common.xml#L625)|Boolean?|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
 [SearchSupported](Common.xml#L628)|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
 [FetchValues](Common.xml#L632)|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
 [PresentationVariantQualifier](Common.xml#L635)|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath
