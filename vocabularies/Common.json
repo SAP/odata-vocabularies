@@ -729,6 +729,12 @@
                 "$Nullable": true,
                 "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation"
             },
+            "DistinctValuesSupported": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": true,
+                "@Core.Description": "Indicates that the value list supports a 'distinct' aggregation on the  ValueListParameterInOut property"
+            },
             "SearchSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -832,6 +838,12 @@
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
+            },
+            "DistinctValuesSupported": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": true,
+                "@Core.Description": "Indicates that the value list supports a 'distinct' aggregation on the  ValueListParameterInOut property"
             },
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
