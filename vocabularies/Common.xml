@@ -622,7 +622,7 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="true" DefaultValue="true"> 
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="true" DefaultValue="false"> 
           <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the  ValueListParameterInOut property"/>
         </Property>
         <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
