@@ -732,7 +732,7 @@
             "DistinctValuesSupported": {
                 "$Type": "Edm.Boolean",
                 "$Nullable": true,
-                "$DefaultValue": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Indicates that the value list supports a 'distinct' aggregation on the  ValueListParameterInOut property"
             },
             "SearchSupported": {
