@@ -698,7 +698,7 @@ The minimum structure is
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="true" DefaultValue="true"> 
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="true" DefaultValue="false"> 
           <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
