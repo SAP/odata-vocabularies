@@ -5,7 +5,7 @@
   </edmx:Reference>
   <edmx:Reference Uri="/sap/opu/odata4/product.xml">
     <edmx:Include Namespace="com.sap.gateway.entities.product" Alias="Product" />
-  </edmx:Reference>  
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <!-- Certain user interactions cannot be handled by one request, because they follow the pattern "user triggers, server offers, user chooses".

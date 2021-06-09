@@ -38,7 +38,7 @@
         <Annotation Term="Core.Description" String="Data that the server has embedded within an error response to make a callback to the client" />
         <Annotation Term="Core.LongDescription">
           <String>This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody).
-          The callback enables the client to adjust the request so that it can be successfully repeated.
+          The callback allows the client to adjust the request so that it can be successfully repeated.
           An example for such a callback is a user interaction to resolve a conflict that was detected by the server,
           see [`UI.UserInteraction`](UI.md#UserInteraction).</String>
         </Annotation>
