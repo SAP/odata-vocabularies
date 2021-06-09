@@ -98,6 +98,7 @@
             "$AppliesTo": [
                 "Property"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "Do not check the allowed number of fractional digits",
             "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis would switch off the validation of user input with respect to decimals."
         }
