@@ -13,6 +13,7 @@ Term|Type|Description
 [StandardCode](CodeList.xml#L54) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="StandardCode"></a>Property containing standard code values
 [ExternalCode](CodeList.xml#L59) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="ExternalCode"></a>Property containing code values that can be used for visualization<br>The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization.
 [IsConfigurationDeprecationCode](CodeList.xml#L65) *([Experimental](Common.md#Experimental))*|Boolean|<a name="IsConfigurationDeprecationCode"></a>Property contains a Configuration Deprecation Code<br>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`).
+[DoNotCheckScale](CodeList.xml#L73)|Boolean|<a name="DoNotCheckScale"></a>Do not check the allowed number of fractional digits<br>The annotated property contains a measured quantity, and the property value may have more fractional digits than defined for its unit of measure.
 
 ## <a name="CodeListSource"></a>[CodeListSource](CodeList.xml#L43)
 An entity set containing the code list for currencies

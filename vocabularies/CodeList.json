@@ -91,6 +91,15 @@
             "@Common.Experimental": true,
             "@Core.Description": "Property contains a Configuration Deprecation Code",
             "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
+        },
+        "DoNotCheckScale": {
+            "$Kind": "Term",
+            "$Type": "Edm.Boolean",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Do not check the allowed number of fractional digits",
+            "@Core.LongDescription": "The annotated property contains a measured quantity, and the property value may have more fractional digits than defined for its unit of measure."
         }
     }
 }

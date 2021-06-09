@@ -70,6 +70,11 @@
         </Annotation>
       </Term>
 
+      <Term Name="DoNotCheckScale" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Do not check the allowed number of fractional digits" />
+        <Annotation Term="Core.LongDescription" String="The annotated property contains a measured quantity, and the property value may have more fractional digits than defined for its unit of measure." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
