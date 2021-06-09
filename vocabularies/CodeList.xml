@@ -72,7 +72,11 @@
 
       <Term Name="DoNotCheckScale" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Do not check the allowed number of fractional digits" />
-        <Annotation Term="Core.LongDescription" String="The annotated property contains a measured quantity, and the property value may have more fractional digits than defined for its unit of measure." />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.
+
+This would switch off the validation of user input with respect to decimals.</String>
+        </Annotation>
       </Term>
 
     </Schema>
