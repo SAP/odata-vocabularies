@@ -233,7 +233,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Label](Common.xml#L694)|String?|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L698)|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-[DistinctValuesSupported](Common.xml#L701)|Boolean?|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
+[DistinctValuesSupported](Common.xml#L701)|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
 [FetchValues](Common.xml#L704)|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
 [PresentationVariantQualifier](Common.xml#L707)|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation
 [SelectionVariantQualifier](Common.xml#L711)|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
