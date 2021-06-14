@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
@@ -686,7 +686,7 @@ The trend is
           <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
         </Property>
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
         </Property>
         <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
@@ -841,7 +841,7 @@ The trend is
       <ComplexType Name="ChartMeasureAttributeType">
         <Annotation Term="Core.Description" String="Exactly one of `Measure` and `DynamicMeasure` must be present" />
         <Property Name="Measure" Type="Edm.PropertyPath">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
         </Property>
         <Property Name="DynamicMeasure" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
@@ -1070,7 +1070,7 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="Total" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description">
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
           </Annotation>
@@ -1088,7 +1088,7 @@ The trend is
             </Collection>
           </Annotation>
         </Property>
-         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+        <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Result should include a grand total for the properties specified in Total" />
         </Property>
         <Property Name="InitialExpansionLevel" Type="Edm.Int32" Nullable="false" DefaultValue="1">
@@ -1208,13 +1208,13 @@ The trend is
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
         <Annotation Term="Core.LongDescription" String="Exactly one of `PropertyName` and `DynamicPropertyName` must be present" />
         <Property Name="PropertyName" Type="Edm.PropertyPath">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Path to the property" />
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
-                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present"/>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present" />
               </Record>
             </Collection>
           </Annotation>
@@ -1427,7 +1427,7 @@ The trend is
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action" />
-        <Annotation Term="Core.LongDescription" >
+        <Annotation Term="Core.LongDescription">
           <String>By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
           and the default css settings (as the width) of the data field can be influenced. </String>
         </Annotation>
@@ -1527,7 +1527,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
         <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available" />
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
@@ -1685,6 +1685,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
+      </Term>
+
+      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Do not check the number of fractional digits of the annotated measured quantity" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.
+
+This switches off the validation of user input with respect to decimals.</String>
+        </Annotation>
       </Term>
 
     </Schema>
