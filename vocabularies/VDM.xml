@@ -38,7 +38,7 @@
         <Annotation Term="Core.Description">
           <String>SAP Object Node Types describe the structure of SAP Object Types.
             
-SAP Object Types are a generaliation of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
         </Annotation>
       </Term>
 
