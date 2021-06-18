@@ -44,7 +44,7 @@
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "SAP Object Node Types describe the structure of SAP Object Types.\n            \nSAP Object Types are a generaliation of Business Object, Technical Object, Configuration Object, and Analytical Object."
+            "@Core.Description": "SAP Object Node Types describe the structure of SAP Object Types.\n            \nSAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
         },
         "SAPObjectNodeTypeType": {
             "$Kind": "ComplexType",
