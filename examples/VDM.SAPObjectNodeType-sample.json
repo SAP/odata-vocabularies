@@ -1,0 +1,104 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/VDM.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.VDM.v1",
+                    "$Alias": "VDM"
+                }
+            ]
+        }
+    },
+    "example.VDM.SAPObjectNodeType": {
+        "$Alias": "this",
+        "A_Country": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Country"
+            ],
+            "Country": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true,
+                "$MaxLength": 3
+            }
+        },
+        "$Annotations": {
+            "this.A_Country": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            },
+            "this.A_Country/Country": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            },
+            "this.A_Region": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Region"
+                }
+            },
+            "this.A_Region/Country": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            },
+            "this.A_Region/Region": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Region"
+                }
+            },
+            "this.A_AnyEntity/Country": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            },
+            "this.A_AnyEntity/Region": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Region"
+                }
+            },
+            "this.A_AnyEntity/CountryThreeLetterISOCode": {
+                "@VDM.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            }
+        },
+        "A_Region": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Country",
+                "Region"
+            ],
+            "Country": {
+                "$Nullable": true
+            },
+            "Region": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true
+            }
+        },
+        "A_AnyEntity": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "AnyEntity"
+            ],
+            "AnyEntity": {},
+            "Country": {
+                "$Nullable": true
+            },
+            "Region": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true,
+                "$MaxLength": 3
+            }
+        }
+    }
+}
