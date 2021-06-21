@@ -622,6 +622,9 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
+        </Property>
         <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Value list supports the $search query option" />
           <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
@@ -694,6 +697,9 @@ The minimum structure is
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
+        </Property>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
