@@ -1359,10 +1359,10 @@
             },
             "Discretionary": {
                 "$Type": "Edm.Boolean",
-                "$Nullable": true,
+                "$DefaultValue": false,
                 "@Common.Experimental": true,
                 "@Core.Description": "Indicates whether the client can decide if a side-effect should be triggered or not",
-                "@Core.LongDescription": "The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client."
+                "@Core.LongDescription": "The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client."
             }
         },
         "EffectType": {
