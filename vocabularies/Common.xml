@@ -1121,7 +1121,7 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
         <Property Name="Discretionary" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Indicates whether the client can decide if a side-effect should be triggered or not" />
-          <Annotation Term="Core.LongDescription" String="The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client." />
+          <Annotation Term="Core.LongDescription" String="The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client." />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
