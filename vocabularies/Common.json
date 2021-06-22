@@ -679,7 +679,7 @@
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The SAP Object Type referenced by the annotated property"
+            "@Core.Description": "The name of the SAP Object Type referenced by the annotated property"
         },
         "IsNaturalPerson": {
             "$Kind": "Term",
