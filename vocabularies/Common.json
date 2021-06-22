@@ -655,6 +655,32 @@
             ],
             "@Core.Description": "The annotated entity type has one or more containment navigation properties.\n            An instance of the annotated entity type provides the context required for determining\n            the target entity sets reached by these containment navigation properties."
         },
+        "SAPObjectType": {
+            "$Kind": "Term",
+            "$Type": "Common.SAPObjectTypeType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The SAP Object Type represented by the annotated entity type",
+            "@Core.LongDescription": "SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
+        },
+        "SAPObjectTypeType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Information about an SAP Object Type",
+            "Name": {
+                "@Core.Description": "The name of the SAP Object Type"
+            }
+        },
+        "SAPObjectTypeReference": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The SAP Object Type referenced by the annotated property"
+        },
         "IsNaturalPerson": {
             "$Kind": "Term",
             "$Type": "Core.Tag",

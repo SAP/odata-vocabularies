@@ -553,6 +553,27 @@ The minimum structure is
         </Annotation>
       </Term>
 
+      <Term Name="SAPObjectType" Type="Common.SAPObjectTypeType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The SAP Object Type represented by the annotated entity type" />
+        <Annotation Term="Core.LongDescription">
+          <String>SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+        </Annotation>
+      </Term>
+
+      <ComplexType Name="SAPObjectTypeType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Information about an SAP Object Type" />
+        <Property Name="Name" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The name of the SAP Object Type" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="SAPObjectTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The SAP Object Type referenced by the annotated property" />
+      </Term>
+
       <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">
         <Annotation Term="Core.Description" String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
       </Term>

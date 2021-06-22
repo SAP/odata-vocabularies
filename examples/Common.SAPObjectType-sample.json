@@ -1,16 +1,16 @@
 {
     "$Version": "4.0",
     "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/VDM.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.VDM.v1",
-                    "$Alias": "VDM"
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
                 }
             ]
         }
     },
-    "example.VDM.SAPObjectNodeType": {
+    "example.Common.SAPObjectNodeType": {
         "$Alias": "this",
         "A_Country": {
             "$Kind": "EntityType",
@@ -27,44 +27,32 @@
         },
         "$Annotations": {
             "this.A_Country": {
-                "@VDM.SAPObjectNodeType": {
+                "@Common.SAPObjectType": {
                     "Name": "Country"
                 }
             },
             "this.A_Country/Country": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Country"
-                }
+                "@Common.SAPObjectTypeReference": "Country"
             },
             "this.A_Region": {
-                "@VDM.SAPObjectNodeType": {
+                "@Common.SAPObjecType": {
                     "Name": "Region"
                 }
             },
             "this.A_Region/Country": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Country"
-                }
+                "@Common.SAPObjectTypeReference": "Country"
             },
             "this.A_Region/Region": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Region"
-                }
+                "@Common.SAPObjectTypeReference": "Region"
             },
             "this.A_AnyEntity/Country": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Country"
-                }
+                "@Common.SAPObjectTypeReference": "Country"
             },
             "this.A_AnyEntity/Region": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Region"
-                }
+                "@Common.SAPObjectTypeReference": "Region"
             },
             "this.A_AnyEntity/CountryThreeLetterISOCode": {
-                "@VDM.SAPObjectNodeType": {
-                    "Name": "Country"
-                }
+                "@Common.SAPObjectTypeReference": "Country"
             }
         },
         "A_Region": {
