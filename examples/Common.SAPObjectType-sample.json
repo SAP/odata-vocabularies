@@ -10,7 +10,7 @@
             ]
         }
     },
-    "example.Common.SAPObjectNodeType": {
+    "example.Common.SAPObjectType": {
         "$Alias": "this",
         "A_Country": {
             "$Kind": "EntityType",
@@ -35,7 +35,7 @@
                 "@Common.SAPObjectTypeReference": "Country"
             },
             "this.A_Region": {
-                "@Common.SAPObjecType": {
+                "@Common.SAPObjectType": {
                     "Name": "Region"
                 }
             },

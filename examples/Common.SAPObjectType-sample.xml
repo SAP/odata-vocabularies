@@ -5,7 +5,7 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectNodeType" Alias="this">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectType" Alias="this">
 
       <EntityType Name="A_Country">
         <Key>
@@ -38,7 +38,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Region">
-        <Annotation Term="Common.SAPObjecType">
+        <Annotation Term="Common.SAPObjectType">
           <Record>
             <PropertyValue Property="Name" String="Region" />
           </Record>
