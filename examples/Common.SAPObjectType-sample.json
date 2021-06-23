@@ -8,6 +8,14 @@
                     "$Alias": "Common"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/examples/SAPObjectTypes-sample.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.objecttypes.Geography",
+                    "$Alias": "SONT"
+                }
+            ]
         }
     },
     "example.Common.SAPObjectType": {
@@ -28,7 +36,7 @@
         "$Annotations": {
             "this.A_Country": {
                 "@Common.SAPObjectType": {
-                    "Name": "Country"
+                    "$Path": "SONT@Common.SAPObjectType@Country"
                 }
             },
             "this.A_Country/Country": {
@@ -36,7 +44,7 @@
             },
             "this.A_Region": {
                 "@Common.SAPObjectType": {
-                    "Name": "Region"
+                    "$Path": "SONT@Common.SAPObjectType@Region"
                 }
             },
             "this.A_Region/Country": {

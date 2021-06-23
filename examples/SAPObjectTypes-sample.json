@@ -1,0 +1,22 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.objecttypes.Geography": {
+        "@Common.SAPObjectType#Country": {
+            "Name": "Country"
+        },
+        "@Common.SAPObjectType#Region": {
+            "Name": "Region",
+            "SubnodeOf": "Country"
+        }
+    }
+}

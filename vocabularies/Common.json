@@ -671,6 +671,10 @@
             "@Core.Description": "Information about an SAP Object Type",
             "Name": {
                 "@Core.Description": "The name of the SAP Object Type"
+            },
+            "SubnodeOf": {
+                "$Nullable": true,
+                "@Core.Description": "The name of the SAP Object Type of which this is a subnode"
             }
         },
         "SAPObjectTypeReference": {

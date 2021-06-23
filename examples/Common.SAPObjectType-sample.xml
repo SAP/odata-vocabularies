@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/examples/SAPObjectTypes-sample.xml">
+    <edmx:Include Namespace="com.sap.objecttypes.Geography" Alias="SONT" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectType" Alias="this">
@@ -16,11 +19,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Country">
-        <Annotation Term="Common.SAPObjectType">
-          <Record>
-            <PropertyValue Property="Name" String="Country" />
-          </Record>
-        </Annotation>
+        <Annotation Term="Common.SAPObjectType" Path="SONT@Common.SAPObjectType@Country"/>
       </Annotations>
 
       <Annotations Target="this.A_Country/Country">
@@ -38,11 +37,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Region">
-        <Annotation Term="Common.SAPObjectType">
-          <Record>
-            <PropertyValue Property="Name" String="Region" />
-          </Record>
-        </Annotation>
+        <Annotation Term="Common.SAPObjectType" Path="SONT@Common.SAPObjectType@Region"/>
       </Annotations>
 
       <Annotations Target="this.A_Region/Country">

@@ -567,6 +567,9 @@ The minimum structure is
         <Property Name="Name" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="The name of the SAP Object Type" />
         </Property>
+        <Property Name="SubnodeOf" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="The name of the SAP Object Type of which this is a subnode" />
+        </Property>
       </ComplexType>
 
       <Term Name="SAPObjectTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
