@@ -36,7 +36,7 @@
         "$Annotations": {
             "this.A_Country": {
                 "@Common.SAPObjectType": {
-                    "$Path": "SONT@Common.SAPObjectType#Country"
+                    "$Path": "/SONT@Common.SAPObjectType#Country"
                 }
             },
             "this.A_Country/Country": {
@@ -44,7 +44,7 @@
             },
             "this.A_Region": {
                 "@Common.SAPObjectType": {
-                    "$Path": "SONT@Common.SAPObjectType#Region"
+                    "$Path": "/SONT@Common.SAPObjectType#Region"
                 }
             },
             "this.A_Region/Country": {

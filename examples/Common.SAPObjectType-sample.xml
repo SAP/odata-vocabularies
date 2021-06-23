@@ -19,7 +19,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Country">
-        <Annotation Term="Common.SAPObjectType" Path="SONT@Common.SAPObjectType#Country"/>
+        <Annotation Term="Common.SAPObjectType" Path="/SONT@Common.SAPObjectType#Country"/>
       </Annotations>
 
       <Annotations Target="this.A_Country/Country">
@@ -37,7 +37,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Region">
-        <Annotation Term="Common.SAPObjectType" Path="SONT@Common.SAPObjectType#Region"/>
+        <Annotation Term="Common.SAPObjectType" Path="/SONT@Common.SAPObjectType#Region"/>
       </Annotations>
 
       <Annotations Target="this.A_Region/Country">
