@@ -10,7 +10,7 @@
             ]
         }
     },
-    "example.Common.SAPObjectType": {
+    "example.Common.SAPObjectNodeType": {
         "$Alias": "this",
         "A_Country": {
             "$Kind": "EntityType",
@@ -27,32 +27,32 @@
         },
         "$Annotations": {
             "this.A_Country": {
-                "@Common.SAPObjectType": {
+                "@Common.SAPObjectNodeType": {
                     "Name": "Country"
                 }
             },
             "this.A_Country/Country": {
-                "@Common.SAPObjectTypeReference": "Country"
+                "@Common.SAPObjectNodeTypeReference": "Country"
             },
             "this.A_Region": {
-                "@Common.SAPObjectType": {
+                "@Common.SAPObjectNodeType": {
                     "Name": "Region"
                 }
             },
             "this.A_Region/Country": {
-                "@Common.SAPObjectTypeReference": "Country"
+                "@Common.SAPObjectNodeTypeReference": "Country"
             },
             "this.A_Region/Region": {
-                "@Common.SAPObjectTypeReference": "Region"
+                "@Common.SAPObjectNodeTypeReference": "Region"
             },
             "this.A_AnyEntity/Country": {
-                "@Common.SAPObjectTypeReference": "Country"
+                "@Common.SAPObjectNodeTypeReference": "Country"
             },
             "this.A_AnyEntity/Region": {
-                "@Common.SAPObjectTypeReference": "Region"
+                "@Common.SAPObjectNodeTypeReference": "Region"
             },
             "this.A_AnyEntity/CountryThreeLetterISOCode": {
-                "@Common.SAPObjectTypeReference": "Country"
+                "@Common.SAPObjectNodeTypeReference": "Country"
             }
         },
         "A_Region": {

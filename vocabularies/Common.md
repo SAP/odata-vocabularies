@@ -55,8 +55,8 @@ Term|Type|Description
 [RelatedRecursiveHierarchy](Common.xml#L526)|AnnotationPath|<a name="RelatedRecursiveHierarchy"></a>A recursive hierarchy related to this property. The annotation path must end in Aggregation.RecursiveHierarchy.
 [Interval](Common.xml#L530)|[IntervalType](#IntervalType)|<a name="Interval"></a>An interval with lower and upper boundaries described by two properties
 [ResultContext](Common.xml#L548)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.
-[SAPObjectType](Common.xml#L556) *([Experimental](Common.md#Experimental))*|[SAPObjectTypeType](#SAPObjectTypeType)|<a name="SAPObjectType"></a>The SAP Object Type represented by the annotated entity type<br>SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.
-[SAPObjectTypeReference](Common.xml#L572) *([Experimental](Common.md#Experimental))*|String|<a name="SAPObjectTypeReference"></a>The name of the SAP Object Type referenced by the annotated property
+[SAPObjectNodeType](Common.xml#L556) *([Experimental](Common.md#Experimental))*|[SAPObjectNodeTypeType](#SAPObjectNodeTypeType)|<a name="SAPObjectNodeType"></a>The SAP Object Node Type represented by the annotated entity type<br>SAP Object Node Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.
+[SAPObjectNodeTypeReference](Common.xml#L572) *([Experimental](Common.md#Experimental))*|String|<a name="SAPObjectNodeTypeReference"></a>The name of the SAP Object Node Type referenced by the annotated property
 [IsNaturalPerson](Common.xml#L577)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsNaturalPerson"></a>The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person
 [ValueList](Common.xml#L583)|[ValueListType](#ValueListType)|<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter<br>The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists.
 [ValueListRelevantQualifiers](Common.xml#L657) *([Experimental](Common.md#Experimental))*|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="ValueListRelevantQualifiers"></a>List of qualifiers of relevant ValueList annotations<br>The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties.
@@ -182,12 +182,12 @@ Property|Type|Description
 [UpperBoundary](Common.xml#L540)|PropertyPath|Property holding the upper interval boundary
 [UpperBoundaryIncluded](Common.xml#L543)|Boolean|The upper boundary value is included in the interval
 
-## <a name="SAPObjectTypeType"></a>[SAPObjectTypeType](Common.xml#L564) *([Experimental](Common.md#Experimental))*
-Information about an SAP Object Type
+## <a name="SAPObjectNodeTypeType"></a>[SAPObjectNodeTypeType](Common.xml#L564) *([Experimental](Common.md#Experimental))*
+Information about an SAP Object Node Type
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Common.xml#L567)|String|The name of the SAP Object Type
+[Name](Common.xml#L567)|String|The name of the SAP Object Node Type
 
 ## <a name="ValueListType"></a>[ValueListType](Common.xml#L587)
 

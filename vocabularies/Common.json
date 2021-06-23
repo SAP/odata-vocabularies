@@ -655,31 +655,31 @@
             ],
             "@Core.Description": "The annotated entity type has one or more containment navigation properties.\n            An instance of the annotated entity type provides the context required for determining\n            the target entity sets reached by these containment navigation properties."
         },
-        "SAPObjectType": {
+        "SAPObjectNodeType": {
             "$Kind": "Term",
-            "$Type": "Common.SAPObjectTypeType",
+            "$Type": "Common.SAPObjectNodeTypeType",
             "$AppliesTo": [
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The SAP Object Type represented by the annotated entity type",
-            "@Core.LongDescription": "SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
+            "@Core.Description": "The SAP Object Node Type represented by the annotated entity type",
+            "@Core.LongDescription": "SAP Object Node Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
         },
-        "SAPObjectTypeType": {
+        "SAPObjectNodeTypeType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.Description": "Information about an SAP Object Type",
+            "@Core.Description": "Information about an SAP Object Node Type",
             "Name": {
-                "@Core.Description": "The name of the SAP Object Type"
+                "@Core.Description": "The name of the SAP Object Node Type"
             }
         },
-        "SAPObjectTypeReference": {
+        "SAPObjectNodeTypeReference": {
             "$Kind": "Term",
             "$AppliesTo": [
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The name of the SAP Object Type referenced by the annotated property"
+            "@Core.Description": "The name of the SAP Object Node Type referenced by the annotated property"
         },
         "IsNaturalPerson": {
             "$Kind": "Term",

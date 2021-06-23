@@ -553,25 +553,25 @@ The minimum structure is
         </Annotation>
       </Term>
 
-      <Term Name="SAPObjectType" Type="Common.SAPObjectTypeType" Nullable="false" AppliesTo="EntityType">
+      <Term Name="SAPObjectNodeType" Type="Common.SAPObjectNodeTypeType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The SAP Object Type represented by the annotated entity type" />
+        <Annotation Term="Core.Description" String="The SAP Object Node Type represented by the annotated entity type" />
         <Annotation Term="Core.LongDescription">
-          <String>SAP Object Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+          <String>SAP Object Node Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
         </Annotation>
       </Term>
 
-      <ComplexType Name="SAPObjectTypeType">
+      <ComplexType Name="SAPObjectNodeTypeType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Information about an SAP Object Type" />
+        <Annotation Term="Core.Description" String="Information about an SAP Object Node Type" />
         <Property Name="Name" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="The name of the SAP Object Type" />
+          <Annotation Term="Core.Description" String="The name of the SAP Object Node Type" />
         </Property>
       </ComplexType>
 
-      <Term Name="SAPObjectTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The name of the SAP Object Type referenced by the annotated property" />
+        <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
       </Term>
 
       <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">

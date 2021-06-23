@@ -5,7 +5,7 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectType" Alias="this">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectNodeType" Alias="this">
 
       <EntityType Name="A_Country">
         <Key>
@@ -16,7 +16,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Country">
-        <Annotation Term="Common.SAPObjectType">
+        <Annotation Term="Common.SAPObjectNodeType">
           <Record>
             <PropertyValue Property="Name" String="Country" />
           </Record>
@@ -24,7 +24,7 @@
       </Annotations>
 
       <Annotations Target="this.A_Country/Country">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Country" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
       </Annotations>
 
       <EntityType Name="A_Region">
@@ -38,7 +38,7 @@
       </EntityType>
 
       <Annotations Target="this.A_Region">
-        <Annotation Term="Common.SAPObjectType">
+        <Annotation Term="Common.SAPObjectNodeType">
           <Record>
             <PropertyValue Property="Name" String="Region" />
           </Record>
@@ -46,11 +46,11 @@
       </Annotations>
 
       <Annotations Target="this.A_Region/Country">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Country" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
       </Annotations>
 
       <Annotations Target="this.A_Region/Region">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Region" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Region" />
       </Annotations>
 
 
@@ -65,15 +65,15 @@
       </EntityType>
 
       <Annotations Target="this.A_AnyEntity/Country">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Country" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
       </Annotations>
 
       <Annotations Target="this.A_AnyEntity/Region">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Region" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Region" />
       </Annotations>
 
       <Annotations Target="this.A_AnyEntity/CountryThreeLetterISOCode">
-        <Annotation Term="Common.SAPObjectTypeReference" String="Country" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
       </Annotations>
 
     </Schema>
