@@ -82,7 +82,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 [Date](UI.xml#L1605)|Date?|
 [TimeOfDay](UI.xml#L1606)|TimeOfDay?|
-[Timezone](UI.xml#L1607)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<br>If absent, the time zone of the UI (Fiori Launchpad) is implied
+[Timezone](UI.xml#L1607)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<br>If absent, the time zone of the UI (Fiori Launchpad) is implied.
 [&rarr;](UI.xml#L1611)|DateTimeOffset?|
 
 

@@ -1606,7 +1606,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Parameter Name="TimeOfDay" Type="Edm.TimeOfDay"/>
         <Parameter Name="Timezone" Type="Edm.String">
           <Annotation Term="Core.Description" String="Time zone according to the [IANA](https://www.iana.org/time-zones) standard" />
-          <Annotation Term="Core.LongDescription" String="If absent, the time zone of the UI (Fiori Launchpad) is implied" />
+          <Annotation Term="Core.LongDescription" String="If absent, the time zone of the UI (Fiori Launchpad) is implied." />
         </Parameter>
         <ReturnType Type="Edm.DateTimeOffset"/>
       </Function>

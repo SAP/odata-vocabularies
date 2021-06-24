@@ -8,6 +8,14 @@
                     "$Alias": "Common"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
         }
     },
     "timezone.sample": {
@@ -20,6 +28,72 @@
                 "@Common.Timezone": {
                     "$Path": "ClockInTimezone"
                 }
+            },
+            "ClockInTimezone": {
+                "$Nullable": true
+            }
+        },
+        "WorkerTimeSheet2": {
+            "$Kind": "EntityType",
+            "@UI.LineItem": [
+                {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+                    "Value": {
+                        "$Path": "@Common.Timestamp#ClockInDateTime"
+                    }
+                },
+                {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+                    "Value": {
+                        "$Path": "@Common.Timestamp#ClockOutDateTime"
+                    }
+                }
+            ],
+            "ClockInDate": {
+                "$Type": "Edm.Date",
+                "$Nullable": true
+            },
+            "ClockInTime": {
+                "$Type": "Edm.TimeOfDay",
+                "$Nullable": true
+            },
+            "@Common.Timestamp#ClockInDateTime@Common.Timezone": {
+                "$Path": "ClockInTimezone"
+            },
+            "@Common.Timestamp#ClockInDateTime": {
+                "$Function": "UI.toTimestamp",
+                "$Apply": [
+                    {
+                        "$Path": "ClockInDate"
+                    },
+                    {
+                        "$Path": "ClockInTime"
+                    },
+                    "UTC"
+                ]
+            },
+            "ClockOutDate": {
+                "$Type": "Edm.Date",
+                "$Nullable": true
+            },
+            "ClockOutTime": {
+                "$Type": "Edm.TimeOfDay",
+                "$Nullable": true
+            },
+            "@Common.Timestamp#ClockOutDateTime@Common.Timezone": {
+                "$Path": "ClockOutTimezone"
+            },
+            "@Common.Timestamp#ClockOutDateTime": {
+                "$Function": "UI.toTimestamp",
+                "$Apply": [
+                    {
+                        "$Path": "ClockOutDate"
+                    },
+                    {
+                        "$Path": "ClockOutTime"
+                    },
+                    "UTC"
+                ]
             },
             "ClockInTimezone": {
                 "$Nullable": true

@@ -1948,7 +1948,7 @@
                         "$Name": "Timezone",
                         "$Nullable": true,
                         "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard",
-                        "@Core.LongDescription": "If absent, the time zone of the UI (Fiori Launchpad) is implied"
+                        "@Core.LongDescription": "If absent, the time zone of the UI (Fiori Launchpad) is implied."
                     }
                 ],
                 "$ReturnType": {

@@ -111,7 +111,7 @@ Term|Type|Description
 
 ### <a name="impliedTimezone"></a>[impliedTimezone](Common.xml#L1347)
 
-A time zone in which the given point in time has a UTC offset according to the given [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)
+A time zone in which the given point in time has a UTC offset according to its [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)
 
 The time zone is not uniquely determined by the timezone fragment, but all possible time zones
           lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation

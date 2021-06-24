@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="timezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
@@ -11,6 +14,41 @@
         </Property>
         <Property Name="ClockInTimezone" Type="Edm.String"/>
       </EntityType>
+      <EntityType Name="WorkerTimeSheet2">
+        <!-- This entity type contains clock in/out in separate date and time fields in UTC.
+             The UI line items contain the corresponding time stamps in the clock-in time zone. -->
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="@Common.Timestamp#ClockInDateTime"/>
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="@Common.Timestamp#ClockOutDateTime"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Property Name="ClockInDate" Type="Edm.Date"/>
+        <Property Name="ClockInTime" Type="Edm.TimeOfDay"/>
+        <Annotation Term="Common.Timestamp" Qualifier="ClockInDateTime">
+          <Apply Function="UI.toTimestamp">
+            <Path>ClockInDate</Path>
+            <Path>ClockInTime</Path>
+            <String>UTC</String>
+          </Apply>
+          <Annotation Term="Common.Timezone" Path="ClockInTimezone"/>
+        </Annotation>
+        <Property Name="ClockOutDate" Type="Edm.Date"/>
+        <Property Name="ClockOutTime" Type="Edm.TimeOfDay"/>
+        <Annotation Term="Common.Timestamp" Qualifier="ClockOutDateTime">
+          <Apply Function="UI.toTimestamp">
+            <Path>ClockOutDate</Path>
+            <Path>ClockOutTime</Path>
+            <String>UTC</String>
+          </Apply>
+          <Annotation Term="Common.Timezone" Path="ClockOutTimezone"/>
+        </Annotation>
+        <Property Name="ClockInTimezone" Type="Edm.String"/>
+      </EntityType>
     </Schema>
   </edmx:DataServices>
-</edmx:Edmx>      
+</edmx:Edmx>
