@@ -32,11 +32,11 @@
         </Collection>
       </Annotation>
 
-      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for currencies" />
       </Term>
 
-      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for units of measure" />
       </Term>
 
