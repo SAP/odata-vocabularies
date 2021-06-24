@@ -1,6 +1,14 @@
 {
     "$Version": "4.0",
     "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
@@ -35,6 +43,7 @@
         },
         "WorkerTimeSheet2": {
             "$Kind": "EntityType",
+            "@Core.Description": "This entity type contains clock in/out in separate date and time fields in UTC.\n          The UI line items display the corresponding time stamps in the clock-in time zone.",
             "@UI.LineItem": [
                 {
                     "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
@@ -81,7 +90,7 @@
                 "$Nullable": true
             },
             "@Common.Timestamp#ClockOutDateTime@Common.Timezone": {
-                "$Path": "ClockOutTimezone"
+                "$Path": "ClockInTimezone"
             },
             "@Common.Timestamp#ClockOutDateTime": {
                 "$Function": "UI.toTimestamp",

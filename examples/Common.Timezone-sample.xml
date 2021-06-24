@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
@@ -15,8 +18,10 @@
         <Property Name="ClockInTimezone" Type="Edm.String"/>
       </EntityType>
       <EntityType Name="WorkerTimeSheet2">
-        <!-- This entity type contains clock in/out in separate date and time fields in UTC.
-             The UI line items contain the corresponding time stamps in the clock-in time zone. -->
+        <Annotation Term="Core.Description">
+          <String>This entity type contains clock in/out in separate date and time fields in UTC.
+          The UI line items display the corresponding time stamps in the clock-in time zone.</String>
+        </Annotation>
         <Annotation Term="UI.LineItem">
           <Collection>
             <Record Type="UI.DataField">
@@ -45,7 +50,7 @@
             <Path>ClockOutTime</Path>
             <String>UTC</String>
           </Apply>
-          <Annotation Term="Common.Timezone" Path="ClockOutTimezone"/>
+          <Annotation Term="Common.Timezone" Path="ClockInTimezone"/>
         </Annotation>
         <Property Name="ClockInTimezone" Type="Edm.String"/>
       </EntityType>
