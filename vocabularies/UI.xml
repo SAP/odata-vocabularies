@@ -1697,7 +1697,7 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
-     <Function Name="toTimestamp">
+      <Function Name="toTimestamp">
         <Annotation Term="Core.Description" String="Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`" />
         <Parameter Name="Date" Type="Edm.Date"/>
         <Parameter Name="TimeOfDay" Type="Edm.TimeOfDay"/>
