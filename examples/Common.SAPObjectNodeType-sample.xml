@@ -23,9 +23,6 @@
         </Annotation>
       </Annotations>
 
-      <Annotations Target="this.A_Country/Country">
-        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
-      </Annotations>
 
       <EntityType Name="A_Region">
         <Key>
@@ -47,10 +44,6 @@
 
       <Annotations Target="this.A_Region/Country">
         <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
-      </Annotations>
-
-      <Annotations Target="this.A_Region/Region">
-        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Region" />
       </Annotations>
 
 

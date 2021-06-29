@@ -31,9 +31,6 @@
                     "Name": "Country"
                 }
             },
-            "this.A_Country/Country": {
-                "@Common.SAPObjectNodeTypeReference": "Country"
-            },
             "this.A_Region": {
                 "@Common.SAPObjectNodeType": {
                     "Name": "Region"
@@ -41,9 +38,6 @@
             },
             "this.A_Region/Country": {
                 "@Common.SAPObjectNodeTypeReference": "Country"
-            },
-            "this.A_Region/Region": {
-                "@Common.SAPObjectNodeTypeReference": "Region"
             },
             "this.A_AnyEntity/Country": {
                 "@Common.SAPObjectNodeTypeReference": "Country"
