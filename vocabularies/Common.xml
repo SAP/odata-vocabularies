@@ -557,7 +557,7 @@ The minimum structure is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The SAP Object Node Type represented by the annotated entity type" />
         <Annotation Term="Core.LongDescription">
-          <String>SAP Object Node Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+          <String>SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
         </Annotation>
       </Term>
 
