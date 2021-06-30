@@ -663,7 +663,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The SAP Object Node Type represented by the annotated entity type",
-            "@Core.LongDescription": "SAP Object Node Types are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
+            "@Core.LongDescription": "SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object."
         },
         "SAPObjectNodeTypeType": {
             "$Kind": "ComplexType",
