@@ -1,0 +1,86 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "example.Common.SAPObjectNodeType": {
+        "$Alias": "this",
+        "A_Country": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Country"
+            ],
+            "Country": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true,
+                "$MaxLength": 3
+            }
+        },
+        "$Annotations": {
+            "this.A_Country": {
+                "@Common.SAPObjectNodeType": {
+                    "Name": "Country"
+                }
+            },
+            "this.A_Region": {
+                "@Common.SAPObjectNodeType": {
+                    "Name": "Region"
+                }
+            },
+            "this.A_Region/Country": {
+                "@Common.SAPObjectNodeTypeReference": "Country"
+            },
+            "this.A_AnyEntity/Country": {
+                "@Common.SAPObjectNodeTypeReference": "Country"
+            },
+            "this.A_AnyEntity/Region": {
+                "@Common.SAPObjectNodeTypeReference": "Region"
+            },
+            "this.A_AnyEntity/CountryThreeLetterISOCode": {
+                "@Common.SAPObjectNodeTypeReference": "Country"
+            }
+        },
+        "A_Region": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Country",
+                "Region"
+            ],
+            "Country": {
+                "$Nullable": true
+            },
+            "Region": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true
+            }
+        },
+        "A_AnyEntity": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "AnyEntity"
+            ],
+            "AnyEntity": {},
+            "Country": {
+                "$Nullable": true
+            },
+            "Region": {
+                "$Nullable": true
+            },
+            "CountryThreeLetterISOCode": {
+                "$Nullable": true,
+                "$MaxLength": 3
+            }
+        }
+    }
+}
