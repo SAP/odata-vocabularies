@@ -553,33 +553,26 @@ The minimum structure is
         </Annotation>
       </Term>
 
-      <Term Name="WeakReferentialConstraint" Type="Common.WeakReferentialConstraintType" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Annotation Term="Core.Description" String="A referential constraint to a reference set that is not reachable via a navigation property" />
-        <Annotation Term="Core.LongDescription" String="A weak referential constraint can be used in cases where the reference service cannot be located at design-time" />
+      <Term Name="SAPObjectNodeType" Type="Common.SAPObjectNodeTypeType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The SAP Object Node Type represented by the annotated entity type" />
+        <Annotation Term="Core.LongDescription">
+          <String>SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+        </Annotation>
       </Term>
-      <ComplexType Name="WeakReferentialConstraintType">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Property Name="ReferenceRoot" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="URI of the service containing the reference set" />
-          <Annotation Term="Core.LongDescription" String="Need not be a uniform resource locator, for cases where the actual location of the reference service is not static or not known at design-time." />
-        </Property>
-        <Property Name="ReferencePath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Resource path of an OData collection with reference values, relative to ReferenceRoot" />
-        </Property>
-        <Property Name="ForeignKeys" Type="Collection(Common.ForeignKeyType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
+
+      <ComplexType Name="SAPObjectNodeTypeType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Information about an SAP Object Node Type" />
+        <Property Name="Name" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The name of the SAP Object Node Type" />
         </Property>
       </ComplexType>
-      <ComplexType Name="ForeignKeyType">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property of the annotated entity set" />
-        </Property>
-        <Property Name="ReferencedProperty" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property in reference set, format is identical to PropertyPath annotations" />
-        </Property>
-      </ComplexType>
+
+      <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
+      </Term>
 
       <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">
         <Annotation Term="Core.Description" String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
@@ -622,8 +615,8 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
-          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Value list supports the $search query option" />
@@ -698,8 +691,8 @@ The minimum structure is
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
-          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
@@ -1083,7 +1076,8 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
 Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
-only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
+only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
+This can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
@@ -1253,13 +1247,13 @@ Upon modification field control logic is invoked so that meta-information like h
       <ComplexType Name="SortOrderType">
         <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Sort property" />
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
-                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present"/>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present" />
               </Record>
             </Collection>
           </Annotation>
