@@ -1697,6 +1697,17 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
+      <Function Name="toTimestamp">
+        <Annotation Term="Core.Description" String="Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`" />
+        <Parameter Name="Date" Type="Edm.Date"/>
+        <Parameter Name="TimeOfDay" Type="Edm.TimeOfDay"/>
+        <Parameter Name="Timezone" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Time zone according to the [IANA](https://www.iana.org/time-zones) standard" />
+          <Annotation Term="Core.LongDescription" String="If absent, the time zone of the UI (Fiori Launchpad) is implied." />
+        </Parameter>
+        <ReturnType Type="Edm.DateTimeOffset"/>
+      </Function>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -72,6 +72,21 @@ Term|Type|Description
 [ExcludeFromNavigationContext](UI.xml#L1686)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1690) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 
+
+## Functions
+
+### <a name="toTimestamp"></a>[toTimestamp](UI.xml#L1700)
+
+Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`
+
+Parameter|Type|Description
+:--------|:---|:----------
+[Date](UI.xml#L1702)|Date?|
+[TimeOfDay](UI.xml#L1703)|TimeOfDay?|
+[Timezone](UI.xml#L1704)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard<br>If absent, the time zone of the UI (Fiori Launchpad) is implied.
+[&rarr;](UI.xml#L1708)|DateTimeOffset?|
+
+
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](UI.xml#L62)
 
 

@@ -1991,6 +1991,35 @@
             "@Common.Experimental": true,
             "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
             "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
-        }
+        },
+        "toTimestamp": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Representation of the given point in time as an `Edm.DateTimeOffset` whose [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag) is `Z`",
+                "$Parameter": [
+                    {
+                        "$Name": "Date",
+                        "$Type": "Edm.Date",
+                        "$Nullable": true
+                    },
+                    {
+                        "$Name": "TimeOfDay",
+                        "$Type": "Edm.TimeOfDay",
+                        "$Nullable": true
+                    },
+                    {
+                        "$Name": "Timezone",
+                        "$Nullable": true,
+                        "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard",
+                        "@Core.LongDescription": "If absent, the time zone of the UI (Fiori Launchpad) is implied."
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.DateTimeOffset",
+                    "$Nullable": true,
+                    "$Precision": 0
+                }
+            }
+        ]
     }
 }

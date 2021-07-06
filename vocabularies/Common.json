@@ -1578,6 +1578,27 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
-        }
+        },
+        "impliedTimezone": [
+            {
+                "$Kind": "Function",
+                "@Core.ClientSideOnly": true,
+                "@Core.Description": "A time zone in which the given point in time has a UTC offset according to its [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)",
+                "@Core.LongDescription": "The time zone is not uniquely determined by the timezone fragment, but all possible time zones\n          lead to the same offset, i.e., to the same hh:mm:ss representation of the time. The annotation\n          `\"Timestamp@Common.Timezone\": {\"$Function\": \"Common.impliedTimezone\", \"$Apply\": [{\"$Path\": \"Timestamp\"}]}`\n          thus instructs the client to display the `Timestamp` \"as is\", simply dropping its offset.",
+                "$Parameter": [
+                    {
+                        "$Name": "Timestamp",
+                        "$Type": "Edm.DateTimeOffset",
+                        "$Nullable": true,
+                        "$Precision": 0,
+                        "@Core.Description": "A point in time together with a timezone fragment"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Nullable": true,
+                    "@Core.Description": "Time zone according to the [IANA](https://www.iana.org/time-zones) standard"
+                }
+            }
+        ]
     }
 }
