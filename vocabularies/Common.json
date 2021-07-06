@@ -25,7 +25,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.UI.v1",
@@ -61,7 +61,6 @@
         "ServiceVersion": {
             "$Kind": "Term",
             "$Type": "Edm.Int32",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -70,7 +69,6 @@
         "ServiceSchemaVersion": {
             "$Kind": "Term",
             "$Type": "Edm.Int32",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -78,19 +76,16 @@
         },
         "Label": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
             "@Core.IsLanguageDependent": true
         },
         "Heading": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for column headings in UIs",
             "@Core.IsLanguageDependent": true
         },
         "QuickInfo": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
             "@Core.IsLanguageDependent": true
         },
@@ -106,7 +101,6 @@
         "TextFor": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -137,13 +131,12 @@
         "TextFormat": {
             "$Kind": "Term",
             "$Type": "Common.TextFormatType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "Human-readable text that may contain formatting information",
+            "@Core.Description": "The annotated property, parameter, or return type contains human-readable text that may contain formatting information",
             "@Core.RequiresType": "Edm.String"
         },
         "TextFormatType": {
@@ -152,6 +145,18 @@
             "plain@Core.Description": "Plain text, line breaks represented as the character 0x0A",
             "html": 1,
             "html@Core.Description": "Plain text with markup that can validly appear directly within an HTML DIV element"
+        },
+        "Timezone": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
+            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "IsDigitSequence": {
             "$Kind": "Term",
@@ -198,7 +203,6 @@
         "UnitSpecificScale": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -208,7 +212,6 @@
         "UnitSpecificPrecision": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -234,7 +237,6 @@
         "MinOccurs": {
             "$Kind": "Term",
             "$Type": "Edm.Int64",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -247,7 +249,6 @@
         "MaxOccurs": {
             "$Kind": "Term",
             "$Type": "Edm.Int64",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty",
                 "Property",
@@ -270,7 +271,6 @@
         "DerivedNavigation": {
             "$Kind": "Term",
             "$Type": "Edm.NavigationPropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "NavigationProperty"
             ],
@@ -450,7 +450,6 @@
         },
         "ExceptionCategory": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "A machine-readable exception category",
             "@Common.IsInstanceAnnotation": true
@@ -458,7 +457,6 @@
         "Application": {
             "$Kind": "Term",
             "$Type": "Common.ApplicationType",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -486,14 +484,12 @@
         "Timestamp": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
         },
         "TransactionId": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -501,7 +497,6 @@
         "ErrorResolution": {
             "$Kind": "Term",
             "$Type": "Common.ErrorResolutionType",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "Hints for resolving this error",
             "@Common.IsInstanceAnnotation": true
@@ -616,7 +611,6 @@
         "RelatedRecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Edm.AnnotationPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -625,7 +619,6 @@
         "Interval": {
             "$Kind": "Term",
             "$Type": "Common.IntervalType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -665,7 +658,6 @@
         "WeakReferentialConstraint": {
             "$Kind": "Term",
             "$Type": "Common.WeakReferentialConstraintType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -713,7 +705,6 @@
         "ValueList": {
             "$Kind": "Term",
             "$Type": "Common.ValueListType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -737,6 +728,11 @@
             "CollectionRoot": {
                 "$Nullable": true,
                 "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation"
+            },
+            "DistinctValuesSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"
             },
             "SearchSupported": {
                 "$Type": "Edm.Boolean",
@@ -822,7 +818,6 @@
         "ValueListMapping": {
             "$Kind": "Term",
             "$Type": "Common.ValueListMappingType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -842,6 +837,11 @@
             },
             "CollectionPath": {
                 "@Core.Description": "Resource path of an OData collection with possible values, relative to the document containing the value list mapping"
+            },
+            "DistinctValuesSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"
             },
             "FetchValues": {
                 "$Type": "Common.FetchValuesType",
@@ -1186,7 +1186,6 @@
         "DraftRoot": {
             "$Kind": "Term",
             "$Type": "Common.DraftRootType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1227,7 +1226,6 @@
         "DraftNode": {
             "$Kind": "Term",
             "$Type": "Common.DraftNodeType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1270,7 +1268,6 @@
         "EditableFieldFor": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1304,7 +1301,6 @@
         "SideEffects": {
             "$Kind": "Term",
             "$Type": "Common.SideEffectsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
@@ -1360,6 +1356,13 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Indicates whether the side-effect has already happened",
                 "@Core.LongDescription": "The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested."
+            },
+            "Discretionary": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Indicates whether the client can decide if a side-effect should be triggered or not",
+                "@Core.LongDescription": "The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client."
             }
         },
         "EffectType": {
@@ -1447,9 +1450,28 @@
         },
         "SortOrderType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Exactly one of `Property` and `DynamicProperty` must be present",
             "Property": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Sort property"
+                "$Nullable": true,
+                "@Common.PrimitivePropertyPath": true,
+                "@Core.Description": "Sort property",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Modified",
+                        "Description": "Now nullable if `DynamicProperty` is present"
+                    }
+                ]
+            },
+            "DynamicProperty": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by an annotation and used as sort property",
+                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation,\n            this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Descending": {
                 "$Type": "Edm.Boolean",
@@ -1460,7 +1482,6 @@
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Common.RecursiveHierarchyType",
-            "$Nullable": true,
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
             "@Core.Description": "Defines a recursive hierarchy."
         },
@@ -1530,7 +1551,6 @@
         },
         "OriginalProtocolVersion": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema"
             ],
@@ -1558,6 +1578,17 @@
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
             "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
+        },
+        "PrimitivePropertyPath": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Term",
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
         }
     }
 }

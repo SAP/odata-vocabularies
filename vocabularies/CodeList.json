@@ -9,7 +9,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
@@ -39,7 +39,6 @@
         "CurrencyCodes": {
             "$Kind": "Term",
             "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -48,7 +47,6 @@
         "UnitsOfMeasure": {
             "$Kind": "Term",
             "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -90,7 +88,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Property contains a Configuration Deprecation Code",
             "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
         }

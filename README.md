@@ -11,6 +11,7 @@ This repository defines the following SAP vocabularies:
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
 - [DataIntegration: Data Integration](vocabularies/DataIntegration.md)
+- [DirectEdit: Terms for Direct-Edit User Interfaces](vocabularies/DirectEdit.md) - _experimental_
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
 - [ODM: One Domain Model](vocabularies/ODM.md) - _experimental_
