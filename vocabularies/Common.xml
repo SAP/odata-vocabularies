@@ -553,33 +553,26 @@ The minimum structure is
         </Annotation>
       </Term>
 
-      <Term Name="WeakReferentialConstraint" Type="Common.WeakReferentialConstraintType" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Annotation Term="Core.Description" String="A referential constraint to a reference set that is not reachable via a navigation property" />
-        <Annotation Term="Core.LongDescription" String="A weak referential constraint can be used in cases where the reference service cannot be located at design-time" />
+      <Term Name="SAPObjectNodeType" Type="Common.SAPObjectNodeTypeType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The SAP Object Node Type represented by the annotated entity type" />
+        <Annotation Term="Core.LongDescription">
+          <String>SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
+        </Annotation>
       </Term>
-      <ComplexType Name="WeakReferentialConstraintType">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Property Name="ReferenceRoot" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="URI of the service containing the reference set" />
-          <Annotation Term="Core.LongDescription" String="Need not be a uniform resource locator, for cases where the actual location of the reference service is not static or not known at design-time." />
-        </Property>
-        <Property Name="ReferencePath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Resource path of an OData collection with reference values, relative to ReferenceRoot" />
-        </Property>
-        <Property Name="ForeignKeys" Type="Collection(Common.ForeignKeyType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
+
+      <ComplexType Name="SAPObjectNodeTypeType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Information about an SAP Object Node Type" />
+        <Property Name="Name" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The name of the SAP Object Node Type" />
         </Property>
       </ComplexType>
-      <ComplexType Name="ForeignKeyType">
-        <Annotation Term="Common.Experimental" String="for references to code lists and master data" />
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property of the annotated entity set" />
-        </Property>
-        <Property Name="ReferencedProperty" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property in reference set, format is identical to PropertyPath annotations" />
-        </Property>
-      </ComplexType>
+
+      <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
+      </Term>
 
       <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">
         <Annotation Term="Core.Description" String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
@@ -622,8 +615,8 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
-          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Value list supports the $search query option" />
@@ -698,8 +691,8 @@ The minimum structure is
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false"> 
-          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut"/>
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
@@ -903,8 +896,8 @@ The minimum structure is
       <!-- Section: Fiscal Points in Time -->
       <Term Name="IsFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year number as string following the logical pattern YYYY(Y*) consisting of at least four digits. 
-          The string matches the regex pattern [1-9][0-9]{3,}
+          <String>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. 
+          The string matches the regex pattern [1-9][0-9]{3}
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -921,9 +914,9 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalYearPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and period as string following the logical pattern YYYY(Y*)PPP consisting 
-          of at least seven digits, where the last three digits represent the fiscal period in the year.
-          The string matches the regex pattern ([1-9][0-9]{3,})([0-9]{3})
+          <String>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting 
+          of seven digits, where the last three digits represent the fiscal period in the year.
+          The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -939,9 +932,9 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of
-          an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. 
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})[1-4]</String>
+          <String>Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of
+          five digits, where the last digit represents the quarter. 
+          The string matches the regex pattern [1-9][0-9]{3}[1-4]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -956,9 +949,9 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an
-          optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. 
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])</String>
+          <String>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of 
+          six digits, where the last two digits represent the week number in the year. 
+          The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -1083,7 +1076,8 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
 Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
-only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.</String>
+only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
+This can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
@@ -1117,6 +1111,11 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Indicates whether the side-effect has already happened" />
           <Annotation Term="Core.LongDescription" String="The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested." />
+        </Property>
+        <Property Name="Discretionary" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Indicates whether the client can decide if a side-effect should be triggered or not" />
+          <Annotation Term="Core.LongDescription" String="The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client." />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
@@ -1248,13 +1247,13 @@ Upon modification field control logic is invoked so that meta-information like h
       <ComplexType Name="SortOrderType">
         <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
-          <Annotation Term="Common.PrimitivePropertyPath"/>
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Sort property" />
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified"/>
-                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present"/>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present" />
               </Record>
             </Collection>
           </Annotation>
