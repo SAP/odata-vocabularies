@@ -111,7 +111,7 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="impliedTimezone"></a>[impliedTimezone](Common.xml#L1383)
+### <a name="impliedTimezone"></a>[impliedTimezone](Common.xml#L1382)
 
 A time zone in which the given point in time has a UTC offset according to its [timezone fragment](https://www.w3.org/TR/xmlschema11-2/#nt-tzFrag)
 
@@ -122,8 +122,8 @@ The time zone is not uniquely determined by the timezone fragment, but all possi
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Timestamp](Common.xml#L1392)|DateTimeOffset?|A point in time together with a timezone fragment
-[&rarr;](Common.xml#L1395)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
+[Timestamp](Common.xml#L1391)|DateTimeOffset?|A point in time together with a timezone fragment
+[&rarr;](Common.xml#L1394)|String?|Time zone according to the [IANA](https://www.iana.org/time-zones) standard
 
 
 ## <a name="TextFormatType"></a>[TextFormatType](Common.xml#L108)
