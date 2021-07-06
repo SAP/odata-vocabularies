@@ -1356,6 +1356,13 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Indicates whether the side-effect has already happened",
                 "@Core.LongDescription": "The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested."
+            },
+            "Discretionary": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Indicates whether the client can decide if a side-effect should be triggered or not",
+                "@Core.LongDescription": "The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client."
             }
         },
         "EffectType": {
