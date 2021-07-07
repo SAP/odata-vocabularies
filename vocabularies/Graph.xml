@@ -69,6 +69,12 @@
         </Property>
       </ComplexType>
 
+      <Term Name="traceId" Type="Edm.String" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
