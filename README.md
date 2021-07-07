@@ -70,4 +70,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/odata-vocabularies)](https://api.reuse.software/info/github.com/SAP/odata-vocabularies)
-
