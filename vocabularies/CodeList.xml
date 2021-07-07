@@ -32,11 +32,11 @@
         </Collection>
       </Annotation>
 
-      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for currencies" />
       </Term>
 
-      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for units of measure" />
       </Term>
 
@@ -63,7 +63,6 @@
       </Term>
 
       <Term Name="IsConfigurationDeprecationCode" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains a Configuration Deprecation Code" />
         <Annotation Term="Core.LongDescription">
           <String>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). </String>
