@@ -2,7 +2,7 @@
   "name": "sap-vocabularies",
   "version": "0.0.0",
   "description": "Convert SAP vocabularies in CSDL XML to CSDL JSON and GitHub Flavored Markdown",
-  "homepage": "https://github.wdf.sap.corp/odata/vocabularies/blob/master/README.md",
+  "homepage": "https://github.wdf.sap.corp/odata/vocabularies/blob/main/README.md",
   "bugs": "https://github.wdf.sap.corp/odata/vocabularies/issues",
   "repository": {
     "type": "git",

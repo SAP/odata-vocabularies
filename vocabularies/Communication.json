@@ -26,7 +26,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Communication.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Communication.md"
             }
         ],
         "Contact": {
