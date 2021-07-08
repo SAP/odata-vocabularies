@@ -1712,7 +1712,10 @@ This switches off the validation of user input with respect to decimals.</String
       </Term>
       <Term Name="UserInteractionSimple" Type="Collection(Edm.PrimitiveType)" AppliesTo="Property">
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value"/>
+        <Annotation Term="Core.Description">
+          <String>When this instance annotation occurs in a response, the UI shall let the user choose from the collection
+          and then repeat the corresponding request with the annotated property set to the chosen value</String>
+        </Annotation>
         <Annotation Term="Core.LongDescription">
           <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),
           the instance annotation MAY occur in a [`Common_401.callback`](Common_401.md#callback) instance annotation.</String>

@@ -2009,7 +2009,7 @@
                 "Property"
             ],
             "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value",
+            "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection\n          and then repeat the corresponding request with the annotated property set to the chosen value",
             "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the instance annotation MAY occur in a [`Common_401.callback`](Common_401.md#callback) instance annotation."
         },
         "UserInteractionType": {
