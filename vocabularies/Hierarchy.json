@@ -41,7 +41,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Hierarchy.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Hierarchy.md"
             }
         ],
         "RecursiveHierarchy": {

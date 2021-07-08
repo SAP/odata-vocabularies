@@ -33,7 +33,7 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Analytics.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -42,8 +42,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)" />
             </Record>
           </Collection>
         </Annotation>
@@ -54,8 +54,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)" />
             </Record>
           </Collection>
         </Annotation>
@@ -66,8 +66,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)" />
             </Record>
           </Collection>
         </Annotation>
@@ -104,8 +104,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)" />
             </Record>
           </Collection>
         </Annotation>
@@ -139,7 +139,7 @@
       </ComplexType>
 
       <Term Name="AnalyticalContext" Type="Collection(Analytics.AnalyticalContextType)" Nullable="false" AppliesTo="Collection">
-        <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Collection of properties that define an analytical context" />
       </Term>
       <ComplexType Name="AnalyticalContextType">
