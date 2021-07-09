@@ -49,7 +49,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Analytics.md"
             }
         ],
         "Dimension": {

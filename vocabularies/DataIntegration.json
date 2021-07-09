@@ -25,7 +25,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/DataIntegration.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/DataIntegration.md"
             }
         ],
         "Extractable": {
