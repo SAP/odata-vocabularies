@@ -18,8 +18,8 @@ Term|Type|Description
 :---|:---|:----------
 [Contact](Communication.xml#L40)|[ContactType?](#ContactType)|<a name="Contact"></a>Address book entry
 [Address](Communication.xml#L124)|[AddressType?](#AddressType)|<a name="Address"></a>Address
-[IsEmailAddress](Communication.xml#L275)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsEmailAddress"></a>Property contains an email address
-[IsPhoneNumber](Communication.xml#L279)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsPhoneNumber"></a>Property contains a phone number
+[IsEmailAddress](Communication.xml#L275)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsEmailAddress"></a>Property contains an email address
+[IsPhoneNumber](Communication.xml#L279)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsPhoneNumber"></a>Property contains a phone number
 [Event](Communication.xml#L283)|[EventData?](#EventData)|<a name="Event"></a>Calendar entry
 [Task](Communication.xml#L326)|[TaskData?](#TaskData)|<a name="Task"></a>Task list entry
 [Message](Communication.xml#L351)|[MessageData?](#MessageData)|<a name="Message"></a>Email message
