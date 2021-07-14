@@ -1,0 +1,85 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        },
+        "/sap/opu/odata4/product.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.gateway.entities.product",
+                    "$Alias": "Product"
+                }
+            ]
+        }
+    },
+    "userinteraction.sample": {
+        "$Alias": "self",
+        "SalesOrderItem": {
+            "$Kind": "EntityType",
+            "_AlternativeProducts": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "Product.AlternativeProduct",
+                "@UI.UserInteraction@Core.Description": "Please choose a product",
+                "@UI.UserInteraction": {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionChooseSingle",
+                    "Parameters": [
+                        {
+                            "ValueListProperty": "Product",
+                            "LocalDataProperty": "ExchangeProduct/NewProduct"
+                        }
+                    ]
+                }
+            },
+            "_UpgradeProduct": {
+                "$Kind": "NavigationProperty",
+                "$Type": "Product.AlternativeProduct",
+                "$Nullable": true,
+                "@UI.UserInteraction@Core.Description": "Do you want to upgrade the product?",
+                "@UI.UserInteraction": {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionConfirm",
+                    "Parameters": [
+                        {
+                            "ValueListProperty": "Product",
+                            "LocalDataProperty": "ExchangeProduct/NewProduct"
+                        }
+                    ]
+                }
+            }
+        },
+        "ExchangeProduct": [
+            {
+                "$Kind": "Action",
+                "$IsBound": true,
+                "$Parameter": [
+                    {
+                        "$Name": "item",
+                        "$Type": "self.SalesOrderItem"
+                    },
+                    {
+                        "$Name": "NewProduct",
+                        "$Nullable": true
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "self.SalesOrderItem",
+                    "$Nullable": true
+                }
+            }
+        ],
+        "SalesOrderService": {
+            "$Kind": "EntityContainer",
+            "SalesOrderItems": {
+                "$Collection": true,
+                "$Type": "self.SalesOrder"
+            }
+        }
+    },
+    "$EntityContainer": "userinteraction.sample.SalesOrderService"
+}

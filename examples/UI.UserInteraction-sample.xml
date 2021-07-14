@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata4/product.xml">
+    <edmx:Include Namespace="com.sap.gateway.entities.product" Alias="Product" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <!-- Certain user interactions cannot be handled by one request, because they follow the pattern "user triggers, server offers, user chooses".
+           For example, the action "exchange product in a sales order item" is triggered by the user on a sales order item
+           (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
+           from which the user must then choose, and the request must be repeated with the chosen key
+           (POST ~/SalesOrderItems(...)/ExchangeProduct?NewProduct='...').
+           But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose.
+      -->
+      <EntityType Name="SalesOrderItem">
+        <NavigationProperty Name="_AlternativeProducts" Type="Collection(Product.AlternativeProduct)">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Please choose a product"/>
+            <Record Type="UI.UserInteractionChooseSingle">
+              <PropertyValue Property="Parameters">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
+        <NavigationProperty Name="_UpgradeProduct" Type="Product.AlternativeProduct">
+          <Annotation Term="UI.UserInteraction">
+            <Annotation Term="Core.Description" String="Do you want to upgrade the product?"/>
+            <Record Type="UI.UserInteractionConfirm">
+              <PropertyValue Property="Parameters">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </NavigationProperty>
+      </EntityType>
+      <Action Name="ExchangeProduct" IsBound="true">
+        <Parameter Name="item" Type="self.SalesOrderItem" Nullable="false"/>
+        <Parameter Name="NewProduct" Type="Edm.String"/>
+        <ReturnType Type="self.SalesOrderItem"/>
+      </Action>
+      <EntityContainer Name="SalesOrderService">
+        <EntitySet Name="SalesOrderItems" EntityType="self.SalesOrder"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
