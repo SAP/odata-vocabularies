@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="unique"></a>[unique](Analytics.xml#L170)
 
-Evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null
+This custom aggregation method evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null
 
 This can be used to compress input sets that have been constructed with `concat`, like
 A|B

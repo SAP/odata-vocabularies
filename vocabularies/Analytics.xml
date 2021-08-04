@@ -169,7 +169,7 @@
 
       <Function Name="unique">
         <Annotation Term="Aggregation.IsCustomAggregationMethod"/>
-        <Annotation Term="Core.Description" String="Evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null"/>
+        <Annotation Term="Core.Description" String="This custom aggregation method evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null"/>
         <Annotation Term="Core.LongDescription">
           <String>This can be used to compress input sets that have been constructed with `concat`, like
 A|B
