@@ -167,6 +167,28 @@
         </Property>
       </ComplexType>
 
+      <Function Name="unique">
+        <Annotation Term="Aggregation.IsCustomAggregationMethod"/>
+        <Annotation Term="Core.Description" String="Evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null"/>
+        <Annotation Term="Core.LongDescription">
+          <String>This can be used to compress input sets that have been constructed with `concat`, like
+A|B
+-|-
+1|
+|2
+
+into output sets that contain a single instance with the non-null properties.
+
+`aggregate(A with Analytics.unique as A1, B with Analytics.unique as B1)` applied to the above input set yields
+A1|B1
+-|-
+1|2
+</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.String)"/>
+        <ReturnType Type="Edm.String"/>
+      </Function>
+      
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />

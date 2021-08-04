@@ -18,6 +18,33 @@ Term|Type|Description
 [AggregatedProperty](Analytics.xml#L121)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L141)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 
+
+## Functions
+
+### <a name="unique"></a>[unique](Analytics.xml#L170)
+
+Evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null
+
+This can be used to compress input sets that have been constructed with `concat`, like
+A|B
+-|-
+1|
+|2
+
+into output sets that contain a single instance with the non-null properties.
+
+`aggregate(A with Analytics.unique as A1, B with Analytics.unique as B1)` applied to the above input set yields
+A1|B1
+-|-
+1|2
+
+
+Parameter|Type|Description
+:--------|:---|:----------
+[InputSet](Analytics.xml#L188)|\[String\]|
+[&rarr;](Analytics.xml#L189)|String?|
+
+
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L124)
 
 
