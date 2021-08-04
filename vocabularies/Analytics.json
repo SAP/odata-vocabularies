@@ -217,10 +217,12 @@
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
-                        "$Collection": true
+                        "$Collection": true,
+                        "$Type": "Edm.PrimitiveType"
                     }
                 ],
                 "$ReturnType": {
+                    "$Type": "Edm.PrimitiveType",
                     "$Nullable": true
                 }
             }

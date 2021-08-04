@@ -41,8 +41,8 @@ A1|B1
 
 Parameter|Type|Description
 :--------|:---|:----------
-[InputSet](Analytics.xml#L188)|\[String\]|
-[&rarr;](Analytics.xml#L189)|String?|
+[InputSet](Analytics.xml#L188)|\[PrimitiveType\]|
+[&rarr;](Analytics.xml#L189)|PrimitiveType?|
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](Analytics.xml#L124)

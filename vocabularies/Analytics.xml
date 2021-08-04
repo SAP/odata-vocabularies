@@ -185,8 +185,8 @@ A1|B1
 1|2
 </String>
         </Annotation>
-        <Parameter Name="InputSet" Type="Collection(Edm.String)"/>
-        <ReturnType Type="Edm.String"/>
+        <Parameter Name="InputSet" Type="Collection(Edm.PrimitiveType)"/>
+        <ReturnType Type="Edm.PrimitiveType"/>
       </Function>
       
       <Annotations Target="Aggregation.CustomAggregate">
