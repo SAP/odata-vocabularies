@@ -135,9 +135,9 @@ Control state of a property
 
 Member|Value|Description
 :-----|----:|:----------
-[Mandatory](./Common.xml#L370:~:text=Name="-,Mandatory,-")|7|Property is mandatory from a business perspective<br>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md).
+[Mandatory](./Common.xml#L370:~:text=Name="-,Mandatory,-")|7|Property is mandatory from a business perspective<br>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).
 [Optional](./Common.xml#L374:~:text=Name="-,Optional,-")|3|Property may have a value<br>This value does not make sense as a static annotation value.
-[ReadOnly](./Common.xml#L378:~:text=Name="-,ReadOnly,-")|1|Property value cannot be changed<br>To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead
+[ReadOnly](./Common.xml#L378:~:text=Name="-,ReadOnly,-")|1|Property value cannot be changed<br>To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead
 [Inapplicable](./Common.xml#L382:~:text=Name="-,Inapplicable,-")|0|Property has no meaning in the current entity state<br>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
 [Hidden](./Common.xml#L390:~:text=Name="-,Hidden,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
 
