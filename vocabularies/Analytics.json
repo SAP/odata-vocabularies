@@ -213,7 +213,7 @@
                 "$Kind": "Function",
                 "@Aggregation.IsCustomAggregationMethod": true,
                 "@Core.Description": "This custom aggregation method evaluates to the unique non-null value that the aggregated property has in the input set, otherwise to null",
-                "@Core.LongDescription": "This can be used to compress input sets that have been constructed with `concat`, like\nA|B\n-|-\n1|\n|2\n\ninto output sets that contain a single instance with the non-null properties.\n\n`aggregate(A with Analytics.unique as A1, B with Analytics.unique as B1)` applied to the above input set yields\nA1|B1\n-|-\n1|2\n",
+                "@Core.LongDescription": "This can be used to compress input sets that have been constructed with `concat`, like\nA|B\n-|-\n1|\n||2\n\ninto output sets that contain a single instance with the non-null properties.\n\n`aggregate(A with Analytics.unique as A1, B with Analytics.unique as B1)` applied to the above input set yields\nA1|B1\n-|-\n1|2\n",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",

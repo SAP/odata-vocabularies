@@ -29,7 +29,7 @@ This can be used to compress input sets that have been constructed with `concat`
 A|B
 -|-
 1|
-|2
+||2
 
 into output sets that contain a single instance with the non-null properties.
 
