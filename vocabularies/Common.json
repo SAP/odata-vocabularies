@@ -49,7 +49,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Common.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Common.md"
             }
         ],
         "Experimental": {
@@ -434,13 +434,13 @@
             "@Core.Description": "Control state of a property",
             "Mandatory": 7,
             "Mandatory@Core.Description": "Property is mandatory from a business perspective",
-            "Mandatory@Core.LongDescription": "This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md).",
+            "Mandatory@Core.LongDescription": "This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
             "Optional": 3,
             "Optional@Core.Description": "Property may have a value",
             "Optional@Core.LongDescription": "This value does not make sense as a static annotation value.",
             "ReadOnly": 1,
             "ReadOnly@Core.Description": "Property value cannot be changed",
-            "ReadOnly@Core.LongDescription": "To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Computed) instead",
+            "ReadOnly@Core.LongDescription": "To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead",
             "Inapplicable": 0,
             "Inapplicable@Core.Description": "Property has no meaning in the current entity state",
             "Inapplicable@Core.LongDescription": "This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
