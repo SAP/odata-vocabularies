@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.DirectEdit.v1" Alias="DirectEdit">
+      <Annotation Term="Core.Description">
+        <String>Terms for Direct-Edit User Interfaces</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-07-10 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/DirectEdit.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="SideEffects" Type="DirectEdit.SideEffectsType" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Determine side effects of client-side data modification" />
+      </Term>
+
+      <ComplexType Name="SideEffectsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>After a change to a property whose path is contained in `Triggers`, the client should pass the entity with the changed property to the `CalculationFunction` and receive the entity with all changes that happen as side effects of the given change.</String>
+        </Annotation>
+        <Property Name="Triggers" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of paths to the properties whose changes should trigger the side effects calculation." />
+          <Annotation Term="Validation.MinItems" Int="1" />
+        </Property>
+        <Property Name="CalculationFunction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="The operation calculating the side effects. While non-changing for the service, this technically is an action bound to the entity set so that the parameters can be sent in the POST request body. The action has the following non-binding parameters:
+
+- `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
+    or cast-compatible: the qualifier of the `SideEffects` annotation
+
+- `Trigger` of type `Edm.String`: the trigger of the side-effects determination, see `Triggers` property
+
+- `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it
+
+The **return type** of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,
+it can be the same type as for `Data`.
+
+Structure-compatible means:
+
+- each primitive property that has the same name as a corresponding primitive property of the entity type of the annotated entity set is cast-compatible with the corresponding property and is nullable,  
+
+- each complex property that has the same name as a corresponding complex or navigation property of the entity type of the annotated entity set is structure-compatible with the corresponding property
+ 
+- it may contain properties without a corresponding property in the entity type
+
+- it may omit properties of the entity type" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

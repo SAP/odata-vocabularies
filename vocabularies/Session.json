@@ -9,7 +9,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
@@ -33,14 +33,13 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Session.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Session.md"
             }
         ],
         "@Core.LongDescription": "\nBuilding REST APIs on top of ABAP code that has been written for classic session-based communication is hard and sometimes not economically feasible.\n\nHTTP is not connection-based, meaning that each request may be sent over a different TCP connection. \nAdding scalable servers and load balancers into the mix, each individual HTTP request is typically answered by a different application server instance.\n\nSticky sessions to the rescue: session stickiness or session affinity is a mechanism to route (HTTP) calls from the same client instance to the same \"session\", \n\"work process\", or \"application instance\".  This is a performance improvement measure because it allows the server to keep server state in process-specific memory.\nThis process-specific memory is lost if the server process instance crashes, in which case the client is redirected to another process instance.\nIn modern, scalable server environments sticky sessions are usually combined with a persistency service to allow recovering session state after \na process instance crash, so from the client's perspective the server state is kept. In the case of ABAP servers the session state is simply lost.\n\nSession stickiness is usually achieved via a cookie containing the session id. This has the benefit that browser-based applications don't need to be aware \nof the session stickiness because browsers automatically send cookies on subsequent requests. \nHowever, cookies are shared across browser tabs and windows, and requests from different tabs or windows would be dispatched to the same server session.\nAgain this poses a problem for classic ABAP code which was built under the assumption that each server session is tied to at most one client instance.\n\nThis means that the client application has to be aware of the service's limitations and cooperate to route calls from each client application instance (browser tab or window) \nto a different server session. The ABAP server allows this by sending the session id in the response header `sap-contextid`, \nwhich client application instances will need to echo as a request header in subsequent requests.\n\nAlso the client needs to adhere to a strict choreography of \n- initiate session\n- send data modification and read requests\n- end session by either\n  - confirm data modification or\n  - discard changes\n\nThis choreography is (intentionally) similar to the choreography for [Draft Handling](https://experience.sap.com/fiori-design-web/draft-handling/).\n\nData modification requests outside of a session are allowed and have their usual OData semantics.\nThis allows e.g. using the same service for a list report with actions and for an editable object page, \ncombined as one UI app.\n        ",
         "StickySessionSupported": {
             "$Kind": "Term",
             "$Type": "Session.StickySessionSupportedType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],

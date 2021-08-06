@@ -1,0 +1,71 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.DirectEdit.v1": {
+        "$Alias": "DirectEdit",
+        "@Core.Description": "Terms for Direct-Edit User Interfaces",
+        "@Core.Description#Published": "2020-07-10 © Copyright 2020 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DirectEdit.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/DirectEdit.md"
+            }
+        ],
+        "SideEffects": {
+            "$Kind": "Term",
+            "$Type": "DirectEdit.SideEffectsType",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Determine side effects of client-side data modification"
+        },
+        "SideEffectsType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.LongDescription": "After a change to a property whose path is contained in `Triggers`, the client should pass the entity with the changed property to the `CalculationFunction` and receive the entity with all changes that happen as side effects of the given change.",
+            "Triggers": {
+                "$Collection": true,
+                "@Core.Description": "List of paths to the properties whose changes should trigger the side effects calculation.",
+                "@Validation.MinItems": 1
+            },
+            "CalculationFunction": {
+                "$Type": "Common.QualifiedName",
+                "@Core.Description": "The operation calculating the side effects. While non-changing for the service, this technically is an action bound to the entity set so that the parameters can be sent in the POST request body. The action has the following non-binding parameters:\n\n- `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)\n    or cast-compatible: the qualifier of the `SideEffects` annotation\n\n- `Trigger` of type `Edm.String`: the trigger of the side-effects determination, see `Triggers` property\n\n- `Data` of either the entity type of the annotated entity set or a complex type that is structure-compatible with it\n\nThe **return type** of the action also needs to be either the entity type of the annotated entity set or structure-compatible with it,\nit can be the same type as for `Data`.\n\nStructure-compatible means:\n\n- each primitive property that has the same name as a corresponding primitive property of the entity type of the annotated entity set is cast-compatible with the corresponding property and is nullable,  \n\n- each complex property that has the same name as a corresponding complex or navigation property of the entity type of the annotated entity set is structure-compatible with the corresponding property\n \n- it may contain properties without a corresponding property in the entity type\n\n- it may omit properties of the entity type"
+            }
+        }
+    }
+}

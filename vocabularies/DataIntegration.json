@@ -1,0 +1,93 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.DataIntegration.v1": {
+        "$Alias": "DataIntegration",
+        "@Core.Description": "Terms for Data Integration",
+        "@Core.Description#Published": "2021-02-11 © Copyright 2021 SAP AG. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DataIntegration.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/DataIntegration.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/DataIntegration.md"
+            }
+        ],
+        "Extractable": {
+            "$Kind": "Term",
+            "$Type": "Edm.Boolean",
+            "$DefaultValue": false,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Defines if entity set is extractable"
+        },
+        "OriginalDataType": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Original data type of the annotated property in its source system",
+            "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
+            "@Core.Example": {
+                "@DataIntegration.OriginalDataType": "CHAR(000010)"
+            }
+        },
+        "ConversionExit": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Identifier that describes the special output conversion of the annotated property in the source system",
+            "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
+            "@Core.Example": {
+                "@DataIntegration.ConversionExit": "ALPHA"
+            }
+        },
+        "SourceSystem": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Container"
+            ],
+            "@Core.Description": "Identifier that classifies the type of the source system",
+            "@Core.LongDescription": "The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA."
+        },
+        "DeltaMethodType": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "INSERT": 1,
+            "INSERT@Core.Description": "Delta is supported for inserts",
+            "UPDATE": 2,
+            "UPDATE@Core.Description": "Delta is supported for updates",
+            "DELETE": 4,
+            "DELETE@Core.Description": "Delta is supported for deletes"
+        },
+        "DeltaMethod": {
+            "$Kind": "Term",
+            "$Type": "DataIntegration.DeltaMethodType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true"
+        }
+    }
+}

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -27,16 +27,16 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/CodeList.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/CodeList.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="CurrencyCodes" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for currencies" />
       </Term>
 
-      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" AppliesTo="EntityContainer">
+      <Term Name="UnitsOfMeasure" Type="CodeList.CodeListSource" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="An entity set containing the code list for units of measure" />
       </Term>
 
@@ -63,7 +63,6 @@
       </Term>
 
       <Term Name="IsConfigurationDeprecationCode" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property contains a Configuration Deprecation Code" />
         <Annotation Term="Core.LongDescription">
           <String>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). </String>

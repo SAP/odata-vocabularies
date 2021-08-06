@@ -17,7 +17,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Communication.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Communication.v1",
@@ -25,7 +25,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
@@ -33,7 +33,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.HTML5.v1",
@@ -58,7 +58,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/UI.md"
             }
         ],
         "HeaderInfo": {
@@ -564,7 +564,10 @@
             "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
             "VeryPositive": 4,
             "VeryPositive@Common.Experimental": true,
-            "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess"
+            "VeryPositive@Core.Description": "Very positive - above max stock - excess",
+            "Information": 5,
+            "Information@Common.Experimental": true,
+            "Information@Core.Description": "Information - noticable - informative"
         },
         "CriticalityCalculationType": {
             "$Kind": "ComplexType",
@@ -792,7 +795,18 @@
             "Measures": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Common.PrimitivePropertyPath": true,
                 "@Core.Description": "Measures of the chart, e.g. size and color in a bubble chart"
+            },
+            "DynamicMeasures": {
+                "$Collection": true,
+                "$Type": "Edm.AnnotationPath",
+                "@Core.Description": "Dynamic properties introduced by annotations and used as measures of the chart",
+                "@Core.LongDescription": "If the annotation referenced by an annotation path does not apply to the same collection of entities\n            as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "MeasureAttributes": {
                 "$Collection": true,
@@ -949,9 +963,21 @@
         },
         "ChartMeasureAttributeType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Exactly one of `Measure` and `DynamicMeasure` must be present",
             "Measure": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true
+                "$Nullable": true,
+                "@Common.PrimitivePropertyPath": true
+            },
+            "DynamicMeasure": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by an annotation and used as a measure in a chart",
+                "@Core.LongDescription": "If the annotation referenced by an annotation path does not apply to the same collection of entities\n            as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Role": {
                 "$Type": "UI.ChartMeasureRoleType",
@@ -1239,7 +1265,18 @@
             "Total": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
+                "@Common.PrimitivePropertyPath": true,
                 "@Core.Description": "Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy."
+            },
+            "DynamicTotal": {
+                "$Collection": true,
+                "$Type": "Edm.AnnotationPath",
+                "@Core.Description": "Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy",
+                "@Core.LongDescription": "If the annotation referenced by an annotation path does not apply to the same collection of entities\n            as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "IncludeGrandTotal": {
                 "$Type": "Edm.Boolean",
@@ -1264,7 +1301,8 @@
             "RequestAtLeast": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties that should always be included in the result of the queried collection"
+                "@Core.Description": "Properties that should always be included in the result of the queried collection",
+                "@Core.LongDescription": "Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request\n            or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an\n            aggregating OData request."
             },
             "SelectionFields": {
                 "$Collection": true,
@@ -1351,9 +1389,28 @@
         "SelectOptionType": {
             "$Kind": "ComplexType",
             "@Core.Description": "List of value ranges for a single property",
+            "@Core.LongDescription": "Exactly one of `PropertyName` and `DynamicPropertyName` must be present",
             "PropertyName": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Path to the property"
+                "$Nullable": true,
+                "@Common.PrimitivePropertyPath": true,
+                "@Core.Description": "Path to the property",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Modified",
+                        "Description": "Now nullable if `DynamicPropertyName` is present"
+                    }
+                ]
+            },
+            "DynamicPropertyName": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by annotations for which value ranges are specified",
+                "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.\n            For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
             },
             "Ranges": {
                 "$Collection": true,
@@ -1528,7 +1585,7 @@
             "TextLast": 1,
             "TextLast@Core.Description": "Code/ID is first, followed by the text (e.g. separated by a dash)",
             "TextSeparate": 2,
-            "TextSeparate@Core.Description": "Code/ID and text are represented separately",
+            "TextSeparate@Core.Description": "Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)",
             "TextOnly": 3,
             "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
         },
@@ -1558,7 +1615,8 @@
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty",
-                "Record"
+                "Record",
+                "Parameter"
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
             "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
@@ -1567,7 +1625,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Create operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from a related entity."
@@ -1576,7 +1635,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
@@ -1585,7 +1645,8 @@
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
             "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
             "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
@@ -1719,6 +1780,11 @@
                 "$Nullable": true,
                 "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
             },
+            "NavigationAvailable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "The navigation intent is for that user with the selected context and parameters available"
+            },
             "RequiresContext": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
@@ -1800,7 +1866,7 @@
             "$AppliesTo": [
                 "Annotation"
             ],
-            "@Core.Description": " Service-calculated criticality, alternative to UI.CriticalityCalculation"
+            "@Core.Description": "Service-calculated criticality, alternative to UI.CriticalityCalculation"
         },
         "CriticalityCalculation": {
             "$Kind": "Term",
@@ -1810,6 +1876,17 @@
                 "Annotation"
             ],
             "@Core.Description": "Parameters for client-calculated criticality, alternative to UI.Criticality"
+        },
+        "Emphasized": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Highlight something that is of special interest",
+            "@Core.LongDescription": "The usage of a property or operation should be highlighted as it's of special interest for the end user"
         },
         "OrderBy": {
             "$Kind": "Term",
@@ -1829,7 +1906,6 @@
             "$AppliesTo": [
                 "Parameter"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Define default values for action parameters",
             "@Core.LongDescription": "For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.\n            Whereas for bound actions the bound entity and its properties and associated properties can be used as default values"
         },
@@ -1905,6 +1981,16 @@
                 "Property"
             ],
             "@Core.Description": "The contents of this property must not be propagated to the app-to-app navigation context"
+        },
+        "DoNotCheckScaleOfMeasuredQuantity": {
+            "$Kind": "Term",
+            "$Type": "Edm.Boolean",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
+            "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
         }
     }
 }
