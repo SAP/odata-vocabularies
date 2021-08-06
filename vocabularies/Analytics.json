@@ -25,7 +25,7 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
                     "$Namespace": "com.sap.vocabularies.Common.v1",
@@ -49,7 +49,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.md"
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Analytics.md"
             }
         ],
         "Dimension": {
@@ -60,6 +60,12 @@
                 "Property"
             ],
             "$BaseTerm": "Aggregation.Groupable",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)"
+                }
+            ],
             "@Core.Description": "A property holding the key of a dimension in an analytical context"
         },
         "Measure": {
@@ -70,6 +76,12 @@
                 "Property"
             ],
             "$BaseTerm": "Aggregation.Aggregatable",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)"
+                }
+            ],
             "@Core.Description": "A property holding the numeric value of a measure in an analytical context"
         },
         "AccumulativeMeasure": {
@@ -77,6 +89,12 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$BaseTerm": "Analytics.Measure",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)"
+                }
+            ],
             "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
         },
         "RolledUpPropertyCount": {
@@ -113,14 +131,28 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)"
+                }
+            ],
             "@Core.Description": "Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type.",
             "@Core.LongDescription": "\n            Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the \n\t\t\tgiven entity type to leverage the results of the aggregate expression determined in the context of an entity collection of \n\t\t\tthe annotated type.\n          "
+        },
+        "AggregatedProperty": {
+            "$Kind": "Term",
+            "$Type": "Analytics.AggregatedPropertyType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type."
         },
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
             "Name": {
                 "$Type": "Common.SimpleIdentifier",
-                "@Core.Description": "Name the dynamic property holding the aggregated value."
+                "@Core.Description": "Name of the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
                 "@Core.Description": "Name of the standard or custom aggregation method to be applied."
@@ -132,6 +164,49 @@
             "@Validation.ApplicableTerms": [
                 "Common.Label"
             ]
+        },
+        "AnalyticalContext": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Analytics.AnalyticalContextType",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Collection of properties that define an analytical context"
+        },
+        "AnalyticalContextType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Exactly one of `Property` and `DynamicProperty` must be present",
+            "Property": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property that is part of the analytical context"
+            },
+            "DynamicProperty": {
+                "$Type": "Edm.AnnotationPath",
+                "$Nullable": true,
+                "@Core.Description": "Dynamic property introduced by annotations that is part of the analytical context",
+                "@Validation.AllowedTerms": [
+                    "Analytics.AggregatedProperty",
+                    "Aggregation.CustomAggregate"
+                ]
+            },
+            "Dimension": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The property holds the key of a dimension"
+            },
+            "Measure": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The property holds the numeric value of a measure"
+            },
+            "AccumulativeMeasure": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
+            }
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {

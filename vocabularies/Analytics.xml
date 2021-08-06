@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -33,20 +33,44 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Analytics.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Analytics.md" />
           </Record>
         </Collection>
       </Annotation>
 
       <Term Name="Dimension" Type="Core.Tag" BaseTerm="Aggregation.Groupable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Dimension`](#AnalyticalContext)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the key of a dimension in an analytical context" />
       </Term>
 
       <Term Name="Measure" Type="Core.Tag" BaseTerm="Aggregation.Aggregatable" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/Measure`](#AnalyticalContext)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="A property holding the numeric value of a measure in an analytical context" />
       </Term>
 
       <Term Name="AccumulativeMeasure" BaseTerm="Analytics.Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AnalyticalContext/AccumulativeMeasure`](#AnalyticalContext)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
@@ -77,6 +101,14 @@
       </Term>
 
       <Term Name="AggregatedProperties" Type="Collection(Analytics.AggregatedPropertyType)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="Dynamic properties for aggregate expressions with specified aggregation method defined on the annotated entity type." />
         <Annotation Term="Core.LongDescription">
           <String>
@@ -85,11 +117,13 @@
 			the annotated type.
           </String>
         </Annotation>
-
+      </Term>
+      <Term Name="AggregatedProperty" Type="Analytics.AggregatedPropertyType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
         <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
-          <Annotation Term="Core.Description" String="Name the dynamic property holding the aggregated value." />
+          <Annotation Term="Core.Description" String="Name of the dynamic property holding the aggregated value." />
         </Property>
         <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied." />
@@ -102,6 +136,35 @@
             <String>Common.Label</String> <!-- more in the future as needed -->
           </Collection>
         </Annotation>
+      </ComplexType>
+
+      <Term Name="AnalyticalContext" Type="Collection(Analytics.AnalyticalContextType)" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Core.Description" String="Collection of properties that define an analytical context" />
+      </Term>
+      <ComplexType Name="AnalyticalContextType">
+        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
+        <Property Name="Property" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Property that is part of the analytical context" />
+        </Property>
+        <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations that is part of the analytical context" />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The property holds the key of a dimension" />
+        </Property>
+        <Property Name="Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The property holds the numeric value of a measure" />
+        </Property>
+        <Property Name="AccumulativeMeasure" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
+        </Property>
       </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">

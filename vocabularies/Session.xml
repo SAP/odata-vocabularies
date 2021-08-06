@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -27,7 +27,7 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Session.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Session.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -68,7 +68,7 @@ combined as one UI app.
         </String>
       </Annotation>
 
-      <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" AppliesTo="EntitySet">
+      <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="The annotated entity set allows data modification only within a sticky session" />
         <Annotation Term="Core.Example">
           <Record>
