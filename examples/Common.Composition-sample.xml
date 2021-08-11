@@ -36,7 +36,7 @@
         </NavigationProperty>
       </EntityType>
 
-      <Annotations Target="this.container.SalesOrderItem">
+      <Annotations Target="this.container/SalesOrderItem">
         <Annotation Term="Common.CompositionChild" Bool="true" />
       </Annotations>
 
