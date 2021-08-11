@@ -56,57 +56,59 @@ Term|Type|Description
 [Interval](./Common.xml#L530:~:text=Name="-,Interval,-")|[IntervalType](#IntervalType)|<a name="Interval"></a>An interval with lower and upper boundaries described by two properties
 [ResultContext](./Common.xml#L548:~:text=Name="-,ResultContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ResultContext"></a>The annotated entity type has one or more containment navigation properties. An instance of the annotated entity type provides the context required for determining the target entity sets reached by these containment navigation properties.
 [SAPObjectNodeType](./Common.xml#L556:~:text=Name="-,SAPObjectNodeType,-") *([Experimental](Common.md#Experimental))*|[SAPObjectNodeTypeType](#SAPObjectNodeTypeType)|<a name="SAPObjectNodeType"></a>The SAP Object Node Type represented by the annotated entity type<br>SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.
-[SAPObjectNodeTypeReference](./Common.xml#L572:~:text=Name="-,SAPObjectNodeTypeReference,-") *([Experimental](Common.md#Experimental))*|String|<a name="SAPObjectNodeTypeReference"></a>The name of the SAP Object Node Type referenced by the annotated property
-[IsNaturalPerson](./Common.xml#L577:~:text=Name="-,IsNaturalPerson,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsNaturalPerson"></a>The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person
-[ValueList](./Common.xml#L583:~:text=Name="-,ValueList,-")|[ValueListType](#ValueListType)|<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter<br>The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists.
-[ValueListRelevantQualifiers](./Common.xml#L657:~:text=Name="-,ValueListRelevantQualifiers,-") *([Experimental](Common.md#Experimental))*|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="ValueListRelevantQualifiers"></a>List of qualifiers of relevant ValueList annotations<br>The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties.
-[ValueListWithFixedValues](./Common.xml#L663:~:text=Name="-,ValueListWithFixedValues,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values
-[ValueListForValidation](./Common.xml#L667:~:text=Name="-,ValueListForValidation,-") *([Experimental](Common.md#Experimental))*|String|<a name="ValueListForValidation"></a>Contains the qualifier of the ValueList or ValueListMapping that should be used for validation
-[ValueListReferences](./Common.xml#L672:~:text=Name="-,ValueListReferences,-")|\[URL\]|<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property
-[ValueListMapping](./Common.xml#L677:~:text=Name="-,ValueListMapping,-")|[ValueListMappingType](#ValueListMappingType)|<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<br>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers.
-[IsCalendarYear](./Common.xml#L778:~:text=Name="-,IsCalendarYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})
-[IsCalendarHalfyear](./Common.xml#L787:~:text=Name="-,IsCalendarHalfyear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarHalfyear"></a>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit. The string matches the regex pattern [1-2]
-[IsCalendarQuarter](./Common.xml#L796:~:text=Name="-,IsCalendarQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarQuarter"></a>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]
-[IsCalendarMonth](./Common.xml#L805:~:text=Name="-,IsCalendarMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarMonth"></a>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. The string matches the regex pattern 0[1-9]\|1[0-2]
-[IsCalendarWeek](./Common.xml#L814:~:text=Name="-,IsCalendarWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarWeek"></a>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]\|[1-4][0-9]\|5[0-3]
-[IsDayOfCalendarMonth](./Common.xml#L823:~:text=Name="-,IsDayOfCalendarMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfCalendarMonth"></a>Day number relative to a calendar month. Valid values are between 1 and 31.
-[IsDayOfCalendarYear](./Common.xml#L831:~:text=Name="-,IsDayOfCalendarYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfCalendarYear"></a>Day number relative to a calendar year. Valid values are between 1 and 366.
-[IsCalendarYearHalfyear](./Common.xml#L839:~:text=Name="-,IsCalendarYearHalfyear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearHalfyear"></a>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})[1-2]
-[IsCalendarYearQuarter](./Common.xml#L849:~:text=Name="-,IsCalendarYearQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearQuarter"></a>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})[1-4]
-[IsCalendarYearMonth](./Common.xml#L859:~:text=Name="-,IsCalendarYearMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearMonth"></a>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|1[0-2])
-[IsCalendarYearWeek](./Common.xml#L870:~:text=Name="-,IsCalendarYearWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearWeek"></a>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|[1-4][0-9]\|5[0-3])
-[IsCalendarDate](./Common.xml#L880:~:text=Name="-,IsCalendarDate,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarDate"></a>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|1[0-2])(0[1-9]\|[12][0-9]\|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.
-[IsFiscalYear](./Common.xml#L897:~:text=Name="-,IsFiscalYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYear"></a>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. The string matches the regex pattern [1-9][0-9]{3}
-[IsFiscalPeriod](./Common.xml#L906:~:text=Name="-,IsFiscalPeriod,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalPeriod"></a>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. The string matches the regex pattern [0-9]{3}
-[IsFiscalYearPeriod](./Common.xml#L915:~:text=Name="-,IsFiscalYearPeriod,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting of seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})
-[IsFiscalQuarter](./Common.xml#L925:~:text=Name="-,IsFiscalQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalQuarter"></a>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]
-[IsFiscalYearQuarter](./Common.xml#L933:~:text=Name="-,IsFiscalYearQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearQuarter"></a>Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of five digits, where the last digit represents the quarter. The string matches the regex pattern [1-9][0-9]{3}[1-4]
-[IsFiscalWeek](./Common.xml#L942:~:text=Name="-,IsFiscalWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalWeek"></a>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]\|[1-4][0-9]\|5[0-3]
-[IsFiscalYearWeek](./Common.xml#L950:~:text=Name="-,IsFiscalYearWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearWeek"></a>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of six digits, where the last two digits represent the week number in the year. The string matches the regex pattern [1-9][0-9]{3}(0[1-9]\|[1-4][0-9]\|5[0-3])
-[IsDayOfFiscalYear](./Common.xml#L959:~:text=Name="-,IsDayOfFiscalYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfFiscalYear"></a>Day number relative to a fiscal year. Valid values are between 1 and 371.
-[IsFiscalYearVariant](./Common.xml#L966:~:text=Name="-,IsFiscalYearVariant,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
-[MutuallyExclusiveTerm](./Common.xml#L974:~:text=Name="-,MutuallyExclusiveTerm,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
-[DraftRoot](./Common.xml#L980:~:text=Name="-,DraftRoot,-")|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
-[DraftNode](./Common.xml#L1007:~:text=Name="-,DraftNode,-")|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
-[DraftActivationVia](./Common.xml#L1037:~:text=Name="-,DraftActivationVia,-")|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
-[EditableFieldFor](./Common.xml#L1041:~:text=Name="-,EditableFieldFor,-")|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
-[SemanticKey](./Common.xml#L1063:~:text=Name="-,SemanticKey,-")|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](./Common.xml#L1067:~:text=Name="-,SideEffects,-")|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DefaultValuesFunction](./Common.xml#L1155:~:text=Name="-,DefaultValuesFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call
-[DerivedDefaultValue](./Common.xml#L1185:~:text=Name="-,DerivedDefaultValue,-") *([Experimental](Common.md#Experimental))*|String?|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
-[FilterDefaultValue](./Common.xml#L1206:~:text=Name="-,FilterDefaultValue,-")|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](./Common.xml#L1210:~:text=Name="-,FilterDefaultValueHigh,-") *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](./Common.xml#L1215:~:text=Name="-,DerivedFilterDefaultValue,-") *([Experimental](Common.md#Experimental))*|String?|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
-[SortOrder](./Common.xml#L1239:~:text=Name="-,SortOrder,-")|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
-[RecursiveHierarchy](./Common.xml#L1295:~:text=Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[CreatedAt](./Common.xml#L1327:~:text=Name="-,CreatedAt,-")|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](./Common.xml#L1331:~:text=Name="-,CreatedBy,-")|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](./Common.xml#L1335:~:text=Name="-,ChangedAt,-")|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](./Common.xml#L1339:~:text=Name="-,ChangedBy,-")|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](./Common.xml#L1351:~:text=Name="-,OriginalProtocolVersion,-")|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](./Common.xml#L1356:~:text=Name="-,ApplyMultiUnitBehaviorForSortingAndFiltering,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
-[mediaUploadLink](./Common.xml#L1362:~:text=Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
-[PrimitivePropertyPath](./Common.xml#L1377:~:text=Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
+[Composition](./Common.xml#L572:~:text=Name="-,Composition,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Composition"></a>The annotated non-containment navigation property represents a logical composition<br>The entities related via this navigation property have an existential dependency on their composition parent. The entity set containing these dependent entities is annotated with [Common.CompositionChild](#CompositionChild)
+[CompositionChild](./Common.xml#L580:~:text=Name="-,CompositionChild,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CompositionChild"></a>The entities in this set are composition children and have an existential dependency on their composition parent<br>The navigation property representing logical composition from the "parent" entity type to the "child" entity type is annotated with [Common.Composition](#Composition)
+[SAPObjectNodeTypeReference](./Common.xml#L588:~:text=Name="-,SAPObjectNodeTypeReference,-") *([Experimental](Common.md#Experimental))*|String|<a name="SAPObjectNodeTypeReference"></a>The name of the SAP Object Node Type referenced by the annotated property
+[IsNaturalPerson](./Common.xml#L593:~:text=Name="-,IsNaturalPerson,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsNaturalPerson"></a>The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person
+[ValueList](./Common.xml#L599:~:text=Name="-,ValueList,-")|[ValueListType](#ValueListType)|<a name="ValueList"></a>Specifies how to get a list of acceptable values for a property or parameter<br>The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists.
+[ValueListRelevantQualifiers](./Common.xml#L673:~:text=Name="-,ValueListRelevantQualifiers,-") *([Experimental](Common.md#Experimental))*|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="ValueListRelevantQualifiers"></a>List of qualifiers of relevant ValueList annotations<br>The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties.
+[ValueListWithFixedValues](./Common.xml#L679:~:text=Name="-,ValueListWithFixedValues,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ValueListWithFixedValues"></a>If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values
+[ValueListForValidation](./Common.xml#L683:~:text=Name="-,ValueListForValidation,-") *([Experimental](Common.md#Experimental))*|String|<a name="ValueListForValidation"></a>Contains the qualifier of the ValueList or ValueListMapping that should be used for validation
+[ValueListReferences](./Common.xml#L688:~:text=Name="-,ValueListReferences,-")|\[URL\]|<a name="ValueListReferences"></a>A list of URLs of CSDL documents containing value list mappings for this parameter or property
+[ValueListMapping](./Common.xml#L693:~:text=Name="-,ValueListMapping,-")|[ValueListMappingType](#ValueListMappingType)|<a name="ValueListMapping"></a>Specifies the mapping between data service properties and value list properties<br>The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers.
+[IsCalendarYear](./Common.xml#L794:~:text=Name="-,IsCalendarYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYear"></a>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})
+[IsCalendarHalfyear](./Common.xml#L803:~:text=Name="-,IsCalendarHalfyear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarHalfyear"></a>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit. The string matches the regex pattern [1-2]
+[IsCalendarQuarter](./Common.xml#L812:~:text=Name="-,IsCalendarQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarQuarter"></a>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]
+[IsCalendarMonth](./Common.xml#L821:~:text=Name="-,IsCalendarMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarMonth"></a>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits. The string matches the regex pattern 0[1-9]\|1[0-2]
+[IsCalendarWeek](./Common.xml#L830:~:text=Name="-,IsCalendarWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarWeek"></a>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]\|[1-4][0-9]\|5[0-3]
+[IsDayOfCalendarMonth](./Common.xml#L839:~:text=Name="-,IsDayOfCalendarMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfCalendarMonth"></a>Day number relative to a calendar month. Valid values are between 1 and 31.
+[IsDayOfCalendarYear](./Common.xml#L847:~:text=Name="-,IsDayOfCalendarYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfCalendarYear"></a>Day number relative to a calendar year. Valid values are between 1 and 366.
+[IsCalendarYearHalfyear](./Common.xml#L855:~:text=Name="-,IsCalendarYearHalfyear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearHalfyear"></a>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})[1-2]
+[IsCalendarYearQuarter](./Common.xml#L865:~:text=Name="-,IsCalendarYearQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearQuarter"></a>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})[1-4]
+[IsCalendarYearMonth](./Common.xml#L875:~:text=Name="-,IsCalendarYearMonth,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearMonth"></a>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to December. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|1[0-2])
+[IsCalendarYearWeek](./Common.xml#L886:~:text=Name="-,IsCalendarYearWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarYearWeek"></a>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year. The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|[1-4][0-9]\|5[0-3])
+[IsCalendarDate](./Common.xml#L896:~:text=Name="-,IsCalendarDate,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCalendarDate"></a>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}\|0[0-9]{3})(0[1-9]\|1[0-2])(0[1-9]\|[12][0-9]\|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.
+[IsFiscalYear](./Common.xml#L913:~:text=Name="-,IsFiscalYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYear"></a>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. The string matches the regex pattern [1-9][0-9]{3}
+[IsFiscalPeriod](./Common.xml#L922:~:text=Name="-,IsFiscalPeriod,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalPeriod"></a>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. The string matches the regex pattern [0-9]{3}
+[IsFiscalYearPeriod](./Common.xml#L931:~:text=Name="-,IsFiscalYearPeriod,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearPeriod"></a>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting of seven digits, where the last three digits represent the fiscal period in the year. The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})
+[IsFiscalQuarter](./Common.xml#L941:~:text=Name="-,IsFiscalQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalQuarter"></a>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. The string matches the regex pattern [1-4]
+[IsFiscalYearQuarter](./Common.xml#L949:~:text=Name="-,IsFiscalYearQuarter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearQuarter"></a>Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of five digits, where the last digit represents the quarter. The string matches the regex pattern [1-9][0-9]{3}[1-4]
+[IsFiscalWeek](./Common.xml#L958:~:text=Name="-,IsFiscalWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalWeek"></a>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. The string matches the regex pattern 0[1-9]\|[1-4][0-9]\|5[0-3]
+[IsFiscalYearWeek](./Common.xml#L966:~:text=Name="-,IsFiscalYearWeek,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearWeek"></a>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of six digits, where the last two digits represent the week number in the year. The string matches the regex pattern [1-9][0-9]{3}(0[1-9]\|[1-4][0-9]\|5[0-3])
+[IsDayOfFiscalYear](./Common.xml#L975:~:text=Name="-,IsDayOfFiscalYear,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDayOfFiscalYear"></a>Day number relative to a fiscal year. Valid values are between 1 and 371.
+[IsFiscalYearVariant](./Common.xml#L982:~:text=Name="-,IsFiscalYearVariant,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
+[MutuallyExclusiveTerm](./Common.xml#L990:~:text=Name="-,MutuallyExclusiveTerm,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
+[DraftRoot](./Common.xml#L996:~:text=Name="-,DraftRoot,-")|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
+[DraftNode](./Common.xml#L1023:~:text=Name="-,DraftNode,-")|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
+[DraftActivationVia](./Common.xml#L1053:~:text=Name="-,DraftActivationVia,-")|\[[SimpleIdentifier](#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
+[EditableFieldFor](./Common.xml#L1057:~:text=Name="-,EditableFieldFor,-")|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
+[SemanticKey](./Common.xml#L1079:~:text=Name="-,SemanticKey,-")|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
+[SideEffects](./Common.xml#L1083:~:text=Name="-,SideEffects,-")|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DefaultValuesFunction](./Common.xml#L1171:~:text=Name="-,DefaultValuesFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call
+[DerivedDefaultValue](./Common.xml#L1201:~:text=Name="-,DerivedDefaultValue,-") *([Experimental](Common.md#Experimental))*|String?|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
+[FilterDefaultValue](./Common.xml#L1222:~:text=Name="-,FilterDefaultValue,-")|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](./Common.xml#L1226:~:text=Name="-,FilterDefaultValueHigh,-") *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](./Common.xml#L1231:~:text=Name="-,DerivedFilterDefaultValue,-") *([Experimental](Common.md#Experimental))*|String?|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
+[SortOrder](./Common.xml#L1255:~:text=Name="-,SortOrder,-")|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
+[RecursiveHierarchy](./Common.xml#L1311:~:text=Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
+[CreatedAt](./Common.xml#L1343:~:text=Name="-,CreatedAt,-")|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](./Common.xml#L1347:~:text=Name="-,CreatedBy,-")|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](./Common.xml#L1351:~:text=Name="-,ChangedAt,-")|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](./Common.xml#L1355:~:text=Name="-,ChangedBy,-")|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
+[OriginalProtocolVersion](./Common.xml#L1367:~:text=Name="-,OriginalProtocolVersion,-")|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](./Common.xml#L1372:~:text=Name="-,ApplyMultiUnitBehaviorForSortingAndFiltering,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
+[mediaUploadLink](./Common.xml#L1378:~:text=Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
+[PrimitivePropertyPath](./Common.xml#L1393:~:text=Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 
 ## <a name="TextFormatType"></a>[TextFormatType](./Common.xml#L108:~:text=Name="-,TextFormatType,-")
 
@@ -189,53 +191,53 @@ Property|Type|Description
 :-------|:---|:----------
 [Name](./Common.xml#L567:~:text=Name="-,Name,-")|String|The name of the SAP Object Node Type
 
-## <a name="ValueListType"></a>[ValueListType](./Common.xml#L587:~:text=Name="-,ValueListType,-")
+## <a name="ValueListType"></a>[ValueListType](./Common.xml#L603:~:text=Name="-,ValueListType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](./Common.xml#L608:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
-[CollectionPath](./Common.xml#L612:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to CollectionRoot
-[CollectionRoot](./Common.xml#L615:~:text=Name="-,CollectionRoot,-")|String?|Service root of the value list collection; not specified means local to the document containing the annotation
-[DistinctValuesSupported](./Common.xml#L618:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
-[SearchSupported](./Common.xml#L621:~:text=Name="-,SearchSupported,-")|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
-[FetchValues](./Common.xml#L625:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
-[PresentationVariantQualifier](./Common.xml#L628:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath
-[SelectionVariantQualifier](./Common.xml#L632:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
-[Parameters](./Common.xml#L636:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](./Common.xml#L624:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](./Common.xml#L628:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to CollectionRoot
+[CollectionRoot](./Common.xml#L631:~:text=Name="-,CollectionRoot,-")|String?|Service root of the value list collection; not specified means local to the document containing the annotation
+[DistinctValuesSupported](./Common.xml#L634:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
+[SearchSupported](./Common.xml#L637:~:text=Name="-,SearchSupported,-")|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
+[FetchValues](./Common.xml#L641:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
+[PresentationVariantQualifier](./Common.xml#L644:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath
+[SelectionVariantQualifier](./Common.xml#L648:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
+[Parameters](./Common.xml#L652:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 **Applicable Annotation Terms:**
 
 - [QuickInfo](#QuickInfo)
 
-## <a name="FetchValuesType"></a>[FetchValuesType](./Common.xml#L641:~:text=Name="-,FetchValuesType,-")
+## <a name="FetchValuesType"></a>[FetchValuesType](./Common.xml#L657:~:text=Name="-,FetchValuesType,-")
 **Type:** Byte
 
 Hint on when to fetch values
 
 Allowed Value|Description
 :------------|:----------
-[1](./Common.xml#L645:~:text=Name="-,1,-")|Fetch values immediately without filter
-[2](./Common.xml#L649:~:text=Name="-,2,-")|Fetch values with a filter
+[1](./Common.xml#L661:~:text=Name="-,1,-")|Fetch values immediately without filter
+[2](./Common.xml#L665:~:text=Name="-,2,-")|Fetch values with a filter
 
-## <a name="ValueListMappingType"></a>[ValueListMappingType](./Common.xml#L681:~:text=Name="-,ValueListMappingType,-")
+## <a name="ValueListMappingType"></a>[ValueListMappingType](./Common.xml#L697:~:text=Name="-,ValueListMappingType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](./Common.xml#L687:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
-[CollectionPath](./Common.xml#L691:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-[DistinctValuesSupported](./Common.xml#L694:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
-[FetchValues](./Common.xml#L697:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
-[PresentationVariantQualifier](./Common.xml#L700:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation
-[SelectionVariantQualifier](./Common.xml#L704:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
-[Parameters](./Common.xml#L708:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](./Common.xml#L703:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](./Common.xml#L707:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
+[DistinctValuesSupported](./Common.xml#L710:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
+[FetchValues](./Common.xml#L713:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
+[PresentationVariantQualifier](./Common.xml#L716:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation
+[SelectionVariantQualifier](./Common.xml#L720:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
+[Parameters](./Common.xml#L724:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 **Applicable Annotation Terms:**
 
 - [QuickInfo](#QuickInfo)
 
-## <a name="ValueListParameter"></a>[*ValueListParameter*](./Common.xml#L713:~:text=Name="-,ValueListParameter,-")
+## <a name="ValueListParameter"></a>[*ValueListParameter*](./Common.xml#L729:~:text=Name="-,ValueListParameter,-")
 
 
 **Derived Types:**
@@ -248,78 +250,78 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ValueListProperty](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[ValueListProperty](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
-## <a name="ValueListParameterIn"></a>[ValueListParameterIn](./Common.xml#L718:~:text=Name="-,ValueListParameterIn,-"): [ValueListParameter](#ValueListParameter)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L719:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
-[InitialValueIsSignificant](./Common.xml#L722:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
-
-## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](./Common.xml#L727:~:text=Name="-,ValueListParameterConstant,-"): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
+## <a name="ValueListParameterIn"></a>[ValueListParameterIn](./Common.xml#L734:~:text=Name="-,ValueListParameterIn,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constant](./Common.xml#L729:~:text=Name="-,Constant,-")|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+[*ValueListProperty*](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L735:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
+[InitialValueIsSignificant](./Common.xml#L738:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
-## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](./Common.xml#L733:~:text=Name="-,ValueListParameterInOut,-"): [ValueListParameter](#ValueListParameter)
+## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](./Common.xml#L743:~:text=Name="-,ValueListParameterConstant,-"): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L734:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-[InitialValueIsSignificant](./Common.xml#L737:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
+[*ValueListProperty*](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[Constant](./Common.xml#L745:~:text=Name="-,Constant,-")|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+
+## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](./Common.xml#L749:~:text=Name="-,ValueListParameterInOut,-"): [ValueListParameter](#ValueListParameter)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*ValueListProperty*](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L750:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
+[InitialValueIsSignificant](./Common.xml#L753:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 **Applicable Annotation Terms:**
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterOut"></a>[ValueListParameterOut](./Common.xml#L747:~:text=Name="-,ValueListParameterOut,-"): [ValueListParameter](#ValueListParameter)
+## <a name="ValueListParameterOut"></a>[ValueListParameterOut](./Common.xml#L763:~:text=Name="-,ValueListParameterOut,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L748:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is filled from response
+[*ValueListProperty*](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L764:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is filled from response
 
 **Applicable Annotation Terms:**
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](./Common.xml#L757:~:text=Name="-,ValueListParameterDisplayOnly,-"): [ValueListParameter](#ValueListParameter)
+## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](./Common.xml#L773:~:text=Name="-,ValueListParameterDisplayOnly,-"): [ValueListParameter](#ValueListParameter)
 Value list property that is not used to fill the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L714:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[*ValueListProperty*](./Common.xml#L730:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 **Applicable Annotation Terms:**
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](./Common.xml#L765:~:text=Name="-,ValueListParameterFilterOnly,-"): [ValueListParameter](#ValueListParameter) *(Deprecated)*
+## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](./Common.xml#L781:~:text=Name="-,ValueListParameterFilterOnly,-"): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 All filterable properties of the value list can be used to filter
 
-## <a name="DraftRootType"></a>[DraftRootType](./Common.xml#L985:~:text=Name="-,DraftRootType,-"): [DraftNodeType](#DraftNodeType)
+## <a name="DraftRootType"></a>[DraftRootType](./Common.xml#L1001:~:text=Name="-,DraftRootType,-"): [DraftNodeType](#DraftNodeType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*PreparationAction*](./Common.xml#L1013:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[*ValidationFunction*](./Common.xml#L1024:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
-[ActivationAction](./Common.xml#L986:~:text=Name="-,ActivationAction,-")|[QualifiedName](#QualifiedName)|Action that activates a draft document
-[DiscardAction](./Common.xml#L989:~:text=Name="-,DiscardAction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
-[EditAction](./Common.xml#L993:~:text=Name="-,EditAction,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
-[NewAction](./Common.xml#L996:~:text=Name="-,NewAction,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
-[AdditionalNewActions](./Common.xml#L1000:~:text=Name="-,AdditionalNewActions,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
+[*PreparationAction*](./Common.xml#L1029:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[*ValidationFunction*](./Common.xml#L1040:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[ActivationAction](./Common.xml#L1002:~:text=Name="-,ActivationAction,-")|[QualifiedName](#QualifiedName)|Action that activates a draft document
+[DiscardAction](./Common.xml#L1005:~:text=Name="-,DiscardAction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
+[EditAction](./Common.xml#L1009:~:text=Name="-,EditAction,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
+[NewAction](./Common.xml#L1012:~:text=Name="-,NewAction,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
+[AdditionalNewActions](./Common.xml#L1016:~:text=Name="-,AdditionalNewActions,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
 
-## <a name="DraftNodeType"></a>[DraftNodeType](./Common.xml#L1012:~:text=Name="-,DraftNodeType,-")
+## <a name="DraftNodeType"></a>[DraftNodeType](./Common.xml#L1028:~:text=Name="-,DraftNodeType,-")
 
 
 **Derived Types:**
@@ -327,20 +329,20 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[PreparationAction](./Common.xml#L1013:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[ValidationFunction](./Common.xml#L1024:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[PreparationAction](./Common.xml#L1029:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[ValidationFunction](./Common.xml#L1040:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Common.xml#L1045:~:text=Name="-,SimpleIdentifier,-")
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Common.xml#L1061:~:text=Name="-,SimpleIdentifier,-")
 **Type:** String
 
 The SimpleIdentifier of an OData construct in scope
 
-## <a name="QualifiedName"></a>[QualifiedName](./Common.xml#L1049:~:text=Name="-,QualifiedName,-")
+## <a name="QualifiedName"></a>[QualifiedName](./Common.xml#L1065:~:text=Name="-,QualifiedName,-")
 **Type:** String
 
 The QualifiedName of an OData construct in scope
 
-## <a name="ActionOverload"></a>[ActionOverload](./Common.xml#L1053:~:text=Name="-,ActionOverload,-")
+## <a name="ActionOverload"></a>[ActionOverload](./Common.xml#L1069:~:text=Name="-,ActionOverload,-")
 **Type:** String
 
 The qualified name of an action with an optional overload
@@ -349,7 +351,7 @@ The qualified name of an action followed by parentheses
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
-## <a name="SideEffectsType"></a>[SideEffectsType](./Common.xml#L1070:~:text=Name="-,SideEffectsType,-")
+## <a name="SideEffectsType"></a>[SideEffectsType](./Common.xml#L1086:~:text=Name="-,SideEffectsType,-")
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -363,37 +365,37 @@ This can also be used with OData V2 services: the annotation target is a functio
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](./Common.xml#L1082:~:text=Name="-,SourceProperties,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
-[SourceEntities](./Common.xml#L1085:~:text=Name="-,SourceEntities,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[TargetProperties](./Common.xml#L1088:~:text=Name="-,TargetProperties,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
-[TargetEntities](./Common.xml#L1092:~:text=Name="-,TargetEntities,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
-[EffectTypes](./Common.xml#L1095:~:text=Name="-,EffectTypes,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
-[TriggerAction](./Common.xml#L1106:~:text=Name="-,TriggerAction,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
-[TriggeredIndicator](./Common.xml#L1110:~:text=Name="-,TriggeredIndicator,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
-[Discretionary](./Common.xml#L1115:~:text=Name="-,Discretionary,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
+[SourceProperties](./Common.xml#L1098:~:text=Name="-,SourceProperties,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
+[SourceEntities](./Common.xml#L1101:~:text=Name="-,SourceEntities,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
+[TargetProperties](./Common.xml#L1104:~:text=Name="-,TargetProperties,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
+[TargetEntities](./Common.xml#L1108:~:text=Name="-,TargetEntities,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
+[EffectTypes](./Common.xml#L1111:~:text=Name="-,EffectTypes,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
+[TriggerAction](./Common.xml#L1122:~:text=Name="-,TriggerAction,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
+[TriggeredIndicator](./Common.xml#L1126:~:text=Name="-,TriggeredIndicator,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
+[Discretionary](./Common.xml#L1131:~:text=Name="-,Discretionary,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
 
-## <a name="EffectType"></a>[EffectType](./Common.xml#L1121:~:text=Name="-,EffectType,-") *(Deprecated)*
+## <a name="EffectType"></a>[EffectType](./Common.xml#L1137:~:text=Name="-,EffectType,-") *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
 
-## <a name="SortOrderType"></a>[SortOrderType](./Common.xml#L1247:~:text=Name="-,SortOrderType,-")
+## <a name="SortOrderType"></a>[SortOrderType](./Common.xml#L1263:~:text=Name="-,SortOrderType,-")
 Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](./Common.xml#L1249:~:text=Name="-,Property,-")|PropertyPath?|Sort property
-[DynamicProperty](./Common.xml#L1261:~:text=Name="-,DynamicProperty,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
-[Descending](./Common.xml#L1275:~:text=Name="-,Descending,-")|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](./Common.xml#L1265:~:text=Name="-,Property,-")|PropertyPath?|Sort property
+[DynamicProperty](./Common.xml#L1277:~:text=Name="-,DynamicProperty,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
+[Descending](./Common.xml#L1291:~:text=Name="-,Descending,-")|Boolean?|Sort direction, ascending if not specified otherwise
 
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Common.xml#L1300:~:text=Name="-,RecursiveHierarchyType,-")
+## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Common.xml#L1316:~:text=Name="-,RecursiveHierarchyType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](./Common.xml#L1301:~:text=Name="-,ExternalNodeKeyProperty,-")|PropertyPath?|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](./Common.xml#L1304:~:text=Name="-,NodeDescendantCountProperty,-")|PropertyPath?|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](./Common.xml#L1312:~:text=Name="-,NodeDrillStateProperty,-")|PropertyPath?|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[ExternalNodeKeyProperty](./Common.xml#L1317:~:text=Name="-,ExternalNodeKeyProperty,-")|PropertyPath?|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](./Common.xml#L1320:~:text=Name="-,NodeDescendantCountProperty,-")|PropertyPath?|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](./Common.xml#L1328:~:text=Name="-,NodeDrillStateProperty,-")|PropertyPath?|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
 
-## <a name="UserID"></a>[UserID](./Common.xml#L1343:~:text=Name="-,UserID,-")
+## <a name="UserID"></a>[UserID](./Common.xml#L1359:~:text=Name="-,UserID,-")
 **Type:** String
 
 User ID

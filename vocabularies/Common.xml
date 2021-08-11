@@ -569,6 +569,22 @@ The minimum structure is
         </Property>
       </ComplexType>
 
+      <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated non-containment navigation property represents a logical composition" />
+        <Annotation Term="Core.LongDescription">
+          <String>The entities related via this navigation property have an existential dependency on their composition parent. The entity set containing these dependent entities is annotated with [Common.CompositionChild](#CompositionChild)</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="CompositionChild" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The entities in this set are composition children and have an existential dependency on their composition parent" />
+        <Annotation Term="Core.LongDescription">
+          <String>The navigation property representing logical composition from the "parent" entity type to the "child" entity type is annotated with [Common.Composition](#Composition)</String>
+        </Annotation>
+      </Term>
+
       <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
