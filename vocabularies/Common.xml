@@ -571,7 +571,7 @@ The minimum structure is
 
       <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated non-containment navigation property represents a logical composition" />
+        <Annotation Term="Core.Description" String="The annotated navigation property represents a logical composition, even though it is non-containment" />
         <Annotation Term="Core.LongDescription">
           <String>The entities related via this navigation property have an existential dependency on their composition parent. The entity set containing these dependent entities is annotated with [Common.CompositionChild](#CompositionChild)</String>
         </Annotation>
