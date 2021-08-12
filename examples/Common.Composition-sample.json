@@ -63,7 +63,7 @@
             }
         },
         "$Annotations": {
-            "this.SalesOrder/_Item": {
+            "this.SalesOrder_Type/_Item": {
                 "@Common.Composition": true
             }
         }
