@@ -63,9 +63,6 @@
             }
         },
         "$Annotations": {
-            "this.container/SalesOrderItem": {
-                "@Common.CompositionChild": true
-            },
             "this.SalesOrder/_Item": {
                 "@Common.Composition": true
             }
