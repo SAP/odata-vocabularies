@@ -681,19 +681,8 @@
                 "NavigationProperty"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The annotated non-containment navigation property represents a logical composition",
-            "@Core.LongDescription": "The entities related via this navigation property have an existential dependency on their composition parent. The entity set containing these dependent entities is annotated with [Common.CompositionChild](#CompositionChild)"
-        },
-        "CompositionChild": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntitySet"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "The entities in this set are composition children and have an existential dependency on their composition parent",
-            "@Core.LongDescription": "The navigation property representing logical composition from the \"parent\" entity type to the \"child\" entity type is annotated with [Common.Composition](#Composition)"
+            "@Core.Description": "The annotated navigation property represents a logical composition, even though it is non-containment",
+            "@Core.LongDescription": "The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property."
         },
         "SAPObjectNodeTypeReference": {
             "$Kind": "Term",
