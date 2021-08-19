@@ -673,6 +673,17 @@
                 "@Core.Description": "The name of the SAP Object Node Type"
             }
         },
+        "Composition": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated navigation property represents a logical composition, even though it is non-containment",
+            "@Core.LongDescription": "The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property."
+        },
         "SAPObjectNodeTypeReference": {
             "$Kind": "Term",
             "$AppliesTo": [
