@@ -19,5 +19,5 @@ An entity set containing the code list for currencies
 
 Property|Type|Description
 :-------|:---|:----------
-[Url](./CodeList.xml#L45:~:text=Name="-,Url,-")|URL|URL of a CSDL document describing an entity set for a code list
-[CollectionPath](./CodeList.xml#L49:~:text=Name="-,CollectionPath,-")|String|Name of the entity set for the code list
+[Url](./CodeList.xml#L45:~:text=Name="-,CodeListSource,-")|URL|URL of a CSDL document describing an entity set for a code list
+[CollectionPath](./CodeList.xml#L49:~:text=Name="-,CodeListSource,-")|String|Name of the entity set for the code list

@@ -23,9 +23,9 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Analytics.xml#L125:~:text=Name="-,Name,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
-[AggregationMethod](./Analytics.xml#L128:~:text=Name="-,AggregationMethod,-")|String|Name of the standard or custom aggregation method to be applied.
-[AggregatableProperty](./Analytics.xml#L131:~:text=Name="-,AggregatableProperty,-")|PropertyPath|Property whose values shall be aggregated.
+[Name](./Analytics.xml#L125:~:text=Name="-,AggregatedPropertyType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
+[AggregationMethod](./Analytics.xml#L128:~:text=Name="-,AggregatedPropertyType,-")|String|Name of the standard or custom aggregation method to be applied.
+[AggregatableProperty](./Analytics.xml#L131:~:text=Name="-,AggregatedPropertyType,-")|PropertyPath|Property whose values shall be aggregated.
 
 **Applicable Annotation Terms:**
 
@@ -36,8 +36,8 @@ Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](./Analytics.xml#L147:~:text=Name="-,Property,-")|PropertyPath?|Property that is part of the analytical context
-[DynamicProperty](./Analytics.xml#L150:~:text=Name="-,DynamicProperty,-")|AnnotationPath?|Dynamic property introduced by annotations that is part of the analytical context<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
-[Dimension](./Analytics.xml#L159:~:text=Name="-,Dimension,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
-[Measure](./Analytics.xml#L162:~:text=Name="-,Measure,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
-[AccumulativeMeasure](./Analytics.xml#L165:~:text=Name="-,AccumulativeMeasure,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+[Property](./Analytics.xml#L147:~:text=Name="-,AnalyticalContextType,-")|PropertyPath?|Property that is part of the analytical context
+[DynamicProperty](./Analytics.xml#L150:~:text=Name="-,AnalyticalContextType,-")|AnnotationPath?|Dynamic property introduced by annotations that is part of the analytical context<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
+[Dimension](./Analytics.xml#L159:~:text=Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
+[Measure](./Analytics.xml#L162:~:text=Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
+[AccumulativeMeasure](./Analytics.xml#L165:~:text=Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
