@@ -114,16 +114,16 @@ Term|Type|Description
 
 Member|Value|Description
 :-----|----:|:----------
-[plain](./Common.xml#L109:~:text=Name="-,plain,-")|0|Plain text, line breaks represented as the character 0x0A
-[html](./Common.xml#L112:~:text=Name="-,html,-")|1|Plain text with markup that can validly appear directly within an HTML DIV element
+[plain](./Common.xml#L109:~:text=Name="-,TextFormatType,-")|0|Plain text, line breaks represented as the character 0x0A
+[html](./Common.xml#L112:~:text=Name="-,TextFormatType,-")|1|Plain text with markup that can validly appear directly within an HTML DIV element
 
 ## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](./Common.xml#L277:~:text=Name="-,SemanticObjectMappingType,-")
 Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalProperty](./Common.xml#L279:~:text=Name="-,LocalProperty,-")|PropertyPath|Path to a local property that provides the value for the Semantic Object property
-[SemanticObjectProperty](./Common.xml#L282:~:text=Name="-,SemanticObjectProperty,-")|String|Name of the Semantic Object property
+[LocalProperty](./Common.xml#L279:~:text=Name="-,SemanticObjectMappingType,-")|PropertyPath|Path to a local property that provides the value for the Semantic Object property
+[SemanticObjectProperty](./Common.xml#L282:~:text=Name="-,SemanticObjectMappingType,-")|String|Name of the Semantic Object property
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](./Common.xml#L331:~:text=Name="-,FilterExpressionRestrictionType,-") *(Deprecated)*
 Use term Capabilities.FilterRestrictions instead
@@ -136,30 +136,30 @@ Control state of a property
 
 Member|Value|Description
 :-----|----:|:----------
-[Mandatory](./Common.xml#L370:~:text=Name="-,Mandatory,-")|7|Property is mandatory from a business perspective<br>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).
-[Optional](./Common.xml#L374:~:text=Name="-,Optional,-")|3|Property may have a value<br>This value does not make sense as a static annotation value.
-[ReadOnly](./Common.xml#L378:~:text=Name="-,ReadOnly,-")|1|Property value cannot be changed<br>To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead
-[Inapplicable](./Common.xml#L382:~:text=Name="-,Inapplicable,-")|0|Property has no meaning in the current entity state<br>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
-[Hidden](./Common.xml#L390:~:text=Name="-,Hidden,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
+[Mandatory](./Common.xml#L370:~:text=Name="-,FieldControlType,-")|7|Property is mandatory from a business perspective<br>This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).
+[Optional](./Common.xml#L374:~:text=Name="-,FieldControlType,-")|3|Property may have a value<br>This value does not make sense as a static annotation value.
+[ReadOnly](./Common.xml#L378:~:text=Name="-,FieldControlType,-")|1|Property value cannot be changed<br>To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead
+[Inapplicable](./Common.xml#L382:~:text=Name="-,FieldControlType,-")|0|Property has no meaning in the current entity state<br>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
+[Hidden](./Common.xml#L390:~:text=Name="-,FieldControlType,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
 
 ## <a name="ApplicationType"></a>[ApplicationType](./Common.xml#L406:~:text=Name="-,ApplicationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Component](./Common.xml#L408:~:text=Name="-,Component,-")|String?|Software component of service implementation
-[ServiceRepository](./Common.xml#L411:~:text=Name="-,ServiceRepository,-")|String?|...
-[ServiceId](./Common.xml#L414:~:text=Name="-,ServiceId,-")|String?|...
-[ServiceVersion](./Common.xml#L417:~:text=Name="-,ServiceVersion,-")|String?|...
+[Component](./Common.xml#L408:~:text=Name="-,ApplicationType,-")|String?|Software component of service implementation
+[ServiceRepository](./Common.xml#L411:~:text=Name="-,ApplicationType,-")|String?|...
+[ServiceId](./Common.xml#L414:~:text=Name="-,ApplicationType,-")|String?|...
+[ServiceVersion](./Common.xml#L417:~:text=Name="-,ApplicationType,-")|String?|...
 
 ## <a name="ErrorResolutionType"></a>[ErrorResolutionType](./Common.xml#L436:~:text=Name="-,ErrorResolutionType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Analysis](./Common.xml#L438:~:text=Name="-,Analysis,-")|String?|Short hint on how to analyze this error
-[Note](./Common.xml#L441:~:text=Name="-,Note,-")|String?|Note for error resolution
-[AdditionalNote](./Common.xml#L444:~:text=Name="-,AdditionalNote,-")|String?|Additional note for error resolution
+[Analysis](./Common.xml#L438:~:text=Name="-,ErrorResolutionType,-")|String?|Short hint on how to analyze this error
+[Note](./Common.xml#L441:~:text=Name="-,ErrorResolutionType,-")|String?|Note for error resolution
+[AdditionalNote](./Common.xml#L444:~:text=Name="-,ErrorResolutionType,-")|String?|Additional note for error resolution
 
 ## <a name="NumericMessageSeverityType"></a>[NumericMessageSeverityType](./Common.xml#L494:~:text=Name="-,NumericMessageSeverityType,-")
 **Type:** Byte
@@ -168,42 +168,42 @@ Classifies an end-user message as info, success, warning, or error
 
 Allowed Value|Description
 :------------|:----------
-[1](./Common.xml#L498:~:text=Name="-,1,-")|Success - no action required
-[2](./Common.xml#L502:~:text=Name="-,2,-")|Information - no action required
-[3](./Common.xml#L506:~:text=Name="-,3,-")|Warning - action may be required
-[4](./Common.xml#L510:~:text=Name="-,4,-")|Error - action is required
+[1](./Common.xml#L498:~:text=Name="-,NumericMessageSeverityType,-")|Success - no action required
+[2](./Common.xml#L502:~:text=Name="-,NumericMessageSeverityType,-")|Information - no action required
+[3](./Common.xml#L506:~:text=Name="-,NumericMessageSeverityType,-")|Warning - action may be required
+[4](./Common.xml#L510:~:text=Name="-,NumericMessageSeverityType,-")|Error - action is required
 
 ## <a name="IntervalType"></a>[IntervalType](./Common.xml#L533:~:text=Name="-,IntervalType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LowerBoundary](./Common.xml#L534:~:text=Name="-,LowerBoundary,-")|PropertyPath|Property holding the lower interval boundary
-[LowerBoundaryIncluded](./Common.xml#L537:~:text=Name="-,LowerBoundaryIncluded,-")|Boolean|The lower boundary value is included in the interval
-[UpperBoundary](./Common.xml#L540:~:text=Name="-,UpperBoundary,-")|PropertyPath|Property holding the upper interval boundary
-[UpperBoundaryIncluded](./Common.xml#L543:~:text=Name="-,UpperBoundaryIncluded,-")|Boolean|The upper boundary value is included in the interval
+[LowerBoundary](./Common.xml#L534:~:text=Name="-,IntervalType,-")|PropertyPath|Property holding the lower interval boundary
+[LowerBoundaryIncluded](./Common.xml#L537:~:text=Name="-,IntervalType,-")|Boolean|The lower boundary value is included in the interval
+[UpperBoundary](./Common.xml#L540:~:text=Name="-,IntervalType,-")|PropertyPath|Property holding the upper interval boundary
+[UpperBoundaryIncluded](./Common.xml#L543:~:text=Name="-,IntervalType,-")|Boolean|The upper boundary value is included in the interval
 
 ## <a name="SAPObjectNodeTypeType"></a>[SAPObjectNodeTypeType](./Common.xml#L564:~:text=Name="-,SAPObjectNodeTypeType,-") *([Experimental](Common.md#Experimental))*
 Information about an SAP Object Node Type
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Common.xml#L567:~:text=Name="-,Name,-")|String|The name of the SAP Object Node Type
+[Name](./Common.xml#L567:~:text=Name="-,SAPObjectNodeTypeType,-")|String|The name of the SAP Object Node Type
 
 ## <a name="ValueListType"></a>[ValueListType](./Common.xml#L596:~:text=Name="-,ValueListType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](./Common.xml#L617:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
-[CollectionPath](./Common.xml#L621:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to CollectionRoot
-[CollectionRoot](./Common.xml#L624:~:text=Name="-,CollectionRoot,-")|String?|Service root of the value list collection; not specified means local to the document containing the annotation
-[DistinctValuesSupported](./Common.xml#L627:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
-[SearchSupported](./Common.xml#L630:~:text=Name="-,SearchSupported,-")|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
-[FetchValues](./Common.xml#L634:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
-[PresentationVariantQualifier](./Common.xml#L637:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath
-[SelectionVariantQualifier](./Common.xml#L641:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
-[Parameters](./Common.xml#L645:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](./Common.xml#L617:~:text=Name="-,ValueListType,-")|String?|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](./Common.xml#L621:~:text=Name="-,ValueListType,-")|String|Resource path of an OData collection with possible values, relative to CollectionRoot
+[CollectionRoot](./Common.xml#L624:~:text=Name="-,ValueListType,-")|String?|Service root of the value list collection; not specified means local to the document containing the annotation
+[DistinctValuesSupported](./Common.xml#L627:~:text=Name="-,ValueListType,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
+[SearchSupported](./Common.xml#L630:~:text=Name="-,ValueListType,-")|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
+[FetchValues](./Common.xml#L634:~:text=Name="-,ValueListType,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
+[PresentationVariantQualifier](./Common.xml#L637:~:text=Name="-,ValueListType,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath
+[SelectionVariantQualifier](./Common.xml#L641:~:text=Name="-,ValueListType,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
+[Parameters](./Common.xml#L645:~:text=Name="-,ValueListType,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 **Applicable Annotation Terms:**
 
@@ -216,21 +216,21 @@ Hint on when to fetch values
 
 Allowed Value|Description
 :------------|:----------
-[1](./Common.xml#L654:~:text=Name="-,1,-")|Fetch values immediately without filter
-[2](./Common.xml#L658:~:text=Name="-,2,-")|Fetch values with a filter
+[1](./Common.xml#L654:~:text=Name="-,FetchValuesType,-")|Fetch values immediately without filter
+[2](./Common.xml#L658:~:text=Name="-,FetchValuesType,-")|Fetch values with a filter
 
 ## <a name="ValueListMappingType"></a>[ValueListMappingType](./Common.xml#L690:~:text=Name="-,ValueListMappingType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](./Common.xml#L696:~:text=Name="-,Label,-")|String?|Headline for value list, fallback is the label of the property or parameter
-[CollectionPath](./Common.xml#L700:~:text=Name="-,CollectionPath,-")|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
-[DistinctValuesSupported](./Common.xml#L703:~:text=Name="-,DistinctValuesSupported,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
-[FetchValues](./Common.xml#L706:~:text=Name="-,FetchValues,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
-[PresentationVariantQualifier](./Common.xml#L709:~:text=Name="-,PresentationVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation
-[SelectionVariantQualifier](./Common.xml#L713:~:text=Name="-,SelectionVariantQualifier,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
-[Parameters](./Common.xml#L717:~:text=Name="-,Parameters,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
+[Label](./Common.xml#L696:~:text=Name="-,ValueListMappingType,-")|String?|Headline for value list, fallback is the label of the property or parameter
+[CollectionPath](./Common.xml#L700:~:text=Name="-,ValueListMappingType,-")|String|Resource path of an OData collection with possible values, relative to the document containing the value list mapping
+[DistinctValuesSupported](./Common.xml#L703:~:text=Name="-,ValueListMappingType,-")|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
+[FetchValues](./Common.xml#L706:~:text=Name="-,ValueListMappingType,-")|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
+[PresentationVariantQualifier](./Common.xml#L709:~:text=Name="-,ValueListMappingType,-")|[SimpleIdentifier?](#SimpleIdentifier)|Alternative representation of a value help, e.g. as a bar chart<br>Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation
+[SelectionVariantQualifier](./Common.xml#L713:~:text=Name="-,ValueListMappingType,-")|[SimpleIdentifier?](#SimpleIdentifier)|Optional combination of parameters and filters to query the value help entity set<br>Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath
+[Parameters](./Common.xml#L717:~:text=Name="-,ValueListMappingType,-")|\[[ValueListParameter](#ValueListParameter)\]|Instructions on how to construct the value list request and consume response properties
 
 **Applicable Annotation Terms:**
 
@@ -249,33 +249,33 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ValueListProperty](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[ValueListProperty](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 ## <a name="ValueListParameterIn"></a>[ValueListParameterIn](./Common.xml#L727:~:text=Name="-,ValueListParameterIn,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L728:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
-[InitialValueIsSignificant](./Common.xml#L731:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
+[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L728:~:text=Name="-,ValueListParameterIn,-")|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
+[InitialValueIsSignificant](./Common.xml#L731:~:text=Name="-,ValueListParameterIn,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 ## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](./Common.xml#L736:~:text=Name="-,ValueListParameterConstant,-"): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constant](./Common.xml#L738:~:text=Name="-,Constant,-")|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[Constant](./Common.xml#L738:~:text=Name="-,ValueListParameterConstant,-")|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
 
 ## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](./Common.xml#L742:~:text=Name="-,ValueListParameterInOut,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L743:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-[InitialValueIsSignificant](./Common.xml#L746:~:text=Name="-,InitialValueIsSignificant,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
+[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L743:~:text=Name="-,ValueListParameterInOut,-")|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
+[InitialValueIsSignificant](./Common.xml#L746:~:text=Name="-,ValueListParameterInOut,-") *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 **Applicable Annotation Terms:**
 
@@ -286,8 +286,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](./Common.xml#L757:~:text=Name="-,LocalDataProperty,-")|PropertyPath|Path to property that is filled from response
+[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](./Common.xml#L757:~:text=Name="-,ValueListParameterOut,-")|PropertyPath|Path to property that is filled from response
 
 **Applicable Annotation Terms:**
 
@@ -298,7 +298,7 @@ Value list property that is not used to fill the edited entity
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListProperty,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[*ValueListProperty*](./Common.xml#L723:~:text=Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
 **Applicable Annotation Terms:**
 
@@ -312,13 +312,13 @@ All filterable properties of the value list can be used to filter
 
 Property|Type|Description
 :-------|:---|:----------
-[*PreparationAction*](./Common.xml#L1022:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[*ValidationFunction*](./Common.xml#L1033:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
-[ActivationAction](./Common.xml#L995:~:text=Name="-,ActivationAction,-")|[QualifiedName](#QualifiedName)|Action that activates a draft document
-[DiscardAction](./Common.xml#L998:~:text=Name="-,DiscardAction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
-[EditAction](./Common.xml#L1002:~:text=Name="-,EditAction,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
-[NewAction](./Common.xml#L1005:~:text=Name="-,NewAction,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
-[AdditionalNewActions](./Common.xml#L1009:~:text=Name="-,AdditionalNewActions,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
+[*PreparationAction*](./Common.xml#L1022:~:text=Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[*ValidationFunction*](./Common.xml#L1033:~:text=Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[ActivationAction](./Common.xml#L995:~:text=Name="-,DraftRootType,-")|[QualifiedName](#QualifiedName)|Action that activates a draft document
+[DiscardAction](./Common.xml#L998:~:text=Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
+[EditAction](./Common.xml#L1002:~:text=Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
+[NewAction](./Common.xml#L1005:~:text=Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
+[AdditionalNewActions](./Common.xml#L1009:~:text=Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
 
 ## <a name="DraftNodeType"></a>[DraftNodeType](./Common.xml#L1021:~:text=Name="-,DraftNodeType,-")
 
@@ -328,8 +328,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[PreparationAction](./Common.xml#L1022:~:text=Name="-,PreparationAction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
-[ValidationFunction](./Common.xml#L1033:~:text=Name="-,ValidationFunction,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[PreparationAction](./Common.xml#L1022:~:text=Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead
+[ValidationFunction](./Common.xml#L1033:~:text=Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 
 ## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Common.xml#L1054:~:text=Name="-,SimpleIdentifier,-")
 **Type:** String
@@ -364,14 +364,14 @@ This can also be used with OData V2 services: the annotation target is a functio
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](./Common.xml#L1091:~:text=Name="-,SourceProperties,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
-[SourceEntities](./Common.xml#L1094:~:text=Name="-,SourceEntities,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[TargetProperties](./Common.xml#L1097:~:text=Name="-,TargetProperties,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
-[TargetEntities](./Common.xml#L1101:~:text=Name="-,TargetEntities,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
-[EffectTypes](./Common.xml#L1104:~:text=Name="-,EffectTypes,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
-[TriggerAction](./Common.xml#L1115:~:text=Name="-,TriggerAction,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
-[TriggeredIndicator](./Common.xml#L1119:~:text=Name="-,TriggeredIndicator,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
-[Discretionary](./Common.xml#L1124:~:text=Name="-,Discretionary,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
+[SourceProperties](./Common.xml#L1091:~:text=Name="-,SideEffectsType,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
+[SourceEntities](./Common.xml#L1094:~:text=Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
+[TargetProperties](./Common.xml#L1097:~:text=Name="-,SideEffectsType,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
+[TargetEntities](./Common.xml#L1101:~:text=Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
+[EffectTypes](./Common.xml#L1104:~:text=Name="-,SideEffectsType,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
+[TriggerAction](./Common.xml#L1115:~:text=Name="-,SideEffectsType,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
+[TriggeredIndicator](./Common.xml#L1119:~:text=Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
+[Discretionary](./Common.xml#L1124:~:text=Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
 
 ## <a name="EffectType"></a>[EffectType](./Common.xml#L1130:~:text=Name="-,EffectType,-") *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
@@ -381,18 +381,18 @@ Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](./Common.xml#L1258:~:text=Name="-,Property,-")|PropertyPath?|Sort property
-[DynamicProperty](./Common.xml#L1270:~:text=Name="-,DynamicProperty,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
-[Descending](./Common.xml#L1284:~:text=Name="-,Descending,-")|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](./Common.xml#L1258:~:text=Name="-,SortOrderType,-")|PropertyPath?|Sort property
+[DynamicProperty](./Common.xml#L1270:~:text=Name="-,SortOrderType,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
+[Descending](./Common.xml#L1284:~:text=Name="-,SortOrderType,-")|Boolean?|Sort direction, ascending if not specified otherwise
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Common.xml#L1309:~:text=Name="-,RecursiveHierarchyType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalNodeKeyProperty](./Common.xml#L1310:~:text=Name="-,ExternalNodeKeyProperty,-")|PropertyPath?|Property holding the external human-readable key identifying the node
-[NodeDescendantCountProperty](./Common.xml#L1313:~:text=Name="-,NodeDescendantCountProperty,-")|PropertyPath?|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
-[NodeDrillStateProperty](./Common.xml#L1321:~:text=Name="-,NodeDrillStateProperty,-")|PropertyPath?|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
+[ExternalNodeKeyProperty](./Common.xml#L1310:~:text=Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the external human-readable key identifying the node
+[NodeDescendantCountProperty](./Common.xml#L1313:~:text=Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the descendant count for a hierarchy node. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type.
+[NodeDrillStateProperty](./Common.xml#L1321:~:text=Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the drill state of a hierarchy node. The drill state is indicated by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
 
 ## <a name="UserID"></a>[UserID](./Common.xml#L1352:~:text=Name="-,UserID,-")
 **Type:** String
