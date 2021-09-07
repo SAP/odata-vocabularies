@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L170:~:text=<Function%20Name="-,condense,-")
 
-Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -33,7 +33,7 @@ Parameter|Type|Description
 
 ### <a name="condensenested"></a>[condensenested](./Analytics.xml#L175:~:text=<Function%20Name="-,condensenested,-")
 
-Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
 This is analogous to [`condense`](#condense) but intended to be used in `transformnested` on complex-typed collections.
 
