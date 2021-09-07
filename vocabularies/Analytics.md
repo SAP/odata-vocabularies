@@ -25,7 +25,7 @@ Term|Type|Description
 
 Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
-Converts the input set
+Converts an input set constructed with `concat`, like
 
 A|B
 -|-

@@ -170,7 +170,7 @@
       <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Core.Description" String="Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
-          <String>Converts the input set
+          <String>Converts an input set constructed with `concat`, like
 
 A|B
 -|-
