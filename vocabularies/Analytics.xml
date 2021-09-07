@@ -182,7 +182,8 @@ into the output set
 A|B
 -|-
 1|2
-</String>
+
+If not every property has a unique non-null value, the output set is the uncondensed input set.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
         <ReturnType Type="Collection(Edm.EntityType)"/>
