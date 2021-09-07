@@ -208,6 +208,44 @@
                 "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
             }
         },
+        "condense": [
+            {
+                "$Kind": "Function",
+                "$EntitySetPath": "InputSet",
+                "$IsBound": true,
+                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "$Parameter": [
+                    {
+                        "$Name": "InputSet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType"
+                }
+            }
+        ],
+        "condensenested": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.LongDescription": "This is analogous to [`condense`](#condense) but intended to be used in `transformnested` on complex-typed collections.",
+                "$Parameter": [
+                    {
+                        "$Name": "InputSet",
+                        "$Collection": true,
+                        "$Type": "Edm.ComplexType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.ComplexType"
+                }
+            }
+        ],
         "$Annotations": {
             "Aggregation.CustomAggregate": {
                 "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",

@@ -167,6 +167,20 @@
         </Property>
       </ComplexType>
 
+      <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Core.Description" String="Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
+        <ReturnType Type="Collection(Edm.EntityType)"/>
+      </Function>
+      <Function Name="condensenested" IsBound="true">
+        <Annotation Term="Core.Description" String="Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
+        <Annotation Term="Core.LongDescription">
+          <String>This is analogous to [`condense`](#condense) but intended to be used in `transformnested` on complex-typed collections.</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
+        <ReturnType Type="Collection(Edm.ComplexType)"/>
+      </Function>
+
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />

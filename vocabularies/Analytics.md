@@ -18,6 +18,31 @@ Term|Type|Description
 [AggregatedProperty](./Analytics.xml#L121:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 
+
+## Functions
+
+### <a name="condense"></a>[condense](./Analytics.xml#L170:~:text=<Function%20Name="-,condense,-")
+
+Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[InputSet](./Analytics.xml#L172:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L173:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|
+
+
+### <a name="condensenested"></a>[condensenested](./Analytics.xml#L175:~:text=<Function%20Name="-,condensenested,-")
+
+Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+
+This is analogous to [`condense`](#condense) but intended to be used in `transformnested` on complex-typed collections.
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[InputSet](./Analytics.xml#L180:~:text=<Function%20Name="-,condensenested,-")**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L181:~:text=<Function%20Name="-,condensenested,-")|\[ComplexType\]|
+
+
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
 
 
