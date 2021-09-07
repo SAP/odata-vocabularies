@@ -214,7 +214,7 @@
                 "$EntitySetPath": "InputSet",
                 "$IsBound": true,
                 "@Core.Description": "Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
-                "@Core.LongDescription": "Converts an input set constructed with `concat`, like\n\nA|B\n-|-\n1|\n||2\n\ninto the output set\n\nA|B\n-|-\n1|2\n\nIf not every property has a unique non-null value, the output set is the uncondensed input set.",
+                "@Core.LongDescription": "Converts an input set constructed with `concat`, like\n\nA|B\n-|-\n1|\n||2\n\ninto the output set\n\nA|B\n-|-\n1|2\n\nIn the presence of a property that is not primitive or takes more than one non-null value,\nthe output set is the uncondensed input set.",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
