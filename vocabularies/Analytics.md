@@ -23,15 +23,29 @@ Term|Type|Description
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L170:~:text=<Function%20Name="-,condense,-")
 
-Converts the input set A\|B -\|- 1\| \|\|2 into the output set A\|B -\|- 1\|2
+Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+
+Converts the input set
+
+A|B
+-|-
+1|
+||2
+
+into the output set
+
+A|B
+-|-
+1|2
+
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L183:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L184:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|
+**[InputSet](./Analytics.xml#L187:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L188:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|
 
 
-### <a name="condensenested"></a>[condensenested](./Analytics.xml#L186:~:text=<Function%20Name="-,condensenested,-")
+### <a name="condensenested"></a>[condensenested](./Analytics.xml#L190:~:text=<Function%20Name="-,condensenested,-")
 
 Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
@@ -39,8 +53,8 @@ This is analogous to [`condense`](#condense) but intended to be used in `transfo
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L191:~:text=<Function%20Name="-,condensenested,-")**|\[ComplexType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L192:~:text=<Function%20Name="-,condensenested,-")|\[ComplexType\]|
+**[InputSet](./Analytics.xml#L195:~:text=<Function%20Name="-,condensenested,-")**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L196:~:text=<Function%20Name="-,condensenested,-")|\[ComplexType\]|
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")

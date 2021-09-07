@@ -169,16 +169,20 @@
 
       <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Core.Description" String="Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
-        <Annotation Term="Core.Description">
+        <Annotation Term="Core.LongDescription">
           <String>Converts the input set
+
 A|B
 -|-
 1|
 ||2
+
 into the output set
+
 A|B
 -|-
-1|2</String>
+1|2
+</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
         <ReturnType Type="Collection(Edm.EntityType)"/>

@@ -213,7 +213,8 @@
                 "$Kind": "Function",
                 "$EntitySetPath": "InputSet",
                 "$IsBound": true,
-                "@Core.Description": "Converts the input set\nA|B\n-|-\n1|\n||2\ninto the output set\nA|B\n-|-\n1|2",
+                "@Core.Description": "Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.LongDescription": "Converts the input set\n\nA|B\n-|-\n1|\n||2\n\ninto the output set\n\nA|B\n-|-\n1|2\n",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
