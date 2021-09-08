@@ -23,9 +23,12 @@ Term|Type|Description
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L170:~:text=<Function%20Name="-,condense,-")
 
-Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
-Converts an input set constructed with `concat`, like
+This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
+Servers SHOULD reject any other usage of this function.
+
+The set transformation converts the input set
 
 NumberOfLeaves|Subtotal
 -|-
@@ -38,25 +41,23 @@ NumberOfLeaves|Subtotal
 -|-
 100|2000
 
-In the presence of a property that is not primitive or takes more than one non-null value,
-the output set is the uncondensed input set.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L189:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L190:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
+**[InputSet](./Analytics.xml#L190:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L191:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
 
 
-### <a name="condense"></a>[condense](./Analytics.xml#L194:~:text=<Function%20Name="-,condense,-")
+### <a name="condense"></a>[condense](./Analytics.xml#L195:~:text=<Function%20Name="-,condense,-")
 
-Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
 This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L199:~:text=<Function%20Name="-,condense,-")**|\[ComplexType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L200:~:text=<Function%20Name="-,condense,-")|\[ComplexType\]|Output set with same complex type as input set
+**[InputSet](./Analytics.xml#L200:~:text=<Function%20Name="-,condense,-")**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L201:~:text=<Function%20Name="-,condense,-")|\[ComplexType\]|Output set with same complex type as input set
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")

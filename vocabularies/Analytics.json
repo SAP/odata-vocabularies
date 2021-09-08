@@ -213,8 +213,8 @@
                 "$Kind": "Function",
                 "$EntitySetPath": "InputSet",
                 "$IsBound": true,
-                "@Core.Description": "Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
-                "@Core.LongDescription": "Converts an input set constructed with `concat`, like\n\nNumberOfLeaves|Subtotal\n-|-\n100|\n||2000\n\ninto the output set\n\nNumberOfLeaves|Subtotal\n-|-\n100|2000\n\nIn the presence of a property that is not primitive or takes more than one non-null value,\nthe output set is the uncondensed input set.",
+                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.LongDescription": "This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.\nServers SHOULD reject any other usage of this function.\n\nThe set transformation converts the input set\n\nNumberOfLeaves|Subtotal\n-|-\n100|\n||2000\n\ninto the output set\n\nNumberOfLeaves|Subtotal\n-|-\n100|2000\n",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
@@ -231,7 +231,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
                 "@Core.LongDescription": "This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.",
                 "$Parameter": [
                     {

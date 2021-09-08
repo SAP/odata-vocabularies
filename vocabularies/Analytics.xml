@@ -168,9 +168,12 @@
       </ComplexType>
 
       <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
-        <Annotation Term="Core.Description" String="Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
+        <Annotation Term="Core.Description" String="Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
-          <String>Converts an input set constructed with `concat`, like
+          <String>This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
+Servers SHOULD reject any other usage of this function.
+
+The set transformation converts the input set
 
 NumberOfLeaves|Subtotal
 -|-
@@ -182,9 +185,7 @@ into the output set
 NumberOfLeaves|Subtotal
 -|-
 100|2000
-
-In the presence of a property that is not primitive or takes more than one non-null value,
-the output set is the uncondensed input set.</String>
+</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
         <ReturnType Type="Collection(Edm.EntityType)">
@@ -192,7 +193,7 @@ the output set is the uncondensed input set.</String>
         </ReturnType>
       </Function>
       <Function Name="condense" IsBound="true">
-        <Annotation Term="Core.Description" String="Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
+        <Annotation Term="Core.Description" String="Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
           <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.</String>
         </Annotation>
