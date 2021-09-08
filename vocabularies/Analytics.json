@@ -227,14 +227,12 @@
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Output set with same entity type as input set"
                 }
-            }
-        ],
-        "condensenested": [
+            },
             {
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
-                "@Core.LongDescription": "This is analogous to [`condense`](#condense) but intended to be used in `transformnested` on complex-typed collections.",
+                "@Core.LongDescription": "This is analogous to `condense(Collection(EntityType))` but intended to be used in `transformnested` on complex-typed collections.",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
