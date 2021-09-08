@@ -27,16 +27,16 @@ Set transformation [OData-Aggr, section 7.6] that condenses the input set into a
 
 Converts an input set constructed with `concat`, like
 
-A|B
+NumberOfLeaves|Subtotal
 -|-
-1|
-||2
+100|
+||2000
 
 into the output set
 
-A|B
+NumberOfLeaves|Subtotal
 -|-
-1|2
+100|2000
 
 In the presence of a property that is not primitive or takes more than one non-null value,
 the output set is the uncondensed input set.
