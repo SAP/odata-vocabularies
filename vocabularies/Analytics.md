@@ -44,10 +44,10 @@ the output set is the uncondensed input set.
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](./Analytics.xml#L189:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L190:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|
+[&rarr;](./Analytics.xml#L190:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
 
 
-### <a name="condensenested"></a>[condensenested](./Analytics.xml#L192:~:text=<Function%20Name="-,condensenested,-")
+### <a name="condensenested"></a>[condensenested](./Analytics.xml#L194:~:text=<Function%20Name="-,condensenested,-")
 
 Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
@@ -55,8 +55,8 @@ This is analogous to [`condense`](#condense) but intended to be used in `transfo
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L197:~:text=<Function%20Name="-,condensenested,-")**|\[ComplexType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L198:~:text=<Function%20Name="-,condensenested,-")|\[ComplexType\]|
+**[InputSet](./Analytics.xml#L199:~:text=<Function%20Name="-,condensenested,-")**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L200:~:text=<Function%20Name="-,condensenested,-")|\[ComplexType\]|Output set with same complex type as input set
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")

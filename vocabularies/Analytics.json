@@ -224,7 +224,8 @@
                 ],
                 "$ReturnType": {
                     "$Collection": true,
-                    "$Type": "Edm.EntityType"
+                    "$Type": "Edm.EntityType",
+                    "@Core.Description": "Output set with same entity type as input set"
                 }
             }
         ],
@@ -243,7 +244,8 @@
                 ],
                 "$ReturnType": {
                     "$Collection": true,
-                    "$Type": "Edm.ComplexType"
+                    "$Type": "Edm.ComplexType",
+                    "@Core.Description": "Output set with same complex type as input set"
                 }
             }
         ],
