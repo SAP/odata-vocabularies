@@ -51,7 +51,7 @@ Parameter|Type|Description
 
 Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
 
-This is analogous to `condense(Collection(EntityType))` but intended to be used in `transformnested` on complex-typed collections.
+This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.
 
 Parameter|Type|Description
 :--------|:---|:----------

@@ -194,7 +194,7 @@ the output set is the uncondensed input set.</String>
       <Function Name="condense" IsBound="true">
         <Annotation Term="Core.Description" String="Set transformation [OData-Aggr, section 7.6] that condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
-          <String>This is analogous to `condense(Collection(EntityType))` but intended to be used in `transformnested` on complex-typed collections.</String>
+          <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
         <ReturnType Type="Collection(Edm.ComplexType)">
