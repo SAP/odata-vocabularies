@@ -168,7 +168,7 @@
       </ComplexType>
 
       <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
-        <Annotation Term="Core.Description" String="Condenses the input set into a one-instance output set of the same type in which every property has the unique non-null value taken by this property in the input set"/>
+        <Annotation Term="Core.Description" String="Condenses the non-empty input set into a one-instance output set of the same type in which every property has the unique non-null value taken by this property in the input set"/>
         <Annotation Term="Core.LongDescription">
           <String>This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
 Servers SHOULD reject any other usage of this function.
@@ -193,7 +193,7 @@ into the output set
         </ReturnType>
       </Function>
       <Function Name="condense" IsBound="true">
-        <Annotation Term="Core.Description" String="Condenses the input set into a one-instance output set of the same type in which every property has the unique non-null value taken by this property in the input set"/>
+        <Annotation Term="Core.Description" String="Condenses the non-empty input set into a one-instance output set of the same type in which every property has the unique non-null value taken by this property in the input set"/>
         <Annotation Term="Core.LongDescription">
           <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.</String>
         </Annotation>
