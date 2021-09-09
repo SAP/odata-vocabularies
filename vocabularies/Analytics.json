@@ -213,7 +213,7 @@
                 "$Kind": "Function",
                 "$EntitySetPath": "InputSet",
                 "$IsBound": true,
-                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.Description": "Condenses the input set into a one-instance output set of the same type in which every primitive property has the unique non-null value taken by this property in the input set",
                 "@Core.LongDescription": "This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.\nServers SHOULD reject any other usage of this function.\n\nThe set transformation converts the input set\n\nNumberOfLeaves|Subtotal\n-|-\n100|\n||2000\n\ninto the output set\n\nNumberOfLeaves|Subtotal\n-|-\n100|2000\n",
                 "$Parameter": [
                     {
@@ -231,7 +231,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set",
+                "@Core.Description": "Condenses the input set into a one-instance output set of the same type in which every primitive property has the unique non-null value taken by this property in the input set",
                 "@Core.LongDescription": "This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.",
                 "$Parameter": [
                     {

@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L170:~:text=<Function%20Name="-,condense,-")
 
-Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Condenses the input set into a one-instance output set of the same type in which every primitive property has the unique non-null value taken by this property in the input set
 
 This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
 Servers SHOULD reject any other usage of this function.
@@ -50,7 +50,7 @@ Parameter|Type|Description
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L195:~:text=<Function%20Name="-,condense,-")
 
-Condenses the input set into an output set with one instance in which every primitive property has the unique non-null value from the input set
+Condenses the input set into a one-instance output set of the same type in which every primitive property has the unique non-null value taken by this property in the input set
 
 This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.
 
