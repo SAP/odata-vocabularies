@@ -30,16 +30,16 @@ Servers SHOULD reject any other usage of this function.
 
 The set transformation converts the input set
 
-NumberOfLeaves|Subtotal
--|-
-100|
-||2000
+|NumberOfLeaves|Subtotal|
+|-------------:|-------:|
+|           100|        |
+|              |    2000|
 
 into the output set
 
-NumberOfLeaves|Subtotal
--|-
-100|2000
+|NumberOfLeaves|Subtotal|
+|-------------:|-------:|
+|           100|    2000|
 
 
 Parameter|Type|Description
