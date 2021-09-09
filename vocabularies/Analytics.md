@@ -25,7 +25,7 @@ Term|Type|Description
 
 Condenses the non-empty input set into a one-instance output set of the same type in which every property has the unique non-null value taken by this property in the input set
 
-This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
+An empty input set leads to an empty output set. This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
 Servers SHOULD reject any other usage of this function.
 
 The set transformation converts the input set
