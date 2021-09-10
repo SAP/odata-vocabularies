@@ -25,7 +25,8 @@ Term|Type|Description
 
 Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set
 
-An empty input set leads to an empty output set. This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
+An empty input set leads to an empty output set.
+This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of one-instance sets with disjoint property lists.
 Servers SHOULD reject any other usage of this function.
 
 The set transformation converts the input set
@@ -44,20 +45,21 @@ into the output set
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L190:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L191:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
+**[InputSet](./Analytics.xml#L191:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L192:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
 
 
-### <a name="condense"></a>[condense](./Analytics.xml#L195:~:text=<Function%20Name="-,condense,-")
+### <a name="condense"></a>[condense](./Analytics.xml#L196:~:text=<Function%20Name="-,condense,-")
 
 Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set
 
-This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.
+This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in
+          `transformnested(StructuralProperty,concat(...)/Analytics.condense())`.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L200:~:text=<Function%20Name="-,condense,-")**|\[ComplexType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L201:~:text=<Function%20Name="-,condense,-")|\[ComplexType\]|Output set with same complex type as input set
+**[InputSet](./Analytics.xml#L202:~:text=<Function%20Name="-,condense,-")**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L203:~:text=<Function%20Name="-,condense,-")|\[ComplexType\]|Output set with same complex type as input set
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")

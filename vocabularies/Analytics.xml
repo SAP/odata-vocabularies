@@ -170,7 +170,8 @@
       <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Core.Description" String="Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
-          <String>An empty input set leads to an empty output set. This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of sets with disjoint property lists.
+          <String>An empty input set leads to an empty output set.
+This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of one-instance sets with disjoint property lists.
 Servers SHOULD reject any other usage of this function.
 
 The set transformation converts the input set
@@ -195,7 +196,8 @@ into the output set
       <Function Name="condense" IsBound="true">
         <Annotation Term="Core.Description" String="Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set"/>
         <Annotation Term="Core.LongDescription">
-          <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in `transformnested` on complex-typed collections.</String>
+          <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in
+          `transformnested(StructuralProperty,concat(...)/Analytics.condense())`.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
         <ReturnType Type="Collection(Edm.ComplexType)">
