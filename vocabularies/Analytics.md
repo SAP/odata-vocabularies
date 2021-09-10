@@ -49,7 +49,7 @@ Parameter|Type|Description
 [&rarr;](./Analytics.xml#L192:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
 
 
-### <a name="condense"></a>[condense](./Analytics.xml#L196:~:text=<Function%20Name="-,condense,-")
+### <a name="condense"></a>[condense](./Analytics.xml#L196)
 
 Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set
 
@@ -58,8 +58,8 @@ This is analogous to `condense(Collection(Edm.EntityType))` but intended to be u
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Analytics.xml#L202:~:text=<Function%20Name="-,condense,-")**|\[ComplexType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L203:~:text=<Function%20Name="-,condense,-")|\[ComplexType\]|Output set with same complex type as input set
+**[InputSet](./Analytics.xml#L202)**|\[ComplexType\]|**Binding parameter**
+[&rarr;](./Analytics.xml#L203)|\[ComplexType\]|Output set with same complex type as input set
 
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
