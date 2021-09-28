@@ -10,9 +10,8 @@
     <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <!-- Certain user interactions cannot be handled by one request, because they follow the pattern "user triggers, server offers, user chooses".
            For example, the action "exchange product in a sales order item" is triggered by the user on a sales order item
-           (POST ~/SalesOrderItems(...)/ExchangeProduct), the server returns the item with an inlined collection of alternative products,
-           from which the user must then choose, and the request must be repeated with the chosen key
-           (POST ~/SalesOrderItems(...)/ExchangeProduct?NewProduct='...').
+           (POST ~/SalesOrderItems(...)/userinteraction.sample.ExchangeProduct), the server returns the item with an inlined collection of alternative products,
+           from which the user must then choose, and the request must be repeated with the chosen key.
            But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose.
       -->
       <EntityType Name="SalesOrderItem">
