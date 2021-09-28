@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
+    <edmx:Include Alias="JSON" Namespace="Org.OData.JSON.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
@@ -568,6 +571,15 @@ The minimum structure is
           <Annotation Term="Core.Description" String="The name of the SAP Object Node Type" />
         </Property>
       </ComplexType>
+
+      <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated navigation property represents a logical composition, even though it is non-containment" />
+        <Annotation Term="Core.LongDescription">
+          <String>The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property.</String>
+        </Annotation>
+      </Term>
+
 
       <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
@@ -1377,6 +1389,18 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
+      </Term>
+
+      <Term Name="callback" Type="JSON.JSON" Nullable="false" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Data that the server has embedded within an error response to make a callback to the client" />
+        <Annotation Term="Core.LongDescription">
+          <String>This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody).
+          The callback allows the client to adjust the request so that it can be successfully repeated.
+          An example for such a callback is a user interaction to resolve a conflict that was detected by the server,
+          see [`UI.UserInteraction`](UI.md#UserInteraction).</String>
+        </Annotation>
       </Term>
 
     </Schema>

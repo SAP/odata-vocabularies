@@ -25,6 +25,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.JSON.V1",
+                    "$Alias": "JSON"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
             "$Include": [
                 {
@@ -672,6 +680,17 @@
             "Name": {
                 "@Core.Description": "The name of the SAP Object Node Type"
             }
+        },
+        "Composition": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated navigation property represents a logical composition, even though it is non-containment",
+            "@Core.LongDescription": "The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property."
         },
         "SAPObjectNodeTypeReference": {
             "$Kind": "Term",
@@ -1578,6 +1597,17 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
+        },
+        "callback": {
+            "$Kind": "Term",
+            "$Type": "JSON.JSON",
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Data that the server has embedded within an error response to make a callback to the client",
+            "@Core.LongDescription": "This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody).\n          The callback allows the client to adjust the request so that it can be successfully repeated.\n          An example for such a callback is a user interaction to resolve a conflict that was detected by the server,\n          see [`UI.UserInteraction`](UI.md#UserInteraction)."
         }
     }
 }

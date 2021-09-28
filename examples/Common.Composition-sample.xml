@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.Composition" Alias="this">
+
+      <EntityContainer Name="container">
+        <EntitySet Name="SalesOrder" EntityType="this.SalesOrder_Type">
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItem" />
+        </EntitySet>
+        <EntitySet Name="SalesOrderItem" EntityType="this.SalesOrderItem_Type" />
+      </EntityContainer>
+
+      <EntityType Name="SalesOrder_Type">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" />
+        <!-- ... and a lot more -->
+        <NavigationProperty Name="_Item" Type="Collection(this.SalesOrderItem_Type)" Partner="_SalesOrder" />
+      </EntityType>
+
+      <EntityType Name="SalesOrderItem_Type">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+          <PropertyRef Name="SalesOrderItem" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" />
+        <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" />
+        <!-- ... and a lot more -->
+        <NavigationProperty Name="_SalesOrder" Type="this.SalesOrder_Type" Nullable="false" Partner="_Item">
+          <ReferentialConstraint Property="SalesOrder" ReferencedProperty="SalesOrder" />
+        </NavigationProperty>
+      </EntityType>
+
+      <Annotations Target="this.SalesOrder_Type/_Item">
+        <Annotation Term="Common.Composition" Bool="true" />
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
