@@ -4,7 +4,6 @@
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
 
-  <!-- TODO: replace _vocab with the name of the vocabulary your annotation examples use and remove this comment -->
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Extensibility" />
   </edmx:Reference>
