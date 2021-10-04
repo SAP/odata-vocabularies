@@ -1,0 +1,50 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Extensibility"
+                }
+            ]
+        }
+    },
+    "Extensibility.examples": {
+        "$Alias": "this",
+        "default": {
+            "$Kind": "EntityContainer",
+            "Foo": {
+                "$Collection": true,
+                "$Type": "this.Foo"
+            }
+        },
+        "Foo": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "id"
+            ],
+            "id": {}
+        },
+        "$Annotations": {
+            "this.default": {
+                "@Extensibility.FieldExtensibilityConfiguration": {
+                    "Flavor": "CAP",
+                    "Path": "/addExtension"
+                }
+            },
+            "this.Foo": {
+                "@Extensibility.IsFieldExtensible": true
+            }
+        }
+    },
+    "$EntityContainer": "Extensibility.examples.default"
+}

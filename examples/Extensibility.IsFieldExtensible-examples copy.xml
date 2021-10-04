@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <!-- TODO: replace _vocab with the name of the vocabulary your annotation examples use and remove this comment -->
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Extensibility" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="Extensibility.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="default">
+        <EntitySet Name="Foo" EntityType="this.Foo" />
+      </EntityContainer>
+
+      <EntityType Name="Foo">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+      </EntityType>
+
+      <Annotations Target="this.default">
+        <Annotation Term="Extensibility.FieldExtensibilityConfiguration">
+          <Record>
+            <PropertyValue Property="Flavor" String="CAP" />
+            <PropertyValue Property="Path" String="/addExtension" />
+          </Record>
+        </Annotation>
+      </Annotations>
+
+      <Annotations Target="this.Foo">
+        <Annotation Term="Extensibility.IsFieldExtensible" Bool="true" />
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
