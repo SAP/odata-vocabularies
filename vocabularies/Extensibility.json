@@ -1,0 +1,90 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Extensibility.v1": {
+        "$Alias": "Extensibility",
+        "@Common.Experimental": true,
+        "@Core.Description": "Terms for Extensibility",
+        "@Core.Description#Published": "2021-10-04 © Copyright 2021 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Extensibility.md"
+            }
+        ],
+        "IsFieldExtensible": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type allows adding extension fields"
+        },
+        "FieldExtensibilityConfiguration": {
+            "$Kind": "Term",
+            "$Type": "Extensibility.FieldExtensibilityConfigurationType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type allows adding extension fields"
+        },
+        "FieldExtensibilityConfigurationType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "...",
+            "Flavor": {
+                "$Type": "Extensibility.Flavor",
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "..."
+            },
+            "Path": {
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.IsURL": true,
+                "@Core.Description": "..."
+            }
+        },
+        "Flavor": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Common.Experimental": true,
+            "@Core.Description": "...",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "CAP",
+                    "@Core.Description": "Cloud Application Programming Model"
+                }
+            ]
+        }
+    }
+}

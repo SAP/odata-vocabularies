@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Extensibility.v1" Alias="Extensibility">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for Extensibility</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2021-10-04 © Copyright 2021 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Extensibility.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="IsFieldExtensible" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
+      </Term>
+
+      <Term Name="FieldExtensibilityConfiguration" Type="Extensibility.FieldExtensibilityConfigurationType" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
+      </Term>
+
+      <ComplexType Name="FieldExtensibilityConfigurationType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="..." />
+        <Property Name="Flavor" Type="Extensibility.Flavor">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="..." />
+        </Property>
+        <Property Name="Path" Type="Edm.String">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.IsURL" Bool="true" />
+          <Annotation Term="Core.Description" String="..." />
+        </Property>
+      </ComplexType>
+
+      <TypeDefinition Name="Flavor" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="..." />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="CAP" />
+              <Annotation Term="Core.Description" String="Cloud Application Programming Model" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
