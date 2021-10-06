@@ -22,18 +22,91 @@
       </EntityType>
 
       <Annotations Target="this.default">
-        <Annotation Term="Extensibility.FieldExtensibilityConfiguration">
+        <!-- NEEDED DIRECTLY -->
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
+          <Record>
+            <PropertyValue Property="Flavor" String="CAP" /><!-- to detailed server descriptions allowing server fingerprinting?! -->
+            <PropertyValue Property="Path" String="/add-cap-extension" />
+          </Record>
+        </Annotation> 
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
             <PropertyValue Property="Flavor" String="CAP" />
-            <PropertyValue Property="Path" String="/addExtension" />
+            <PropertyValue Property="Path" String="/add-cap-extension-openAPI-spec" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
+          <Record> <!-- FUTURE -->
+            <PropertyValue Property="Flavor" String="ABAP" />
+            <!-- probably a different protocol & feature set needed here -->
+            <PropertyValue Property="Path" String="/add-abap-Extension" />
+            <!-- addition button in the dialog --><!-- FUTURE -->
+            <PropertyValue Property="DetailNavigationTarget" String="CustomField-develop"  />
+          </Record>
+        </Annotation>
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
+          <Record> <!-- NEEDED DIRECTLY -->
+            <PropertyValue Property="Discovery" String="/get-cap-extension-capabilities" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
+          <Record>
+            <!-- addition button in the dialog --><!-- FUTURE -->
+            <PropertyValue Property="DetailNavigationTarget" String="FXH-create"  />
           </Record>
         </Annotation>
       </Annotations>
 
       <Annotations Target="this.Foo">
+        <!-- NEEDED DIRECTLY -->
         <Annotation Term="Extensibility.IsFieldExtensible" Bool="true" />
+        <Annotation Term="Extensibility.Enabled">
+          <Record>
+            <!-- NEEDED DIRECTLY -->
+            <!-- Adding plain attributes -->
+            <Annotation Term="Primitive" Bool="true" />
+            <!-- FUTURE -->
+            <!-- Adding structured attributes with anonymous types (should we combine it with primitive?)-->
+            <Annotation Term="Structured " Bool="true" />
+            <!-- FUTURE -->
+            <!-- Adding attributes that introduce new compositions (e.g. to a new/existing table/sub-entity) -->
+            <Annotation Term="Composition" Bool="true" />
+            <!-- Adding and overwriting annotations -->
+            <Annotation Term="Annotations" Bool="true" />
+          </Record>
+        </Annotation>
+        <!-- alternatively-->
+        <Annotation Term="Extensibility.Enabled">
+          <Record>
+            <!-- Extending attributes (plain and structured) & their annotations-->
+            <Annotation Term="Fields" Bool="true" />
+            <!--FUTURE Adding attributes that introduce new compositions (e.g. to a new/existing table/sub-entity) -->
+            <Annotation Term="Composition" Bool="true" />
+          </Record>
+        </Annotation> 
+        <!-- Alternatively instead of a boolean, name the extension point-->
+        <Annotation Term="Extensibility.Enabled.PrimitiveExtensionPoints">
+          <Collection>
+            <!-- Establishing references between the entities extensibility features and the extension points to be exposed -->
+            <String>sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT</String>
+            <String>sap.aligned:dataModelExtensionPoint:MASTER_PROJECT</String>
+          </Collection>
+        </Annotation> 
+        <!-- Alternatively name the extension points individually -->
+        <Annotation Term="Extensibility.ExtensionPoints">
+          <Collection>
+            <!-- Establishing references between the entities extensibility features and the extension points to be exposed -->
+            <String>sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT</String>
+            <String>sap.aligned:dataModelExtensionPoint:MASTER_PROJECT</String>
+          </Collection>
+        </Annotation> 
       </Annotations>
 
+      <Annotations Target="this.Foo/id">
+        <!-- FUTURE -->
+        <!-- telling others that the property that is not yet exposed along E2E process chains be exposed via extensibility mechanisms  -->
+        <Annotation Term="Extensibility.Exposable" Bool="true" />
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

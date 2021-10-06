@@ -14,7 +14,16 @@
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Extensibility.v1" Alias="Extensibility">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
-        <String>Terms for Extensibility</String>
+        <String>
+          Terms for Extensibility
+          With the following requirements:
+          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery 
+          * Annotate CDS entities to be extensible
+            * fine grained or detailed?
+            * with inheritance? with include or exclude semantics?
+            * Link between extension points and entity
+          * How to tell there are extension attributes
+        </String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2021-10-04 © Copyright 2021 SAP SE. All rights reserved</String>
@@ -40,7 +49,35 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
       </Term>
+      <!-- Fine grained vs. more detailed annotation?-->
+      <Term Name="Enabled" Type="Extensibility.EnabledType" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type allows extension to the entity" />
+      </Term>
 
+      <ComplexType Name="EnabledType">
+        <Annotation Term="Common.Experimental" />
+        <!-- do we allow shortcuts/inheritance here like @Extensibility.Enable:true means all fine grained are true, simialr to @Capabilities.Insertable and  @Capabilities.InsertRestrictions-->
+        <Annotation Term="Core.Description" String="Enable fine grained extensibility features" />
+        <Property Name="Primitive" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Adding plain attributes" />
+        </Property>
+        <Property Name="Structured" Type="Core.Tag" Nullable="false" DefaultValue="false" >
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Adding attributes with structured types" />
+        </Property>
+        <Property Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Allows adding compositions which might result in new entities to be created" />
+        </Property>
+        <Property Name="Annotations" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Adding and overwriting annotations" />
+        </Property>
+      </ComplexType>
+
+<!-- Fine grained vs. more detailed annotation?-->
       <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
@@ -65,17 +102,21 @@
 
       <TypeDefinition Name="Flavor" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Flavor of extensibility mechanism" />
+        <Annotation Term="Core.Description" String="Different Flavors have different extensibility feature-sets" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="CSN???" />
-              <Annotation Term="Core.Description" String="_TODO: Extension via Core Data Services Schema Notation (CSN)_" />
+              <Annotation Term="Core.Description" String="_TODO: Extension via Core Data Services Schema Notation (CSN)_, Cloud Application Programming Model Feature-Set for Handling Extensibility" />
             </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="ExtensionPoints" Type="Collection(Edm.String)" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type is extensible at these extension points." />
+      </Term>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

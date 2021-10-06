@@ -36,13 +36,27 @@
         },
         "$Annotations": {
             "this.default": {
-                "@Extensibility.FieldExtensibilityConfiguration": {
-                    "Flavor": "CAP",
-                    "Path": "/addExtension"
+                "@Extensibility.FieldExtensibilityMechanism": {
+                    "DetailNavigationTarget": "FXH-create"
                 }
             },
             "this.Foo": {
-                "@Extensibility.IsFieldExtensible": true
+                "@Extensibility.IsFieldExtensible": true,
+                "@Extensibility.Enabled": {
+                    "@Fields": true,
+                    "@Composition": true
+                },
+                "@Extensibility.Enabled.PrimitiveExtensionPoints": [
+                    "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
+                    "sap.aligned:dataModelExtensionPoint:MASTER_PROJECT"
+                ],
+                "@Extensibility.ExtensionPoints": [
+                    "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
+                    "sap.aligned:dataModelExtensionPoint:MASTER_PROJECT"
+                ]
+            },
+            "this.Foo/id": {
+                "@Extensibility.Exposable": true
             }
         }
     },

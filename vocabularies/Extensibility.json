@@ -29,7 +29,7 @@
     "com.sap.vocabularies.Extensibility.v1": {
         "$Alias": "Extensibility",
         "@Common.Experimental": true,
-        "@Core.Description": "Terms for Extensibility",
+        "@Core.Description": "\n          Terms for Extensibility\n          With the following requirements:\n          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery \n          * Annotate CDS entities to be extensible\n            * fine grained or detailed?\n            * with inheritance? with include or exclude semantics?\n            * Link between extension points and entity\n          * How to tell there are extension attributes\n        ",
         "@Core.Description#Published": "2021-10-04 © Copyright 2021 SAP SE. All rights reserved",
         "@Core.Links": [
             {
@@ -54,6 +54,45 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The annotated entity type allows adding extension fields"
+        },
+        "Enabled": {
+            "$Kind": "Term",
+            "$Type": "Extensibility.EnabledType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type allows extension to the entity"
+        },
+        "EnabledType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Enable fine grained extensibility features",
+            "Primitive": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Adding plain attributes"
+            },
+            "Structured": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Adding attributes with structured types"
+            },
+            "Composition": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Allows adding compositions which might result in new entities to be created"
+            },
+            "Annotations": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Adding and overwriting annotations"
+            }
         },
         "FieldExtensibilityMechanism": {
             "$Kind": "Term",
@@ -84,13 +123,22 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Common.Experimental": true,
-            "@Core.Description": "Flavor of extensibility mechanism",
+            "@Core.Description": "Different Flavors have different extensibility feature-sets",
             "@Validation.AllowedValues": [
                 {
                     "Value": "CSN???",
-                    "@Core.Description": "_TODO: Extension via Core Data Services Schema Notation (CSN)_"
+                    "@Core.Description": "_TODO: Extension via Core Data Services Schema Notation (CSN)_, Cloud Application Programming Model Feature-Set for Handling Extensibility"
                 }
             ]
+        },
+        "ExtensionPoints": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type is extensible at these extension points."
         }
     }
 }
