@@ -41,33 +41,36 @@
         <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
       </Term>
 
-      <Term Name="FieldExtensibilityConfiguration" Type="Extensibility.FieldExtensibilityConfigurationType" AppliesTo="EntityContainer">
+      <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
+        <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
       </Term>
 
-      <ComplexType Name="FieldExtensibilityConfigurationType">
+      <ComplexType Name="FieldExtensibilityMechanismType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="..." />
+        <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
+        <Annotation Term="Core.LongDescription">
+          <String>_TODO: is `Flavor` sufficient and the `Path` "well-known", or is the `Path` sufficient and leads to a "discovery document" that describes the flavor?_</String>
+        </Annotation>
         <Property Name="Flavor" Type="Extensibility.Flavor">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="_TODO: Flavor/identifier of extension mechanism (version)_" />
         </Property>
         <Property Name="Path" Type="Edm.String">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.IsURL" Bool="true" />
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="_TODO: URL to discovery document of extensibility mechanism_" />
         </Property>
       </ComplexType>
 
       <TypeDefinition Name="Flavor" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="..." />
+        <Annotation Term="Core.Description" String="Flavor of extensibility mechanism" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
-              <PropertyValue Property="Value" String="CAP" />
-              <Annotation Term="Core.Description" String="Cloud Application Programming Model" />
+              <PropertyValue Property="Value" String="CSN???" />
+              <Annotation Term="Core.Description" String="_TODO: Extension via Core Data Services Schema Notation (CSN)_" />
             </Record>
           </Collection>
         </Annotation>

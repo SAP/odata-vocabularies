@@ -55,42 +55,43 @@
             "@Common.Experimental": true,
             "@Core.Description": "The annotated entity type allows adding extension fields"
         },
-        "FieldExtensibilityConfiguration": {
+        "FieldExtensibilityMechanism": {
             "$Kind": "Term",
-            "$Type": "Extensibility.FieldExtensibilityConfigurationType",
+            "$Type": "Extensibility.FieldExtensibilityMechanismType",
             "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity type allows adding extension fields"
+            "@Core.Description": "The extension mechanism used by the annotated service"
         },
-        "FieldExtensibilityConfigurationType": {
+        "FieldExtensibilityMechanismType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.Description": "...",
+            "@Core.Description": "The extension mechanism used by the annotated service",
+            "@Core.LongDescription": "_TODO: is `Flavor` sufficient and the `Path` \"well-known\", or is the `Path` sufficient and leads to a \"discovery document\" that describes the flavor?_",
             "Flavor": {
                 "$Type": "Extensibility.Flavor",
                 "$Nullable": true,
                 "@Common.Experimental": true,
-                "@Core.Description": "..."
+                "@Core.Description": "_TODO: Flavor/identifier of extension mechanism (version)_"
             },
             "Path": {
                 "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "..."
+                "@Core.Description": "_TODO: URL to discovery document of extensibility mechanism_"
             }
         },
         "Flavor": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Common.Experimental": true,
-            "@Core.Description": "...",
+            "@Core.Description": "Flavor of extensibility mechanism",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "CAP",
-                    "@Core.Description": "Cloud Application Programming Model"
+                    "Value": "CSN???",
+                    "@Core.Description": "_TODO: Extension via Core Data Services Schema Notation (CSN)_"
                 }
             ]
         }
