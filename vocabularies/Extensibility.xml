@@ -41,7 +41,7 @@
         <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
       </Term>
 
-      <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" AppliesTo="EntityContainer">
+      <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
       </Term>
@@ -52,11 +52,11 @@
         <Annotation Term="Core.LongDescription">
           <String>_TODO: is `Flavor` sufficient and the `Path` "well-known", or is the `Path` sufficient and leads to a "discovery document" that describes the flavor?_</String>
         </Annotation>
-        <Property Name="Flavor" Type="Extensibility.Flavor">
+        <Property Name="Flavor" Type="Extensibility.Flavor" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="_TODO: Flavor/identifier of extension mechanism (version)_" />
         </Property>
-        <Property Name="Path" Type="Edm.String">
+        <Property Name="Path" Type="Edm.String" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.IsURL" Bool="true" />
           <Annotation Term="Core.Description" String="_TODO: URL to discovery document of extensibility mechanism_" />

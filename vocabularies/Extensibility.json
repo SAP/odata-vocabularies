@@ -58,7 +58,6 @@
         "FieldExtensibilityMechanism": {
             "$Kind": "Term",
             "$Type": "Extensibility.FieldExtensibilityMechanismType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -72,12 +71,10 @@
             "@Core.LongDescription": "_TODO: is `Flavor` sufficient and the `Path` \"well-known\", or is the `Path` sufficient and leads to a \"discovery document\" that describes the flavor?_",
             "Flavor": {
                 "$Type": "Extensibility.Flavor",
-                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "_TODO: Flavor/identifier of extension mechanism (version)_"
             },
             "Path": {
-                "$Nullable": true,
                 "@Common.Experimental": true,
                 "@Core.IsURL": true,
                 "@Core.Description": "_TODO: URL to discovery document of extensibility mechanism_"
