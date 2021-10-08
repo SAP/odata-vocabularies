@@ -29,7 +29,7 @@
     "com.sap.vocabularies.Extensibility.v1": {
         "$Alias": "Extensibility",
         "@Common.Experimental": true,
-        "@Core.Description": "\n          Terms for Extensibility\n          With the following requirements:\n          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery \n          * Annotate CDS entities to be extensible\n            * fine grained or detailed?\n            * with inheritance? with include or exclude semantics?\n            * Link between extension points and entity\n          * How to tell there are extension attributes\n        ",
+        "@Core.Description": "\n          Terms for Extensibility\n          With the following requirements:\n          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery \n          => Do we need the flavor or can we do discovery\n          * Annotate CDS entities to be extensible\n            * fine grained or simple? => both\n            * with inheritance? with include or exclude semantics? => only include\n            * Link between extension points and entity => to avoid implicit magic, have it as additional annotation\n          * How to tell there are extension attributes\n        ",
         "@Core.Description#Published": "2021-10-04 © Copyright 2021 SAP SE. All rights reserved",
         "@Core.Links": [
             {
@@ -107,7 +107,7 @@
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
             "@Core.Description": "The extension mechanism used by the annotated service",
-            "@Core.LongDescription": "_TODO: is `Flavor` sufficient and the `Path` \"well-known\", or is the `Path` sufficient and leads to a \"discovery document\" that describes the flavor?_",
+            "@Core.LongDescription": "\n            SEC-236:\n            Ensure that no attackers can obtain intelligence about the internal structure or \n            state of a protected domain. Information which is internal to a system can provide \n            details particularly useful for attackers. Note that in this context, also an \n            authenticated legitimate user could expose malicious behavior and shall not have access\n             to information he or she doesn't need to know.\n            At the same time, attention has to be paid that no sensitive information gets disclosed \n            to unauthorized persons, such as IT Support staff.\n\n            _TODO: is `Flavor` sufficient and the `Path` \"well-known\", or is the `Path` sufficient and leads to a \"discovery document\" that describes the flavor?_",
             "Flavor": {
                 "$Type": "Extensibility.Flavor",
                 "@Common.Experimental": true,

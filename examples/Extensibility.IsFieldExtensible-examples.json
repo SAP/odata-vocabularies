@@ -32,31 +32,32 @@
             "$Key": [
                 "id"
             ],
-            "id": {}
+            "id": {},
+            "zz_bar": {
+                "$Nullable": true
+            }
         },
         "$Annotations": {
             "this.default": {
                 "@Extensibility.FieldExtensibilityMechanism": {
-                    "DetailNavigationTarget": "FXH-create"
+                    "DetailNavigationUrl": "/extension-hub"
                 }
             },
             "this.Foo": {
-                "@Extensibility.IsFieldExtensible": true,
-                "@Extensibility.Enabled": {
-                    "Fields": true,
-                    "Composition": true
+                "@Extensibility.AllowList": {
+                    "undefined": true
                 },
-                "@Extensibility.PrimitiveExtensionPoints": [
-                    "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
-                    "sap.aligned:dataModelExtensionPoint:MASTER_PROJECT"
-                ],
+                "@Extensibility.Enabled": true,
                 "@Extensibility.ExtensionPoints": [
                     "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
-                    "sap.aligned:dataModelExtensionPoint:MASTER_PROJECT"
+                    "sap.aligned:dataModelExtensionPoint:MAIN_PROJECT"
                 ]
             },
             "this.Foo/id": {
                 "@Extensibility.Exposable": true
+            },
+            "this.Foo/zz_bar": {
+                "@Extensibility.ExtensionField": true
             }
         }
     },
