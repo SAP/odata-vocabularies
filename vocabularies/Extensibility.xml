@@ -18,10 +18,11 @@
           Terms for Extensibility
           With the following requirements:
           * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery 
+          => Do we need the flavor or can we do discovery
           * Annotate CDS entities to be extensible
-            * fine grained or detailed?
-            * with inheritance? with include or exclude semantics?
-            * Link between extension points and entity
+            * fine grained or simple? => both
+            * with inheritance? with include or exclude semantics? => only include
+            * Link between extension points and entity => to avoid implicit magic, have it as additional annotation
           * How to tell there are extension attributes
         </String>
       </Annotation>
@@ -87,7 +88,17 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
         <Annotation Term="Core.LongDescription">
-          <String>_TODO: is `Flavor` sufficient and the `Path` "well-known", or is the `Path` sufficient and leads to a "discovery document" that describes the flavor?_</String>
+          <String>
+            SEC-236:
+            Ensure that no attackers can obtain intelligence about the internal structure or 
+            state of a protected domain. Information which is internal to a system can provide 
+            details particularly useful for attackers. Note that in this context, also an 
+            authenticated legitimate user could expose malicious behavior and shall not have access
+             to information he or she doesn't need to know.
+            At the same time, attention has to be paid that no sensitive information gets disclosed 
+            to unauthorized persons, such as IT Support staff.
+
+            _TODO: is `Flavor` sufficient and the `Path` "well-known", or is the `Path` sufficient and leads to a "discovery document" that describes the flavor?_</String>
         </Annotation>
         <Property Name="Flavor" Type="Extensibility.Flavor" Nullable="false">
           <Annotation Term="Common.Experimental" />
