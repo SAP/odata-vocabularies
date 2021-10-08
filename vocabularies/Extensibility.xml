@@ -63,7 +63,7 @@
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Adding plain attributes" />
         </Property>
-        <Property Name="Structured" Type="Core.Tag" Nullable="false" DefaultValue="false" >
+        <Property Name="Structured" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Adding attributes with structured types" />
         </Property>
@@ -77,7 +77,7 @@
         </Property>
       </ComplexType>
 
-<!-- Fine grained vs. more detailed annotation?-->
+      <!-- Fine grained vs. more detailed annotation?-->
       <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />

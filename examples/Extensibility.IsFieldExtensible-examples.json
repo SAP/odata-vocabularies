@@ -43,10 +43,10 @@
             "this.Foo": {
                 "@Extensibility.IsFieldExtensible": true,
                 "@Extensibility.Enabled": {
-                    "@Fields": true,
-                    "@Composition": true
+                    "Fields": true,
+                    "Composition": true
                 },
-                "@Extensibility.Enabled.PrimitiveExtensionPoints": [
+                "@Extensibility.PrimitiveExtensionPoints": [
                     "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
                     "sap.aligned:dataModelExtensionPoint:MASTER_PROJECT"
                 ],
