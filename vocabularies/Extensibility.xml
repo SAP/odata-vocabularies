@@ -24,6 +24,7 @@
             * with inheritance? with include or exclude semantics? => only include
             * Link between extension points and entity => to avoid implicit magic, have it as additional annotation
           * How to tell there are extension attributes
+          * Consumption contracts?!
         </String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
@@ -46,83 +47,63 @@
         </Collection>
       </Annotation>
 
-      <Term Name="IsFieldExtensible" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+      <!-- short cut annotation -->
+      <Term Name="Extensible" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type allows adding extension fields" />
+        <Annotation Term="Core.Description" String="The annotated entity type allows all extensibility features the server provides." />
       </Term>
-      <!-- Fine grained vs. more detailed annotation?-->
+      <!-- Fine grained, more detailed annotation-->
       <Term Name="Enabled" Type="Extensibility.EnabledType" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type allows extension to the entity" />
+        <Annotation Term="Core.Description" String="The annotated entity type allows only the specified extensions to the entity" />
       </Term>
 
       <ComplexType Name="EnabledType">
         <Annotation Term="Common.Experimental" />
-        <!-- do we allow shortcuts/inheritance here like @Extensibility.Enable:true means all fine grained are true, simialr to @Capabilities.Insertable and  @Capabilities.InsertRestrictions-->
         <Annotation Term="Core.Description" String="Enable fine grained extensibility features" />
-        <Property Name="Primitive" Type="Core.Tag" Nullable="false" DefaultValue="false">
+        <Property Name="Fields" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Adding plain attributes" />
-        </Property>
-        <Property Name="Structured" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Adding attributes with structured types" />
+          <Annotation Term="Core.Description" String="Allows to extend the entity with additional attributes and annotations for these extension attribute" />
         </Property>
         <Property Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows adding compositions which might result in new entities to be created" />
+          <Annotation Term="Core.Description" String="Allows adding compositions, also called node-extensibility, which might result in new entities to be created" />
+        </Property>
+        <Property Name="NewDataSource" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Allows adding new associations to other entities/data sources, which might result in expensive joins and potential circular dependencies" />
         </Property>
         <Property Name="Annotations" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Adding and overwriting annotations" />
+          <Annotation Term="Core.Description" String="Allows manipulating the annotations of the annotated entity and any of its attrirbutes, annotations define themselves if they can be overwritten" />
         </Property>
       </ComplexType>
 
-      <!-- Fine grained vs. more detailed annotation?-->
       <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
+      </Term>
+      <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="TODO: Clarify if necessary; The extension mechanism used by the annotated entity" />
       </Term>
 
       <ComplexType Name="FieldExtensibilityMechanismType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
-        <Annotation Term="Core.LongDescription">
-          <String>
-            SEC-236:
-            Ensure that no attackers can obtain intelligence about the internal structure or 
-            state of a protected domain. Information which is internal to a system can provide 
-            details particularly useful for attackers. Note that in this context, also an 
-            authenticated legitimate user could expose malicious behavior and shall not have access
-             to information he or she doesn't need to know.
-            At the same time, attention has to be paid that no sensitive information gets disclosed 
-            to unauthorized persons, such as IT Support staff.
-
-            _TODO: is `Flavor` sufficient and the `Path` "well-known", or is the `Path` sufficient and leads to a "discovery document" that describes the flavor?_</String>
-        </Annotation>
-        <Property Name="Flavor" Type="Extensibility.Flavor" Nullable="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="_TODO: Flavor/identifier of extension mechanism (version)_" />
-        </Property>
-        <Property Name="Path" Type="Edm.String" Nullable="false">
+        <Property Name="DiscoveryUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.IsURL" Bool="true" />
-          <Annotation Term="Core.Description" String="_TODO: URL to discovery document of extensibility mechanism_" />
+          <Annotation Term="Core.Description" String="URL to discovery which field extensibility feature sets the backend supports and under which path the extensions can be created" />
+          <Annotation Term="Core.LongDescription">
+            <String>
+              In the short run the server would return something like { "flavor" : "CAP", "path": "/add-cap-extension }
+              In the future the frontend might use a more detailed protocol and the server response might look like
+              { "feat1" : true, "feat2": true, "path": "/add-cap-extension }
+            </String>
+          </Annotation>
         </Property>
       </ComplexType>
-
-      <TypeDefinition Name="Flavor" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Different Flavors have different extensibility feature-sets" />
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="CSN???" />
-              <Annotation Term="Core.Description" String="_TODO: Extension via Core Data Services Schema Notation (CSN)_, Cloud Application Programming Model Feature-Set for Handling Extensibility" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
 
       <Term Name="ExtensionPoints" Type="Collection(Edm.String)" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />

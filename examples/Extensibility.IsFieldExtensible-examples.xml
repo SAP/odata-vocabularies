@@ -25,17 +25,23 @@
       <Annotations Target="this.default">
         
         <!-- NEEDED DIRECTLY -->
-        <!-- Option 1 with discovery url only -->
+        <!-- Preferred Option (1) with discovery url only -->
+        <!-- alternatively on every extensible entity ?!-->
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record> 
-            <!-- Feature Discovery would decouple feature development between front-end and backend -->
+            <!-- Feature Discovery would decouple feature development between front-end and backend (
+              returns { flavor : "CAP", path: "/add-cap-extension })
+              future:
+              returns { feat1 : true, feat2: true, path: "/add-cap-extension })"
+            -->
             <PropertyValue Property="DiscoveryUrl" String="/get-cap-extension-capabilities" />
           </Record>
         </Annotation>
-        <!-- Option 2 variantions with flavor -->
+
+        <!-- Alternative Option variantions with flavor 
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            <PropertyValue Property="Flavor" String="CSN" /> <!-- to detailed server descriptions allowing server fingerprinting?! -->
+            <PropertyValue Property="Flavor" String="CSN" /> 
             <PropertyValue Property="Path" String="/add-cap-extension" />
           </Record>
         </Annotation>
@@ -47,19 +53,17 @@
         </Annotation>
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            <!-- FUTURE -->
+          --><!-- FUTURE --><!-- 
             <PropertyValue Property="Flavor" String="ABAP" />
-            <!-- probably a different protocol & feature set needed here -->
+          --><!-- probably a different protocol & feature set needed here --><!-- 
             <PropertyValue Property="Path" String="/add-abap-Extension" />
-            <!-- addition button in the dialog -->
-            <!-- FUTURE -->
+          --><!-- FUTURE: addition button in the dialog --><!-- 
             <PropertyValue Property="DetailNavigationTarget" String="CustomField-develop" />
           </Record>
         </Annotation>
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            <!-- addition button in the dialog -->
-            <!-- FUTURE -->
+            --><!-- FUTURE: addition button in the dialog --><!-- 
             <PropertyValue Property="DetailNavigationTarget" String="FXH-create" />
             <PropertyValue Property="DetailNavigationTarget" String="CustomField-develop"  />
           </Record>
@@ -67,31 +71,35 @@
 
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            <!-- addition button in the dialog -->
-            <!-- FUTURE -->
+            --><!-- FUTURE: addition button in the dialog --><!-- 
             <PropertyValue Property="DetailNavigationUrl" String="/extension-hub"  />
           </Record>
         </Annotation>
+      -->
       </Annotations>
 
       <Annotations Target="this.Foo">
         <!-- NEEDED DIRECTLY -->
+        <!-- everything the server can do is allowed -->
+        <Annotation Term="Extensibility.Extensible" Bool="true"> </Annotation>
+        
         <!-- Also on container/service level?! -->
-        <Annotation Term="Extensibility.AllowList">
+        <Annotation Term="Extensibility.Enabled">
           <Record>
             <!-- NEEDED DIRECTLY -->
             <!-- Adding attributes and annotations for this attribute -->            
-            <PropertyValue Term="Fields" Bool="true" />
+            <PropertyValue Property="Fields" Bool="true" />
             <!-- FUTURE -->
             <!-- Adding attributes that introduce new compositions (e.g. to a new/existing table/sub-entity) -->
-            <PropertyValue Term="Composition" Bool="true" />
+            <PropertyValue Property="Composition" Bool="true" />
+            <!-- FUTURE -->
+            <!-- Adding attributes that introduce new associations (e.g. to a new/existing table/entity) -->
+            <PropertyValue Property="NewDataSource" Bool="true" />            
             <!-- Adding and overwriting annotations of the entity and any attrirbute, annotations define themselves if they can be overwritten, e.g. label=>yes, mandatory=>no  -->
-            <PropertyValue Term="Annotations" Bool="true" />
+            <PropertyValue Property="Annotations" Bool="true" />
           </Record>
         </Annotation>
-
-        <!-- everything the server can do is allowed -->
-        <Annotation Term="Extensibility.Enabled" Bool="true"> </Annotation>
+        
 
         <!-- Entity Name = Extension Point Name (if not provided via @Extensibility.ExtensionPoints -->
         <Annotation Term="Extensibility.ExtensionPoints">
@@ -99,9 +107,12 @@
             <!-- Establishing references between the entities extensibility features and the extension points to be exposed, allowing indirections between entity name and extension point -->
             <String>sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT</String>
             <String>sap.aligned:dataModelExtensionPoint:MAIN_PROJECT</String>
-          </Collection>       
-        </Annotation> 
-      
+          </Collection>
+          <!-- ABAP has 2 types of structural extension points, CDS Extension Points  + Business Contexts-->
+        </Annotation>
+
+        
+        <!-- -->
       </Annotations>
 
       <Annotations Target="this.Foo/id">

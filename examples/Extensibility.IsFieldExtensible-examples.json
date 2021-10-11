@@ -40,14 +40,17 @@
         "$Annotations": {
             "this.default": {
                 "@Extensibility.FieldExtensibilityMechanism": {
-                    "DetailNavigationUrl": "/extension-hub"
+                    "DiscoveryUrl": "/get-cap-extension-capabilities"
                 }
             },
             "this.Foo": {
-                "@Extensibility.AllowList": {
-                    "undefined": true
+                "@Extensibility.Extensible": true,
+                "@Extensibility.Enabled": {
+                    "Fields": true,
+                    "Composition": true,
+                    "NewDataSource": true,
+                    "Annotations": true
                 },
-                "@Extensibility.Enabled": true,
                 "@Extensibility.ExtensionPoints": [
                     "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
                     "sap.aligned:dataModelExtensionPoint:MAIN_PROJECT"
