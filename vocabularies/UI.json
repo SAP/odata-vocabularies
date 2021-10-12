@@ -1496,8 +1496,8 @@
             "$AppliesTo": [
                 "Record"
             ],
-            "@Core.Description": "This Facet and all included Facets are part of the Thing preview",
-            "@Core.RequiresType": "UI.Facet"
+            "@Core.Description": "This record and all included structural elements are part of the Thing preview",
+            "@Core.LongDescription": "This term can be applied e.g. to UI.Facet and UI.DataField"
         },
         "Map": {
             "$Kind": "Term",
