@@ -954,6 +954,11 @@ The trend is
 
       <ComplexType Name="Facet" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.PartOfPreview</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Facet label" />
@@ -1435,6 +1440,7 @@ The trend is
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
+            <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
           </Collection>
         </Annotation>

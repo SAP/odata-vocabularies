@@ -1126,6 +1126,9 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Core.Description": "Abstract base type for facets",
+            "@Validation.ApplicableTerms": [
+                "UI.PartOfPreview"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
@@ -1680,6 +1683,7 @@
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
                 "UI.Importance",
+                "UI.PartOfPreview",
                 "HTML5.CssDefaults"
             ],
             "Label": {
