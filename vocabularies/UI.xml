@@ -1310,8 +1310,8 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.Facet" />
       </Term>
       <Term Name="PartOfPreview" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
-        <Annotation Term="Core.Description" String="This Facet and all included Facets are part of the Thing preview" />
-        <Annotation Term="Core.RequiresType" String="UI.Facet" />
+        <Annotation Term="Core.Description" String="This record and all included structural elements are part of the Thing preview" />
+        <Annotation Term="Core.LongDescription" String="This term can be applied e.g. to UI.Facet and UI.DataField" />
       </Term>
       <Term Name="Map" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
