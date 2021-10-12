@@ -80,11 +80,12 @@
 
       <Annotations Target="this.Foo">
         <!-- NEEDED DIRECTLY -->
-        <!-- everything the server can do is allowed -->
+        <!-- everything the server can do is allowed, opt-in to extensibility for the outside view -->
+        <!-- TODO: What is the naming rule? IsExtensible or Extensible -->
         <Annotation Term="Extensibility.Extensible" Bool="true"> </Annotation>
-        
         <!-- Also on container/service level?! -->
         <Annotation Term="Extensibility.Enabled">
+          <!-- TODO: Do we have opt-out or opt in for the features not listed below? -->
           <Record>
             <!-- NEEDED DIRECTLY -->
             <!-- Adding attributes and annotations for this attribute -->            
@@ -94,8 +95,8 @@
             <PropertyValue Property="Composition" Bool="true" />
             <!-- FUTURE -->
             <!-- Adding attributes that introduce new associations (e.g. to a new/existing table/entity) -->
-            <PropertyValue Property="NewDataSource" Bool="true" />            
-            <!-- Adding and overwriting annotations of the entity and any attrirbute, annotations define themselves if they can be overwritten, e.g. label=>yes, mandatory=>no  -->
+            <PropertyValue Property="FieldsFromNewDataSource" Bool="true" />            
+            <!-- Adding and overwriting annotations of the entity and any attribute, annotations define themselves if they can be overwritten, e.g. label=>yes, mandatory=>no  -->
             <PropertyValue Property="Annotations" Bool="true" />
           </Record>
         </Annotation>
