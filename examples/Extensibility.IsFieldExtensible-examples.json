@@ -48,7 +48,7 @@
                 "@Extensibility.Enabled": {
                     "Fields": true,
                     "Composition": true,
-                    "NewDataSource": true,
+                    "FieldsFromNewDataSource": true,
                     "Annotations": true
                 },
                 "@Extensibility.ExtensionPoints": [
