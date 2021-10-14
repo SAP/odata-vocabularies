@@ -12,7 +12,7 @@
         "https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Namespace": "com.sap.vocabularies.Extensibility.v1",
                     "$Alias": "Extensibility"
                 }
             ]

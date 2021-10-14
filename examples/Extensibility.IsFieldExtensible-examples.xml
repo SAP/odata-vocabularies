@@ -5,7 +5,7 @@
   </edmx:Reference>
 
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Extensibility" />
+    <edmx:Include Namespace="com.sap.vocabularies.Extensibility.v1" Alias="Extensibility" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="Extensibility.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
@@ -19,16 +19,16 @@
           <PropertyRef Name="id" />
         </Key>
         <Property Name="id" Type="Edm.String" Nullable="false" />
-        <Property Name="zz_bar" Type="Edm.String"  />
+        <Property Name="zz_bar" Type="Edm.String" />
       </EntityType>
 
       <Annotations Target="this.default">
-        
+
         <!-- NEEDED DIRECTLY -->
         <!-- Preferred Option (1) with discovery url only -->
         <!-- alternatively on every extensible entity ?!-->
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
-          <Record> 
+          <Record>
             <!-- Feature Discovery would decouple feature development between front-end and backend (
               returns { flavor : "CAP", path: "/add-cap-extension })
               future:
@@ -53,17 +53,25 @@
         </Annotation>
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-          --><!-- FUTURE --><!-- 
+          -->
+        <!-- FUTURE -->
+        <!-- 
             <PropertyValue Property="Flavor" String="ABAP" />
-          --><!-- probably a different protocol & feature set needed here --><!-- 
+          -->
+        <!-- probably a different protocol & feature set needed here -->
+        <!-- 
             <PropertyValue Property="Path" String="/add-abap-Extension" />
-          --><!-- FUTURE: addition button in the dialog --><!-- 
+          -->
+        <!-- FUTURE: addition button in the dialog -->
+        <!-- 
             <PropertyValue Property="DetailNavigationTarget" String="CustomField-develop" />
           </Record>
         </Annotation>
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            --><!-- FUTURE: addition button in the dialog --><!-- 
+            -->
+        <!-- FUTURE: addition button in the dialog -->
+        <!-- 
             <PropertyValue Property="DetailNavigationTarget" String="FXH-create" />
             <PropertyValue Property="DetailNavigationTarget" String="CustomField-develop"  />
           </Record>
@@ -71,7 +79,9 @@
 
         <Annotation Term="Extensibility.FieldExtensibilityMechanism">
           <Record>
-            --><!-- FUTURE: addition button in the dialog --><!-- 
+            -->
+        <!-- FUTURE: addition button in the dialog -->
+        <!-- 
             <PropertyValue Property="DetailNavigationUrl" String="/extension-hub"  />
           </Record>
         </Annotation>
@@ -82,25 +92,25 @@
         <!-- NEEDED DIRECTLY -->
         <!-- everything the server can do is allowed, opt-in to extensibility for the outside view -->
         <!-- TODO: What is the naming rule? IsExtensible or Extensible -->
-        <Annotation Term="Extensibility.Extensible" Bool="true"> </Annotation>
+        <Annotation Term="Extensibility.Extensible" Bool="true"></Annotation>
         <!-- Also on container/service level?! -->
         <Annotation Term="Extensibility.Enabled">
           <!-- TODO: Do we have opt-out or opt in for the features not listed below? -->
           <Record>
             <!-- NEEDED DIRECTLY -->
-            <!-- Adding attributes and annotations for this attribute -->            
+            <!-- Adding attributes and annotations for this attribute -->
             <PropertyValue Property="Fields" Bool="true" />
             <!-- FUTURE -->
             <!-- Adding attributes that introduce new compositions (e.g. to a new/existing table/sub-entity) -->
             <PropertyValue Property="Composition" Bool="true" />
             <!-- FUTURE -->
             <!-- Adding attributes that introduce new associations (e.g. to a new/existing table/entity) -->
-            <PropertyValue Property="FieldsFromNewDataSource" Bool="true" />            
+            <PropertyValue Property="FieldsFromNewDataSource" Bool="true" />
             <!-- Adding and overwriting annotations of the entity and any attribute, annotations define themselves if they can be overwritten, e.g. label=>yes, mandatory=>no  -->
             <PropertyValue Property="Annotations" Bool="true" />
           </Record>
         </Annotation>
-        
+
 
         <!-- Entity Name = Extension Point Name (if not provided via @Extensibility.ExtensionPoints -->
         <Annotation Term="Extensibility.ExtensionPoints">
@@ -112,7 +122,7 @@
           <!-- ABAP has 2 types of structural extension points, CDS Extension Points  + Business Contexts-->
         </Annotation>
 
-        
+
         <!-- -->
       </Annotations>
 
@@ -122,7 +132,7 @@
         <!-- Note: this would be an engine-internal annotation and not visible in the API if the field is not yet exposed in the API -->
         <Annotation Term="Extensibility.Exposable" Bool="true" />
       </Annotations>
-      
+
       <Annotations Target="this.Foo/zz_bar">
         <!-- FUTURE -->
         <!-- telling others that the property was create via extensibility mechanisms  -->
