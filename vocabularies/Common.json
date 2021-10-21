@@ -1221,6 +1221,11 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Additional actions that create a new draft",
                 "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+            },
+            "ShareAction": {
+                "$Type": "Common.QualifiedName",
+                "$Nullable": true,
+                "@Core.Description": "Action that shares a draft document with other users"
             }
         },
         "DraftNode": {

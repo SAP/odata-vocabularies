@@ -1011,6 +1011,9 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
           <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
         </Property>
+        <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+        </Property>
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">
