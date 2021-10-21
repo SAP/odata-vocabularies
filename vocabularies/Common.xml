@@ -1013,6 +1013,18 @@ The minimum structure is
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root node and has the following signature:
+
+            - `Users`: collection of structure with properties
+
+            &#xA0;&#xA0;- `UserName` of type `String` and
+
+            &#xA0;&#xA0;- `UserRole` of type `String` with possible values ...
+
+            It restricts access to the listed users in their specified roles.
+          </String>
+          </Annotation>
         </Property>
       </ComplexType>
 

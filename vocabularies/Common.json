@@ -1225,7 +1225,8 @@
             "ShareAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Description": "Action that shares a draft document with other users"
+                "@Core.Description": "Action that shares a draft document with other users",
+                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              - `UserName` of type `String` and\n\n              - `UserRole` of type `String` with possible values ...\n\n            It restricts access to the listed users in their specified roles.\n          "
             }
         },
         "DraftNode": {
