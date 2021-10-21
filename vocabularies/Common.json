@@ -1242,12 +1242,6 @@
             "PreparationAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
-                    }
-                ],
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
