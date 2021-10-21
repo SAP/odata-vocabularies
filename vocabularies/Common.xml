@@ -1020,10 +1020,9 @@ The minimum structure is
 
             &#xA0;&#xA0;- `UserName` of type `String` and
 
-            &#xA0;&#xA0;- `UserRole` of type `String` with possible values ...
+            &#xA0;&#xA0;- `UserRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `C` (collaborator, can change the draft)
 
-            It restricts access to the listed users in their specified roles.
-          </String>
+            It restricts access to the listed users in their specified roles.</String>
           </Annotation>
         </Property>
       </ComplexType>
