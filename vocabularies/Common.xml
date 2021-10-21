@@ -1020,14 +1020,6 @@ The minimum structure is
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
-              </Record>
-            </Collection>
-          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
