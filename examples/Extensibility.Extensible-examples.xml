@@ -47,7 +47,7 @@
             <PropertyValue Property="Enabled"  Bool="true" />
           </Record>
         </Annotation>
-        <Annotation Term="Extensibility.Relational">
+        <Annotation Term="Extensibility.Relations">
           <Record>
             <PropertyValue Property="Enabled"  Bool="true" />
           </Record>

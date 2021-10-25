@@ -48,7 +48,7 @@
                 "@Extensibility.Fields": {
                     "Enabled": true
                 },
-                "@Extensibility.Relational": {
+                "@Extensibility.Relations": {
                     "Enabled": true
                 },
                 "@Extensibility.Annotations": {
