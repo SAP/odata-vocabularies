@@ -45,22 +45,15 @@
             },
             "this.Foo": {
                 "@Extensibility.Extensible": true,
-                "@Extensibility.Enabled": {
-                    "Fields": true,
-                    "Composition": true,
-                    "FieldsFromNewDataSource": true,
-                    "Annotations": true
+                "@Extensibility.Fields": {
+                    "Enabled": true
                 },
-                "@Extensibility.ExtensionPoints": [
-                    "sap.someApp:dataModelExtensionPoint:CUSTOMER_PROJECT",
-                    "sap.aligned:dataModelExtensionPoint:MAIN_PROJECT"
-                ]
-            },
-            "this.Foo/id": {
-                "@Extensibility.Exposable": true
-            },
-            "this.Foo/zz_bar": {
-                "@Extensibility.ExtensionField": true
+                "@Extensibility.Relational": {
+                    "Enabled": true
+                },
+                "@Extensibility.Annotations": {
+                    "Enabled": true
+                }
             }
         }
     },

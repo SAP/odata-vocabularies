@@ -29,7 +29,7 @@
     "com.sap.vocabularies.Extensibility.v1": {
         "$Alias": "Extensibility",
         "@Common.Experimental": true,
-        "@Core.Description": "\n          Terms for Extensibility\n          With the following requirements:\n          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery \n          => Do we need the flavor or can we do discovery\n          * Annotate CDS entities to be extensible\n            * fine grained or simple? => both\n            * with inheritance? with include or exclude semantics? => only include\n            * Link between extension points and entity => to avoid implicit magic, have it as additional annotation\n          * How to tell there are extension attributes\n          * Consumption contracts?!\n        ",
+        "@Core.Description": "\n          Terms for Extensibility to tell consumers which extensibility features and capabilities are available on service and entity level.\n        ",
         "@Core.Description#Published": "2021-10-04 © Copyright 2021 SAP SE. All rights reserved",
         "@Core.Links": [
             {
@@ -48,60 +48,84 @@
         "Extensible": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$DefaultValue": true,
+            "$DefaultValue": false,
             "$AppliesTo": [
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity type allows all extensibility features the server provides."
+            "@Core.Description": "\n            The annotated entity type allows all extensibility features the server provides. In case the entity is annotated with the more \n            detailed @Extensibility.Fields, @Extensibility.Relations, @Extensibility.Annotations annotation, this annotation should be ignored.\n\n            Exposing an entity using this annotation establishes a very broad extensibility contract. Only very limited changes to the entity\n            can be considered compatible so that extensions will survive updates.\n          "
         },
-        "Enabled": {
+        "Fields": {
             "$Kind": "Term",
-            "$Type": "Extensibility.EnabledType",
+            "$Type": "Extensibility.FieldsType",
             "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity type allows only the specified extensions to the entity"
+            "@Core.Description": "The annotated entity type has the specified field extension capabilities"
         },
-        "EnabledType": {
+        "FieldsType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type has the specified field extension capabilities",
+            "Enabled": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Common.Experimental": true,
+                "@Core.Description": "Allows to extend the entity with additional attributes and annotations for these extension attribute. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored."
+            }
+        },
+        "Relations": {
+            "$Kind": "Term",
+            "$Type": "Extensibility.RelationsType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type has the specified relational extension capabilities"
+        },
+        "RelationsType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
             "@Core.Description": "Enable fine grained extensibility features",
-            "Fields": {
+            "Enabled": {
                 "$Type": "Core.Tag",
                 "$DefaultValue": false,
                 "@Common.Experimental": true,
-                "@Core.Description": "Allows to extend the entity with additional attributes and annotations for these extension attribute"
-            },
-            "Composition": {
+                "@Core.Description": "Allows to extend the entity with additional compositions, also called node-extensibility, which might result in new entities to be created, as well as additional associations which might results in new data sources being part of join conditions. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored."
+            }
+        },
+        "Annotations": {
+            "$Kind": "Term",
+            "$Type": "Extensibility.AnnotationsType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type has the specified annotations extension capabilities"
+        },
+        "AnnotationsType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Enable fine grained extensibility features",
+            "Enabled": {
                 "$Type": "Core.Tag",
                 "$DefaultValue": false,
                 "@Common.Experimental": true,
-                "@Core.Description": "Allows adding compositions, also called node-extensibility, which might result in new entities to be created"
-            },
-            "NewDataSource": {
-                "$Type": "Core.Tag",
-                "$DefaultValue": false,
-                "@Common.Experimental": true,
-                "@Core.Description": "Allows adding new associations to other entities/data sources, which might result in expensive joins and potential circular dependencies"
-            },
-            "Annotations": {
-                "$Type": "Core.Tag",
-                "$DefaultValue": false,
-                "@Common.Experimental": true,
-                "@Core.Description": "Allows manipulating the annotations of the annotated entity and any of its attrirbutes, annotations define themselves if they can be overwritten"
+                "@Core.Description": "Allows manipulating the annotations of the annotated entity and any of its attrirbutes, annotations define themselves if they can be overwritten. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored."
             }
         },
         "FieldExtensibilityMechanism": {
             "$Kind": "Term",
             "$Type": "Extensibility.FieldExtensibilityMechanismType",
             "$AppliesTo": [
-                "EntityType"
+                "EntityContainer"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "TODO: Clarify if necessary; The extension mechanism used by the annotated entity"
+            "@Core.Description": "The extension mechanism used by the annotated service"
         },
         "FieldExtensibilityMechanismType": {
             "$Kind": "ComplexType",
@@ -111,17 +135,8 @@
                 "@Common.Experimental": true,
                 "@Core.IsURL": true,
                 "@Core.Description": "URL to discovery which field extensibility feature sets the backend supports and under which path the extensions can be created",
-                "@Core.LongDescription": "\n              In the short run the server would return something like { \"flavor\" : \"CAP\", \"path\": \"/add-cap-extension }\n              In the future the frontend might use a more detailed protocol and the server response might look like\n              { \"feat1\" : true, \"feat2\": true, \"path\": \"/add-cap-extension }\n            "
+                "@Core.LongDescription": "\n              In the short run the server would return something like { \"flavor\" : \"CAP\", \"path\": \"/add-cap-extension }\n              In the future the frontend might use a more detailed protocol and the server response might look like\n              { \"feat1\" : true, \"feat2\": true, \"path\": \"/add-cap-extension } or can be delegated to another metadata discovery standard.\n            "
             }
-        },
-        "ExtensionPoints": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity type is extensible at these extension points."
         }
     }
 }

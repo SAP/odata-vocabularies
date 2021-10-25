@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Extensibility.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Extensibility.v1" Alias="Extensibility" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="Extensibility.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="default">
+        <EntitySet Name="Foo" EntityType="this.Foo" />
+      </EntityContainer>
+
+      <EntityType Name="Foo">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="zz_bar" Type="Edm.String" />
+      </EntityType>
+
+      <Annotations Target="this.default">
+        
+        <Annotation Term="Extensibility.FieldExtensibilityMechanism">
+          <Record>
+            <!-- Feature Discovery would decouple feature development between front-end and backend (
+              returns { flavor : "CAP", path: "/add-cap-extension })
+              future:
+              returns { feat1 : true, feat2: true, path: "/add-cap-extension })"
+            -->
+            <PropertyValue Property="DiscoveryUrl" String="/get-cap-extension-capabilities" />
+          </Record>
+        </Annotation>
+
+      </Annotations>
+
+      <Annotations Target="this.Foo">
+        <!-- everything the server can do is allowed -->
+        <Annotation Term="Extensibility.Extensible" Bool="true"></Annotation>
+
+        <!-- fine grained extensibility control that takes precedence over Extensibility.Extensible -->
+        <Annotation Term="Extensibility.Fields">
+          <Record>
+            <PropertyValue Property="Enabled"  Bool="true" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Extensibility.Relational">
+          <Record>
+            <PropertyValue Property="Enabled"  Bool="true" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Extensibility.Annotations">
+          <Record>
+            <PropertyValue Property="Enabled"  Bool="true" />
+          </Record>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

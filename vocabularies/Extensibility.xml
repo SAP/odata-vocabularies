@@ -15,16 +15,7 @@
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>
-          Terms for Extensibility
-          With the following requirements:
-          * Tell the UI5 frontend that the backend has field extensibility features with a specific flavor, alternative approach might be to use Open Resource Discovery 
-          => Do we need the flavor or can we do discovery
-          * Annotate CDS entities to be extensible
-            * fine grained or simple? => both
-            * with inheritance? with include or exclude semantics? => only include
-            * Link between extension points and entity => to avoid implicit magic, have it as additional annotation
-          * How to tell there are extension attributes
-          * Consumption contracts?!
+          Terms for Extensibility to tell consumers which extensibility features and capabilities are available on service and entity level.
         </String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
@@ -46,46 +37,65 @@
           </Record>
         </Collection>
       </Annotation>
-
       <!-- short cut annotation -->
-      <Term Name="Extensible" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+      <Term Name="Extensible" Type="Core.Tag" Nullable="false" DefaultValue="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type allows all extensibility features the server provides." />
+        <Annotation Term="Core.Description">
+          <String>
+            The annotated entity type allows all extensibility features the server provides. In case the entity is annotated with the more 
+            detailed @Extensibility.Fields, @Extensibility.Relations, @Extensibility.Annotations annotation, this annotation should be ignored.
+
+            Exposing an entity using this annotation establishes a very broad extensibility contract. Only very limited changes to the entity
+            can be considered compatible so that extensions will survive updates.
+          </String>
+        </Annotation> 
       </Term>
-      <!-- Fine grained, more detailed annotation-->
-      <Term Name="Enabled" Type="Extensibility.EnabledType" AppliesTo="EntityType">
+      <!-- Fine grained, more detailed annotations, if they are present the short cut Extensibility.Extenible is ignored -->
+      <Term Name="Fields" Type="Extensibility.FieldsType" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type allows only the specified extensions to the entity" />
+        <Annotation Term="Core.Description" String="The annotated entity type has the specified field extension capabilities" />
       </Term>
 
-      <ComplexType Name="EnabledType">
+      <ComplexType Name="FieldsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type has the specified field extension capabilities" />
+        <Property Name="Enabled" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Allows to extend the entity with additional attributes and annotations for these extension attribute. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored." />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Relations" Type="Extensibility.RelationsType" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type has the specified relational extension capabilities" />
+      </Term>
+
+      <ComplexType Name="RelationsType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Enable fine grained extensibility features" />
-        <Property Name="Fields" Type="Core.Tag" Nullable="false" DefaultValue="false">
+        <Property Name="Enabled" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows to extend the entity with additional attributes and annotations for these extension attribute" />
+          <Annotation Term="Core.Description" String="Allows to extend the entity with additional compositions, also called node-extensibility, which might result in new entities to be created, as well as additional associations which might results in new data sources being part of join conditions. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored." />
         </Property>
-        <Property Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="false">
+      </ComplexType>
+
+      <Term Name="Annotations" Type="Extensibility.AnnotationsType" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type has the specified annotations extension capabilities" />
+      </Term>
+
+      <ComplexType Name="AnnotationsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Enable fine grained extensibility features" />
+        <Property Name="Enabled" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows adding compositions, also called node-extensibility, which might result in new entities to be created" />
-        </Property>
-        <Property Name="NewDataSource" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows adding new associations to other entities/data sources, which might result in expensive joins and potential circular dependencies" />
-        </Property>
-        <Property Name="Annotations" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows manipulating the annotations of the annotated entity and any of its attrirbutes, annotations define themselves if they can be overwritten" />
+          <Annotation Term="Core.Description" String="Allows manipulating the annotations of the annotated entity and any of its attrirbutes, annotations define themselves if they can be overwritten. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored." />
         </Property>
       </ComplexType>
 
       <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The extension mechanism used by the annotated service" />
-      </Term>
-      <Term Name="FieldExtensibilityMechanism" Type="Extensibility.FieldExtensibilityMechanismType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="TODO: Clarify if necessary; The extension mechanism used by the annotated entity" />
       </Term>
 
       <ComplexType Name="FieldExtensibilityMechanismType">
@@ -99,16 +109,11 @@
             <String>
               In the short run the server would return something like { "flavor" : "CAP", "path": "/add-cap-extension }
               In the future the frontend might use a more detailed protocol and the server response might look like
-              { "feat1" : true, "feat2": true, "path": "/add-cap-extension }
+              { "feat1" : true, "feat2": true, "path": "/add-cap-extension } or can be delegated to another metadata discovery standard.
             </String>
           </Annotation>
         </Property>
       </ComplexType>
-
-      <Term Name="ExtensionPoints" Type="Collection(Edm.String)" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type is extensible at these extension points." />
-      </Term>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
