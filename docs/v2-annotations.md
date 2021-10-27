@@ -1458,7 +1458,9 @@ Example:
 
 Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <code>search</code> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.
 
-<code>GET ~/Orders?search=blue</code>
+```http
+GET ~/Orders?search=blue
+```
 
 to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <code>IV_SEARCH_STRING</code> of method <code>GET_ENTITYSET</code>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">SAP Gateway Foundation Developer Guide</a> for details.
 Note that <code>search</code> works similar to <code>$filter</code>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <code>$filter</code>, returning only entities that fulfill both conditions.
