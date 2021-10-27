@@ -127,7 +127,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 </td>
 <td colspan="1">A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
 <td colspan="1">
-<a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
+<a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
 </td>
 </tr>
 </tbody>
