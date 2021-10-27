@@ -410,22 +410,22 @@ Entity types can be annotated with the following attributes:
     </tr>
     <tr>
       <td>
-        <span style="color: rgb(87,87,87);">label</span>
+        <span>label</span>
       </td>
       <td>
         <p>
-          <span style="color: rgb(87,87,87);">Description, will also be used as sap:member-title in the service document</span>
+          <span>Description, will also be used as sap:member-title in the service document</span>
         </p>
       </td>
     </tr>
     <tr>
       <td>
         <p>
-          <span style="color: rgb(87,87,87);">semantics</span>
+          <span>semantics</span>
         </p>
       </td>
       <td>
-        <span style="color: rgb(87,87,87);">See table below</span>
+        <span>See table below</span>
       </td>
     </tr>
   </tbody>
@@ -1085,79 +1085,79 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>count</td>
-          <td>Aggregation: <span style="color: rgb(51,51,51);">the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.</span>
+          <td>Aggregation: <span>the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.</span>
           </td>
         </tr>
       </tbody>
     </table>
     <p>
-      <span style="line-height: 13.0pt;">For “tel” the type values are (see [</span> <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> <span style="line-height: 13.0pt;">]):</span>
+      <span>For “tel” the type values are (see [</span> <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> <span>]):</span>
     </p>
   </div>
   <div>
     <ul style="list-style-type: disc;">
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate a telephone number associated with a residence</span>
+        <span>"home" to indicate a telephone number associated with a residence</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate a telephone number associated with a place of work</span>
+        <span>"work" to indicate a telephone number associated with a place of work</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use telephone number </span>
+        <span>“pref" to indicate a preferred-use telephone number </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"text" to indicate a telephone number supporting text messages (SMS)</span>
+        <span>"text" to indicate a telephone number supporting text messages (SMS)</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"voice" to indicate a voice telephone number </span>
+        <span>"voice" to indicate a voice telephone number </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"fax" to indicate a facsimile telephone number </span>
+        <span>"fax" to indicate a facsimile telephone number </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"cell" to indicate a cellular telephone number</span>
+        <span>"cell" to indicate a cellular telephone number</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"video" to indicate a video conferencing telephone number </span>
+        <span>"video" to indicate a video conferencing telephone number </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"pager" to indicate a paging device telephone number </span>
+        <span>"pager" to indicate a paging device telephone number </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"textphone" to indicate a telecommunication device for people with hearing or speech difficulties</span>
+        <span>"textphone" to indicate a telecommunication device for people with hearing or speech difficulties</span>
       </li>
     </ul>
     <div>
-      <span style="font-family: arial , helvetica , sans-serif;"> <br/>
+      <span> <br/>
       </span>
     </div>
     <div>
-      <span style="font-family: arial , helvetica , sans-serif;">For “email” the type values are:</span>
+      <span>For “email” the type values are:</span>
     </div>
     <ul style="list-style-type: disc;">
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an email address associated with a residence</span>
+        <span>"home" to indicate an email address associated with a residence</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an email address associated with a place of work </span>
+        <span>"work" to indicate an email address associated with a place of work </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use email address</span>
+        <span>“pref" to indicate a preferred-use email address</span>
       </li>
     </ul>
     <div>For “url” and constituents of an address the type values are:</div>
     <ul style="list-style-type: disc;">
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an address associated with a residence</span>
+        <span>"home" to indicate an address associated with a residence</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an address associated with a place of work </span>
+        <span>"work" to indicate an address associated with a place of work </span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;">“org" to indicate an address associated with the organization</span>
+        <span>“org" to indicate an address associated with the organization</span>
       </li>
       <li>
-        <span style="font-family: arial , helvetica , sans-serif;"> <span>“pref” to indicate a preferred address </span> <span>“other” to indicate some other address</span> </span>
+        <span> <span>“pref” to indicate a preferred address </span> <span>“other” to indicate some other address</span> </span>
       </li>
     </ul>
   </div>
