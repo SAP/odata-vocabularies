@@ -32,7 +32,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Features" Type="PDF.FeaturesType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="Features" Type="PDF.FeaturesType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="..." />
         <Annotation Term="Core.LongDescription" String="..." />
       </Term>

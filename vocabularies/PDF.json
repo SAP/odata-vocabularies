@@ -33,7 +33,7 @@
             "$Kind": "Term",
             "$Type": "PDF.FeaturesType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntityContainer"
             ],
             "@Core.Description": "...",
             "@Core.LongDescription": "..."
