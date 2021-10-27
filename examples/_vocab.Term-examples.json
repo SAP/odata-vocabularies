@@ -12,7 +12,7 @@
         "https://sap.github.io/odata-vocabularies/vocabularies/_vocab.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Namespace": "com.sap.vocabularies._vocab.v1",
                     "$Alias": "_vocab"
                 }
             ]
