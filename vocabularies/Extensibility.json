@@ -73,7 +73,7 @@
                 "$Type": "Core.Tag",
                 "$DefaultValue": false,
                 "@Common.Experimental": true,
-                "@Core.Description": "Allows to extend the entity with additional attributes and annotations for these extension attribute. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored."
+                "@Core.Description": "Allows to extend the entity with additional properties and annotations for these extension properties. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored."
             }
         },
         "Relations": {

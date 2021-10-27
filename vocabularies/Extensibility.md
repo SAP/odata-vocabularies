@@ -21,7 +21,7 @@ The annotated entity type has the specified field extension capabilities
 
 Property|Type|Description
 :-------|:---|:----------
-[Enabled](./Extensibility.xml#L62:~:text=<ComplexType%20Name="-,FieldsType,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|Allows to extend the entity with additional attributes and annotations for these extension attribute. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored.
+[Enabled](./Extensibility.xml#L62:~:text=<ComplexType%20Name="-,FieldsType,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|Allows to extend the entity with additional properties and annotations for these extension properties. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored.
 
 ## <a name="RelationsType"></a>[RelationsType](./Extensibility.xml#L73:~:text=<ComplexType%20Name="-,RelationsType,-") *([Experimental](Common.md#Experimental))*
 Enable fine grained extensibility features
