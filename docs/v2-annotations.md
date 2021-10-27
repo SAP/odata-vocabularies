@@ -164,11 +164,11 @@ Entity containers can be annotated with the following attributes. If not stated 
     </tr>
     <tr>
       <td>
-        <span>use-batch</span>
+        use-batch
       </td>
       <td>false</td>
       <td>
-        <span>Wrap all requests to resources of this service in batch requests; only the service document and the metadata document can be accessed unwrapped.This av</span> <span>oids exposing sensitive data in URLs (even with HTTPS URLs can be visible in log files)</span>
+        Wrap all requests to resources of this service in batch requests; only the service document and the metadata document can be accessed unwrapped.This av oids exposing sensitive data in URLs (even with HTTPS URLs can be visible in log files)
       </td>
     </tr>
   </tbody>
@@ -195,42 +195,42 @@ Entity sets can be annotated with the following attributes. If not stated explic
     <tr>
       <td>label</td>
       <td>
-        <span>-</span>
+        -
       </td>
       <td>
         <p>
-          <span>Description, will also be used as atom:title in the service document</span>
+          Description, will also be used as atom:title in the service document
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <span>creatable</span>
+        creatable
       </td>
       <td>
-        <span>true</span>
+        true
       </td>
       <td>
-        <span>New entities can be created in this set</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span>updatable</span>
-      </td>
-      <td>
-        <span>true</span>
-      </td>
-      <td>
-        <span>Entities in this set can be updated. Must not be present if updatable-path is present.</span>
+        New entities can be created in this set
       </td>
     </tr>
     <tr>
       <td>
-        <span>updatable-path</span>
+        updatable
       </td>
       <td>
-        <span>-</span>
+        true
+      </td>
+      <td>
+        Entities in this set can be updated. Must not be present if updatable-path is present.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        updatable-path
+      </td>
+      <td>
+        -
       </td>
       <td>Entities in this set can be updated or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be updated or not. Must not be present if updatable is present.<br/>The combined meaning of the annotations updatable and updatable-path is<ul style="list-style-type: disc;">
           <li>If an entity set is neither annotated with updatable nor updatable-path, its entities can be updated</li>
@@ -250,88 +250,88 @@ Entity sets can be annotated with the following attributes. If not stated explic
     </tr>
     <tr>
       <td>
-        <span>deletable</span>
+        deletable
       </td>
       <td>
-        <span>true</span>
+        true
       </td>
       <td>
-        <span>Entities can be deleted from this set. Must not be present if deletable-path is present.</span>
+        Entities can be deleted from this set. Must not be present if deletable-path is present.
       </td>
     </tr>
     <tr>
       <td>
-        <span>deletable-path</span>
+        deletable-path
       </td>
       <td>
-        <span>-</span>
+        -
       </td>
       <td>Entities in this set can be deleted or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be deleted or not. Must not be present if deletable is present.<br/>See notes in updatable-path for combined meaning of deletable and deletable-path.</td>
     </tr>
     <tr>
       <td>
-        <span>searchable</span>
+        searchable
       </td>
       <td>
-        <span>false</span>
+        false
       </td>
       <td>
-        <span>Supports custom query option <code>search</code> </span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span>pageable</span>
-      </td>
-      <td>
-        <span>true</span>
-      </td>
-      <td>
-        <span>Supports system query options <code>$top</code> and <code>$skip</code> </span>
+        Supports custom query option <code>search</code> 
       </td>
     </tr>
     <tr>
       <td>
-        <span>topable</span>
+        pageable
       </td>
       <td>
-        <span>true</span>
+        true
       </td>
       <td>
-        <span>Supports system query option <code>$top</code> </span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span>countable</span>
-      </td>
-      <td>
-        <span>true</span>
-      </td>
-      <td>
-        <span>Supports system query option <code>$inlinecount=allpages</code> and path suffix <code>/$count</code> </span>
+        Supports system query options <code>$top</code> and <code>$skip</code> 
       </td>
     </tr>
     <tr>
       <td>
-        <span>addressable</span>
+        topable
       </td>
       <td>
-        <span>true</span>
+        true
       </td>
       <td>
-        <span>Use “false” if this entity set can only be accessed within its containing entity, e.g. Conditions within SalesOrders through SalesOrders(4711)/Conditions. Direct access to non-addressable entity collections will result in a 4xx response code. The set may however allow access to single entities identified by their key properties values, e.g. SalesOrderConditions(OrderID=4711,ConditionID=3)</span>
+        Supports system query option <code>$top</code> 
       </td>
     </tr>
     <tr>
       <td>
-        <span>requires-filter</span>
+        countable
       </td>
       <td>
-        <span>false</span>
+        true
       </td>
       <td>
-        <span>Use “true” if this set cannot be queried without providing a <code>$filter</code> expression. If accessed without a filter expression, it will respond with a human-readable error message explaining which kinds of filter expressions are required as a minimum</span>
+        Supports system query option <code>$inlinecount=allpages</code> and path suffix <code>/$count</code> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        addressable
+      </td>
+      <td>
+        true
+      </td>
+      <td>
+        Use “false” if this entity set can only be accessed within its containing entity, e.g. Conditions within SalesOrders through SalesOrders(4711)/Conditions. Direct access to non-addressable entity collections will result in a 4xx response code. The set may however allow access to single entities identified by their key properties values, e.g. SalesOrderConditions(OrderID=4711,ConditionID=3)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        requires-filter
+      </td>
+      <td>
+        false
+      </td>
+      <td>
+        Use “true” if this set cannot be queried without providing a <code>$filter</code> expression. If accessed without a filter expression, it will respond with a human-readable error message explaining which kinds of filter expressions are required as a minimum
       </td>
     </tr>
     <tr>
@@ -351,13 +351,13 @@ Entity sets can be annotated with the following attributes. If not stated explic
     </tr>
     <tr>
       <td>
-        <span>semantics</span>
+        semantics
       </td>
       <td>
-        <span>-</span>
+        -
       </td>
       <td>
-        <span>See table below</span>
+        See table below
       </td>
     </tr>
   </tbody>
@@ -372,18 +372,18 @@ This attribute can take the following values in the context of an entity type:
   <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-        <span> <strong>Value</strong> </span>
+         <strong>Value</strong> 
       </th>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-        <span> <strong>Meaning</strong> </span>
+         <strong>Meaning</strong> 
       </th>
     </tr>
     <tr>
       <td>
-        <span>aggregate</span>
+        aggregate
       </td>
       <td>
-        <span>The entities of this set are automatically aggregated if the query option <code>$select</code> is specified. Each property listed in <code>$select</code> is treated according to its aggregation role. See description of attribute </span> <code>sap:semantics="aggregate"</code> for <code>Edm:EntityType</code> <span>below.</span>
+        The entities of this set are automatically aggregated if the query option <code>$select</code> is specified. Each property listed in <code>$select</code> is treated according to its aggregation role. See description of attribute  <code>sap:semantics="aggregate"</code> for <code>Edm:EntityType</code> below.
       </td>
     </tr>
     <tr>
@@ -410,22 +410,22 @@ Entity types can be annotated with the following attributes:
     </tr>
     <tr>
       <td>
-        <span>label</span>
+        label
       </td>
       <td>
         <p>
-          <span>Description, will also be used as sap:member-title in the service document</span>
+          Description, will also be used as sap:member-title in the service document
         </p>
       </td>
     </tr>
     <tr>
       <td>
         <p>
-          <span>semantics</span>
+          semantics
         </p>
       </td>
       <td>
-        <span>See table below</span>
+        See table below
       </td>
     </tr>
   </tbody>
@@ -450,29 +450,29 @@ This attribute can take the following values in the context of an entity type:
       <tr>
         <td>vcard</td>
         <td>
-          <span>Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a></span>
+          Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a>
         </td>
       </tr>
       <tr>
         <td>vevent</td>
         <td>
-          <span>Entities of this type contain event/appointment information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a></span>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> </span>
+          Entities of this type contain event/appointment information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
         </td>
       </tr>
       <tr>
         <td>
           <p>
-            <span>vtodo</span>
+            vtodo
           </p>
         </td>
         <td>
-          <span>Entities of this type contain todo/task information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> </span>
+          Entities of this type contain todo/task information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> , see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
         </td>
       </tr>
       <tr>
         <td>parameters</td>
         <td>
-          <span>This entity type represents parameters for another entity type to which it has a collection-valued association</span>
+          This entity type represents parameters for another entity type to which it has a collection-valued association
         </td>
       </tr>
       <tr>
@@ -484,7 +484,7 @@ This attribute can take the following values in the context of an entity type:
       <tr>
         <td>variant</td>
         <td>
-          <span>This entity type represents query selection variants bundling parameter selections and filter expressions for obtaining specific query results</span>
+          This entity type represents query selection variants bundling parameter selections and filter expressions for obtaining specific query results
         </td>
       </tr>
     </tbody>
@@ -544,7 +544,7 @@ This attribute can take the following values in the context of an entity type:
           <td>sortable</td>
           <td>true</td>
           <td>
-            <span>Can be used in $orderby system query option.</span>
+            Can be used in $orderby system query option.
           </td>
         </tr>
         <tr>
@@ -556,7 +556,7 @@ This attribute can take the following values in the context of an entity type:
           <td>required-in-filter</td>
           <td>false</td>
           <td>
-            <span>Must be used in $filter system query option.</span>
+            Must be used in $filter system query option.
           </td>
         </tr>
         <tr>
@@ -568,19 +568,19 @@ This attribute can take the following values in the context of an entity type:
           <td>text</td>
           <td>-</td>
           <td>
-            <span>A </span> <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a property in the context of the entity type </span>containing a human-readable text for the value of this property.</td>
+            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing a human-readable text for the value of this property.</td>
         </tr>
         <tr>
           <td>unit</td>
           <td>-</td>
           <td>
-            <span>A </span> <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a property in the context of the entity type</span> containing the currency code or unit of measure for a numeric value.</td>
+            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the currency code or unit of measure for a numeric value.</td>
         </tr>
         <tr>
           <td>precision</td>
           <td>-</td>
           <td>
-            <span>A </span> <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a property in the context of the entity type</span> containing the number of significant decimal places for a numeric value.</td>
+            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the number of significant decimal places for a numeric value.</td>
         </tr>
         <tr>
           <td colspan="1">visible</td>
@@ -591,23 +591,23 @@ This attribute can take the following values in the context of an entity type:
           <td>field-control</td>
           <td>3</td>
           <td>
-            <p>A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a </span>property containing a numeric value that controls visibility:</p>
+            <p>A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property containing a numeric value that controls visibility:</p>
             <ul>
               <li>
-                <span>0 = hidden, </span>
+                0 = hidden, 
               </li>
               <li>
-                <span>1 = read-only, </span>
+                1 = read-only, 
               </li>
               <li>
-                <span>3 = optional, </span>
+                3 = optional, 
               </li>
               <li>
-                <span>7 = mandatory</span>
+                7 = mandatory
               </li>
             </ul>
             <p>
-              <span>See section below for details</span>
+              See section below for details
             </p>
           </td>
         </tr>
@@ -731,7 +731,7 @@ This attribute can take the following values in the context of an entity type:
           <td>is-annotation</td>
           <td>false</td>
           <td>
-            <span>Represents an instance annotation.</span>
+            Represents an instance annotation.
           </td>
         </tr>
         <tr>
@@ -740,7 +740,7 @@ This attribute can take the following values in the context of an entity type:
           </td>
           <td>-</td>
           <td>
-            <p>If a property can be updated or not depending on the state of its entity, it can be annotated with this attribute. The value of this attribute is always <span>a </span> <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a Boolean property in the context of the entity type</span>. This related property indicates whether the annotated property can be updated for the containing entity or not.</p>
+            <p>If a property can be updated or not depending on the state of its entity, it can be annotated with this attribute. The value of this attribute is always a  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a Boolean property in the context of the entity type. This related property indicates whether the annotated property can be updated for the containing entity or not.</p>
             <p>Note: if used in addition to the more expressive <a href="#attribute-sapfield-control">field-control</a> annotation, the values of the two must be in sync.</p>
           </td>
         </tr>
@@ -760,7 +760,7 @@ This attribute can take the following values in the context of an entity type:
           <td colspan="1">
             <p>A property of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will contain floating-point values.</p>
             <p>This indicates that the underlying data store field uses a <a href="https://en.wikipedia.org/wiki/Decimal_data_type">data type with decimal mantissa and variable or floating scale</a> which cannot be expressed in the OData V2 type system.</p>
-            <p>Note: omitted <code>Scale</code> <span> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</span>
+            <p>Note: omitted <code>Scale</code>  for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.
             </p>
           </td>
         </tr>
@@ -768,7 +768,7 @@ This attribute can take the following values in the context of an entity type:
           <td colspan="1">text-for</td>
           <td colspan="1">-</td>
           <td colspan="1">
-            <span>A </span> <a class="external-link" href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3" rel="nofollow">path expression</a> <span> </span>that identifies a property in the context of the entity type for which this property provides an additional human-readable text.</td>
+            A  <a class="external-link" href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3" rel="nofollow">path expression</a>  that identifies a property in the context of the entity type for which this property provides an additional human-readable text.</td>
         </tr>
       </tbody>
     </table>
@@ -793,7 +793,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   <p>Example in metadata document:</p>
   <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
   <p>
-    <span>The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. </span>
+    The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. 
   </p>
 
 The possible values for a field-control property are:
@@ -980,7 +980,7 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>completed</td>
-          <td>Calendar: <span>the date and time that a to-do was actually completed</span>
+          <td>Calendar: the date and time that a to-do was actually completed
           </td>
         </tr>
         <tr>
@@ -1013,7 +1013,7 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>fbtype</td>
-          <td>Calendar: free/busy time type, see [<span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> </span>]</td>
+          <td>Calendar: free/busy time type, see [ <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> ]</td>
         </tr>
         <tr>
           <td>wholeday</td>
@@ -1033,7 +1033,7 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>from</td>
-          <td>Mail: author of message, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> </span>]</td>
+          <td>Mail: author of message, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> ]</td>
         </tr>
         <tr>
           <td>sender</td>
@@ -1041,7 +1041,7 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>to</td>
-          <td>Mai: comma-separated list of primary recipients, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> </span>]</td>
+          <td>Mai: comma-separated list of primary recipients, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> ]</td>
         </tr>
         <tr>
           <td>cc</td>
@@ -1085,79 +1085,79 @@ The possible values in the context of a property are:
         </tr>
         <tr>
           <td>count</td>
-          <td>Aggregation: <span>the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.</span>
+          <td>Aggregation: the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.
           </td>
         </tr>
       </tbody>
     </table>
     <p>
-      <span>For “tel” the type values are (see [</span> <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> <span>]):</span>
+      For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
     </p>
   </div>
   <div>
     <ul style="list-style-type: disc;">
       <li>
-        <span>"home" to indicate a telephone number associated with a residence</span>
+        "home" to indicate a telephone number associated with a residence
       </li>
       <li>
-        <span>"work" to indicate a telephone number associated with a place of work</span>
+        "work" to indicate a telephone number associated with a place of work
       </li>
       <li>
-        <span>“pref" to indicate a preferred-use telephone number </span>
+        “pref" to indicate a preferred-use telephone number 
       </li>
       <li>
-        <span>"text" to indicate a telephone number supporting text messages (SMS)</span>
+        "text" to indicate a telephone number supporting text messages (SMS)
       </li>
       <li>
-        <span>"voice" to indicate a voice telephone number </span>
+        "voice" to indicate a voice telephone number 
       </li>
       <li>
-        <span>"fax" to indicate a facsimile telephone number </span>
+        "fax" to indicate a facsimile telephone number 
       </li>
       <li>
-        <span>"cell" to indicate a cellular telephone number</span>
+        "cell" to indicate a cellular telephone number
       </li>
       <li>
-        <span>"video" to indicate a video conferencing telephone number </span>
+        "video" to indicate a video conferencing telephone number 
       </li>
       <li>
-        <span>"pager" to indicate a paging device telephone number </span>
+        "pager" to indicate a paging device telephone number 
       </li>
       <li>
-        <span>"textphone" to indicate a telecommunication device for people with hearing or speech difficulties</span>
+        "textphone" to indicate a telecommunication device for people with hearing or speech difficulties
       </li>
     </ul>
     <div>
-      <span> <br/>
-      </span>
+       <br/>
+      
     </div>
     <div>
-      <span>For “email” the type values are:</span>
+      For “email” the type values are:
     </div>
     <ul style="list-style-type: disc;">
       <li>
-        <span>"home" to indicate an email address associated with a residence</span>
+        "home" to indicate an email address associated with a residence
       </li>
       <li>
-        <span>"work" to indicate an email address associated with a place of work </span>
+        "work" to indicate an email address associated with a place of work 
       </li>
       <li>
-        <span>“pref" to indicate a preferred-use email address</span>
+        “pref" to indicate a preferred-use email address
       </li>
     </ul>
     <div>For “url” and constituents of an address the type values are:</div>
     <ul style="list-style-type: disc;">
       <li>
-        <span>"home" to indicate an address associated with a residence</span>
+        "home" to indicate an address associated with a residence
       </li>
       <li>
-        <span>"work" to indicate an address associated with a place of work </span>
+        "work" to indicate an address associated with a place of work 
       </li>
       <li>
-        <span>“org" to indicate an address associated with the organization</span>
+        “org" to indicate an address associated with the organization
       </li>
       <li>
-        <span> <span>“pref” to indicate a preferred address </span> <span>“other” to indicate some other address</span> </span>
+         “pref” to indicate a preferred address  “other” to indicate some other address 
       </li>
     </ul>
   </div>
@@ -1184,22 +1184,22 @@ The possible values in the context of a property are:
           </tr>
           <tr>
             <td>
-              <span>single-value</span>
+              single-value
             </td>
             <td>
-              <span>Only a single “<code>eq</code>”clause is possible.</span>
+              Only a single “<code>eq</code>”clause is possible.
             </td>
           </tr>
           <tr>
             <td>multi-value</td>
             <td>
-              <span>Several “<code>eq</code>” clauses, separated by <code>or</code>, are possible.</span>
+              Several “<code>eq</code>” clauses, separated by <code>or</code>, are possible.
             </td>
           </tr>
           <tr>
             <td>interval</td>
             <td>
-              <span>At most one “<code>ge</code>” and one “<code>le</code>” clause, separated by “<code>and</code>”, alternatively a single “<code>eq</code>” clause</span>.</td>
+              At most one “<code>ge</code>” and one “<code>le</code>” clause, separated by “<code>and</code>”, alternatively a single “<code>eq</code>” clause.</td>
           </tr>
         </tbody>
       </table>
@@ -1233,10 +1233,10 @@ The possible values in the context of a property are:
       </tr>
       <tr>
         <td>
-          <span>totaled-properties-list</span>
+          totaled-properties-list
         </td>
         <td>
-          <span>The property value is a comma-separated list of totaled dimension property names.</span>
+          The property value is a comma-separated list of totaled dimension property names.
         </td>
       </tr>
     </tbody>
@@ -1264,7 +1264,7 @@ The possible values in the context of a property are:
       <tr>
         <td>mandatory</td>
         <td>
-          <span>A value must be supplied for this parameter</span>.</td>
+          A value must be supplied for this parameter.</td>
       </tr>
       <tr>
         <td>optional</td>
@@ -1463,10 +1463,10 @@ Example: a function import that allows approving a leave request. The <code>Leav
 <div>A single entity can have multiple instance annotations, for each of which an extra property gets added to the underlying type:</div>
 <ul style="list-style-type: disc;">
   <li>
-    <span>Zero or more for the entity itself.</span>
+    Zero or more for the entity itself.
   </li>
   <li>
-    <span>Zero or more for every property contained in the entity.</span>
+    Zero or more for every property contained in the entity.
   </li>
 </ul>
 <div>Properties representing instance annotations are always introduced by AnnotationAttributes in the metadata document. The following sections describe the possible occurrences.</div>
