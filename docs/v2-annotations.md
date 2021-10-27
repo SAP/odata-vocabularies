@@ -54,16 +54,8 @@ The next area are <em>capability annotations</em> that describe which of the pos
 
 The <code>app:service</code> element can be annotated with two elements from the <code>atom</code> namespace:
 
-<ul>
-  <li>
-    <p>
-      <code>&lt;atom:link rel="self" href="..."/></code> contains the link to this service document, and</p>
-  </li>
-  <li>
-    <p>
-      <code>&lt;atom:link rel="latest-version" href="..."/></code> contains the link to latest version of this service.</p>
-  </li>
-</ul>
+- `<atom:link rel="self" href="..."/>` contains the link to this service document, and
+- `<atom:link rel="latest-version" href="..."/>` contains the link to latest version of this service.
 
 If the latest-version link deviates from the self link, a client may inspect the newer version of the service and decide (probably after asking its user) to switch over to the newer service version.
 
@@ -71,20 +63,9 @@ If the latest-version link deviates from the self link, a client may inspect the
 
 The <code>app:collection</code> element can be annotated with three elements:
 
-<ul>
-  <li>
-    <p>
-      <code>&lt;sap:member-title></code> contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the <code>&lt;atom:title></code> element of this collection.</p>
-  </li>
-  <li>
-    <p>
-      <code>&lt;atom:link rel="search" href="..."/></code> contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code> </a>to the URL of the collection.</p>
-  </li>
-  <li>
-    <p>
-      <code>&lt;atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/></code> contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.</p>
-  </li>
-</ul>
+- `<sap:member-title>` contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the `<atom:title>` element of this collection.
+- `<atom:link rel="search" href="..."/>` contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code></a> to the URL of the collection.
+- `<atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/>` contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.
 
 It can also contain the attribute <code>sap:addressable</code> with the same value as for the corresponding entity set in the metadata document.
 
@@ -1107,10 +1088,9 @@ The possible values in the context of a property are:
     </tr>
   </tbody>
 </table>
-<p>
-  For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
-</p>
-  
+
+For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
+
 <ul style="list-style-type: disc;">
   <li>
     "home" to indicate a telephone number associated with a residence
