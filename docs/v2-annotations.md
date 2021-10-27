@@ -2,18 +2,16 @@
 
 ## Introduction
 
-<p>OData services provide a uniform interface for interacting with their resources, and in addition are self-describing:</p>
-<ul>
-  <li>
-    <p>The <em>service document</em> (located at the service root) lists the available top-level resources, and</p>
-  </li>
-  <li>
-    <p>The <em>service metadata document</em> (located at the address <span style="font-family: courier new , courier;">$metadata</span> relative to the service root) describes the structure of all resources in the service.</p>
-  </li>
-</ul>
-<p>This structural metadata makes it easy to understand a service, and human-readable documentation can be directly embedded into the metadata document, helping developers consume an OData service.</p>
-<p>This alone is a huge benefit, yet metadata can be taken one step further by embedding <em>machine-readable</em> additional metadata that can be leveraged by development tools, client libraries, and generic clients to better interact with the service.</p>
-<p>One area are <em>semantic annotations</em> that tell which of the OData properties contain e.g. a phone number, a part of a name or address, or something related to a calendar event or an analytic query. This is important for apps running on mobile devices that want to seamlessly integrate into contacts, calendar, and telephony.</p>
+OData services provide a uniform interface for interacting with their resources, and in addition are self-describing:
+
+- The <em>service document</em> (located at the service root) lists the available top-level resources, and
+- The <em>service metadata document</em> (located at the address <code>$metadata</code> relative to the service root) describes the structure of all resources in the service.
+
+This structural metadata makes it easy to understand a service, and human-readable documentation can be directly embedded into the metadata document, helping developers consume an OData service.
+
+This alone is a huge benefit, yet metadata can be taken one step further by embedding <em>machine-readable</em> additional metadata that can be leveraged by development tools, client libraries, and generic clients to better interact with the service.
+
+One area are <em>semantic annotations</em> that tell which of the OData properties contain e.g. a phone number, a part of a name or address, or something related to a calendar event or an analytic query. This is important for apps running on mobile devices that want to seamlessly integrate into contacts, calendar, and telephony.
 
 The next area are <em>capability annotations</em> that describe which of the possible interactions defined by OData's uniform interface are supported by which parts of a concrete service. These annotations will e.g. tell whether an entity set allows inserts, updates, or deletes, whether it requires a filter, and which properties can be used in filter expressions. They also advertise capabilities that go beyond the base set defined by OData, e.g. whether an entity set allows [free-text search via an SAP-defined query option](#query-option-codesearchcode).
 
@@ -50,47 +48,49 @@ The next area are <em>capability annotations</em> that describe which of the pos
 
 ## AtomPub Service Document
 
-<p>
-  <a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <span style="font-family: courier new , courier;">app</span>) can be annotated with attributes and elements from the namespace <span class="nolink">http://www.sap.com/Protocols/SAPData</span> (namespace prefix <span style="font-family: courier new , courier;">sap</span>) and from the namespace <a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> (namespace prefix <span style="font-family: courier new , courier;">atom</span>), and what these annotations mean.</p>
+<a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <code>app</code>) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix <code>sap</code>) and from the namespace <a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> (namespace prefix <code>atom</code>), and what these annotations mean.
 
 ### Element `app:service`
 
-<p>The <span style="font-family: courier new , courier;">app:service</span> element can be annotated with two elements from the <span style="font-family: courier new , courier;">atom</span> namespace:</p>
+The <code>app:service</code> element can be annotated with two elements from the <code>atom</code> namespace:
+
 <ul>
   <li>
     <p>
-      <span style="font-family: courier new , courier;">&lt;atom:link rel="self" href="..."/&gt;</span> contains the link to this service document, and</p>
+      <code>&lt;atom:link rel="self" href="..."/&gt;</code> contains the link to this service document, and</p>
   </li>
   <li>
     <p>
-      <span style="font-family: courier new , courier;">&lt;atom:link rel="latest-version" href="..."/&gt;</span> contains the link to latest version of this service.</p>
+      <code>&lt;atom:link rel="latest-version" href="..."/&gt;</code> contains the link to latest version of this service.</p>
   </li>
 </ul>
-<p>If the latest-version link deviates from the self link, a client may inspect the newer version of the service and decide (probably after asking its user) to switch over to the newer service version.</p>
+
+If the latest-version link deviates from the self link, a client may inspect the newer version of the service and decide (probably after asking its user) to switch over to the newer service version.
 
 ### Element `app:collection`
 
-<p>The <span style="font-family: courier new , courier;">app:collection</span> element can be annotated with three elements:</p>
+The <code>app:collection</code> element can be annotated with three elements:
+
 <ul>
   <li>
     <p>
-      <span style="font-family: courier new , courier;">&lt;sap:member-title&gt;</span> contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the <span style="font-family: courier new , courier;">&lt;atom:title&gt;</span> element of this collection.</p>
+      <code>&lt;sap:member-title&gt;</code> contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the <code>&lt;atom:title&gt;</code> element of this collection.</p>
   </li>
   <li>
     <p>
-      <span style="font-family: courier new , courier;">&lt;atom:link rel="search" href="..."/&gt;</span> contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <span style="font-family: courier new , courier;">search</span> </a>to the URL of the collection.</p>
+      <code>&lt;atom:link rel="search" href="..."/&gt;</code> contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code> </a>to the URL of the collection.</p>
   </li>
   <li>
     <p>
-      <span style="font-family: courier new , courier;">&lt;atom:link rel=<a href="http://www.sap.com/Protocols/SAPData/rel#subscribe">http://www.sap.com/Protocols/SAPData/rel#subscribe</a> href="..."/&gt;</span> contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.</p>
+      <code>&lt;atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/&gt;</code> contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.</p>
   </li>
 </ul>
-<p>It can also contain the attribute <span style="font-family: courier new , courier;">sap:addressable</span> with the same value as for the corresponding entity set in the metadata document.</p>
+
+It can also contain the attribute <code>sap:addressable</code> with the same value as for the corresponding entity set in the metadata document.
 
 ## Metadata Document
 
-<p>OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <span style="font-family: courier new , courier;">edm</span>) can be annotated with attributes and elements from the namespace <a href="http://www.sap.com/Protocols/SAPData">http://www.sap.com/Protocols/SAPData</a> (namespace prefix <span style="font-family: courier new , courier;">sap</span>), and what these annotations mean. For binary attributes the meaning is described for the value "true".</p>
-<div>
+OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <code>edm</code>) can be annotated with attributes and elements from the namespace <code>http://www.sap.com/Protocols/SAPData</code> (namespace prefix <code>sap</code>), and what these annotations mean. For binary attributes the meaning is described for the value "true".
 
 ### Element `edm:Schema`
 
@@ -131,8 +131,8 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 ### Element `edm:EntityContainer`
 
-</div>
-<p>Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.</p>
+Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
+
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
@@ -160,7 +160,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
           <li>atom</li>
           <li>json</li>
           <li>xlsx</li>
-        </ul>The default is <span style="font-family: &quot;courier new&quot; , courier;">sap:supported-formats="atom json"</span>.</td>
+        </ul>The default is <code>sap:supported-formats="atom json"</code>.</td>
     </tr>
     <tr>
       <td>
@@ -176,7 +176,8 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 ### Element `edm:EntitySet`
 
-<p>Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.</p>
+Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.
+
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
@@ -275,7 +276,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>false</span>
       </td>
       <td>
-        <span>Supports custom query option <span style="font-family: courier new , courier;">search</span> </span>
+        <span>Supports custom query option <code>search</code> </span>
       </td>
     </tr>
     <tr>
@@ -286,7 +287,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>true</span>
       </td>
       <td>
-        <span>Supports system query options <span style="font-family: courier new , courier;">$top</span> and <span style="font-family: courier new , courier;">$skip</span> </span>
+        <span>Supports system query options <code>$top</code> and <code>$skip</code> </span>
       </td>
     </tr>
     <tr>
@@ -297,7 +298,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>true</span>
       </td>
       <td>
-        <span>Supports system query option <span style="font-family: courier new , courier;">$top</span> </span>
+        <span>Supports system query option <code>$top</code> </span>
       </td>
     </tr>
     <tr>
@@ -308,7 +309,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>true</span>
       </td>
       <td>
-        <span>Supports system query option <span style="font-family: courier new , courier;">$inlinecount=allpages</span> and path suffix <span style="font-family: courier new , courier;">/$count</span> </span>
+        <span>Supports system query option <code>$inlinecount=allpages</code> and path suffix <code>/$count</code> </span>
       </td>
     </tr>
     <tr>
@@ -330,7 +331,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>false</span>
       </td>
       <td>
-        <span>Use “true” if this set cannot be queried without providing a <span style="font-family: courier new , courier;">$filter</span> expression. If accessed without a filter expression, it will respond with a human-readable error message explaining which kinds of filter expressions are required as a minimum</span>
+        <span>Use “true” if this set cannot be queried without providing a <code>$filter</code> expression. If accessed without a filter expression, it will respond with a human-readable error message explaining which kinds of filter expressions are required as a minimum</span>
       </td>
     </tr>
     <tr>
@@ -364,9 +365,8 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 #### <a name="EntitySet-sapsemantics"></a>Attribute `sap:semantics`
 
-<p>
-  <span>This attribute can take the following values in the context of an entity type:</span>
-</p>
+This attribute can take the following values in the context of an entity type:
+
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
@@ -383,7 +383,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <span>aggregate</span>
       </td>
       <td>
-        <span>The entities of this set are automatically aggregated if the query option <span style="font-family: &quot;courier new&quot; , courier;">$select</span> is specified. Each property listed in <span style="font-family: &quot;courier new&quot; , courier;">$select</span> is treated according to its aggregation role. See description of attribute </span> <code>sap:semantics="aggregate"</code> for <code>Edm:EntityType</code> <span>below.</span>
+        <span>The entities of this set are automatically aggregated if the query option <code>$select</code> is specified. Each property listed in <code>$select</code> is treated according to its aggregation role. See description of attribute </span> <code>sap:semantics="aggregate"</code> for <code>Edm:EntityType</code> <span>below.</span>
       </td>
     </tr>
     <tr>
@@ -395,50 +395,47 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 ### Element `edm:EntityType`
 
-<p>Entity types can be annotated with the following attributes:</p>
-<div>
-  <table border="1" class="jiveBorder wrapped">
-    <colgroup> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Attribute Name</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <span style="color: rgb(87,87,87);">label</span>
-        </td>
-        <td>
-          <p>
-            <span style="color: rgb(87,87,87);">Description, will also be used as sap:member-title in the service document</span>
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <span style="color: rgb(87,87,87);">semantics</span>
-          </p>
-        </td>
-        <td>
-          <span style="color: rgb(87,87,87);">See table below</span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+Entity types can be annotated with the following attributes:
+
+<table border="1" class="jiveBorder wrapped">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Attribute Name</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <span style="color: rgb(87,87,87);">label</span>
+      </td>
+      <td>
+        <p>
+          <span style="color: rgb(87,87,87);">Description, will also be used as sap:member-title in the service document</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          <span style="color: rgb(87,87,87);">semantics</span>
+        </p>
+      </td>
+      <td>
+        <span style="color: rgb(87,87,87);">See table below</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### <a name="EntityType-sapsemantics"></a>Attribute `sap:semantics`
 
-</div>
-<div>This attribute can take the following values in the context of an entity type:</div>
+This attribute can take the following values in the context of an entity type:
+
 <div>
-  <p>
-    <br/>
-  </p>
   <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
     <colgroup> <col/> <col/> </colgroup>
     <tbody>
@@ -481,10 +478,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       <tr>
         <td>aggregate</td>
         <td>
-          <div>Entity sets of a type with this semantics return result feeds with aggregated values for properties annotated with <span style="font-family: courier new , courier;">sap:aggregation-role="measure"</span> mentioned in the $select system query option. The result consists of entities for all combinations of distinct values of all dimension properties annotated with <code>
-              <span>sap:aggregation-role="dimension"</span>
-            </code> mentioned in the $select system query option of the request matching the <code>$filter</code> expression. <span> <span>See also description of annotation <span style="font-family: courier new , courier;">sap:aggregation-role</span>.</span> </span>
-          </div>
+          Entity sets of a type with this semantics return result feeds with aggregated values for properties annotated with <code>sap:aggregation-role="measure"</code> mentioned in the $select system query option. The result consists of entities for all combinations of distinct values of all dimension properties annotated with <code>sap:aggregation-role="dimension"</code> mentioned in the $select system query option of the request matching the <code>$filter</code> expression. See also description of annotation <code>sap:aggregation-role</code>.
         </td>
       </tr>
       <tr>
@@ -498,9 +492,11 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 ### Element `edm:Property`
 
-</div>
-<div>
-  <div>The annotation <code>sap:label</code> is required for properties. All other annotations are optional.<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <div>
+  
+  The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
+
+  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
       <colgroup> <col/> <col/> <col/> </colgroup>
       <tbody>
         <tr>
@@ -542,7 +538,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <tr>
           <td>updatable</td>
           <td>true</td>
-          <td>Values of this property can be changed. Must be “false” if it is “false” at entity set level. If updatability can change per entity or based on the entities' state, do not use this static annotation and use <span style="font-family: &quot;courier new&quot; , courier;">sap:field-control</span> instead.</td>
+          <td>Values of this property can be changed. Must be “false” if it is “false” at entity set level. If updatability can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
         </tr>
         <tr>
           <td>sortable</td>
@@ -589,7 +585,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         <tr>
           <td colspan="1">visible</td>
           <td colspan="1">true</td>
-          <td colspan="1">Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <span style="font-family: &quot;courier new&quot; , courier;">sap:field-control</span> instead.</td>
+          <td colspan="1">Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
         </tr>
         <tr>
           <td>field-control</td>
@@ -762,9 +758,9 @@ Schemas can be annotated with the following attributes. If not stated explicitly
           <td colspan="1">variable-scale</td>
           <td colspan="1">false</td>
           <td colspan="1">
-            <p>A property of type <code style="letter-spacing: 0.0px;">Edm.Decimal</code> that does not have a <code style="letter-spacing: 0.0px;">Scale</code> facet and is annotated with <code style="letter-spacing: 0.0px;">true</code> will contain floating-point values.</p>
+            <p>A property of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will contain floating-point values.</p>
             <p>This indicates that the underlying data store field uses a <a href="https://en.wikipedia.org/wiki/Decimal_data_type">data type with decimal mantissa and variable or floating scale</a> which cannot be expressed in the OData V2 type system.</p>
-            <p>Note: omitted <code style="letter-spacing: 0.0px;">Scale</code> <span style="letter-spacing: 0.0px;"> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</span>
+            <p>Note: omitted <code>Scale</code> <span> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</span>
             </p>
           </td>
         </tr>
@@ -777,9 +773,9 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       </tbody>
     </table>
     
-#### Attributes <span style="font-family: courier new , courier;">sap:unit<span style="font-family: arial , helvetica , sans-serif;"> and </span>sap:precision</span>
+#### Attributes `sap:unit` and `sap:precision`
     
-Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <span style="font-family: courier new , courier;">Edm.Decimal</span>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <span style="font-family: courier new , courier;">sap:unit</span> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <span style="font-family: courier new , courier;">sap:precision</span> attribute.</div>
+Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <code>Edm.Decimal</code>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <code>sap:unit</code> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <code>sap:precision</code> attribute.</div>
   <div>
     <p>Example in metadata document:</p>
   </div>
@@ -793,47 +789,48 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 #### Attribute `sap:field-control`
 
 <div>
-  <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <span style="font-family: courier new , courier;">sap:field-control</span> attribute.</p>
+  <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <code>sap:field-control</code> attribute.</p>
   <p>Example in metadata document:</p>
   <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
   <p>
-    <span>The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <span style="font-family: &quot;courier new&quot; , courier;">fc</span>, the attribute value is a path relative to the parent of the annotated property, e.g. <span style="font-family: &quot;courier new&quot; , courier;">sap:field-control="fc/Address"</span>. </span>
+    <span>The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. </span>
   </p>
-  <p>
-    <span style="line-height: 13.0pt;">The possible values for a field-control property are:</span>
-  </p>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Value</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Mandatory - property must contain a value</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Optional - property may contain a null value</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Read-only - property cannot be changed</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>Hidden - property should not be visible on user interfaces</td>
-      </tr>
-    </tbody>
-  </table>
+
+The possible values for a field-control property are:
+
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Mandatory - property must contain a value</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Optional - property may contain a null value</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Read-only - property cannot be changed</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>Hidden - property should not be visible on user interfaces</td>
+    </tr>
+  </tbody>
+</table>
 
 #### <a name="Property-sapsemantics"></a>Attribute `sap:semantics`
 
-  <p>The possible values in the context of a property are:</p>
+The possible values in the context of a property are:
+
   <div>
     <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
       <colgroup> <col/> <col/> </colgroup>
@@ -1088,7 +1085,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
         </tr>
         <tr>
           <td>count</td>
-          <td>Aggregation: <span style="color: rgb(51,51,51);">the number of unaggregated entities that have been aggregated into the response entity (<span style="font-family: &quot;courier new&quot; , courier;">count(*)</span> in SQL). Only valid for one property of an entity type that is annotated with <span style="font-family: &quot;courier new&quot; , courier;">sap:semantics="aggregate"</span>.</span>
+          <td>Aggregation: <span style="color: rgb(51,51,51);">the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.</span>
           </td>
         </tr>
       </tbody>
@@ -1190,19 +1187,19 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
               <span>single-value</span>
             </td>
             <td>
-              <span>Only a single “<span style="font-family: courier new , courier;">eq</span>”clause is possible.</span>
+              <span>Only a single “<code>eq</code>”clause is possible.</span>
             </td>
           </tr>
           <tr>
             <td>multi-value</td>
             <td>
-              <span>Several “<span style="font-family: courier new , courier;">eq</span>” clauses, separated by <span style="font-family: courier new , courier;">or</span>, are possible.</span>
+              <span>Several “<code>eq</code>” clauses, separated by <code>or</code>, are possible.</span>
             </td>
           </tr>
           <tr>
             <td>interval</td>
             <td>
-              <span>At most one “<span style="font-family: courier new , courier;">ge</span>” and one “<span style="font-family: courier new , courier;">le</span>” clause, separated by “<span style="font-family: courier new , courier;">and</span>”, alternatively a single “<span style="font-family: courier new , courier;">eq</span>” clause</span>.</td>
+              <span>At most one “<code>ge</code>” and one “<code>le</code>” clause, separated by “<code>and</code>”, alternatively a single “<code>eq</code>” clause</span>.</td>
           </tr>
         </tbody>
       </table>
@@ -1327,7 +1324,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
     <tr>
       <td>filterable</td>
       <td>true</td>
-      <td>Can be used as a path segment for properties in <span style="font-family: courier new , courier;">$filter</span> system query option</td>
+      <td>Can be used as a path segment for properties in <code>$filter</code> system query option</td>
     </tr>
   </tbody>
 </table>
@@ -1366,41 +1363,33 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
     </tr>
   </tbody>
 </table>
-<div>Example: a function import that allows approving a leave request. The <span style="color: rgb(87,87,87);font-family: &quot;courier new&quot; , courier;">LeaveRequest</span> entity type has a single key property <span style="font-family: &quot;courier new&quot; , courier;">ID</span> and a complex property <span style="font-family: &quot;courier new&quot; , courier;">ControlData</span> with a Boolean property <span style="font-family: &quot;courier new&quot; , courier;">NeedsApproval<span style="font-family: arial , helvetica , sans-serif;"> that controls the applicability of two alternative actions, approval and rejection:</span> </span>
-</div>
+
+Example: a function import that allows approving a leave request. The <code>LeaveRequest</code> entity type has a single key property <code>ID</code> and a complex property <code>ControlData</code> with a Boolean property <code>NeedsApproval</code> that controls the applicability of two alternative actions, approval and rejection:
+
 <div>
-  <p>
-    <span style="font-family: courier new , courier;"> </span>
-  </p>
   <pre>&lt;FunctionImport Name="LeaveRequestApproval"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Approve" <br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
 </div>
 
 <div>
   <pre>&lt;FunctionImport Name="LeaveRequestRejection"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Reject"<br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
 </div>
-<div>A function import can optionally include an annotation with an <span style="font-family: courier new , courier;">sap:value-constraint </span>element.</div>
+<div>A function import can optionally include an annotation with an <code>sap:value-constraint</code> element.</div>
 
 #### Element `sap:value-constraint`
 
 <div>This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.</div>
 <div>Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.</div>
 <div>
-  <p>
-    <span style="font-family: courier new , courier;"> </span>
-  </p>
   <pre>&lt;sap:value-constraint set="Regions"&gt;<br/>     &lt;sap: parameter-ref name="Country" /&gt;<br/>     &lt;sap:parameter-ref name="Region" /&gt;<br/>&lt;/sap:value-constraint&gt;</pre>
 </div>
 <div>
-  <p>It has a <span style="font-family: courier new , courier;">set </span>attribute that identifies the entity set containing the list of allowed parameter value combinations.</p>
-  <p>Nested <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements link the function import parameters specified with the <span style="font-family: courier new , courier;">name </span>attribute to a key property of the entity type of the specified entity set. The sequence of <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements matches the sequence of the <span style="font-family: courier new , courier;">edm:PropertyRef </span>elements of the <span style="font-family: courier new , courier;">Key </span>element.</p>
+  <p>It has a <code>set</code> attribute that identifies the entity set containing the list of allowed parameter value combinations.</p>
+  <p>Nested <code>sap:parameter-ref</code> elements link the function import parameters specified with the <code>name</code> attribute to a key property of the entity type of the specified entity set. The sequence of <code>sap:parameter-ref</code> elements matches the sequence of the <code>edm:PropertyRef</code> elements of the <code>Key</code> element.</p>
 </div>
 
 ### Element `edm:Parameter`
 
 <div>
-  <p>
-    <br/>
-  </p>
   <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
     <colgroup> <col/> <col/> </colgroup>
     <tbody>
@@ -1482,35 +1471,36 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 </ul>
 <div>Properties representing instance annotations are always introduced by AnnotationAttributes in the metadata document. The following sections describe the possible occurrences.</div>
 <div>Example:</div>
-<div>
-  <span style="font-family: courier new , courier;"> </span>
-</div>
 <pre>&lt;Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" /&gt;</pre>
 
 ## Query Option `search`
 
-<div>Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <span style="font-family: courier new , courier;">search</span> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.</div>
+<div>Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <code>search</code> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.</div>
 <div>
-  <span style="font-family: courier new , courier;">GET ~/Orders?search=blue</span>
+  <code>GET ~/Orders?search=blue</code>
 </div>
-<div>to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <span style="font-family: courier new , courier;">IV_SEARCH_STRING</span> of method <span style="font-family: courier new , courier;">GET_ENTITYSET</span>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html</a> for details.</div>
-<div>Note that <span style="font-family: &quot;courier new&quot; , courier;">search</span> works similar to <span style="font-family: &quot;courier new&quot; , courier;">$filter</span>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <span style="font-family: &quot;courier new&quot; , courier;">$filter</span>, returning only entities that fulfill both conditions.</div>
+<div>to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <code>IV_SEARCH_STRING</code> of method <code>GET_ENTITYSET</code>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">SAP Gateway Foundation Developer Guide</a> for details.</div>
+<div>Note that <code>search</code> works similar to <code>$filter</code>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <code>$filter</code>, returning only entities that fulfill both conditions.</div>
 
 ## Entity Set with Hierarchy
 
-<div>
-  <p>Entities can be organized in a tree if the underlying type contains additional properties allowing to determine the position of each entity in that tree. These are:</p>
-  <ul>
-    <li>A non-key property containing the node ID of the entity within the tree; this “node ID property” is annotated with <code>hierarchy-node-for</code>
-    </li>
-    <li>Either another non-key property containing the node ID of the parent entity within the tree; this property is annotated with <code>hierarchy-parent-node-for</code>
-    </li>
-    <li>Or a single-valued navigation property leading to the parent entity within the tree; this navigation property is annotated with <code>hierarchy-parent-navigation-for</code>
-    </li>
-  </ul>
-  <p>In addition, further useful hierarchy information can be added via properties annotated with <code>hierarchy-level-for</code>, <code>hierarchy-external-key-for</code>, <code>hierarchy-drill-state-for</code>, <code>hierarchy-node-descendant-count</code>, <code>hierarchy-preorder-rank-for</code>, and <code>hierarchy-sibling-rank-for</code>.</p>
-  <p>If a request against an entity set with annotated hierarchy addresses the node ID property of a hierarchy in <code>$select</code>, the provider should ensure that the query result is a well-formed partial tree of that hierarchy. This means that for every entity in the result its ancestors in the hierarchy are also part of the result; the result should not contain any dangling hierarchy nodes.</p>
-  <p>If the request includes a <code>$filter</code> expression with a condition testing equality of the node ID property with a specific node ID, the result is a sub-hierarchy whose root node is identified by the given node ID. The result can contain multiple sub-hierarchies if the <code>$filter</code> expression has multiple equality conditions for specific node IDs, combined with “or”. For a <code>$filter</code> expression with a parent filter condition testing the parent node ID property or the node ID property reached via the parent navigation property against a literal node ID, the result is the set of child nodes matching the condition.</p>
-  <p>A <code>$filter</code> expression is processed first to determine the set of matching entities, which is then enriched with additional node entities needed to complete all hierarchy paths as appropriate: from the matching entities up to the root node entity of a selected sub-hierarchy, or up to the root of the entire hierarchy, or in case of parent filter condition or an equality condition on the hierarchy level no further nodes are added to the result.</p>
-  <p>A result should contain the entities in pre-order for the selected sub-hierarchies, or for the entire hierarchy if not filtered to sub-hierarchies. The sort order of sibling node entities in the result can be controlled with <code>$orderby</code>.</p>
-</div>
+Entities can be organized in a tree if the underlying type contains additional properties allowing to determine the position of each entity in that tree. These are:
+
+<ul>
+  <li>A non-key property containing the node ID of the entity within the tree; this “node ID property” is annotated with <code>hierarchy-node-for</code>
+  </li>
+  <li>Either another non-key property containing the node ID of the parent entity within the tree; this property is annotated with <code>hierarchy-parent-node-for</code>
+  </li>
+  <li>Or a single-valued navigation property leading to the parent entity within the tree; this navigation property is annotated with <code>hierarchy-parent-navigation-for</code>
+  </li>
+</ul>
+
+In addition, further useful hierarchy information can be added via properties annotated with <code>hierarchy-level-for</code>, <code>hierarchy-external-key-for</code>, <code>hierarchy-drill-state-for</code>, <code>hierarchy-node-descendant-count</code>, <code>hierarchy-preorder-rank-for</code>, and <code>hierarchy-sibling-rank-for</code>.
+
+If a request against an entity set with annotated hierarchy addresses the node ID property of a hierarchy in <code>$select</code>, the provider should ensure that the query result is a well-formed partial tree of that hierarchy. This means that for every entity in the result its ancestors in the hierarchy are also part of the result; the result should not contain any dangling hierarchy nodes.
+
+If the request includes a <code>$filter</code> expression with a condition testing equality of the node ID property with a specific node ID, the result is a sub-hierarchy whose root node is identified by the given node ID. The result can contain multiple sub-hierarchies if the <code>$filter</code> expression has multiple equality conditions for specific node IDs, combined with “or”. For a <code>$filter</code> expression with a parent filter condition testing the parent node ID property or the node ID property reached via the parent navigation property against a literal node ID, the result is the set of child nodes matching the condition.
+
+A <code>$filter</code> expression is processed first to determine the set of matching entities, which is then enriched with additional node entities needed to complete all hierarchy paths as appropriate: from the matching entities up to the root node entity of a selected sub-hierarchy, or up to the root of the entire hierarchy, or in case of parent filter condition or an equality condition on the hierarchy level no further nodes are added to the result.
+
+A result should contain the entities in pre-order for the selected sub-hierarchies, or for the entire hierarchy if not filtered to sub-hierarchies. The sort order of sibling node entities in the result can be controlled with <code>$orderby</code>.
