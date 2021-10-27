@@ -174,13 +174,9 @@ Entity sets can be annotated with the following attributes. If not stated explic
     </tr>
     <tr>
       <td>label</td>
+      <td>-</td>
       <td>
-        -
-      </td>
-      <td>
-        <p>
-          Description, will also be used as atom:title in the service document
-        </p>
+        Description, will also be used as atom:title in the service document
       </td>
     </tr>
     <tr>
@@ -396,16 +392,12 @@ Entity types can be annotated with the following attributes:
         label
       </td>
       <td>
-        <p>
-          Description, will also be used as sap:member-title in the service document
-        </p>
+        Description, will also be used as sap:member-title in the service document
       </td>
     </tr>
     <tr>
       <td>
-        <p>
-          semantics
-        </p>
+        semantics
       </td>
       <td>
         See table below
@@ -442,11 +434,7 @@ This attribute can take the following values in the context of an entity type:
       </td>
     </tr>
     <tr>
-      <td>
-        <p>
-          vtodo
-        </p>
-      </td>
+      <td>vtodo</td>
       <td>
         Entities of this type contain todo/task information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> , see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
       </td>
@@ -586,9 +574,7 @@ The annotation <code>sap:label</code> is required for properties. All other ann
             7 = mandatory
           </li>
         </ul>
-        <p>
-          See section below for details
-        </p>
+        See section below for details
       </td>
     </tr>
     <tr>
