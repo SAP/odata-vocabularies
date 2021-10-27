@@ -1,0 +1,102 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.PDF.v1": {
+        "$Alias": "PDF",
+        "@Core.Description": "Terms for PDF Generation",
+        "@Core.LongDescription": "The PDF vocabulary provides information about PDF generation features",
+        "@Core.Description#Published": "2021-10-27 © Copyright 2021 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PDF.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PDF.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/PDF.md"
+            }
+        ],
+        "Features": {
+            "$Kind": "Term",
+            "$Type": "PDF.FeaturesType",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "...",
+            "@Core.LongDescription": "..."
+        },
+        "FeaturesType": {
+            "$Kind": "ComplexType",
+            "DocumentDescriptionReference": {
+                "@Core.IsURL": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "ArchiveFormat": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "Signature": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "CoverPage": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "FontSize": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "FitToPage": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "PageSizeDefault": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "PageSizeMaximum": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "URIType": {
+                "$Collection": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            }
+        }
+    }
+}

@@ -4,14 +4,36 @@
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
 
-  <!-- TODO: replace _vocab with the name of the vocabulary your annotation examples use and remove this comment -->
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/PDF.xml">
     <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="PDF" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="_vocab.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="PDF.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
-      <!-- TODO: put your annotation examples here and remove this comment -->
+      <EntityContainer Name="Container">
+        <Annotation Term="Core.Description" String="Imagine some entity sets here" />
+      </EntityContainer>
+
+      <Annotations Target="PDF.examples/Container">
+        <Annotation Term="PDF.Features">
+          <Record>
+            <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/MyDocumentDescriptions" />
+            <PropertyValue Property="ArchiveFormat" Bool="true" />
+            <PropertyValue Property="Signature" Bool="true" />
+            <PropertyValue Property="CoverPage" Bool="true" />
+            <PropertyValue Property="FontSize" Bool="true" />
+            <PropertyValue Property="FitToPage" Bool="true" />
+            <PropertyValue Property="PageSizeDefault" Int="5000" />
+            <PropertyValue Property="PageSizeMaximum" Int="50000" />
+            <PropertyValue Property="URIType">
+              <Collection>
+                <String>EntitySet</String>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
 
     </Schema>
   </edmx:DataServices>

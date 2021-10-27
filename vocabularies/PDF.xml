@@ -38,6 +38,13 @@
       </Term>
 
       <ComplexType Name="FeaturesType">
+        <Property Name="DocumentDescriptionReference" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" Bool="true" />
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
         <Property Name="ArchiveFormat" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
@@ -56,7 +63,14 @@
             <String>...</String>
           </Annotation>
         </Property>
-        <Property Name="FontSize" Type="Edm.String">
+        <Property Name="FontSize" Type="Edm.Boolean" DefaultValue="false">
+          <!-- TODO: really a Boolean? -->
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="FitToPage" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>
@@ -69,6 +83,13 @@
           </Annotation>
         </Property>
         <Property Name="PageSizeMaximum" Type="Edm.Int32">
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="URIType" Type="Collection(Edm.String)">
+          <!-- TODO: TypeDefinition with AllowedValues? -->
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>
