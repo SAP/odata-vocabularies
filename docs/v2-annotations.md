@@ -806,9 +806,11 @@ Whether a property can or must contain a value may depend on the state of its en
 
 Example in metadata document:
 
-<pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" />
-&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" />
-&lt;Property Name="Address_fc" Type="Edm.Byte" /></pre>
+```xml
+<Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" />
+<Property Name="City" Type="Edm.String" sap:field-control="Address_fc" />
+<Property Name="Address_fc" Type="Edm.Byte" />
+```
 
 The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>.
 
@@ -1280,8 +1282,10 @@ The preservation state is a Boolean flag indicating whether or not the value of 
 Example:
 Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:
 
-<pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" />
-     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /></pre>
+```xml
+<Property Name="UnitPrice" Type="Edm.Decimal" />
+<Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" />
+```
 
 For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.
 
@@ -1363,24 +1367,26 @@ For a given order item, a consumer can set the preservation flag for the total a
 
 Example: a function import that allows approving a leave request. The <code>LeaveRequest</code> entity type has a single key property <code>ID</code> and a complex property <code>ControlData</code> with a Boolean property <code>NeedsApproval</code> that controls the applicability of two alternative actions, approval and rejection:
 
-  <pre>&lt;FunctionImport Name="LeaveRequestApproval"
+```xml
+<FunctionImport Name="LeaveRequestApproval"
                 ReturnType="ThisModel.ApprovalResult"
                 m:HttpMethod="POST"
                 sap:label="Approve" 
                 sap:action-for="ThisModel.LeaveRequest"
                 sap:applicable-path="ControlData/NeedsApproval">
-    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" />
-&lt;/FunctionImport></pre>
+  <Parameter Name="ID" Type="Edm.Guid" Mode="In" />
+</FunctionImport>
 
-  <pre>&lt;FunctionImport Name="LeaveRequestRejection"
+<FunctionImport Name="LeaveRequestRejection"
                 ReturnType="ThisModel.ApprovalResult"
                 m:HttpMethod="POST"
                 sap:label="Reject"
                 sap:action-for="ThisModel.LeaveRequest"
                 sap:applicable-path="ControlData/NeedsApproval">
-   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" />
-   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" />
-&lt;/FunctionImport></pre>
+  <Parameter Name="ID" Type="Edm.Guid" Mode="In" />
+  <Parameter Name="Reason" Type="Edm.String" Mode="In" />
+</FunctionImport>
+```
 
 A function import can optionally include an annotation with an <code>sap:value-constraint</code> element.
 
