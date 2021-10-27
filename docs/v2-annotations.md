@@ -97,7 +97,6 @@ OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptu
 Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-
 <colgroup> <col/> <col/> <col/> <col/> </colgroup>
 <tbody>
 <tr>
@@ -436,342 +435,342 @@ Entity types can be annotated with the following attributes:
 This attribute can take the following values in the context of an entity type:
 
 <div>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <colgroup> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Value</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>vcard</td>
-        <td>
-          Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a>
-        </td>
-      </tr>
-      <tr>
-        <td>vevent</td>
-        <td>
-          Entities of this type contain event/appointment information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            vtodo
-          </p>
-        </td>
-        <td>
-          Entities of this type contain todo/task information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> , see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
-        </td>
-      </tr>
-      <tr>
-        <td>parameters</td>
-        <td>
-          This entity type represents parameters for another entity type to which it has a collection-valued association
-        </td>
-      </tr>
-      <tr>
-        <td>aggregate</td>
-        <td>
-          Entity sets of a type with this semantics return result feeds with aggregated values for properties annotated with <code>sap:aggregation-role="measure"</code> mentioned in the $select system query option. The result consists of entities for all combinations of distinct values of all dimension properties annotated with <code>sap:aggregation-role="dimension"</code> mentioned in the $select system query option of the request matching the <code>$filter</code> expression. See also description of annotation <code>sap:aggregation-role</code>.
-        </td>
-      </tr>
-      <tr>
-        <td>variant</td>
-        <td>
-          This entity type represents query selection variants bundling parameter selections and filter expressions for obtaining specific query results
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>vcard</td>
+      <td>
+        Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a>
+      </td>
+    </tr>
+    <tr>
+      <td>vevent</td>
+      <td>
+        Entities of this type contain event/appointment information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          vtodo
+        </p>
+      </td>
+      <td>
+        Entities of this type contain todo/task information following the  <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> , see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> 
+      </td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>
+        This entity type represents parameters for another entity type to which it has a collection-valued association
+      </td>
+    </tr>
+    <tr>
+      <td>aggregate</td>
+      <td>
+        Entity sets of a type with this semantics return result feeds with aggregated values for properties annotated with <code>sap:aggregation-role="measure"</code> mentioned in the $select system query option. The result consists of entities for all combinations of distinct values of all dimension properties annotated with <code>sap:aggregation-role="dimension"</code> mentioned in the $select system query option of the request matching the <code>$filter</code> expression. See also description of annotation <code>sap:aggregation-role</code>.
+      </td>
+    </tr>
+    <tr>
+      <td>variant</td>
+      <td>
+        This entity type represents query selection variants bundling parameter selections and filter expressions for obtaining specific query results
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Element `edm:Property`
 
   <div>
   
-  The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
+The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
 
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-      <colgroup> <col/> <col/> <col/> </colgroup>
-      <tbody>
-        <tr>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Attribute Name</strong>
-          </th>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Default Value</strong>
-          </th>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Meaning</strong>
-          </th>
-        </tr>
-        <tr>
-          <td>label</td>
-          <td>-</td>
-          <td>A short, human-readable text suitable for labels and captions in UIs</td>
-        </tr>
-        <tr>
-          <td>heading</td>
-          <td>-</td>
-          <td>A short, human-readable text suitable for column headings in UIs</td>
-        </tr>
-        <tr>
-          <td>quickinfo</td>
-          <td>-</td>
-          <td>A human-readable text suitable for tool tips in UIs</td>
-        </tr>
-        <tr>
-          <td>semantics</td>
-          <td>-</td>
-          <td>See table below</td>
-        </tr>
-        <tr>
-          <td>creatable</td>
-          <td>true</td>
-          <td>Values for this property can be chosen by client when creating an instance. “False” if value is always set by the server, e.g. document number from number range.</td>
-        </tr>
-        <tr>
-          <td>updatable</td>
-          <td>true</td>
-          <td>Values of this property can be changed. Must be “false” if it is “false” at entity set level. If updatability can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
-        </tr>
-        <tr>
-          <td>sortable</td>
-          <td>true</td>
-          <td>
-            Can be used in $orderby system query option.
-          </td>
-        </tr>
-        <tr>
-          <td>filterable</td>
-          <td>true</td>
-          <td>Can be used in $filter system query option.</td>
-        </tr>
-        <tr>
-          <td>required-in-filter</td>
-          <td>false</td>
-          <td>
-            Must be used in $filter system query option.
-          </td>
-        </tr>
-        <tr>
-          <td>filter-restriction</td>
-          <td>-</td>
-          <td>See table below</td>
-        </tr>
-        <tr>
-          <td>text</td>
-          <td>-</td>
-          <td>
-            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing a human-readable text for the value of this property.</td>
-        </tr>
-        <tr>
-          <td>unit</td>
-          <td>-</td>
-          <td>
-            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the currency code or unit of measure for a numeric value.</td>
-        </tr>
-        <tr>
-          <td>precision</td>
-          <td>-</td>
-          <td>
-            A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the number of significant decimal places for a numeric value.</td>
-        </tr>
-        <tr>
-          <td colspan="1">visible</td>
-          <td colspan="1">true</td>
-          <td colspan="1">Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
-        </tr>
-        <tr>
-          <td>field-control</td>
-          <td>3</td>
-          <td>
-            <p>A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property containing a numeric value that controls visibility:</p>
-            <ul>
-              <li>
-                0 = hidden, 
-              </li>
-              <li>
-                1 = read-only, 
-              </li>
-              <li>
-                3 = optional, 
-              </li>
-              <li>
-                7 = mandatory
-              </li>
-            </ul>
-            <p>
-              See section below for details
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>validation-regexp</td>
-          <td>-</td>
-          <td>Values for this property have to match the specified regular expression. The regular expression is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expression</a>.</td>
-        </tr>
-        <tr>
-          <td>display-format</td>
-          <td>-</td>
-          <td>
-            <p>There are currently three possible values:</p>
-            <ul>
-              <li>“Date” indicates that only the date part of an Edm.DateTime value is relevant</li>
-              <li>"NonNegative" indicates that only non-negative numeric values are provided and persisted, other input will lead to errors. Intended for Edm.String fields that are internally stored as NUMC</li>
-              <li>"UpperCase" indicates that uppercase values are provided and persisted, lowercase input will be converted</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1">value-list</td>
-          <td colspan="1">-</td>
-          <td colspan="1">
-            <p>A string indicating whether this property has a value list attached:</p>
-            <ul>
-              <li>fixed-values - there is a short list of allowed field values that rarely changes over time</li>
-              <li>standard - no restriction on number and volatility of allowed field values</li>
-            </ul>
-            <p>The list of allowed values is provided as a separate entity set that can be found by interpreting the V4-style annotation <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#ValueList"> <code>Common.ValueList</code> </a> on the same property.</p>
-          </td>
-        </tr>
-        <tr>
-          <td>lower-boundary</td>
-          <td>-</td>
-          <td>
-            <div>A property holding the upper boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related lower boundary.</div>
-          </td>
-        </tr>
-        <tr>
-          <td>upper-boundary</td>
-          <td>-</td>
-          <td>
-            <div>A property holding the lower boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related upper boundary.</div>
-          </td>
-        </tr>
-        <tr>
-          <td>aggregation-role</td>
-          <td>-</td>
-          <td>See table below</td>
-        </tr>
-        <tr>
-          <td>super-ordinate</td>
-          <td>-</td>
-          <td>
-            <div>If values of this property are meaningful (unique) only in the context provided by the value of another property, then this attribute holds the name of the context-providing property. The value of this attribute is always the name of another property in the same type.</div>
-          </td>
-        </tr>
-        <tr>
-          <td>attribute-for</td>
-          <td>-</td>
-          <td>
-            <div>A property representing an attribute of another property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for which this property is an attribute.</div>
-          </td>
-        </tr>
-        <tr>
-          <td>hierarchy-node-for</td>
-          <td>-</td>
-          <td>A non-key property holding node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for whose values the hierarchy is defined. An OData request with a $filter condition testing equality of a property holding hierarchy node IDs with a specific node ID selects all entities in the sub-hierarchy with the root node identified by the given node ID.</td>
-        </tr>
-        <tr>
-          <td colspan="1">hierarchy-node-external-key-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">A property holding the external key of a hierarchy node includes this attribute. The external key is a human-readable identification of a node. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID.</td>
-        </tr>
-        <tr>
-          <td>hierarchy-level-for</td>
-          <td>-</td>
-          <td>A property holding level numbers for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding level numbers has an integer data type. The root node of the hierarchy is at level 0.</td>
-        </tr>
-        <tr>
-          <td>hierarchy-parent-node-for</td>
-          <td>-</td>
-          <td>A property holding parent node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For the root node of the hierarchy the parent node ID is null.</td>
-        </tr>
-        <tr>
-          <td colspan="1">hierarchy-parent-navigation-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">A navigation property for accessing the parent entity of a node. It offers an alternative method for accessing the parent node ID, if the entity type does not have a dedicated property for that.</td>
-        </tr>
-        <tr>
-          <td>hierarchy-drill-state-for</td>
-          <td>-</td>
-          <td>A property holding the drill state of a hierarchy node includes this attribute. The drill state is indicated by one of the following values: collapsed, expanded, leaf. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.</td>
-        </tr>
-        <tr>
-          <td colspan="1">hierarchy-node-descendant-count-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">A property holding the descendant count for a hierarchy node includes this attribute. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding descendant counts has an integer data type.</td>
-        </tr>
-        <tr>
-          <td colspan="1">hierarchy-preorder-rank-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">
-            <p>A property holding the preorder rank for a hierarchy node includes this attribute. The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding preorder ranks has an integer data type. The first node in preorder traversal has rank 0.</p>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1">hierarchy-sibling-rank-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">
-            <p>A property holding the sibling rank for a hierarchy node includes this attribute. The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding sibling positions has an integer data type. The first sibling is at position 0.</p>
-          </td>
-        </tr>
-        <tr>
-          <td>parameter</td>
-          <td>-</td>
-          <td>See table below</td>
-        </tr>
-        <tr>
-          <td>is-annotation</td>
-          <td>false</td>
-          <td>
-            Represents an instance annotation.
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a name="updatable-path"></a>updatable-path
-          </td>
-          <td>-</td>
-          <td>
-            <p>If a property can be updated or not depending on the state of its entity, it can be annotated with this attribute. The value of this attribute is always a  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a Boolean property in the context of the entity type. This related property indicates whether the annotated property can be updated for the containing entity or not.</p>
-            <p>Note: if used in addition to the more expressive <a href="#attribute-sapfield-control">field-control</a> annotation, the values of the two must be in sync.</p>
-          </td>
-        </tr>
-        <tr>
-          <td>preserve-flag-for</td>
-          <td>-</td>
-          <td>See below</td>
-        </tr>
-        <tr>
-          <td>filter-for</td>
-          <td>-</td>
-          <td>A property whose value is a <code>$filter</code> expression includes this attribute. The <code>$filter</code> expression must be valid for the entity type specified in this attribute.</td>
-        </tr>
-        <tr>
-          <td colspan="1">variable-scale</td>
-          <td colspan="1">false</td>
-          <td colspan="1">
-            <p>A property of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will contain floating-point values.</p>
-            <p>This indicates that the underlying data store field uses a <a href="https://en.wikipedia.org/wiki/Decimal_data_type">data type with decimal mantissa and variable or floating scale</a> which cannot be expressed in the OData V2 type system.</p>
-            <p>Note: omitted <code>Scale</code>  for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1">text-for</td>
-          <td colspan="1">-</td>
-          <td colspan="1">
-            A  <a class="external-link" href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3" rel="nofollow">path expression</a>  that identifies a property in the context of the entity type for which this property provides an additional human-readable text.</td>
-        </tr>
-      </tbody>
-    </table>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Attribute Name</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Default Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>-</td>
+      <td>A short, human-readable text suitable for labels and captions in UIs</td>
+    </tr>
+    <tr>
+      <td>heading</td>
+      <td>-</td>
+      <td>A short, human-readable text suitable for column headings in UIs</td>
+    </tr>
+    <tr>
+      <td>quickinfo</td>
+      <td>-</td>
+      <td>A human-readable text suitable for tool tips in UIs</td>
+    </tr>
+    <tr>
+      <td>semantics</td>
+      <td>-</td>
+      <td>See table below</td>
+    </tr>
+    <tr>
+      <td>creatable</td>
+      <td>true</td>
+      <td>Values for this property can be chosen by client when creating an instance. “False” if value is always set by the server, e.g. document number from number range.</td>
+    </tr>
+    <tr>
+      <td>updatable</td>
+      <td>true</td>
+      <td>Values of this property can be changed. Must be “false” if it is “false” at entity set level. If updatability can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
+    </tr>
+    <tr>
+      <td>sortable</td>
+      <td>true</td>
+      <td>
+        Can be used in $orderby system query option.
+      </td>
+    </tr>
+    <tr>
+      <td>filterable</td>
+      <td>true</td>
+      <td>Can be used in $filter system query option.</td>
+    </tr>
+    <tr>
+      <td>required-in-filter</td>
+      <td>false</td>
+      <td>
+        Must be used in $filter system query option.
+      </td>
+    </tr>
+    <tr>
+      <td>filter-restriction</td>
+      <td>-</td>
+      <td>See table below</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>-</td>
+      <td>
+        A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing a human-readable text for the value of this property.</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>-</td>
+      <td>
+        A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the currency code or unit of measure for a numeric value.</td>
+    </tr>
+    <tr>
+      <td>precision</td>
+      <td>-</td>
+      <td>
+        A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the number of significant decimal places for a numeric value.</td>
+    </tr>
+    <tr>
+      <td colspan="1">visible</td>
+      <td colspan="1">true</td>
+      <td colspan="1">Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
+    </tr>
+    <tr>
+      <td>field-control</td>
+      <td>3</td>
+      <td>
+        <p>A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property containing a numeric value that controls visibility:</p>
+        <ul>
+          <li>
+            0 = hidden, 
+          </li>
+          <li>
+            1 = read-only, 
+          </li>
+          <li>
+            3 = optional, 
+          </li>
+          <li>
+            7 = mandatory
+          </li>
+        </ul>
+        <p>
+          See section below for details
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>validation-regexp</td>
+      <td>-</td>
+      <td>Values for this property have to match the specified regular expression. The regular expression is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" title="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">JavaScript Regular Expression</a>.</td>
+    </tr>
+    <tr>
+      <td>display-format</td>
+      <td>-</td>
+      <td>
+        <p>There are currently three possible values:</p>
+        <ul>
+          <li>“Date” indicates that only the date part of an Edm.DateTime value is relevant</li>
+          <li>"NonNegative" indicates that only non-negative numeric values are provided and persisted, other input will lead to errors. Intended for Edm.String fields that are internally stored as NUMC</li>
+          <li>"UpperCase" indicates that uppercase values are provided and persisted, lowercase input will be converted</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1">value-list</td>
+      <td colspan="1">-</td>
+      <td colspan="1">
+        <p>A string indicating whether this property has a value list attached:</p>
+        <ul>
+          <li>fixed-values - there is a short list of allowed field values that rarely changes over time</li>
+          <li>standard - no restriction on number and volatility of allowed field values</li>
+        </ul>
+        <p>The list of allowed values is provided as a separate entity set that can be found by interpreting the V4-style annotation <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#ValueList"> <code>Common.ValueList</code> </a> on the same property.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>lower-boundary</td>
+      <td>-</td>
+      <td>
+        <div>A property holding the upper boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related lower boundary.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>upper-boundary</td>
+      <td>-</td>
+      <td>
+        <div>A property holding the lower boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related upper boundary.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>aggregation-role</td>
+      <td>-</td>
+      <td>See table below</td>
+    </tr>
+    <tr>
+      <td>super-ordinate</td>
+      <td>-</td>
+      <td>
+        <div>If values of this property are meaningful (unique) only in the context provided by the value of another property, then this attribute holds the name of the context-providing property. The value of this attribute is always the name of another property in the same type.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>attribute-for</td>
+      <td>-</td>
+      <td>
+        <div>A property representing an attribute of another property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for which this property is an attribute.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>hierarchy-node-for</td>
+      <td>-</td>
+      <td>A non-key property holding node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for whose values the hierarchy is defined. An OData request with a $filter condition testing equality of a property holding hierarchy node IDs with a specific node ID selects all entities in the sub-hierarchy with the root node identified by the given node ID.</td>
+    </tr>
+    <tr>
+      <td colspan="1">hierarchy-node-external-key-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">A property holding the external key of a hierarchy node includes this attribute. The external key is a human-readable identification of a node. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID.</td>
+    </tr>
+    <tr>
+      <td>hierarchy-level-for</td>
+      <td>-</td>
+      <td>A property holding level numbers for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding level numbers has an integer data type. The root node of the hierarchy is at level 0.</td>
+    </tr>
+    <tr>
+      <td>hierarchy-parent-node-for</td>
+      <td>-</td>
+      <td>A property holding parent node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For the root node of the hierarchy the parent node ID is null.</td>
+    </tr>
+    <tr>
+      <td colspan="1">hierarchy-parent-navigation-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">A navigation property for accessing the parent entity of a node. It offers an alternative method for accessing the parent node ID, if the entity type does not have a dedicated property for that.</td>
+    </tr>
+    <tr>
+      <td>hierarchy-drill-state-for</td>
+      <td>-</td>
+      <td>A property holding the drill state of a hierarchy node includes this attribute. The drill state is indicated by one of the following values: collapsed, expanded, leaf. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.</td>
+    </tr>
+    <tr>
+      <td colspan="1">hierarchy-node-descendant-count-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">A property holding the descendant count for a hierarchy node includes this attribute. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding descendant counts has an integer data type.</td>
+    </tr>
+    <tr>
+      <td colspan="1">hierarchy-preorder-rank-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">
+        <p>A property holding the preorder rank for a hierarchy node includes this attribute. The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding preorder ranks has an integer data type. The first node in preorder traversal has rank 0.</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1">hierarchy-sibling-rank-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">
+        <p>A property holding the sibling rank for a hierarchy node includes this attribute. The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding sibling positions has an integer data type. The first sibling is at position 0.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>parameter</td>
+      <td>-</td>
+      <td>See table below</td>
+    </tr>
+    <tr>
+      <td>is-annotation</td>
+      <td>false</td>
+      <td>
+        Represents an instance annotation.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a name="updatable-path"></a>updatable-path
+      </td>
+      <td>-</td>
+      <td>
+        <p>If a property can be updated or not depending on the state of its entity, it can be annotated with this attribute. The value of this attribute is always a  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a Boolean property in the context of the entity type. This related property indicates whether the annotated property can be updated for the containing entity or not.</p>
+        <p>Note: if used in addition to the more expressive <a href="#attribute-sapfield-control">field-control</a> annotation, the values of the two must be in sync.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>preserve-flag-for</td>
+      <td>-</td>
+      <td>See below</td>
+    </tr>
+    <tr>
+      <td>filter-for</td>
+      <td>-</td>
+      <td>A property whose value is a <code>$filter</code> expression includes this attribute. The <code>$filter</code> expression must be valid for the entity type specified in this attribute.</td>
+    </tr>
+    <tr>
+      <td colspan="1">variable-scale</td>
+      <td colspan="1">false</td>
+      <td colspan="1">
+        <p>A property of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will contain floating-point values.</p>
+        <p>This indicates that the underlying data store field uses a <a href="https://en.wikipedia.org/wiki/Decimal_data_type">data type with decimal mantissa and variable or floating scale</a> which cannot be expressed in the OData V2 type system.</p>
+        <p>Note: omitted <code>Scale</code>  for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1">text-for</td>
+      <td colspan="1">-</td>
+      <td colspan="1">
+        A  <a class="external-link" href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3" rel="nofollow">path expression</a>  that identifies a property in the context of the entity type for which this property provides an additional human-readable text.</td>
+    </tr>
+  </tbody>
+</table>
     
 #### Attributes `sap:unit` and `sap:precision`
     
@@ -832,267 +831,267 @@ The possible values for a field-control property are:
 The possible values in the context of a property are:
 
   <div>
-    <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-      <colgroup> <col/> <col/> </colgroup>
-      <tbody>
-        <tr>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Value</strong>
-          </th>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Meaning</strong>
-          </th>
-        </tr>
-        <tr>
-          <td>tel</td>
-          <td>Telephone number</td>
-        </tr>
-        <tr>
-          <td>tel;type=cell,work</td>
-          <td>Work cellphone number; see explanation below table for more values</td>
-        </tr>
-        <tr>
-          <td>tel;type=fax</td>
-          <td>Fax number</td>
-        </tr>
-        <tr>
-          <td>email</td>
-          <td>Email address</td>
-        </tr>
-        <tr>
-          <td>email;type=pref</td>
-          <td>Preferred email address</td>
-        </tr>
-        <tr>
-          <td>url</td>
-          <td>Web URL</td>
-        </tr>
-        <tr>
-          <td>name</td>
-          <td>Formatted text of the full name</td>
-        </tr>
-        <tr>
-          <td>givenname</td>
-          <td>First name or given name of a person</td>
-        </tr>
-        <tr>
-          <td>middlename</td>
-          <td>Middle name of a person</td>
-        </tr>
-        <tr>
-          <td>familyname</td>
-          <td>Last name or family name of a person</td>
-        </tr>
-        <tr>
-          <td>nickname</td>
-          <td>Descriptive name given instead of or in addtion to the one marked as "name"</td>
-        </tr>
-        <tr>
-          <td>honorific</td>
-          <td>Title of a person (Ph.D., Dr., ...)</td>
-        </tr>
-        <tr>
-          <td>suffix</td>
-          <td>Suffix to the name of a person</td>
-        </tr>
-        <tr>
-          <td>note</td>
-          <td>Supplemental information or a comment that is associated with the vCard</td>
-        </tr>
-        <tr>
-          <td>photo</td>
-          <td>URL of a photo of a person</td>
-        </tr>
-        <tr>
-          <td>city</td>
-          <td>Address: city</td>
-        </tr>
-        <tr>
-          <td>street</td>
-          <td>Address: street</td>
-        </tr>
-        <tr>
-          <td>country</td>
-          <td>Address: country</td>
-        </tr>
-        <tr>
-          <td>region</td>
-          <td>Address: state or province</td>
-        </tr>
-        <tr>
-          <td>
-            <div>zip</div>
-          </td>
-          <td>Address: postal code</td>
-        </tr>
-        <tr>
-          <td>pobox</td>
-          <td>Address: post office box</td>
-        </tr>
-        <tr>
-          <td>org</td>
-          <td>Organization name</td>
-        </tr>
-        <tr>
-          <td>org-unit</td>
-          <td>Organizational unit</td>
-        </tr>
-        <tr>
-          <td>org-role</td>
-          <td>Organizational role</td>
-        </tr>
-        <tr>
-          <td>title</td>
-          <td>Job title</td>
-        </tr>
-        <tr>
-          <td>bday</td>
-          <td>Birth date</td>
-        </tr>
-        <tr>
-          <td>summary</td>
-          <td>Calendar: summary of a calendar component</td>
-        </tr>
-        <tr>
-          <td>description</td>
-          <td>Calendar: description of a calendar component, detailing the summary</td>
-        </tr>
-        <tr>
-          <td>categories</td>
-          <td>Calendar: comma-separated list of categories for a calendar component</td>
-        </tr>
-        <tr>
-          <td>dtstart</td>
-          <td>Calendar: the date and time that a calendar component starts</td>
-        </tr>
-        <tr>
-          <td>dtend</td>
-          <td>Calendar: the date and time that a calendar component ends</td>
-        </tr>
-        <tr>
-          <td>duration</td>
-          <td>Calendar: duration as an alternative to dtend, see <a href="http://www.w3.org/TR/xmlschema11-2/#duration">xs:duration</a>
-          </td>
-        </tr>
-        <tr>
-          <td>due</td>
-          <td>Calendar: the date and time that a to-do is expected to be completed</td>
-        </tr>
-        <tr>
-          <td>completed</td>
-          <td>Calendar: the date and time that a to-do was actually completed
-          </td>
-        </tr>
-        <tr>
-          <td>priority</td>
-          <td>Calendar: the relative priority for a calendar component, 0 for undefined, 1 for highest, ... 9 for lowest</td>
-        </tr>
-        <tr>
-          <td>class</td>
-          <td>Calendar: access classification for a calendar component</td>
-        </tr>
-        <tr>
-          <td>status</td>
-          <td>Calendar: overall status or confirmation for the calendar component</td>
-        </tr>
-        <tr>
-          <td>percent-complete</td>
-          <td>Calendar: percent completion of a to-do., ranging from 0 to 100 (integer)</td>
-        </tr>
-        <tr>
-          <td>contact</td>
-          <td>Calendar: contact information or alternatively a reference to contact information associated with the calendar component</td>
-        </tr>
-        <tr>
-          <td>location</td>
-          <td>Calendar: the intended venue for the activity defined by a calendar component</td>
-        </tr>
-        <tr>
-          <td>transp</td>
-          <td>Calendar: defines whether or not an event is transparaent to busy time searches</td>
-        </tr>
-        <tr>
-          <td>fbtype</td>
-          <td>Calendar: free/busy time type, see [ <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> ]</td>
-        </tr>
-        <tr>
-          <td>wholeday</td>
-          <td>Calendar: "true" or "false, depending on whether an event is scheduled for an entire day</td>
-        </tr>
-        <tr>
-          <td>year</td>
-          <td>Calendar: year as string following the regex pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits</td>
-        </tr>
-        <tr>
-          <td>yearmonth</td>
-          <td>Calendar: year and month as string following the regex pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, the last two digits are a number between 01 and 12 representing the months January to December</td>
-        </tr>
-        <tr>
-          <td colspan="1">yearmonthday</td>
-          <td colspan="1">Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
-        </tr>
-        <tr>
-          <td>from</td>
-          <td>Mail: author of message, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> ]</td>
-        </tr>
-        <tr>
-          <td>sender</td>
-          <td>Mail: mailbox of agent responsible for actual transmission</td>
-        </tr>
-        <tr>
-          <td>to</td>
-          <td>Mai: comma-separated list of primary recipients, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> ]</td>
-        </tr>
-        <tr>
-          <td>cc</td>
-          <td>Mail: carbon copy, comma-separated</td>
-        </tr>
-        <tr>
-          <td>bcc</td>
-          <td>Mail: blind carbon copy, comma-separated</td>
-        </tr>
-        <tr>
-          <td>subject</td>
-          <td>Mail: topic of the message</td>
-        </tr>
-        <tr>
-          <td>body</td>
-          <td>Mail: message body</td>
-        </tr>
-        <tr>
-          <td>keywords</td>
-          <td>Mail: comma-separated list of important words and phrases that might be useful for the recipient</td>
-        </tr>
-        <tr>
-          <td>received</td>
-          <td>Mail: DateTime the message was received</td>
-        </tr>
-        <tr>
-          <td>geo-lon</td>
-          <td>Geolocation: longitude</td>
-        </tr>
-        <tr>
-          <td>geo-lat</td>
-          <td>Geolocation: latitude</td>
-        </tr>
-        <tr>
-          <td>currency-code</td>
-          <td>Currency code, preferably ISO</td>
-        </tr>
-        <tr>
-          <td>unit-of-measure</td>
-          <td>Unit of measure, preferably ISO</td>
-        </tr>
-        <tr>
-          <td>count</td>
-          <td>Aggregation: the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
-    </p>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>tel</td>
+      <td>Telephone number</td>
+    </tr>
+    <tr>
+      <td>tel;type=cell,work</td>
+      <td>Work cellphone number; see explanation below table for more values</td>
+    </tr>
+    <tr>
+      <td>tel;type=fax</td>
+      <td>Fax number</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>Email address</td>
+    </tr>
+    <tr>
+      <td>email;type=pref</td>
+      <td>Preferred email address</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>Web URL</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Formatted text of the full name</td>
+    </tr>
+    <tr>
+      <td>givenname</td>
+      <td>First name or given name of a person</td>
+    </tr>
+    <tr>
+      <td>middlename</td>
+      <td>Middle name of a person</td>
+    </tr>
+    <tr>
+      <td>familyname</td>
+      <td>Last name or family name of a person</td>
+    </tr>
+    <tr>
+      <td>nickname</td>
+      <td>Descriptive name given instead of or in addtion to the one marked as "name"</td>
+    </tr>
+    <tr>
+      <td>honorific</td>
+      <td>Title of a person (Ph.D., Dr., ...)</td>
+    </tr>
+    <tr>
+      <td>suffix</td>
+      <td>Suffix to the name of a person</td>
+    </tr>
+    <tr>
+      <td>note</td>
+      <td>Supplemental information or a comment that is associated with the vCard</td>
+    </tr>
+    <tr>
+      <td>photo</td>
+      <td>URL of a photo of a person</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Address: city</td>
+    </tr>
+    <tr>
+      <td>street</td>
+      <td>Address: street</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>Address: country</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>Address: state or province</td>
+    </tr>
+    <tr>
+      <td>
+        <div>zip</div>
+      </td>
+      <td>Address: postal code</td>
+    </tr>
+    <tr>
+      <td>pobox</td>
+      <td>Address: post office box</td>
+    </tr>
+    <tr>
+      <td>org</td>
+      <td>Organization name</td>
+    </tr>
+    <tr>
+      <td>org-unit</td>
+      <td>Organizational unit</td>
+    </tr>
+    <tr>
+      <td>org-role</td>
+      <td>Organizational role</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>Job title</td>
+    </tr>
+    <tr>
+      <td>bday</td>
+      <td>Birth date</td>
+    </tr>
+    <tr>
+      <td>summary</td>
+      <td>Calendar: summary of a calendar component</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Calendar: description of a calendar component, detailing the summary</td>
+    </tr>
+    <tr>
+      <td>categories</td>
+      <td>Calendar: comma-separated list of categories for a calendar component</td>
+    </tr>
+    <tr>
+      <td>dtstart</td>
+      <td>Calendar: the date and time that a calendar component starts</td>
+    </tr>
+    <tr>
+      <td>dtend</td>
+      <td>Calendar: the date and time that a calendar component ends</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>Calendar: duration as an alternative to dtend, see <a href="http://www.w3.org/TR/xmlschema11-2/#duration">xs:duration</a>
+      </td>
+    </tr>
+    <tr>
+      <td>due</td>
+      <td>Calendar: the date and time that a to-do is expected to be completed</td>
+    </tr>
+    <tr>
+      <td>completed</td>
+      <td>Calendar: the date and time that a to-do was actually completed
+      </td>
+    </tr>
+    <tr>
+      <td>priority</td>
+      <td>Calendar: the relative priority for a calendar component, 0 for undefined, 1 for highest, ... 9 for lowest</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>Calendar: access classification for a calendar component</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Calendar: overall status or confirmation for the calendar component</td>
+    </tr>
+    <tr>
+      <td>percent-complete</td>
+      <td>Calendar: percent completion of a to-do., ranging from 0 to 100 (integer)</td>
+    </tr>
+    <tr>
+      <td>contact</td>
+      <td>Calendar: contact information or alternatively a reference to contact information associated with the calendar component</td>
+    </tr>
+    <tr>
+      <td>location</td>
+      <td>Calendar: the intended venue for the activity defined by a calendar component</td>
+    </tr>
+    <tr>
+      <td>transp</td>
+      <td>Calendar: defines whether or not an event is transparaent to busy time searches</td>
+    </tr>
+    <tr>
+      <td>fbtype</td>
+      <td>Calendar: free/busy time type, see [ <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> ]</td>
+    </tr>
+    <tr>
+      <td>wholeday</td>
+      <td>Calendar: "true" or "false, depending on whether an event is scheduled for an entire day</td>
+    </tr>
+    <tr>
+      <td>year</td>
+      <td>Calendar: year as string following the regex pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits</td>
+    </tr>
+    <tr>
+      <td>yearmonth</td>
+      <td>Calendar: year and month as string following the regex pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, the last two digits are a number between 01 and 12 representing the months January to December</td>
+    </tr>
+    <tr>
+      <td colspan="1">yearmonthday</td>
+      <td colspan="1">Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td>Mail: author of message, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> ]</td>
+    </tr>
+    <tr>
+      <td>sender</td>
+      <td>Mail: mailbox of agent responsible for actual transmission</td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td>Mai: comma-separated list of primary recipients, see [ <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> ]</td>
+    </tr>
+    <tr>
+      <td>cc</td>
+      <td>Mail: carbon copy, comma-separated</td>
+    </tr>
+    <tr>
+      <td>bcc</td>
+      <td>Mail: blind carbon copy, comma-separated</td>
+    </tr>
+    <tr>
+      <td>subject</td>
+      <td>Mail: topic of the message</td>
+    </tr>
+    <tr>
+      <td>body</td>
+      <td>Mail: message body</td>
+    </tr>
+    <tr>
+      <td>keywords</td>
+      <td>Mail: comma-separated list of important words and phrases that might be useful for the recipient</td>
+    </tr>
+    <tr>
+      <td>received</td>
+      <td>Mail: DateTime the message was received</td>
+    </tr>
+    <tr>
+      <td>geo-lon</td>
+      <td>Geolocation: longitude</td>
+    </tr>
+    <tr>
+      <td>geo-lat</td>
+      <td>Geolocation: latitude</td>
+    </tr>
+    <tr>
+      <td>currency-code</td>
+      <td>Currency code, preferably ISO</td>
+    </tr>
+    <tr>
+      <td>unit-of-measure</td>
+      <td>Unit of measure, preferably ISO</td>
+    </tr>
+    <tr>
+      <td>count</td>
+      <td>Aggregation: the number of unaggregated entities that have been aggregated into the response entity (<code>count(*)</code> in SQL). Only valid for one property of an entity type that is annotated with <code>sap:semantics="aggregate"</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
+</p>
   </div>
   <div>
     <ul style="list-style-type: disc;">
@@ -1168,113 +1167,102 @@ The possible values in the context of a property are:
   <div>
     <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
     <div>
-      <p>
-        <br/>
-      </p>
-      <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-        <colgroup> <col/> <col/> </colgroup>
-        <tbody>
-          <tr>
-            <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-              <strong>Value</strong>
-            </th>
-            <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-              <strong>Meaning</strong>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              single-value
-            </td>
-            <td>
-              Only a single “<code>eq</code>”clause is possible.
-            </td>
-          </tr>
-          <tr>
-            <td>multi-value</td>
-            <td>
-              Several “<code>eq</code>” clauses, separated by <code>or</code>, are possible.
-            </td>
-          </tr>
-          <tr>
-            <td>interval</td>
-            <td>
-              At most one “<code>ge</code>” and one “<code>le</code>” clause, separated by “<code>and</code>”, alternatively a single “<code>eq</code>” clause.</td>
-          </tr>
-        </tbody>
-      </table>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        single-value
+      </td>
+      <td>
+        Only a single “<code>eq</code>”clause is possible.
+      </td>
+    </tr>
+    <tr>
+      <td>multi-value</td>
+      <td>
+        Several “<code>eq</code>” clauses, separated by <code>or</code>, are possible.
+      </td>
+    </tr>
+    <tr>
+      <td>interval</td>
+      <td>
+        At most one “<code>ge</code>” and one “<code>le</code>” clause, separated by “<code>and</code>”, alternatively a single “<code>eq</code>” clause.</td>
+    </tr>
+  </tbody>
+</table>
     </div>
 
 #### Attribute `sap:aggregation-role`
 
-<div>A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:</div>
-<div>
-  <p>
-    <br/>
-  </p>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <colgroup> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Value</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>dimension</td>
-        <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
-      </tr>
-      <tr>
-        <td>measure</td>
-        <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
-      </tr>
-      <tr>
-        <td>
-          totaled-properties-list
-        </td>
-        <td>
-          The property value is a comma-separated list of totaled dimension property names.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:
+
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>dimension</td>
+      <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
+    </tr>
+    <tr>
+      <td>measure</td>
+      <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
+    </tr>
+    <tr>
+      <td>
+        totaled-properties-list
+      </td>
+      <td>
+        The property value is a comma-separated list of totaled dimension property names.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Attribute `sap:parameter`
 
-<div>A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:</div>
-<div>
-  <p>
-    <br/>
-  </p>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <colgroup> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Value</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>mandatory</td>
-        <td>
-          A value must be supplied for this parameter.</td>
-      </tr>
-      <tr>
-        <td>optional</td>
-        <td>
-          <div>A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.</div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:
+
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>mandatory</td>
+      <td>
+        A value must be supplied for this parameter.</td>
+    </tr>
+    <tr>
+      <td>optional</td>
+      <td>
+        <div>A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 #### Attribute `sap:preserve-flag-for`
 
@@ -1389,71 +1377,65 @@ Example: a function import that allows approving a leave request. The <code>Leav
 
 ### Element `edm:Parameter`
 
-<div>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <colgroup> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Attribute Name</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-      </tr>
-      <tr>
-        <td>label</td>
-        <td>Description</td>
-      </tr>
-      <tr>
-        <td colspan="1">variable-scale</td>
-        <td colspan="1">
-          <p>A parameter of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will accept floating-point values.</p>
-          <p>This indicates that the underlying data store field has type DECFLOAT, which cannot be expressed in the OData V2 type system.</p>
-          <p>Note: omitted <code>Scale</code> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Attribute Name</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td colspan="1">variable-scale</td>
+      <td colspan="1">
+        <p>A parameter of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will accept floating-point values.</p>
+        <p>This indicates that the underlying data store field has type DECFLOAT, which cannot be expressed in the OData V2 type system.</p>
+        <p>Note: omitted <code>Scale</code> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Element `edm:AssociationSet`
 
-<div>
-  <div>
-    <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-      <colgroup> <col/> <col/> <col/> </colgroup>
-      <tbody>
-        <tr>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Attribute Name</strong>
-          </th>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Default Value</strong>
-          </th>
-          <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-            <strong>Meaning</strong>
-          </th>
-        </tr>
-        <tr>
-          <td>creatable</td>
-          <td>true</td>
-          <td>Relations can be created</td>
-        </tr>
-        <tr>
-          <td>updatable</td>
-          <td>true</td>
-          <td>Relations can be changed</td>
-        </tr>
-        <tr>
-          <td>deletable</td>
-          <td>true</td>
-          <td>Relations can be deleted</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <colgroup> <col/> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Attribute Name</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Default Value</strong>
+      </th>
+      <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+        <strong>Meaning</strong>
+      </th>
+    </tr>
+    <tr>
+      <td>creatable</td>
+      <td>true</td>
+      <td>Relations can be created</td>
+    </tr>
+    <tr>
+      <td>updatable</td>
+      <td>true</td>
+      <td>Relations can be changed</td>
+    </tr>
+    <tr>
+      <td>deletable</td>
+      <td>true</td>
+      <td>Relations can be deleted</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Instance Annotations
 
