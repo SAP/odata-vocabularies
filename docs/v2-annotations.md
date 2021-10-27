@@ -57,11 +57,11 @@ The <code>app:service</code> element can be annotated with two elements from the
 <ul>
   <li>
     <p>
-      <code>&lt;atom:link rel="self" href="..."/&gt;</code> contains the link to this service document, and</p>
+      <code>&lt;atom:link rel="self" href="..."/></code> contains the link to this service document, and</p>
   </li>
   <li>
     <p>
-      <code>&lt;atom:link rel="latest-version" href="..."/&gt;</code> contains the link to latest version of this service.</p>
+      <code>&lt;atom:link rel="latest-version" href="..."/></code> contains the link to latest version of this service.</p>
   </li>
 </ul>
 
@@ -74,15 +74,15 @@ The <code>app:collection</code> element can be annotated with three elements:
 <ul>
   <li>
     <p>
-      <code>&lt;sap:member-title&gt;</code> contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the <code>&lt;atom:title&gt;</code> element of this collection.</p>
+      <code>&lt;sap:member-title></code> contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the <code>&lt;atom:title></code> element of this collection.</p>
   </li>
   <li>
     <p>
-      <code>&lt;atom:link rel="search" href="..."/&gt;</code> contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code> </a>to the URL of the collection.</p>
+      <code>&lt;atom:link rel="search" href="..."/></code> contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code> </a>to the URL of the collection.</p>
   </li>
   <li>
     <p>
-      <code>&lt;atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/&gt;</code> contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.</p>
+      <code>&lt;atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/></code> contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.</p>
   </li>
 </ul>
 
@@ -231,7 +231,8 @@ Entity sets can be annotated with the following attributes. If not stated explic
       <td>
         -
       </td>
-      <td>Entities in this set can be updated or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be updated or not. Must not be present if updatable is present.<br/>The combined meaning of the annotations updatable and updatable-path is<ul style="list-style-type: disc;">
+      <td>Entities in this set can be updated or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be updated or not. Must not be present if updatable is present.
+The combined meaning of the annotations updatable and updatable-path is<ul style="list-style-type: disc;">
           <li>If an entity set is neither annotated with updatable nor updatable-path, its entities can be updated</li>
           <li>If an entity set is annotated both with updatable and updatable-path, the service is broken and the client should assume that entities in this set cannot be updated</li>
           <li>If an entity set is annotated with updatable=true, its entities can be updated</li>
@@ -245,7 +246,8 @@ Entity sets can be annotated with the following attributes. If not stated explic
             <li>If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value null, the service does not know whether the property can be updated. Semantically such a service is broken and the client should assume that the entity cannot be updated</li>
           </ul>
         </ul>
-        <br/>The same rules apply to the combination of deletable and deletable-path on entity sets and the combination of creatable and creatable-path on navigation properties.</td>
+        
+The same rules apply to the combination of deletable and deletable-path on entity sets and the combination of creatable and creatable-path on navigation properties.</td>
     </tr>
     <tr>
       <td>
@@ -265,7 +267,8 @@ Entity sets can be annotated with the following attributes. If not stated explic
       <td>
         -
       </td>
-      <td>Entities in this set can be deleted or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be deleted or not. Must not be present if deletable is present.<br/>See notes in updatable-path for combined meaning of deletable and deletable-path.</td>
+      <td>Entities in this set can be deleted or not depending on their state. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be deleted or not. Must not be present if deletable is present.
+See notes in updatable-path for combined meaning of deletable and deletable-path.</td>
     </tr>
     <tr>
       <td>
@@ -773,16 +776,27 @@ The annotation <code>sap:label</code> is required for properties. All other ann
     
 Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <code>Edm.Decimal</code>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <code>sap:unit</code> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <code>sap:precision</code> attribute.
 
-
 Example in metadata document:
 
-<pre>&lt;Property Name="OrderedQuantity" Type="Edm.Int16 " sap:unit="OrderedUnit" /&gt;<br/>&lt;Property Name="OrderedUnit" Type="Edm.String " sap:semantics="unit-of-measure" /&gt;<br/>&lt;Property Name ="Price" Type ="Edm.Decimal" Precision="10" Scale ="3" sap:unit ="Currency" sap:precision="DisplayScale" /&gt;  </pre>
-<pre>&lt;Property Name="DisplayScale" Type ="Edm.Byte" /&gt;<br/>&lt;Property Name="Currency" Type ="Edm.String" sap:semantics="currency-code" sap:text="CurrencyText" /&gt;<br/>&lt;Property Name="CurrencyText" Type="Edm.String" /&gt;</pre>
+```xml
+<Property Name="OrderedQuantity" Type="Edm.Int16 " sap:unit="OrderedUnit" />
+<Property Name="OrderedUnit" Type="Edm.String " sap:semantics="unit-of-measure" />
+<Property Name ="Price" Type ="Edm.Decimal" Precision="10" Scale ="3" sap:unit ="Currency" sap:precision="DisplayScale" />
+<Property Name="DisplayScale" Type ="Edm.Byte" />
+<Property Name="Currency" Type ="Edm.String" sap:semantics="currency-code" sap:text="CurrencyText" />
+<Property Name="CurrencyText" Type="Edm.String" />
+```
 
 Example in Atom entry:
 
-<pre>&lt;d:OrderedQuantity&gt;50&lt;/d:OrderedQuantity&gt;<br/>&lt;d:OrderedUnit&gt;KGM&lt;/d:OrderedUnit&gt;<br/>&lt;d:Price&gt;86.9&lt;/d:Price&gt;</pre>
-<pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
+```xml
+<d:OrderedQuantity>50</d:OrderedQuantity>
+<d:OrderedUnit>KGM</d:OrderedUnit>
+<d:Price>86.9</d:Price>
+<d:DisplayScale>2</d:DisplayScale>
+<d:Currency>EUR</d:Currency>
+<d:CurrencyText>Euro</d:CurrencyText>
+```
 
 Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).
 
@@ -792,10 +806,11 @@ Whether a property can or must contain a value may depend on the state of its en
 
 Example in metadata document:
 
-<pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
-<p>
-The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. 
-</p>
+<pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" />
+&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" />
+&lt;Property Name="Address_fc" Type="Edm.Byte" /></pre>
+
+The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>.
 
 The possible values for a field-control property are:
 
@@ -1265,7 +1280,8 @@ The preservation state is a Boolean flag indicating whether or not the value of 
 Example:
 Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:
 
-<pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" /&gt;<br/>     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /&gt;</pre>
+<pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" />
+     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /></pre>
 
 For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.
 
@@ -1347,9 +1363,24 @@ For a given order item, a consumer can set the preservation flag for the total a
 
 Example: a function import that allows approving a leave request. The <code>LeaveRequest</code> entity type has a single key property <code>ID</code> and a complex property <code>ControlData</code> with a Boolean property <code>NeedsApproval</code> that controls the applicability of two alternative actions, approval and rejection:
 
-  <pre>&lt;FunctionImport Name="LeaveRequestApproval"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Approve" <br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
+  <pre>&lt;FunctionImport Name="LeaveRequestApproval"
+                ReturnType="ThisModel.ApprovalResult"
+                m:HttpMethod="POST"
+                sap:label="Approve" 
+                sap:action-for="ThisModel.LeaveRequest"
+                sap:applicable-path="ControlData/NeedsApproval">
+    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" />
+&lt;/FunctionImport></pre>
 
-  <pre>&lt;FunctionImport Name="LeaveRequestRejection"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Reject"<br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
+  <pre>&lt;FunctionImport Name="LeaveRequestRejection"
+                ReturnType="ThisModel.ApprovalResult"
+                m:HttpMethod="POST"
+                sap:label="Reject"
+                sap:action-for="ThisModel.LeaveRequest"
+                sap:applicable-path="ControlData/NeedsApproval">
+   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" />
+   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" />
+&lt;/FunctionImport></pre>
 
 A function import can optionally include an annotation with an <code>sap:value-constraint</code> element.
 
@@ -1358,10 +1389,16 @@ A function import can optionally include an annotation with an <code>sap:value-c
 This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.
 Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.
 
-  <pre>&lt;sap:value-constraint set="Regions"&gt;<br/>     &lt;sap: parameter-ref name="Country" /&gt;<br/>     &lt;sap:parameter-ref name="Region" /&gt;<br/>&lt;/sap:value-constraint&gt;</pre>
+```xml
+<sap:value-constraint set="Regions">
+     <sap: parameter-ref name="Country" />
+     <sap:parameter-ref name="Region" />
+</sap:value-constraint>
+```
 
-  <p>It has a <code>set</code> attribute that identifies the entity set containing the list of allowed parameter value combinations.</p>
-  <p>Nested <code>sap:parameter-ref</code> elements link the function import parameters specified with the <code>name</code> attribute to a key property of the entity type of the specified entity set. The sequence of <code>sap:parameter-ref</code> elements matches the sequence of the <code>edm:PropertyRef</code> elements of the <code>Key</code> element.</p>
+It has a <code>set</code> attribute that identifies the entity set containing the list of allowed parameter value combinations.
+
+Nested <code>sap:parameter-ref</code> elements link the function import parameters specified with the <code>name</code> attribute to a key property of the entity type of the specified entity set. The sequence of <code>sap:parameter-ref</code> elements matches the sequence of the <code>edm:PropertyRef</code> elements of the <code>Key</code> element.
 
 ### Element `edm:Parameter`
 
@@ -1429,7 +1466,8 @@ Example: For a function import with two parameters for country and region, the p
 
 An annotation of an element in the OData metadata document adds information at the structural level of the service. Sometimes extra pieces of information are needed in the OData response for individual entities and their properties. To distinguish these two cases the former are called metadata annotations, while annotations of the entities in the OData response are called instance annotations.
 Metadata annotations add information to the model structure. They are fully described by adding the appropriate AnnotationElement or AnnotationAttribute to a model element.
-For instance annotations, this is different, because it must be possible to add different annotation values for every entity or every entity property, respectively. Therefore, if instance annotations are relevant for instances of some entity type, the structure of the entity type gets extended by properties specifically added for the purpose of holding annotation values in the result entities. These extra properties are also annotated with sap:is-annotation=”true” to identify them as<br/>annotation holders and separate them from the other properties of the entity type.
+For instance annotations, this is different, because it must be possible to add different annotation values for every entity or every entity property, respectively. Therefore, if instance annotations are relevant for instances of some entity type, the structure of the entity type gets extended by properties specifically added for the purpose of holding annotation values in the result entities. These extra properties are also annotated with sap:is-annotation=”true” to identify them as
+annotation holders and separate them from the other properties of the entity type.
 A single entity can have multiple instance annotations, for each of which an extra property gets added to the underlying type:
 
 - Zero or more for the entity itself.
@@ -1438,7 +1476,11 @@ A single entity can have multiple instance annotations, for each of which an ext
 Properties representing instance annotations are always introduced by AnnotationAttributes in the metadata document. The following sections describe the possible occurrences.
 Example:
 
-<pre>&lt;Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" /&gt;</pre>
+```xml
+<Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" />
+<Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" />
+<Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" />
+```
 
 ## Query Option `search`
 
