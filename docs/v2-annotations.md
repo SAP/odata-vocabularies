@@ -96,43 +96,43 @@ OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptu
 
 Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-<colgroup> <col/> <col/> <col/> <col/> </colgroup>
-<tbody>
-<tr>
-<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-<strong>Attribute Name</strong>
-</th>
-<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-<strong>Default Value</strong>
-</th>
-<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-<strong>Meaning</strong>
-</th>
-<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-<strong>Replaced by</strong>
-</th>
-</tr>
-<tr>
-<td colspan="1">
-<p>schema-version</p>
-</td>
-<td colspan="1">
-<p>0000</p>
-</td>
-<td colspan="1">A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
-<td colspan="1">
-<a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
-</td>
-</tr>
-</tbody>
+<table>
+  <colgroup> <col/> <col/> <col/> <col/> </colgroup>
+  <tbody>
+    <tr>
+    <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+    <strong>Attribute Name</strong>
+    </th>
+    <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+    <strong>Default Value</strong>
+    </th>
+    <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+    <strong>Meaning</strong>
+    </th>
+    <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+    <strong>Replaced by</strong>
+    </th>
+    </tr>
+    <tr>
+    <td>
+    <p>schema-version</p>
+    </td>
+    <td>
+    <p>0000</p>
+    </td>
+    <td>A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
+    <td>
+    <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
+    </td>
+    </tr>
+  </tbody>
 </table>
 
 ### Element `edm:EntityContainer`
 
 Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -147,15 +147,15 @@ Entity containers can be annotated with the following attributes. If not stated 
       </th>
     </tr>
     <tr>
-      <td colspan="1">message-scope-supported</td>
-      <td colspan="1">false</td>
-      <td colspan="1">Service supports the request header <code>sap-message-scope</code>
+      <td>message-scope-supported</td>
+      <td>false</td>
+      <td>Service supports the request header <code>sap-message-scope</code>
       </td>
     </tr>
     <tr>
-      <td colspan="1">supported-formats</td>
-      <td colspan="1">atom json</td>
-      <td colspan="1">A white-space separated list of format shortnames. Possible list items:<ul>
+      <td>supported-formats</td>
+      <td>atom json</td>
+      <td>A white-space separated list of format shortnames. Possible list items:<ul>
           <li>atom</li>
           <li>json</li>
           <li>xlsx</li>
@@ -177,7 +177,7 @@ Entity containers can be annotated with the following attributes. If not stated 
 
 Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -366,7 +366,7 @@ Entity sets can be annotated with the following attributes. If not stated explic
 
 This attribute can take the following values in the context of an entity type:
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -386,8 +386,8 @@ This attribute can take the following values in the context of an entity type:
       </td>
     </tr>
     <tr>
-      <td colspan="1">timeseries</td>
-      <td colspan="1">The entities of this set are snapshots of data that changes over time. One of the key properties represents the temporal dimension.</td>
+      <td>timeseries</td>
+      <td>The entities of this set are snapshots of data that changes over time. One of the key properties represents the temporal dimension.</td>
     </tr>
   </tbody>
 </table>
@@ -396,7 +396,7 @@ This attribute can take the following values in the context of an entity type:
 
 Entity types can be annotated with the following attributes:
 
-<table border="1" class="jiveBorder wrapped">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -435,7 +435,7 @@ Entity types can be annotated with the following attributes:
 This attribute can take the following values in the context of an entity type:
 
 <div>
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -495,7 +495,7 @@ This attribute can take the following values in the context of an entity type:
   
 The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -582,9 +582,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
         A  <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property in the context of the entity type containing the number of significant decimal places for a numeric value.</td>
     </tr>
     <tr>
-      <td colspan="1">visible</td>
-      <td colspan="1">true</td>
-      <td colspan="1">Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
+      <td>visible</td>
+      <td>true</td>
+      <td>Values of this property are typically visible to end users. If visibility can change per entity or based on the entities' state, do not use this static annotation and use <code>sap:field-control</code> instead.</td>
     </tr>
     <tr>
       <td>field-control</td>
@@ -628,9 +628,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       </td>
     </tr>
     <tr>
-      <td colspan="1">value-list</td>
-      <td colspan="1">-</td>
-      <td colspan="1">
+      <td>value-list</td>
+      <td>-</td>
+      <td>
         <p>A string indicating whether this property has a value list attached:</p>
         <ul>
           <li>fixed-values - there is a short list of allowed field values that rarely changes over time</li>
@@ -678,9 +678,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>A non-key property holding node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for whose values the hierarchy is defined. An OData request with a $filter condition testing equality of a property holding hierarchy node IDs with a specific node ID selects all entities in the sub-hierarchy with the root node identified by the given node ID.</td>
     </tr>
     <tr>
-      <td colspan="1">hierarchy-node-external-key-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">A property holding the external key of a hierarchy node includes this attribute. The external key is a human-readable identification of a node. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID.</td>
+      <td>hierarchy-node-external-key-for</td>
+      <td>-</td>
+      <td>A property holding the external key of a hierarchy node includes this attribute. The external key is a human-readable identification of a node. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID.</td>
     </tr>
     <tr>
       <td>hierarchy-level-for</td>
@@ -693,9 +693,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>A property holding parent node IDs for a hierarchy structure of values of some other property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For the root node of the hierarchy the parent node ID is null.</td>
     </tr>
     <tr>
-      <td colspan="1">hierarchy-parent-navigation-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">A navigation property for accessing the parent entity of a node. It offers an alternative method for accessing the parent node ID, if the entity type does not have a dedicated property for that.</td>
+      <td>hierarchy-parent-navigation-for</td>
+      <td>-</td>
+      <td>A navigation property for accessing the parent entity of a node. It offers an alternative method for accessing the parent node ID, if the entity type does not have a dedicated property for that.</td>
     </tr>
     <tr>
       <td>hierarchy-drill-state-for</td>
@@ -703,21 +703,21 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>A property holding the drill state of a hierarchy node includes this attribute. The drill state is indicated by one of the following values: collapsed, expanded, leaf. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.</td>
     </tr>
     <tr>
-      <td colspan="1">hierarchy-node-descendant-count-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">A property holding the descendant count for a hierarchy node includes this attribute. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding descendant counts has an integer data type.</td>
+      <td>hierarchy-node-descendant-count-for</td>
+      <td>-</td>
+      <td>A property holding the descendant count for a hierarchy node includes this attribute. The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding descendant counts has an integer data type.</td>
     </tr>
     <tr>
-      <td colspan="1">hierarchy-preorder-rank-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">
+      <td>hierarchy-preorder-rank-for</td>
+      <td>-</td>
+      <td>
         <p>A property holding the preorder rank for a hierarchy node includes this attribute. The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding preorder ranks has an integer data type. The first node in preorder traversal has rank 0.</p>
       </td>
     </tr>
     <tr>
-      <td colspan="1">hierarchy-sibling-rank-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">
+      <td>hierarchy-sibling-rank-for</td>
+      <td>-</td>
+      <td>
         <p>A property holding the sibling rank for a hierarchy node includes this attribute. The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding sibling positions has an integer data type. The first sibling is at position 0.</p>
       </td>
     </tr>
@@ -754,9 +754,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>A property whose value is a <code>$filter</code> expression includes this attribute. The <code>$filter</code> expression must be valid for the entity type specified in this attribute.</td>
     </tr>
     <tr>
-      <td colspan="1">variable-scale</td>
-      <td colspan="1">false</td>
-      <td colspan="1">
+      <td>variable-scale</td>
+      <td>false</td>
+      <td>
         <p>A property of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will contain floating-point values.</p>
         <p>This indicates that the underlying data store field uses a <a href="https://en.wikipedia.org/wiki/Decimal_data_type">data type with decimal mantissa and variable or floating scale</a> which cannot be expressed in the OData V2 type system.</p>
         <p>Note: omitted <code>Scale</code>  for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.
@@ -764,9 +764,9 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       </td>
     </tr>
     <tr>
-      <td colspan="1">text-for</td>
-      <td colspan="1">-</td>
-      <td colspan="1">
+      <td>text-for</td>
+      <td>-</td>
+      <td>
         A  <a class="external-link" href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3" rel="nofollow">path expression</a>  that identifies a property in the context of the entity type for which this property provides an additional human-readable text.</td>
     </tr>
   </tbody>
@@ -797,7 +797,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 
 The possible values for a field-control property are:
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
@@ -831,7 +831,7 @@ The possible values for a field-control property are:
 The possible values in the context of a property are:
 
   <div>
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -1027,8 +1027,8 @@ The possible values in the context of a property are:
       <td>Calendar: year and month as string following the regex pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, the last two digits are a number between 01 and 12 representing the months January to December</td>
     </tr>
     <tr>
-      <td colspan="1">yearmonthday</td>
-      <td colspan="1">Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
+      <td>yearmonthday</td>
+      <td>Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
     </tr>
     <tr>
       <td>from</td>
@@ -1167,7 +1167,7 @@ The possible values in the context of a property are:
   <div>
     <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
     <div>
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -1205,7 +1205,7 @@ The possible values in the context of a property are:
 
 A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -1239,7 +1239,7 @@ A property can be annotated with this attribute, if it has an aggregation role. 
 
 A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -1278,7 +1278,7 @@ A property can be annotated with this attribute, if it represents a parameter. T
 
 ### Element `edm:NavigationProperty`
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup>
     <col/>
     <col/>
@@ -1297,9 +1297,9 @@ A property can be annotated with this attribute, if it represents a parameter. T
       </th>
     </tr>
     <tr>
-      <td colspan="1">creatable</td>
-      <td colspan="1">true</td>
-      <td colspan="1">New related entities can be created</td>
+      <td>creatable</td>
+      <td>true</td>
+      <td>New related entities can be created</td>
     </tr>
     <tr>
       <td>creatable-path</td>
@@ -1319,7 +1319,7 @@ A property can be annotated with this attribute, if it represents a parameter. T
 
 ### Element `edm:FunctionImport`
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup>
     <col/>
     <col/>
@@ -1377,7 +1377,7 @@ Example: a function import that allows approving a leave request. The <code>Leav
 
 ### Element `edm:Parameter`
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
     <tr>
@@ -1393,8 +1393,8 @@ Example: a function import that allows approving a leave request. The <code>Leav
       <td>Description</td>
     </tr>
     <tr>
-      <td colspan="1">variable-scale</td>
-      <td colspan="1">
+      <td>variable-scale</td>
+      <td>
         <p>A parameter of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will accept floating-point values.</p>
         <p>This indicates that the underlying data store field has type DECFLOAT, which cannot be expressed in the OData V2 type system.</p>
         <p>Note: omitted <code>Scale</code> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</p>
@@ -1405,7 +1405,7 @@ Example: a function import that allows approving a leave request. The <code>Leav
 
 ### Element `edm:AssociationSet`
 
-<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+<table>
   <colgroup> <col/> <col/> <col/> </colgroup>
   <tbody>
     <tr>
