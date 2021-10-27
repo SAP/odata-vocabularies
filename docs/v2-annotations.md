@@ -96,10 +96,10 @@ Schemas can be annotated with the following attributes. If not stated explicitly
     </tr>
     <tr>
     <td>
-    <p>schema-version</p>
+    schema-version
     </td>
     <td>
-    <p>0000</p>
+    0000
     </td>
     <td>A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
     <td>
@@ -571,7 +571,7 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>field-control</td>
       <td>3</td>
       <td>
-        <p>A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property containing a numeric value that controls visibility:</p>
+        A <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a>  that identifies a property containing a numeric value that controls visibility:
         <ul>
           <li>
             0 = hidden, 
@@ -600,7 +600,7 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>display-format</td>
       <td>-</td>
       <td>
-        <p>There are currently three possible values:</p>
+        There are currently three possible values:
         <ul>
           <li>“Date” indicates that only the date part of an Edm.DateTime value is relevant</li>
           <li>"NonNegative" indicates that only non-negative numeric values are provided and persisted, other input will lead to errors. Intended for Edm.String fields that are internally stored as NUMC</li>
@@ -612,12 +612,12 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>value-list</td>
       <td>-</td>
       <td>
-        <p>A string indicating whether this property has a value list attached:</p>
+        A string indicating whether this property has a value list attached:
         <ul>
           <li>fixed-values - there is a short list of allowed field values that rarely changes over time</li>
           <li>standard - no restriction on number and volatility of allowed field values</li>
         </ul>
-        <p>The list of allowed values is provided as a separate entity set that can be found by interpreting the V4-style annotation <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#ValueList"> <code>Common.ValueList</code> </a> on the same property.</p>
+        The list of allowed values is provided as a separate entity set that can be found by interpreting the V4-style annotation <a href="https://wiki.scn.sap.com/wiki/display/EmTech/OData+4.0+Vocabularies+-+SAP+Common#ValueList"> <code>Common.ValueList</code> </a> on the same property.
       </td>
     </tr>
     <tr>
@@ -692,14 +692,14 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>hierarchy-preorder-rank-for</td>
       <td>-</td>
       <td>
-        <p>A property holding the preorder rank for a hierarchy node includes this attribute. The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding preorder ranks has an integer data type. The first node in preorder traversal has rank 0.</p>
+        A property holding the preorder rank for a hierarchy node includes this attribute. The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding preorder ranks has an integer data type. The first node in preorder traversal has rank 0.
       </td>
     </tr>
     <tr>
       <td>hierarchy-sibling-rank-for</td>
       <td>-</td>
       <td>
-        <p>A property holding the sibling rank for a hierarchy node includes this attribute. The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding sibling positions has an integer data type. The first sibling is at position 0.</p>
+        A property holding the sibling rank for a hierarchy node includes this attribute. The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The value of this attribute is always the name of another property in the same type. It points to the related property holding the hierarchy node ID. A property holding sibling positions has an integer data type. The first sibling is at position 0.
       </td>
     </tr>
     <tr>
@@ -1408,7 +1408,7 @@ Nested <code>sap:parameter-ref</code> elements link the function import paramete
       <td>
         <p>A parameter of type <code>Edm.Decimal</code> that does not have a <code>Scale</code> facet and is annotated with <code>true</code> will accept floating-point values.</p>
         <p>This indicates that the underlying data store field has type DECFLOAT, which cannot be expressed in the OData V2 type system.</p>
-        <p>Note: omitted <code>Scale</code> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.</p>
+        Note: omitted <code>Scale</code> for type <code>Edm.Decimal</code> usually means <code>Scale="0"</code>, restricting the value range to integers.
       </td>
     </tr>
   </tbody>
