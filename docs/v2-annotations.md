@@ -34,7 +34,7 @@ The next area are <em>capability annotations</em> that describe which of the pos
   - [Element edm:Property](#element-edmproperty)
     - [Attributes sap:unit and sap:precision](#attributes-sapunit-and-sapprecision)
     - [Attribute sap:field-control](#attribute-sapfield-control)
-    - [Attribute sap:semantics](#Property-semantics)
+    - [Attribute sap:semantics](#Property-sapsemantics)
     - [Attribute sap:filter-restriction](#attribute-sapfilter-restriction)
     - [Attribute sap:aggregation-role](#attribute-sapaggregation-role)
     - [Attribute sap:parameter](#attribute-sapparameter)
@@ -362,7 +362,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   </tbody>
 </table>
 
-#### <a name="EntitySet-semantics"></a>Attribute `sap:semantics`
+#### <a name="EntitySet-sapsemantics"></a>Attribute `sap:semantics`
 
 <p>
   <span>This attribute can take the following values in the context of an entity type:</span>
@@ -431,7 +431,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
     </tbody>
   </table>
 
-#### <a name="EntityType-semantics"></a>Attribute `sap:semantics`
+#### <a name="EntityType-sapsemantics"></a>Attribute `sap:semantics`
 
 </div>
 <div>This attribute can take the following values in the context of an entity type:</div>
@@ -453,13 +453,13 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       <tr>
         <td>vcard</td>
         <td>
-          <span>Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a></span>
+          <span>Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a></span>
         </td>
       </tr>
       <tr>
         <td>vevent</td>
         <td>
-          <span>Entities of this type contain event/appointment information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a></span>, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a> </span>
+          <span>Entities of this type contain event/appointment information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a></span>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> </span>
         </td>
       </tr>
       <tr>
@@ -469,7 +469,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
           </p>
         </td>
         <td>
-          <span>Entities of this type contain todo/task information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a> </span>
+          <span>Entities of this type contain todo/task information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <a href="#Property-sapsemantics"><code>sap:semantics</code> on property level</a> </span>
         </td>
       </tr>
       <tr>
@@ -831,7 +831,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
     </tbody>
   </table>
 
-#### <a name="Property-semantics"></a>Attribute `sap:semantics`
+#### <a name="Property-sapsemantics"></a>Attribute `sap:semantics`
 
   <p>The possible values in the context of a property are:</p>
   <div>
