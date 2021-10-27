@@ -434,7 +434,6 @@ Entity types can be annotated with the following attributes:
 
 This attribute can take the following values in the context of an entity type:
 
-<div>
 <table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
@@ -491,8 +490,6 @@ This attribute can take the following values in the context of an entity type:
 
 ### Element `edm:Property`
 
-  <div>
-  
 The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
 
 <table>
@@ -643,14 +640,14 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>lower-boundary</td>
       <td>-</td>
       <td>
-        <div>A property holding the upper boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related lower boundary.</div>
+        A property holding the upper boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related lower boundary.
       </td>
     </tr>
     <tr>
       <td>upper-boundary</td>
       <td>-</td>
       <td>
-        <div>A property holding the lower boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related upper boundary.</div>
+        A property holding the lower boundary of a value range includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property holding the related upper boundary.
       </td>
     </tr>
     <tr>
@@ -662,14 +659,14 @@ The annotation <code>sap:label</code> is required for properties. All other ann
       <td>super-ordinate</td>
       <td>-</td>
       <td>
-        <div>If values of this property are meaningful (unique) only in the context provided by the value of another property, then this attribute holds the name of the context-providing property. The value of this attribute is always the name of another property in the same type.</div>
+        If values of this property are meaningful (unique) only in the context provided by the value of another property, then this attribute holds the name of the context-providing property. The value of this attribute is always the name of another property in the same type.
       </td>
     </tr>
     <tr>
       <td>attribute-for</td>
       <td>-</td>
       <td>
-        <div>A property representing an attribute of another property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for which this property is an attribute.</div>
+        A property representing an attribute of another property includes this attribute. The value of this attribute is always the name of another property in the same type. It points to the property for which this property is an attribute.
       </td>
     </tr>
     <tr>
@@ -774,26 +771,25 @@ The annotation <code>sap:label</code> is required for properties. All other ann
     
 #### Attributes `sap:unit` and `sap:precision`
     
-Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <code>Edm.Decimal</code>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <code>sap:unit</code> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <code>sap:precision</code> attribute.</div>
-  <div>
-    <p>Example in metadata document:</p>
-  </div>
-  <pre>&lt;Property Name="OrderedQuantity" Type="Edm.Int16 " sap:unit="OrderedUnit" /&gt;<br/>&lt;Property Name="OrderedUnit" Type="Edm.String " sap:semantics="unit-of-measure" /&gt;<br/>&lt;Property Name ="Price" Type ="Edm.Decimal" Precision="10" Scale ="3" sap:unit ="Currency" sap:precision="DisplayScale" /&gt;  </pre>
-  <pre>&lt;Property Name="DisplayScale" Type ="Edm.Byte" /&gt;<br/>&lt;Property Name="Currency" Type ="Edm.String" sap:semantics="currency-code" sap:text="CurrencyText" /&gt;<br/>&lt;Property Name="CurrencyText" Type="Edm.String" /&gt;</pre>
-  <p>Example in Atom entry:</p>
-  <pre>&lt;d:OrderedQuantity&gt;50&lt;/d:OrderedQuantity&gt;<br/>&lt;d:OrderedUnit&gt;KGM&lt;/d:OrderedUnit&gt;<br/>&lt;d:Price&gt;86.9&lt;/d:Price&gt;</pre>
-  <pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
-  <p>Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).</p>
+Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <code>Edm.Decimal</code>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <code>sap:unit</code> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <code>sap:precision</code> attribute.
+  
+<p>Example in metadata document:</p>
+
+<pre>&lt;Property Name="OrderedQuantity" Type="Edm.Int16 " sap:unit="OrderedUnit" /&gt;<br/>&lt;Property Name="OrderedUnit" Type="Edm.String " sap:semantics="unit-of-measure" /&gt;<br/>&lt;Property Name ="Price" Type ="Edm.Decimal" Precision="10" Scale ="3" sap:unit ="Currency" sap:precision="DisplayScale" /&gt;  </pre>
+<pre>&lt;Property Name="DisplayScale" Type ="Edm.Byte" /&gt;<br/>&lt;Property Name="Currency" Type ="Edm.String" sap:semantics="currency-code" sap:text="CurrencyText" /&gt;<br/>&lt;Property Name="CurrencyText" Type="Edm.String" /&gt;</pre>
+<p>Example in Atom entry:</p>
+<pre>&lt;d:OrderedQuantity&gt;50&lt;/d:OrderedQuantity&gt;<br/>&lt;d:OrderedUnit&gt;KGM&lt;/d:OrderedUnit&gt;<br/>&lt;d:Price&gt;86.9&lt;/d:Price&gt;</pre>
+<pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
+<p>Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).</p>
 
 #### Attribute `sap:field-control`
 
-<div>
-  <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <code>sap:field-control</code> attribute.</p>
-  <p>Example in metadata document:</p>
-  <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
-  <p>
-    The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. 
-  </p>
+<p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <code>sap:field-control</code> attribute.</p>
+<p>Example in metadata document:</p>
+<pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
+<p>
+The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. 
+</p>
 
 The possible values for a field-control property are:
 
@@ -830,7 +826,6 @@ The possible values for a field-control property are:
 
 The possible values in the context of a property are:
 
-  <div>
 <table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
@@ -920,7 +915,7 @@ The possible values in the context of a property are:
     </tr>
     <tr>
       <td>
-        <div>zip</div>
+        zip
       </td>
       <td>Address: postal code</td>
     </tr>
@@ -1092,81 +1087,75 @@ The possible values in the context of a property are:
 <p>
   For “tel” the type values are (see [ <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> ]):
 </p>
-  </div>
-  <div>
-    <ul style="list-style-type: disc;">
-      <li>
-        "home" to indicate a telephone number associated with a residence
-      </li>
-      <li>
-        "work" to indicate a telephone number associated with a place of work
-      </li>
-      <li>
-        “pref" to indicate a preferred-use telephone number 
-      </li>
-      <li>
-        "text" to indicate a telephone number supporting text messages (SMS)
-      </li>
-      <li>
-        "voice" to indicate a voice telephone number 
-      </li>
-      <li>
-        "fax" to indicate a facsimile telephone number 
-      </li>
-      <li>
-        "cell" to indicate a cellular telephone number
-      </li>
-      <li>
-        "video" to indicate a video conferencing telephone number 
-      </li>
-      <li>
-        "pager" to indicate a paging device telephone number 
-      </li>
-      <li>
-        "textphone" to indicate a telecommunication device for people with hearing or speech difficulties
-      </li>
-    </ul>
-    <div>
-       <br/>
-      
-    </div>
-    <div>
-      For “email” the type values are:
-    </div>
-    <ul style="list-style-type: disc;">
-      <li>
-        "home" to indicate an email address associated with a residence
-      </li>
-      <li>
-        "work" to indicate an email address associated with a place of work 
-      </li>
-      <li>
-        “pref" to indicate a preferred-use email address
-      </li>
-    </ul>
-    <div>For “url” and constituents of an address the type values are:</div>
-    <ul style="list-style-type: disc;">
-      <li>
-        "home" to indicate an address associated with a residence
-      </li>
-      <li>
-        "work" to indicate an address associated with a place of work 
-      </li>
-      <li>
-        “org" to indicate an address associated with the organization
-      </li>
-      <li>
-         “pref” to indicate a preferred address  “other” to indicate some other address 
-      </li>
-    </ul>
-  </div>
-  <div>These type values can be specified as a value list (like "type=work,pref").</div>
+  
+<ul style="list-style-type: disc;">
+  <li>
+    "home" to indicate a telephone number associated with a residence
+  </li>
+  <li>
+    "work" to indicate a telephone number associated with a place of work
+  </li>
+  <li>
+    “pref" to indicate a preferred-use telephone number 
+  </li>
+  <li>
+    "text" to indicate a telephone number supporting text messages (SMS)
+  </li>
+  <li>
+    "voice" to indicate a voice telephone number 
+  </li>
+  <li>
+    "fax" to indicate a facsimile telephone number 
+  </li>
+  <li>
+    "cell" to indicate a cellular telephone number
+  </li>
+  <li>
+    "video" to indicate a video conferencing telephone number 
+  </li>
+  <li>
+    "pager" to indicate a paging device telephone number 
+  </li>
+  <li>
+    "textphone" to indicate a telecommunication device for people with hearing or speech difficulties
+  </li>
+</ul>
+
+For “email” the type values are:
+
+  <ul style="list-style-type: disc;">
+    <li>
+      "home" to indicate an email address associated with a residence
+    </li>
+    <li>
+      "work" to indicate an email address associated with a place of work
+    </li>
+    <li>
+      “pref" to indicate a preferred-use email address
+    </li>
+  </ul>
+  For “url” and constituents of an address the type values are:
+  <ul style="list-style-type: disc;">
+    <li>
+      "home" to indicate an address associated with a residence
+    </li>
+    <li>
+      "work" to indicate an address associated with a place of work
+    </li>
+    <li>
+      “org" to indicate an address associated with the organization
+    </li>
+    <li>
+        “pref” to indicate a preferred address  “other” to indicate some other address
+    </li>
+  </ul>
+
+These type values can be specified as a value list (like "type=work,pref").
 
 #### Attribute `sap:filter-restriction`
 
-  <div>
-    <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
-    <div>
+A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:
+
 <table>
   <colgroup> <col/> <col/> </colgroup>
   <tbody>
@@ -1199,7 +1188,6 @@ The possible values in the context of a property are:
     </tr>
   </tbody>
 </table>
-    </div>
 
 #### Attribute `sap:aggregation-role`
 
@@ -1258,7 +1246,7 @@ A property can be annotated with this attribute, if it represents a parameter. T
     <tr>
       <td>optional</td>
       <td>
-        <div>A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.</div>
+        A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.
       </td>
     </tr>
   </tbody>
@@ -1266,15 +1254,14 @@ A property can be annotated with this attribute, if it represents a parameter. T
 
 #### Attribute `sap:preserve-flag-for`
 
-<div>A property holding the preservation state for another property includes this attribute.</div>
-<div>The preservation state is a Boolean flag indicating whether or not the value of a named entity property is protected against updates causedby side-effects of updates to the entity set.</div>
-<div>Example:</div>
-<div>Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:</div>
+A property holding the preservation state for another property includes this attribute.
+The preservation state is a Boolean flag indicating whether or not the value of a named entity property is protected against updates causedby side-effects of updates to the entity set.
+Example:
+Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:
+
 <pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" /&gt;<br/>     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /&gt;</pre>
-<div>For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.</div>
-</div>
-</div>
-</div>
+
+For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.
 
 ### Element `edm:NavigationProperty`
 
@@ -1354,26 +1341,21 @@ A property can be annotated with this attribute, if it represents a parameter. T
 
 Example: a function import that allows approving a leave request. The <code>LeaveRequest</code> entity type has a single key property <code>ID</code> and a complex property <code>ControlData</code> with a Boolean property <code>NeedsApproval</code> that controls the applicability of two alternative actions, approval and rejection:
 
-<div>
   <pre>&lt;FunctionImport Name="LeaveRequestApproval"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Approve" <br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
-</div>
 
-<div>
   <pre>&lt;FunctionImport Name="LeaveRequestRejection"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Reject"<br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
-</div>
-<div>A function import can optionally include an annotation with an <code>sap:value-constraint</code> element.</div>
+
+A function import can optionally include an annotation with an <code>sap:value-constraint</code> element.
 
 #### Element `sap:value-constraint`
 
-<div>This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.</div>
-<div>Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.</div>
-<div>
+This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.
+Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.
+
   <pre>&lt;sap:value-constraint set="Regions"&gt;<br/>     &lt;sap: parameter-ref name="Country" /&gt;<br/>     &lt;sap:parameter-ref name="Region" /&gt;<br/>&lt;/sap:value-constraint&gt;</pre>
-</div>
-<div>
+
   <p>It has a <code>set</code> attribute that identifies the entity set containing the list of allowed parameter value combinations.</p>
   <p>Nested <code>sap:parameter-ref</code> elements link the function import parameters specified with the <code>name</code> attribute to a key property of the entity type of the specified entity set. The sequence of <code>sap:parameter-ref</code> elements matches the sequence of the <code>edm:PropertyRef</code> elements of the <code>Key</code> element.</p>
-</div>
 
 ### Element `edm:Parameter`
 
@@ -1439,30 +1421,27 @@ Example: a function import that allows approving a leave request. The <code>Leav
 
 ## Instance Annotations
 
-<div>An annotation of an element in the OData metadata document adds information at the structural level of the service. Sometimes extra pieces of information are needed in the OData response for individual entities and their properties. To distinguish these two cases the former are called metadata annotations, while annotations of the entities in the OData response are called instance annotations.</div>
-<div>Metadata annotations add information to the model structure. They are fully described by adding the appropriate AnnotationElement or AnnotationAttribute to a model element.</div>
-<div>For instance annotations, this is different, because it must be possible to add different annotation values for every entity or every entity property, respectively. Therefore, if instance annotations are relevant for instances of some entity type, the structure of the entity type gets extended by properties specifically added for the purpose of holding annotation values in the result entities. These extra properties are also annotated with sap:is-annotation=”true” to identify them as<br/>annotation holders and separate them from the other properties of the entity type.</div>
-<div>A single entity can have multiple instance annotations, for each of which an extra property gets added to the underlying type:</div>
-<ul style="list-style-type: disc;">
-  <li>
-    Zero or more for the entity itself.
-  </li>
-  <li>
-    Zero or more for every property contained in the entity.
-  </li>
-</ul>
-<div>Properties representing instance annotations are always introduced by AnnotationAttributes in the metadata document. The following sections describe the possible occurrences.</div>
-<div>Example:</div>
+An annotation of an element in the OData metadata document adds information at the structural level of the service. Sometimes extra pieces of information are needed in the OData response for individual entities and their properties. To distinguish these two cases the former are called metadata annotations, while annotations of the entities in the OData response are called instance annotations.
+Metadata annotations add information to the model structure. They are fully described by adding the appropriate AnnotationElement or AnnotationAttribute to a model element.
+For instance annotations, this is different, because it must be possible to add different annotation values for every entity or every entity property, respectively. Therefore, if instance annotations are relevant for instances of some entity type, the structure of the entity type gets extended by properties specifically added for the purpose of holding annotation values in the result entities. These extra properties are also annotated with sap:is-annotation=”true” to identify them as<br/>annotation holders and separate them from the other properties of the entity type.
+A single entity can have multiple instance annotations, for each of which an extra property gets added to the underlying type:
+
+- Zero or more for the entity itself.
+- Zero or more for every property contained in the entity.
+
+Properties representing instance annotations are always introduced by AnnotationAttributes in the metadata document. The following sections describe the possible occurrences.
+Example:
+
 <pre>&lt;Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" /&gt;</pre>
 
 ## Query Option `search`
 
-<div>Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <code>search</code> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.</div>
-<div>
-  <code>GET ~/Orders?search=blue</code>
-</div>
-<div>to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <code>IV_SEARCH_STRING</code> of method <code>GET_ENTITYSET</code>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">SAP Gateway Foundation Developer Guide</a> for details.</div>
-<div>Note that <code>search</code> works similar to <code>$filter</code>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <code>$filter</code>, returning only entities that fulfill both conditions.</div>
+Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <code>search</code> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.
+
+<code>GET ~/Orders?search=blue</code>
+
+to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <code>IV_SEARCH_STRING</code> of method <code>GET_ENTITYSET</code>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">SAP Gateway Foundation Developer Guide</a> for details.
+Note that <code>search</code> works similar to <code>$filter</code>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <code>$filter</code>, returning only entities that fulfill both conditions.
 
 ## Entity Set with Hierarchy
 
