@@ -19,45 +19,41 @@ The next area are <em>capability annotations</em> that describe which of the pos
 
 ## Contents
 
-<!-- TOC depthfrom:2 -->
-
 - [Introduction](#introduction)
 - [Contents](#contents)
 - [AtomPub Service Document](#atompub-service-document)
-  - [Element <span style="font-family: courier new , courier;">app:service</span>](#element-span-stylefont-family-courier-new--courierappservicespan)
-  - [Element <span style="font-family: courier new , courier;">app:collection</span>](#element-span-stylefont-family-courier-new--courierappcollectionspan)
+  - [Element app:service](#element-appservice)
+  - [Element app:collection](#element-appcollection)
 - [Metadata Document](#metadata-document)
-  - [Element <span style="font-family: courier new , courier;">edm:Schema</span>](#element-span-stylefont-family-courier-new--courieredmschemaspan)
-  - [Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>](#element-span-stylefont-family-courier-new--courieredmentitycontainerspan)
-  - [Element <span style="font-family: courier new , courier;">edm:EntitySet</span>](#element-span-stylefont-family-courier-new--courieredmentitysetspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
-  - [Element <span style="font-family: courier new , courier;">edm:EntityType</span>](#element-span-stylefont-family-courier-new--courieredmentitytypespan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
-  - [Element <span style="font-family: courier new , courier;">edm:Property</span>](#element-span-stylefont-family-courier-new--courieredmpropertyspan)
-    - [Attributes <span style="font-family: courier new , courier;">sap:unit<span style="font-family: arial , helvetica , sans-serif;"> and </span>sap:precision</span>](#attributes-span-stylefont-family-courier-new--couriersapunitspan-stylefont-family-arial--helvetica--sans-serif-and-spansapprecisionspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:field-control</span>](#attribute-span-stylefont-family-courier-new--couriersapfield-controlspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:filter-restriction</span>](#attribute-span-stylefont-family-courier-new--couriersapfilter-restrictionspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:aggregation-role</span>](#attribute-span-stylefont-family-courier-new--couriersapaggregation-rolespan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:parameter</span>](#attribute-span-stylefont-family-courier-new--couriersapparameterspan)
-    - [Attribute <span style="font-family: courier new , courier;">sap:preserve-flag-for</span>](#attribute-span-stylefont-family-courier-new--couriersappreserve-flag-forspan)
-  - [Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>](#element-span-stylefont-family-courier-new--courieredmnavigationpropertyspan)
-  - [Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>](#element-span-stylefont-family-courier-new--courieredmfunctionimportspan)
-    - [Element <span style="font-family: courier new , courier;">sap:value-constraint</span>](#element-span-stylefont-family-courier-new--couriersapvalue-constraintspan)
-  - [Element <span style="font-family: courier new , courier;">edm:Parameter</span>](#element-span-stylefont-family-courier-new--courieredmparameterspan)
-  - [Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>](#element-span-stylefont-family-courier-new--courieredmassociationsetspan)
+  - [Element edm:Schema](#element-edmschema)
+  - [Element edm:EntityContainer](#element-edmentitycontainer)
+  - [Element edm:EntitySet](#element-edmentityset)
+    - [Attribute sap:semantics](#EntitySet-sapsemantics)
+  - [Element edm:EntityType](#element-edmentitytype)
+    - [Attribute sap:semantics](#EntityType-sapsemantics)
+  - [Element edm:Property](#element-edmproperty)
+    - [Attributes sap:unit and sap:precision](#attributes-sapunit-and-sapprecision)
+    - [Attribute sap:field-control](#attribute-sapfield-control)
+    - [Attribute sap:semantics](#Property-semantics)
+    - [Attribute sap:filter-restriction](#attribute-sapfilter-restriction)
+    - [Attribute sap:aggregation-role](#attribute-sapaggregation-role)
+    - [Attribute sap:parameter](#attribute-sapparameter)
+    - [Attribute sap:preserve-flag-for](#attribute-sappreserve-flag-for)
+  - [Element edm:NavigationProperty](#element-edmnavigationproperty)
+  - [Element edm:FunctionImport](#element-edmfunctionimport)
+    - [Element sap:value-constraint](#element-sapvalue-constraint)
+  - [Element edm:Parameter](#element-edmparameter)
+  - [Element edm:AssociationSet](#element-edmassociationset)
 - [Instance Annotations](#instance-annotations)
-- [Query Option <code>search</code>](#query-option-codesearchcode)
+- [Query Option search](#query-option-search)
 - [Entity Set with Hierarchy](#entity-set-with-hierarchy)
-
-<!-- /TOC -->
 
 ## AtomPub Service Document
 
 <p>
   <a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <span style="font-family: courier new , courier;">app</span>) can be annotated with attributes and elements from the namespace <span class="nolink">http://www.sap.com/Protocols/SAPData</span> (namespace prefix <span style="font-family: courier new , courier;">sap</span>) and from the namespace <a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> (namespace prefix <span style="font-family: courier new , courier;">atom</span>), and what these annotations mean.</p>
 
-### Element <span style="font-family: courier new , courier;">app:service</span>
+### Element `app:service`
 
 <p>The <span style="font-family: courier new , courier;">app:service</span> element can be annotated with two elements from the <span style="font-family: courier new , courier;">atom</span> namespace:</p>
 <ul>
@@ -72,7 +68,7 @@ The next area are <em>capability annotations</em> that describe which of the pos
 </ul>
 <p>If the latest-version link deviates from the self link, a client may inspect the newer version of the service and decide (probably after asking its user) to switch over to the newer service version.</p>
 
-### Element <span style="font-family: courier new , courier;">app:collection</span>
+### Element `app:collection`
 
 <p>The <span style="font-family: courier new , courier;">app:collection</span> element can be annotated with three elements:</p>
 <ul>
@@ -96,7 +92,7 @@ The next area are <em>capability annotations</em> that describe which of the pos
 <p>OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <span style="font-family: courier new , courier;">edm</span>) can be annotated with attributes and elements from the namespace <a href="http://www.sap.com/Protocols/SAPData">http://www.sap.com/Protocols/SAPData</a> (namespace prefix <span style="font-family: courier new , courier;">sap</span>), and what these annotations mean. For binary attributes the meaning is described for the value "true".</p>
 <div>
 
-### Element <span style="font-family: courier new , courier;">edm:Schema</span>
+### Element `edm:Schema`
 
 Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
@@ -133,7 +129,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 </tbody>
 </table>
 
-### Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>
+### Element `edm:EntityContainer`
 
 </div>
 <p>Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.</p>
@@ -178,7 +174,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   </tbody>
 </table>
 
-### Element <span style="font-family: courier new , courier;">edm:EntitySet</span>
+### Element `edm:EntitySet`
 
 <p>Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.</p>
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
@@ -366,7 +362,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   </tbody>
 </table>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+#### <a name="EntitySet-semantics"></a>Attribute `sap:semantics`
 
 <p>
   <span>This attribute can take the following values in the context of an entity type:</span>
@@ -397,7 +393,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   </tbody>
 </table>
 
-### Element <span style="font-family: courier new , courier;">edm:EntityType</span>
+### Element `edm:EntityType`
 
 <p>Entity types can be annotated with the following attributes:</p>
 <div>
@@ -435,7 +431,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
     </tbody>
   </table>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+#### <a name="EntityType-semantics"></a>Attribute `sap:semantics`
 
 </div>
 <div>This attribute can take the following values in the context of an entity type:</div>
@@ -457,17 +453,13 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       <tr>
         <td>vcard</td>
         <td>
-          <span>Entities of this type contain contact information following the vCard standard, see values for <ac:link ac:anchor="Property_sap_semantics">
-              <ac:plain-text-link-body><![CDATA[sap:semantics on property level]]></ac:plain-text-link-body>
-            </ac:link> </span>
+          <span>Entities of this type contain contact information following the vCard standard, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a></span>
         </td>
       </tr>
       <tr>
         <td>vevent</td>
         <td>
-          <span>Entities of this type contain event/appointment information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <ac:link ac:anchor="Property_sap_semantics">
-              <ac:plain-text-link-body><![CDATA[sap:semantics on property level]]></ac:plain-text-link-body>
-            </ac:link> </span>
+          <span>Entities of this type contain event/appointment information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a></span>, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a> </span>
         </td>
       </tr>
       <tr>
@@ -477,9 +469,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
           </p>
         </td>
         <td>
-          <span>Entities of this type contain todo/task information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <ac:link ac:anchor="Property_sap_semantics">
-              <ac:plain-text-link-body><![CDATA[sap:semantics on property level]]></ac:plain-text-link-body>
-            </ac:link> </span>
+          <span>Entities of this type contain todo/task information following the <span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar standard</a> </span>, see values for <a href="#Property-semantics"><code>sap:semantics</code> on property level</a> </span>
         </td>
       </tr>
       <tr>
@@ -506,7 +496,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
     </tbody>
   </table>
 
-### Element <span style="font-family: courier new , courier;">edm:Property</span>
+### Element `edm:Property`
 
 </div>
 <div>
@@ -750,17 +740,12 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         </tr>
         <tr>
           <td>
-            <div class="content-wrapper">
-              <ac:structured-macro ac:macro-id="2a301cf9-d72b-42d8-85d5-78effc31eb35" ac:name="anchor" ac:schema-version="1">
-                <ac:parameter ac:name="">Property_updatable_path</ac:parameter>
-              </ac:structured-macro>updatable-path</div>
+            <a name="updatable-path"></a>updatable-path
           </td>
           <td>-</td>
           <td>
             <p>If a property can be updated or not depending on the state of its entity, it can be annotated with this attribute. The value of this attribute is always <span>a </span> <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> <span> that identifies a Boolean property in the context of the entity type</span>. This related property indicates whether the annotated property can be updated for the containing entity or not.</p>
-            <p>Note: if used in addition to the more expressive <ac:link ac:anchor="Property_field_control">
-                <ac:plain-text-link-body><![CDATA[field-control]]></ac:plain-text-link-body>
-              </ac:link> annotation, the values of the two must be in sync.</p>
+            <p>Note: if used in addition to the more expressive <a href="#attribute-sapfield-control">field-control</a> annotation, the values of the two must be in sync.</p>
           </td>
         </tr>
         <tr>
@@ -805,7 +790,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   <pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
   <p>Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).</p>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:field-control</span>
+#### Attribute `sap:field-control`
 
 <div>
   <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <span style="font-family: courier new , courier;">sap:field-control</span> attribute.</p>
@@ -846,7 +831,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
     </tbody>
   </table>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+#### <a name="Property-semantics"></a>Attribute `sap:semantics`
 
   <p>The possible values in the context of a property are:</p>
   <div>
@@ -1181,7 +1166,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   </div>
   <div>These type values can be specified as a value list (like "type=work,pref").</div>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:filter-restriction</span>
+#### Attribute `sap:filter-restriction`
 
   <div>
     <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
@@ -1223,7 +1208,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
       </table>
     </div>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:aggregation-role</span>
+#### Attribute `sap:aggregation-role`
 
 <div>A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:</div>
 <div>
@@ -1243,11 +1228,11 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
       </tr>
       <tr>
         <td>dimension</td>
-        <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
+        <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
       </tr>
       <tr>
         <td>measure</td>
-        <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
+        <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics="aggregate".</td>
       </tr>
       <tr>
         <td>
@@ -1261,7 +1246,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   </table>
 </div>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:parameter</span>
+#### Attribute `sap:parameter`
 
 <div>A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:</div>
 <div>
@@ -1294,7 +1279,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   </table>
 </div>
 
-#### Attribute <span style="font-family: courier new , courier;">sap:preserve-flag-for</span>
+#### Attribute `sap:preserve-flag-for`
 
 <div>A property holding the preservation state for another property includes this attribute.</div>
 <div>The preservation state is a Boolean flag indicating whether or not the value of a named entity property is protected against updates causedby side-effects of updates to the entity set.</div>
@@ -1306,7 +1291,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 </div>
 </div>
 
-### Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>
+### Element `edm:NavigationProperty`
 
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup>
@@ -1336,12 +1321,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
       <td>-</td>
       <td>
         <p>Related entities can be created or not depending on the state of the source entity. The value of this attribute is a <a href="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3">path expression</a> that identifies a Boolean property in the context of the source entity type. The value of this property indicates whether related entities can be created or not.</p>
-        <p>
-          <br/>
-        </p>
-        <p>See notes in <ac:link ac:anchor="Property_updatable_path">
-            <ac:plain-text-link-body><![CDATA[updatable-path]]></ac:plain-text-link-body>
-          </ac:link> for entity sets for combined meaning of creatable and creatable-path.</p>
+        <p>See notes in <a href="#updatable-path">updatable-path</a> for entity sets for combined meaning of creatable and creatable-path.</p>
       </td>
     </tr>
     <tr>
@@ -1352,7 +1332,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   </tbody>
 </table>
 
-### Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>
+### Element `edm:FunctionImport`
 
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup>
@@ -1400,7 +1380,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 </div>
 <div>A function import can optionally include an annotation with an <span style="font-family: courier new , courier;">sap:value-constraint </span>element.</div>
 
-#### Element <span style="font-family: courier new , courier;">sap:value-constraint</span>
+#### Element `sap:value-constraint`
 
 <div>This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.</div>
 <div>Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.</div>
@@ -1415,7 +1395,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   <p>Nested <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements link the function import parameters specified with the <span style="font-family: courier new , courier;">name </span>attribute to a key property of the entity type of the specified entity set. The sequence of <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements matches the sequence of the <span style="font-family: courier new , courier;">edm:PropertyRef </span>elements of the <span style="font-family: courier new , courier;">Key </span>element.</p>
 </div>
 
-### Element <span style="font-family: courier new , courier;">edm:Parameter</span>
+### Element `edm:Parameter`
 
 <div>
   <p>
@@ -1448,7 +1428,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
   </table>
 </div>
 
-### Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>
+### Element `edm:AssociationSet`
 
 <div>
   <div>
@@ -1507,7 +1487,7 @@ Amounts in a currency or absolute measures MUST be represented as simple propert
 </div>
 <pre>&lt;Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" /&gt;</pre>
 
-## Query Option <code>search</code>
+## Query Option `search`
 
 <div>Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <span style="font-family: courier new , courier;">search</span> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.</div>
 <div>
