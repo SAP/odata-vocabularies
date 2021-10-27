@@ -14,14 +14,11 @@
 <p>This structural metadata makes it easy to understand a service, and human-readable documentation can be directly embedded into the metadata document, helping developers consume an OData service.</p>
 <p>This alone is a huge benefit, yet metadata can be taken one step further by embedding <em>machine-readable</em> additional metadata that can be leveraged by development tools, client libraries, and generic clients to better interact with the service.</p>
 <p>One area are <em>semantic annotations</em> that tell which of the OData properties contain e.g. a phone number, a part of a name or address, or something related to a calendar event or an analytic query. This is important for apps running on mobile devices that want to seamlessly integrate into contacts, calendar, and telephony.</p>
-<p>The next area are <em>capability annotations</em> that describe which of the possible interactions defined by OData's uniform interface are supported by which parts of a concrete service. These annotations will e.g. tell whether an entity set allows inserts, updates, or deletes, whether it requires a filter, and which properties can be used in filter expressions. They also advertise capabilities that go beyond the base set defined by OData, e.g. whether an entity set allows <ac:link ac:anchor="Query_Option_search">
-    <ac:plain-text-link-body><![CDATA[free-text search via an SAP-defined query option.]]></ac:plain-text-link-body>
-  </ac:link>
-</p>
+
+The next area are <em>capability annotations</em> that describe which of the possible interactions defined by OData's uniform interface are supported by which parts of a concrete service. These annotations will e.g. tell whether an entity set allows inserts, updates, or deletes, whether it requires a filter, and which properties can be used in filter expressions. They also advertise capabilities that go beyond the base set defined by OData, e.g. whether an entity set allows [free-text search via an SAP-defined query option](#query-option-codesearchcode).
 
 ## Contents
 
-<!-- TODO: add table of contents -->
 <!-- TOC depthfrom:2 -->
 
 - [Introduction](#introduction)
@@ -33,20 +30,27 @@
   - [Element <span style="font-family: courier new , courier;">edm:Schema</span>](#element-span-stylefont-family-courier-new--courieredmschemaspan)
   - [Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>](#element-span-stylefont-family-courier-new--courieredmentitycontainerspan)
   - [Element <span style="font-family: courier new , courier;">edm:EntitySet</span>](#element-span-stylefont-family-courier-new--courieredmentitysetspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
   - [Element <span style="font-family: courier new , courier;">edm:EntityType</span>](#element-span-stylefont-family-courier-new--courieredmentitytypespan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
   - [Element <span style="font-family: courier new , courier;">edm:Property</span>](#element-span-stylefont-family-courier-new--courieredmpropertyspan)
+    - [Attributes <span style="font-family: courier new , courier;">sap:unit<span style="font-family: arial , helvetica , sans-serif;"> and </span>sap:precision</span>](#attributes-span-stylefont-family-courier-new--couriersapunitspan-stylefont-family-arial--helvetica--sans-serif-and-spansapprecisionspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:field-control</span>](#attribute-span-stylefont-family-courier-new--couriersapfield-controlspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:semantics</span>](#attribute-span-stylefont-family-courier-new--couriersapsemanticsspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:filter-restriction</span>](#attribute-span-stylefont-family-courier-new--couriersapfilter-restrictionspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:aggregation-role</span>](#attribute-span-stylefont-family-courier-new--couriersapaggregation-rolespan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:parameter</span>](#attribute-span-stylefont-family-courier-new--couriersapparameterspan)
+    - [Attribute <span style="font-family: courier new , courier;">sap:preserve-flag-for</span>](#attribute-span-stylefont-family-courier-new--couriersappreserve-flag-forspan)
   - [Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>](#element-span-stylefont-family-courier-new--courieredmnavigationpropertyspan)
   - [Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>](#element-span-stylefont-family-courier-new--courieredmfunctionimportspan)
+    - [Element <span style="font-family: courier new , courier;">sap:value-constraint</span>](#element-span-stylefont-family-courier-new--couriersapvalue-constraintspan)
   - [Element <span style="font-family: courier new , courier;">edm:Parameter</span>](#element-span-stylefont-family-courier-new--courieredmparameterspan)
   - [Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>](#element-span-stylefont-family-courier-new--courieredmassociationsetspan)
 - [Instance Annotations](#instance-annotations)
+- [Query Option <code>search</code>](#query-option-codesearchcode)
 - [Entity Set with Hierarchy](#entity-set-with-hierarchy)
 
 <!-- /TOC -->
-
-<div>
-  <ac:structured-macro ac:macro-id="9168500f-c39e-4c94-907a-7e40f396d452" ac:name="toc" ac:schema-version="1"/>
-</div>
 
 ## AtomPub Service Document
 
@@ -89,12 +93,14 @@
 
 ## Metadata Document
 
-<p>OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <span style="font-family: courier new , courier;">edm</span>) can be annotated with attributes and elements from the namespace <a href="http://www.sap.com/Protocols/SAPData">http://www.sap.com/Protocols/SAPData</a> (namespace prefix <span style="font-family: courier new , courier;">sap</span>), and what these annotations mean. For binary attributes the meaning is desribed for the value "true".</p>
+<p>OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <span style="font-family: courier new , courier;">edm</span>) can be annotated with attributes and elements from the namespace <a href="http://www.sap.com/Protocols/SAPData">http://www.sap.com/Protocols/SAPData</a> (namespace prefix <span style="font-family: courier new , courier;">sap</span>), and what these annotations mean. For binary attributes the meaning is described for the value "true".</p>
 <div>
 
 ### Element <span style="font-family: courier new , courier;">edm:Schema</span>
 
-Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
+
+<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
 
 <colgroup> <col/> <col/> <col/> <col/> </colgroup>
 <tbody>
@@ -125,8 +131,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 </td>
 </tr>
 </tbody>
-
-  </table>
+</table>
 
 ### Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>
 
@@ -360,8 +365,9 @@ Schemas can be annotated with the following attributes. If not stated explicitly
     </tr>
   </tbody>
 </table>
-<h3>Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
-</h3>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+
 <p>
   <span>This attribute can take the following values in the context of an entity type:</span>
 </p>
@@ -395,10 +401,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 
 <p>Entity types can be annotated with the following attributes:</p>
 <div>
-  <p>
-    <br/>
-  </p>
-  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+  <table border="1" class="jiveBorder wrapped">
     <colgroup> <col/> <col/> </colgroup>
     <tbody>
       <tr>
@@ -431,8 +434,9 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       </tr>
     </tbody>
   </table>
-  <h3>Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
-  </h3>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+
 </div>
 <div>This attribute can take the following values in the context of an entity type:</div>
 <div>
@@ -787,8 +791,10 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         </tr>
       </tbody>
     </table>
-    <h3>Attributes <span style="font-family: courier new , courier;">sap:unit<span style="font-family: arial , helvetica , sans-serif;"> and </span>sap:precision</span>
-    </h3>Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <span style="font-family: courier new , courier;">Edm.Decimal</span>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <span style="font-family: courier new , courier;">sap:unit</span> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <span style="font-family: courier new , courier;">sap:precision</span> attribute.</div>
+    
+#### Attributes <span style="font-family: courier new , courier;">sap:unit<span style="font-family: arial , helvetica , sans-serif;"> and </span>sap:precision</span>
+    
+Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <span style="font-family: courier new , courier;">Edm.Decimal</span>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <span style="font-family: courier new , courier;">sap:unit</span> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <span style="font-family: courier new , courier;">sap:precision</span> attribute.</div>
   <div>
     <p>Example in metadata document:</p>
   </div>
@@ -798,22 +804,54 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   <pre>&lt;d:OrderedQuantity&gt;50&lt;/d:OrderedQuantity&gt;<br/>&lt;d:OrderedUnit&gt;KGM&lt;/d:OrderedUnit&gt;<br/>&lt;d:Price&gt;86.9&lt;/d:Price&gt;</pre>
   <pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
   <p>Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).</p>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:field-control</span>
+
+<div>
+  <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <span style="font-family: courier new , courier;">sap:field-control</span> attribute.</p>
+  <p>Example in metadata document:</p>
+  <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
+  <p>
+    <span>The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <span style="font-family: &quot;courier new&quot; , courier;">fc</span>, the attribute value is a path relative to the parent of the annotated property, e.g. <span style="font-family: &quot;courier new&quot; , courier;">sap:field-control="fc/Address"</span>. </span>
+  </p>
+  <p>
+    <span style="line-height: 13.0pt;">The possible values for a field-control property are:</span>
+  </p>
+  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+    <tbody>
+      <tr>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Value</strong>
+        </th>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Meaning</strong>
+        </th>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Mandatory - property must contain a value</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Optional - property may contain a null value</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Read-only - property cannot be changed</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>Hidden - property should not be visible on user interfaces</td>
+      </tr>
+    </tbody>
+  </table>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
+
+  <p>The possible values in the context of a property are:</p>
   <div>
-    <h3>
-      <ac:structured-macro ac:macro-id="8c3c120d-29bc-4f2a-a5cc-5de79f001764" ac:name="anchor" ac:schema-version="1">
-        <ac:parameter ac:name="">Property_field_control</ac:parameter>
-      </ac:structured-macro>Attribute <span style="font-family: courier new , courier;">sap:field-control</span>
-    </h3>
-    <p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <span style="font-family: courier new , courier;">sap:field-control</span> attribute.</p>
-    <p>Example in metadata document:</p>
-    <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
-    <p>
-      <span>The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <span style="font-family: &quot;courier new&quot; , courier;">fc</span>, the attribute value is a path relative to the parent of the annotated property, e.g. <span style="font-family: &quot;courier new&quot; , courier;">sap:field-control="fc/Address"</span>. </span>
-    </p>
-    <p>
-      <span style="line-height: 13.0pt;">The possible values for a field-control property are:</span>
-    </p>
     <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+      <colgroup> <col/> <col/> </colgroup>
       <tbody>
         <tr>
           <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
@@ -824,29 +862,329 @@ Schemas can be annotated with the following attributes. If not stated explicitly
           </th>
         </tr>
         <tr>
-          <td>7</td>
-          <td>Mandatory - property must contain a value</td>
+          <td>tel</td>
+          <td>Telephone number</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>Optional - property may contain a null value</td>
+          <td>tel;type=cell,work</td>
+          <td>Work cellphone number; see explanation below table for more values</td>
         </tr>
         <tr>
-          <td>1</td>
-          <td>Read-only - property cannot be changed</td>
+          <td>tel;type=fax</td>
+          <td>Fax number</td>
         </tr>
         <tr>
-          <td>0</td>
-          <td>Hidden - property should not be visible on user interfaces</td>
+          <td>email</td>
+          <td>Email address</td>
+        </tr>
+        <tr>
+          <td>email;type=pref</td>
+          <td>Preferred email address</td>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>Web URL</td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>Formatted text of the full name</td>
+        </tr>
+        <tr>
+          <td>givenname</td>
+          <td>First name or given name of a person</td>
+        </tr>
+        <tr>
+          <td>middlename</td>
+          <td>Middle name of a person</td>
+        </tr>
+        <tr>
+          <td>familyname</td>
+          <td>Last name or family name of a person</td>
+        </tr>
+        <tr>
+          <td>nickname</td>
+          <td>Descriptive name given instead of or in addtion to the one marked as "name"</td>
+        </tr>
+        <tr>
+          <td>honorific</td>
+          <td>Title of a person (Ph.D., Dr., ...)</td>
+        </tr>
+        <tr>
+          <td>suffix</td>
+          <td>Suffix to the name of a person</td>
+        </tr>
+        <tr>
+          <td>note</td>
+          <td>Supplemental information or a comment that is associated with the vCard</td>
+        </tr>
+        <tr>
+          <td>photo</td>
+          <td>URL of a photo of a person</td>
+        </tr>
+        <tr>
+          <td>city</td>
+          <td>Address: city</td>
+        </tr>
+        <tr>
+          <td>street</td>
+          <td>Address: street</td>
+        </tr>
+        <tr>
+          <td>country</td>
+          <td>Address: country</td>
+        </tr>
+        <tr>
+          <td>region</td>
+          <td>Address: state or province</td>
+        </tr>
+        <tr>
+          <td>
+            <div>zip</div>
+          </td>
+          <td>Address: postal code</td>
+        </tr>
+        <tr>
+          <td>pobox</td>
+          <td>Address: post office box</td>
+        </tr>
+        <tr>
+          <td>org</td>
+          <td>Organization name</td>
+        </tr>
+        <tr>
+          <td>org-unit</td>
+          <td>Organizational unit</td>
+        </tr>
+        <tr>
+          <td>org-role</td>
+          <td>Organizational role</td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>Job title</td>
+        </tr>
+        <tr>
+          <td>bday</td>
+          <td>Birth date</td>
+        </tr>
+        <tr>
+          <td>summary</td>
+          <td>Calendar: summary of a calendar component</td>
+        </tr>
+        <tr>
+          <td>description</td>
+          <td>Calendar: description of a calendar component, detailing the summary</td>
+        </tr>
+        <tr>
+          <td>categories</td>
+          <td>Calendar: comma-separated list of categories for a calendar component</td>
+        </tr>
+        <tr>
+          <td>dtstart</td>
+          <td>Calendar: the date and time that a calendar component starts</td>
+        </tr>
+        <tr>
+          <td>dtend</td>
+          <td>Calendar: the date and time that a calendar component ends</td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>Calendar: duration as an alternative to dtend, see <a href="http://www.w3.org/TR/xmlschema11-2/#duration">xs:duration</a>
+          </td>
+        </tr>
+        <tr>
+          <td>due</td>
+          <td>Calendar: the date and time that a to-do is expected to be completed</td>
+        </tr>
+        <tr>
+          <td>completed</td>
+          <td>Calendar: <span>the date and time that a to-do was actually completed</span>
+          </td>
+        </tr>
+        <tr>
+          <td>priority</td>
+          <td>Calendar: the relative priority for a calendar component, 0 for undefined, 1 for highest, ... 9 for lowest</td>
+        </tr>
+        <tr>
+          <td>class</td>
+          <td>Calendar: access classification for a calendar component</td>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>Calendar: overall status or confirmation for the calendar component</td>
+        </tr>
+        <tr>
+          <td>percent-complete</td>
+          <td>Calendar: percent completion of a to-do., ranging from 0 to 100 (integer)</td>
+        </tr>
+        <tr>
+          <td>contact</td>
+          <td>Calendar: contact information or alternatively a reference to contact information associated with the calendar component</td>
+        </tr>
+        <tr>
+          <td>location</td>
+          <td>Calendar: the intended venue for the activity defined by a calendar component</td>
+        </tr>
+        <tr>
+          <td>transp</td>
+          <td>Calendar: defines whether or not an event is transparaent to busy time searches</td>
+        </tr>
+        <tr>
+          <td>fbtype</td>
+          <td>Calendar: free/busy time type, see [<span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> </span>]</td>
+        </tr>
+        <tr>
+          <td>wholeday</td>
+          <td>Calendar: "true" or "false, depending on whether an event is scheduled for an entire day</td>
+        </tr>
+        <tr>
+          <td>year</td>
+          <td>Calendar: year as string following the regex pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits</td>
+        </tr>
+        <tr>
+          <td>yearmonth</td>
+          <td>Calendar: year and month as string following the regex pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, the last two digits are a number between 01 and 12 representing the months January to December</td>
+        </tr>
+        <tr>
+          <td colspan="1">yearmonthday</td>
+          <td colspan="1">Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
+        </tr>
+        <tr>
+          <td>from</td>
+          <td>Mail: author of message, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> </span>]</td>
+        </tr>
+        <tr>
+          <td>sender</td>
+          <td>Mail: mailbox of agent responsible for actual transmission</td>
+        </tr>
+        <tr>
+          <td>to</td>
+          <td>Mai: comma-separated list of primary recipients, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> </span>]</td>
+        </tr>
+        <tr>
+          <td>cc</td>
+          <td>Mail: carbon copy, comma-separated</td>
+        </tr>
+        <tr>
+          <td>bcc</td>
+          <td>Mail: blind carbon copy, comma-separated</td>
+        </tr>
+        <tr>
+          <td>subject</td>
+          <td>Mail: topic of the message</td>
+        </tr>
+        <tr>
+          <td>body</td>
+          <td>Mail: message body</td>
+        </tr>
+        <tr>
+          <td>keywords</td>
+          <td>Mail: comma-separated list of important words and phrases that might be useful for the recipient</td>
+        </tr>
+        <tr>
+          <td>received</td>
+          <td>Mail: DateTime the message was received</td>
+        </tr>
+        <tr>
+          <td>geo-lon</td>
+          <td>Geolocation: longitude</td>
+        </tr>
+        <tr>
+          <td>geo-lat</td>
+          <td>Geolocation: latitude</td>
+        </tr>
+        <tr>
+          <td>currency-code</td>
+          <td>Currency code, preferably ISO</td>
+        </tr>
+        <tr>
+          <td>unit-of-measure</td>
+          <td>Unit of measure, preferably ISO</td>
+        </tr>
+        <tr>
+          <td>count</td>
+          <td>Aggregation: <span style="color: rgb(51,51,51);">the number of unaggregated entities that have been aggregated into the response entity (<span style="font-family: &quot;courier new&quot; , courier;">count(*)</span> in SQL). Only valid for one property of an entity type that is annotated with <span style="font-family: &quot;courier new&quot; , courier;">sap:semantics="aggregate"</span>.</span>
+          </td>
         </tr>
       </tbody>
     </table>
-    <h3>
-      <ac:structured-macro ac:macro-id="6ede4be9-ee6c-4155-a352-2931b8ca286a" ac:name="anchor" ac:schema-version="1">
-        <ac:parameter ac:name="">Property_sap_semantics</ac:parameter>
-      </ac:structured-macro>Attribute <span style="font-family: courier new , courier;">sap:semantics</span>
-    </h3>
-    <p>The possible values in the context of a property are:</p>
+    <p>
+      <span style="line-height: 13.0pt;">For “tel” the type values are (see [</span> <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> <span style="line-height: 13.0pt;">]):</span>
+    </p>
+  </div>
+  <div>
+    <ul style="list-style-type: disc;">
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate a telephone number associated with a residence</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate a telephone number associated with a place of work</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use telephone number </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"text" to indicate a telephone number supporting text messages (SMS)</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"voice" to indicate a voice telephone number </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"fax" to indicate a facsimile telephone number </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"cell" to indicate a cellular telephone number</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"video" to indicate a video conferencing telephone number </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"pager" to indicate a paging device telephone number </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"textphone" to indicate a telecommunication device for people with hearing or speech difficulties</span>
+      </li>
+    </ul>
+    <div>
+      <span style="font-family: arial , helvetica , sans-serif;"> <br/>
+      </span>
+    </div>
+    <div>
+      <span style="font-family: arial , helvetica , sans-serif;">For “email” the type values are:</span>
+    </div>
+    <ul style="list-style-type: disc;">
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an email address associated with a residence</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an email address associated with a place of work </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use email address</span>
+      </li>
+    </ul>
+    <div>For “url” and constituents of an address the type values are:</div>
+    <ul style="list-style-type: disc;">
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an address associated with a residence</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an address associated with a place of work </span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;">“org" to indicate an address associated with the organization</span>
+      </li>
+      <li>
+        <span style="font-family: arial , helvetica , sans-serif;"> <span>“pref” to indicate a preferred address </span> <span>“other” to indicate some other address</span> </span>
+      </li>
+    </ul>
+  </div>
+  <div>These type values can be specified as a value list (like "type=work,pref").</div>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:filter-restriction</span>
+
+  <div>
+    <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
     <div>
       <p>
         <br/>
@@ -863,444 +1201,109 @@ Schemas can be annotated with the following attributes. If not stated explicitly
             </th>
           </tr>
           <tr>
-            <td>tel</td>
-            <td>Telephone number</td>
-          </tr>
-          <tr>
-            <td>tel;type=cell,work</td>
-            <td>Work cellphone number; see explanation below table for more values</td>
-          </tr>
-          <tr>
-            <td>tel;type=fax</td>
-            <td>Fax number</td>
-          </tr>
-          <tr>
-            <td>email</td>
-            <td>Email address</td>
-          </tr>
-          <tr>
-            <td>email;type=pref</td>
-            <td>Preferred email address</td>
-          </tr>
-          <tr>
-            <td>url</td>
-            <td>Web URL</td>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td>Formatted text of the full name</td>
-          </tr>
-          <tr>
-            <td>givenname</td>
-            <td>First name or given name of a person</td>
-          </tr>
-          <tr>
-            <td>middlename</td>
-            <td>Middle name of a person</td>
-          </tr>
-          <tr>
-            <td>familyname</td>
-            <td>Last name or family name of a person</td>
-          </tr>
-          <tr>
-            <td>nickname</td>
-            <td>Descriptive name given instead of or in addtion to the one marked as "name"</td>
-          </tr>
-          <tr>
-            <td>honorific</td>
-            <td>Title of a person (Ph.D., Dr., ...)</td>
-          </tr>
-          <tr>
-            <td>suffix</td>
-            <td>Suffix to the name of a person</td>
-          </tr>
-          <tr>
-            <td>note</td>
-            <td>Supplemental information or a comment that is associated with the vCard</td>
-          </tr>
-          <tr>
-            <td>photo</td>
-            <td>URL of a photo of a person</td>
-          </tr>
-          <tr>
-            <td>city</td>
-            <td>Address: city</td>
-          </tr>
-          <tr>
-            <td>street</td>
-            <td>Address: street</td>
-          </tr>
-          <tr>
-            <td>country</td>
-            <td>Address: country</td>
-          </tr>
-          <tr>
-            <td>region</td>
-            <td>Address: state or province</td>
-          </tr>
-          <tr>
             <td>
-              <div>zip</div>
+              <span>single-value</span>
             </td>
-            <td>Address: postal code</td>
-          </tr>
-          <tr>
-            <td>pobox</td>
-            <td>Address: post office box</td>
-          </tr>
-          <tr>
-            <td>org</td>
-            <td>Organization name</td>
-          </tr>
-          <tr>
-            <td>org-unit</td>
-            <td>Organizational unit</td>
-          </tr>
-          <tr>
-            <td>org-role</td>
-            <td>Organizational role</td>
-          </tr>
-          <tr>
-            <td>title</td>
-            <td>Job title</td>
-          </tr>
-          <tr>
-            <td>bday</td>
-            <td>Birth date</td>
-          </tr>
-          <tr>
-            <td>summary</td>
-            <td>Calendar: summary of a calendar component</td>
-          </tr>
-          <tr>
-            <td>description</td>
-            <td>Calendar: description of a calendar component, detailing the summary</td>
-          </tr>
-          <tr>
-            <td>categories</td>
-            <td>Calendar: comma-separated list of categories for a calendar component</td>
-          </tr>
-          <tr>
-            <td>dtstart</td>
-            <td>Calendar: the date and time that a calendar component starts</td>
-          </tr>
-          <tr>
-            <td>dtend</td>
-            <td>Calendar: the date and time that a calendar component ends</td>
-          </tr>
-          <tr>
-            <td>duration</td>
-            <td>Calendar: duration as an alternative to dtend, see <a href="http://www.w3.org/TR/xmlschema11-2/#duration">xs:duration</a>
+            <td>
+              <span>Only a single “<span style="font-family: courier new , courier;">eq</span>”clause is possible.</span>
             </td>
           </tr>
           <tr>
-            <td>due</td>
-            <td>Calendar: the date and time that a to-do is expected to be completed</td>
-          </tr>
-          <tr>
-            <td>completed</td>
-            <td>Calendar: <span>the date and time that a to-do was actually completed</span>
+            <td>multi-value</td>
+            <td>
+              <span>Several “<span style="font-family: courier new , courier;">eq</span>” clauses, separated by <span style="font-family: courier new , courier;">or</span>, are possible.</span>
             </td>
           </tr>
           <tr>
-            <td>priority</td>
-            <td>Calendar: the relative priority for a calendar component, 0 for undefined, 1 for highest, ... 9 for lowest</td>
-          </tr>
-          <tr>
-            <td>class</td>
-            <td>Calendar: access classification for a calendar component</td>
-          </tr>
-          <tr>
-            <td>status</td>
-            <td>Calendar: overall status or confirmation for the calendar component</td>
-          </tr>
-          <tr>
-            <td>percent-complete</td>
-            <td>Calendar: percent completion of a to-do., ranging from 0 to 100 (integer)</td>
-          </tr>
-          <tr>
-            <td>contact</td>
-            <td>Calendar: contact information or alternatively a reference to contact information associated with the calendar component</td>
-          </tr>
-          <tr>
-            <td>location</td>
-            <td>Calendar: the intended venue for the activity defined by a calendar component</td>
-          </tr>
-          <tr>
-            <td>transp</td>
-            <td>Calendar: defines whether or not an event is transparaent to busy time searches</td>
-          </tr>
-          <tr>
-            <td>fbtype</td>
-            <td>Calendar: free/busy time type, see [<span> <a href="http://tools.ietf.org/html/rfc5545#section-3.2.9">iCalendar, Section 3.2.9</a> </span>]</td>
-          </tr>
-          <tr>
-            <td>wholeday</td>
-            <td>Calendar: "true" or "false, depending on whether an event is scheduled for an entire day</td>
-          </tr>
-          <tr>
-            <td>year</td>
-            <td>Calendar: year as string following the regex pattern (-?)YYYY(Y*) consisting of an optional minus sign for years B.C. followed by at least four digits</td>
-          </tr>
-          <tr>
-            <td>yearmonth</td>
-            <td>Calendar: year and month as string following the regex pattern (-?)YYYY(Y*)MM consisting of an optional minus sign for years B.C. followed by at least six digits, the last two digits are a number between 01 and 12 representing the months January to December</td>
-          </tr>
-          <tr>
-            <td colspan="1">yearmonthday</td>
-            <td colspan="1">Calendar: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent the months January to December (MM) and the day of the month (DD). The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01]) The regex pattern does not reflect the additional constraint for "Day-of-month Values": The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100</td>
-          </tr>
-          <tr>
-            <td>from</td>
-            <td>Mail: author of message, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.2">RFC5322, section 3.6.2</a> </span>]</td>
-          </tr>
-          <tr>
-            <td>sender</td>
-            <td>Mail: mailbox of agent responsible for actual transmission</td>
-          </tr>
-          <tr>
-            <td>to</td>
-            <td>Mai: comma-separated list of primary recipients, see [<span> <a href="http://tools.ietf.org/html/rfc5322#section-3.6.3">RFC5322, section 3.6.3</a> </span>]</td>
-          </tr>
-          <tr>
-            <td>cc</td>
-            <td>Mail: carbon copy, comma-separated</td>
-          </tr>
-          <tr>
-            <td>bcc</td>
-            <td>Mail: blind carbon copy, comma-separated</td>
-          </tr>
-          <tr>
-            <td>subject</td>
-            <td>Mail: topic of the message</td>
-          </tr>
-          <tr>
-            <td>body</td>
-            <td>Mail: message body</td>
-          </tr>
-          <tr>
-            <td>keywords</td>
-            <td>Mail: comma-separated list of important words and phrases that might be useful for the recipient</td>
-          </tr>
-          <tr>
-            <td>received</td>
-            <td>Mail: DateTime the message was received</td>
-          </tr>
-          <tr>
-            <td>geo-lon</td>
-            <td>Geolocation: longitude</td>
-          </tr>
-          <tr>
-            <td>geo-lat</td>
-            <td>Geolocation: latitude</td>
-          </tr>
-          <tr>
-            <td>currency-code</td>
-            <td>Currency code, preferably ISO</td>
-          </tr>
-          <tr>
-            <td>unit-of-measure</td>
-            <td>Unit of measure, preferably ISO</td>
-          </tr>
-          <tr>
-            <td>count</td>
-            <td>Aggregation: <span style="color: rgb(51,51,51);">the number of unaggregated entities that have been aggregated into the response entity (<span style="font-family: &quot;courier new&quot; , courier;">count(*)</span> in SQL). Only valid for one property of an entity type that is annotated with <span style="font-family: &quot;courier new&quot; , courier;">sap:semantics="aggregate"</span>.</span>
-            </td>
+            <td>interval</td>
+            <td>
+              <span>At most one “<span style="font-family: courier new , courier;">ge</span>” and one “<span style="font-family: courier new , courier;">le</span>” clause, separated by “<span style="font-family: courier new , courier;">and</span>”, alternatively a single “<span style="font-family: courier new , courier;">eq</span>” clause</span>.</td>
           </tr>
         </tbody>
       </table>
-      <p>
-        <span style="line-height: 13.0pt;">For “tel” the type values are (see [</span> <a href="http://tools.ietf.org/html/rfc6350#section-6.4.1" style="line-height: 13.0pt;font-family: arial , helvetica , sans-serif;">vCard, section 6.4.1</a> <span style="line-height: 13.0pt;">]):</span>
-      </p>
     </div>
-    <div>
-      <ul style="list-style-type: disc;">
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate a telephone number associated with a residence</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate a telephone number associated with a place of work</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use telephone number </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"text" to indicate a telephone number supporting text messages (SMS)</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"voice" to indicate a voice telephone number </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"fax" to indicate a facsimile telephone number </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"cell" to indicate a cellular telephone number</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"video" to indicate a video conferencing telephone number </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"pager" to indicate a paging device telephone number </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"textphone" to indicate a telecommunication device for people with hearing or speech difficulties</span>
-        </li>
-      </ul>
-      <div>
-        <span style="font-family: arial , helvetica , sans-serif;"> <br/>
-        </span>
-      </div>
-      <div>
-        <span style="font-family: arial , helvetica , sans-serif;">For “email” the type values are:</span>
-      </div>
-      <ul style="list-style-type: disc;">
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an email address associated with a residence</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an email address associated with a place of work </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">“pref" to indicate a preferred-use email address</span>
-        </li>
-      </ul>
-      <div>For “url” and constituents of an address the type values are:</div>
-      <ul style="list-style-type: disc;">
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"home" to indicate an address associated with a residence</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">"work" to indicate an address associated with a place of work </span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;">“org" to indicate an address associated with the organization</span>
-        </li>
-        <li>
-          <span style="font-family: arial , helvetica , sans-serif;"> <span>“pref” to indicate a preferred address </span> <span>“other” to indicate some other address</span> </span>
-        </li>
-      </ul>
-    </div>
-    <div>These type values can be specified as a value list (like "type=work,pref").</div>
-    <div>
-      <h3>Attribute <span style="font-family: courier new , courier;">sap:filter-restriction</span>
-      </h3>
-      <div>A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:</div>
-      <div>
-        <p>
-          <br/>
-        </p>
-        <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-          <colgroup> <col/> <col/> </colgroup>
-          <tbody>
-            <tr>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Value</strong>
-              </th>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Meaning</strong>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <span>single-value</span>
-              </td>
-              <td>
-                <span>Only a single “<span style="font-family: courier new , courier;">eq</span>”clause is possible.</span>
-              </td>
-            </tr>
-            <tr>
-              <td>multi-value</td>
-              <td>
-                <span>Several “<span style="font-family: courier new , courier;">eq</span>” clauses, separated by <span style="font-family: courier new , courier;">or</span>, are possible.</span>
-              </td>
-            </tr>
-            <tr>
-              <td>interval</td>
-              <td>
-                <span>At most one “<span style="font-family: courier new , courier;">ge</span>” and one “<span style="font-family: courier new , courier;">le</span>” clause, separated by “<span style="font-family: courier new , courier;">and</span>”, alternatively a single “<span style="font-family: courier new , courier;">eq</span>” clause</span>.</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Attribute <span style="font-family: courier new , courier;">sap:aggregation-role</span>
-        </h3>
-      </div>
-      <div>A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:</div>
-      <div>
-        <p>
-          <br/>
-        </p>
-        <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-          <colgroup> <col/> <col/> </colgroup>
-          <tbody>
-            <tr>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Value</strong>
-              </th>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Meaning</strong>
-              </th>
-            </tr>
-            <tr>
-              <td>dimension</td>
-              <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
-            </tr>
-            <tr>
-              <td>measure</td>
-              <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
-            </tr>
-            <tr>
-              <td>
-                <span>totaled-properties-list</span>
-              </td>
-              <td>
-                <span>The property value is a comma-separated list of totaled dimension property names.</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Attribute <span style="font-family: courier new , courier;">sap:parameter</span>
-        </h3>
-      </div>
-      <div>A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:</div>
-      <div>
-        <p>
-          <br/>
-        </p>
-        <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-          <colgroup> <col/> <col/> </colgroup>
-          <tbody>
-            <tr>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Value</strong>
-              </th>
-              <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-                <strong>Meaning</strong>
-              </th>
-            </tr>
-            <tr>
-              <td>mandatory</td>
-              <td>
-                <span>A value must be supplied for this parameter</span>.</td>
-            </tr>
-            <tr>
-              <td>optional</td>
-              <td>
-                <div>A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>Attribute <span style="font-family: courier new , courier;">sap:preserve-flag-for</span>
-        </h3>
-      </div>
-      <div>A property holding the preservation state for another property includes this attribute.</div>
-      <div>The preservation state is a Boolean flag indicating whether or not the value of a named entity property is protected against updates causedby side-effects of updates to the entity set.</div>
-      <div>Example:</div>
-      <div>Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:</div>
-      <pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" /&gt;<br/>     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /&gt;</pre>
-      <div>For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.</div>
-    </div>
-  </div>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:aggregation-role</span>
+
+<div>A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:</div>
+<div>
+  <p>
+    <br/>
+  </p>
+  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+    <colgroup> <col/> <col/> </colgroup>
+    <tbody>
+      <tr>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Value</strong>
+        </th>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Meaning</strong>
+        </th>
+      </tr>
+      <tr>
+        <td>dimension</td>
+        <td>The property represents the key of a dimension and is used to control the aggregating behavior. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
+      </tr>
+      <tr>
+        <td>measure</td>
+        <td>The property represents a measure whose values will be aggregated according to the aggregating behavior of the containing entity type. Only valid for properties of an entity type that is annotated with sap:semantics=“aggregate“.</td>
+      </tr>
+      <tr>
+        <td>
+          <span>totaled-properties-list</span>
+        </td>
+        <td>
+          <span>The property value is a comma-separated list of totaled dimension property names.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:parameter</span>
+
+<div>A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:</div>
+<div>
+  <p>
+    <br/>
+  </p>
+  <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+    <colgroup> <col/> <col/> </colgroup>
+    <tbody>
+      <tr>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Value</strong>
+        </th>
+        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+          <strong>Meaning</strong>
+        </th>
+      </tr>
+      <tr>
+        <td>mandatory</td>
+        <td>
+          <span>A value must be supplied for this parameter</span>.</td>
+      </tr>
+      <tr>
+        <td>optional</td>
+        <td>
+          <div>A value for this parameter can be left out by specifying an empty string (applicable only for parameter properties of type Edm.String). For parameters of other types, the default value conveyed in the metadata should be assigned, if the parameter shall be omitted.</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+#### Attribute <span style="font-family: courier new , courier;">sap:preserve-flag-for</span>
+
+<div>A property holding the preservation state for another property includes this attribute.</div>
+<div>The preservation state is a Boolean flag indicating whether or not the value of a named entity property is protected against updates causedby side-effects of updates to the entity set.</div>
+<div>Example:</div>
+<div>Consider an entity set holding order items with unit price, quantity, and total amount. All three properties supports preservation, as shown here for the unit price:</div>
+<pre>     &lt;Property Name="UnitPrice" Type="Edm.Decimal" /&gt;<br/>     &lt;Property Name="UnitPricePreserveFlag" Type="Edm.Boolean" sap:preserve-flag-for="UnitPrice" /&gt;</pre>
+<div>For a given order item, a consumer can set the preservation flag for the total amount and update the unit price. This would instruct the provider to recalculate the quantity instead of the total amount.</div>
+</div>
+</div>
 </div>
 
 ### Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>
@@ -1391,15 +1394,14 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   </p>
   <pre>&lt;FunctionImport Name="LeaveRequestApproval"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Approve" <br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>    &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
 </div>
-<pre>
-  <br/>
-</pre>
+
 <div>
   <pre>&lt;FunctionImport Name="LeaveRequestRejection"<br/>                ReturnType="ThisModel.ApprovalResult"<br/>                m:HttpMethod="POST"<br/>                sap:label="Reject"<br/>                sap:action-for="ThisModel.LeaveRequest"<br/>                sap:applicable-path="ControlData/NeedsApproval"&gt;<br/>   &lt;Parameter Name="ID" Type="Edm.Guid" Mode="In" /&gt;<br/>   &lt;Parameter Name="Reason" Type="Edm.String" Mode="In" /&gt;<br/>&lt;/FunctionImport&gt;</pre>
 </div>
 <div>A function import can optionally include an annotation with an <span style="font-family: courier new , courier;">sap:value-constraint </span>element.</div>
-<h3>Element <span style="font-family: courier new , courier;">sap:value-constraint</span>
-</h3>
+
+#### Element <span style="font-family: courier new , courier;">sap:value-constraint</span>
+
 <div>This element describes a dependency of function import parameters to key properties of an entity set, comparable to a referential constraint.</div>
 <div>Example: For a function import with two parameters for country and region, the possible arguments can be determined via some Regions entity set.</div>
 <div>
@@ -1444,15 +1446,12 @@ Schemas can be annotated with the following attributes. If not stated explicitly
       </tr>
     </tbody>
   </table>
+</div>
 
 ### Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>
 
-</div>
 <div>
   <div>
-    <p>
-      <br/>
-    </p>
     <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
       <colgroup> <col/> <col/> <col/> </colgroup>
       <tbody>
@@ -1484,11 +1483,11 @@ Schemas can be annotated with the following attributes. If not stated explicitly
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
 
 ## Instance Annotations
 
-  </div>
-</div>
 <div>An annotation of an element in the OData metadata document adds information at the structural level of the service. Sometimes extra pieces of information are needed in the OData response for individual entities and their properties. To distinguish these two cases the former are called metadata annotations, while annotations of the entities in the OData response are called instance annotations.</div>
 <div>Metadata annotations add information to the model structure. They are fully described by adding the appropriate AnnotationElement or AnnotationAttribute to a model element.</div>
 <div>For instance annotations, this is different, because it must be possible to add different annotation values for every entity or every entity property, respectively. Therefore, if instance annotations are relevant for instances of some entity type, the structure of the entity type gets extended by properties specifically added for the purpose of holding annotation values in the result entities. These extra properties are also annotated with sap:is-annotation=”true” to identify them as<br/>annotation holders and separate them from the other properties of the entity type.</div>
@@ -1507,27 +1506,19 @@ Schemas can be annotated with the following attributes. If not stated explicitly
   <span style="font-family: courier new , courier;"> </span>
 </div>
 <pre>&lt;Property Name="Street" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" Nullable="true" sap:field-control="Address_FC" /&gt;<br/>&lt;Property Name="Address_FC" Type="Edm.Byte" Nullable="true" sap:is-annotation="true" /&gt;</pre>
-<h1>
-  <ac:structured-macro ac:macro-id="4ccc9cd4-b2c4-46e8-bd16-b6d3dec20bf9" ac:name="anchor" ac:schema-version="1">
-    <ac:parameter ac:name="">Query_Option_search</ac:parameter>
-  </ac:structured-macro>Query Option <span style="font-family: courier new , courier;">search</span>
-</h1>
+
+## Query Option <code>search</code>
+
 <div>Modern user interfaces typically feature a search box for entering a free-text search term, and how exactly this search term is used to find "matching" things is up to the application. The custom query option <span style="font-family: courier new , courier;">search</span> is intended exactly for passing such a free-text search term to the backend and let the backend decide against which properties of each entity in the entity set the term is matched, and how. It may also be matched against properties of related entities, e.g.</div>
 <div>
   <span style="font-family: courier new , courier;">GET ~/Orders?search=blue</span>
 </div>
 <div>to find all orders with items that refer to a blue product. Service implementations using SAP NetWeaver Gateway OData Channel will receive the search term in the parameter <span style="font-family: courier new , courier;">IV_SEARCH_STRING</span> of method <span style="font-family: courier new , courier;">GET_ENTITYSET</span>, see <a href="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html">https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/201909.002/en-US/05fb2651c294256ee10000000a445394.html</a> for details.</div>
 <div>Note that <span style="font-family: &quot;courier new&quot; , courier;">search</span> works similar to <span style="font-family: &quot;courier new&quot; , courier;">$filter</span>: it will return a subset of the entities that are returned when no search term is specified. And it combines with <span style="font-family: &quot;courier new&quot; , courier;">$filter</span>, returning only entities that fulfill both conditions.</div>
-<div>
-  <br/>
-</div>
-<div>
-  <br/>
-</div>
-<div>
 
 ## Entity Set with Hierarchy
 
+<div>
   <p>Entities can be organized in a tree if the underlying type contains additional properties allowing to determine the position of each entity in that tree. These are:</p>
   <ul>
     <li>A non-key property containing the node ID of the entity within the tree; this “node ID property” is annotated with <code>hierarchy-node-for</code>
