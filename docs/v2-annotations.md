@@ -1,4 +1,7 @@
-<h1>Introduction</h1>
+# SAP Annotations for OData Version 2.0
+
+## Introduction
+
 <p>OData services provide a uniform interface for interacting with their resources, and in addition are self-describing:</p>
 <ul>
   <li>
@@ -15,18 +18,43 @@
     <ac:plain-text-link-body><![CDATA[free-text search via an SAP-defined query option.]]></ac:plain-text-link-body>
   </ac:link>
 </p>
-<h1>Contents</h1>
+
+## Contents
 
 <!-- TODO: add table of contents -->
+<!-- TOC depthfrom:2 -->
+
+- [Introduction](#introduction)
+- [Contents](#contents)
+- [AtomPub Service Document](#atompub-service-document)
+  - [Element <span style="font-family: courier new , courier;">app:service</span>](#element-span-stylefont-family-courier-new--courierappservicespan)
+  - [Element <span style="font-family: courier new , courier;">app:collection</span>](#element-span-stylefont-family-courier-new--courierappcollectionspan)
+- [Metadata Document](#metadata-document)
+  - [Element <span style="font-family: courier new , courier;">edm:Schema</span>](#element-span-stylefont-family-courier-new--courieredmschemaspan)
+  - [Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>](#element-span-stylefont-family-courier-new--courieredmentitycontainerspan)
+  - [Element <span style="font-family: courier new , courier;">edm:EntitySet</span>](#element-span-stylefont-family-courier-new--courieredmentitysetspan)
+  - [Element <span style="font-family: courier new , courier;">edm:EntityType</span>](#element-span-stylefont-family-courier-new--courieredmentitytypespan)
+  - [Element <span style="font-family: courier new , courier;">edm:Property</span>](#element-span-stylefont-family-courier-new--courieredmpropertyspan)
+  - [Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>](#element-span-stylefont-family-courier-new--courieredmnavigationpropertyspan)
+  - [Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>](#element-span-stylefont-family-courier-new--courieredmfunctionimportspan)
+  - [Element <span style="font-family: courier new , courier;">edm:Parameter</span>](#element-span-stylefont-family-courier-new--courieredmparameterspan)
+  - [Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>](#element-span-stylefont-family-courier-new--courieredmassociationsetspan)
+- [Instance Annotations](#instance-annotations)
+- [Entity Set with Hierarchy](#entity-set-with-hierarchy)
+
+<!-- /TOC -->
 
 <div>
   <ac:structured-macro ac:macro-id="9168500f-c39e-4c94-907a-7e40f396d452" ac:name="toc" ac:schema-version="1"/>
 </div>
-<h1>AtomPub Service Document</h1>
+
+## AtomPub Service Document
+
 <p>
   <a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <span style="font-family: courier new , courier;">app</span>) can be annotated with attributes and elements from the namespace <span class="nolink">http://www.sap.com/Protocols/SAPData</span> (namespace prefix <span style="font-family: courier new , courier;">sap</span>) and from the namespace <a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> (namespace prefix <span style="font-family: courier new , courier;">atom</span>), and what these annotations mean.</p>
-<h2>Element <span style="font-family: courier new , courier;">app:service</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">app:service</span>
+
 <p>The <span style="font-family: courier new , courier;">app:service</span> element can be annotated with two elements from the <span style="font-family: courier new , courier;">atom</span> namespace:</p>
 <ul>
   <li>
@@ -39,8 +67,9 @@
   </li>
 </ul>
 <p>If the latest-version link deviates from the self link, a client may inspect the newer version of the service and decide (probably after asking its user) to switch over to the newer service version.</p>
-<h2>Element <span style="font-family: courier new , courier;">app:collection</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">app:collection</span>
+
 <p>The <span style="font-family: courier new , courier;">app:collection</span> element can be annotated with three elements:</p>
 <ul>
   <li>
@@ -57,43 +86,50 @@
   </li>
 </ul>
 <p>It can also contain the attribute <span style="font-family: courier new , courier;">sap:addressable</span> with the same value as for the corresponding entity set in the metadata document.</p>
-<h1>Metadata Document</h1>
+
+## Metadata Document
+
 <p>OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <span style="font-family: courier new , courier;">edm</span>) can be annotated with attributes and elements from the namespace <a href="http://www.sap.com/Protocols/SAPData">http://www.sap.com/Protocols/SAPData</a> (namespace prefix <span style="font-family: courier new , courier;">sap</span>), and what these annotations mean. For binary attributes the meaning is desribed for the value "true".</p>
 <div>
-  <h2>Element <span style="font-family: courier new , courier;">edm:Schema</span>
-  </h2>Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
-    <colgroup> <col/> <col/> <col/> <col/> </colgroup>
-    <tbody>
-      <tr>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Attribute Name</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Default Value</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Meaning</strong>
-        </th>
-        <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
-          <strong>Replaced by</strong>
-        </th>
-      </tr>
-      <tr>
-        <td colspan="1">
-          <p>schema-version</p>
-        </td>
-        <td colspan="1">
-          <p>0000</p>
-        </td>
-        <td colspan="1">A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
-        <td colspan="1">
-          <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
-        </td>
-      </tr>
-    </tbody>
+
+### Element <span style="font-family: courier new , courier;">edm:Schema</span>
+
+Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
+
+<colgroup> <col/> <col/> <col/> <col/> </colgroup>
+<tbody>
+<tr>
+<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+<strong>Attribute Name</strong>
+</th>
+<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+<strong>Default Value</strong>
+</th>
+<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+<strong>Meaning</strong>
+</th>
+<th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
+<strong>Replaced by</strong>
+</th>
+</tr>
+<tr>
+<td colspan="1">
+<p>schema-version</p>
+</td>
+<td colspan="1">
+<p>0000</p>
+</td>
+<td colspan="1">A non-negative number indicating the version of the schema. This can be considered a sub/minor version of the service version. It should be incremented whenever additive changes are made in a subsequent shipment of the same service version, and it can be used by clients to detect whether the service meets their minimal data provisioning needs.</td>
+<td colspan="1">
+<a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SchemaVersion">Core.SchemaVersion</a>
+</td>
+</tr>
+</tbody>
+
   </table>
-  <h2>Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>
-  </h2>
+
+### Element <span style="font-family: courier new , courier;">edm:EntityContainer</span>
+
 </div>
 <p>Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.</p>
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
@@ -136,8 +172,9 @@
     </tr>
   </tbody>
 </table>
-<h2>Element <span style="font-family: courier new , courier;">edm:EntitySet</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">edm:EntitySet</span>
+
 <p>Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.</p>
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup> <col/> <col/> <col/> </colgroup>
@@ -353,8 +390,9 @@
     </tr>
   </tbody>
 </table>
-<h2>Element <span style="font-family: courier new , courier;">edm:EntityType</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">edm:EntityType</span>
+
 <p>Entity types can be annotated with the following attributes:</p>
 <div>
   <p>
@@ -463,8 +501,9 @@
       </tr>
     </tbody>
   </table>
-  <h2>Element <span style="font-family: courier new , courier;">edm:Property</span>
-  </h2>
+
+### Element <span style="font-family: courier new , courier;">edm:Property</span>
+
 </div>
 <div>
   <div>The annotation <code>sap:label</code> is required for properties. All other annotations are optional.<table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
@@ -1263,8 +1302,9 @@
     </div>
   </div>
 </div>
-<h2>Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">edm:NavigationProperty</span>
+
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup>
     <col/>
@@ -1308,8 +1348,9 @@
     </tr>
   </tbody>
 </table>
-<h2>Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">edm:FunctionImport</span>
+
 <table border="1" class="jiveBorder wrapped" style="width: 100.0%;">
   <colgroup>
     <col/>
@@ -1371,8 +1412,9 @@
   <p>It has a <span style="font-family: courier new , courier;">set </span>attribute that identifies the entity set containing the list of allowed parameter value combinations.</p>
   <p>Nested <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements link the function import parameters specified with the <span style="font-family: courier new , courier;">name </span>attribute to a key property of the entity type of the specified entity set. The sequence of <span style="font-family: courier new , courier;">sap:parameter-ref </span>elements matches the sequence of the <span style="font-family: courier new , courier;">edm:PropertyRef </span>elements of the <span style="font-family: courier new , courier;">Key </span>element.</p>
 </div>
-<h2>Element <span style="font-family: courier new , courier;">edm:Parameter</span>
-</h2>
+
+### Element <span style="font-family: courier new , courier;">edm:Parameter</span>
+
 <div>
   <p>
     <br/>
@@ -1402,8 +1444,9 @@
       </tr>
     </tbody>
   </table>
-  <h2>Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>
-  </h2>
+
+### Element <span style="font-family: courier new , courier;">edm:AssociationSet</span>
+
 </div>
 <div>
   <div>
@@ -1441,7 +1484,9 @@
         </tr>
       </tbody>
     </table>
-    <h1>Instance Annotations</h1>
+
+## Instance Annotations
+
   </div>
 </div>
 <div>An annotation of an element in the OData metadata document adds information at the structural level of the service. Sometimes extra pieces of information are needed in the OData response for individual entities and their properties. To distinguish these two cases the former are called metadata annotations, while annotations of the entities in the OData response are called instance annotations.</div>
@@ -1480,7 +1525,9 @@
   <br/>
 </div>
 <div>
-  <h1>Entity Set with Hierarchy</h1>
+
+## Entity Set with Hierarchy
+
   <p>Entities can be organized in a tree if the underlying type contains additional properties allowing to determine the position of each entity in that tree. These are:</p>
   <ul>
     <li>A non-key property containing the node ID of the entity within the tree; this “node ID property” is annotated with <code>hierarchy-node-for</code>
