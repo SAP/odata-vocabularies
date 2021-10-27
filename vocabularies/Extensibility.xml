@@ -61,7 +61,7 @@
         <Annotation Term="Core.Description" String="The annotated entity type has the specified field extension capabilities" />
         <Property Name="Enabled" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Allows to extend the entity with additional attributes and annotations for these extension attribute. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored." />
+          <Annotation Term="Core.Description" String="Allows to extend the entity with additional properties and annotations for these extension properties. The presence of this annotation means the @Extensibility.Extensible annotation must be ignored." />
         </Property>
       </ComplexType>
 
