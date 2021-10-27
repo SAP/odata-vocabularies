@@ -48,7 +48,7 @@ The next area are <em>capability annotations</em> that describe which of the pos
 
 ## AtomPub Service Document
 
-<a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <code>app</code>) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix <code>sap</code>) and from the namespace <a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a> (namespace prefix <code>atom</code>), and what these annotations mean.
+<a href="http://tools.ietf.org/html/rfc5023">AtomPub</a> allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix <code>app</code>) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix <code>sap</code>) and from the namespace <code><a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a></code> (namespace prefix <code>atom</code>), and what these annotations mean.
 
 ### Element `app:service`
 
@@ -65,13 +65,13 @@ The <code>app:collection</code> element can be annotated with three elements:
 
 - `<sap:member-title>` contains the human-readable name or caption for a single member of the collection. This typically is the singular form of the content of the `<atom:title>` element of this collection.
 - `<atom:link rel="search" href="..."/>` contains the link to an <a href="http://www.opensearch.org/Specifications/OpenSearch/1.1#OpenSearch_description_document">OpenSearch description document</a> that describes how to use free-text search for this collection. For those not familiar with OpenSearch: just append the <a href="#search">SAP-specific query option <code>search</code></a> to the URL of the collection.
-- `<atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/>` contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the <a class="jive_macro jive_macro_blogpost">HowTo Guides - Subscription &amp; Notification with SAP NetWeaver Gateway - Series</a>.
+- `<atom:link rel="http://www.sap.com/Protocols/SAPData/rel#subscribe" href="..."/>` contains the link to the collection of the same service that allows subscribing to content changes of the annotated collection. For more information see the [HowTo Guides - Subscription & Notification with SAP NetWeaver Gateway - Series](https://blogs.sap.com/2012/05/07/howto-guides-subscription-notification-with-sap-netweaver-gateway-series/).
 
 It can also contain the attribute <code>sap:addressable</code> with the same value as for the corresponding entity set in the metadata document.
 
 ## Metadata Document
 
-OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <code>edm</code>) can be annotated with attributes and elements from the namespace <code>http://www.sap.com/Protocols/SAPData</code> (namespace prefix <code>sap</code>), and what these annotations mean. For binary attributes the meaning is described for the value "true".
+OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptual Schema Definition Language (CSDL)</a> allows annotating most model elements with XML attributes or elements from foreign XML namespaces. The following sections describe which elements of the metadata document (namespace prefix <code>edm</code>) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix <code>sap</code>), and what these annotations mean. For binary attributes the meaning is described for the value "true".
 
 ### Element `edm:Schema`
 
