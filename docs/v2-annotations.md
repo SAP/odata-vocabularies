@@ -772,20 +772,26 @@ The annotation <code>sap:label</code> is required for properties. All other ann
 #### Attributes `sap:unit` and `sap:precision`
     
 Amounts in a currency or absolute measures MUST be represented as simple properties with an appropriate numeric Edm type, preferably <code>Edm.Decimal</code>. These numeric properties SHOULD refer to a string property containing the ISO currency or unit of measure with the <code>sap:unit</code> attribute. They MAY refer to a numeric property containing the (non-negative) number of decimal places to be used for displaying the amount or measure with the <code>sap:precision</code> attribute.
-  
-<p>Example in metadata document:</p>
+
+
+Example in metadata document:
 
 <pre>&lt;Property Name="OrderedQuantity" Type="Edm.Int16 " sap:unit="OrderedUnit" /&gt;<br/>&lt;Property Name="OrderedUnit" Type="Edm.String " sap:semantics="unit-of-measure" /&gt;<br/>&lt;Property Name ="Price" Type ="Edm.Decimal" Precision="10" Scale ="3" sap:unit ="Currency" sap:precision="DisplayScale" /&gt;  </pre>
 <pre>&lt;Property Name="DisplayScale" Type ="Edm.Byte" /&gt;<br/>&lt;Property Name="Currency" Type ="Edm.String" sap:semantics="currency-code" sap:text="CurrencyText" /&gt;<br/>&lt;Property Name="CurrencyText" Type="Edm.String" /&gt;</pre>
-<p>Example in Atom entry:</p>
+
+Example in Atom entry:
+
 <pre>&lt;d:OrderedQuantity&gt;50&lt;/d:OrderedQuantity&gt;<br/>&lt;d:OrderedUnit&gt;KGM&lt;/d:OrderedUnit&gt;<br/>&lt;d:Price&gt;86.9&lt;/d:Price&gt;</pre>
 <pre>&lt;d:DisplayScale&gt;2&lt;/d:DisplayScale&gt;<br/>&lt;d:Currency&gt;EUR&lt;/d:Currency&gt;<br/>&lt;d:CurrencyText&gt;Euro&lt;/d:CurrencyText&gt;</pre>
-<p>Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).</p>
+
+Using a reference attribute instead of predefined complex types like Measure or Money with amount and unit properties allows several amounts to share the same unit. Transporting the amounts as “raw” numeric values instead of preformatted strings allows clients to format them according to device-specific settings (that may well differ from the server-side user settings) or process them on the client (if e.g. the client is Excel).
 
 #### Attribute `sap:field-control`
 
-<p>Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <code>sap:field-control</code> attribute.</p>
-<p>Example in metadata document:</p>
+Whether a property can or must contain a value may depend on the state of its entity, so it is impossible to express this up-front via metadata annotations. In these cases the "edit state" of the property can be expressed via a separate "field control" property, and the link between data properties and their field-control properties is expressed with the <code>sap:field-control</code> attribute.
+
+Example in metadata document:
+
 <pre>&lt;Property Name="Street" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="City" Type="Edm.String" sap:field-control="Address_fc" /&gt;<br/>&lt;Property Name="Address_fc" Type="Edm.Byte" /&gt;</pre>
 <p>
 The field-control property can be in the same type as shown above, or it can be in a nested complex type, or in an entity type that is associated 1:1. This allows separating field-control data from "real" data. If for example the field-control property is contained in a complex property or navigation property named <code>fc</code>, the attribute value is a path relative to the parent of the annotated property, e.g. <code>sap:field-control="fc/Address"</code>. 
