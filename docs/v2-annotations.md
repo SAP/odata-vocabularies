@@ -78,8 +78,7 @@ OData's <a href="http://msdn.microsoft.com/en-us/library/dd541474.aspx">Conceptu
 Schemas can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
 <table>
-  <colgroup> <col/> <col/> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
     <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
     <strong>Attribute Name</strong>
@@ -114,8 +113,7 @@ Schemas can be annotated with the following attributes. If not stated explicitly
 Entity containers can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior.
 
 <table>
-  <colgroup> <col/> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
@@ -159,8 +157,7 @@ Entity containers can be annotated with the following attributes. If not stated 
 Entity sets can be annotated with the following attributes. If not stated explicitly, consumers can assume them to have the default value listed in the second column. This default value reflects the "normal" behavior that can be expected from any OData service.
 
 <table>
-  <colgroup> <col/> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
@@ -347,8 +344,7 @@ See notes in updatable-path for combined meaning of deletable and deletable-path
 This attribute can take the following values in the context of an entity type:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
          <strong>Value</strong> 
@@ -377,8 +373,7 @@ This attribute can take the following values in the context of an entity type:
 Entity types can be annotated with the following attributes:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
@@ -411,8 +406,7 @@ Entity types can be annotated with the following attributes:
 This attribute can take the following values in the context of an entity type:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Value</strong>
@@ -465,8 +459,7 @@ This attribute can take the following values in the context of an entity type:
 The annotation <code>sap:label</code> is required for properties. All other annotations are optional.
 
 <table>
-  <colgroup> <col/> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
@@ -817,8 +810,7 @@ The possible values for a field-control property are:
 The possible values in the context of a property are:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Value</strong>
@@ -1146,8 +1138,7 @@ These type values can be specified as a value list (like "type=work,pref").
 A property can be annotated with this attribute, if filter restrictions exist. The attribute can take the following values:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Value</strong>
@@ -1183,8 +1174,7 @@ A property can be annotated with this attribute, if filter restrictions exist. T
 A property can be annotated with this attribute, if it has an aggregation role. The attribute can take the following values:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Value</strong>
@@ -1217,8 +1207,7 @@ A property can be annotated with this attribute, if it has an aggregation role. 
 A property can be annotated with this attribute, if it represents a parameter. The attribute can take the following values:
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Value</strong>
@@ -1375,8 +1364,7 @@ Nested <code>sap:parameter-ref</code> elements link the function import paramete
 ### Element `edm:Parameter`
 
 <table>
-  <colgroup> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
@@ -1403,8 +1391,7 @@ Nested <code>sap:parameter-ref</code> elements link the function import paramete
 ### Element `edm:AssociationSet`
 
 <table>
-  <colgroup> <col/> <col/> <col/> </colgroup>
-  <tbody>
+    <tbody>
     <tr>
       <th style="text-align: center;color: rgb(255,255,255);background-color: rgb(102,144,188);" valign="middle">
         <strong>Attribute Name</strong>
