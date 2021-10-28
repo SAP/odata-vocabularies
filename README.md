@@ -15,6 +15,7 @@ This repository defines the following SAP vocabularies:
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
+- [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
 - [ODM: One Domain Model](vocabularies/ODM.md) - _experimental_
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
