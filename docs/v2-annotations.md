@@ -122,11 +122,11 @@ The combined meaning of the annotations `updatable` and `updatable-path` is:
 * If an entity set is annotated with updatable=true, its entities can be updated
 * If an entity set is annotated with updatable=false, its entities cannot be updated
 * If an entity set is annotated with updatable-path, its entities can be updated depending on the value of the Boolean property identified with this path expression:
-* * If updatable-path points to a property that does not exist, the service is broken and the client should assume that the entity cannot be updated
-* * If updatable-path points to a property that does not have the type Edm.Boolean, the service is broken and the client should assume that the entity cannot be updated
-* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value true, the entity can be updated
-* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value false, the entity cannot be updated
-* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value null, the service does not know whether the property can be updated. Semantically such a service is broken and the client should assume that the entity cannot be updated
+  * If updatable-path points to a property that does not exist, the service is broken and the client should assume that the entity cannot be updated
+  * If updatable-path points to a property that does not have the type Edm.Boolean, the service is broken and the client should assume that the entity cannot be updated
+  * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value true, the entity can be updated
+  * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value false, the entity cannot be updated
+  * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value null, the service does not know whether the property can be updated. Semantically such a service is broken and the client should assume that the entity cannot be updated
 
 The same rules apply to the combination of `deletable` and `deletable-path` on entity sets and the combination of `creatable` and `creatable-path` on navigation properties.
 
