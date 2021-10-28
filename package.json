@@ -13,8 +13,7 @@
   ],
   "dependencies": {
     "odata-csdl": "^0.2.9",
-    "odata-vocabularies": "github:oasis-tcs/odata-vocabularies",
-    "sax": "^1.2.4"
+    "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
     "eslint": "^7.22.0"
