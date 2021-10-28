@@ -48,7 +48,7 @@ The next area are _capability annotations_ that describe which of the possible i
 
 ## AtomPub Service Document
 
-[AtomPub](http://tools.ietf.org/html/rfc5023) allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace prefix `app`) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix `sap`) and from the namespace `[http://www.w3.org/2005/Atom](http://www.w3.org/2005/Atom)` (namespace prefix `atom`), and what these annotations mean.
+[AtomPub](https://datatracker.ietf.org/doc/html/rfc5023) allows extending the service document with elements and attributes from XML namespaces other than AtomPub. The following sections describe which elements of the service document (namespace [`https://www.w3.org/2007/app`](https://www.w3.org/2007/app), namespace prefix `app`) can be annotated with attributes and elements from the namespace `http://www.sap.com/Protocols/SAPData` (namespace prefix `sap`) and from the namespace [`http://www.w3.org/2005/Atom`](http://www.w3.org/2005/Atom) (namespace prefix `atom`), and what these annotations mean.
 
 ### Element `app:service`
 
