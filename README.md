@@ -28,6 +28,8 @@ To learn how to construct an annotation value from a term definition, or vice ve
 - [Annotation Cheat-Sheet for CSDL XML](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html)
 - [Annotation Cheat-Sheet for CAP CDS](https://sap.github.io/odata-vocabularies/docs/annotation-cheat-sheet-cap.html)
 
+Vocabulary-based annotations fully replace the old [SAP Annotations for OData Version 2.0](docs/v2-annotations.md)
+
 ## Requirements
 
 Each vocabulary in this repository is described by three files: the `*.xml` source file, an auto-generated equivalent `*.json` representation, and a `*.md` Markdown description, also auto-generated from the `*.xml` source.
