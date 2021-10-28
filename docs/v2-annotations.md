@@ -100,9 +100,9 @@ Attribute Name|Default Value|Meaning
 label|-|Description, will also be used as atom:title in the service document
 creatable|true|New entities can be created in this set
 updatable|true|Entities in this set can be updated. Must not be present if updatable-path is present.
-updatable-path|-|Entities in this set can be updated or not depending on their state. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be updated or not. Must not be present if updatable is present.<br>The combined meaning of the annotations updatable and updatable-path is<br>- If an entity set is neither annotated with updatable nor updatable-path, its entities can be updated<br>- If an entity set is annotated both with updatable and updatable-path, the service is broken and the client should assume that entities in this set cannot be updated<br>- If an entity set is annotated with updatable=true, its entities can be updated<br>- If an entity set is annotated with updatable=false, its entities cannot be updated<br>- If an entity set is annotated with updatable-path, its entities can be updated depending on the value of the Boolean property identified with this path expression:<br>- - If updatable-path points to a property that does not exist, the service is broken and the client should assume that the entity cannot be updated<br>- - If updatable-path points to a property that does not have the type Edm.Boolean, the service is broken and the client should assume that the entity cannot be updated<br>- - If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value true, the entity can be updated<br>- - If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value false, the entity cannot be updated<br>- - If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value null, the service does not know whether the property can be updated. Semantically such a service is broken and the client should assume that the entity cannot be updated<br>The same rules apply to the combination of deletable and deletable-path on entity sets and the combination of creatable and creatable-path on navigation properties.
+updatable-path|-|Entities in this set can be updated or not depending on their state. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be updated or not. Must not be present if updatable is present. See section below for details.
 deletable|true|Entities can be deleted from this set. Must not be present if deletable-path is present.
-deletable-path|-|Entities in this set can be deleted or not depending on their state. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be deleted or not. Must not be present if deletable is present.<br>See notes in updatable-path for combined meaning of deletable and deletable-path.
+deletable-path|-|Entities in this set can be deleted or not depending on their state. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the entity type of the entity set. The value of this property indicates whether the entity can be deleted or not. Must not be present if deletable is present. See section below for details.
 searchable|false|Supports custom query option `search` 
 pageable|true|Supports system query options `$top` and `$skip` 
 topable|true|Supports system query option `$top` 
@@ -113,6 +113,22 @@ change-tracking|false|Changes to entities of this set can be tracked. Consumers 
 maxpagesize|-|Maximum number of entities returned in an OData response. If more entities are included in the result of an OData request, the service applies server-driven paging.
 delta-link-validity|-|The maximum duration in seconds a delta link in an OData response remains valid. Afterwards, resources associated with the change tracking subscription may be cleaned up and will be no longer available.
 semantics|-|See table below
+
+#### <a name="combined-meaning"></a>Combined meaning of `updatable` and `updatable-path`
+
+The combined meaning of the annotations `updatable` and `updatable-path` is:
+* If an entity set is neither annotated with updatable nor updatable-path, its entities can be updated
+* If an entity set is annotated both with updatable and updatable-path, the service is broken and the client should assume that entities in this set cannot be updated
+* If an entity set is annotated with updatable=true, its entities can be updated
+* If an entity set is annotated with updatable=false, its entities cannot be updated
+* If an entity set is annotated with updatable-path, its entities can be updated depending on the value of the Boolean property identified with this path expression:
+* * If updatable-path points to a property that does not exist, the service is broken and the client should assume that the entity cannot be updated
+* * If updatable-path points to a property that does not have the type Edm.Boolean, the service is broken and the client should assume that the entity cannot be updated
+* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value true, the entity can be updated
+* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value false, the entity cannot be updated
+* * If updatable-path points to a property of type Edm.Boolean that exists, and this property has the value null, the service does not know whether the property can be updated. Semantically such a service is broken and the client should assume that the entity cannot be updated
+
+The same rules apply to the combination of `deletable` and `deletable-path` on entity sets and the combination of `creatable` and `creatable-path` on navigation properties.
 
 #### <a name="EntitySet-sapsemantics"></a>Attribute `sap:semantics`
 
@@ -385,7 +401,7 @@ For a given order item, a consumer can set the preservation flag for the total a
 Attribute Name|Default Value|Meaning
 --------------|-------------|-------
 creatable|true|New related entities can be created
-creatable-path|-|Related entities can be created or not depending on the state of the source entity. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the source entity type. The value of this property indicates whether related entities can be created or not.<br>See notes in[updatable-path](#updatable-path)for entity sets for combined meaning of creatable and creatable-path.<br>
+creatable-path|-|Related entities can be created or not depending on the state of the source entity. The value of this attribute is a [path expression](http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part3-csdl/odata-v4.0-errata02-os-part3-csdl-complete.html#_The_edm:Path_Expression_3) that identifies a Boolean property in the context of the source entity type. The value of this property indicates whether related entities can be created or not. See section [Combined Meaning](#combined-meaning) for combined meaning of `creatable` and `creatable-path`.
 filterable|true|Can be used as a path segment for properties in `$filter` system query option
 
 ### Element `edm:FunctionImport`
