@@ -6,7 +6,7 @@
 
   <!-- TODO: replace _vocab with the name of the vocabulary your annotation examples use and remove this comment -->
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/_vocab.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="_vocab" />
+    <edmx:Include Namespace="com.sap.vocabularies._vocab.v1" Alias="_vocab" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="_vocab.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
