@@ -961,6 +961,7 @@ The trend is
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
+            <String>UI.Hidden</String>
             <String>UI.PartOfPreview</String>
           </Collection>
         </Annotation>
