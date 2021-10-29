@@ -393,13 +393,13 @@
                 "EntityType"
             ],
             "@UI.ThingPerspective": true,
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden"
+            ],
             "@Core.Description": "Visualization of a single point of data, typically a number; may also be textual, e.g. a status value"
         },
         "DataPointType": {
             "$Kind": "ComplexType",
-            "@Validation.ApplicableTerms": [
-                "UI.Hidden"
-            ],
             "Title": {
                 "$Nullable": true,
                 "@Core.Description": "Title of the data point",

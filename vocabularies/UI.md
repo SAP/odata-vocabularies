@@ -31,7 +31,7 @@ Term|Type|Description
 [GeoLocation](./UI.xml#L230:~:text=<Term%20Name="-,GeoLocation,-")|[GeoLocationType?](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
 [Contacts](./UI.xml#L250:~:text=<Term%20Name="-,Contacts,-")|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact<br>Allowed terms:<br>- [Contact](Communication.md#Contact)
 [MediaResource](./UI.xml#L261:~:text=<Term%20Name="-,MediaResource,-")|[MediaResourceType?](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
-[DataPoint](./UI.xml#L315:~:text=<Term%20Name="-,DataPoint,-")|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
+[DataPoint](./UI.xml#L315:~:text=<Term%20Name="-,DataPoint,-")|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value<br>Can be annotated with:<br>- [Hidden](#Hidden)
 [KPI](./UI.xml#L628:~:text=<Term%20Name="-,KPI,-")|[KPIType?](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
 [Chart](./UI.xml#L674:~:text=<Term%20Name="-,Chart,-")|[ChartDefinitionType?](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
 [ValueCriticality](./UI.xml#L898:~:text=<Term%20Name="-,ValueCriticality,-") *([Experimental](Common.md#Experimental))*|\[[ValueCriticalityType](#ValueCriticalityType)\]|<a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.
@@ -146,7 +146,7 @@ Property|Type|Description
 [Width](./UI.xml#L295:~:text=<ComplexType%20Name="-,ImageType,-")|String?|Width of image
 [Height](./UI.xml#L298:~:text=<ComplexType%20Name="-,ImageType,-")|String?|Height of image
 
-## <a name="DataPointType"></a>[DataPointType](./UI.xml#L319:~:text=<ComplexType%20Name="-,DataPointType,-")
+## <a name="DataPointType"></a>[DataPointType](./UI.xml#L324:~:text=<ComplexType%20Name="-,DataPointType,-")
 
 
 Property|Type|Description
@@ -170,10 +170,6 @@ Property|Type|Description
 [Trend](./UI.xml#L395:~:text=<ComplexType%20Name="-,DataPointType,-")|[TrendType?](#TrendType)|Service-calculated trend, alternative to TrendCalculation
 [TrendCalculation](./UI.xml#L398:~:text=<ComplexType%20Name="-,DataPointType,-")|[TrendCalculationType?](#TrendCalculationType)|Parameters for client-calculated trend, alternative to Trend
 [Responsible](./UI.xml#L401:~:text=<ComplexType%20Name="-,DataPointType,-")|[ContactType?](Communication.md#ContactType)|Contact person
-
-**Applicable Annotation Terms:**
-
-- [Hidden](#Hidden)
 
 ## <a name="NumberFormat"></a>[NumberFormat](./UI.xml#L406:~:text=<ComplexType%20Name="-,NumberFormat,-")
 Describes how to visualise a number
