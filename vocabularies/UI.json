@@ -1129,7 +1129,6 @@
             "$Abstract": true,
             "@Core.Description": "Abstract base type for facets",
             "@Validation.ApplicableTerms": [
-                "UI.Hidden",
                 "UI.PartOfPreview"
             ],
             "Label": {
@@ -1146,6 +1145,9 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.Facet",
             "@Core.Description": "Collection of facets",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden"
+            ],
             "Facets": {
                 "$Collection": true,
                 "$Type": "UI.Facet",
@@ -1156,6 +1158,9 @@
             "$Kind": "ComplexType",
             "$BaseType": "UI.Facet",
             "@Core.Description": "Facet that refers to a thing perspective, e.g. LineItem",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden"
+            ],
             "Target": {
                 "$Type": "Edm.AnnotationPath",
                 "@Core.Description": "Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge",

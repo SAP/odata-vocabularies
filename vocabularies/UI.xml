@@ -961,7 +961,6 @@ The trend is
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>UI.Hidden</String>
             <String>UI.PartOfPreview</String>
           </Collection>
         </Annotation>
@@ -975,12 +974,22 @@ The trend is
       </ComplexType>
       <ComplexType Name="CollectionFacet" BaseType="UI.Facet">
         <Annotation Term="Core.Description" String="Collection of facets" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.Hidden</String>
+          </Collection>
+        </Annotation>
         <Property Name="Facets" Type="Collection(UI.Facet)" Nullable="false">
           <Annotation Term="Core.Description" String="Nested facets. An empty collection may be used as a placeholder for content added via extension points." />
         </Property>
       </ComplexType>
       <ComplexType Name="ReferenceFacet" BaseType="UI.Facet">
         <Annotation Term="Core.Description" String="Facet that refers to a thing perspective, e.g. LineItem" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.Hidden</String>
+          </Collection>
+        </Annotation>
         <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description" String="Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge" />
           <Annotation Term="Validation.AllowedTerms">
