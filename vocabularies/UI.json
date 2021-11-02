@@ -393,9 +393,6 @@
                 "EntityType"
             ],
             "@UI.ThingPerspective": true,
-            "@Validation.ApplicableTerms": [
-                "UI.Hidden"
-            ],
             "@Core.Description": "Visualization of a single point of data, typically a number; may also be textual, e.g. a status value"
         },
         "DataPointType": {
