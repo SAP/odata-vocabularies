@@ -23,8 +23,6 @@ Property|Type|Description
 [SiblingRankProperty](./Hierarchy.xml#L61:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0.
 [PreorderRankProperty](./Hierarchy.xml#L65:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the preorder rank of a node<br>The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0.
 
-© Copyright 2021, SAP SE
+© Copyright 2021, SAP SE - [Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
 
 This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
-
-[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)

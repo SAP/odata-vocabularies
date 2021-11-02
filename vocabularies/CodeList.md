@@ -22,8 +22,6 @@ Property|Type|Description
 [Url](./CodeList.xml#L45:~:text=<ComplexType%20Name="-,CodeListSource,-")|URL|URL of a CSDL document describing an entity set for a code list
 [CollectionPath](./CodeList.xml#L49:~:text=<ComplexType%20Name="-,CodeListSource,-")|String|Name of the entity set for the code list
 
-© Copyright 2021, SAP SE
+© Copyright 2021, SAP SE - [Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
 
 This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
-
-[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)

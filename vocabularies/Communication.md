@@ -197,8 +197,6 @@ Property|Type|Description
 [keywords](./Communication.xml#L377:~:text=<ComplexType%20Name="-,MessageData,-")|\[String\]|List of important words and phrases that might be useful for the recipient
 [received](./Communication.xml#L380:~:text=<ComplexType%20Name="-,MessageData,-")|DateTimeOffset?|Date and time the message was received
 
-© Copyright 2021, SAP SE
+© Copyright 2021, SAP SE - [Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
 
 This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
-
-[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)

@@ -60,8 +60,6 @@ Allowed Value|Description
 [LegalEntityID](./PersonalData.xml#L175:~:text=<TypeDefinition%20Name="-,FieldSemanticsType,-") *([Experimental](Common.md#Experimental))*|The unique identifier of a legal entity<br>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.
 [UserID](./PersonalData.xml#L183:~:text=<TypeDefinition%20Name="-,FieldSemanticsType,-") *([Experimental](Common.md#Experimental))*|The unique identifier of a user<br>A user is an individual who interacts with the services supplied by a system.
 
-© Copyright 2021, SAP SE
+© Copyright 2021, SAP SE - [Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
 
 This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
-
-[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)

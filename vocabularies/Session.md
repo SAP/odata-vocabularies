@@ -55,8 +55,6 @@ Property|Type|Description
 [SaveAction](./Session.xml#L128:~:text=<ComplexType%20Name="-,StickySessionSupportedType,-")|[QualifiedName](Common.md#QualifiedName)|Bound action that saves a new or edited entity<br>Signature:<br/>- Binding parameter is type of annotated entity set<br/>- No non-binding parameters<br/>- Return type is same as binding parameter type <br/>On success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. <br/>On failure the sticky session is kept alive.
 [DiscardAction](./Session.xml#L144:~:text=<ComplexType%20Name="-,StickySessionSupportedType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Action import for an unbound action that discards all changes and terminates the sticky session<br>Signature:<br/>- No parameters<br/>- No return type <br/>If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. <br/>If called outside of a sticky session the action fails and does not initiate a session.
 
-© Copyright 2021, SAP SE
+© Copyright 2021, SAP SE - [Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
 
 This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
-
-[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
