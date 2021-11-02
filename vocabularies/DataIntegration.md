@@ -22,3 +22,9 @@ Flag Member|Value|Description
 [INSERT](./DataIntegration.xml#L58:~:text=<EnumType%20Name="-,DeltaMethodType,-")|1|Delta is supported for inserts
 [UPDATE](./DataIntegration.xml#L61:~:text=<EnumType%20Name="-,DeltaMethodType,-")|2|Delta is supported for updates
 [DELETE](./DataIntegration.xml#L64:~:text=<EnumType%20Name="-,DeltaMethodType,-")|4|Delta is supported for deletes
+
+© Copyright 2021, SAP SE
+
+This site is hosted by [GitHub Pages](https://pages.github.com/). Please see the [GitHub Privacy Statement](https://docs.github.com/en/github/site-policy/github-privacy-statement) for any information how GitHub processes your personal data.
+
+[Terms of Use](https://www.sap.com/corporate/en/legal/terms-of-use.html) - [Legal Disclosure](https://www.sap.com/corporate/en/legal/impressum.html) - [Trademark](https://www.sap.com/about/legal/trademark.html)
