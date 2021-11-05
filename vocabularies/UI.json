@@ -1434,7 +1434,14 @@
             },
             "Low": {
                 "$Type": "Edm.PrimitiveType",
-                "@Core.Description": "Single value or lower interval boundary"
+                "$Nullable": true,
+                "@Core.Description": "Single value or lower interval boundary",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Modified",
+                        "Description": "Now nullable in order to support `$filter=property eq null`"
+                    }
+                ]
             },
             "High": {
                 "$Type": "Edm.PrimitiveType",

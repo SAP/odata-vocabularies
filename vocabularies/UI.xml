@@ -1253,8 +1253,16 @@ The trend is
         <Property Name="Option" Type="UI.SelectionRangeOptionType" Nullable="false">
           <Annotation Term="Core.Description" String="Comparison operator" />
         </Property>
-        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="false">
+        <Property Name="Low" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Single value or lower interval boundary" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="Now nullable in order to support `$filter=property eq null`" />
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="High" Type="Edm.PrimitiveType">
           <Annotation Term="Core.Description" String="Upper interval boundary" />
