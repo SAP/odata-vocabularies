@@ -17,14 +17,15 @@
       <Annotations Target="PDF.examples/Container">
         <Annotation Term="PDF.Features">
           <Record>
-            <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/MyDocumentDescriptions" />
+            <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata" />
+            <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions" />
             <PropertyValue Property="ArchiveFormat" Bool="true" />
             <PropertyValue Property="Signature" Bool="true" />
             <PropertyValue Property="CoverPage" Bool="true" />
             <PropertyValue Property="FontSize" Bool="true" />
             <PropertyValue Property="FitToPage" Bool="true" />
-            <PropertyValue Property="PageSizeDefault" Int="5000" />
-            <PropertyValue Property="PageSizeMaximum" Int="50000" />
+            <PropertyValue Property="ResultSizeDefault" Int="5000" />
+            <PropertyValue Property="ResultSizeMaximum" Int="50000" />
             <PropertyValue Property="URIType">
               <Collection>
                 <String>EntitySet</String>

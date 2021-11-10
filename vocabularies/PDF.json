@@ -12,8 +12,8 @@
     },
     "com.sap.vocabularies.PDF.v1": {
         "$Alias": "PDF",
-        "@Core.Description": "Terms for PDF Generation",
-        "@Core.LongDescription": "The PDF vocabulary provides information about PDF generation features",
+        "@Core.Description": "Terms for PDF response format",
+        "@Core.LongDescription": "The PDF vocabulary provides information about the PDF format of a response",
         "@Core.Description#Published": "2021-10-27 © Copyright 2021 SAP SE. All rights reserved",
         "@Core.Links": [
             {
@@ -42,6 +42,10 @@
             "$Kind": "ComplexType",
             "DocumentDescriptionReference": {
                 "@Core.IsURL": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "DocumentDescriptionCollection": {
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
             },
@@ -80,13 +84,13 @@
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
             },
-            "PageSizeDefault": {
+            "ResultSizeDefault": {
                 "$Type": "Edm.Int32",
                 "$Nullable": true,
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
             },
-            "PageSizeMaximum": {
+            "ResultSizeMaximum": {
                 "$Type": "Edm.Int32",
                 "$Nullable": true,
                 "@Core.Description": "...",

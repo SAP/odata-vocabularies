@@ -26,14 +26,15 @@
         "$Annotations": {
             "PDF.examples/Container": {
                 "@PDF.Features": {
-                    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/MyDocumentDescriptions",
+                    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+                    "DocumentDescriptionCollection": "MyDocumentDescriptions",
                     "ArchiveFormat": true,
                     "Signature": true,
                     "CoverPage": true,
                     "FontSize": true,
                     "FitToPage": true,
-                    "PageSizeDefault": 5000,
-                    "PageSizeMaximum": 50000,
+                    "ResultSizeDefault": 5000,
+                    "ResultSizeMaximum": 50000,
                     "URIType": [
                         "EntitySet"
                     ]

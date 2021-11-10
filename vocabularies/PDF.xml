@@ -7,10 +7,10 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.PDF.v1" Alias="PDF">
       <Annotation Term="Core.Description">
-        <String>Terms for PDF Generation</String>
+        <String>Terms for PDF response format</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>The PDF vocabulary provides information about PDF generation features</String>
+        <String>The PDF vocabulary provides information about the PDF format of a response</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2021-10-27 © Copyright 2021 SAP SE. All rights reserved</String>
@@ -40,6 +40,12 @@
       <ComplexType Name="FeaturesType">
         <Property Name="DocumentDescriptionReference" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" Bool="true" />
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="DocumentDescriptionCollection" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>
@@ -76,13 +82,13 @@
             <String>...</String>
           </Annotation>
         </Property>
-        <Property Name="PageSizeDefault" Type="Edm.Int32">
+        <Property Name="ResultSizeDefault" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>
           </Annotation>
         </Property>
-        <Property Name="PageSizeMaximum" Type="Edm.Int32">
+        <Property Name="ResultSizeMaximum" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>
