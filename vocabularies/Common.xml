@@ -1376,6 +1376,12 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
       </Term>
 
+      <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

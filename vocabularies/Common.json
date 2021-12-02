@@ -1582,6 +1582,15 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
+        },
+        "WebSocketBaseURL": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "Base URL for WebSocket connections"
         }
     }
 }
