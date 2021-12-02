@@ -257,14 +257,10 @@
         </Annotation>
       </Term>
 
-      <Term Name="MaskedAlways" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="RevealOnDemand" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
-        <Annotation Term="Core.LongDescription">
-          <String>If the annotation evaluates to true, the unmasked property value is never transferred in responses.
-
-If the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`.</String>
-        </Annotation>
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Unmasked data for this property can be requested with custom query option `masked-values=false`" />
       </Term>
 
       <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property">

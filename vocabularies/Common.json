@@ -303,16 +303,15 @@
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces."
         },
-        "MaskedAlways": {
+        "RevealOnDemand": {
             "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
+            "$Type": "Edm.Boolean",
             "$AppliesTo": [
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Property contains sensitive data that is by default not transferred",
-            "@Core.LongDescription": "If the annotation evaluates to true, the unmasked property value is never transferred in responses.\n\nIf the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`."
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Unmasked data for this property can be requested with custom query option `masked-values=false`"
         },
         "SemanticObject": {
             "$Kind": "Term",
