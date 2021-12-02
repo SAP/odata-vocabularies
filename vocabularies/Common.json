@@ -287,7 +287,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Use terms `MaskedValue` and `MaskedAlways` instead"
+                    "Description": "Use terms `MaskedValue` instead"
                 }
             ],
             "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
