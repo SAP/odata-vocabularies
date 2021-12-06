@@ -502,6 +502,7 @@
         "Timestamp": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
+            "$Precision": 0,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -1522,6 +1523,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Creation timestamp",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1542,6 +1544,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Last modification timestamp",
             "@Common.IsInstanceAnnotation": true
         },
