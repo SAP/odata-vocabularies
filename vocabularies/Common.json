@@ -167,7 +167,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The value of the annotated property or parameter shall be interpreted in the given locale",
-            "@Core.LongDescription": "Locales shall be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).\nIf this annotation is absent or null, the current user's or default locale is used.\n\nAn example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent."
+            "@Core.LongDescription": "Locales shall be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).\n          If this annotation is absent or null, the current user's or default locale is used.\n          An example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent."
         },
         "IsDigitSequence": {
             "$Kind": "Term",
