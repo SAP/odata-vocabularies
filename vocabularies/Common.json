@@ -151,7 +151,8 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "Property",
-                "Parameter"
+                "Parameter",
+                "ReturnType"
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
@@ -163,7 +164,8 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "Property",
-                "Parameter"
+                "Parameter",
+                "ReturnType"
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The value of the annotated property or parameter shall be interpreted in the given locale",

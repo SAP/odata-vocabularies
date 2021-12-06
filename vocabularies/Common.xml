@@ -114,7 +114,7 @@
         </Member>
       </EnumType>
 
-      <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
+      <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
@@ -124,7 +124,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
 
-      <Term Name="Locale" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
+      <Term Name="Locale" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The value of the annotated property or parameter shall be interpreted in the given locale" />
         <Annotation Term="Core.LongDescription">
