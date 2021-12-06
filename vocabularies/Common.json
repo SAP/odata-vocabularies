@@ -158,6 +158,17 @@
             "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         },
+        "Locale": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Parameter"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The value of the annotated property or parameter shall be interpreted in the given locale",
+            "@Core.LongDescription": "Locales shall be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).\nIf this annotation is absent or null, the current user's or default locale is used.\n\nAn example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent."
+        },
         "IsDigitSequence": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
