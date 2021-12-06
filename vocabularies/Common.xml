@@ -116,7 +116,7 @@
 
       <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
+        <Annotation Term="Core.Description" String="The point in time represented by the annotated property, parameter or return type shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
             If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.</String>
@@ -126,9 +126,9 @@
 
       <Term Name="Locale" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The value of the annotated property or parameter shall be interpreted in the given locale" />
+        <Annotation Term="Core.Description" String="The value of the annotated property, parameter or return type shall be interpreted in the given locale" />
         <Annotation Term="Core.LongDescription">
-          <String>Locales shall be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).
+          <String>Locales MUST be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).
           If this annotation is absent or null, the current user's or default locale is used.
           An example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent.</String>
         </Annotation>
@@ -180,22 +180,22 @@
         Function returns true if and only if the whole first argument matches the regular expression in the second argumentReturns
       -->
 
-      <Term Name="IsDigitSequence" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsDigitSequence" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Core.Description" String="Contains only digits" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsUpperCase" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsUpperCase" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Core.Description" String="Contains just uppercase characters" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Core.Description" String="Annotated property or parameter is a currency code" />
 
       </Term>
 
-      <Term Name="IsUnit" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+      <Term Name="IsUnit" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Core.Description" String="Annotated property or parameter is a unit of measure" />
       </Term>
 
@@ -222,11 +222,11 @@
         <Annotation Term="Core.Description" String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
       </Term>
 
-      <Term Name="MinOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter" Type="Edm.Int64" Nullable="false">
+      <Term Name="MinOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter ReturnType" Type="Edm.Int64" Nullable="false">
         <Annotation Term="Core.Description" String="The annotated set or collection contains at least this number of items" />
       </Term>
 
-      <Term Name="MaxOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter" Type="Edm.Int64" Nullable="false">
+      <Term Name="MaxOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter ReturnType" Type="Edm.Int64" Nullable="false">
         <Annotation Term="Core.Description" String="The annotated set or collection contains at most this number of items" />
       </Term>
 
@@ -829,7 +829,7 @@ The minimum structure is
       <Term Name="IsCalendarWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits.
-            The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]
+            The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-4]
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -886,7 +886,7 @@ The minimum structure is
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting 
           of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3]) 
+          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-4]) 
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -956,8 +956,7 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. 
-          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</String>
+          <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -965,8 +964,7 @@ The minimum structure is
       <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of 
-          six digits, where the last two digits represent the week number in the year. 
-          The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])</String>
+          six digits, where the last two digits represent the week number in the year.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
