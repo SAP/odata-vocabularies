@@ -155,8 +155,8 @@
                 "ReturnType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The point in time represented by the annotated property, parameter or return type shall be interpreted in the given time zone",
-            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.Description": "The point in time represented by the annotated property, parameter or return type must be interpreted in the given time zone",
+            "@Core.LongDescription": "Time zones must be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "Locale": {
@@ -168,8 +168,8 @@
                 "ReturnType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "The value of the annotated property, parameter or return type shall be interpreted in the given locale",
-            "@Core.LongDescription": "Locales MUST be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).\n          If this annotation is absent or null, the current user's or default locale is used.\n          An example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent."
+            "@Core.Description": "The value of the annotated property, parameter or return type must be interpreted in the given locale",
+            "@Core.LongDescription": "Locales must be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).\n          If this annotation is absent or null, the current user's or default locale is used.\n          An example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent."
         },
         "IsDigitSequence": {
             "$Kind": "Term",

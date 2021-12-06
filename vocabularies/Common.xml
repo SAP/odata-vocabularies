@@ -116,9 +116,9 @@
 
       <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The point in time represented by the annotated property, parameter or return type shall be interpreted in the given time zone" />
+        <Annotation Term="Core.Description" String="The point in time represented by the annotated property, parameter or return type must be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
-          <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
+          <String>Time zones must be specified according to the [IANA](https://www.iana.org/time-zones) standard.
             If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
@@ -126,9 +126,9 @@
 
       <Term Name="Locale" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter ReturnType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The value of the annotated property, parameter or return type shall be interpreted in the given locale" />
+        <Annotation Term="Core.Description" String="The value of the annotated property, parameter or return type must be interpreted in the given locale" />
         <Annotation Term="Core.LongDescription">
-          <String>Locales MUST be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).
+          <String>Locales must be specified through a [Unicode Locale Identifier](https://www.unicode.org/reports/tr35/tr35.html#Identifiers).
           If this annotation is absent or null, the current user's or default locale is used.
           An example for the applicability of this annotation are calendar weeks, whose meaning is locale-dependent.</String>
         </Annotation>
