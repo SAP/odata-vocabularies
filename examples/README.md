@@ -1,14 +1,18 @@
-# Annotation Examples
+# Examples
 
-Annotation examples are authored in XML and automatically translated to JSON.
+## [Composition](Common.Composition-sample.xml)
 
-Example file names should start with the alias-qualified term name, followed by a dash, an optional "qualifier" for the example file, and end with `examples.xml`, e.g.
+This example shows how to declare a composition relationship between entity types of a business object.
 
-- `Common.SideEffects-examples.xml`
-- `Common.SideEffects-really.tricky.examples.xml`
+## [SAP Object Node Type](Common.SAPObjectNodeType-sample.xml)
 
-Each example file can contain one or more examples.
+This example shows how to declare SAP Object Node Types.
 
-Examples should be documented with `Core.Description`.
+## [Temporal properties](Common.Timezone-sample.xml)
 
-You can use the copy template `_vocab.Term-examples.xml` as a quickstart.
+This example shows annotations of temporal properties: calendar weeks and timestamps.
+
+## [Dynamic properties](DynamicProperties-sample.xml)
+
+This example shows how dynamic properties that result from data aggregation can be handled in analogy with
+structural properties.
