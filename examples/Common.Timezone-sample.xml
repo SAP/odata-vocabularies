@@ -6,6 +6,10 @@
   <edmx:DataServices>
     <Schema Namespace="timezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
+        <Property Name="WorkingWeek" Type="Edm.String">
+          <Annotation Term="Common.IsCalendarYearWeek"/>
+          <Annotation Term="Common.Locale" String="de-DE"/>
+        </Property>
         <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset">
           <Annotation Term="Common.Timezone" Path="ClockInTimezone"/>
         </Property>
@@ -13,4 +17,4 @@
       </EntityType>
     </Schema>
   </edmx:DataServices>
-</edmx:Edmx>      
+</edmx:Edmx>

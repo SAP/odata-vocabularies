@@ -13,6 +13,11 @@
     "timezone.sample": {
         "WorkerTimeSheet": {
             "$Kind": "EntityType",
+            "WorkingWeek": {
+                "$Nullable": true,
+                "@Common.IsCalendarYearWeek": true,
+                "@Common.Locale": "de-DE"
+            },
             "ClockInDateTime": {
                 "$Type": "Edm.DateTimeOffset",
                 "$Nullable": true,
