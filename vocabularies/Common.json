@@ -295,7 +295,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Use terms `MaskedValue` and `MaskedAlways` instead"
+                    "Description": "Use terms `MaskedValue` instead"
                 }
             ],
             "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
@@ -311,16 +311,15 @@
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces."
         },
-        "MaskedAlways": {
+        "RevealOnDemand": {
             "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
+            "$Type": "Edm.Boolean",
             "$AppliesTo": [
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Property contains sensitive data that is by default not transferred",
-            "@Core.LongDescription": "If the annotation evaluates to true, the unmasked property value is never transferred in responses.\n\nIf the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`."
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Unmasked data for this property can be requested with custom query option `masked-values=false`"
         },
         "SemanticObject": {
             "$Kind": "Term",
@@ -492,6 +491,7 @@
         "Timestamp": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
+            "$Precision": 0,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -1244,12 +1244,6 @@
             "PreparationAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
-                    }
-                ],
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
@@ -1518,6 +1512,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Creation timestamp",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1538,6 +1533,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Last modification timestamp",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1597,6 +1593,15 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
+        },
+        "WebSocketBaseURL": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "Base URL for WebSocket connections"
         },
         "callback": {
             "$Kind": "Term",
