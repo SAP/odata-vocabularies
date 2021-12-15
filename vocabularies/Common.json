@@ -319,7 +319,8 @@
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
-                "Property"
+                "Property",
+                "NavigationProperty"
             ],
             "@Core.Description": "Name of the Semantic Object represented as this entity type or identified by this property"
         },
