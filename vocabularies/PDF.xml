@@ -69,8 +69,26 @@
             <String>...</String>
           </Annotation>
         </Property>
-        <Property Name="FontSize" Type="Edm.Boolean" DefaultValue="false">
+        <Property Name="FontName" Type="Edm.String">
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="FontSize" Type="Edm.Int16">
           <!-- TODO: really a Boolean? -->
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="Margin" Type="Edm.Int16">
+          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.LongDescription">
+            <String>...</String>
+          </Annotation>
+        </Property>
+        <Property Name="Border" Type="Edm.Int16">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
             <String>...</String>

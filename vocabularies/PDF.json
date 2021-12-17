@@ -70,10 +70,26 @@
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
             },
-            "FontSize": {
-                "$Type": "Edm.Boolean",
+            "FontName": {
                 "$Nullable": true,
-                "$DefaultValue": false,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "FontSize": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "Margin": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
+                "@Core.Description": "...",
+                "@Core.LongDescription": "..."
+            },
+            "Border": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
             },
