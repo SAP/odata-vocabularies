@@ -190,7 +190,7 @@ into the output set
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
         <ReturnType Type="Collection(Edm.EntityType)">
-          <Annotation Term="Core.Description" String="Output set with same entity type as input set"/>
+          <Annotation Term="Core.Description" String="Output set with same entity set as input set"/>
         </ReturnType>
       </Function>
       <Function Name="condense" IsBound="true">

@@ -225,7 +225,7 @@
                 "$ReturnType": {
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
-                    "@Core.Description": "Output set with same entity type as input set"
+                    "@Core.Description": "Output set with same entity set as input set"
                 }
             },
             {

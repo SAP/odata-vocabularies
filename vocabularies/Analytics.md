@@ -46,7 +46,7 @@ into the output set
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](./Analytics.xml#L191:~:text=<Function%20Name="-,condense,-")**|\[EntityType\]|**Binding parameter**
-[&rarr;](./Analytics.xml#L192:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity type as input set
+[&rarr;](./Analytics.xml#L192:~:text=<Function%20Name="-,condense,-")|\[EntityType\]|Output set with same entity set as input set
 
 
 ### <a name="condense"></a>[condense](./Analytics.xml#L196)
