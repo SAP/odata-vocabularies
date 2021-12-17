@@ -105,6 +105,11 @@ Otherwise:
 - On failure no sticky session is initiated.</String>
           </Annotation>
         </Property>
+        <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Additional bound actions that initiate a sticky session" />
+          <Annotation Term="Core.LongDescription" String="Actions have the same binding parameter as the `NewAction` and may have non-binding paramters" />
+        </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
           <Annotation Term="Core.LongDescription">

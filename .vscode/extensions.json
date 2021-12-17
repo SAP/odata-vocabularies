@@ -6,7 +6,6 @@
     "esbenp.prettier-vscode",
     "hbenl.vscode-mocha-test-adapter",
     "hbenl.vscode-test-explorer",
-    "huntertran.auto-markdown-toc",
     "redhat.vscode-xml"
   ]
 }

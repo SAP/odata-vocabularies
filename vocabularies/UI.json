@@ -389,7 +389,6 @@
         "DataPoint": {
             "$Kind": "Term",
             "$Type": "UI.DataPointType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1127,6 +1126,7 @@
             "$Abstract": true,
             "@Core.Description": "Abstract base type for facets",
             "@Validation.ApplicableTerms": [
+                "UI.Hidden",
                 "UI.PartOfPreview"
             ],
             "Label": {

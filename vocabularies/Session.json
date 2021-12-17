@@ -61,6 +61,13 @@
                 "@Core.Description": "Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection",
                 "@Core.LongDescription": "Signature:\n\n- Binding parameter is collection of type of annotated entity set\n\n- No non-binding parameters\n\n- No return type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n\n- On success this action initiates a sticky session.\n\n- On failure no sticky session is initiated."
             },
+            "AdditionalNewActions": {
+                "$Collection": true,
+                "$Type": "Common.QualifiedName",
+                "@Common.Experimental": true,
+                "@Core.Description": "Additional bound actions that initiate a sticky session",
+                "@Core.LongDescription": "Actions have the same binding parameter as the `NewAction` and may have non-binding paramters"
+            },
             "EditAction": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Bound action that initiates a sticky session for editing the targeted entity",
