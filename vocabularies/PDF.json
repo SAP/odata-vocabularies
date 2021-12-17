@@ -95,11 +95,6 @@
                 "$Nullable": true,
                 "@Core.Description": "...",
                 "@Core.LongDescription": "..."
-            },
-            "URIType": {
-                "$Collection": true,
-                "@Core.Description": "...",
-                "@Core.LongDescription": "..."
             }
         }
     }
