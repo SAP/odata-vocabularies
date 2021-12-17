@@ -239,7 +239,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="Use terms `MaskedValue` and `MaskedAlways` instead" />
+              <PropertyValue Property="Description" String="Use terms `MaskedValue` instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -257,17 +257,13 @@
         </Annotation>
       </Term>
 
-      <Term Name="MaskedAlways" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="RevealOnDemand" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
-        <Annotation Term="Core.LongDescription">
-          <String>If the annotation evaluates to true, the unmasked property value is never transferred in responses.
-
-If the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`.</String>
-        </Annotation>
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Unmasked data for this property can be requested with custom query option `masked-values=false`" />
       </Term>
 
-      <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property">
+      <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property NavigationProperty">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property" />
       </Term>
       <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false" AppliesTo="EntitySet EntityType Property">
@@ -1020,14 +1016,6 @@ The minimum structure is
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
-              </Record>
-            </Collection>
-          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
@@ -1386,6 +1374,12 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
+      </Term>
+
+      <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
     </Schema>

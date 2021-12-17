@@ -389,7 +389,6 @@
         "DataPoint": {
             "$Kind": "Term",
             "$Type": "UI.DataPointType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1126,6 +1125,10 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Core.Description": "Abstract base type for facets",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden",
+                "UI.PartOfPreview"
+            ],
             "Label": {
                 "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
@@ -1496,8 +1499,8 @@
             "$AppliesTo": [
                 "Record"
             ],
-            "@Core.Description": "This Facet and all included Facets are part of the Thing preview",
-            "@Core.RequiresType": "UI.Facet"
+            "@Core.Description": "This record and all included structural elements are part of the Thing preview",
+            "@Core.LongDescription": "This term can be applied e.g. to UI.Facet and UI.DataField"
         },
         "Map": {
             "$Kind": "Term",
@@ -1680,6 +1683,7 @@
             "@Validation.ApplicableTerms": [
                 "UI.Hidden",
                 "UI.Importance",
+                "UI.PartOfPreview",
                 "HTML5.CssDefaults"
             ],
             "Label": {

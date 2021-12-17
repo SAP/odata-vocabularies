@@ -86,7 +86,8 @@
                         "Property": "Country"
                     },
                     {
-                        "DynamicProperty": "@Analytics.AggregatedProperty#sum"
+                        "DynamicProperty": "@Analytics.AggregatedProperty#sum",
+                        "Descending": true
                     },
                     {
                         "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"

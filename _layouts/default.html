@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+      {{ content }}
+      
+    </div>
+    <footer>
+      <div class="container">
+        <p>
+          © Copyright 2016, SAP SE and odata-vocabularies Contributors.
+          <a href="https://www.sap.com/about/legal/impressum.html">Legal Disclosure</a>.
+          <a href="https://www.sap.com/corporate/en/legal/terms-of-use.html">Terms of Use</a>.
+          <a href="{{ site.github.repository_url }}/blob/main/{{ page.path }}">View On <strong>GitHub</strong></a>.
+        </p>
+        <p>
+          This site is hosted by <a href="https://pages.github.com/">GitHub Pages</a>. 
+          Please see the <a href="https://docs.github.com/en/github/site-policy/github-privacy-statement">GitHub Privacy Statement</a> for any information how GitHub processes your personal data.
+        </p> 
+      </div>
+    </footer>
+  </body>
+</html>
