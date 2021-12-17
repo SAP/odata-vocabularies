@@ -94,13 +94,6 @@
             <String>...</String>
           </Annotation>
         </Property>
-        <Property Name="URIType" Type="Collection(Edm.String)">
-          <!-- TODO: TypeDefinition with AllowedValues? -->
-          <Annotation Term="Core.Description" String="..." />
-          <Annotation Term="Core.LongDescription">
-            <String>...</String>
-          </Annotation>
-        </Property>
       </ComplexType>
 
     </Schema>
