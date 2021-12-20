@@ -1551,6 +1551,14 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
       </ComplexType>
 
+      <ComplexType Name="DataFieldForActionGroup" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that refer to actions or intent based navigations" />
+        </Property>
+      </ComplexType>
+
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data" />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
@@ -1621,6 +1629,14 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
               <String>UI.DataFieldWithUrl</String>
             </Collection>
           </Annotation>
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>
       </ComplexType>
 
