@@ -1612,7 +1612,15 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
         <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
+          <Annotation Term="Core.Description" String="Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldWithAction</String>
+              <String>UI.DataFieldWithIntentBasedNavigation</String>
+              <String>UI.DataFieldWithNavigationPath</String>
+              <String>UI.DataFieldWithUrl</String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 
