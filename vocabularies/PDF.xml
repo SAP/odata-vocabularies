@@ -40,83 +40,75 @@
       <ComplexType Name="FeaturesType">
         <Property Name="DocumentDescriptionReference" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" Bool="true" />
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Reference of the Service for the DocumentDescription" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Reference of the Service for the DocumentDescription</String>
           </Annotation>
         </Property>
         <Property Name="DocumentDescriptionCollection" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Collection of DocumentDescription" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Collection of DocumentDescription</String>
           </Annotation>
         </Property>
         <Property Name="ArchiveFormat" Type="Edm.Boolean" DefaultValue="false">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="PDFA conformant format" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>PDFA conformant format</String>
           </Annotation>
         </Property>
         <Property Name="Signature" Type="Edm.Boolean" DefaultValue="false">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Signing the document" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Signing the document</String>
           </Annotation>
         </Property>
         <Property Name="CoverPage" Type="Edm.Boolean" DefaultValue="false">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Cover Page" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Cover Page</String>
           </Annotation>
         </Property>
         <Property Name="FontName" Type="Edm.String">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Font name" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Font name</String>
           </Annotation>
         </Property>
         <Property Name="FontSize" Type="Edm.Int16">
-          <!-- TODO: really a Boolean? -->
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Font size" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Font size</String>
           </Annotation>
         </Property>
         <Property Name="Margin" Type="Edm.Int16">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Margin size" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Margin size</String>
           </Annotation>
         </Property>
         <Property Name="Border" Type="Edm.Int16">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Border size of the table" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Border size of the table</String>
           </Annotation>
         </Property>
         <Property Name="FitToPage" Type="Edm.Boolean" DefaultValue="false">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Fit to page" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>If this option is selected, the font size is automatically selected in such a way that all columns of a table fit on one page. Other layout options like margin, border and composite cell spacing are adapted accordingly, with respect to the chose scaling factor.</String>
           </Annotation>
         </Property>
         <Property Name="ResultSizeDefault" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="..." />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String> Default result size for PDF documents. Used if a the $top has not been provided.</String>
           </Annotation>
         </Property>
         <Property Name="ResultSizeMaximum" Type="Edm.Int32">
-          <Annotation Term="Core.Description" String="..." />
+          <Annotation Term="Core.Description" String="Maximum page size" />
           <Annotation Term="Core.LongDescription">
-            <String>...</String>
-          </Annotation>
-        </Property>
-        <Property Name="URIType" Type="Collection(Edm.String)">
-          <!-- TODO: TypeDefinition with AllowedValues? -->
-          <Annotation Term="Core.Description" String="..." />
-          <Annotation Term="Core.LongDescription">
-            <String>...</String>
+            <String>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum</String></String>
           </Annotation>
         </Property>
       </ComplexType>
