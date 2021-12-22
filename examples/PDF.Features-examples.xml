@@ -22,15 +22,10 @@
             <PropertyValue Property="ArchiveFormat" Bool="true" />
             <PropertyValue Property="Signature" Bool="true" />
             <PropertyValue Property="CoverPage" Bool="true" />
-            <PropertyValue Property="FontSize" Bool="true" />
-            <PropertyValue Property="FitToPage" Bool="true" />
+            <PropertyValue Property="FontSize" Int="12" />
+            <PropertyValue Property="FitToPage" Bool="false" />
             <PropertyValue Property="ResultSizeDefault" Int="5000" />
             <PropertyValue Property="ResultSizeMaximum" Int="50000" />
-            <PropertyValue Property="URIType">
-              <Collection>
-                <String>EntitySet</String>
-              </Collection>
-            </PropertyValue>
           </Record>
         </Annotation>
       </Annotations>
