@@ -1803,6 +1803,7 @@
         "DataFieldForActionGroup": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
+            "@Common.Experimental": true,
             "@Core.Description": "Collection of OData actions and intent based navigations",
             "Actions": {
                 "$Collection": true,
@@ -1876,17 +1877,12 @@
         "DataFieldWithActionGroup": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataField",
+            "@Common.Experimental": true,
             "@Core.Description": "Collection of OData actions and intent based navigations",
             "Actions": {
                 "$Collection": true,
                 "$Type": "UI.DataField",
-                "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)",
-                "@Validation.DerivedTypeConstraint": [
-                    "UI.DataFieldWithAction",
-                    "UI.DataFieldWithIntentBasedNavigation",
-                    "UI.DataFieldWithNavigationPath",
-                    "UI.DataFieldWithUrl"
-                ]
+                "@Core.Description": "Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
             }
         },
         "Criticality": {
