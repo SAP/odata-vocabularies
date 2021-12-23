@@ -188,7 +188,7 @@ into the output set
 |           100|    2000|
 </String>
         </Annotation>
-        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Output set with same entity set as input set"/>
         </ReturnType>
@@ -199,8 +199,8 @@ into the output set
           <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in
           `transformnested(StructuralProperty,concat(...)/Analytics.condense())`.</String>
         </Annotation>
-        <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
-        <ReturnType Type="Collection(Edm.ComplexType)">
+        <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)" Nullable="false"/>
+        <ReturnType Type="Collection(Edm.ComplexType)" Nullable="false">
           <Annotation Term="Core.Description" String="Output set with same complex type as input set"/>
         </ReturnType>
       </Function>
