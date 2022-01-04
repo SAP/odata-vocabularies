@@ -8,24 +8,41 @@
                     "$Alias": "UI"
                 }
             ]
-        },
-        "/sap/opu/odata4/product.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.gateway.entities.product",
-                    "$Alias": "Product"
-                }
-            ]
         }
     },
     "userinteraction.sample": {
         "$Alias": "self",
+        "AlternativeProduct": {
+            "$Kind": "EntityType",
+            "Product": {
+                "$Nullable": true
+            },
+            "UpsellNote": {
+                "$Nullable": true
+            },
+            "@UI.LineItem": [
+                {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+                    "Label": "Alternative Product",
+                    "Value": {
+                        "$Path": "Product"
+                    }
+                },
+                {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+                    "Label": "Why it's better to buy this",
+                    "Value": {
+                        "$Path": "UpsellNote"
+                    }
+                }
+            ]
+        },
         "SalesOrderItem": {
             "$Kind": "EntityType",
             "_AlternativeProducts": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "Product.AlternativeProduct",
+                "$Type": "self.AlternativeProduct",
                 "@UI.UserInteraction@Core.Description": "Please choose a product",
                 "@UI.UserInteraction": {
                     "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionChooseSingle",
@@ -39,7 +56,7 @@
             },
             "_UpgradeProduct": {
                 "$Kind": "NavigationProperty",
-                "$Type": "Product.AlternativeProduct",
+                "$Type": "self.AlternativeProduct",
                 "$Nullable": true,
                 "@UI.UserInteraction@Core.Description": "Do you want to upgrade the product?",
                 "@UI.UserInteraction": {
