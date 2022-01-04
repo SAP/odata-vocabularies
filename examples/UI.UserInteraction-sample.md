@@ -52,7 +52,7 @@ HTTP/1.1 400 Bad Request
 }}
 ```
 
-The client constructs a choice dialog based on (a) the `UI.UserInteraction` annotation and (b) the UI annotations of the `AlternativeProduct` entity type, for example:
+The client constructs a user dialog based on (a) the `UI.UserInteraction` annotation of the `_AlternativeProducts` navigation property and (b) the UI annotations of the `AlternativeProduct` entity type. The [type](../vocabularies/UI.md#UserInteractionChooseSingle) of the `UI.UserInteraction` annotation implies that this is a choice popup, not a confirmation prompt. The superscripted headings in the popup also come from the annotations.
 
 > ### Please choose a product<sup>a</sup>
 >
@@ -65,7 +65,7 @@ The client constructs a choice dialog based on (a) the `UI.UserInteraction` anno
 
 ## User chooses
 
-After the user has chosen, the request is repeated with the chosen key.
+After the user has chosen, the request is repeated with the chosen key according to the `UI.UserInteraction/Parameters`.
 
 ```
 POST ~/SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1

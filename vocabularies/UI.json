@@ -2025,7 +2025,7 @@
                 "NavigationProperty"
             ],
             "@Core.Description": "When the annotated navigation property or its `odata.navigationLink` occurs in a response,\n          the UI shall use the addressed entity or collection to interact with the user\n          and then repeat the corresponding request with the additional information obtained from the user",
-            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the annotated navigation property MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.\n          A navigation property thus annotated may be interpreted as not belonging to the object model\n          but containing auxiliary information that is not always needed."
+            "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the annotated navigation property MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.\n          A navigation property thus annotated may be interpreted as not belonging to the object model\n          but containing auxiliary information that is not always needed. See also [this example](../examples/UI.UserInteraction-sample.md)."
         },
         "UserInteractionSimple": {
             "$Kind": "Term",
@@ -2046,7 +2046,7 @@
                 "$Collection": true,
                 "$Type": "Common.ValueListParameterOut",
                 "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user",
-                "@Core.LongDescription": "This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,\n              but one that was sent by the server rather than requested by the user."
+                "@Core.LongDescription": "This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,\n            but one that was sent by the server rather than requested by the user."
             }
         },
         "UserInteractionChooseSingle": {
