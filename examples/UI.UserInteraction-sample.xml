@@ -6,7 +6,7 @@
   <edmx:DataServices>
     <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="AlternativeProduct">
-        <Property Name="Product" Type="Edm.String"/>
+        <Property Name="Product" Type="Edm.String" Nullable="false"/>
         <Property Name="UpsellNote" Type="Edm.String"/>
         <Annotation Term="UI.LineItem">
           <Collection>

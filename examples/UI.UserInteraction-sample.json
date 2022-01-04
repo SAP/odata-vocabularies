@@ -14,9 +14,7 @@
         "$Alias": "self",
         "AlternativeProduct": {
             "$Kind": "EntityType",
-            "Product": {
-                "$Nullable": true
-            },
+            "Product": {},
             "UpsellNote": {
                 "$Nullable": true
             },
