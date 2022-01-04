@@ -4,7 +4,7 @@ Certain user interactions cannot be handled by one request, because they follow 
 
 But in certain cases the server may return only one "upgrade" product and let the user confirm rather than choose. Both cases are supported by a service with [these metadata](UI.UserInteraction-sample.xml), let's look at an example of the case where the user chooses.
 
-## User clicks
+## User triggers
 
 The "exchange product" action is triggered by the user on a sales order item without specifying a parameter.
 
