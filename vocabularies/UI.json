@@ -1800,6 +1800,17 @@
                 "@Core.Description": "Maps properties of the annotated entity type to properties of the Semantic Object"
             }
         },
+        "DataFieldForActionGroup": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.DataFieldAbstract",
+            "@Common.Experimental": true,
+            "@Core.Description": "Collection of OData actions and intent based navigations",
+            "Actions": {
+                "$Collection": true,
+                "$Type": "UI.DataFieldForActionAbstract",
+                "@Core.Description": "Collection of data fields that refer to actions or intent based navigations"
+            }
+        },
         "DataField": {
             "$Kind": "ComplexType",
             "$BaseType": "UI.DataFieldAbstract",
@@ -1861,6 +1872,17 @@
                 "$Nullable": true,
                 "@Core.Description": "Media type of the hyperlink target, e.g. `video/mp4`",
                 "@Core.IsMediaType": true
+            }
+        },
+        "DataFieldWithActionGroup": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.DataField",
+            "@Common.Experimental": true,
+            "@Core.Description": "Collection of OData actions and intent based navigations",
+            "Actions": {
+                "$Collection": true,
+                "$Type": "UI.DataField",
+                "@Core.Description": "Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
             }
         },
         "Criticality": {
