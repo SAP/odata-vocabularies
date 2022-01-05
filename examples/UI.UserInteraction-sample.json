@@ -15,9 +15,7 @@
         "AlternativeProduct": {
             "$Kind": "EntityType",
             "Product": {},
-            "UpsellNote": {
-                "$Nullable": true
-            },
+            "UpsellNote": {},
             "@UI.LineItem": [
                 {
                     "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",

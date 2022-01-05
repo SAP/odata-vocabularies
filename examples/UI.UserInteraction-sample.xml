@@ -7,7 +7,7 @@
     <Schema Namespace="userinteraction.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="AlternativeProduct">
         <Property Name="Product" Type="Edm.String" Nullable="false"/>
-        <Property Name="UpsellNote" Type="Edm.String"/>
+        <Property Name="UpsellNote" Type="Edm.String" Nullable="false"/>
         <Annotation Term="UI.LineItem">
           <Collection>
             <Record Type="UI.DataField">
