@@ -30,7 +30,7 @@ HTTP/1.1 409 Conflict
  ]}
 ```
 
-Servers that cannot send a structured payload in a 4xx response may instead return an error message with a [`callback`](../vocabularies/Common.md#callback) instance annotation.
+Servers that cannot send a structured payload in a 4xx response may instead return an error message with a [`Common.callback`](../vocabularies/Common.md#callback) instance annotation.
 
 ```
 HTTP/1.1 400 Bad Request
