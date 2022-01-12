@@ -150,7 +150,6 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
-              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="ContractRelatedID" />
               <Annotation Term="Core.Description" String="The unique identifier for transactional data that is related to a contract that requires processing of personal data" />
               <Annotation Term="Core.LongDescription">

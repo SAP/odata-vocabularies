@@ -134,7 +134,6 @@
                     "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
                 },
                 {
-                    "@Common.Experimental": true,
                     "Value": "ContractRelatedID",
                     "@Core.Description": "The unique identifier for transactional data that is related to a contract that requires processing of personal data",
                     "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
