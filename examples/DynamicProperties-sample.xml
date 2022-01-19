@@ -14,29 +14,29 @@
 
       <EntityType Name="Sales">
         <Key>
-          <PropertyRef Name="Order"/>
+          <PropertyRef Name="Order" />
         </Key>
-        <Property Name="Order" Type="Edm.String" Nullable="false"/>
-        <Property Name="Country" Type="Edm.String" Nullable="false"/>
-        <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false"/>
-        <Property Name="Amount" Type="Edm.Decimal"/>
+        <Property Name="Order" Type="Edm.String" Nullable="false" />
+        <Property Name="Country" Type="Edm.String" Nullable="false" />
+        <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false" />
+        <Property Name="Amount" Type="Edm.Decimal" />
         <Annotation Term="Analytics.AggregatedProperty" Qualifier="sum">
           <Record>
-            <PropertyValue Property="Name" String="Total"/>
-            <PropertyValue Property="AggregationMethod" String="sum"/>
-            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+            <PropertyValue Property="Name" String="Total" />
+            <PropertyValue Property="AggregationMethod" String="sum" />
+            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount" />
           </Record>
         </Annotation>
         <Annotation Term="Analytics.AggregatedProperty" Qualifier="max">
           <Record>
-            <PropertyValue Property="Name" String="Maximum"/>
-            <PropertyValue Property="AggregationMethod" String="max"/>
-            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount"/>
+            <PropertyValue Property="Name" String="Maximum" />
+            <PropertyValue Property="AggregationMethod" String="max" />
+            <PropertyValue Property="AggregatableProperty" PropertyPath="Amount" />
           </Record>
         </Annotation>
         <Annotation Term="UI.Chart">
           <Record>
-            <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble"/>
+            <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble" />
             <PropertyValue Property="Dimensions">
               <Collection>
                 <PropertyPath>Country</PropertyPath>
@@ -63,13 +63,13 @@
             <PropertyValue Property="SelectOptions">
               <Collection>
                 <Record>
-                  <PropertyValue Property="DynamicPropertyName" AnnotationPath="@Analytics.AggregatedProperty#sum"/>
+                  <PropertyValue Property="DynamicPropertyName" AnnotationPath="@Analytics.AggregatedProperty#sum" />
                   <PropertyValue Property="Ranges">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
-                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeSignType/LE"/>
-                        <PropertyValue Property="Low" Decimal="1000"/>
+                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I" />
+                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeSignType/LE" />
+                        <PropertyValue Property="Low" Decimal="1000" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -83,14 +83,14 @@
             <PropertyValue Property="SortOrder">
               <Collection>
                 <Record>
-                  <PropertyValue Property="Property" PropertyPath="Country"/>
+                  <PropertyValue Property="Property" PropertyPath="Country" />
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum"/>
-                  <PropertyValue Property="Descending" Boolean="true"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum" />
+                  <PropertyValue Property="Descending" Bool="true" />
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"/>
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage" />
                 </Record>
               </Collection>
             </PropertyValue>
@@ -98,13 +98,13 @@
         </Annotation>
       </EntityType>
       <EntityType Name="meType">
-        <NavigationProperty Name="SalesOrders" Type="Collection(DynamicProperties.examples.Sales)" ContainsTarget="true"/>
+        <NavigationProperty Name="SalesOrders" Type="Collection(DynamicProperties.examples.Sales)" ContainsTarget="true" />
       </EntityType>
       <EntityContainer Name="Container">
-        <Singleton Name="me" Type="DynamicProperties.examples.meType"/>
+        <Singleton Name="me" Type="DynamicProperties.examples.meType" />
       </EntityContainer>
       <Annotations Target="self.Container/me/SalesOrders">
-        <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal"/>
+        <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal" />
       </Annotations>
 
     </Schema>

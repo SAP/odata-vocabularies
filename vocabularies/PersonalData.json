@@ -52,7 +52,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Primary meaning of the entities in the annotated entity set"
         },
         "DataSubjectRole": {
@@ -79,23 +78,19 @@
         "EntitySemanticsType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Common.Experimental": true,
             "@Core.Description": "Primary meaning of the data contained in the annotated entity set",
             "@Validation.AllowedValues": [
                 {
-                    "@Common.Experimental": true,
                     "Value": "DataSubject",
                     "@Core.Description": "Entities describing a data subject (an identified or identifiable natural person), e.g. customer, vendor, employee",
                     "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
                 },
                 {
-                    "@Common.Experimental": true,
                     "Value": "DataSubjectDetails",
                     "@Core.Description": "Entities containing details to a data subject (an identified or identifiable natural person) but not representing data subjects by themselves, e.g. street addresses, email addresses, phone numbers",
                     "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
                 },
                 {
-                    "@Common.Experimental": true,
                     "Value": "Other",
                     "@Core.Description": "Entities containing personal data or references to data subjects but not representing data subjects or data subject details by themselves, e.g. customer quote, customer order, purchase order with involved business partners",
                     "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
@@ -109,18 +104,15 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
             "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
         },
         "FieldSemanticsType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Common.Experimental": true,
             "@Core.Description": "Primary meaning of a data field",
             "@Validation.AllowedValues": [
                 {
-                    "@Common.Experimental": true,
                     "Value": "DataSubjectID",
                     "@Core.Description": "The unique identifier for a data subject"
                 },
@@ -142,7 +134,6 @@
                     "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
                 },
                 {
-                    "@Common.Experimental": true,
                     "Value": "ContractRelatedID",
                     "@Core.Description": "The unique identifier for transactional data that is related to a contract that requires processing of personal data",
                     "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
@@ -168,7 +159,6 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Property contains potentially personal data",
             "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
         },
