@@ -1608,6 +1608,7 @@
         "ActionSemanticsType": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
+            "@Common.Experimental": true,
             "@Core.Description": "Semantics of a bound action",
             "@Validation.AllowedValues": [
                 {

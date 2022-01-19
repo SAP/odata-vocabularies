@@ -401,11 +401,11 @@ Property|Type|Description
 
 User ID
 
-## <a name="ActionSemanticsType"></a>[ActionSemanticsType](./Common.xml#L1389:~:text=<TypeDefinition%20Name="-,ActionSemanticsType,-")
+## <a name="ActionSemanticsType"></a>[ActionSemanticsType](./Common.xml#L1389:~:text=<TypeDefinition%20Name="-,ActionSemanticsType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 Semantics of a bound action
 
 Allowed Value|Description
 :------------|:----------
-[copy](./Common.xml#L1393:~:text=<TypeDefinition%20Name="-,ActionSemanticsType,-") *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<br>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.
+[copy](./Common.xml#L1394:~:text=<TypeDefinition%20Name="-,ActionSemanticsType,-") *([Experimental](Common.md#Experimental))*|Creates an instance by copying an existing instance of the same type<br>Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity.
