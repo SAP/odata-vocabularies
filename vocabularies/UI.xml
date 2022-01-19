@@ -312,7 +312,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Term>
       -->
 
-      <Term Name="DataPoint" Type="UI.DataPointType" AppliesTo="EntityType">
+      <Term Name="DataPoint" Type="UI.DataPointType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of a single point of data, typically a number; may also be textual, e.g. a status value" />
       </Term>
@@ -954,6 +954,12 @@ The trend is
 
       <ComplexType Name="Facet" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.Hidden</String>
+            <String>UI.PartOfPreview</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Facet label" />
@@ -1310,8 +1316,8 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.Facet" />
       </Term>
       <Term Name="PartOfPreview" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
-        <Annotation Term="Core.Description" String="This Facet and all included Facets are part of the Thing preview" />
-        <Annotation Term="Core.RequiresType" String="UI.Facet" />
+        <Annotation Term="Core.Description" String="This record and all included structural elements are part of the Thing preview" />
+        <Annotation Term="Core.LongDescription" String="This term can be applied e.g. to UI.Facet and UI.DataField" />
       </Term>
       <Term Name="Map" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
@@ -1435,6 +1441,7 @@ The trend is
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
+            <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
           </Collection>
         </Annotation>
@@ -1537,6 +1544,14 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
       </ComplexType>
 
+      <ComplexType Name="DataFieldForActionGroup" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that refer to actions or intent based navigations" />
+        </Property>
+      </ComplexType>
+
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data" />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
@@ -1592,6 +1607,14 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `video/mp4`" />
           <Annotation Term="Core.IsMediaType" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>
       </ComplexType>
 
