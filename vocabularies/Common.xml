@@ -1016,7 +1016,7 @@ The minimum structure is
 
             &#xA0;&#xA0;- `UserID` of type `String` and
 
-            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `C` (collaborator, can change the draft)
+            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
 
             It restricts access to the listed users in their specified roles.</String>
           </Annotation>
