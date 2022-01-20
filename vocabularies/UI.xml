@@ -1733,7 +1733,7 @@ This switches off the validation of user input with respect to decimals.</String
           but containing auxiliary information that is not always needed. See also [this example](../examples/UI.UserInteraction-sample.md).</String>
         </Annotation>
       </Term>
-      <Term Name="UserInteractionSimple" Type="Collection(Edm.PrimitiveType)" AppliesTo="Property">
+      <Term Name="UserInteractionSimple" Type="Collection(Edm.String)" AppliesTo="Property">
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
           <String>When this instance annotation occurs in a response, the UI shall let the user choose from the collection

@@ -2030,7 +2030,6 @@
         "UserInteractionSimple": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "Property"
             ],
