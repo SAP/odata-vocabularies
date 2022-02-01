@@ -1007,6 +1007,20 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
           <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
         </Property>
+        <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root node and has the following signature:
+
+            - `Users`: collection of structure with properties
+
+            &#xA0;&#xA0;- `UserID` of type `String` and
+
+            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+
+            It restricts access to the listed users in their specified roles.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">

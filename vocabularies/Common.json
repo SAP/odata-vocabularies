@@ -1222,6 +1222,12 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Additional actions that create a new draft",
                 "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+            },
+            "ShareAction": {
+                "$Type": "Common.QualifiedName",
+                "$Nullable": true,
+                "@Core.Description": "Action that shares a draft document with other users",
+                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              - `UserID` of type `String` and\n\n              - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            It restricts access to the listed users in their specified roles."
             }
         },
         "DraftNode": {
