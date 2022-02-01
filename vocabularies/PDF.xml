@@ -80,7 +80,7 @@
         <Property Name="ResultSizeMaximum" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="Maximum result size" />
           <Annotation Term="Core.LongDescription">
-            <String>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum</String></String>
+            <String>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum</String>
           </Annotation>
         </Property>
       </ComplexType>

@@ -33,9 +33,8 @@
                     "CoverPage": true,
                     "FontSize": 12,
                     "FontName": "Arial",
-                    "Margin": 2,
+                    "Margin": 3,
                     "Border": 1,
-                    "FontSize": 12,
                     "FitToPage": false,
                     "ResultSizeDefault": 5000,
                     "ResultSizeMaximum": 50000
