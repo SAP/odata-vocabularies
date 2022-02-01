@@ -42,57 +42,64 @@
                 "$Type": "Edm.Decimal",
                 "$Nullable": true,
                 "$Scale": 0
+            }
+        },
+        "$Annotations": {
+            "self.Sales": {
+                "@Analytics.AggregatedProperty#sum": {
+                    "Name": "Total",
+                    "AggregationMethod": "sum",
+                    "AggregatableProperty": "Amount"
+                },
+                "@Analytics.AggregatedProperty#max": {
+                    "Name": "Maximum",
+                    "AggregationMethod": "max",
+                    "AggregatableProperty": "Amount"
+                },
+                "@UI.Chart": {
+                    "ChartType": "Bubble",
+                    "Dimensions": [
+                        "Country"
+                    ],
+                    "Measures": [
+                        "NumberOfItems"
+                    ],
+                    "DynamicMeasures": [
+                        "@Analytics.AggregatedProperty#sum",
+                        "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                    ]
+                },
+                "@UI.SelectionVariant": {
+                    "SelectOptions": [
+                        {
+                            "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
+                            "Ranges": [
+                                {
+                                    "Sign": "I",
+                                    "Option": "LE",
+                                    "Low": 1000
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "@UI.PresentationVariant": {
+                    "SortOrder": [
+                        {
+                            "Property": "Country"
+                        },
+                        {
+                            "DynamicProperty": "@Analytics.AggregatedProperty#sum",
+                            "Descending": true
+                        },
+                        {
+                            "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+                        }
+                    ]
+                }
             },
-            "@Analytics.AggregatedProperty#sum": {
-                "Name": "Total",
-                "AggregationMethod": "sum",
-                "AggregatableProperty": "Amount"
-            },
-            "@Analytics.AggregatedProperty#max": {
-                "Name": "Maximum",
-                "AggregationMethod": "max",
-                "AggregatableProperty": "Amount"
-            },
-            "@UI.Chart": {
-                "ChartType": "Bubble",
-                "Dimensions": [
-                    "Country"
-                ],
-                "Measures": [
-                    "NumberOfItems"
-                ],
-                "DynamicMeasures": [
-                    "@Analytics.AggregatedProperty#sum",
-                    "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
-                ]
-            },
-            "@UI.SelectionVariant": {
-                "SelectOptions": [
-                    {
-                        "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
-                        "Ranges": [
-                            {
-                                "Sign": "I",
-                                "Option": "LE",
-                                "Low": 1000
-                            }
-                        ]
-                    }
-                ]
-            },
-            "@UI.PresentationVariant": {
-                "SortOrder": [
-                    {
-                        "Property": "Country"
-                    },
-                    {
-                        "DynamicProperty": "@Analytics.AggregatedProperty#sum",
-                        "Descending": true
-                    },
-                    {
-                        "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
-                    }
-                ]
+            "self.Container/me/SalesOrders": {
+                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
             }
         },
         "meType": {
@@ -108,11 +115,6 @@
             "$Kind": "EntityContainer",
             "me": {
                 "$Type": "self.meType"
-            }
-        },
-        "$Annotations": {
-            "self.Container/me/SalesOrders": {
-                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
             }
         }
     },
