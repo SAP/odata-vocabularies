@@ -48,7 +48,7 @@
           <Annotation Term="Core.Description" String="Reference of the Service for the DocumentDescription" />
         </Property>
         <Property Name="DocumentDescriptionCollection" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of DocumentDescription" />
+          <Annotation Term="Core.Description" String="Name of entity set containing the DocumentDescription" />
         </Property>
         <Property Name="ArchiveFormat" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="PDFA conformant format" />
