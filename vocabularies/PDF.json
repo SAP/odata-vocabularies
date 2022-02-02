@@ -55,7 +55,7 @@
                 "@Core.Description": "Reference of the Service for the DocumentDescription"
             },
             "DocumentDescriptionCollection": {
-                "@Core.Description": "Collection of DocumentDescription"
+                "@Core.Description": "Name of entity set containing the DocumentDescription"
             },
             "ArchiveFormat": {
                 "$Type": "Edm.Boolean",
