@@ -1,0 +1,118 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.PDF.v1": {
+        "$Alias": "PDF",
+        "@Common.Experimental": true,
+        "@Core.Description": "Terms for PDF response format",
+        "@Core.LongDescription": "The PDF vocabulary provides information about the PDF format of a response",
+        "@Core.Description#Published": "2021-10-27 © Copyright 2021 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PDF.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PDF.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/PDF.md"
+            }
+        ],
+        "Features": {
+            "$Kind": "Term",
+            "$Type": "PDF.FeaturesType",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "Features for the PDF"
+        },
+        "FeaturesType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "DocumentDescriptionReference": {
+                "@Core.IsURL": true,
+                "@Core.Description": "Reference of the Service for the DocumentDescription"
+            },
+            "DocumentDescriptionCollection": {
+                "@Core.Description": "Name of entity set containing the DocumentDescription"
+            },
+            "ArchiveFormat": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "PDFA conformant format"
+            },
+            "Signature": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "Signing the document"
+            },
+            "CoverPage": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "Cover Page"
+            },
+            "FontName": {
+                "$Nullable": true,
+                "@Core.Description": "Font name"
+            },
+            "FontSize": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
+                "@Core.Description": "Font size"
+            },
+            "Margin": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
+                "@Core.Description": "Margin size"
+            },
+            "Border": {
+                "$Type": "Edm.Int16",
+                "$Nullable": true,
+                "@Core.Description": "Border size of the table"
+            },
+            "FitToPage": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "$DefaultValue": false,
+                "@Core.Description": "Fit to page",
+                "@Core.LongDescription": "If this option is selected, the font size is automatically selected in such a way that all columns of a table fit on one page. Other layout options like margin, border and composite cell spacing are adapted accordingly, with respect to the chose scaling factor."
+            },
+            "ResultSizeDefault": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Core.Description": "Default result size",
+                "@Core.LongDescription": " Default result size for PDF documents. Used if a the $top has not been provided."
+            },
+            "ResultSizeMaximum": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Core.Description": "Maximum result size",
+                "@Core.LongDescription": "Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum"
+            }
+        }
+    }
+}
