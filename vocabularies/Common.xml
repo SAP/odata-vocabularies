@@ -1396,24 +1396,16 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="ActionSemantics" Type="Common.ActionSemanticsType" Nullable="false" AppliesTo="Action">
+      <Term Name="CopyAction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Semantics of a bound action" />
-      </Term>
-      <TypeDefinition Name="ActionSemanticsType" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Semantics of a bound action" />
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="copy" />
-              <Annotation Term="Core.Description" String="Creates an instance by copying an existing instance of the same type" />
-              <Annotation Term="Core.LongDescription" String="Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity." />
-            </Record>
-          </Collection>
+        <Annotation Term="Core.Description" String="Action that deep-copies an instance of the annotated entity set" />
+        <Annotation Term="Core.LongDescription">
+          <String>The action is bound to the entity type of the annotated entity set and creates a new instance of the same entity type as a deep copy of the bound instance.
+Upon successful completion, the response MUST contain a ' Location` header that contains the edit URL or read URL of the created entity,
+and the response MUST be either `201 Created` and a representation of the created entity,
+or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.</String>
         </Annotation>
-      </TypeDefinition>
+      </Term>
 
     </Schema>
   </edmx:DataServices>

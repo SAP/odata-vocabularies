@@ -1602,28 +1602,15 @@
             "@Core.IsURL": true,
             "@Core.Description": "Base URL for WebSocket connections"
         },
-        "ActionSemantics": {
+        "CopyAction": {
             "$Kind": "Term",
-            "$Type": "Common.ActionSemanticsType",
+            "$Type": "Common.QualifiedName",
             "$AppliesTo": [
-                "Action"
+                "EntitySet"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Semantics of a bound action"
-        },
-        "ActionSemanticsType": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Common.Experimental": true,
-            "@Core.Description": "Semantics of a bound action",
-            "@Validation.AllowedValues": [
-                {
-                    "@Common.Experimental": true,
-                    "Value": "copy",
-                    "@Core.Description": "Creates an instance by copying an existing instance of the same type",
-                    "@Core.LongDescription": "Action creates an instance, returns `201 Created` and the created instance in success case. If the created instance is an entity, it also returns a `Location` header for locating the new entity."
-                }
-            ]
+            "@Core.Description": "Action that deep-copies an instance of the annotated entity set",
+            "@Core.LongDescription": "The action is bound to the entity type of the annotated entity set and creates a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a ' Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
         }
     }
 }

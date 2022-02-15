@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="Common.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="container">
+        <EntitySet Name="SalesOrder" EntityType="this.SalesOrder_Type" />
+      </EntityContainer>
+
+      <EntityType Name="SalesOrder_Type">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" />
+        <Property Name="canBeCopied" Type="Edm.Boolean" Nullable="true" />
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <Action Name="Copy" IsBound="true">
+        <Parameter Name="it" Type="this.SalesOrder_Type" />
+        <ReturnType Type="this.SalesOrder_Type"></ReturnType>
+      </Action>
+
+      <Annotations Target="this.container/SalesOrder">
+        <Annotation Term="Common.CopyAction" String="this.Copy" />
+      </Annotations>
+
+      <Annotations Target="this.Copy">
+        <!-- property canBeCopied of the bound instance controls whether the Copy action is available on that instance -->
+        <Annotation Term="Core.OperationAvailable" Path="it/canBeCopied" />
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
