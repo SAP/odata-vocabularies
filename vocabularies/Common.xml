@@ -1396,17 +1396,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="CopyAction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Action that deep-copies an instance of the annotated entity set" />
-        <Annotation Term="Core.LongDescription">
-          <String>The action is bound to the entity type of the annotated entity set and creates a new instance of the same entity type as a deep copy of the bound instance.
-Upon successful completion, the response MUST contain a ' Location` header that contains the edit URL or read URL of the created entity,
-and the response MUST be either `201 Created` and a representation of the created entity,
-or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.</String>
-        </Annotation>
-      </Term>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

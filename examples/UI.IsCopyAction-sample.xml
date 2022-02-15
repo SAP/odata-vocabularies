@@ -4,12 +4,12 @@
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
 
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema Namespace="Common.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
 
       <EntityContainer Name="container">
         <EntitySet Name="SalesOrder" EntityType="this.SalesOrder_Type" />
@@ -21,6 +21,7 @@
         </Key>
         <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" />
         <Property Name="canBeCopied" Type="Edm.Boolean" Nullable="true" />
+        <Property Name="hideCopyButton" Type="Edm.Boolean" Nullable="true" />
         <!-- ... and a lot more -->
       </EntityType>
 
@@ -29,13 +30,22 @@
         <ReturnType Type="this.SalesOrder_Type"></ReturnType>
       </Action>
 
-      <Annotations Target="this.container/SalesOrder">
-        <Annotation Term="Common.CopyAction" String="this.Copy" />
-      </Annotations>
-
       <Annotations Target="this.Copy">
         <!-- property canBeCopied of the bound instance controls whether the Copy action is available on that instance -->
         <Annotation Term="Core.OperationAvailable" Path="it/canBeCopied" />
+      </Annotations>
+
+      <Annotations Target="this.SalesOrder_Type">
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataFieldForAction">
+              <Annotation Term="UI.Hidden" Path="hideCopyButton" />
+              <Annotation Term="UI.IsCopyAction" Bool="true" />
+              <PropertyValue Property="Action" String="this.Copy" />
+            </Record>
+            <!-- ... and some more -->
+          </Collection>
+        </Annotation>
       </Annotations>
 
     </Schema>

@@ -9,16 +9,16 @@
                 }
             ]
         },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
                 }
             ]
         }
     },
-    "Common.examples": {
+    "UI.examples": {
         "$Alias": "this",
         "container": {
             "$Kind": "EntityContainer",
@@ -36,6 +36,10 @@
                 "$MaxLength": 10
             },
             "canBeCopied": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true
+            },
+            "hideCopyButton": {
                 "$Type": "Edm.Boolean",
                 "$Nullable": true
             }
@@ -58,15 +62,24 @@
             }
         ],
         "$Annotations": {
-            "this.container/SalesOrder": {
-                "@Common.CopyAction": "this.Copy"
-            },
             "this.Copy": {
                 "@Core.OperationAvailable": {
                     "$Path": "it/canBeCopied"
                 }
+            },
+            "this.SalesOrder_Type": {
+                "@UI.LineItem": [
+                    {
+                        "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForAction",
+                        "@UI.Hidden": {
+                            "$Path": "hideCopyButton"
+                        },
+                        "@UI.IsCopyAction": true,
+                        "Action": "this.Copy"
+                    }
+                ]
             }
         }
     },
-    "$EntityContainer": "Common.examples.container"
+    "$EntityContainer": "UI.examples.container"
 }
