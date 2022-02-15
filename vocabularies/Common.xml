@@ -119,7 +119,7 @@
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
-            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.</String>
+            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
@@ -1006,6 +1006,20 @@ The minimum structure is
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
           <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
+        </Property>
+        <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root node and has the following signature:
+
+            - `Users`: collection of structure with properties
+
+            &#xA0;&#xA0;- `UserID` of type `String` and
+
+            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+
+            It restricts access to the listed users in their specified roles.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 

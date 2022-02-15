@@ -20,6 +20,9 @@
         <Property Name="Country" Type="Edm.String" Nullable="false" />
         <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false" />
         <Property Name="Amount" Type="Edm.Decimal" />
+      </EntityType>
+
+      <Annotations Target="self.Sales">
         <Annotation Term="Analytics.AggregatedProperty" Qualifier="sum">
           <Record>
             <PropertyValue Property="Name" String="Total" />
@@ -27,6 +30,7 @@
             <PropertyValue Property="AggregatableProperty" PropertyPath="Amount" />
           </Record>
         </Annotation>
+
         <Annotation Term="Analytics.AggregatedProperty" Qualifier="max">
           <Record>
             <PropertyValue Property="Name" String="Maximum" />
@@ -34,6 +38,7 @@
             <PropertyValue Property="AggregatableProperty" PropertyPath="Amount" />
           </Record>
         </Annotation>
+
         <Annotation Term="UI.Chart">
           <Record>
             <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bubble" />
@@ -55,6 +60,7 @@
             </PropertyValue>
           </Record>
         </Annotation>
+
         <Annotation Term="UI.SelectionVariant">
           <!-- This annotation leads to the clause
                $apply=groupby(...,aggregate(Amount with sum as Total))/filter(Total le 1000)
@@ -78,6 +84,7 @@
             </PropertyValue>
           </Record>
         </Annotation>
+
         <Annotation Term="UI.PresentationVariant">
           <Record>
             <PropertyValue Property="SortOrder">
@@ -96,13 +103,15 @@
             </PropertyValue>
           </Record>
         </Annotation>
-      </EntityType>
+      </Annotations>
+
       <EntityType Name="meType">
         <NavigationProperty Name="SalesOrders" Type="Collection(DynamicProperties.examples.Sales)" ContainsTarget="true" />
       </EntityType>
       <EntityContainer Name="Container">
         <Singleton Name="me" Type="DynamicProperties.examples.meType" />
       </EntityContainer>
+
       <Annotations Target="self.Container/me/SalesOrders">
         <Annotation Term="Aggregation.CustomAggregate" Qualifier="WeightedAverage" String="Edm.Decimal" />
       </Annotations>
