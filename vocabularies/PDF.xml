@@ -59,16 +59,16 @@
         <Property Name="CoverPage" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Cover Page" />
         </Property>
-        <Property Name="FontName" Type="Edm.String">
+        <Property Name="FontName" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Font name" />
         </Property>
-        <Property Name="FontSize" Type="Edm.Int16">
+        <Property Name="FontSize" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Font size" />
         </Property>
-        <Property Name="Margin" Type="Edm.Int16">
+        <Property Name="Margin" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Margin size" />
         </Property>
-        <Property Name="Border" Type="Edm.Int16">
+        <Property Name="Border" Type="Edm.Boolean" DefaultValue="false">
           <Annotation Term="Core.Description" String="Border size of the table" />
         </Property>
         <Property Name="FitToPage" Type="Edm.Boolean" DefaultValue="false">
