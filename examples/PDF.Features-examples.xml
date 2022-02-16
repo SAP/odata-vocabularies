@@ -22,10 +22,10 @@
             <PropertyValue Property="ArchiveFormat" Bool="true" />
             <PropertyValue Property="Signature" Bool="true" />
             <PropertyValue Property="CoverPage" Bool="true" />
-            <PropertyValue Property="FontSize" Int="12" />
-            <PropertyValue Property="FontName" String="Arial" />
-            <PropertyValue Property="Margin" Int="3" />
-            <PropertyValue Property="Border" Int="1" />
+            <PropertyValue Property="FontSize"  Bool="true" />
+            <PropertyValue Property="FontName"  Bool="true" />
+            <PropertyValue Property="Margin"    Bool="true" />
+            <PropertyValue Property="Border"    Bool="true" />
             <PropertyValue Property="FitToPage" Bool="false" />
             <PropertyValue Property="ResultSizeDefault" Int="5000" />
             <PropertyValue Property="ResultSizeMaximum" Int="50000" />
