@@ -76,22 +76,27 @@
                 "@Core.Description": "Cover Page"
             },
             "FontName": {
+                "$Type": "Edm.Boolean",
                 "$Nullable": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Font name"
             },
             "FontSize": {
-                "$Type": "Edm.Int16",
+                "$Type": "Edm.Boolean",
                 "$Nullable": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Font size"
             },
             "Margin": {
-                "$Type": "Edm.Int16",
+                "$Type": "Edm.Boolean",
                 "$Nullable": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Margin size"
             },
             "Border": {
-                "$Type": "Edm.Int16",
+                "$Type": "Edm.Boolean",
                 "$Nullable": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Border size of the table"
             },
             "FitToPage": {
