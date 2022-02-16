@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="timezone.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="WorkerTimeSheet">
+        <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="ClockInTimezone" Type="Edm.String" />
+      </EntityType>
+      <Annotations Target="timezone.sample.WorkerTimeSheet/ClockInDateTime">
+        <Annotation Term="Common.Timezone" Path="ClockInTimezone" />
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>      

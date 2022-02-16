@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
@@ -48,7 +48,7 @@ a collection of business object instances, e.g. as a list or table.</String>
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/UI.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/UI.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -312,7 +312,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Term>
       -->
 
-      <Term Name="DataPoint" Type="UI.DataPointType" AppliesTo="EntityType">
+      <Term Name="DataPoint" Type="UI.DataPointType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of a single point of data, typically a number; may also be textual, e.g. a status value" />
       </Term>
@@ -686,7 +686,21 @@ The trend is
           <Annotation Term="Core.Description" String="Describes the scale of the chart value axes" />
         </Property>
         <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Measures of the chart, e.g. size and color in a bubble chart" />
+        </Property>
+        <Property Name="DynamicMeasures" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations and used as measures of the chart" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by an annotation path does not apply to the same collection of entities
+            as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="MeasureAttributes" Type="Collection(UI.ChartMeasureAttributeType)" Nullable="false">
           <Annotation Term="Core.Description">
@@ -825,7 +839,23 @@ The trend is
       </ComplexType>
 
       <ComplexType Name="ChartMeasureAttributeType">
-        <Property Name="Measure" Type="Edm.PropertyPath" />
+        <Annotation Term="Core.Description" String="Exactly one of `Measure` and `DynamicMeasure` must be present" />
+        <Property Name="Measure" Type="Edm.PropertyPath">
+          <Annotation Term="Common.PrimitivePropertyPath" />
+        </Property>
+        <Property Name="DynamicMeasure" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as a measure in a chart" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by an annotation path does not apply to the same collection of entities
+            as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
+        </Property>
         <Property Name="Role" Type="UI.ChartMeasureRoleType" />
         <Property Name="DataPoint" Type="Edm.AnnotationPath">
           <Annotation Term="Core.Description" String="Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure" />
@@ -924,6 +954,12 @@ The trend is
 
       <ComplexType Name="Facet" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.Hidden</String>
+            <String>UI.PartOfPreview</String>
+          </Collection>
+        </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Facet label" />
@@ -1040,8 +1076,22 @@ The trend is
           </Annotation>
         </Property>
         <Property Name="Total" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description">
             <String>Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.</String>
+          </Annotation>
+        </Property>
+        <Property Name="DynamicTotal" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by an annotation path does not apply to the same collection of entities
+            as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="IncludeGrandTotal" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -1072,7 +1122,27 @@ The trend is
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
+          <Annotation Term="Core.LongDescription">
+            <String>Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request
+            or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an
+            aggregating OData request.</String>
+          </Annotation>
         </Property>
+        <!--
+        <Property Name="RequestAtLeastDynamic" Type="Collection(Edm.AnnotationPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Dynamic properties introduced by annotations that should always be included in the result of the queried collection" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by an annotation path does not apply to the same collection of entities
+            as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        -->
         <Property Name="SelectionFields" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description">
@@ -1142,8 +1212,32 @@ The trend is
 
       <ComplexType Name="SelectOptionType">
         <Annotation Term="Core.Description" String="List of value ranges for a single property" />
-        <Property Name="PropertyName" Type="Edm.PropertyPath" Nullable="false">
+        <Annotation Term="Core.LongDescription" String="Exactly one of `PropertyName` and `DynamicPropertyName` must be present" />
+        <Property Name="PropertyName" Type="Edm.PropertyPath">
+          <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Path to the property" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="Now nullable if `DynamicPropertyName` is present" />
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="DynamicPropertyName" Type="Edm.AnnotationPath">
+          <Annotation Term="Core.Description" String="Dynamic property introduced by annotations for which value ranges are specified" />
+          <Annotation Term="Core.LongDescription">
+            <String>If the annotation referenced by the annotation path does not apply to the same collection of entities
+            as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored.
+            For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.AggregatedProperty</String>
+              <String>Aggregation.CustomAggregate</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Ranges" Type="Collection(UI.SelectionRangeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of value ranges" />
@@ -1222,8 +1316,8 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.Facet" />
       </Term>
       <Term Name="PartOfPreview" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
-        <Annotation Term="Core.Description" String="This Facet and all included Facets are part of the Thing preview" />
-        <Annotation Term="Core.RequiresType" String="UI.Facet" />
+        <Annotation Term="Core.Description" String="This record and all included structural elements are part of the Thing preview" />
+        <Annotation Term="Core.LongDescription" String="This term can be applied e.g. to UI.Facet and UI.DataField" />
       </Term>
       <Term Name="Map" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Core.Description" String="Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these" />
@@ -1285,14 +1379,6 @@ The trend is
         </Member>
       </EnumType>
 
-      <!-- Under discussion
-        <Term Name="DisplayTimeZone" Type="?Edm.Int32?" AppliesTo="Property">
-        <Annotation Term="Core.Description">
-        <String>Contains information for time- or date-time-fields in which time zone the time value should be displayed.</String>
-        </Annotation>
-        </Term>
-      -->
-
       <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>
@@ -1347,7 +1433,7 @@ The trend is
 
       <ComplexType Name="DataFieldAbstract" Abstract="true">
         <Annotation Term="Core.Description" String="Elementary building block that represents a piece of data and/or allows triggering an action" />
-        <Annotation Term="Core.LongDescription" >
+        <Annotation Term="Core.LongDescription">
           <String>By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
           and the default css settings (as the width) of the data field can be influenced. </String>
         </Annotation>
@@ -1355,6 +1441,7 @@ The trend is
           <Collection>
             <String>UI.Hidden</String>
             <String>UI.Importance</String>
+            <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
           </Collection>
         </Annotation>
@@ -1447,13 +1534,21 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Annotation Term="Core.Description" String="Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger." />
         </Property>
         <Property Name="NavigationAvailable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available"/>
+          <Annotation Term="Core.Description" String="The navigation intent is for that user with the selected context and parameters available" />
         </Property>
         <Property Name="RequiresContext" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Determines whether  a context needs to be passed to the target of this navigation." />
         </Property>
         <Property Name="Mapping" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false">
           <Annotation Term="Core.Description" String="Maps properties of the annotated entity type to properties of the Semantic Object" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="DataFieldForActionGroup" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that refer to actions or intent based navigations" />
         </Property>
       </ComplexType>
 
@@ -1515,6 +1610,14 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Property>
       </ComplexType>
 
+      <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
+        </Property>
+      </ComplexType>
+
       <Term Name="Criticality" Type="UI.CriticalityType" AppliesTo="Annotation">
         <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to UI.CriticalityCalculation" />
       </Term>
@@ -1536,7 +1639,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <Term Name="ParameterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Parameter">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Define default values for action parameters" />
         <Annotation Term="Core.LongDescription" String="For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.
             Whereas for bound actions the bound entity and its properties and associated properties can be used as default values" />
@@ -1606,6 +1708,16 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       <Term Name="ExcludeFromNavigationContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
+      </Term>
+
+      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Do not check the number of fractional digits of the annotated measured quantity" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.
+
+This switches off the validation of user input with respect to decimals.</String>
+        </Annotation>
       </Term>
 
     </Schema>

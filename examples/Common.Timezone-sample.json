@@ -1,0 +1,33 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "timezone.sample": {
+        "WorkerTimeSheet": {
+            "$Kind": "EntityType",
+            "ClockInDateTime": {
+                "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
+                "$Precision": 0
+            },
+            "ClockInTimezone": {
+                "$Nullable": true
+            }
+        },
+        "$Annotations": {
+            "timezone.sample.WorkerTimeSheet/ClockInDateTime": {
+                "@Common.Timezone": {
+                    "$Path": "ClockInTimezone"
+                }
+            }
+        }
+    }
+}

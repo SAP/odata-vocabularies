@@ -1,0 +1,22 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/_vocab.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies._vocab.v1",
+                    "$Alias": "_vocab"
+                }
+            ]
+        }
+    },
+    "_vocab.examples": {}
+}

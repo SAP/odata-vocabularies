@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <!-- TODO: replace _vocab with the name of the vocabulary your annotation examples use and remove this comment -->
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/_vocab.xml">
+    <edmx:Include Namespace="com.sap.vocabularies._vocab.v1" Alias="_vocab" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="_vocab.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <!-- TODO: put your annotation examples here and remove this comment -->
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

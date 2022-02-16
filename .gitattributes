@@ -1,3 +1,4 @@
 * text=auto
+*.xml text
 *.json eol=lf
-vocabularies/*.md eol=lf
+*.md eol=lf
