@@ -422,9 +422,10 @@
             "$DefaultValue": "Optional",
             "$AppliesTo": [
                 "Property",
-                "Record"
+                "Record",
+                "EntityType"
             ],
-            "@Core.Description": "Control state of a property",
+            "@Core.Description": "Control state of a property, or the media stream of a media entity",
             "@Core.LongDescription": "This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.\n\nIn the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types.",
             "@Common.IsInstanceAnnotation": true
         },
