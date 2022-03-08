@@ -80,7 +80,7 @@
         <Property Name="ResultSizeDefault" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="Default result size" />
           <Annotation Term="Core.LongDescription">
-            <String> Default result size for PDF documents. Used if a the $top has not been provided.</String>
+            <String> Default result size for PDF documents. Used if $top has not been provided.</String>
           </Annotation>
         </Property>
         <Property Name="ResultSizeMaximum" Type="Edm.Int32">
