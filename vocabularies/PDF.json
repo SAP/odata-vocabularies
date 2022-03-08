@@ -110,7 +110,7 @@
                 "$Type": "Edm.Int32",
                 "$Nullable": true,
                 "@Core.Description": "Default result size",
-                "@Core.LongDescription": " Default result size for PDF documents. Used if a the $top has not been provided."
+                "@Core.LongDescription": " Default result size for PDF documents. Used if $top has not been provided."
             },
             "ResultSizeMaximum": {
                 "$Type": "Edm.Int32",
