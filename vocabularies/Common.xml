@@ -356,8 +356,8 @@
         </Member>
       </EnumType>
 
-      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record">
-        <Annotation Term="Core.Description" String="Control state of a property" />
+      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record EntityType">
+        <Annotation Term="Core.Description" String="Control state of a property, or the media stream of a media entity" />
         <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
@@ -1370,14 +1370,14 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
-      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
         <Annotation Term="Core.LongDescription">
-          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
+          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource.
 The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
 The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.
 If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>

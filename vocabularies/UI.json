@@ -1541,10 +1541,11 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image",
+            "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.",
             "@Core.RequiresType": "Edm.Stream",
             "@Validation.ApplicableTerms": [
                 "Common.IsNaturalPerson"

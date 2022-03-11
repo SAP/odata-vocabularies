@@ -1338,9 +1338,9 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image" />
+        <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image." />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
