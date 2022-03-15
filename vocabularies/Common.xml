@@ -137,6 +137,14 @@
       <ComplexType Name="TimeRestrictionType">
         <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
           <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
+          <Annotation Term="Core.Example">
+            <Record Type="Core.PrimitiveExampleValue">
+              <PropertyValue Property="Description" String="For a property `RequestedDeliveryDate`, only future dates are meaningful" />
+              <PropertyValue Property="Value">
+                <Apply Function="odata.now" />
+              </PropertyValue>
+            </Record>
+          </Annotation>
         </Property>
         <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
           <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />

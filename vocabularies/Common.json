@@ -176,7 +176,15 @@
                 "$Type": "Edm.DateTime",
                 "$Nullable": true,
                 "$Precision": 0,
-                "@Core.Description": "Only values after the given earliest point in time are meaningful"
+                "@Core.Description": "Only values after the given earliest point in time are meaningful",
+                "@Core.Example": {
+                    "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+                    "Description": "For a property `RequestedDeliveryDate`, only future dates are meaningful",
+                    "Value": {
+                        "$Function": "odata.now",
+                        "$Apply": []
+                    }
+                }
             },
             "Latest": {
                 "$Type": "Edm.DateTime",
