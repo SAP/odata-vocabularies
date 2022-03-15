@@ -219,6 +219,27 @@
             "@Core.Description": "The number of significant decimal digits of a currency amount or measured quantity",
             "@Core.LongDescription": "The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device."
         },
+        "TimeSelection": {
+            "$Kind": "Term",
+            "$Type": "Common.TimeSelectionType",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "UI elements representing this date/time property shall offer only meaningful values to the user"
+        },
+        "TimeSelectionType": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "NotFuture": 1,
+            "NotFuture@Core.Description": "Values in the future are meaningless (for example, `CreatedOn`)",
+            "NotToday": 2,
+            "NotToday@Core.Description": "Values on the current date are meaningless",
+            "NotPast": 4,
+            "NotPast@Core.Description": "Values in the past are meaningless (for example, `PlannedDeliveryDate`)"
+        },
         "SecondaryKey": {
             "$Kind": "Term",
             "$Collection": true,
