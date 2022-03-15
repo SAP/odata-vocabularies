@@ -167,7 +167,8 @@
                 "Term"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "UI elements representing the annotated date/time property shall offer only meaningful values to the user"
+            "@Core.Description": "UI elements representing the annotated date/time property shall offer only meaningful values to the user",
+            "@Core.LongDescription": "For example, a date picker restricted to future dates may initially show different weeks or months than\n          a date picker restricted to past dates.\n          These restrictions are only imposed by the UI, the service may also accept meaningless values\n          and the UI must be prepared to handle them, possibly at a loss of convenience for the user."
         },
         "TimeRestrictionType": {
             "$Kind": "ComplexType",
