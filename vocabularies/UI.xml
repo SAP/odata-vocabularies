@@ -1720,6 +1720,40 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
+      <Term Name="TimeRestriction" Type="UI.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter Term">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="UI elements representing the annotated date/time property shall offer only meaningful values to the user" />
+        <Annotation Term="Core.LongDescription">
+          <String>For example, a date picker restricted to future dates may initially show different weeks or months than
+          a date picker restricted to past dates.
+          These restrictions are only imposed by the UI, the service may also accept meaningless values
+          and the UI must be prepared to handle them, possibly at a loss of convenience for the user.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="TimeRestrictionType">
+        <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
+          <Annotation Term="Core.Example">
+            <Record Type="Core.PrimitiveExampleValue">
+              <PropertyValue Property="Description" String="For a property `RequestedDeliveryDate`, only future dates are meaningful" />
+              <PropertyValue Property="Value">
+                <Apply Function="odata.now" />
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </Property>
+        <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="TimeRestrictionWorkingDays" BaseType="UI.TimeRestrictionType">
+        <Annotation Term="Core.Description" String="Only values on working days are meaningful" />
+        <Property Name="FactoryCalendar" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Identifier of the factory calendar governing the working days" />
+          <Annotation Term="Core.LongDescription" String="Defaults to a factory calendar determined by the context" />
+        </Property>
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

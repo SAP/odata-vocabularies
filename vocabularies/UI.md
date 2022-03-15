@@ -71,6 +71,7 @@ Term|Type|Description
 [RecommendationList](./UI.xml#L1677:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
 [ExcludeFromNavigationContext](./UI.xml#L1709:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1713:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[TimeRestriction](./UI.xml#L1723:~:text=<Term%20Name="-,TimeRestriction,-") *([Experimental](Common.md#Experimental))*|[TimeRestrictionType](#TimeRestrictionType)|<a name="TimeRestriction"></a>UI elements representing the annotated date/time property shall offer only meaningful values to the user<br>For example, a date picker restricted to future dates may initially show different weeks or months than a date picker restricted to past dates. These restrictions are only imposed by the UI, the service may also accept meaningless values and the UI must be prepared to handle them, possibly at a loss of convenience for the user.
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](./UI.xml#L62:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
 
@@ -1037,3 +1038,23 @@ Property|Type|Description
 :-------|:---|:----------
 [LocalDataProperty](./UI.xml#L1701:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1704:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+
+## <a name="TimeRestrictionType"></a>[TimeRestrictionType](./UI.xml#L1733:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")
+
+
+**Derived Types:**
+- [TimeRestrictionWorkingDays](#TimeRestrictionWorkingDays)
+
+Property|Type|Description
+:-------|:---|:----------
+[Earliest](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1736))
+[Latest](./UI.xml#L1745:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
+
+## <a name="TimeRestrictionWorkingDays"></a>[TimeRestrictionWorkingDays](./UI.xml#L1749:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-"): [TimeRestrictionType](#TimeRestrictionType)
+Only values on working days are meaningful
+
+Property|Type|Description
+:-------|:---|:----------
+[*Earliest*](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1735))
+[*Latest*](./UI.xml#L1745:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
+[FactoryCalendar](./UI.xml#L1751:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-")|String?|Identifier of the factory calendar governing the working days<br>Defaults to a factory calendar determined by the context
