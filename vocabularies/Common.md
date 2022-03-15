@@ -20,13 +20,13 @@ Term|Type|Description
 [IsLanguageIdentifier](./Common.xml#L99:~:text=<Term%20Name="-,IsLanguageIdentifier,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsLanguageIdentifier"></a>An identifier to distinguish multiple texts in different languages for the same entity
 [TextFormat](./Common.xml#L104:~:text=<Term%20Name="-,TextFormat,-")|[TextFormatType](#TextFormatType)|<a name="TextFormat"></a>The annotated property, parameter, or return type contains human-readable text that may contain formatting information
 [Timezone](./Common.xml#L117:~:text=<Term%20Name="-,Timezone,-") *([Experimental](Common.md#Experimental))*|String?|<a name="Timezone"></a>The point in time represented by the annotated property or parameter shall be interpreted in the given time zone<br>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard. If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.
-[IsDigitSequence](./Common.xml#L173:~:text=<Term%20Name="-,IsDigitSequence,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDigitSequence"></a>Contains only digits
-[IsUpperCase](./Common.xml#L178:~:text=<Term%20Name="-,IsUpperCase,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUpperCase"></a>Contains just uppercase characters
-[IsCurrency](./Common.xml#L183:~:text=<Term%20Name="-,IsCurrency,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCurrency"></a>Annotated property or parameter is a currency code
-[IsUnit](./Common.xml#L188:~:text=<Term%20Name="-,IsUnit,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUnit"></a>Annotated property or parameter is a unit of measure
-[UnitSpecificScale](./Common.xml#L192:~:text=<Term%20Name="-,UnitSpecificScale,-")|PrimitiveType|<a name="UnitSpecificScale"></a>The number of fractional decimal digits of a currency amount or measured quantity<br>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device.
-[UnitSpecificPrecision](./Common.xml#L197:~:text=<Term%20Name="-,UnitSpecificPrecision,-") *([Experimental](Common.md#Experimental))*|PrimitiveType|<a name="UnitSpecificPrecision"></a>The number of significant decimal digits of a currency amount or measured quantity<br>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device.
-[TimeRestriction](./Common.xml#L203:~:text=<Term%20Name="-,TimeRestriction,-") *([Experimental](Common.md#Experimental))*|[TimeRestrictionType](#TimeRestrictionType)|<a name="TimeRestriction"></a>UI elements representing this date/time property shall offer only meaningful values to the user
+[TimeRestriction](./Common.xml#L127:~:text=<Term%20Name="-,TimeRestriction,-") *([Experimental](Common.md#Experimental))*|[TimeRestrictionType](#TimeRestrictionType)|<a name="TimeRestriction"></a>UI elements representing the annotated date/time property shall offer only meaningful values to the user
+[IsDigitSequence](./Common.xml#L193:~:text=<Term%20Name="-,IsDigitSequence,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsDigitSequence"></a>Contains only digits
+[IsUpperCase](./Common.xml#L198:~:text=<Term%20Name="-,IsUpperCase,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUpperCase"></a>Contains just uppercase characters
+[IsCurrency](./Common.xml#L203:~:text=<Term%20Name="-,IsCurrency,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCurrency"></a>Annotated property or parameter is a currency code
+[IsUnit](./Common.xml#L208:~:text=<Term%20Name="-,IsUnit,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsUnit"></a>Annotated property or parameter is a unit of measure
+[UnitSpecificScale](./Common.xml#L212:~:text=<Term%20Name="-,UnitSpecificScale,-")|PrimitiveType|<a name="UnitSpecificScale"></a>The number of fractional decimal digits of a currency amount or measured quantity<br>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device.
+[UnitSpecificPrecision](./Common.xml#L217:~:text=<Term%20Name="-,UnitSpecificPrecision,-") *([Experimental](Common.md#Experimental))*|PrimitiveType|<a name="UnitSpecificPrecision"></a>The number of significant decimal digits of a currency amount or measured quantity<br>The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device.
 [SecondaryKey](./Common.xml#L223:~:text=<Term%20Name="-,SecondaryKey,-") *(Deprecated)*|\[PropertyPath\]|<a name="SecondaryKey"></a>Use term `AlternateKeys` from the OASIS Core vocabulary instead
 [MinOccurs](./Common.xml#L235:~:text=<Term%20Name="-,MinOccurs,-")|Int64|<a name="MinOccurs"></a>The annotated set or collection contains at least this number of items
 [MaxOccurs](./Common.xml#L239:~:text=<Term%20Name="-,MaxOccurs,-")|Int64|<a name="MaxOccurs"></a>The annotated set or collection contains at most this number of items
@@ -119,7 +119,7 @@ Member|Value|Description
 [plain](./Common.xml#L109:~:text=<EnumType%20Name="-,TextFormatType,-")|0|Plain text, line breaks represented as the character 0x0A
 [html](./Common.xml#L112:~:text=<EnumType%20Name="-,TextFormatType,-")|1|Plain text with markup that can validly appear directly within an HTML DIV element
 
-## <a name="TimeRestrictionType"></a>[TimeRestrictionType](./Common.xml#L207:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")
+## <a name="TimeRestrictionType"></a>[TimeRestrictionType](./Common.xml#L131:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")
 
 
 **Derived Types:**
@@ -127,17 +127,17 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Earliest](./Common.xml#L208:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful
-[Latest](./Common.xml#L211:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
+[Earliest](./Common.xml#L132:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful
+[Latest](./Common.xml#L135:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
 
-## <a name="TimeRestrictionWorkingDays"></a>[TimeRestrictionWorkingDays](./Common.xml#L215:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-"): [TimeRestrictionType](#TimeRestrictionType)
+## <a name="TimeRestrictionWorkingDays"></a>[TimeRestrictionWorkingDays](./Common.xml#L139:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-"): [TimeRestrictionType](#TimeRestrictionType)
 Only values on working days are meaningful
 
 Property|Type|Description
 :-------|:---|:----------
-[*Earliest*](./Common.xml#L208:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful
-[*Latest*](./Common.xml#L211:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
-[FactoryCalendar](./Common.xml#L217:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-")|String?|Identifier of the factory calendar governing the working days<br>Defaults to the working calendar determined by the context
+[*Earliest*](./Common.xml#L132:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful
+[*Latest*](./Common.xml#L135:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
+[FactoryCalendar](./Common.xml#L141:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-")|String?|Identifier of the factory calendar governing the working days<br>Defaults to a factory calendar determined by the context
 
 ## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](./Common.xml#L293:~:text=<ComplexType%20Name="-,SemanticObjectMappingType,-")
 Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object

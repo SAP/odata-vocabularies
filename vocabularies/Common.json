@@ -158,6 +158,42 @@
             "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         },
+        "TimeRestriction": {
+            "$Kind": "Term",
+            "$Type": "Common.TimeRestrictionType",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "UI elements representing the annotated date/time property shall offer only meaningful values to the user"
+        },
+        "TimeRestrictionType": {
+            "$Kind": "ComplexType",
+            "Earliest": {
+                "$Type": "Edm.DateTime",
+                "$Nullable": true,
+                "$Precision": 0,
+                "@Core.Description": "Only values after the given earliest point in time are meaningful"
+            },
+            "Latest": {
+                "$Type": "Edm.DateTime",
+                "$Nullable": true,
+                "$Precision": 0,
+                "@Core.Description": "Only values before the given latest point in time are meaningful"
+            }
+        },
+        "TimeRestrictionWorkingDays": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Common.TimeRestrictionType",
+            "@Core.Description": "Only values on working days are meaningful",
+            "FactoryCalendar": {
+                "$Nullable": true,
+                "@Core.Description": "Identifier of the factory calendar governing the working days",
+                "@Core.LongDescription": "Defaults to a factory calendar determined by the context"
+            }
+        },
         "IsDigitSequence": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -218,42 +254,6 @@
             "@Common.Experimental": true,
             "@Core.Description": "The number of significant decimal digits of a currency amount or measured quantity",
             "@Core.LongDescription": "The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device."
-        },
-        "TimeRestriction": {
-            "$Kind": "Term",
-            "$Type": "Common.TimeRestrictionType",
-            "$AppliesTo": [
-                "Property",
-                "Parameter",
-                "Term"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "UI elements representing this date/time property shall offer only meaningful values to the user"
-        },
-        "TimeRestrictionType": {
-            "$Kind": "ComplexType",
-            "Earliest": {
-                "$Type": "Edm.DateTime",
-                "$Nullable": true,
-                "$Precision": 0,
-                "@Core.Description": "Only values after the given earliest point in time are meaningful"
-            },
-            "Latest": {
-                "$Type": "Edm.DateTime",
-                "$Nullable": true,
-                "$Precision": 0,
-                "@Core.Description": "Only values before the given latest point in time are meaningful"
-            }
-        },
-        "TimeRestrictionWorkingDays": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Common.TimeRestrictionType",
-            "@Core.Description": "Only values on working days are meaningful",
-            "FactoryCalendar": {
-                "$Nullable": true,
-                "@Core.Description": "Identifier of the factory calendar governing the working days",
-                "@Core.LongDescription": "Defaults to the working calendar determined by the context"
-            }
         },
         "SecondaryKey": {
             "$Kind": "Term",

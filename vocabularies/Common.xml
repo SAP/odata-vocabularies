@@ -124,6 +124,26 @@
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
 
+      <Term Name="TimeRestriction" Type="Common.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter Term">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="UI elements representing the annotated date/time property shall offer only meaningful values to the user" />
+      </Term>
+      <ComplexType Name="TimeRestrictionType">
+        <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
+        </Property>
+        <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="TimeRestrictionWorkingDays" BaseType="Common.TimeRestrictionType">
+        <Annotation Term="Core.Description" String="Only values on working days are meaningful" />
+        <Property Name="FactoryCalendar" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Identifier of the factory calendar governing the working days" />
+          <Annotation Term="Core.LongDescription" String="Defaults to a factory calendar determined by the context" />
+        </Property>
+      </ComplexType>
+
       <!-- under discussion
         <Term Name="ValidationConstraint" Type="Common.ValidationConstraintType" Nullable="false" AppliesTo="Property EntityType ComplexType">
         <Annotation Term="Core.Description" String="Condition that the annotation target has to fulfill" />
@@ -199,26 +219,6 @@
         <Annotation Term="Core.Description" String="The number of significant decimal digits of a currency amount or measured quantity" />
         <Annotation Term="Core.LongDescription" String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
       </Term>
-
-      <Term Name="TimeRestriction" Type="Common.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter Term">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="UI elements representing this date/time property shall offer only meaningful values to the user" />
-      </Term>
-      <ComplexType Name="TimeRestrictionType">
-        <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
-          <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
-        </Property>
-        <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
-          <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />
-        </Property>
-      </ComplexType>
-      <ComplexType Name="TimeRestrictionWorkingDays" BaseType="Common.TimeRestrictionType">
-        <Annotation Term="Core.Description" String="Only values on working days are meaningful" />
-        <Property Name="FactoryCalendar" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Identifier of the factory calendar governing the working days" />
-          <Annotation Term="Core.LongDescription" String="Defaults to the working calendar determined by the context" />
-        </Property>
-      </ComplexType>
 
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Revisions">
