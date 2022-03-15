@@ -200,21 +200,25 @@
         <Annotation Term="Core.LongDescription" String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
       </Term>
 
-      <Term Name="TimeSelection" Type="Common.TimeSelectionType" Nullable="false" AppliesTo="Property Parameter Term">
+      <Term Name="TimeRestriction" Type="Common.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter Term">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="UI elements representing this date/time property shall offer only meaningful values to the user" />
       </Term>
-      <EnumType Name="TimeSelectionType" IsFlags="true">
-        <Member Name="NotFuture" Value="1">
-          <Annotation Term="Core.Description" String="Values in the future are meaningless (for example, `CreatedOn`)" />
-        </Member>
-        <Member Name="NotToday" Value="2">
-          <Annotation Term="Core.Description" String="Values on the current date are meaningless" />
-        </Member>
-        <Member Name="NotPast" Value="4">
-          <Annotation Term="Core.Description" String="Values in the past are meaningless (for example, `PlannedDeliveryDate`)" />
-        </Member>
-      </EnumType>
+      <ComplexType Name="TimeRestrictionType">
+        <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
+        </Property>
+        <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
+          <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="TimeRestrictionWorkingDays" BaseType="Common.TimeRestrictionType">
+        <Annotation Term="Core.Description" String="Only values on working days are meaningful" />
+        <Property Name="FactoryCalendar" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Identifier of the factory calendar governing the working days" />
+          <Annotation Term="Core.LongDescription" String="Defaults to the working calendar determined by the context" />
+        </Property>
+      </ComplexType>
 
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Revisions">
