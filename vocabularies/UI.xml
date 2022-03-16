@@ -1731,18 +1731,23 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
       <ComplexType Name="TimeRestrictionType">
-        <Property Name="Earliest" Type="Edm.DateTime" Nullable="true">
+        <Property Name="Earliest" Type="Edm.DateTimeOffset" Nullable="true">
           <Annotation Term="Core.Description" String="Only values after the given earliest point in time are meaningful" />
           <Annotation Term="Core.Example">
             <Record Type="Core.PrimitiveExampleValue">
-              <PropertyValue Property="Description" String="For a property `RequestedDeliveryDate`, only future dates are meaningful" />
+              <PropertyValue Property="Description" String="The earliest meaningful `RequestedDeliveryDate` is tomorrow" />
               <PropertyValue Property="Value">
-                <Apply Function="odata.now" />
+                <Add>
+                  <Apply Function="odata.date">
+                    <Apply Function="odata.now" />
+                  </Apply>
+                  <Duration>P1D</Duration>
+                </Add>
               </PropertyValue>
             </Record>
           </Annotation>
         </Property>
-        <Property Name="Latest" Type="Edm.DateTime" Nullable="true">
+        <Property Name="Latest" Type="Edm.DateTimeOffset" Nullable="true">
           <Annotation Term="Core.Description" String="Only values before the given latest point in time are meaningful" />
         </Property>
       </ComplexType>

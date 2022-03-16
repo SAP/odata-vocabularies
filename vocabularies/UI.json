@@ -2034,21 +2034,31 @@
         "TimeRestrictionType": {
             "$Kind": "ComplexType",
             "Earliest": {
-                "$Type": "Edm.DateTime",
+                "$Type": "Edm.DateTimeOffset",
                 "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Only values after the given earliest point in time are meaningful",
                 "@Core.Example": {
                     "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
-                    "Description": "For a property `RequestedDeliveryDate`, only future dates are meaningful",
+                    "Description": "The earliest meaningful `RequestedDeliveryDate` is tomorrow",
                     "Value": {
-                        "$Function": "odata.now",
-                        "$Apply": []
+                        "$Add": [
+                            {
+                                "$Function": "odata.date",
+                                "$Apply": [
+                                    {
+                                        "$Function": "odata.now",
+                                        "$Apply": []
+                                    }
+                                ]
+                            },
+                            "P1D"
+                        ]
                     }
                 }
             },
             "Latest": {
-                "$Type": "Edm.DateTime",
+                "$Type": "Edm.DateTimeOffset",
                 "$Nullable": true,
                 "$Precision": 0,
                 "@Core.Description": "Only values before the given latest point in time are meaningful"

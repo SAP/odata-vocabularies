@@ -1047,14 +1047,14 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Earliest](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1736))
-[Latest](./UI.xml#L1745:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
+[Earliest](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTimeOffset?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1736))
+[Latest](./UI.xml#L1750:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTimeOffset?|Only values before the given latest point in time are meaningful
 
-## <a name="TimeRestrictionWorkingDays"></a>[TimeRestrictionWorkingDays](./UI.xml#L1749:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-"): [TimeRestrictionType](#TimeRestrictionType)
+## <a name="TimeRestrictionWorkingDays"></a>[TimeRestrictionWorkingDays](./UI.xml#L1754:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-"): [TimeRestrictionType](#TimeRestrictionType)
 Only values on working days are meaningful
 
 Property|Type|Description
 :-------|:---|:----------
-[*Earliest*](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1735))
-[*Latest*](./UI.xml#L1745:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTime?|Only values before the given latest point in time are meaningful
-[FactoryCalendar](./UI.xml#L1751:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-")|String?|Identifier of the factory calendar governing the working days<br>Defaults to a factory calendar determined by the context
+[*Earliest*](./UI.xml#L1734:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTimeOffset?|Only values after the given earliest point in time are meaningful ([Example](./UI.xml#L1735))
+[*Latest*](./UI.xml#L1750:~:text=<ComplexType%20Name="-,TimeRestrictionType,-")|DateTimeOffset?|Only values before the given latest point in time are meaningful
+[FactoryCalendar](./UI.xml#L1756:~:text=<ComplexType%20Name="-,TimeRestrictionWorkingDays,-")|String?|Identifier of the factory calendar governing the working days<br>Defaults to a factory calendar determined by the context
