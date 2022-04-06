@@ -1560,7 +1560,7 @@
                 "PropertyValue",
                 "Parameter"
             ],
-            "@Core.Description": "Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)",
+            "@Core.Description": "Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)",
             "@Core.RequiresType": "Edm.String"
         },
         "Placeholder": {
