@@ -1350,7 +1350,7 @@ The trend is
       </Term>
 
       <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter">
-        <Annotation Term="Core.Description" String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
+        <Annotation Term="Core.Description" String="Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
