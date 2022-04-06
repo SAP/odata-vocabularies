@@ -2025,6 +2025,7 @@
             "$AppliesTo": [
                 "Property",
                 "Parameter",
+                "PropertyValue",
                 "Term"
             ],
             "@Common.Experimental": true,

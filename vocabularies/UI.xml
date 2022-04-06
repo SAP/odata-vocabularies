@@ -1720,7 +1720,7 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
-      <Term Name="TimeRestriction" Type="UI.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter Term">
+      <Term Name="TimeRestriction" Type="UI.TimeRestrictionType" Nullable="false" AppliesTo="Property Parameter PropertyValue Term">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="UI elements representing the annotated date/time property shall offer only meaningful values to the user" />
         <Annotation Term="Core.LongDescription">
