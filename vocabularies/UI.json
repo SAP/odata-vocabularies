@@ -1,5 +1,5 @@
 {
-    "$Version": "4.0",
+    "$Version": "4.01",
     "$Reference": {
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
@@ -228,13 +228,13 @@
                     "Template": "{MaterialName} - {MaterialClassName}",
                     "Data": {
                         "MaterialName": {
-                            "@odata.type": "#UI.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "Material"
                             }
                         },
                         "MaterialClassName": {
-                            "@odata.type": "#UI.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "MaterialClass"
                             }
@@ -1818,9 +1818,13 @@
             "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "A piece of data",
             "Value": {
-                "$Type": "Edm.PrimitiveType",
+                "$Type": "Edm.Untyped",
                 "@Core.Description": "The data field's value",
-                "@Core.IsLanguageDependent": true
+                "@Core.IsLanguageDependent": true,
+                "@Validation.DerivedTypeConstraint": [
+                    "Edm.PrimitiveType",
+                    "Collection(Edm.PrimitiveType)"
+                ]
             }
         },
         "DataFieldWithAction": {
