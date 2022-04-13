@@ -39,7 +39,7 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
         <Annotation Term="Core.LongDescription">
-          <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy)
+          <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.</String>
         </Annotation>
       </Term>

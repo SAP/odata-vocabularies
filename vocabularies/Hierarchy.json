@@ -53,7 +53,7 @@
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
             "@Common.Experimental": true,
             "@Core.Description": "Defines a recursive hierarchy",
-            "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
+            "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
