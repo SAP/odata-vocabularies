@@ -54,10 +54,10 @@
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="URL sent to the business system tenant" />
         </Property>
-        <!-- <Property Name="body" Type="JSON.JSON">
+        <Property Name="body" Type="JSON.JSON">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Request body sent to the business system tenant" />
-        </Property> -->
+        </Property>
       </ComplexType>
 
     </Schema>
