@@ -119,7 +119,7 @@
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
-            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.</String>
+            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
@@ -239,7 +239,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="Use terms `MaskedValue` and `MaskedAlways` instead" />
+              <PropertyValue Property="Description" String="Use terms `MaskedValue` instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -257,17 +257,13 @@
         </Annotation>
       </Term>
 
-      <Term Name="MaskedAlways" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="RevealOnDemand" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
-        <Annotation Term="Core.LongDescription">
-          <String>If the annotation evaluates to true, the unmasked property value is never transferred in responses.
-
-If the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`.</String>
-        </Annotation>
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Unmasked data for this property can be requested with custom query option `masked-values=false`" />
       </Term>
 
-      <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property">
+      <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property NavigationProperty">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property" />
       </Term>
       <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false" AppliesTo="EntitySet EntityType Property">
@@ -360,8 +356,8 @@ If the annotation evaluates to false, the unmasked property value can be request
         </Member>
       </EnumType>
 
-      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record">
-        <Annotation Term="Core.Description" String="Control state of a property" />
+      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record EntityType">
+        <Annotation Term="Core.Description" String="Control state of a property, or the media stream of a media entity" />
         <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
@@ -568,6 +564,15 @@ The minimum structure is
           <Annotation Term="Core.Description" String="The name of the SAP Object Node Type" />
         </Property>
       </ComplexType>
+
+      <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated navigation property represents a logical composition, even though it is non-containment" />
+        <Annotation Term="Core.LongDescription">
+          <String>The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property.</String>
+        </Annotation>
+      </Term>
+
 
       <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
@@ -1002,6 +1007,20 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
           <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
         </Property>
+        <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root node and has the following signature:
+
+            - `Users`: collection of structure with properties
+
+            &#xA0;&#xA0;- `UserID` of type `String` and
+
+            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+
+            It restricts access to the listed users in their specified roles.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">
@@ -1011,14 +1030,6 @@ The minimum structure is
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead" />
-              </Record>
-            </Collection>
-          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
@@ -1359,14 +1370,14 @@ Upon modification field control logic is invoked so that meta-information like h
         <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
-      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
         <Annotation Term="Core.LongDescription">
-          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.
+          <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource.
 The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
 The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.
 If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.</String>
@@ -1377,6 +1388,12 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
+      </Term>
+
+      <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
     </Schema>

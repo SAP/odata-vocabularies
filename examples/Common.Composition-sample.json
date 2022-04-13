@@ -1,0 +1,72 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "example.Common.Composition": {
+        "$Alias": "this",
+        "container": {
+            "$Kind": "EntityContainer",
+            "SalesOrder": {
+                "$Collection": true,
+                "$Type": "this.SalesOrder_Type",
+                "$NavigationPropertyBinding": {
+                    "_Item": "SalesOrderItem"
+                }
+            },
+            "SalesOrderItem": {
+                "$Collection": true,
+                "$Type": "this.SalesOrderItem_Type"
+            }
+        },
+        "SalesOrder_Type": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "SalesOrder"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 10
+            },
+            "_Item": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "this.SalesOrderItem_Type",
+                "$Partner": "_SalesOrder"
+            }
+        },
+        "SalesOrderItem_Type": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "SalesOrder",
+                "SalesOrderItem"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 10
+            },
+            "SalesOrderItem": {
+                "$MaxLength": 6
+            },
+            "_SalesOrder": {
+                "$Kind": "NavigationProperty",
+                "$Type": "this.SalesOrder_Type",
+                "$Partner": "_Item",
+                "$ReferentialConstraint": {
+                    "SalesOrder": "SalesOrder"
+                }
+            }
+        },
+        "$Annotations": {
+            "this.SalesOrder_Type/_Item": {
+                "@Common.Composition": true
+            }
+        }
+    },
+    "$EntityContainer": "example.Common.Composition.container"
+}

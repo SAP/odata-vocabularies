@@ -14,11 +14,12 @@ This repository defines the following SAP vocabularies:
 - [DirectEdit: Terms for Direct-Edit User Interfaces](vocabularies/DirectEdit.md) - _experimental_
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
+- [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
 - [ODM: One Domain Model](vocabularies/ODM.md) - _experimental_
+- [PDF: PDF response format](vocabularies/PDF.md) - _experimental_
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
 - [UI: Representing data in user interfaces](vocabularies/UI.md)
-- [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
 
@@ -27,6 +28,8 @@ To learn how to construct an annotation value from a term definition, or vice ve
 - [Annotation Cheat-Sheet for CSDL JSON](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet-json.html)
 - [Annotation Cheat-Sheet for CSDL XML](https://oasis-tcs.github.io/odata-vocabularies/docs/annotation-cheat-sheet.html)
 - [Annotation Cheat-Sheet for CAP CDS](https://sap.github.io/odata-vocabularies/docs/annotation-cheat-sheet-cap.html)
+
+Vocabulary-based annotations fully replace the old [SAP Annotations for OData Version 2.0](docs/v2-annotations.md)
 
 ## Requirements
 

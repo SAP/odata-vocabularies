@@ -155,7 +155,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
-            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null, points in time are typically interpreted in the current user's or default time zone.",
+            "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.",
             "@Core.RequiresType": "Edm.DateTimeOffset"
         },
         "IsDigitSequence": {
@@ -287,7 +287,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Use terms `MaskedValue` and `MaskedAlways` instead"
+                    "Description": "Use terms `MaskedValue` instead"
                 }
             ],
             "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
@@ -303,16 +303,15 @@
             "@Core.Description": "Property contains sensitive data that is by default not transferred",
             "@Core.LongDescription": "By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces."
         },
-        "MaskedAlways": {
+        "RevealOnDemand": {
             "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
+            "$Type": "Edm.Boolean",
             "$AppliesTo": [
                 "Property"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Property contains sensitive data that is by default not transferred",
-            "@Core.LongDescription": "If the annotation evaluates to true, the unmasked property value is never transferred in responses.\n\nIf the annotation evaluates to false, the unmasked property value can be requested with the custom query option `masked-values=false`."
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Unmasked data for this property can be requested with custom query option `masked-values=false`"
         },
         "SemanticObject": {
             "$Kind": "Term",
@@ -320,7 +319,8 @@
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType",
-                "Property"
+                "Property",
+                "NavigationProperty"
             ],
             "@Core.Description": "Name of the Semantic Object represented as this entity type or identified by this property"
         },
@@ -422,9 +422,10 @@
             "$DefaultValue": "Optional",
             "$AppliesTo": [
                 "Property",
-                "Record"
+                "Record",
+                "EntityType"
             ],
-            "@Core.Description": "Control state of a property",
+            "@Core.Description": "Control state of a property, or the media stream of a media entity",
             "@Core.LongDescription": "This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.\n\nIn the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types.",
             "@Common.IsInstanceAnnotation": true
         },
@@ -484,6 +485,7 @@
         "Timestamp": {
             "$Kind": "Term",
             "$Type": "Edm.DateTimeOffset",
+            "$Precision": 0,
             "@Common.Experimental": true,
             "@Core.Description": "...",
             "@Common.IsInstanceAnnotation": true
@@ -672,6 +674,17 @@
             "Name": {
                 "@Core.Description": "The name of the SAP Object Node Type"
             }
+        },
+        "Composition": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated navigation property represents a logical composition, even though it is non-containment",
+            "@Core.LongDescription": "The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property."
         },
         "SAPObjectNodeTypeReference": {
             "$Kind": "Term",
@@ -1210,6 +1223,12 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Additional actions that create a new draft",
                 "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+            },
+            "ShareAction": {
+                "$Type": "Common.QualifiedName",
+                "$Nullable": true,
+                "@Core.Description": "Action that shares a draft document with other users",
+                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              - `UserID` of type `String` and\n\n              - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            It restricts access to the listed users in their specified roles."
             }
         },
         "DraftNode": {
@@ -1225,12 +1244,6 @@
             "PreparationAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Use `TriggerAction` of [`SideEffects` annotation](#SideEffects) instead"
-                    }
-                ],
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {
@@ -1499,6 +1512,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Creation timestamp",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1519,6 +1533,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$Precision": 0,
             "@Core.Description": "Last modification timestamp",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1559,14 +1574,15 @@
         "mediaUploadLink": {
             "$Kind": "Term",
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "EntityType"
             ],
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.RequiresType": "Edm.Stream",
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
-            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
         },
         "PrimitivePropertyPath": {
             "$Kind": "Term",
@@ -1578,6 +1594,15 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property"
+        },
+        "WebSocketBaseURL": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "Base URL for WebSocket connections"
         }
     }
 }
