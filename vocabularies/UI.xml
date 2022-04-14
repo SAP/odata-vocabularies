@@ -74,6 +74,7 @@ a collection of business object instances, e.g. as a list or table.</String>
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
+              <String>UI.DataFieldMulti</String>
               <String>UI.DataFieldForAnnotation</String>
             </Collection>
           </Annotation>
@@ -84,6 +85,7 @@ a collection of business object instances, e.g. as a list or table.</String>
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataField</String>
+              <String>UI.DataFieldMulti</String>
               <String>UI.DataFieldForAnnotation</String>
             </Collection>
           </Annotation>
@@ -1555,6 +1557,15 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data" />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="The data field's value" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="DataFieldMulti" BaseType="UI.DataFieldAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A piece of data" />
+        <Property Name="Value" Type="Collection(Edm.PrimitiveType)" Nullable="false">
           <Annotation Term="Core.Description" String="The data field's value" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>

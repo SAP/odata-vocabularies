@@ -88,6 +88,7 @@
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
                     "UI.DataField",
+                    "UI.DataFieldMulti",
                     "UI.DataFieldForAnnotation"
                 ]
             },
@@ -98,6 +99,7 @@
                 "@Core.LongDescription": "This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).",
                 "@Validation.DerivedTypeConstraint": [
                     "UI.DataField",
+                    "UI.DataFieldMulti",
                     "UI.DataFieldForAnnotation"
                 ]
             },
@@ -1818,6 +1820,18 @@
             "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "A piece of data",
             "Value": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "The data field's value",
+                "@Core.IsLanguageDependent": true
+            }
+        },
+        "DataFieldMulti": {
+            "$Kind": "ComplexType",
+            "$BaseType": "UI.DataFieldAbstract",
+            "@Common.Experimental": true,
+            "@Core.Description": "A piece of data",
+            "Value": {
+                "$Collection": true,
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "The data field's value",
                 "@Core.IsLanguageDependent": true
