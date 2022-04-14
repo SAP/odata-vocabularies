@@ -52,6 +52,7 @@
         <Annotation Term="Core.Description" String="Graph-specific details for error responses" />
         <Property Name="url" Type="Edm.String">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL sent to the business system tenant" />
         </Property>
         <Property Name="body" Type="JSON.JSON">
