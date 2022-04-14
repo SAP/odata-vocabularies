@@ -16,5 +16,5 @@ Graph-specific details for error responses
 
 Property|Type|Description
 :-------|:---|:----------
-[url](./Graph.xml#L53:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*|String?|URL sent to the business system tenant
-[body](./Graph.xml#L57:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*|[JSON?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md#JSON)|Request body sent to the business system tenant
+[url](./Graph.xml#L53:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*|URL?|URL sent to the business system tenant
+[body](./Graph.xml#L58:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*|[JSON?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md#JSON)|Request body sent to the business system tenant

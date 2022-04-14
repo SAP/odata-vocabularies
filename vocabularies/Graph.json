@@ -65,6 +65,7 @@
             "url": {
                 "$Nullable": true,
                 "@Common.Experimental": true,
+                "@Core.IsURL": true,
                 "@Core.Description": "URL sent to the business system tenant"
             },
             "body": {
