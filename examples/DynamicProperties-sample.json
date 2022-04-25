@@ -83,7 +83,7 @@
                             "Property": "Country"
                         },
                         {
-                            "DynamicProperty": "@Analytics.AggregatedProperty#sum",
+                            "DynamicProperty": "@Analytics.AggregatedProperty#sumAmount",
                             "Descending": true
                         },
                         {

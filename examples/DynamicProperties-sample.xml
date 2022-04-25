@@ -87,7 +87,7 @@
                   <PropertyValue Property="Property" PropertyPath="Country" />
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum" />
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sumAmount" />
                   <PropertyValue Property="Descending" Bool="true" />
                 </Record>
                 <Record>
