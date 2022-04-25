@@ -1556,13 +1556,13 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Annotation Term="Core.Description" String="A piece of data" />
         <Property Name="Value" Type="Edm.Untyped" Nullable="false">
           <Annotation Term="Core.Description" String="The data field's value" />
-          <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>Edm.PrimitiveType</String>
               <String>Collection(Edm.PrimitiveType)</String>
             </Collection>
           </Annotation>
+          <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
 

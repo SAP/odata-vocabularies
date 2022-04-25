@@ -1820,11 +1820,11 @@
             "Value": {
                 "$Type": "Edm.Untyped",
                 "@Core.Description": "The data field's value",
-                "@Core.IsLanguageDependent": true,
                 "@Validation.DerivedTypeConstraint": [
                     "Edm.PrimitiveType",
                     "Collection(Edm.PrimitiveType)"
-                ]
+                ],
+                "@Core.IsLanguageDependent": true
             }
         },
         "DataFieldWithAction": {
