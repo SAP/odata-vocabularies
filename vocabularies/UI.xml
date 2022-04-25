@@ -1569,6 +1569,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataFieldWithAction" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action" />
         <Annotation Term="Core.LongDescription" String="The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value." />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
         </Property>
@@ -1582,6 +1583,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
         </Annotation>
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
         </Property>
@@ -1596,6 +1598,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithNavigationPath" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows navigating to related data" />
         <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Target" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types</String>
@@ -1606,6 +1609,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithUrl" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows navigating to other information on the Web" />
         <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target of the hyperlink" />
           <Annotation Term="Core.IsURL" />
@@ -1619,6 +1623,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>

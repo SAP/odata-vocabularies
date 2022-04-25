@@ -1832,6 +1832,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows triggering an OData action",
             "@Core.LongDescription": "The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Action": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
@@ -1842,6 +1845,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows triggering intent-based UI navigation",
             "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is tied to a data value which should be rendered as a hyperlink.\nThis is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },
@@ -1860,6 +1866,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows navigating to related data",
             "@Core.LongDescription": "It should be rendered as a hyperlink",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Target": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types"
@@ -1870,6 +1879,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows navigating to other information on the Web",
             "@Core.LongDescription": "It should be rendered as a hyperlink",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Url": {
                 "@Core.Description": "Target of the hyperlink",
                 "@Core.IsURL": true
@@ -1885,6 +1897,9 @@
             "$BaseType": "UI.DataField",
             "@Common.Experimental": true,
             "@Core.Description": "Collection of OData actions and intent based navigations",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Actions": {
                 "$Collection": true,
                 "$Type": "UI.DataField",
