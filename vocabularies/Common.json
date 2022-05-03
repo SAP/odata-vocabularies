@@ -1485,10 +1485,22 @@
             "$Kind": "Term",
             "$Type": "Common.RecursiveHierarchyType",
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead"
+                }
+            ],
             "@Core.Description": "Defines a recursive hierarchy."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead"
+                }
+            ],
             "ExternalNodeKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,

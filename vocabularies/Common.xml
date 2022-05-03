@@ -1304,11 +1304,27 @@ Upon modification field control logic is invoked so that meta-information like h
       -->
 
       <Term Name="RecursiveHierarchy" BaseTerm="Aggregation.RecursiveHierarchy" Type="Common.RecursiveHierarchyType" Nullable="false">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Defines a recursive hierarchy.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="ExternalNodeKeyProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Property holding the external human-readable key identifying the node" />
         </Property>
