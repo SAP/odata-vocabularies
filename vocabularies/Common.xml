@@ -1317,6 +1317,14 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="ExternalNodeKeyProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Property holding the external human-readable key identifying the node" />
         </Property>

@@ -1495,6 +1495,12 @@
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use term [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) instead"
+                }
+            ],
             "ExternalNodeKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
