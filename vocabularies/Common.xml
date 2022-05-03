@@ -1304,6 +1304,14 @@ Upon modification field control logic is invoked so that meta-information like h
       -->
 
       <Term Name="RecursiveHierarchy" BaseTerm="Aggregation.RecursiveHierarchy" Type="Common.RecursiveHierarchyType" Nullable="false">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use term [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Defines a recursive hierarchy.</String>
         </Annotation>

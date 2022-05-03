@@ -1485,6 +1485,12 @@
             "$Kind": "Term",
             "$Type": "Common.RecursiveHierarchyType",
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use term [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) instead"
+                }
+            ],
             "@Core.Description": "Defines a recursive hierarchy."
         },
         "RecursiveHierarchyType": {
