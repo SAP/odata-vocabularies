@@ -388,7 +388,7 @@ Property|Type|Description
 [Descending](./Common.xml#L1286:~:text=<ComplexType%20Name="-,SortOrderType,-")|Boolean?|Sort direction, ascending if not specified otherwise
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Common.xml#L1319:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *(Deprecated)*
-Use term [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) instead
+Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
 
 ## <a name="UserID"></a>[UserID](./Common.xml#L1370:~:text=<TypeDefinition%20Name="-,UserID,-")
 **Type:** String
