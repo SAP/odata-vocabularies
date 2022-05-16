@@ -78,13 +78,13 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Property holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter and $search expressions in the request excluding any conditions on key properties. The first sibling is at position 0."
             },
             "PreorderRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Property holding the preorder rank of a node",
-                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0."
+                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter and $search expressions in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0."
             }
         }
     }
