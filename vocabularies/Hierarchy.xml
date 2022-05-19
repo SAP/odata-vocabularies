@@ -57,12 +57,6 @@
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property holding the number of descendants of a node" />
         </Property>
-        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Boolean property indicating whether a node is a leaf" />
-        </Property>
-        <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property holding a node's level, which increases when descending the hierarchy" />
-        </Property>
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription" String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
@@ -74,6 +68,12 @@
         <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property holding the preorder rank of a node" />
           <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0." />
+        </Property>
+        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Boolean property indicating whether a node is a leaf" />
+        </Property>
+        <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property holding a node's level, which increases when descending the hierarchy" />
         </Property>
       </ComplexType>
 

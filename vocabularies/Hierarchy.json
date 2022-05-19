@@ -68,16 +68,6 @@
                 "$Nullable": true,
                 "@Core.Description": "Integer property holding the number of descendants of a node"
             },
-            "IsLeafProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Boolean property indicating whether a node is a leaf"
-            },
-            "LevelProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property holding a node's level, which increases when descending the hierarchy"
-            },
             "DrillStateProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
@@ -95,6 +85,16 @@
                 "$Nullable": true,
                 "@Core.Description": "Integer property holding the preorder rank of a node",
                 "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0."
+            },
+            "IsLeafProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Boolean property indicating whether a node is a leaf"
+            },
+            "LevelProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Integer property holding a node's level, which increases when descending the hierarchy"
             }
         }
     }
