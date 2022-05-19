@@ -72,13 +72,13 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Property holding the drill state of a node",
-                "@Core.LongDescription": "The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set."
+                "@Core.LongDescription": "Possible drill states are:\n            `expanded` if a node's children are included in the output set;\n            `collapsed` if a node has children in the requested resource, but they are not included in the output set;\n            `leaf` if a node has no children in the requested resource."
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal. The first sibling has rank 0."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent. The first sibling has rank 0."
             },
             "PreorderRankProperty": {
                 "$Type": "Edm.PropertyPath",
