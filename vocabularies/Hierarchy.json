@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. Their values are derived from the output set of the last hierarchy-related transformation\n          (`ancestors`, `descendants`, `traverse`) during the evaluation of an `$apply` query option,\n          they are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. When a resource with that entity type is requested,\n          the values of these properties are derived from the output set of the last hierarchy-related transformation\n          (`ancestors`, `descendants`, `traverse`) during the evaluation of an `$apply` query option,\n          they are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"

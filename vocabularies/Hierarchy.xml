@@ -47,7 +47,8 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The nullable property paths in this complex type refer to properties of an entity type that contain
-          information about a node in a recursive hierarchy. Their values are derived from the output set of the last hierarchy-related transformation
+          information about a node in a recursive hierarchy. When a resource with that entity type is requested,
+          the values of these properties are derived from the output set of the last hierarchy-related transformation
           (`ancestors`, `descendants`, `traverse`) during the evaluation of an `$apply` query option,
           they are not affected by subsequent transformations or query options (like `$filter` or `$top`).</String>
         </Annotation>
