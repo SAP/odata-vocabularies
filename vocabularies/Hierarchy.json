@@ -72,7 +72,7 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            `expanded` if a node's children are included in the output set;\n            `collapsed` if a node has children in the requested resource, but they are not included in the output set;\n            `leaf` if a node has no children in the requested resource."
+                "@Core.LongDescription": "Possible drill states are:\n            `expanded` if a node's children are included in the output set;\n            `collapsed` if a node's children are not included in the output set;\n            `leaf` if a node has no children in the requested resource."
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",

@@ -63,7 +63,7 @@
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
             `expanded` if a node's children are included in the output set;
-            `collapsed` if a node has children in the requested resource, but they are not included in the output set;
+            `collapsed` if a node's children are not included in the output set;
             `leaf` if a node has no children in the requested resource.</String>
           </Annotation>
         </Property>
