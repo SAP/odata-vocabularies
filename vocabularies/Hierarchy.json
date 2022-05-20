@@ -89,7 +89,7 @@
             "IsLeafProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Boolean property indicating whether a node is a leaf"
+                "@Core.Description": "Boolean property indicating whether a node has no children in the requested resource"
             },
             "LevelProperty": {
                 "$Type": "Edm.PropertyPath",

@@ -76,7 +76,7 @@
           <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0." />
         </Property>
         <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Boolean property indicating whether a node is a leaf" />
+          <Annotation Term="Core.Description" String="Boolean property indicating whether a node has no children in the requested resource" />
         </Property>
         <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property holding a node's level, which increases when descending the hierarchy" />
