@@ -119,7 +119,7 @@
             "Initials": {
                 "$Nullable": true,
                 "@Common.Experimental": true,
-                "@Core.Description": "Latin letters to be used in case no ImageUrl or TypeImageUrl is present"
+                "@Core.Description": "Latin letters to be used in case no `Image`, `ImageUrl`, or `TypeImageUrl` is present"
             }
         },
         "Identification": {
@@ -152,10 +152,15 @@
                 "$Type": "UI.DataField",
                 "@Core.Description": "Title"
             },
+            "Image": {
+                "$Type": "Edm.Stream",
+                "$Nullable": true,
+                "@Core.Description": "Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead."
+            },
             "ImageUrl": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead."
+                "@Core.Description": "Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead."
             },
             "TypeImageUrl": {
                 "$Nullable": true,

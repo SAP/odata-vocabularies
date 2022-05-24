@@ -101,7 +101,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
         <Property Name="Initials" Type="Edm.String" Nullable="true">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Latin letters to be used in case no ImageUrl or TypeImageUrl is present" />
+          <Annotation Term="Core.Description" String="Latin letters to be used in case no `Image`, `ImageUrl`, or `TypeImageUrl` is present" />
         </Property>
       </ComplexType>
 
@@ -121,9 +121,12 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Property Name="Title" Type="UI.DataField" Nullable="false">
           <Annotation Term="Core.Description" String="Title" />
         </Property>
+        <Property Name="Image" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Core.Description" String="Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead." />
+        </Property>
         <Property Name="ImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead." />
+          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead." />
         </Property>
         <Property Name="TypeImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
