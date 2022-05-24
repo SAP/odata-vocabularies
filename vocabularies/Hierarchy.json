@@ -58,15 +58,21 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. When a resource with that entity type is requested,\n          the values of these properties are derived from the output set of the last hierarchy-related transformation\n          (`ancestors`, `descendants`, `traverse`) during the evaluation of an `$apply` query option,\n          they are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. When a resource of the annotated entity type is requested\n          and hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) applied using the hierarchy qualifier of the annotation,\n          these properties are derived for each node, that is, for each instance in the resulting collection.\n          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
             },
+            "NodeTypeProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the type of a node",
+                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type.\n            The common entity type is the target of the `RecursiveHierarchy` annotation."
+            },
             "DescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property holding the number of descendants of a node"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants of a node"
             },
             "DrillStateProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -77,13 +83,13 @@
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property holding the sibling rank of a node",
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
                 "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent. The first sibling has rank 0."
             },
             "PreorderRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property holding the preorder rank of a node",
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the preorder rank of a node",
                 "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0."
             },
             "IsLeafProperty": {
@@ -91,10 +97,15 @@
                 "$Nullable": true,
                 "@Core.Description": "Boolean property indicating whether a node has no children in the requested resource"
             },
+            "DistanceFromRootProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of edges between the node and the root node"
+            },
             "LevelProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property holding a node's level, which increases when descending the hierarchy"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy"
             }
         }
     }
