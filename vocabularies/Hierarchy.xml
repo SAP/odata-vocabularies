@@ -56,8 +56,7 @@
           <Annotation Term="Core.Description" String="The type of a node" />
           <Annotation Term="Core.LongDescription">
             <String>In a recursive hierarchy with mixed types, nodes of different type can have different properties
-            and be represented by entities of different subtypes of a commmon entity type.
-            The common entity type is the target of the `RecursiveHierarchy` annotation.</String>
+            and be represented by entities of different subtypes of a commmon entity type.</String>
           </Annotation>
         </Property>
         <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">

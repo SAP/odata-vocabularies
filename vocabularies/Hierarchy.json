@@ -64,7 +64,7 @@
             "NodeType": {
                 "$Nullable": true,
                 "@Core.Description": "The type of a node",
-                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type.\n            The common entity type is the target of the `RecursiveHierarchy` annotation."
+                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type."
             },
             "DescendantCount": {
                 "$Type": "Edm.Int64",
