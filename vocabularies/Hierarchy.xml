@@ -35,34 +35,56 @@
         </Collection>
       </Annotation>
 
-      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
+      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Derived information about a node in a hierarchy" />
         <Annotation Term="Core.LongDescription">
-          <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.</String>
+          <String>After hierarchical transformations (`ancestors`, `descendants`, `traverse`) are applied to a
+          requested resource, the properties of this instance annotation are derived for each node,
+          that is, for each instance in the resulting collection.
+          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).
+          The qualifier of this instance annotation is the one used in the hierarchical transformations.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
+        <Property Name="ExternalKey" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The external key value for a node" />
         </Property>
-        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
-          <Annotation Term="Core.LongDescription" String="The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type." />
+        <Property Name="NodeType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="The type of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>In a recursive hierarchy with mixed types, nodes of different type can have different properties
+            and be represented by entities of different subtypes of a commmon entity type.
+            The common entity type is the target of the `RecursiveHierarchy` annotation.</String>
+          </Annotation>
         </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
-          <Annotation Term="Core.LongDescription" String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
+        <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="The number of descendants of a node" />
         </Property>
-        <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the sibling rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0." />
+        <Property Name="DrillState" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.LongDescription">
+            <String>Possible drill states are:
+            `expanded` if a node's children are included in the output set;
+            `collapsed` if a node's children are not included in the output set;
+            `leaf` if a node has no children in the requested resource.</String>
+          </Annotation>
         </Property>
-        <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the preorder rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0." />
+        <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent. The first sibling has rank 0." />
+        </Property>
+        <Property Name="PreorderRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0." />
+        </Property>
+        <Property Name="IsLeaf" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Whether a node has no children in the requested resource" />
+        </Property>
+        <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="The number of edges between the node and the root node" />
+        </Property>
+        <Property Name="Level" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="A node's level, which increases when descending the hierarchy" />
         </Property>
       </ComplexType>
 
