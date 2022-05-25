@@ -152,11 +152,6 @@
                 "$Type": "UI.DataField",
                 "@Core.Description": "Title"
             },
-            "Image": {
-                "$Type": "Edm.Stream",
-                "$Nullable": true,
-                "@Core.Description": "Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead."
-            },
             "ImageUrl": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
