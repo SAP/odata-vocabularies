@@ -65,9 +65,9 @@
         <Property Name="DrillState" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            `expanded` if a node's children are included in the output set;
-            `collapsed` if a node's children are not included in the output set;
-            `leaf` if a node has no children in the requested resource.</String>
+            &lt;br&gt;- `expanded` if a node's children are included in the output set;
+            &lt;br&gt;- `collapsed` if a node's children are not included in the output set;
+            &lt;br&gt;- `leaf` if a node has no children in the requested resource.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
