@@ -48,7 +48,8 @@
         <Annotation Term="Core.LongDescription">
           <String>The nullable property paths in this complex type refer to properties of an entity type that contain
           information about a node in a recursive hierarchy. When a resource of the annotated entity type is requested
-          and hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) applied using the hierarchy qualifier of the annotation,
+          and hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) are applied to it
+          with the resource as first parameter and the annotation qualifier as second parameter,
           these properties are derived for each node, that is, for each instance in the resulting collection.
           They are not affected by subsequent transformations or query options (like `$filter` or `$top`).</String>
         </Annotation>
