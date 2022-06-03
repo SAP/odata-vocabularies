@@ -66,6 +66,16 @@
         </Property>
       </ComplexType>
 
+      <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotation value is an integer collection whose n-th entry is the number of start nodes determined
+          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.
+          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -86,6 +86,17 @@
                 "@Core.Description": "Property holding the preorder rank of a node",
                 "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0."
             }
+        },
+        "StartNodeCounts": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.Int64",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation",
+            "@Core.LongDescription": "The annotation value is an integer collection whose n-th entry is the number of start nodes determined\n          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.\n          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation."
         }
     }
 }
