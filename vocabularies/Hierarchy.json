@@ -109,7 +109,7 @@
             },
             "SupportsStartNodeCounts": {
                 "$Type": "Core.Tag",
-                "$Nullable": true,
+                "$DefaultValue": false,
                 "@Core.Description": "Whether the service supplies the ['StartNodeCounts'](#StartNodeCounts) instance annotation"
             }
         },
