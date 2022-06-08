@@ -64,6 +64,9 @@
           <Annotation Term="Core.Description" String="Property holding the preorder rank of a node" />
           <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0." />
         </Property>
+        <Property Name="SupportsStartNodeCounts" Type="Core.Tag">
+          <Annotation Term="Core.Description" String="Whether the service supplies the ['StartNodeCounts'](#StartNodeCounts) instance annotation" />
+        </Property>
       </ComplexType>
 
       <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
