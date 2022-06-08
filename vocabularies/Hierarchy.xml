@@ -41,10 +41,20 @@
         <Annotation Term="Core.Description" String="Derived information about a node in a hierarchy" />
         <Annotation Term="Core.LongDescription">
           <String>After hierarchical transformations (`ancestors`, `descendants`, `traverse`) are applied to a
-          requested resource, the properties of this instance annotation are derived for each node,
-          that is, for each instance in the resulting collection.
-          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).
-          The qualifier of this instance annotation is the one used in the hierarchical transformations.</String>
+requested resource, the properties of this instance annotation are derived for each node,
+that is, for each instance in the resulting collection.
+They are not affected by subsequent transformations or query options (like `$filter` or `$top`).
+The qualifier of this instance annotation is the one used in the hierarchical transformations.
+
+If the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than
+the requested resource (`Sales`), as in
+```
+Sales?$apply=ancestors(
+  $root/SalesOrganizations,
+  SalesOrgHierarchy,
+  SalesOrganization/ID, ...)
+```
+then no such instance annotations are derived.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
@@ -86,6 +96,16 @@
           <Annotation Term="Core.Description" String="A node's level, which increases when descending the hierarchy" />
         </Property>
       </ComplexType>
+
+      <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotation value is an integer collection whose n-th entry is the number of start nodes determined
+          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.
+          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
+        </Annotation>
+      </Term>
 
     </Schema>
   </edmx:DataServices>

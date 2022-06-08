@@ -53,7 +53,7 @@
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Derived information about a node in a hierarchy",
-            "@Core.LongDescription": "After hierarchical transformations (`ancestors`, `descendants`, `traverse`) are applied to a\n          requested resource, the properties of this instance annotation are derived for each node,\n          that is, for each instance in the resulting collection.\n          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).\n          The qualifier of this instance annotation is the one used in the hierarchical transformations."
+            "@Core.LongDescription": "After hierarchical transformations (`ancestors`, `descendants`, `traverse`) are applied to a\nrequested resource, the properties of this instance annotation are derived for each node,\nthat is, for each instance in the resulting collection.\nThey are not affected by subsequent transformations or query options (like `$filter` or `$top`).\nThe qualifier of this instance annotation is the one used in the hierarchical transformations.\n\nIf the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than\nthe requested resource (`Sales`), as in\n```\nSales?$apply=ancestors(\n  $root/SalesOrganizations,\n  SalesOrgHierarchy,\n  SalesOrganization/ID, ...)\n```\nthen no such instance annotations are derived."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
@@ -100,6 +100,17 @@
                 "$Nullable": true,
                 "@Core.Description": "A node's level, which increases when descending the hierarchy"
             }
+        },
+        "StartNodeCounts": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.Int64",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation",
+            "@Core.LongDescription": "The annotation value is an integer collection whose n-th entry is the number of start nodes determined\n          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.\n          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation."
         }
     }
 }
