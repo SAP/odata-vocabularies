@@ -103,8 +103,8 @@ no such properties are derived.</String>
         <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy" />
         </Property>
-        <Property Name="SupportsStartNodeCounts" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the service supplies the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
+        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
         </Property>
       </ComplexType>
 

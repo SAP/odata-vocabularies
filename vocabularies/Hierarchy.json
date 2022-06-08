@@ -107,10 +107,10 @@
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy"
             },
-            "SupportsStartNodeCounts": {
+            "StartNodeCountsSupported": {
                 "$Type": "Core.Tag",
                 "$DefaultValue": false,
-                "@Core.Description": "Whether the service supplies the [`StartNodeCounts`](#StartNodeCounts) instance annotation"
+                "@Core.Description": "Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation"
             }
         },
         "StartNodeCounts": {
