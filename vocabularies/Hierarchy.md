@@ -17,11 +17,11 @@ Term|Type|Description
 The nullable property paths in this complex type refer to properties of an entity type that contain
 information about a node in a recursive hierarchy. When a resource of the annotated entity type is requested
 and hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) are applied to it
-with the resource as first parameter and the annotation qualifier as second parameter,
-these properties are derived for each node, that is, for each instance in the resulting collection.
+whose first parameter is of that entity type and whose second parameter is the annotation qualifier,
+then these properties are derived for each node, that is, for each instance in the resulting collection.
 They are not affected by subsequent transformations or query options (like `$filter` or `$top`).
 
-If the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` differs from
+If the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than
 the requested resource (`Sales`), as in
 ```
 Sales?$apply=ancestors(
@@ -29,7 +29,7 @@ Sales?$apply=ancestors(
   SalesOrgHierarchy,
   SalesOrganization/ID, ...)
 ```
-no such properties are derived.
+then no such properties are derived.
 
 Property|Type|Description
 :-------|:---|:----------
