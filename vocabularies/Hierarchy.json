@@ -50,22 +50,44 @@
             "$AppliesTo": [
                 "EntityType"
             ],
+            "$BaseTerm": "Aggregation.RecursiveHierarchy",
+            "@Common.Experimental": true,
+            "@Core.Description": "Defines a recursive hierarchy",
+            "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
+        },
+        "RecursiveHierarchyType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "ExternalKeyProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property holding the external key value for a node"
+            },
+            "NodeTypeProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property holding the type of a node",
+                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type.\n            The common entity type is the target of the `RecursiveHierarchy` annotation."
+            },
+            "StartNodeCountsSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Core.Description": "Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation"
+            }
+        },
+        "RecursiveHierarchyNode": {
+            "$Kind": "Term",
+            "$Type": "Hierarchy.RecursiveHierarchyNodeType",
+            "$AppliesTo": [
+                "EntityType"
+            ],
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Derived information about a node in a hierarchy",
             "@Core.LongDescription": "After hierarchical transformations (`ancestors`, `descendants`, `traverse`) are applied to a\nrequested resource, the properties of this instance annotation are derived for each node,\nthat is, for each instance in the resulting collection.\nThey are not affected by subsequent transformations or query options (like `$filter` or `$top`).\nThe qualifier of this instance annotation is the one used in the hierarchical transformations.\n\nIf the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than\nthe requested resource (`Sales`), as in\n```\nSales?$apply=ancestors(\n  $root/SalesOrganizations,\n  SalesOrgHierarchy,\n  SalesOrganization/ID, ...)\n```\nthen no such instance annotations are derived."
         },
-        "RecursiveHierarchyType": {
+        "RecursiveHierarchyNodeType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "ExternalKey": {
-                "@Core.Description": "The external key value for a node"
-            },
-            "NodeType": {
-                "$Nullable": true,
-                "@Core.Description": "The type of a node",
-                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type."
-            },
             "DescendantCount": {
                 "$Type": "Edm.Int64",
                 "$Nullable": true,

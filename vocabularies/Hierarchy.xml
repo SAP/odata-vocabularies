@@ -35,7 +35,32 @@
         </Collection>
       </Annotation>
 
-      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
+      <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
+        <Annotation Term="Core.LongDescription">
+          <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
+        </Property>
+        <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property holding the type of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>In a recursive hierarchy with mixed types, nodes of different type can have different properties
+            and be represented by entities of different subtypes of a commmon entity type.
+            The common entity type is the target of the `RecursiveHierarchy` annotation.</String>
+          </Annotation>
+        </Property>
+        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
+        </Property>
+      </ComplexType>
+      <Term Name="RecursiveHierarchyNode" Type="Hierarchy.RecursiveHierarchyNodeType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Derived information about a node in a hierarchy" />
@@ -57,18 +82,8 @@ Sales?$apply=ancestors(
 then no such instance annotations are derived.</String>
         </Annotation>
       </Term>
-      <ComplexType Name="RecursiveHierarchyType">
+      <ComplexType Name="RecursiveHierarchyNodeType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ExternalKey" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="The external key value for a node" />
-        </Property>
-        <Property Name="NodeType" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="The type of a node" />
-          <Annotation Term="Core.LongDescription">
-            <String>In a recursive hierarchy with mixed types, nodes of different type can have different properties
-            and be represented by entities of different subtypes of a commmon entity type.</String>
-          </Annotation>
-        </Property>
         <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="The number of descendants of a node" />
         </Property>
