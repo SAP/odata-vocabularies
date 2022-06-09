@@ -1563,7 +1563,19 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>Edm.PrimitiveType</String>
-              <String>Collection(Edm.PrimitiveType)</String>
+              <String>Collection(Edm.Binary)</String>
+              <String>Collection(Edm.Boolean)</String>
+              <String>Collection(Edm.Date)</String>
+              <String>Collection(Edm.DateTimeOffset)</String>
+              <String>Collection(Edm.Decimal)</String>
+              <String>Collection(Edm.Duration)</String>
+              <String>Collection(Edm.Guid)</String>
+              <String>Collection(Edm.Int16)</String>
+              <String>Collection(Edm.Int32)</String>
+              <String>Collection(Edm.Int64)</String>
+              <String>Collection(Edm.SByte)</String>
+              <String>Collection(Edm.Single)</String>
+              <String>Collection(Edm.TimeOfDay)</String>
             </Collection>
           </Annotation>
           <Annotation Term="Core.IsLanguageDependent" />
