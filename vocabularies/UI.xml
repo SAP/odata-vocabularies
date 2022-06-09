@@ -1565,6 +1565,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
               <String>Edm.PrimitiveType</String>
               <String>Collection(Edm.Binary)</String>
               <String>Collection(Edm.Boolean)</String>
+              <String>Collection(Edm.Byte)</String>
               <String>Collection(Edm.Date)</String>
               <String>Collection(Edm.DateTimeOffset)</String>
               <String>Collection(Edm.Decimal)</String>
@@ -1576,6 +1577,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
               <String>Collection(Edm.Int64)</String>
               <String>Collection(Edm.SByte)</String>
               <String>Collection(Edm.Single)</String>
+              <String>Collection(Edm.String)</String>
               <String>Collection(Edm.TimeOfDay)</String>
             </Collection>
           </Annotation>

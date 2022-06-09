@@ -1830,6 +1830,7 @@
                     "Edm.PrimitiveType",
                     "Collection(Edm.Binary)",
                     "Collection(Edm.Boolean)",
+                    "Collection(Edm.Byte)",
                     "Collection(Edm.Date)",
                     "Collection(Edm.DateTimeOffset)",
                     "Collection(Edm.Decimal)",
@@ -1841,6 +1842,7 @@
                     "Collection(Edm.Int64)",
                     "Collection(Edm.SByte)",
                     "Collection(Edm.Single)",
+                    "Collection(Edm.String)",
                     "Collection(Edm.TimeOfDay)"
                 ],
                 "@Core.IsLanguageDependent": true
