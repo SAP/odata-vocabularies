@@ -1833,6 +1833,7 @@
                     "Collection(Edm.Date)",
                     "Collection(Edm.DateTimeOffset)",
                     "Collection(Edm.Decimal)",
+                    "Collection(Edm.Double)",
                     "Collection(Edm.Duration)",
                     "Collection(Edm.Guid)",
                     "Collection(Edm.Int16)",

@@ -1568,6 +1568,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
               <String>Collection(Edm.Date)</String>
               <String>Collection(Edm.DateTimeOffset)</String>
               <String>Collection(Edm.Decimal)</String>
+              <String>Collection(Edm.Double)</String>
               <String>Collection(Edm.Duration)</String>
               <String>Collection(Edm.Guid)</String>
               <String>Collection(Edm.Int16)</String>
