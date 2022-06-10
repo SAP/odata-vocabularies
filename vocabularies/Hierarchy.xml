@@ -81,8 +81,8 @@ then no such properties are derived.</String>
           <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node's children are included in the output set;
-            &lt;br&gt;- `collapsed` if a node's children are not included in the output set;
+            &lt;br&gt;- `expanded` if a node has children which are included in the output set;
+            &lt;br&gt;- `collapsed` if a node has children in the requested resource which are not included in the output set;
             &lt;br&gt;- `leaf` if a node has no children in the requested resource.</String>
           </Annotation>
         </Property>
@@ -102,6 +102,18 @@ then no such properties are derived.</String>
         </Property>
         <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy" />
+        </Property>
+        <Property Name="MatchedIndicatorsProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description">
+            <String>Property of type `Collection(Edm.Boolean)` whose n-th entry is `true` if a node is a start node
+            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option</String>
+          </Annotation>
+        </Property>
+        <Property Name="MatchedDescendantCountsProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description">
+            <String>Property of type `Collection(Edm.Int64)` whose n-th entry is the number of a node's descendants among the start nodes
+            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option</String>
+          </Annotation>
         </Property>
         <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />

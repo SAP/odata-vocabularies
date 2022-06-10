@@ -78,7 +78,7 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node's children are included in the output set;\n            <br>- `collapsed` if a node's children are not included in the output set;\n            <br>- `leaf` if a node has no children in the requested resource."
+                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children which are included in the output set;\n            <br>- `collapsed` if a node has children in the requested resource which are not included in the output set;\n            <br>- `leaf` if a node has no children in the requested resource."
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -106,6 +106,16 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy"
+            },
+            "MatchedIndicatorsProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property of type `Collection(Edm.Boolean)` whose n-th entry is `true` if a node is a start node\n            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option"
+            },
+            "MatchedDescendantCountsProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property of type `Collection(Edm.Int64)` whose n-th entry is the number of a node's descendants among the start nodes\n            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option"
             },
             "StartNodeCountsSupported": {
                 "$Type": "Core.Tag",
