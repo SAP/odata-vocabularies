@@ -16,13 +16,17 @@
             "ClockInDateTime": {
                 "$Type": "Edm.DateTimeOffset",
                 "$Nullable": true,
-                "$Precision": 0,
-                "@Common.Timezone": {
-                    "$Path": "ClockInTimezone"
-                }
+                "$Precision": 0
             },
             "ClockInTimezone": {
                 "$Nullable": true
+            }
+        },
+        "$Annotations": {
+            "timezone.sample.WorkerTimeSheet/ClockInDateTime": {
+                "@Common.Timezone": {
+                    "$Path": "ClockInTimezone"
+                }
             }
         }
     }
