@@ -75,15 +75,15 @@ then no such properties are derived.</String>
           </Annotation>
         </Property>
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants of a node" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants of a node which are included in the output set" />
         </Property>
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
             &lt;br&gt;- `expanded` if a node has children which are included in the output set;
-            &lt;br&gt;- `collapsed` if a node has children in the requested resource which are not included in the output set;
-            &lt;br&gt;- `leaf` if a node has no children in the requested resource.</String>
+            &lt;br&gt;- `collapsed` if a node has descendants [matching](#MatchCount) descendants but no children are included in the output set;
+            &lt;br&gt;- `leaf` if a node has no [matching](#MatchCount) descendants and no children are included in the output set.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -103,30 +103,23 @@ then no such properties are derived.</String>
         <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy" />
         </Property>
-        <Property Name="MatchedIndicatorsProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description">
-            <String>Property of type `Collection(Edm.Boolean)` whose n-th entry is `true` if a node is a start node
-            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option</String>
-          </Annotation>
+        <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
         </Property>
-        <Property Name="MatchedDescendantCountsProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description">
-            <String>Property of type `Collection(Edm.Int64)` whose n-th entry is the number of a node's descendants among the start nodes
-            for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option</String>
-          </Annotation>
-        </Property>
-        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
+        <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants of a node" />
         </Property>
       </ComplexType>
 
-      <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
+      <Term Name="MatchCount" Type="Edm.Int64" AppliesTo="Collection">
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation" />
+        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The annotation value is an integer collection whose n-th entry is the number of start nodes determined
-          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.
-          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
+          <String>The server defines a subset of the `$apply` result as "matching nodes" based on the start nodes
+          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.
+          This subset is typically the output set of a `filter` or `search` transformation that evaluates node
+          attributes other than the node value.&lt;br&gt;This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
+          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
       </Term>
 
