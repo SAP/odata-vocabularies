@@ -77,8 +77,8 @@
             "DrillStateProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children which are included in the output set;\n            <br>- `collapsed` if a node has descendants [matching](#MatchCount) descendants but no children are included in the output set;\n            <br>- `leaf` if a node has no [matching](#MatchCount) descendants and no children are included in the output set."
+                "@Core.Description": "String property holding the drill state of a node",
+                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children which are included in the output set;\n            <br>- `collapsed` if a node has [matching](#MatchCount) descendants but no children are included in the output set;\n            <br>- `leaf` if a node has no [matching](#MatchCount) descendants and no children are included in the output set."
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -116,6 +116,11 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants of a node"
+            },
+            "StartNodeCountsSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Core.Description": "Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation"
             }
         },
         "MatchCount": {
@@ -125,9 +130,22 @@
             "$AppliesTo": [
                 "Collection"
             ],
+            "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
             "@Core.LongDescription": "The server defines a subset of the `$apply` result as \"matching nodes\" based on the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+        },
+        "StartNodeCounts": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.Int64",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation",
+            "@Core.LongDescription": "The annotation value is an integer collection whose n-th entry is the number of start nodes determined\n          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.\n          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation."
         }
     }
 }
