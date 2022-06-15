@@ -47,21 +47,11 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The nullable property paths in this complex type refer to properties of an entity type that contain
-information about a node in a recursive hierarchy. When a resource of the annotated entity type is requested
-and hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) are applied to it
-whose first parameter is of that entity type and whose second parameter is the annotation qualifier,
-then these properties are derived for each node, that is, for each instance in the resulting collection.
-They are not affected by subsequent transformations or query options (like `$filter` or `$top`).
-
-If the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than
-the requested resource (`Sales`), as in
-```
-Sales?$apply=ancestors(
-  $root/SalesOrganizations,
-  SalesOrgHierarchy,
-  SalesOrganization/ID, ...)
-```
-then no such properties are derived.</String>
+          information about a node in a recursive hierarchy. When hierarchy-related transformations
+          (`ancestors`, `descendants`, `traverse`) are applied whose first parameter is of the annotated entity type
+          and whose second parameter is the annotation qualifier,
+          then these properties are derived for each node, that is, for each instance in the resulting collection.
+          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
@@ -119,7 +109,7 @@ then no such properties are derived.</String>
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The server defines a subset of the `$apply` result as "matching nodes" based on the start nodes
+          <String>The service defines a subset of the `$apply` result as "matching nodes" based on the start nodes
           of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.
           This subset is typically the output set of a `filter` or `search` transformation that evaluates node
           attributes other than the node value.&lt;br&gt;This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
@@ -137,6 +127,26 @@ then no such properties are derived.</String>
           Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
         </Annotation>
       </Term>
+
+      <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection" />
+        <Annotation Term="Core.LongDescription">
+          <String>This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy
+          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+          annotation on the entity type of the `HierarchyNodes`. If m is the minimal node level in the hierarchical collection
+          given in the binding parameter, the output consists of the nodes from levels m, m+1, ..., m+n-1.</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Property path to the node value, evaluated relative to the binding parameter" />
+        </Parameter>
+        <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
+          <Annotation Term="Core.Description" String="The number n of levels to be output" />
+        </Parameter>
+        <ReturnType Type="Collection(Edm.EntityType)" />
+      </Function>
 
     </Schema>
   </edmx:DataServices>

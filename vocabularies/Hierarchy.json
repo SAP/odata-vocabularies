@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When a resource of the annotated entity type is requested\nand hierarchy-related transformations (`ancestors`, `descendants`, `traverse`) are applied to it\nwhose first parameter is of that entity type and whose second parameter is the annotation qualifier,\nthen these properties are derived for each node, that is, for each instance in the resulting collection.\nThey are not affected by subsequent transformations or query options (like `$filter` or `$top`).\n\nIf the first parameter (`SalesOrganizations`) of `ancestors`, `descendants` or `traverse` has a different type than\nthe requested resource (`Sales`), as in\n```\nSales?$apply=ancestors(\n  $root/SalesOrganizations,\n  SalesOrgHierarchy,\n  SalesOrganization/ID, ...)\n```\nthen no such properties are derived.",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. When hierarchy-related transformations\n          (`ancestors`, `descendants`, `traverse`) are applied whose first parameter is of the annotated entity type\n          and whose second parameter is the annotation qualifier,\n          then these properties are derived for each node, that is, for each instance in the resulting collection.\n          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
@@ -133,7 +133,7 @@
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-            "@Core.LongDescription": "The server defines a subset of the `$apply` result as \"matching nodes\" based on the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+            "@Core.LongDescription": "The service defines a subset of the `$apply` result as \"matching nodes\" based on the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
         },
         "StartNodeCounts": {
             "$Kind": "Term",
@@ -146,6 +146,44 @@
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation",
             "@Core.LongDescription": "The annotation value is an integer collection whose n-th entry is the number of start nodes determined\n          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.\n          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation."
-        }
+        },
+        "TopLevels": [
+            {
+                "$Kind": "Function",
+                "$EntitySetPath": "InputSet",
+                "$IsBound": true,
+                "@Core.Description": "Returns the first n levels of a hierarchical collection",
+                "@Core.LongDescription": "This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal node level in the hierarchical collection\n          given in the binding parameter, the output consists of the nodes from levels m, m+1, ..., m+n-1.",
+                "$Parameter": [
+                    {
+                        "$Name": "InputSet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodeProperty",
+                        "@Core.Description": "Property path to the node value, evaluated relative to the binding parameter"
+                    },
+                    {
+                        "$Name": "Levels",
+                        "$Type": "Edm.Int64",
+                        "@Core.Description": "The number n of levels to be output"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType"
+                }
+            }
+        ]
     }
 }
