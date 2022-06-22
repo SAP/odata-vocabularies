@@ -47,30 +47,20 @@
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Hierarchy.RecursiveHierarchyType",
-            "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
-                "ComplexType"
+                "EntityType"
             ],
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
             "@Common.Experimental": true,
-            "@Core.Description": "Defines a recursive hierarchy."
+            "@Core.Description": "Defines a recursive hierarchy",
+            "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "ParentNodeProperty": {
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property holding the parent hierarchy node value"
-            },
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
-            },
-            "ValueProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Property for whose values the hierarchy is defined"
             },
             "DescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",

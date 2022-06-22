@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:Edmx Version="4.01" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
@@ -88,9 +88,13 @@ a collection of business object instances, e.g. as a list or table.</String>
             </Collection>
           </Annotation>
         </Property>
+        <Property Name="Image" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead." />
+        </Property>
         <Property Name="ImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead." />
+          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead." />
         </Property>
         <Property Name="TypeImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
@@ -98,7 +102,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
         <Property Name="Initials" Type="Edm.String" Nullable="true">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Latin letters to be used in case no ImageUrl or TypeImageUrl is present" />
+          <Annotation Term="Core.Description" String="Latin letters to be used in case no `Image`, `ImageUrl`, or `TypeImageUrl` is present" />
         </Property>
       </ComplexType>
 
@@ -120,7 +124,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
         <Property Name="ImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead." />
+          <Annotation Term="Core.Description" String="Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead." />
         </Property>
         <Property Name="TypeImageUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
@@ -1338,9 +1342,9 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image" />
+        <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image." />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -1349,8 +1353,8 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue">
-        <Annotation Term="Core.Description" String="Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
+      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter">
+        <Annotation Term="Core.Description" String="Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
@@ -1567,8 +1571,29 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 
       <ComplexType Name="DataField" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Core.Description" String="A piece of data" />
-        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
+        <Property Name="Value" Type="Edm.Untyped" Nullable="false">
           <Annotation Term="Core.Description" String="The data field's value" />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>Edm.PrimitiveType</String>
+              <String>Collection(Edm.Binary)</String>
+              <String>Collection(Edm.Boolean)</String>
+              <String>Collection(Edm.Byte)</String>
+              <String>Collection(Edm.Date)</String>
+              <String>Collection(Edm.DateTimeOffset)</String>
+              <String>Collection(Edm.Decimal)</String>
+              <String>Collection(Edm.Double)</String>
+              <String>Collection(Edm.Duration)</String>
+              <String>Collection(Edm.Guid)</String>
+              <String>Collection(Edm.Int16)</String>
+              <String>Collection(Edm.Int32)</String>
+              <String>Collection(Edm.Int64)</String>
+              <String>Collection(Edm.SByte)</String>
+              <String>Collection(Edm.Single)</String>
+              <String>Collection(Edm.String)</String>
+              <String>Collection(Edm.TimeOfDay)</String>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -1576,6 +1601,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataFieldWithAction" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action" />
         <Annotation Term="Core.LongDescription" String="The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value." />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
         </Property>
@@ -1589,6 +1615,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
         </Annotation>
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
         </Property>
@@ -1603,6 +1630,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithNavigationPath" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows navigating to related data" />
         <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Target" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types</String>
@@ -1613,6 +1641,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithUrl" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows navigating to other information on the Web" />
         <Annotation Term="Core.LongDescription" String="It should be rendered as a hyperlink" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target of the hyperlink" />
           <Annotation Term="Core.IsURL" />
@@ -1626,6 +1655,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <ComplexType Name="DataFieldWithActionGroup" BaseType="UI.DataField">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>
