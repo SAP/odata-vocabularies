@@ -80,8 +80,14 @@ the following collections are distinguished:
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the hierarchical output set" />
         </Property>
-        <Property Name="ExpandedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the result of `$apply`" />
+        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>Possible drill states are:
+            &lt;br&gt;- `expanded` if a node has children in the result set
+            &lt;br&gt;- `collapsed` if a node has children in the hierarchical output set but not in the result set
+            &lt;br&gt;- `leaf` if a node has no children in the hierarchical output set</String>
+          </Annotation>
         </Property>
         <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the result of `$apply`" />
@@ -104,7 +110,7 @@ the following collections are distinguished:
           <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
         </Property>
         <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the output set of the last `ancestors`, `descendants` or `traverse` transformation" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the hierarchical output set" />
         </Property>
         <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
@@ -137,7 +143,7 @@ the following collections are distinguished:
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection" />
+        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
