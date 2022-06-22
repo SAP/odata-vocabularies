@@ -47,11 +47,21 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The nullable property paths in this complex type refer to properties of an entity type that contain
-          information about a node in a recursive hierarchy. When hierarchy-related transformations
-          (`ancestors`, `descendants`, `traverse`) are applied whose first parameter is of the annotated entity type
-          and whose second parameter is the annotation qualifier,
-          then these properties are derived for each node, that is, for each instance in the resulting collection.
-          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).</String>
+information about a node in a recursive hierarchy. When hierarchical transformations
+(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type
+and whose second parameter is the annotation qualifier,
+then these properties are derived for each node in the result set.
+
+For requests like
+```
+Employees?$apply=descendants(..., filter(Name eq 'JD'), 3)&amp;$top=10
+```
+the following collections are distinguished:
+- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)
+- hierarchical output set: the output set of the last `ancestors`, `descendants` or `traverse` transformation
+  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)
+- result of `$apply`: employees sub(subsub)ordinate to JD
+- result set of entire request: the first 10 employees sub(subsub)ordinate to JD.</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
@@ -64,40 +74,37 @@
             The common entity type is the target of the `RecursiveHierarchy` annotation.</String>
           </Annotation>
         </Property>
-        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants of a node which are included in the output set" />
+        <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of children a node has in the hierarchical output set" />
         </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
-          <Annotation Term="Core.LongDescription">
-            <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node has children which are included in the output set;
-            &lt;br&gt;- `collapsed` if a node has [matching](#MatchCount) descendants but no children are included in the output set;
-            &lt;br&gt;- `leaf` if a node has no [matching](#MatchCount) descendants and no children are included in the output set.</String>
-          </Annotation>
+        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the hierarchical output set" />
+        </Property>
+        <Property Name="ExpandedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the result of `$apply`" />
+        </Property>
+        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the result of `$apply`" />
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent. The first sibling has rank 0." />
+          <Annotation Term="Core.LongDescription">
+            <String>The sibling rank of a node is the index of the node in the sequence of all nodes
+            in the hierarchical output set with the same parent. The first sibling has rank 0.</String>
+          </Annotation>
         </Property>
         <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the preorder rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0." />
-        </Property>
-        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Boolean property indicating whether a node has no children in the requested resource" />
-        </Property>
-        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of edges between the node and the root node" />
-        </Property>
-        <Property Name="LevelProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal
+            of the result of `$apply`. The first node in preorder traversal has rank 0.</String>
+          </Annotation>
         </Property>
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
         </Property>
         <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants of a node" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the output set of the last `ancestors`, `descendants` or `traverse` transformation" />
         </Property>
         <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
@@ -109,7 +116,7 @@
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The service defines a subset of the `$apply` result as "matching nodes" based on the start nodes
+          <String>The service designates a subset of the `$apply` result as "matching nodes" derived from the start nodes
           of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.
           This subset is typically the output set of a `filter` or `search` transformation that evaluates node
           attributes other than the node value.&lt;br&gt;This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
@@ -129,12 +136,14 @@
       </Term>
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`. If m is the minimal node level in the hierarchical collection
-          given in the binding parameter, the output consists of the nodes from levels m, m+1, ..., m+n-1.</String>
+          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
+          given in the binding parameter, the output contains the nodes with m &le; distance from root &lt; m+n.
+          The output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />

@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\n          information about a node in a recursive hierarchy. When hierarchy-related transformations\n          (`ancestors`, `descendants`, `traverse`) are applied whose first parameter is of the annotated entity type\n          and whose second parameter is the annotation qualifier,\n          then these properties are derived for each node, that is, for each instance in the resulting collection.\n          They are not affected by subsequent transformations or query options (like `$filter` or `$top`).",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\n(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)&$top=10\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- hierarchical output set: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- result of `$apply`: employees sub(subsub)ordinate to JD\n- result set of entire request: the first 10 employees sub(subsub)ordinate to JD.",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
@@ -69,43 +69,37 @@
                 "@Core.Description": "Property holding the type of a node",
                 "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different properties\n            and be represented by entities of different subtypes of a commmon entity type.\n            The common entity type is the target of the `RecursiveHierarchy` annotation."
             },
+            "ChildCountProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of children a node has in the hierarchical output set"
+            },
             "DescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants of a node which are included in the output set"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the hierarchical output set"
             },
-            "DrillStateProperty": {
+            "ExpandedDescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "String property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children which are included in the output set;\n            <br>- `collapsed` if a node has [matching](#MatchCount) descendants but no children are included in the output set;\n            <br>- `leaf` if a node has no [matching](#MatchCount) descendants and no children are included in the output set."
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the result of `$apply`"
+            },
+            "DistanceFromRootProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the result of `$apply`"
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent. The first sibling has rank 0."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the hierarchical output set with the same parent. The first sibling has rank 0."
             },
             "PreorderRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the preorder rank of a node",
-                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal. The first node in preorder traversal has rank 0."
-            },
-            "IsLeafProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Boolean property indicating whether a node has no children in the requested resource"
-            },
-            "DistanceFromRootProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of edges between the node and the root node"
-            },
-            "LevelProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding a node's level, which increases when descending the hierarchy"
+                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal\n            of the result of `$apply`. The first node in preorder traversal has rank 0."
             },
             "MatchedProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -115,7 +109,7 @@
             "MatchedDescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants of a node"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the output set of the last `ancestors`, `descendants` or `traverse` transformation"
             },
             "StartNodeCountsSupported": {
                 "$Type": "Core.Tag",
@@ -133,7 +127,7 @@
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-            "@Core.LongDescription": "The service defines a subset of the `$apply` result as \"matching nodes\" based on the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+            "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\" derived from the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
         },
         "StartNodeCounts": {
             "$Kind": "Term",
@@ -152,8 +146,9 @@
                 "$Kind": "Function",
                 "$EntitySetPath": "InputSet",
                 "$IsBound": true,
+                "@Common.Experimental": true,
                 "@Core.Description": "Returns the first n levels of a hierarchical collection",
-                "@Core.LongDescription": "This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal node level in the hierarchical collection\n          given in the binding parameter, the output consists of the nodes from levels m, m+1, ..., m+n-1.",
+                "@Core.LongDescription": "This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection\n          given in the binding parameter, the output contains the nodes with m ≤ distance from root < m+n.\n          The output is sorted in preorder, preserving the relative order of siblings.",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
