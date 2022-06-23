@@ -83,7 +83,7 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "String property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the result set\n            <br>- `collapsed` if a node has children in the hierarchical output set but not in the result set\n            <br>- `leaf` if a node has no children in the hierarchical output set"
+                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the result of `$apply`\n            <br>- `collapsed` if a node has children in the hierarchical output set but not in the result of `$apply`\n            <br>- `leaf` if a node has no children in the hierarchical output set"
             },
             "DistanceFromRootProperty": {
                 "$Type": "Edm.PropertyPath",

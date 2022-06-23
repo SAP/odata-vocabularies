@@ -84,8 +84,8 @@ the following collections are distinguished:
           <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node has children in the result set
-            &lt;br&gt;- `collapsed` if a node has children in the hierarchical output set but not in the result set
+            &lt;br&gt;- `expanded` if a node has children in the result of `$apply`
+            &lt;br&gt;- `collapsed` if a node has children in the hierarchical output set but not in the result of `$apply`
             &lt;br&gt;- `leaf` if a node has no children in the hierarchical output set</String>
           </Annotation>
         </Property>
