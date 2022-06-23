@@ -48,7 +48,7 @@
         <Annotation Term="Core.LongDescription">
           <String>The nullable property paths in this complex type refer to properties of an entity type that contain
 information about a node in a recursive hierarchy. When hierarchical transformations
-(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type
+are applied whose first parameter has the annotated entity type
 and whose second parameter is the annotation qualifier,
 then these properties are derived for each node in the result set.
 
@@ -100,14 +100,8 @@ the following collections are distinguished:
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
-            in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
-          </Annotation>
-        </Property>
-        <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the preorder rank of a node" />
-          <Annotation Term="Core.LongDescription">
-            <String>The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal
-            of the limited hierarchy. The first node in preorder traversal has rank 0.</String>
+            in the unlimited hierarchy with the same parent. The first sibling has rank 0.
+            Updating this property means changing the relative sibling order.</String>
           </Annotation>
         </Property>
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -116,9 +110,11 @@ the following collections are distinguished:
         <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
+        <!--
         <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
         </Property>
+        -->
       </ComplexType>
 
       <Term Name="MatchCount" Type="Edm.Int64" AppliesTo="Collection">
@@ -134,6 +130,7 @@ the following collections are distinguished:
         </Annotation>
       </Term>
 
+      <!--
       <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
@@ -144,6 +141,7 @@ the following collections are distinguished:
           Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
         </Annotation>
       </Term>
+      -->
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />

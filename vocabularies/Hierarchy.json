@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\n(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or\n  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD\n  (`descendants(..., filter(Name eq 'JD'), 3)`)",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or\n  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD\n  (`descendants(..., filter(Name eq 'JD'), 3)`)",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
@@ -99,13 +99,7 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0."
-            },
-            "PreorderRankProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the preorder rank of a node",
-                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal\n            of the limited hierarchy. The first node in preorder traversal has rank 0."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0.\n            Updating this property means changing the relative sibling order."
             },
             "MatchedProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -116,11 +110,6 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
-            },
-            "StartNodeCountsSupported": {
-                "$Type": "Core.Tag",
-                "$DefaultValue": false,
-                "@Core.Description": "Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation"
             }
         },
         "MatchCount": {
@@ -134,18 +123,6 @@
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
             "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\" derived from the start nodes\n          of `ancestors` and `descendants` as determined by the transformations in their fourth parameters.\n          This subset is typically the output set of a `filter` or `search` transformation that evaluates node\n          attributes other than the node value.<br>This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
-        },
-        "StartNodeCounts": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Edm.Int64",
-            "$AppliesTo": [
-                "Collection"
-            ],
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation",
-            "@Core.LongDescription": "The annotation value is an integer collection whose n-th entry is the number of start nodes determined\n          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.\n          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation."
         },
         "TopLevels": [
             {
