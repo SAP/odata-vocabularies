@@ -79,6 +79,11 @@
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy"
             },
+            "ExpandedDescendantCountProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy"
+            },
             "DrillStateProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,

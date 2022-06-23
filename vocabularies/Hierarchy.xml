@@ -81,6 +81,9 @@ the following collections are distinguished:
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy" />
         </Property>
+        <Property Name="ExpandedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy" />
+        </Property>
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
