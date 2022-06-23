@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\n(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)&$top=10\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- hierarchical output set: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- result of `$apply`: employees sub(subsub)ordinate to JD\n- result set of entire request: the first 10 employees sub(subsub)ordinate to JD.",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\n(`ancestors`, `descendants`, `traverse`) are applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or\n  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD\n  (`descendants(..., filter(Name eq 'JD'), 3)`)",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
@@ -72,35 +72,35 @@
             "ChildCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of children a node has in the hierarchical output set"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy"
             },
             "DescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the hierarchical output set"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy"
             },
             "DrillStateProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "String property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the result of `$apply`\n            <br>- `collapsed` if a node has children in the hierarchical output set but not in the result of `$apply`\n            <br>- `leaf` if a node has no children in the hierarchical output set"
+                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
             },
             "DistanceFromRootProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the result of `$apply`"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy"
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the hierarchical output set with the same parent. The first sibling has rank 0."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0."
             },
             "PreorderRankProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the preorder rank of a node",
-                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal\n            of the result of `$apply`. The first node in preorder traversal has rank 0."
+                "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal\n            of the limited hierarchy. The first node in preorder traversal has rank 0."
             },
             "MatchedProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -110,7 +110,7 @@
             "MatchedDescendantCountProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the hierarchical output set"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
             },
             "StartNodeCountsSupported": {
                 "$Type": "Core.Tag",

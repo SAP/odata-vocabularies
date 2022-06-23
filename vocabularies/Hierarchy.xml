@@ -54,14 +54,15 @@ then these properties are derived for each node in the result set.
 
 For requests like
 ```
-Employees?$apply=descendants(..., filter(Name eq 'JD'), 3)&amp;$top=10
+Employees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)
 ```
 the following collections are distinguished:
 - [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)
-- hierarchical output set: the output set of the last `ancestors`, `descendants` or `traverse` transformation
+- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation
   disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)
-- result of `$apply`: employees sub(subsub)ordinate to JD
-- result set of entire request: the first 10 employees sub(subsub)ordinate to JD.</String>
+- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or
+  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD
+  (`descendants(..., filter(Name eq 'JD'), 3)`)</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
@@ -75,42 +76,42 @@ the following collections are distinguished:
           </Annotation>
         </Property>
         <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of children a node has in the hierarchical output set" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the hierarchical output set" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node has children in the result of `$apply`
-            &lt;br&gt;- `collapsed` if a node has children in the hierarchical output set but not in the result of `$apply`
-            &lt;br&gt;- `leaf` if a node has no children in the hierarchical output set</String>
+            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
+            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
+            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
           </Annotation>
         </Property>
         <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the result of `$apply`" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy" />
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
-            in the hierarchical output set with the same parent. The first sibling has rank 0.</String>
+            in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
         </Property>
         <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the preorder rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal
-            of the result of `$apply`. The first node in preorder traversal has rank 0.</String>
+            of the limited hierarchy. The first node in preorder traversal has rank 0.</String>
           </Annotation>
         </Property>
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
         </Property>
         <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the hierarchical output set" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
