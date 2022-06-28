@@ -54,15 +54,22 @@ then these properties are derived for each node in the result set.
 
 For requests like
 ```
-Employees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)
+SalesOrganizations?$apply=
+descendants(..., filter(ID eq 'US'), keep start)
+/ancestors(..., filter(contains(Name, 'New York'), 3))
+/top(10)
 ```
 the following collections are distinguished:
-- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)
+- sub-hierarchy: the output set of a `descendants` transformation filtering a single node value:
+  US sales organizations (`descendants(..., filter(ID eq 'US'), keep start)`)
+- [matching](#MatchCount) nodes: US sales organizations with "New York" in their name
+  (output set of `filter` transformation in `ancestors`)
 - unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation
-  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)
+  disregarding numeric fifth parameters:
+  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`)
 - limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or
-  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD
-  (`descendants(..., filter(Name eq 'JD'), 3)`)</String>
+  [`Hierarchy.TopLevels`](#TopLevels) transformation:
+  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`)</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
@@ -94,7 +101,7 @@ the following collections are distinguished:
           </Annotation>
         </Property>
         <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the (sub-)hierarchy" />
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />

@@ -58,7 +58,7 @@
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nEmployees?$apply=descendants(..., filter(Name eq 'JD'), 3)/top(10)\n```\nthe following collections are distinguished:\n- [matching](#MatchCount) nodes: JD (output set of `filter` transformation in `descendants`)\n- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters: employees in JD's reporting line (`descendants(..., filter(Name eq 'JD'))`)\n- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or\n  [`Hierarchy.TopLevels`](#TopLevels) transformation: employees sub(subsub)ordinate to JD\n  (`descendants(..., filter(Name eq 'JD'), 3)`)",
+            "@Core.LongDescription": "The nullable property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., filter(ID eq 'US'), keep start)\n/ancestors(..., filter(contains(Name, 'New York'), 3))\n/top(10)\n```\nthe following collections are distinguished:\n- sub-hierarchy: the output set of a `descendants` transformation filtering a single node value:\n  US sales organizations (`descendants(..., filter(ID eq 'US'), keep start)`)\n- [matching](#MatchCount) nodes: US sales organizations with \"New York\" in their name\n  (output set of `filter` transformation in `ancestors`)\n- unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation\n  disregarding numeric fifth parameters:\n  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`)\n- limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or\n  [`Hierarchy.TopLevels`](#TopLevels) transformation:\n  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`)",
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the external key value for a node"
@@ -93,7 +93,7 @@
             "DistanceFromRootProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the (sub-)hierarchy"
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
