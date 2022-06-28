@@ -56,20 +56,20 @@ For requests like
 ```
 SalesOrganizations?$apply=
 descendants(..., filter(ID eq 'US'), keep start)
-/ancestors(..., filter(contains(Name, 'New York'), 3))
+/ancestors(..., filter(contains(Name, 'New York'))
+/Hierarchy.TopLevels(..., Levels=2)
 /top(10)
 ```
 the following collections are distinguished:
 - sub-hierarchy: the output set of a `descendants` transformation filtering a single node value:
-  US sales organizations (`descendants(..., filter(ID eq 'US'), keep start)`)
+  US sales organizations (first two rows of request)
 - [matching](#MatchCount) nodes: US sales organizations with "New York" in their name
-  (output set of `filter` transformation in `ancestors`)
+  (output set of `filter` transformation in third row of request)
 - unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation
-  disregarding numeric fifth parameters:
+  disregarding numeric fifth parameters: (first three rows of request)
   `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`
 - limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or
-  [`Hierarchy.TopLevels`](#TopLevels) transformation:
-  `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`</String>
+  [`Hierarchy.TopLevels`](#TopLevels) transformation: (first four rows of request)</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
