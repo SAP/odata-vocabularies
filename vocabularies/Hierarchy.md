@@ -57,10 +57,10 @@ the following collections are distinguished:
   (output set of `filter` transformation in `ancestors`)
 - unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation
   disregarding numeric fifth parameters:
-  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`)
+  `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`
 - limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or
   [`Hierarchy.TopLevels`](#TopLevels) transformation:
-  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`)
+  `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`
 
 Property|Type|Description
 :-------|:---|:----------

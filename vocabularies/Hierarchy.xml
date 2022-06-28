@@ -66,10 +66,10 @@ the following collections are distinguished:
   (output set of `filter` transformation in `ancestors`)
 - unlimited hierarchy: the output set of the last `ancestors`, `descendants` or `traverse` transformation
   disregarding numeric fifth parameters:
-  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`)
+  `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')))`
 - limited hierarchy: the output set of the last `ancestors`, `descendants`, `traverse` or
   [`Hierarchy.TopLevels`](#TopLevels) transformation:
-  (`descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`)</String>
+  `descendants(..., filter(ID eq 'US'), keep start)/ancestors(..., filter(contains(Name, 'New York')), 3)`</String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
