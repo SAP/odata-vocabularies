@@ -99,7 +99,7 @@
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the (sub-)hierarchy with the same parent. The first sibling has rank 0.\n            Updating this property means changing the relative sibling order that is used in the absence of an `orderby` transformation."
+                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0.\n            Updating this property means changing the relative sibling order that is used in the absence of an `orderby` transformation."
             },
             "MatchedProperty": {
                 "$Type": "Edm.PropertyPath",
