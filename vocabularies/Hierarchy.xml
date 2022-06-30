@@ -105,8 +105,7 @@ the following collections are distinguished:
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
-            in the unlimited hierarchy with the same parent. The first sibling has rank 0.
-            Updating this property means changing the relative sibling order that is used in the absence of an `orderby` transformation.</String>
+            in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
         </Property>
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -169,6 +168,19 @@ the following collections are distinguished:
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
+
+      <Action Name="MoveSibling">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Changes the relative order of siblings in a recursive hierarchy by moving one of them" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Mover" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Node value of node to be moved" />
+        </Parameter>
+        <Parameter Name="MoveBefore" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Move before the sibling with this node value, if this is null move to the end" />
+        </Parameter>
+      </Action>
 
     </Schema>
   </edmx:DataServices>
