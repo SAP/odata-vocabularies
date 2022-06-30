@@ -108,10 +108,12 @@ the following collections are distinguished:
             in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
         </Property>
-        <Property Name="SiblingOrderProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property that defines the relative order of siblings" />
-          <Annotation Term="Core.LongDescription" String="A PATCH request on this property changes the relative order of siblings." />
+        <!--
+        <Property Name="SiblingOrderProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties that define the relative order of siblings" />
+          <Annotation Term="Core.LongDescription" String="A PATCH request on these properties changes the relative order of siblings." />
         </Property>
+        -->
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
         </Property>
