@@ -169,7 +169,7 @@ the following collections are distinguished:
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
-      <Action Name="MoveSibling">
+      <Action Name="MoveSibling" EntitySetPath="HierarchyNodes">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Changes the relative order of siblings in a recursive hierarchy by moving one of them" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
@@ -180,6 +180,9 @@ the following collections are distinguished:
         <Parameter Name="MoveBefore" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Move before the sibling with this node value, if this is null move to the end" />
         </Parameter>
+        <ReturnType Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="The siblings in the new order, with updated [`SiblingRankProperty`](#RecursiveHierarchyType)" />
+        </ReturnType>
       </Action>
 
     </Schema>

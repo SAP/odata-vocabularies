@@ -166,6 +166,7 @@
         "MoveSibling": [
             {
                 "$Kind": "Action",
+                "$EntitySetPath": "HierarchyNodes",
                 "@Common.Experimental": true,
                 "@Core.Description": "Changes the relative order of siblings in a recursive hierarchy by moving one of them",
                 "$Parameter": [
@@ -189,7 +190,12 @@
                         "$Nullable": true,
                         "@Core.Description": "Move before the sibling with this node value, if this is null move to the end"
                     }
-                ]
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType",
+                    "@Core.Description": "The siblings in the new order, with updated [`SiblingRankProperty`](#RecursiveHierarchyType)"
+                }
             }
         ]
     }

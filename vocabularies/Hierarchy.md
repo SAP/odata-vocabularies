@@ -24,6 +24,7 @@ Parameter|Type|Description
 [HierarchyQualifier](./Hierarchy.xml#L176:~:text=<Action%20Name="-,MoveSibling,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Mover](./Hierarchy.xml#L177:~:text=<Action%20Name="-,MoveSibling,-")|PrimitiveType|Node value of node to be moved
 [MoveBefore](./Hierarchy.xml#L180:~:text=<Action%20Name="-,MoveSibling,-")|PrimitiveType?|Move before the sibling with this node value, if this is null move to the end
+[&rarr;](./Hierarchy.xml#L183:~:text=<Action%20Name="-,MoveSibling,-")|\[EntityType\]|The siblings in the new order, with updated [`SiblingRankProperty`](#RecursiveHierarchyType)
 
 
 
