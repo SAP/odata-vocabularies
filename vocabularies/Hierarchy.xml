@@ -70,10 +70,10 @@ the following collections are distinguished:
 </String>
         </Annotation>
         <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
+          <Annotation Term="Core.Description" String="String property holding the external key value for a node" />
         </Property>
         <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the type of a node" />
+          <Annotation Term="Core.Description" String="String property holding the type of a node" />
           <Annotation Term="Core.LongDescription">
             <String>In a recursive hierarchy with mixed types, nodes of different type can have different properties
             and be represented by entities of different subtypes of a commmon entity type.
@@ -107,6 +107,10 @@ the following collections are distinguished:
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
             in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
+        </Property>
+        <Property Name="SiblingOrderProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property that defines the relative order of siblings" />
+          <Annotation Term="Core.LongDescription" String="A PATCH request on this property changes the relative order of siblings." />
         </Property>
         <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
@@ -168,22 +172,6 @@ the following collections are distinguished:
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
-
-      <Action Name="MoveSibling" EntitySetPath="HierarchyNodes">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Changes the relative order of siblings in a recursive hierarchy by moving one of them" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Mover" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Node value of node to be moved" />
-        </Parameter>
-        <Parameter Name="MoveBefore" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Move before the sibling with this node value, if this is null move to the end" />
-        </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
-          <Annotation Term="Core.Description" String="The siblings in the new order, with updated [`SiblingRankProperty`](#RecursiveHierarchyType)" />
-        </ReturnType>
-      </Action>
 
     </Schema>
   </edmx:DataServices>
