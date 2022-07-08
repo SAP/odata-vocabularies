@@ -100,13 +100,11 @@
         "RolledUpPropertyCount": {
             "$Kind": "Term",
             "$Type": "Edm.Int16",
-            "$Nullable": true,
             "@Common.Experimental": true,
             "@Core.Description": "Number of properties in the entity instance that have been aggregated away"
         },
         "DrillURL": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
