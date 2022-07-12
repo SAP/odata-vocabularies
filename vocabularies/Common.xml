@@ -1164,7 +1164,6 @@ Upon modification field control logic is invoked so that meta-information like h
 
       <!-- Section: Default Values -->
       <Term Name="DefaultValuesFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntitySet NavigationProperty Action Function">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service</String>
         </Annotation>
