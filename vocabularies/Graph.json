@@ -74,6 +74,16 @@
                 "@Common.Experimental": true,
                 "@Core.Description": "Request body sent to the business system tenant"
             }
+        },
+        "CompositionRoot": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated entity type is the root type of a composition tree."
         }
     }
 }
