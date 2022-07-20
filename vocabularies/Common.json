@@ -1197,6 +1197,11 @@
         "DraftRootType": {
             "$Kind": "ComplexType",
             "$BaseType": "Common.DraftNodeType",
+            "PreparationAction": {
+                "$Type": "Common.QualifiedName",
+                "$Nullable": true,
+                "@Core.Description": "Action that prepares a draft document for later activation"
+            },
             "ActivationAction": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Action that activates a draft document"
@@ -1204,32 +1209,31 @@
             "DiscardAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Common.Experimental": true,
                 "@Core.Description": "Action that discards a draft document"
             },
             "EditAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Description": "Action that creates an edit draft"
+                "@Core.Description": "Action that creates an edit draft",
+                "@Core.LongDescription": "The action is bound to the active document root node and has the following signature:\n\n            - `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten"
             },
             "NewAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
                 "@Core.Description": "Action that creates a new draft",
-                "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+                "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\n            New drafts may also be created by POSTing an empty entity without any properties to the entity set."
             },
             "AdditionalNewActions": {
                 "$Collection": true,
                 "$Type": "Common.QualifiedName",
-                "@Common.Experimental": true,
-                "@Core.Description": "Additional actions that create a new draft",
-                "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+                "@Core.Description": "Additional actions beside the default POST or standard `NewAction`that create a new draft",
+                "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created"
             },
             "ShareAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
                 "@Core.Description": "Action that shares a draft document with other users",
-                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              - `UserID` of type `String` and\n\n              - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            It restricts access to the listed users in their specified roles."
+                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n            - `UserID` of type `String`\n\n            - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            - `ShareAll` of type `Boolean`\n\n            It restricts access to the listed users in their specified roles."
             }
         },
         "DraftNode": {
@@ -1245,6 +1249,12 @@
             "PreparationAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Preparation is always called on the draft root node"
+                    }
+                ],
                 "@Core.Description": "Action that prepares a draft document for later activation"
             },
             "ValidationFunction": {

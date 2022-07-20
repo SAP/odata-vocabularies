@@ -988,24 +988,41 @@ The minimum structure is
         </Annotation>
       </Term>
       <ComplexType Name="DraftRootType" BaseType="Common.DraftNodeType">
+        <Property Name="PreparationAction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
+        </Property>
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document" />
         </Property>
         <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Action that discards a draft document" />
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the active document root node and has the following signature:
+
+            - `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten</String>
+          </Annotation>
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
-          <Annotation Term="Core.LongDescription" String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
+          <Annotation Term="Core.LongDescription" String="" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root entity set and has the following signature:
+
+            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
+
+            New drafts may also be created by POSTing an empty entity without any properties to the entity set.</String>
+          </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
-          <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
+          <Annotation Term="Core.Description" String="Additional actions beside the default POST or standard `NewAction`that create a new draft" />
+          <Annotation Term="Core.LongDescription">
+            <String>The actions are bound to the draft document root entity set and have the following signature:
+
+            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created</String>
+          </Annotation>
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
@@ -1014,9 +1031,11 @@ The minimum structure is
 
             - `Users`: collection of structure with properties
 
-            &#xA0;&#xA0;- `UserID` of type `String` and
+            - `UserID` of type `String`
 
-            &#xA0;&#xA0;- `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+            - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+
+            - `ShareAll` of type `Boolean`
 
             It restricts access to the listed users in their specified roles.</String>
           </Annotation>
@@ -1030,6 +1049,14 @@ The minimum structure is
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Preparation is always called on the draft root node" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
