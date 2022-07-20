@@ -61,6 +61,11 @@
         </Property>
       </ComplexType>
 
+      <Term Name="CompositionRoot" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type is the root type of a composition tree." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
