@@ -1390,7 +1390,6 @@
         "DefaultValuesFunction": {
             "$Kind": "Term",
             "$Type": "Common.QualifiedName",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "NavigationProperty",
@@ -1402,7 +1401,6 @@
         },
         "DerivedDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1431,7 +1429,6 @@
         },
         "DerivedFilterDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
