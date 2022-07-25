@@ -1232,8 +1232,8 @@
             "ShareAction": {
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
-                "@Core.Description": "Action that shares a draft document with other users",
-                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n            - `UserID` of type `String`\n\n            - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            - `ShareAll` of type `Boolean`\n\n            It restricts access to the listed users in their specified roles."
+                "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
+                "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              ◦ `UserID` of type `String`\n\n              ◦ `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            - `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts;\n            the `Users` parameter is optional in this case, provide it to actively notify the listed users"
             }
         },
         "DraftNode": {

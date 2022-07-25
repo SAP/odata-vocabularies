@@ -1025,19 +1025,18 @@ The minimum structure is
           </Annotation>
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users and restricts access to the listed users in their specified roles" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
 
             - `Users`: collection of structure with properties
 
-            - `UserID` of type `String`
+            &#xA0;&#xA0;&#x25E6; `UserID` of type `String`
 
-            - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+            &#xA0;&#xA0;&#x25E6; `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
 
-            - `ShareAll` of type `Boolean`
-
-            It restricts access to the listed users in their specified roles.</String>
+            - `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts;
+            the `Users` parameter is optional in this case, provide it to actively notify the listed users</String>
           </Annotation>
         </Property>
       </ComplexType>
