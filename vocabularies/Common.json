@@ -1221,7 +1221,7 @@
                 "$Type": "Common.QualifiedName",
                 "$Nullable": true,
                 "@Core.Description": "Action that creates a new draft",
-                "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\n            New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+                "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\n            New drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set."
             },
             "AdditionalNewActions": {
                 "$Collection": true,
