@@ -39,7 +39,6 @@
         },
         "OriginalDataType": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -59,7 +58,6 @@
         },
         "ConversionExit": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -71,7 +69,6 @@
         },
         "SourceSystem": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Container"
             ],
@@ -91,7 +88,6 @@
         "DeltaMethod": {
             "$Kind": "Term",
             "$Type": "DataIntegration.DeltaMethodType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
