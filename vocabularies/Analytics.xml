@@ -74,13 +74,13 @@
         <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
-      <Term Name="RolledUpPropertyCount" Type="Edm.Int16">
+      <Term Name="RolledUpPropertyCount" Type="Edm.Int16" Nullable="false">
         <!-- instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Number of properties in the entity instance that have been aggregated away" />
       </Term>
 
-      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType">
+      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType" Nullable="false">
         <!-- metadata annotation that can also appear as instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
