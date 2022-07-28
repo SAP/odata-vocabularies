@@ -397,6 +397,9 @@
         },
         "DataPointType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden"
+            ],
             "Title": {
                 "$Nullable": true,
                 "@Core.Description": "Title of the data point",
