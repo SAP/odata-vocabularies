@@ -18,7 +18,7 @@ Term|Type|Description
 
 Returns the first n levels of a hierarchical collection in preorder
 
-This function can be used as a transformation after hierarchical transformations that use a recursive hierarchy
+This function can be used as a transformation whose input set has a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output contains the nodes with m ≤ distance from root < m+n.
