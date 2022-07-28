@@ -711,6 +711,9 @@
         },
         "KPIType": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "UI.Hidden"
+            ],
             "ID": {
                 "$Nullable": true,
                 "@Core.Description": "Optional identifier to reference this instance from an external context"

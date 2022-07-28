@@ -636,6 +636,11 @@ The trend is
         </Annotation>
       </Term>
       <ComplexType Name="KPIType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.Hidden</String>
+          </Collection>
+        </Annotation>
         <Property Name="ID" Type="Edm.String">
           <Annotation Term="Core.Description">
             <String>Optional identifier to reference this instance from an external context</String>
