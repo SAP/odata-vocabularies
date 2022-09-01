@@ -18,12 +18,11 @@
         </Key>
         <Property Name="Order" Type="Edm.String" Nullable="false" />
         <Property Name="Country" Type="Edm.String" Nullable="false" />
-        <Property Name="NumberOfItems" Type="Edm.Int16" Nullable="false" />
         <Property Name="Amount" Type="Edm.Decimal" />
       </EntityType>
 
       <Annotations Target="self.Sales">
-        <Annotation Term="Analytics.AggregatedProperty" Qualifier="sum">
+        <Annotation Term="Analytics.AggregatedProperty" Qualifier="sumAmount">
           <Record>
             <PropertyValue Property="Name" String="Total" />
             <PropertyValue Property="AggregationMethod" String="sum" />
@@ -31,7 +30,7 @@
           </Record>
         </Annotation>
 
-        <Annotation Term="Analytics.AggregatedProperty" Qualifier="max">
+        <Annotation Term="Analytics.AggregatedProperty" Qualifier="maxAmount">
           <Record>
             <PropertyValue Property="Name" String="Maximum" />
             <PropertyValue Property="AggregationMethod" String="max" />
@@ -47,14 +46,9 @@
                 <PropertyPath>Country</PropertyPath>
               </Collection>
             </PropertyValue>
-            <PropertyValue Property="Measures">
-              <Collection>
-                <PropertyPath>NumberOfItems</PropertyPath>
-              </Collection>
-            </PropertyValue>
             <PropertyValue Property="DynamicMeasures">
               <Collection>
-                <AnnotationPath>@Analytics.AggregatedProperty#sum</AnnotationPath>
+                <AnnotationPath>@Analytics.AggregatedProperty#sumAmount</AnnotationPath>
                 <AnnotationPath>/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage</AnnotationPath>
               </Collection>
             </PropertyValue>
@@ -69,7 +63,7 @@
             <PropertyValue Property="SelectOptions">
               <Collection>
                 <Record>
-                  <PropertyValue Property="DynamicPropertyName" AnnotationPath="@Analytics.AggregatedProperty#sum" />
+                  <PropertyValue Property="DynamicPropertyName" AnnotationPath="@Analytics.AggregatedProperty#sumAmount" />
                   <PropertyValue Property="Ranges">
                     <Collection>
                       <Record>
@@ -93,7 +87,7 @@
                   <PropertyValue Property="Property" PropertyPath="Country" />
                 </Record>
                 <Record>
-                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sum" />
+                  <PropertyValue Property="DynamicProperty" AnnotationPath="@Analytics.AggregatedProperty#sumAmount" />
                   <PropertyValue Property="Descending" Bool="true" />
                 </Record>
                 <Record>

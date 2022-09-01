@@ -64,7 +64,6 @@
         "HeaderInfo": {
             "$Kind": "Term",
             "$Type": "UI.HeaderInfoType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -136,7 +135,6 @@
         "Badge": {
             "$Kind": "Term",
             "$Type": "UI.BadgeType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -197,7 +195,6 @@
         "FieldGroup": {
             "$Kind": "Term",
             "$Type": "UI.FieldGroupType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "Action",
@@ -223,7 +220,6 @@
         "ConnectedFields": {
             "$Kind": "Term",
             "$Type": "UI.ConnectedFieldsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -284,7 +280,6 @@
         "GeoLocation": {
             "$Kind": "Term",
             "$Type": "UI.GeoLocationType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -333,7 +328,6 @@
         "MediaResource": {
             "$Kind": "Term",
             "$Type": "UI.MediaResourceType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -705,7 +699,6 @@
         "KPI": {
             "$Kind": "Term",
             "$Type": "UI.KPIType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -769,7 +762,6 @@
         "Chart": {
             "$Kind": "Term",
             "$Type": "UI.ChartDefinitionType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1201,7 +1193,6 @@
         "SelectionPresentationVariant": {
             "$Kind": "Term",
             "$Type": "UI.SelectionPresentationVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1232,7 +1223,6 @@
         "PresentationVariant": {
             "$Kind": "Term",
             "$Type": "UI.PresentationVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1323,7 +1313,6 @@
         "SelectionVariant": {
             "$Kind": "Term",
             "$Type": "UI.SelectionVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1581,7 +1570,6 @@
         "TextArrangement": {
             "$Kind": "Term",
             "$Type": "UI.TextArrangementType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "EntityType"
@@ -1603,7 +1591,6 @@
         "Importance": {
             "$Kind": "Term",
             "$Type": "UI.ImportanceType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "Record"
@@ -1676,7 +1663,6 @@
         "DataFieldDefault": {
             "$Kind": "Term",
             "$Type": "UI.DataFieldAbstract",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1828,7 +1814,22 @@
                 "@Core.Description": "The data field's value",
                 "@Validation.DerivedTypeConstraint": [
                     "Edm.PrimitiveType",
-                    "Collection(Edm.PrimitiveType)"
+                    "Collection(Edm.Binary)",
+                    "Collection(Edm.Boolean)",
+                    "Collection(Edm.Byte)",
+                    "Collection(Edm.Date)",
+                    "Collection(Edm.DateTimeOffset)",
+                    "Collection(Edm.Decimal)",
+                    "Collection(Edm.Double)",
+                    "Collection(Edm.Duration)",
+                    "Collection(Edm.Guid)",
+                    "Collection(Edm.Int16)",
+                    "Collection(Edm.Int32)",
+                    "Collection(Edm.Int64)",
+                    "Collection(Edm.SByte)",
+                    "Collection(Edm.Single)",
+                    "Collection(Edm.String)",
+                    "Collection(Edm.TimeOfDay)"
                 ],
                 "@Core.IsLanguageDependent": true
             }
@@ -1915,7 +1916,6 @@
         "Criticality": {
             "$Kind": "Term",
             "$Type": "UI.CriticalityType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1924,7 +1924,6 @@
         "CriticalityCalculation": {
             "$Kind": "Term",
             "$Type": "UI.CriticalityCalculationType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1944,7 +1943,6 @@
         "OrderBy": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1965,7 +1963,6 @@
         "RecommendationState": {
             "$Kind": "Term",
             "$Type": "UI.RecommendationStateType",
-            "$Nullable": true,
             "@Core.Description": "Indicates whether a field contains or has a recommended value",
             "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
         },
@@ -1992,7 +1989,6 @@
         "RecommendationList": {
             "$Kind": "Term",
             "$Type": "UI.RecommendationListType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
