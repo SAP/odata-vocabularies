@@ -29,7 +29,7 @@ Parameter|Type|Description
 **[InputSet](./Hierarchy.xml#L166:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyNodes](./Hierarchy.xml#L167:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 [HierarchyQualifier](./Hierarchy.xml#L168:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[NodeProperty](./Hierarchy.xml#L169:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node value, evaluated relative to the binding parameter
+[NodeProperty](./Hierarchy.xml#L169:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
 [Levels](./Hierarchy.xml#L172:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
 [&rarr;](./Hierarchy.xml#L175:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
@@ -54,7 +54,7 @@ descendants(..., filter(ID eq 'US'), keep start)
 the following collections are distinguished:
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
-|sub-hierarchy|output set of a `descendants` transformation filtering a single node value|US sales organizations|rows 1–2|
+|sub-hierarchy|output set of a `descendants` transformation filtering a single node identifier|US sales organizations|rows 1–2|
 |matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with "New York" in their name|output set of `filter` transformation in row 3|
 |unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation disregarding numeric fifth parameters|US sales organizations with leaves containing "New York"|rows 1–3|
 |limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation|2 levels of US sales organizations with leaves containing "New York"|rows 1–4|
