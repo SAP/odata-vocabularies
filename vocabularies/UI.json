@@ -1910,7 +1910,7 @@
             "Actions": {
                 "$Collection": true,
                 "$Type": "UI.DataField",
-                "@Core.Description": "Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
+                "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
             }
         },
         "Criticality": {
