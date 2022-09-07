@@ -37,7 +37,7 @@ These terms are inspired by
         </Collection>
       </Annotation>
 
-      <Term Name="Contact" Type="Communication.ContactType" AppliesTo="EntityType">
+      <Term Name="Contact" Type="Communication.ContactType" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Address book entry" />
       </Term>
       <ComplexType Name="ContactType">
@@ -121,7 +121,7 @@ These terms are inspired by
         </Property>
       </ComplexType>
 
-      <Term Name="Address" Type="Communication.AddressType" AppliesTo="EntityType">
+      <Term Name="Address" Type="Communication.AddressType" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Address" />
       </Term>
       <ComplexType Name="AddressType">
@@ -280,7 +280,7 @@ These terms are inspired by
         <Annotation Term="Core.Description" String="Property contains a phone number" />
       </Term>
 
-      <Term Name="Event" Type="Communication.EventData" AppliesTo="EntityType">
+      <Term Name="Event" Type="Communication.EventData" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Calendar entry" />
       </Term>
 
@@ -323,7 +323,7 @@ These terms are inspired by
         </Property>
       </ComplexType>
 
-      <Term Name="Task" Type="Communication.TaskData" AppliesTo="EntityType">
+      <Term Name="Task" Type="Communication.TaskData" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Task list entry" />
       </Term>
 
@@ -348,7 +348,7 @@ These terms are inspired by
         </Property>
       </ComplexType>
 
-      <Term Name="Message" Type="Communication.MessageData" AppliesTo="EntityType">
+      <Term Name="Message" Type="Communication.MessageData" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Email message" />
       </Term>
 

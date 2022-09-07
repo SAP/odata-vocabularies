@@ -55,7 +55,7 @@ a collection of business object instances, e.g. as a list or table.</String>
 
       <!-- Semantic Views / Perspectives -->
 
-      <Term Name="HeaderInfo" Type="UI.HeaderInfoType" AppliesTo="EntityType">
+      <Term Name="HeaderInfo" Type="UI.HeaderInfoType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model" />
       </Term>
@@ -111,7 +111,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="Core.Description" String="Collection of fields identifying the object" />
       </Term>
 
-      <Term Name="Badge" Type="UI.BadgeType" AppliesTo="EntityType">
+      <Term Name="Badge" Type="UI.BadgeType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Information usually displayed in the form of a business card" />
       </Term>
@@ -148,7 +148,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
-      <Term Name="FieldGroup" Type="UI.FieldGroupType" AppliesTo="EntityType Action Function FunctionImport">
+      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function FunctionImport">
         <Annotation Term="Core.Description" String="Group of fields with an optional label" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
@@ -162,7 +162,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
       </ComplexType>
 
-      <Term Name="ConnectedFields" Type="UI.ConnectedFieldsType" AppliesTo="EntityType">
+      <Term Name="ConnectedFields" Type="UI.ConnectedFieldsType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Group of semantically connected fields with a representation template and an optional label" />
         <Annotation Term="Core.Example">
           <Record>
@@ -231,7 +231,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Collection of geographic locations" />
       </Term>
-      <Term Name="GeoLocation" Type="UI.GeoLocationType" AppliesTo="EntityType">
+      <Term Name="GeoLocation" Type="UI.GeoLocationType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Geographic location" />
       </Term>
@@ -262,7 +262,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Annotation>
       </Term>
 
-      <Term Name="MediaResource" Type="UI.MediaResourceType" AppliesTo="EntityType">
+      <Term Name="MediaResource" Type="UI.MediaResourceType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Properties that describe a media resource" />
       </Term>
@@ -305,7 +305,7 @@ a collection of business object instances, e.g. as a list or table.</String>
       </ComplexType>
 
       <!-- Under discussion
-        <Term Name="AdditionalInfo" Type="Edm.AnnotationPath" AppliesTo="Annotation">
+        <Term Name="AdditionalInfo" Type="Edm.AnnotationPath" Nullable="true" AppliesTo="Annotation">
         <Annotation Term="Core.Description">
         <String>
         Applies to UI.GeoLocation and Communication.Contact annotations only
@@ -624,7 +624,7 @@ The trend is
         </Property>
       </ComplexType>
 
-      <Term Name="KPI" Type="UI.KPIType" AppliesTo="EntitySet EntityType">
+      <Term Name="KPI" Type="UI.KPIType" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure</String>
@@ -670,7 +670,7 @@ The trend is
         </Property>
       </ComplexType>
 
-      <Term Name="Chart" Type="UI.ChartDefinitionType" AppliesTo="EntityType">
+      <Term Name="Chart" Type="UI.ChartDefinitionType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of multiple data points" />
       </Term>
@@ -1019,7 +1019,7 @@ The trend is
       </ComplexType>
 
 
-      <Term Name="SelectionPresentationVariant" Type="UI.SelectionPresentationVariantType" AppliesTo="EntitySet EntityType">
+      <Term Name="SelectionPresentationVariant" Type="UI.SelectionPresentationVariantType" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant</String>
@@ -1043,7 +1043,7 @@ The trend is
         </Property>
       </ComplexType>
 
-      <Term Name="PresentationVariant" Type="UI.PresentationVariantType" AppliesTo="EntitySet EntityType">
+      <Term Name="PresentationVariant" Type="UI.PresentationVariantType" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description">
           <String>Defines how the result of a queried collection of entities is shaped and how this result is displayed</String>
@@ -1156,7 +1156,7 @@ The trend is
         </Property>
       </ComplexType>
 
-      <Term Name="SelectionVariant" Type="UI.SelectionVariantType" AppliesTo="EntitySet EntityType">
+      <Term Name="SelectionVariant" Type="UI.SelectionVariantType" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description">
           <String>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set</String>
         </Annotation>
@@ -1364,7 +1364,7 @@ The trend is
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="TextArrangement" Type="UI.TextArrangementType" AppliesTo="Annotation EntityType">
+      <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
       </Term>
@@ -1383,7 +1383,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Importance" Type="UI.ImportanceType" AppliesTo="Annotation Record">
+      <Term Name="Importance" Type="UI.ImportanceType" Nullable="false" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>
       <EnumType Name="ImportanceType">
@@ -1441,8 +1441,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
         </Annotation>
       </Term>
 
-
-      <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" AppliesTo="Property">
+      <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
         <Annotation Term="Core.LongDescription" String="Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
       </Term>
@@ -1656,15 +1655,15 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
+          <Annotation Term="Core.Description" String="Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>
       </ComplexType>
 
-      <Term Name="Criticality" Type="UI.CriticalityType" AppliesTo="Annotation">
+      <Term Name="Criticality" Type="UI.CriticalityType" Nullable="false" AppliesTo="Annotation">
         <Annotation Term="Core.Description" String="Service-calculated criticality, alternative to UI.CriticalityCalculation" />
       </Term>
 
-      <Term Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" AppliesTo="Annotation">
+      <Term Name="CriticalityCalculation" Type="UI.CriticalityCalculationType" Nullable="false" AppliesTo="Annotation">
         <Annotation Term="Core.Description" String="Parameters for client-calculated criticality, alternative to UI.Criticality" />
       </Term>
 
@@ -1674,19 +1673,19 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.LongDescription" String="The usage of a property or operation should be highlighted as it's of special interest for the end user" />
       </Term>
 
-      <Term Name="OrderBy" Type="Edm.PropertyPath" AppliesTo="Property">
+      <Term Name="OrderBy" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Sort by the referenced property instead of by the annotated property" />
         <Annotation Term="Core.LongDescription" String="Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode." />
       </Term>
 
-      <Term Name="ParameterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Parameter">
+      <Term Name="ParameterDefaultValue" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Parameter">
         <Annotation Term="Core.Description" String="Define default values for action parameters" />
         <Annotation Term="Core.LongDescription" String="For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results.
             Whereas for bound actions the bound entity and its properties and associated properties can be used as default values" />
       </Term>
 
-      <Term Name="RecommendationState" Type="UI.RecommendationStateType">
+      <Term Name="RecommendationState" Type="UI.RecommendationStateType" Nullable="false">
         <Annotation Term="Core.Description" String="Indicates whether a field contains or has a recommended value" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>
@@ -1716,7 +1715,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="RecommendationList" Type="UI.RecommendationListType" AppliesTo="Property Parameter">
+      <Term Name="RecommendationList" Type="UI.RecommendationListType" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Specifies how to get a list of recommended values for a property or parameter" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>

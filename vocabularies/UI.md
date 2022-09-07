@@ -20,20 +20,20 @@ a collection of business object instances, e.g. as a list or table.
 
 Term|Type|Description
 :---|:---|:----------
-[HeaderInfo](./UI.xml#L58:~:text=<Term%20Name="-,HeaderInfo,-")|[HeaderInfoType?](#HeaderInfoType)|<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
+[HeaderInfo](./UI.xml#L58:~:text=<Term%20Name="-,HeaderInfo,-")|[HeaderInfoType](#HeaderInfoType)|<a name="HeaderInfo"></a>Information for the header area of an entity representation. HeaderInfo is mandatory for main entity types of the model
 [Identification](./UI.xml#L109:~:text=<Term%20Name="-,Identification,-")|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="Identification"></a>Collection of fields identifying the object
-[Badge](./UI.xml#L114:~:text=<Term%20Name="-,Badge,-")|[BadgeType?](#BadgeType)|<a name="Badge"></a>Information usually displayed in the form of a business card
+[Badge](./UI.xml#L114:~:text=<Term%20Name="-,Badge,-")|[BadgeType](#BadgeType)|<a name="Badge"></a>Information usually displayed in the form of a business card
 [LineItem](./UI.xml#L141:~:text=<Term%20Name="-,LineItem,-")|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="LineItem"></a>Collection of data fields for representation in a table or list
 [StatusInfo](./UI.xml#L146:~:text=<Term%20Name="-,StatusInfo,-")|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="StatusInfo"></a>Collection of data fields describing the status of an entity
-[FieldGroup](./UI.xml#L151:~:text=<Term%20Name="-,FieldGroup,-")|[FieldGroupType?](#FieldGroupType)|<a name="FieldGroup"></a>Group of fields with an optional label
-[ConnectedFields](./UI.xml#L165:~:text=<Term%20Name="-,ConnectedFields,-")|[ConnectedFieldsType?](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](./UI.xml#L167))
+[FieldGroup](./UI.xml#L151:~:text=<Term%20Name="-,FieldGroup,-")|[FieldGroupType](#FieldGroupType)|<a name="FieldGroup"></a>Group of fields with an optional label
+[ConnectedFields](./UI.xml#L165:~:text=<Term%20Name="-,ConnectedFields,-")|[ConnectedFieldsType](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](./UI.xml#L167))
 [GeoLocations](./UI.xml#L230:~:text=<Term%20Name="-,GeoLocations,-")|\[[GeoLocationType](#GeoLocationType)\]|<a name="GeoLocations"></a>Collection of geographic locations
-[GeoLocation](./UI.xml#L234:~:text=<Term%20Name="-,GeoLocation,-")|[GeoLocationType?](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
+[GeoLocation](./UI.xml#L234:~:text=<Term%20Name="-,GeoLocation,-")|[GeoLocationType](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
 [Contacts](./UI.xml#L254:~:text=<Term%20Name="-,Contacts,-")|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact<br>Allowed terms:<br>- [Contact](Communication.md#Contact)
-[MediaResource](./UI.xml#L265:~:text=<Term%20Name="-,MediaResource,-")|[MediaResourceType?](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
+[MediaResource](./UI.xml#L265:~:text=<Term%20Name="-,MediaResource,-")|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource
 [DataPoint](./UI.xml#L319:~:text=<Term%20Name="-,DataPoint,-")|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
-[KPI](./UI.xml#L627:~:text=<Term%20Name="-,KPI,-")|[KPIType?](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
-[Chart](./UI.xml#L673:~:text=<Term%20Name="-,Chart,-")|[ChartDefinitionType?](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
+[KPI](./UI.xml#L627:~:text=<Term%20Name="-,KPI,-")|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
+[Chart](./UI.xml#L673:~:text=<Term%20Name="-,Chart,-")|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
 [ValueCriticality](./UI.xml#L897:~:text=<Term%20Name="-,ValueCriticality,-") *([Experimental](Common.md#Experimental))*|\[[ValueCriticalityType](#ValueCriticalityType)\]|<a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.
 [CriticalityLabels](./UI.xml#L910:~:text=<Term%20Name="-,CriticalityLabels,-") *([Experimental](Common.md#Experimental))*|\[[CriticalityLabelType](#CriticalityLabelType)\]|<a name="CriticalityLabels"></a>Assign labels to criticalities. This information can be used for semantic coloring. When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality. There must be no more than one label per criticality.
 [SelectionFields](./UI.xml#L931:~:text=<Term%20Name="-,SelectionFields,-")|\[PropertyPath\]|<a name="SelectionFields"></a>Properties that might be relevant for filtering a collection of entities of this type
@@ -42,9 +42,9 @@ Term|Type|Description
 [QuickViewFacets](./UI.xml#L947:~:text=<Term%20Name="-,QuickViewFacets,-")|\[[Facet](#Facet)\]|<a name="QuickViewFacets"></a>Facets that may be used for a quick overview of the object
 [QuickCreateFacets](./UI.xml#L951:~:text=<Term%20Name="-,QuickCreateFacets,-")|\[[Facet](#Facet)\]|<a name="QuickCreateFacets"></a>Facets that may be used for a (quick) create of the object
 [FilterFacets](./UI.xml#L955:~:text=<Term%20Name="-,FilterFacets,-")|\[[ReferenceFacet](#ReferenceFacet)\]|<a name="FilterFacets"></a>Facets that reference UI.FieldGroup annotations to group filterable fields
-[SelectionPresentationVariant](./UI.xml#L1022:~:text=<Term%20Name="-,SelectionPresentationVariant,-")|[SelectionPresentationVariantType?](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
-[PresentationVariant](./UI.xml#L1046:~:text=<Term%20Name="-,PresentationVariant,-")|[PresentationVariantType?](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
-[SelectionVariant](./UI.xml#L1159:~:text=<Term%20Name="-,SelectionVariant,-")|[SelectionVariantType?](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
+[SelectionPresentationVariant](./UI.xml#L1022:~:text=<Term%20Name="-,SelectionPresentationVariant,-")|[SelectionPresentationVariantType](#SelectionPresentationVariantType)|<a name="SelectionPresentationVariant"></a>A SelectionPresentationVariant bundles a Selection Variant and a Presentation Variant
+[PresentationVariant](./UI.xml#L1046:~:text=<Term%20Name="-,PresentationVariant,-")|[PresentationVariantType](#PresentationVariantType)|<a name="PresentationVariant"></a>Defines how the result of a queried collection of entities is shaped and how this result is displayed
+[SelectionVariant](./UI.xml#L1159:~:text=<Term%20Name="-,SelectionVariant,-")|[SelectionVariantType](#SelectionVariantType)|<a name="SelectionVariant"></a>A SelectionVariant denotes a combination of parameters and filters to query the annotated entity set
 [ThingPerspective](./UI.xml#L1315:~:text=<Term%20Name="-,ThingPerspective,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ThingPerspective"></a>The annotated term is a Thing Perspective
 [IsSummary](./UI.xml#L1318:~:text=<Term%20Name="-,IsSummary,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsSummary"></a>This Facet and all included Facets are the summary of the thing. At most one Facet of a thing can be tagged with this term
 [PartOfPreview](./UI.xml#L1322:~:text=<Term%20Name="-,PartOfPreview,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This record and all included structural elements are part of the Thing preview<br>This term can be applied e.g. to UI.Facet and UI.DataField
@@ -54,24 +54,24 @@ Term|Type|Description
 [IsImage](./UI.xml#L1345:~:text=<Term%20Name="-,IsImage,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Can be annotated with:<br>- [IsNaturalPerson](Common.md#IsNaturalPerson)
 [MultiLineText](./UI.xml#L1356:~:text=<Term%20Name="-,MultiLineText,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)
 [Placeholder](./UI.xml#L1361:~:text=<Term%20Name="-,Placeholder,-") *([Experimental](Common.md#Experimental))*|String|<a name="Placeholder"></a>A short, human-readable text that gives a hint or an example to help the user with data entry
-[TextArrangement](./UI.xml#L1367:~:text=<Term%20Name="-,TextArrangement,-")|[TextArrangementType?](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br>If used for a single property the Common.Text annotation is annotated
-[Importance](./UI.xml#L1386:~:text=<Term%20Name="-,Importance,-")|[ImportanceType?](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
+[TextArrangement](./UI.xml#L1367:~:text=<Term%20Name="-,TextArrangement,-")|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br>If used for a single property the Common.Text annotation is annotated
+[Importance](./UI.xml#L1386:~:text=<Term%20Name="-,Importance,-")|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
 [Hidden](./UI.xml#L1401:~:text=<Term%20Name="-,Hidden,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<br>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.
 [IsCopyAction](./UI.xml#L1409:~:text=<Term%20Name="-,IsCopyAction,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCopyAction"></a>The annotated `DataFieldForAction` record within a `UI.LineItem` annotation references an action that deep-copies an instance of the annotated entity type<br>The referenced action MUST be bound to the annotated entity type and creates a new instance of the same entity type as a deep copy of the bound instance. Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity, and the response MUST be either `201 Created` and a representation of the created entity, or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.
 [CreateHidden](./UI.xml#L1420:~:text=<Term%20Name="-,CreateHidden,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CreateHidden"></a>EntitySets annotated with this term can control the visibility of the Create operation dynamically<br>The annotation value should be a path to another property from a related entity.
 [UpdateHidden](./UI.xml#L1425:~:text=<Term%20Name="-,UpdateHidden,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="UpdateHidden"></a>EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
 [DeleteHidden](./UI.xml#L1430:~:text=<Term%20Name="-,DeleteHidden,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="DeleteHidden"></a>EntitySets annotated with this term can control the visibility of the Delete operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
 [HiddenFilter](./UI.xml#L1435:~:text=<Term%20Name="-,HiddenFilter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<br>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all. If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.
-[DataFieldDefault](./UI.xml#L1445:~:text=<Term%20Name="-,DataFieldDefault,-")|[DataFieldAbstract?](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
-[Criticality](./UI.xml#L1663:~:text=<Term%20Name="-,Criticality,-")|[CriticalityType?](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](./UI.xml#L1667:~:text=<Term%20Name="-,CriticalityCalculation,-")|[CriticalityCalculationType?](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[Emphasized](./UI.xml#L1671:~:text=<Term%20Name="-,Emphasized,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
-[OrderBy](./UI.xml#L1677:~:text=<Term%20Name="-,OrderBy,-") *([Experimental](Common.md#Experimental))*|PropertyPath?|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
-[ParameterDefaultValue](./UI.xml#L1683:~:text=<Term%20Name="-,ParameterDefaultValue,-")|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
-[RecommendationState](./UI.xml#L1689:~:text=<Term%20Name="-,RecommendationState,-")|[RecommendationStateType?](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
-[RecommendationList](./UI.xml#L1719:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType?](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[ExcludeFromNavigationContext](./UI.xml#L1751:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1755:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[DataFieldDefault](./UI.xml#L1444:~:text=<Term%20Name="-,DataFieldDefault,-")|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
+[Criticality](./UI.xml#L1662:~:text=<Term%20Name="-,Criticality,-")|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](./UI.xml#L1666:~:text=<Term%20Name="-,CriticalityCalculation,-")|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[Emphasized](./UI.xml#L1670:~:text=<Term%20Name="-,Emphasized,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
+[OrderBy](./UI.xml#L1676:~:text=<Term%20Name="-,OrderBy,-") *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
+[ParameterDefaultValue](./UI.xml#L1682:~:text=<Term%20Name="-,ParameterDefaultValue,-")|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
+[RecommendationState](./UI.xml#L1688:~:text=<Term%20Name="-,RecommendationState,-")|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
+[RecommendationList](./UI.xml#L1718:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
+[ExcludeFromNavigationContext](./UI.xml#L1750:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1754:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 
 ## <a name="HeaderInfoType"></a>[HeaderInfoType](./UI.xml#L62:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
 
@@ -714,7 +714,7 @@ Member|Value|Description
 [Medium](./UI.xml#L1393:~:text=<EnumType%20Name="-,ImportanceType,-")|1|Medium importance
 [Low](./UI.xml#L1396:~:text=<EnumType%20Name="-,ImportanceType,-")|2|Low importance
 
-## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](./UI.xml#L1450:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")
+## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](./UI.xml#L1449:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")
 Elementary building block that represents a piece of data and/or allows triggering an action
 
 By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
@@ -735,10 +735,10 @@ By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the
 
 Property|Type|Description
 :-------|:---|:----------
-[Label](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[Criticality](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[CriticalityRepresentation](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[IconUrl](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[Label](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[Criticality](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[CriticalityRepresentation](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[IconUrl](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
 
 **Applicable Annotation Terms:**
 
@@ -747,25 +747,25 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](./UI.xml#L1480:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")
+## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](./UI.xml#L1479:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")
 
 
 Member|Value|Description
 :-----|----:|:----------
-[WithIcon](./UI.xml#L1481:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")|0|Criticality is represented with an icon
-[WithoutIcon](./UI.xml#L1484:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")|1|Criticality is represented without icon, e.g. only via text color
-[OnlyIcon](./UI.xml#L1487:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-") *([Experimental](Common.md#Experimental))*|2|Criticality is represented only by using an icon
+[WithIcon](./UI.xml#L1480:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")|0|Criticality is represented with an icon
+[WithoutIcon](./UI.xml#L1483:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")|1|Criticality is represented without icon, e.g. only via text color
+[OnlyIcon](./UI.xml#L1486:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-") *([Experimental](Common.md#Experimental))*|2|Criticality is represented only by using an icon
 
-## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](./UI.xml#L1493:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-"): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](./UI.xml#L1492:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-"): [DataFieldAbstract](#DataFieldAbstract)
 A structured piece of data described by an annotation
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[Target](./UI.xml#L1495:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-")|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields<br>Allowed terms:<br>- [Address](Communication.md#Address)<br>- [Contact](Communication.md#Contact)<br>- [Chart](#Chart)<br>- [ConnectedFields](#ConnectedFields)<br>- [DataPoint](#DataPoint)<br>- [FieldGroup](#FieldGroup)
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[Target](./UI.xml#L1494:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-")|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields<br>Allowed terms:<br>- [Address](Communication.md#Address)<br>- [Contact](Communication.md#Contact)<br>- [Chart](#Chart)<br>- [ConnectedFields](#ConnectedFields)<br>- [DataPoint](#DataPoint)<br>- [FieldGroup](#FieldGroup)
 
 **Applicable Annotation Terms:**
 
@@ -774,7 +774,7 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](./UI.xml#L1510:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-"): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](./UI.xml#L1509:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-"): [DataFieldAbstract](#DataFieldAbstract)
 Triggers an action
 
 **Derived Types:**
@@ -783,12 +783,12 @@ Triggers an action
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[Inline](./UI.xml#L1512:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
-[Determining](./UI.xml#L1515:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[Inline](./UI.xml#L1511:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[Determining](./UI.xml#L1514:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
 
 **Applicable Annotation Terms:**
 
@@ -797,21 +797,21 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForAction"></a>[DataFieldForAction](./UI.xml#L1520:~:text=<ComplexType%20Name="-,DataFieldForAction,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForAction"></a>[DataFieldForAction](./UI.xml#L1519:~:text=<ComplexType%20Name="-,DataFieldForAction,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers an OData action
 
 The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Inline*](./UI.xml#L1512:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](./UI.xml#L1515:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](./UI.xml#L1523:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
-[InvocationGrouping](./UI.xml#L1526:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1511:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1514:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[Action](./UI.xml#L1522:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[InvocationGrouping](./UI.xml#L1525:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
 **Applicable Annotation Terms:**
 
@@ -820,15 +820,15 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="OperationGroupingType"></a>[OperationGroupingType](./UI.xml#L1530:~:text=<EnumType%20Name="-,OperationGroupingType,-")
+## <a name="OperationGroupingType"></a>[OperationGroupingType](./UI.xml#L1529:~:text=<EnumType%20Name="-,OperationGroupingType,-")
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Isolated](./UI.xml#L1531:~:text=<EnumType%20Name="-,OperationGroupingType,-")|0|Invoke each action in isolation from other actions
-[ChangeSet](./UI.xml#L1534:~:text=<EnumType%20Name="-,OperationGroupingType,-")|1|Group all actions into a single change set
+[Isolated](./UI.xml#L1530:~:text=<EnumType%20Name="-,OperationGroupingType,-")|0|Invoke each action in isolation from other actions
+[ChangeSet](./UI.xml#L1533:~:text=<EnumType%20Name="-,OperationGroupingType,-")|1|Group all actions into a single change set
 
-## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](./UI.xml#L1539:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers intent-based UI navigation
 
 The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
@@ -837,17 +837,17 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Inline*](./UI.xml#L1512:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
-[*Determining*](./UI.xml#L1515:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[SemanticObject](./UI.xml#L1546:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|String|Name of the Semantic Object
-[Action](./UI.xml#L1549:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[NavigationAvailable](./UI.xml#L1552:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|Boolean|The navigation intent is for that user with the selected context and parameters available
-[RequiresContext](./UI.xml#L1555:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|Boolean|Determines whether a context needs to be passed to the target of this navigation.
-[Mapping](./UI.xml#L1558:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1511:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1514:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[SemanticObject](./UI.xml#L1545:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|String|Name of the Semantic Object
+[Action](./UI.xml#L1548:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[NavigationAvailable](./UI.xml#L1551:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|Boolean|The navigation intent is for that user with the selected context and parameters available
+[RequiresContext](./UI.xml#L1554:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|Boolean|Determines whether a context needs to be passed to the target of this navigation.
+[Mapping](./UI.xml#L1557:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-")|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
 
 **Applicable Annotation Terms:**
 
@@ -856,16 +856,16 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForActionGroup"></a>[DataFieldForActionGroup](./UI.xml#L1563:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-"): [DataFieldAbstract](#DataFieldAbstract) *([Experimental](Common.md#Experimental))*
+## <a name="DataFieldForActionGroup"></a>[DataFieldForActionGroup](./UI.xml#L1562:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-"): [DataFieldAbstract](#DataFieldAbstract) *([Experimental](Common.md#Experimental))*
 Collection of OData actions and intent based navigations
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[Actions](./UI.xml#L1566:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-")|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|Collection of data fields that refer to actions or intent based navigations
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[Actions](./UI.xml#L1565:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-")|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|Collection of data fields that refer to actions or intent based navigations
 
 **Applicable Annotation Terms:**
 
@@ -874,7 +874,7 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataField"></a>[DataField](./UI.xml#L1571:~:text=<ComplexType%20Name="-,DataField,-"): [DataFieldAbstract](#DataFieldAbstract)
+## <a name="DataField"></a>[DataField](./UI.xml#L1570:~:text=<ComplexType%20Name="-,DataField,-"): [DataFieldAbstract](#DataFieldAbstract)
 A piece of data
 
 **Derived Types:**
@@ -886,11 +886,11 @@ A piece of data
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[Value](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[Value](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
 
 **Applicable Annotation Terms:**
 
@@ -899,20 +899,20 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithAction"></a>[DataFieldWithAction](./UI.xml#L1600:~:text=<ComplexType%20Name="-,DataFieldWithAction,-"): [DataField](#DataField)
+## <a name="DataFieldWithAction"></a>[DataFieldWithAction](./UI.xml#L1599:~:text=<ComplexType%20Name="-,DataFieldWithAction,-"): [DataField](#DataField)
 A piece of data that allows triggering an OData action
 
 The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1603:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|PrimitiveType|
-[Action](./UI.xml#L1604:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Value*](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[Value](./UI.xml#L1602:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|PrimitiveType|
+[Action](./UI.xml#L1603:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
 
 **Applicable Annotation Terms:**
 
@@ -921,7 +921,7 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](./UI.xml#L1609:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-"): [DataField](#DataField)
+## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](./UI.xml#L1608:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-"): [DataField](#DataField)
 A piece of data that allows triggering intent-based UI navigation
 
 The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
@@ -931,15 +931,15 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1617:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|PrimitiveType|
-[SemanticObject](./UI.xml#L1618:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String|Name of the Semantic Object
-[Action](./UI.xml#L1621:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[Mapping](./UI.xml#L1624:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Value*](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[Value](./UI.xml#L1616:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|PrimitiveType|
+[SemanticObject](./UI.xml#L1617:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String|Name of the Semantic Object
+[Action](./UI.xml#L1620:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[Mapping](./UI.xml#L1623:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
 
 **Applicable Annotation Terms:**
 
@@ -948,20 +948,20 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](./UI.xml#L1629:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-"): [DataField](#DataField)
+## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](./UI.xml#L1628:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-"): [DataField](#DataField)
 A piece of data that allows navigating to related data
 
 It should be rendered as a hyperlink
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1632:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|PrimitiveType|
-[Target](./UI.xml#L1633:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Value*](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[Value](./UI.xml#L1631:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|PrimitiveType|
+[Target](./UI.xml#L1632:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
 **Applicable Annotation Terms:**
 
@@ -970,21 +970,21 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](./UI.xml#L1640:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-"): [DataField](#DataField)
+## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](./UI.xml#L1639:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-"): [DataField](#DataField)
 A piece of data that allows navigating to other information on the Web
 
 It should be rendered as a hyperlink
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|PrimitiveType|
-[Url](./UI.xml#L1644:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|URL|Target of the hyperlink
-[UrlContentType](./UI.xml#L1648:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Value*](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[Value](./UI.xml#L1642:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|PrimitiveType|
+[Url](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|URL|Target of the hyperlink
+[UrlContentType](./UI.xml#L1647:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
 
 **Applicable Annotation Terms:**
 
@@ -993,18 +993,18 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithActionGroup"></a>[DataFieldWithActionGroup](./UI.xml#L1654:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-"): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
+## <a name="DataFieldWithActionGroup"></a>[DataFieldWithActionGroup](./UI.xml#L1653:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-"): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
 Collection of OData actions and intent based navigations
 
 Property|Type|Description
 :-------|:---|:----------
-[*Label*](./UI.xml#L1464:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
-[*Criticality*](./UI.xml#L1468:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
-[*CriticalityRepresentation*](./UI.xml#L1471:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
-[*IconUrl*](./UI.xml#L1474:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1573:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1657:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|PrimitiveType|
-[Actions](./UI.xml#L1658:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|\[[DataField](#DataField)\]|Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
+[*Label*](./UI.xml#L1463:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1467:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1470:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1473:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Value*](./UI.xml#L1572:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
+[Value](./UI.xml#L1656:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|PrimitiveType|
+[Actions](./UI.xml#L1657:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|\[[DataField](#DataField)\]|Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
 
 **Applicable Annotation Terms:**
 
@@ -1013,7 +1013,7 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="RecommendationStateType"></a>[RecommendationStateType](./UI.xml#L1696:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
+## <a name="RecommendationStateType"></a>[RecommendationStateType](./UI.xml#L1695:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -1022,25 +1022,25 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](./UI.xml#L1703:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|regular - with human or default input, no recommendation
-[1](./UI.xml#L1707:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|highlighted - without human input and with recommendation
-[2](./UI.xml#L1711:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|warning - with human or default input and with recommendation
+[0](./UI.xml#L1702:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|regular - with human or default input, no recommendation
+[1](./UI.xml#L1706:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|highlighted - without human input and with recommendation
+[2](./UI.xml#L1710:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|warning - with human or default input and with recommendation
 
-## <a name="RecommendationListType"></a>[RecommendationListType](./UI.xml#L1726:~:text=<ComplexType%20Name="-,RecommendationListType,-")
+## <a name="RecommendationListType"></a>[RecommendationListType](./UI.xml#L1725:~:text=<ComplexType%20Name="-,RecommendationListType,-")
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](./UI.xml#L1731:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Resource path of a collection of recommended values
-[RankProperty](./UI.xml#L1734:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](./UI.xml#L1737:~:text=<ComplexType%20Name="-,RecommendationListType,-")|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](./UI.xml#L1730:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Resource path of a collection of recommended values
+[RankProperty](./UI.xml#L1733:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](./UI.xml#L1736:~:text=<ComplexType%20Name="-,RecommendationListType,-")|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
-## <a name="RecommendationBinding"></a>[RecommendationBinding](./UI.xml#L1742:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
+## <a name="RecommendationBinding"></a>[RecommendationBinding](./UI.xml#L1741:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](./UI.xml#L1743:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](./UI.xml#L1746:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+[LocalDataProperty](./UI.xml#L1742:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](./UI.xml#L1745:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
