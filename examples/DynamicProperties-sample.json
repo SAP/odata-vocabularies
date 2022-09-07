@@ -35,9 +35,6 @@
             ],
             "Order": {},
             "Country": {},
-            "NumberOfItems": {
-                "$Type": "Edm.Int16"
-            },
             "Amount": {
                 "$Type": "Edm.Decimal",
                 "$Nullable": true,
@@ -46,12 +43,12 @@
         },
         "$Annotations": {
             "self.Sales": {
-                "@Analytics.AggregatedProperty#sum": {
+                "@Analytics.AggregatedProperty#sumAmount": {
                     "Name": "Total",
                     "AggregationMethod": "sum",
                     "AggregatableProperty": "Amount"
                 },
-                "@Analytics.AggregatedProperty#max": {
+                "@Analytics.AggregatedProperty#maxAmount": {
                     "Name": "Maximum",
                     "AggregationMethod": "max",
                     "AggregatableProperty": "Amount"
@@ -61,18 +58,15 @@
                     "Dimensions": [
                         "Country"
                     ],
-                    "Measures": [
-                        "NumberOfItems"
-                    ],
                     "DynamicMeasures": [
-                        "@Analytics.AggregatedProperty#sum",
+                        "@Analytics.AggregatedProperty#sumAmount",
                         "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
                     ]
                 },
                 "@UI.SelectionVariant": {
                     "SelectOptions": [
                         {
-                            "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
+                            "DynamicPropertyName": "@Analytics.AggregatedProperty#sumAmount",
                             "Ranges": [
                                 {
                                     "Sign": "I",
@@ -89,7 +83,7 @@
                             "Property": "Country"
                         },
                         {
-                            "DynamicProperty": "@Analytics.AggregatedProperty#sum",
+                            "DynamicProperty": "@Analytics.AggregatedProperty#sumAmount",
                             "Descending": true
                         },
                         {
