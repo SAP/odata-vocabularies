@@ -1011,7 +1011,7 @@ Property|Type|Description
 [*IconUrl*](./UI.xml#L1472:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
 [*Value*](./UI.xml#L1571:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
 [Value](./UI.xml#L1655:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|PrimitiveType|
-[Actions](./UI.xml#L1656:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|\[[DataField](#DataField)\]|Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
+[Actions](./UI.xml#L1656:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|\[[DataField](#DataField)\]|Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
 
 **Applicable Annotation Terms:**
 
