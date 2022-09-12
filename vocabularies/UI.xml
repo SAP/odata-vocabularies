@@ -6,6 +6,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
   </edmx:Reference>
@@ -14,6 +17,9 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
     <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="UI" Namespace="com.sap.vocabularies.UI.v1">
