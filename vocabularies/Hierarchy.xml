@@ -63,7 +63,7 @@ descendants(..., filter(ID eq 'US'), keep start)
 the following collections are distinguished:
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
-|sub-hierarchy|output set of a `descendants` transformation filtering a single node identifier|US sales organizations|rows 1–2|
+|sub-hierarchy|output set of a `descendants` transformation filtering a single node identifier or an equivalent `[`Aggregation.isdescendant`](#https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#isdescendant) filter|US sales organizations|rows 1–2|
 |matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with "New York" in their name|output set of `filter` transformation in row 3|
 |unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation disregarding numeric fifth parameters|US sales organizations with leaves containing "New York"|rows 1–3|
 |limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation|2 levels of US sales organizations with leaves containing "New York"|rows 1–4|
