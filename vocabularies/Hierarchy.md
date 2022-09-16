@@ -49,7 +49,7 @@ SalesOrganizations?$apply=
 descendants(..., filter(ID eq 'US'), keep start)
 /ancestors(..., filter(contains(Name, 'New York'), keep start)
 /Hierarchy.TopLevels(..., Levels=2)
-/top(10)
+&$top=10
 ```
 the following collections are distinguished:
 |Collection|Definition|Value|Where in request|
