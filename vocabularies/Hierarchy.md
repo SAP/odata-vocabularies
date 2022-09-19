@@ -19,19 +19,16 @@ Term|Type|Description
 Returns the first n levels of a hierarchical collection in preorder
 
 This function can be used as a transformation whose input set has a recursive hierarchy
-          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
+          defined by the system query option `$hierarchy`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output contains the nodes with m ≤ distance from root < m+n.
           The output is sorted in preorder, preserving the relative order of siblings.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Hierarchy.xml#L174:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyNodes](./Hierarchy.xml#L175:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
-[HierarchyQualifier](./Hierarchy.xml#L176:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[NodeProperty](./Hierarchy.xml#L177:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
-[Levels](./Hierarchy.xml#L180:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-[&rarr;](./Hierarchy.xml#L183:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+**[InputSet](./Hierarchy.xml#L173:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
+[NodeProperty](./Hierarchy.xml#L174:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
+[Levels](./Hierarchy.xml#L177:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
+[&rarr;](./Hierarchy.xml#L180:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
@@ -46,20 +43,20 @@ then these properties are derived for each node in the result set.
 For requests like
 ```
 SalesOrganizations?$apply=
-descendants(..., filter(ID eq 'US'), keep start)
-/ancestors(..., filter(contains(Name, 'New York'), keep start)
-/Hierarchy.TopLevels(..., Levels=2)
+descendants(ID, filter(ID eq 'US'), keep start)
+/ancestors(ID, filter(contains(Name, 'New York'), keep start)
+/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
 &$top=10
 ```
 or
 ```
-SalesOrganizations?$apply=groupby((rolluprecursive(...,
-  descendants(filter(ID eq 'US')),
-  ancestors(filter(contains(Name, 'New York'))))), aggregate(...))
-/Hierarchy.TopLevels(..., Levels=2)
+SalesOrganizations?$apply=groupby((rolluprecursive(ID,
+  descendants(ID, filter(ID eq 'US')),
+  ancestors(ID, filter(contains(Name, 'New York'))))), aggregate(...))
+/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
 &$top=10
 ```
-the following collections are distinguished:
+the following collections of hierarchy nodes are distinguished:
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
 |sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|

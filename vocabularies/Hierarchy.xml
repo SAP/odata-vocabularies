@@ -55,20 +55,20 @@ then these properties are derived for each node in the result set.
 For requests like
 ```
 SalesOrganizations?$apply=
-descendants(..., filter(ID eq 'US'), keep start)
-/ancestors(..., filter(contains(Name, 'New York'), keep start)
-/Hierarchy.TopLevels(..., Levels=2)
+descendants(ID, filter(ID eq 'US'), keep start)
+/ancestors(ID, filter(contains(Name, 'New York'), keep start)
+/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
 or
 ```
-SalesOrganizations?$apply=groupby((rolluprecursive(...,
-  descendants(filter(ID eq 'US')),
-  ancestors(filter(contains(Name, 'New York'))))), aggregate(...))
-/Hierarchy.TopLevels(..., Levels=2)
+SalesOrganizations?$apply=groupby((rolluprecursive(ID,
+  descendants(ID, filter(ID eq 'US')),
+  ancestors(ID, filter(contains(Name, 'New York'))))), aggregate(...))
+/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
-the following collections are distinguished:
+the following collections of hierarchy nodes are distinguished:
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
 |sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|
@@ -166,14 +166,11 @@ the following collections are distinguished:
         <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation whose input set has a recursive hierarchy
-          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
+          defined by the system query option `$hierarchy`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output contains the nodes with m &le; distance from root &lt; m+n.
           The output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="NodeProperty" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
         </Parameter>
