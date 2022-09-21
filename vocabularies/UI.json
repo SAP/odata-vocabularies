@@ -17,6 +17,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/Communication.json": {
             "$Include": [
                 {
@@ -38,6 +46,14 @@
                 {
                     "$Namespace": "com.sap.vocabularies.HTML5.v1",
                     "$Alias": "HTML5"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
                 }
             ]
         }

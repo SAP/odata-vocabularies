@@ -32,6 +32,14 @@
                     "$Alias": "UI"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Common.v1": {
