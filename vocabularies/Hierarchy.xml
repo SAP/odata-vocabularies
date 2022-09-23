@@ -166,7 +166,8 @@ the following collections of hierarchy nodes are distinguished:
         <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation whose input set has a recursive hierarchy
-          defined by the system query option `$hierarchy`. If m is the minimal distance from root in the hierarchical collection
+          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output contains the nodes with m &le; distance from root &lt; m+n.
           The output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
@@ -176,6 +177,21 @@ the following collections of hierarchy nodes are distinguished:
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="The number n of levels to be output" />
+        </Parameter>
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <Annotation Term="Core.Description" String="Defaults to the collection specified in a `$hierarchy` system query option" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <Annotation Term="Core.Description" String="Defaults to the qualifier specified in a `$hierarchy` system query option" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
