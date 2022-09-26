@@ -1412,6 +1412,18 @@ The trend is
         </Annotation>
       </Term>
 
+      <Term Name="IsCopyAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.RequiresType" String="UI.DataFieldForAction" />
+        <Annotation Term="Core.Description" String="The annotated `DataFieldForAction` record within a `UI.LineItem` annotation references an action that deep-copies an instance of the annotated entity type" />
+        <Annotation Term="Core.LongDescription">
+          <String>The referenced action MUST be bound to the annotated entity type and creates a new instance of the same entity type as a deep copy of the bound instance.
+Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,
+and the response MUST be either `201 Created` and a representation of the created entity,
+or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from a related entity." />
