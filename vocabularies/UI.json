@@ -2068,6 +2068,13 @@
             "@Common.Experimental": true,
             "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
             "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
+        },
+        "LeadingEntitySet": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
         }
     }
 }
