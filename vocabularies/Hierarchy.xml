@@ -163,12 +163,13 @@ the following collections of hierarchy nodes are distinguished:
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder" />
+        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation whose input set has a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output contains the nodes with m &le; distance from root &lt; m+n.
+          Afterwards, individual nodes are expanded or collapsed.
           The output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
@@ -177,6 +178,12 @@ the following collections of hierarchy nodes are distinguished:
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="The number n of levels to be output" />
+        </Parameter>
+        <Parameter Name="Expanded" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
+        </Parameter>
+        <Parameter Name="Collapsed" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
