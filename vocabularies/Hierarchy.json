@@ -131,7 +131,7 @@
                 "$IsBound": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
-                "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection\n          given in the binding parameter, the output contains the nodes with m ≤ distance from root < m+n.\n          Afterwards, individual nodes are expanded or collapsed.\n          The output is sorted in preorder, preserving the relative order of siblings.",
+                "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection\n          given in the binding parameter, the output initially contains the nodes with m ≤ distance from root < m+n.\n          Then individual nodes are expanded or collapsed in the output.\n          Finally the output is sorted in preorder, preserving the relative order of siblings.",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
