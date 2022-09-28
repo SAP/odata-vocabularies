@@ -30,11 +30,11 @@ Parameter|Type|Description
 **[InputSet](./Hierarchy.xml#L175:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
 [NodeProperty](./Hierarchy.xml#L176:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
 [Levels](./Hierarchy.xml#L179:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-[Expanded](./Hierarchy.xml#L182:~:text=<Function%20Name="-,TopLevels,-")|\[String\]|Identifiers of nodes to be expanded
-[Collapsed](./Hierarchy.xml#L185:~:text=<Function%20Name="-,TopLevels,-")|\[String\]|Identifiers of nodes to be collapsed
-*[HierarchyNodes](./Hierarchy.xml#L188:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
-*[HierarchyQualifier](./Hierarchy.xml#L196:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
-[&rarr;](./Hierarchy.xml#L203:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+*[Expand](./Hierarchy.xml#L182:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
+*[Collapse](./Hierarchy.xml#L192:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+*[HierarchyNodes](./Hierarchy.xml#L202:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
+*[HierarchyQualifier](./Hierarchy.xml#L210:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
+[&rarr;](./Hierarchy.xml#L217:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*

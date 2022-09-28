@@ -179,11 +179,25 @@ the following collections of hierarchy nodes are distinguished:
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="The number n of levels to be output" />
         </Parameter>
-        <Parameter Name="Expanded" Type="Collection(Edm.String)" Nullable="false">
+        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue">
+                <Collection />
+              </PropertyValue>
+            </Record>
+          </Annotation>
         </Parameter>
-        <Parameter Name="Collapsed" Type="Collection(Edm.String)" Nullable="false">
+        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue">
+                <Collection />
+              </PropertyValue>
+            </Record>
+          </Annotation>
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
