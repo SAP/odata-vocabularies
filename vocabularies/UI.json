@@ -2074,6 +2074,7 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
+            "@Common.Experimental": true,
             "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
         }
     }
