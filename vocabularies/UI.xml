@@ -1768,6 +1768,11 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
+      <Term Name="LeadingEntitySet" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
