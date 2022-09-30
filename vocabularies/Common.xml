@@ -227,7 +227,7 @@
         <Annotation Term="Core.IsInstanceAnnotation"/>
         <Annotation Term="Core.Description" String="The server assumed this value for $skip when it determined the annotated collection"/>
         <Annotation Term="Core.LongDescription">
-          <String>The server determines a value for $skip, e.g., if the request contains the `sap-skiplocation` query option.</String>
+          <String>The server assumes a value for $skip, for example, if the request contains the `sap-skiplocation` query option.</String>
         </Annotation>
       </Term>
 

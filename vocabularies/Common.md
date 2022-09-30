@@ -29,7 +29,7 @@ Term|Type|Description
 [SecondaryKey](./Common.xml#L206:~:text=<Term%20Name="-,SecondaryKey,-") *(Deprecated)*|\[PropertyPath\]|<a name="SecondaryKey"></a>Use term `AlternateKeys` from the OASIS Core vocabulary instead
 [MinOccurs](./Common.xml#L218:~:text=<Term%20Name="-,MinOccurs,-")|Int64|<a name="MinOccurs"></a>The annotated set or collection contains at least this number of items
 [MaxOccurs](./Common.xml#L222:~:text=<Term%20Name="-,MaxOccurs,-")|Int64|<a name="MaxOccurs"></a>The annotated set or collection contains at most this number of items
-[skip](./Common.xml#L226:~:text=<Term%20Name="-,skip,-")|Int64?|<a name="skip"></a>The server assumed this value for $skip when it determined the annotated collection<br>The server determines a value for $skip, e.g., if the request contains the `sap-skiplocation` query option.
+[skip](./Common.xml#L226:~:text=<Term%20Name="-,skip,-")|Int64?|<a name="skip"></a>The server assumed this value for $skip when it determined the annotated collection<br>The server assumes a value for $skip, for example, if the request contains the `sap-skiplocation` query option.
 [AssociationEntity](./Common.xml#L234:~:text=<Term%20Name="-,AssociationEntity,-")|\[NavigationPropertyPath\]|<a name="AssociationEntity"></a>Entity representing an n:m association with attributes
 [DerivedNavigation](./Common.xml#L241:~:text=<Term%20Name="-,DerivedNavigation,-")|NavigationPropertyPath|<a name="DerivedNavigation"></a>Shortcut for a multi-segment navigation, contains the long path with all its segments
 [Masked](./Common.xml#L247:~:text=<Term%20Name="-,Masked,-") *(Deprecated)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Masked"></a>Use terms `MaskedValue` instead

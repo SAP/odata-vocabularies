@@ -275,7 +275,7 @@
             ],
             "@Core.IsInstanceAnnotation": true,
             "@Core.Description": "The server assumed this value for $skip when it determined the annotated collection",
-            "@Core.LongDescription": "The server determines a value for $skip, e.g., if the request contains the `sap-skiplocation` query option."
+            "@Core.LongDescription": "The server assumes a value for $skip, for example, if the request contains the `sap-skiplocation` query option."
         },
         "AssociationEntity": {
             "$Kind": "Term",
