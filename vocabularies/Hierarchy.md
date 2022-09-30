@@ -22,7 +22,7 @@ This function can be used as a transformation whose input set has a recursive hi
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output initially contains the nodes with m ≤ distance from root < m+n.
-          Then individual nodes are expanded or collapsed in the output, which extends or reduces the limited hierarchy.
+          Then individual nodes are expanded, made visible or collapsed in the output, which extends or reduces the limited hierarchy.
           Finally the output is sorted in preorder, preserving the relative order of siblings.
 
 Parameter|Type|Description
@@ -31,10 +31,11 @@ Parameter|Type|Description
 [NodeProperty](./Hierarchy.xml#L176:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
 [Levels](./Hierarchy.xml#L179:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
 *[Expand](./Hierarchy.xml#L182:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Collapse](./Hierarchy.xml#L192:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-*[HierarchyNodes](./Hierarchy.xml#L202:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
-*[HierarchyQualifier](./Hierarchy.xml#L210:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
-[&rarr;](./Hierarchy.xml#L217:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+*[Visible](./Hierarchy.xml#L192:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be made visible
+*[Collapse](./Hierarchy.xml#L202:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+*[HierarchyNodes](./Hierarchy.xml#L212:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
+*[HierarchyQualifier](./Hierarchy.xml#L220:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
+[&rarr;](./Hierarchy.xml#L227:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
