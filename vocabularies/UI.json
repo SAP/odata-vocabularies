@@ -1,5 +1,5 @@
 {
-    "$Version": "4.0",
+    "$Version": "4.01",
     "$Reference": {
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
@@ -14,6 +14,14 @@
                 {
                     "$Namespace": "Org.OData.Validation.V1",
                     "$Alias": "Validation"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
                 }
             ]
         },
@@ -40,6 +48,14 @@
                     "$Alias": "HTML5"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.UI.v1": {
@@ -64,7 +80,6 @@
         "HeaderInfo": {
             "$Kind": "Term",
             "$Type": "UI.HeaderInfoType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -101,10 +116,16 @@
                     "UI.DataFieldForAnnotation"
                 ]
             },
+            "Image": {
+                "$Type": "Edm.Stream",
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead."
+            },
             "ImageUrl": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead."
+                "@Core.Description": "Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead."
             },
             "TypeImageUrl": {
                 "$Nullable": true,
@@ -114,7 +135,7 @@
             "Initials": {
                 "$Nullable": true,
                 "@Common.Experimental": true,
-                "@Core.Description": "Latin letters to be used in case no ImageUrl or TypeImageUrl is present"
+                "@Core.Description": "Latin letters to be used in case no `Image`, `ImageUrl`, or `TypeImageUrl` is present"
             }
         },
         "Identification": {
@@ -130,7 +151,6 @@
         "Badge": {
             "$Kind": "Term",
             "$Type": "UI.BadgeType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -150,7 +170,7 @@
             "ImageUrl": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "Image URL for an instance of the entity type. If the property ImageUrl has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the property TypeImageUrl can be used instead."
+                "@Core.Description": "Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead."
             },
             "TypeImageUrl": {
                 "$Nullable": true,
@@ -191,7 +211,6 @@
         "FieldGroup": {
             "$Kind": "Term",
             "$Type": "UI.FieldGroupType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "Action",
@@ -217,7 +236,6 @@
         "ConnectedFields": {
             "$Kind": "Term",
             "$Type": "UI.ConnectedFieldsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -228,13 +246,13 @@
                     "Template": "{MaterialName} - {MaterialClassName}",
                     "Data": {
                         "MaterialName": {
-                            "@odata.type": "#UI.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "Material"
                             }
                         },
                         "MaterialClassName": {
-                            "@odata.type": "#UI.DataField",
+                            "@type": "#UI.DataField",
                             "Value": {
                                 "$Path": "MaterialClass"
                             }
@@ -278,7 +296,6 @@
         "GeoLocation": {
             "$Kind": "Term",
             "$Type": "UI.GeoLocationType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -327,7 +344,6 @@
         "MediaResource": {
             "$Kind": "Term",
             "$Type": "UI.MediaResourceType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -699,7 +715,6 @@
         "KPI": {
             "$Kind": "Term",
             "$Type": "UI.KPIType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -763,7 +778,6 @@
         "Chart": {
             "$Kind": "Term",
             "$Type": "UI.ChartDefinitionType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
@@ -1195,7 +1209,6 @@
         "SelectionPresentationVariant": {
             "$Kind": "Term",
             "$Type": "UI.SelectionPresentationVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1226,7 +1239,6 @@
         "PresentationVariant": {
             "$Kind": "Term",
             "$Type": "UI.PresentationVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1317,7 +1329,6 @@
         "SelectionVariant": {
             "$Kind": "Term",
             "$Type": "UI.SelectionVariantType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -1541,10 +1552,11 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image",
+            "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.",
             "@Core.RequiresType": "Edm.Stream",
             "@Validation.ApplicableTerms": [
                 "Common.IsNaturalPerson"
@@ -1556,9 +1568,10 @@
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
-                "PropertyValue"
+                "PropertyValue",
+                "Parameter"
             ],
-            "@Core.Description": "Properties annotated with this annotation should be rendered as multi-line text (e.g. text area)",
+            "@Core.Description": "Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)",
             "@Core.RequiresType": "Edm.String"
         },
         "Placeholder": {
@@ -1573,7 +1586,6 @@
         "TextArrangement": {
             "$Kind": "Term",
             "$Type": "UI.TextArrangementType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "EntityType"
@@ -1595,7 +1607,6 @@
         "Importance": {
             "$Kind": "Term",
             "$Type": "UI.ImportanceType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation",
                 "Record"
@@ -1623,6 +1634,18 @@
             ],
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
             "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
+        },
+        "IsCopyAction": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Core.RequiresType": "UI.DataFieldForAction",
+            "@Core.Description": "The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type",
+            "@Core.LongDescription": "The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
         },
         "CreateHidden": {
             "$Kind": "Term",
@@ -1668,7 +1691,6 @@
         "DataFieldDefault": {
             "$Kind": "Term",
             "$Type": "UI.DataFieldAbstract",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1816,8 +1838,27 @@
             "$BaseType": "UI.DataFieldAbstract",
             "@Core.Description": "A piece of data",
             "Value": {
-                "$Type": "Edm.PrimitiveType",
+                "$Type": "Edm.Untyped",
                 "@Core.Description": "The data field's value",
+                "@Validation.DerivedTypeConstraint": [
+                    "Edm.PrimitiveType",
+                    "Collection(Edm.Binary)",
+                    "Collection(Edm.Boolean)",
+                    "Collection(Edm.Byte)",
+                    "Collection(Edm.Date)",
+                    "Collection(Edm.DateTimeOffset)",
+                    "Collection(Edm.Decimal)",
+                    "Collection(Edm.Double)",
+                    "Collection(Edm.Duration)",
+                    "Collection(Edm.Guid)",
+                    "Collection(Edm.Int16)",
+                    "Collection(Edm.Int32)",
+                    "Collection(Edm.Int64)",
+                    "Collection(Edm.SByte)",
+                    "Collection(Edm.Single)",
+                    "Collection(Edm.String)",
+                    "Collection(Edm.TimeOfDay)"
+                ],
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -1826,6 +1867,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows triggering an OData action",
             "@Core.LongDescription": "The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Action": {
                 "$Type": "Common.QualifiedName",
                 "@Core.Description": "Qualified name of an Action, Function, ActionImport or FunctionImport in scope"
@@ -1836,6 +1880,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows triggering intent-based UI navigation",
             "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is tied to a data value which should be rendered as a hyperlink.\nThis is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "SemanticObject": {
                 "@Core.Description": "Name of the Semantic Object"
             },
@@ -1854,6 +1901,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows navigating to related data",
             "@Core.LongDescription": "It should be rendered as a hyperlink",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Target": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types"
@@ -1864,6 +1914,9 @@
             "$BaseType": "UI.DataField",
             "@Core.Description": "A piece of data that allows navigating to other information on the Web",
             "@Core.LongDescription": "It should be rendered as a hyperlink",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Url": {
                 "@Core.Description": "Target of the hyperlink",
                 "@Core.IsURL": true
@@ -1879,16 +1932,18 @@
             "$BaseType": "UI.DataField",
             "@Common.Experimental": true,
             "@Core.Description": "Collection of OData actions and intent based navigations",
+            "Value": {
+                "$Type": "Edm.PrimitiveType"
+            },
             "Actions": {
                 "$Collection": true,
                 "$Type": "UI.DataField",
-                "@Core.Description": "Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
+                "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
             }
         },
         "Criticality": {
             "$Kind": "Term",
             "$Type": "UI.CriticalityType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1897,7 +1952,6 @@
         "CriticalityCalculation": {
             "$Kind": "Term",
             "$Type": "UI.CriticalityCalculationType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Annotation"
             ],
@@ -1917,7 +1971,6 @@
         "OrderBy": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1938,7 +1991,6 @@
         "RecommendationState": {
             "$Kind": "Term",
             "$Type": "UI.RecommendationStateType",
-            "$Nullable": true,
             "@Core.Description": "Indicates whether a field contains or has a recommended value",
             "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
         },
@@ -1965,7 +2017,6 @@
         "RecommendationList": {
             "$Kind": "Term",
             "$Type": "UI.RecommendationListType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter"
@@ -2017,6 +2068,14 @@
             "@Common.Experimental": true,
             "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
             "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
+        },
+        "LeadingEntitySet": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
         }
     }
 }

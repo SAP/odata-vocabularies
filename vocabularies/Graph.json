@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.JSON.V1",
+                    "$Alias": "JSON"
+                }
+            ]
+        },
         "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
             "$Include": [
                 {
@@ -37,57 +45,45 @@
                 "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md"
             }
         ],
-        "links": {
+        "traceId": {
             "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Graph.link",
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries."
+        },
+        "Details": {
+            "$Kind": "Term",
+            "$Type": "Graph.DetailsType",
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.Description": "Graph-specific details for error responses"
+        },
+        "DetailsType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "@Core.Description": "Graph-specific details for error responses",
+            "url": {
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.IsURL": true,
+                "@Core.Description": "URL sent to the business system tenant"
+            },
+            "body": {
+                "$Type": "JSON.JSON",
+                "$Nullable": true,
+                "@Common.Experimental": true,
+                "@Core.Description": "Request body sent to the business system tenant"
+            }
+        },
+        "CompositionRoot": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityType"
             ],
             "@Common.Experimental": true,
-            "@Core.Description": "Navigation links"
-        },
-        "link": {
-            "$Kind": "ComplexType",
-            "@Common.Experimental": true,
-            "@Core.Description": "Navigation link",
-            "title": {
-                "$Nullable": true,
-                "@Core.Description": "Title of the navigation link"
-            },
-            "alias": {
-                "$Nullable": true,
-                "@Core.Description": "Name of the virtual navigation property"
-            },
-            "target": {
-                "$Nullable": true,
-                "@Core.Description": "Name of the target entity set"
-            },
-            "parameters": {
-                "$Collection": true,
-                "$Type": "Graph.binding",
-                "@Core.Description": "Map of parameter names in the target operation to property paths in the annotated entity type"
-            },
-            "filter": {
-                "$Collection": true,
-                "$Type": "Graph.binding",
-                "@Core.Description": "Map of single-valued property paths in the target entity to property paths in the annotated entity type",
-                "@Core.LongDescription": "Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set"
-            }
-        },
-        "binding": {
-            "$Kind": "ComplexType",
-            "@Common.Experimental": true,
-            "source": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Path to primitive property in the annotated entity type"
-            },
-            "target": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Path to primitive property in the target entity set"
-            }
+            "@Core.Description": "The annotated entity type is the root type of a composition tree."
         }
     }
 }

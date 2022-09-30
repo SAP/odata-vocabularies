@@ -1,0 +1,46 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/PDF.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.PDF.v1",
+                    "$Alias": "PDF"
+                }
+            ]
+        }
+    },
+    "PDF.examples": {
+        "Container": {
+            "$Kind": "EntityContainer",
+            "@Core.Description": "Imagine some entity sets here"
+        },
+        "$Annotations": {
+            "PDF.examples/Container": {
+                "@PDF.Features": {
+                    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+                    "DocumentDescriptionCollection": "MyDocumentDescriptions",
+                    "ArchiveFormat": true,
+                    "Signature": true,
+                    "CoverPage": true,
+                    "FontSize": true,
+                    "FontName": true,
+                    "Margin": true,
+                    "Border": true,
+                    "FitToPage": false,
+                    "ResultSizeDefault": 5000,
+                    "ResultSizeMaximum": 50000
+                }
+            }
+        }
+    },
+    "$EntityContainer": "PDF.examples.Container"
+}

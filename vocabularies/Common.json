@@ -32,6 +32,14 @@
                     "$Alias": "UI"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Common.v1": {
@@ -433,9 +441,11 @@
             "$DefaultValue": "Optional",
             "$AppliesTo": [
                 "Property",
-                "Record"
+                "Parameter",
+                "Record",
+                "EntityType"
             ],
-            "@Core.Description": "Control state of a property",
+            "@Core.Description": "Control state of a property, parameter, or the media stream of a media entity",
             "@Core.LongDescription": "This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.\n\nIn the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types.",
             "@Common.IsInstanceAnnotation": true
         },
@@ -1399,20 +1409,17 @@
         "DefaultValuesFunction": {
             "$Kind": "Term",
             "$Type": "Common.QualifiedName",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "NavigationProperty",
                 "Action",
                 "Function"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Function to calculate default values based on user input that is only known to the client and \"context information\" that is already available to the service",
             "@Core.LongDescription": "\n            The default values function must have a bound overload whose binding parameter type matches the annotation target\n\n            - for an entity set: collection of entity type of entity set\n\n            - for a navigation property: identical to the type of the navigation property (single- or collection-valued)\n\n            - for a bound action/function: identical to the binding parameter type of the annotated action/function\n\n            In addition the overload can have non-binding parameters for values that the user has already entered:\n\n            - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created\n\n            - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called\n\n            The result type of the default values function is a complex type whose properties correspond in name and type to a subset of\n\n            - the properties of the entity to create, or\n\n            - the parameters of the action or function to call\n                      "
         },
         "DerivedDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1441,7 +1448,6 @@
         },
         "DerivedFilterDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -1495,10 +1501,22 @@
             "$Kind": "Term",
             "$Type": "Common.RecursiveHierarchyType",
             "$BaseTerm": "Aggregation.RecursiveHierarchy",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead"
+                }
+            ],
             "@Core.Description": "Defines a recursive hierarchy."
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead"
+                }
+            ],
             "ExternalNodeKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
@@ -1584,14 +1602,15 @@
         "mediaUploadLink": {
             "$Kind": "Term",
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "EntityType"
             ],
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.RequiresType": "Edm.Stream",
             "@Core.IsURL": true,
             "@Core.Description": "URL for uploading new media content to a Document Management Service",
-            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
+            "@Core.LongDescription": "In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource.\nThe upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.\nThe upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected.\nIf the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity."
         },
         "PrimitivePropertyPath": {
             "$Kind": "Term",

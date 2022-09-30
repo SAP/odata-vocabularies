@@ -48,7 +48,6 @@
         "EntitySemantics": {
             "$Kind": "Term",
             "$Type": "PersonalData.EntitySemanticsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -100,7 +99,6 @@
         "FieldSemantics": {
             "$Kind": "Term",
             "$Type": "PersonalData.FieldSemanticsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],

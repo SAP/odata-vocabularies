@@ -32,7 +32,8 @@
       <Term Name="Extractable" Type="Edm.Boolean" DefaultValue="false" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Defines if entity set is extractable" />
       </Term>
-      <Term Name="OriginalDataType" Type="Edm.String" AppliesTo="Property">
+
+      <Term Name="OriginalDataType" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Original data type of the annotated property in its source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
@@ -41,7 +42,18 @@
           </Record>
         </Annotation>
       </Term>
-      <Term Name="ConversionExit" Type="Edm.String" AppliesTo="Property">
+
+      <Term Name="OriginalName" Type="Edm.String" Nullable="false">
+        <Annotation Term="Core.Description" String="Original name of the annotated model element in its source model" />
+        <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local names to Edm identifiers, which may require removing or replacing characters that are not allowed." />
+        <Annotation Term="Core.Example">
+          <Record>
+            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalName" String="what::is-in.a/name?" />
+          </Record>
+        </Annotation>
+      </Term>
+
+      <Term Name="ConversionExit" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Identifier that describes the special output conversion of the annotated property in the source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
@@ -50,10 +62,12 @@
           </Record>
         </Annotation>
       </Term>
-      <Term Name="SourceSystem" Type="Edm.String" AppliesTo="Container">
+
+      <Term Name="SourceSystem" Type="Edm.String" Nullable="false" AppliesTo="Container">
         <Annotation Term="Core.Description" String="Identifier that classifies the type of the source system" />
         <Annotation Term="Core.LongDescription" String="The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA." />
       </Term>
+
       <EnumType Name="DeltaMethodType" IsFlags="true">
         <Member Name="INSERT" Value="1">
           <Annotation Term="Core.Description" String="Delta is supported for inserts" />
@@ -65,9 +79,11 @@
           <Annotation Term="Core.Description" String="Delta is supported for deletes" />
         </Member>
       </EnumType>
-      <Term Name="DeltaMethod" Type="DataIntegration.DeltaMethodType" AppliesTo="EntitySet">
+
+      <Term Name="DeltaMethod" Type="DataIntegration.DeltaMethodType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true" />
       </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

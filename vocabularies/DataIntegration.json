@@ -39,7 +39,6 @@
         },
         "OriginalDataType": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -49,9 +48,16 @@
                 "@DataIntegration.OriginalDataType": "CHAR(000010)"
             }
         },
+        "OriginalName": {
+            "$Kind": "Term",
+            "@Core.Description": "Original name of the annotated model element in its source model",
+            "@Core.LongDescription": "The provider of an OData service maps its local names to Edm identifiers, which may require removing or replacing characters that are not allowed.",
+            "@Core.Example": {
+                "@DataIntegration.OriginalName": "what::is-in.a/name?"
+            }
+        },
         "ConversionExit": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -63,7 +69,6 @@
         },
         "SourceSystem": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Container"
             ],
@@ -83,7 +88,6 @@
         "DeltaMethod": {
             "$Kind": "Term",
             "$Type": "DataIntegration.DeltaMethodType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
