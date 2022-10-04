@@ -728,7 +728,6 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
