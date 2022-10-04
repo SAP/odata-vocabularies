@@ -169,7 +169,7 @@ the following collections of hierarchy nodes are distinguished:
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
           given in the binding parameter, the output initially contains the nodes with m &le; distance from root &lt; m+n.
-          Then individual nodes are expanded, made visible or collapsed in the output, which extends or reduces the limited hierarchy.
+          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
           Finally the output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
@@ -189,8 +189,8 @@ the following collections of hierarchy nodes are distinguished:
             </Record>
           </Annotation>
         </Parameter>
-        <Parameter Name="Visible" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be made visible" />
+        <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue">
