@@ -916,7 +916,6 @@
             "InitialValueIsSignificant": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Common.Experimental": true,
                 "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
             },
             "@Validation.ApplicableTerms": [
