@@ -9,33 +9,35 @@ Terms for Hierarchies
 Term|Type|Description
 :---|:---|:----------
 [RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.
-[MatchCount](./Hierarchy.xml#L138:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64?|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation, provided that its third parameter does not contain a navigation property.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
+[MatchCount](./Hierarchy.xml#L141:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
 
 
 ## Functions
 
-### <a name="TopLevels"></a>[TopLevels](./Hierarchy.xml#L164:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
+### <a name="TopLevels"></a>[TopLevels](./Hierarchy.xml#L166:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
 
 Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed
 
 This function can be used as a transformation whose input set has a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection
-          given in the binding parameter, the output initially contains the nodes with m ≤ distance from root < m+n.
+          annotation on the entity type of the `HierarchyNodes`.
+          (Its binding parameter is the unlimited hierarchy in the example given [here](#RecursiveHierarchyType),
+          its output is the unlimited hierarchy.) The output initially contains nodes with less than n ancestors
+          in the hierarchical collection given in the binding parameter. 
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
           Finally the output is sorted in preorder, preserving the relative order of siblings.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Hierarchy.xml#L175:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
-[NodeProperty](./Hierarchy.xml#L176:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
-[Levels](./Hierarchy.xml#L179:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-*[Expand](./Hierarchy.xml#L182:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Show](./Hierarchy.xml#L192:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[Collapse](./Hierarchy.xml#L202:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-*[HierarchyNodes](./Hierarchy.xml#L212:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
-*[HierarchyQualifier](./Hierarchy.xml#L220:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
-[&rarr;](./Hierarchy.xml#L227:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+**[InputSet](./Hierarchy.xml#L179:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
+[NodeProperty](./Hierarchy.xml#L180:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
+[Levels](./Hierarchy.xml#L183:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
+*[Expand](./Hierarchy.xml#L186:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
+*[Show](./Hierarchy.xml#L196:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L206:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+*[HierarchyNodes](./Hierarchy.xml#L216:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
+*[HierarchyQualifier](./Hierarchy.xml#L224:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
+[&rarr;](./Hierarchy.xml#L231:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
@@ -80,7 +82,7 @@ Property|Type|Description
 [DescendantCountProperty](./Hierarchy.xml#L94:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy
 [LimitedDescendantCountProperty](./Hierarchy.xml#L97:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy
 [DrillStateProperty](./Hierarchy.xml#L100:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|String property holding the drill state of a node<br>Possible drill states are: <br>- `expanded` if a node has children in the limited hierarchy <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy <br>- `leaf` if a node has no children in the unlimited hierarchy
-[DistanceFromRootProperty](./Hierarchy.xml#L109:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of ancestors a node has in the (sub-)hierarchy
-[SiblingRankProperty](./Hierarchy.xml#L112:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes in the unlimited hierarchy with the same parent. The first sibling has rank 0.
-[MatchedProperty](./Hierarchy.xml#L125:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Boolean property indicating [matching](#MatchCount) nodes
-[MatchedDescendantCountProperty](./Hierarchy.xml#L128:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy
+[DistanceFromRootProperty](./Hierarchy.xml#L109:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy<br>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.
+[SiblingRankProperty](./Hierarchy.xml#L115:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes in the unlimited hierarchy with the same parent. The first sibling has rank 0.
+[MatchedProperty](./Hierarchy.xml#L128:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Boolean property indicating [matching](#MatchCount) nodes
+[MatchedDescendantCountProperty](./Hierarchy.xml#L131:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy

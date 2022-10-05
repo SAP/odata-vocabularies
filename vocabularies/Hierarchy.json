@@ -93,7 +93,8 @@
             "DistanceFromRootProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the (sub-)hierarchy"
+                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy",
+                "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy."
             },
             "SiblingRankProperty": {
                 "$Type": "Edm.PropertyPath",
@@ -115,14 +116,13 @@
         "MatchCount": {
             "$Kind": "Term",
             "$Type": "Edm.Int64",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Collection"
             ],
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-            "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation,\n          provided that its third parameter does not contain a navigation property.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+            "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
         },
         "TopLevels": [
             {
@@ -131,7 +131,7 @@
                 "$IsBound": true,
                 "@Common.Experimental": true,
                 "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
-                "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`. If m is the minimal distance from root in the hierarchical collection\n          given in the binding parameter, the output initially contains the nodes with m ≤ distance from root < m+n.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder, preserving the relative order of siblings.",
+                "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy in the example given [here](#RecursiveHierarchyType),\n          its output is the unlimited hierarchy.) The output initially contains nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter. \n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder, preserving the relative order of siblings.",
                 "$Parameter": [
                     {
                         "$Name": "InputSet",
