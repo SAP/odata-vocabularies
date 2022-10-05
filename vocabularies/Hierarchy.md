@@ -22,7 +22,7 @@ This function can be used as a transformation whose input set has a recursive hi
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`.
           (Its binding parameter is the unlimited hierarchy in the example given [here](#RecursiveHierarchyType),
-          its output is the unlimited hierarchy.) The output initially contains nodes with less than n ancestors
+          its output is the limited hierarchy.) The output initially contains nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter. 
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
           Finally the output is sorted in preorder, preserving the relative order of siblings.
