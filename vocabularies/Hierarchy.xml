@@ -177,6 +177,10 @@ the following collections of hierarchy nodes are distinguished:
           Finally the output is sorted in preorder, preserving the relative order of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="NodeProperty" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
         </Parameter>
@@ -210,21 +214,6 @@ the following collections of hierarchy nodes are distinguished:
               <PropertyValue Property="DefaultValue">
                 <Collection />
               </PropertyValue>
-            </Record>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <Annotation Term="Core.Description" String="Defaults to the collection specified in a `$hierarchy` system query option" />
-            </Record>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false">
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <Annotation Term="Core.Description" String="Defaults to the qualifier specified in a `$hierarchy` system query option" />
             </Record>
           </Annotation>
         </Parameter>

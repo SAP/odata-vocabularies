@@ -139,6 +139,16 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
                         "$Name": "NodeProperty",
                         "@Core.Description": "Property path to the node identifier, evaluated relative to the binding parameter"
                     },
@@ -169,22 +179,6 @@
                         "@Core.Description": "Identifiers of nodes to be collapsed",
                         "@Core.OptionalParameter": {
                             "DefaultValue": []
-                        }
-                    },
-                    {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression",
-                        "@Core.OptionalParameter": {
-                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
-                        }
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier",
-                        "@Core.OptionalParameter": {
-                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
                         }
                     }
                 ],

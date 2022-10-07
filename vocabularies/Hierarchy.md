@@ -30,14 +30,14 @@ This function can be used as a transformation whose input set has a recursive hi
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](./Hierarchy.xml#L179:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
-[NodeProperty](./Hierarchy.xml#L180:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
-[Levels](./Hierarchy.xml#L183:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-*[Expand](./Hierarchy.xml#L186:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Show](./Hierarchy.xml#L196:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[Collapse](./Hierarchy.xml#L206:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-*[HierarchyNodes](./Hierarchy.xml#L216:~:text=<Function%20Name="-,TopLevels,-")*|\[EntityType\]|*Optional parameter:* A collection, given through a `$root` expression
-*[HierarchyQualifier](./Hierarchy.xml#L224:~:text=<Function%20Name="-,TopLevels,-")*|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|*Optional parameter*
-[&rarr;](./Hierarchy.xml#L231:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+[HierarchyNodes](./Hierarchy.xml#L180:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Hierarchy.xml#L183:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[NodeProperty](./Hierarchy.xml#L184:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
+[Levels](./Hierarchy.xml#L187:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
+*[Expand](./Hierarchy.xml#L190:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
+*[Show](./Hierarchy.xml#L200:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L210:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+[&rarr;](./Hierarchy.xml#L220:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
