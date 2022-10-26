@@ -174,7 +174,7 @@ the following collections of hierarchy nodes are distinguished:
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder, preserving the relative order of siblings.</String>
+          Finally the output is sorted in preorder, preserving the precedence relationships of siblings.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">

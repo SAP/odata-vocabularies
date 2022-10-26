@@ -25,7 +25,7 @@ This function can be used as a transformation whose input set has a recursive hi
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder, preserving the relative order of siblings.
+          Finally the output is sorted in preorder, preserving the precedence relationships of siblings.
 
 Parameter|Type|Description
 :--------|:---|:----------
