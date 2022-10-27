@@ -28,7 +28,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="LocalOnly" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType EntitySet EnumType ComplexType">
+      <Term Name="LocalOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType">
         <Annotation Term="Core.Description" String="Target model is local only to client device"/>
       </Term>
     </Schema>
