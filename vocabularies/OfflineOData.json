@@ -28,7 +28,7 @@
                 "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/OfflineOData.md"
             }
         ],
-        "ClientOnly": {
+        "LocalOnly": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$Nullable": true,
@@ -39,7 +39,7 @@
                 "EnumType",
                 "ComplexType"
             ],
-            "@Core.Description": "Target model is client only"
+            "@Core.Description": "Target model is local only to client device"
         }
     }
 }

@@ -1,0 +1,41 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.OfflineOData.v1",
+                    "$Alias": "OfflineOData"
+                }
+            ]
+        }
+    },
+    "localonly.sample": {
+        "$Alias": "local",
+        "SalesOrderType": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "SalesOrder"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 32
+            }
+        },
+        "container": {
+            "$Kind": "EntityContainer",
+            "SalesOrder": {
+                "$Collection": true,
+                "$Type": "local.SalesOrderType"
+            }
+        },
+        "$Annotations": {
+            "local.SalesOrderType": {
+                "@OfflineOData.LocalOnly": true
+            },
+            "local.SalesOrder": {
+                "@OfflineOData.LocalOnly": true
+            }
+        }
+    },
+    "$EntityContainer": "localonly.sample.container"
+}
