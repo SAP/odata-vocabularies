@@ -1,0 +1,45 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.OfflineOData.v1": {
+        "$Alias": "OfflineOData",
+        "@Core.Description": "Terms for annotating Offline OData",
+        "@Core.Description#Published": "2022-10-27 © Copyright 2022 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/OfflineOData.md"
+            }
+        ],
+        "ClientOnly": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType",
+                "EntitySet",
+                "EnumType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Target model is client only"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.OfflineOData.v1" Alias="OfflineOData">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Offline OData</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2022-10-27 © Copyright 2022 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/OfflineOData.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType EntitySet EnumType ComplexType">
+        <Annotation Term="Core.Description" String="Target model is client only"/>
+      </Term>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
