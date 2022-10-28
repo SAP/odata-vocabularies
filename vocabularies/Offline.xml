@@ -40,7 +40,7 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
 
       <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType TypeDefinition">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated model element exists only on client device"/>
+        <Annotation Term="Core.Description" String="The annotated model element exists only on client devices"/>
          <Annotation Term="Core.LongDescription">
            <String>Occasionally a customer will want to store additional “client-only”
            entities in the same DB. The easiest way to accommodate this is for the client 
