@@ -14,7 +14,7 @@
       <Annotation Term="Core.LongDescription">
         <String>
 Offline OData is a solution for data synchronization between back-ends and mobile devices.
-It is built on top of in-house technology which has been designed and used in database synchronizing for over 20 years.
+It is built on top of in-house technology which has been designed and used in database synchronization for over 20 years.
 Plese refer to the Offline OData product home for details:
 https://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/guides/features/offline/overview.html
         </String>
