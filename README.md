@@ -20,7 +20,7 @@ This repository defines the following SAP vocabularies:
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
 - [UI: Representing data in user interfaces](vocabularies/UI.md)
-- [Offline: Terms for Offline OData](vocabularies/Offline.md)
+- [Offline: Terms for Offline OData](vocabularies/Offline.md) - _experimental_
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
 
