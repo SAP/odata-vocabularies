@@ -22,7 +22,7 @@
         <Annotation Term="Offline.ClientOnly" />
       </Annotations>
 
-      <Annotations Target="client.SalesOrder">
+      <Annotations Target="client.container/SalesOrder">
         <Annotation Term="Offline.ClientOnly" Bool="true" />
       </Annotations>
     </Schema>
