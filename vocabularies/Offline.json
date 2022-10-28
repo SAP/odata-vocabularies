@@ -50,7 +50,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The annotated model element exists only on client device",
-            "@Core.LongDescription": "Occasionally a customer will want to store additional “client-only”\n           entities in the same DB. The easiest way to accommodate this is for the client \n           to extend the backend-returned $metadata (upon which the local persistence is \n           based) and just to mark some entities as client-only so that the client won’t\n           attempt to upload any changes that are made to them locally."
+            "@Core.LongDescription": "Occasionally a customer will want to store additional “client-only”\n           entities in the same DB. The easiest way to accommodate this is for the client \n           to extend the backend-returned $metadata (upon which the local persistence is \n           based) and just to mark some entities as client-only so that the client won’t\n           attempt to upload any changes that are made to them locally.\n           The service as implemented on the server is described by the CSDL document with\n           all elements removed that are tagged as @Offline.ClientOnly."
         }
     }
 }

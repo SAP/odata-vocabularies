@@ -47,7 +47,9 @@ https://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/gu
            entities in the same DB. The easiest way to accommodate this is for the client 
            to extend the backend-returned $metadata (upon which the local persistence is 
            based) and just to mark some entities as client-only so that the client won’t
-           attempt to upload any changes that are made to them locally.</String>
+           attempt to upload any changes that are made to them locally.
+           The service as implemented on the server is described by the CSDL document with
+           all elements removed that are tagged as @Offline.ClientOnly.</String>
         </Annotation>        
       </Term>
     </Schema>
