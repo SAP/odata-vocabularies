@@ -29,7 +29,14 @@
       </Annotation>
 
       <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType">
-        <Annotation Term="Core.Description" String="Target model is persisted on client device only"/>
+        <Annotation Term="Core.Description" String="The annotated model element exists only on client device"/>
+         <Annotation Term="Core.LongDescription">
+           <String>Occasionally a customer will want to store additional “local-only”
+           entities in the same DB. The easiest way to accommodate this is for the client 
+           to extend the backend-returned $metadata (upon which the local persistence is 
+           based) and just to mark some entities as local-only so that the client won’t 
+           attempt to upload any changes that are made to them locally.</String>
+        </Annotation>        
       </Term>
     </Schema>
   </edmx:DataServices>
