@@ -8,11 +8,20 @@
                     "$Alias": "Core"
                 }
             ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
         }
     },
     "com.sap.vocabularies.Offline.v1": {
         "$Alias": "Offline",
         "@Core.Description": "Terms for annotating Offline OData",
+        "@Core.LongDescription": "\nOffline OData is powerful solution for data sycnchronization between back-end and mobile devices.\nIt is built on top of in-house technology which has been designed and used in database synchronizing for over 20 years.\nPlese refer to the Offline OData product home for details:\nhttps://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/guides/features/offline/overview.html\n        ",
         "@Core.Description#Published": "2022-10-27 © Copyright 2022 SAP SE. All rights reserved",
         "@Core.Links": [
             {
@@ -36,9 +45,12 @@
                 "EntityType",
                 "EntitySet",
                 "EnumType",
-                "ComplexType"
+                "ComplexType",
+                "TypeDefinition"
             ],
-            "@Core.Description": "Target model is persisted on client device only"
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated model element exists only on client device",
+            "@Core.LongDescription": "Occasionally a customer will want to store additional “client-only”\n           entities in the same DB. The easiest way to accommodate this is for the client \n           to extend the backend-returned $metadata (upon which the local persistence is \n           based) and just to mark some entities as client-only so that the client won’t\n           attempt to upload any changes that are made to them locally."
         }
     }
 }

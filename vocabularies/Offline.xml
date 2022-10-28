@@ -11,6 +11,14 @@
       <Annotation Term="Core.Description">
         <String>Terms for annotating Offline OData</String>
       </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+Offline OData is powerful solution for data sycnchronization between back-end and mobile devices.
+It is built on top of in-house technology which has been designed and used in database synchronizing for over 20 years.
+Plese refer to the Offline OData product home for details:
+https://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/guides/features/offline/overview.html
+        </String>
+     </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2022-10-27 © Copyright 2022 SAP SE. All rights reserved</String>
       </Annotation>
@@ -31,14 +39,14 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType">
+      <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated model element exists only on client device"/>
          <Annotation Term="Core.LongDescription">
-           <String>Occasionally a customer will want to store additional “local-only”
+           <String>Occasionally a customer will want to store additional “client-only”
            entities in the same DB. The easiest way to accommodate this is for the client 
            to extend the backend-returned $metadata (upon which the local persistence is 
-           based) and just to mark some entities as local-only so that the client won’t 
+           based) and just to mark some entities as client-only so that the client won’t
            attempt to upload any changes that are made to them locally.</String>
         </Annotation>        
       </Term>
