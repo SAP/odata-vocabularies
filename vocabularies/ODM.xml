@@ -33,15 +33,33 @@
         </Collection>
       </Annotation>
 
-      <Term Name="codeList" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType EntitySet">
+      <Term Name="codeList" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity set represents a list of code values, the annotated entity type represents an entry in a code list" />
       </Term>
 
-      <Term Name="root" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="root" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity set contains root entities" />
         <Annotation Term="Core.LongDescription" String="Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology." />
+      </Term>
+
+      <Term Name="identifier" Type="Edm.PropertyPath" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The named field is an OID (ODM identifier), and it uniquely identifies an ODM root entity in a customer landscape." />
+        <Annotation Term="Core.LongDescription">
+          <String>The technical type can be UUID or String (any length), and the value must be stable and unique at least within type and landscape (better globally). 
+An entity may have other IDs, i.e. a local ID and other alternative IDs. This is the ID used for ODM.</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="entityName" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="This annotation points to an ODM entity as a general concept, not a concrete version thereof" />
+        <Annotation Term="Core.LongDescription">
+          <String>This implies that the annotation cannot provide any contract about properties being contained in a model.
+The annotated entity type thus is _not_ an implementation of the ODM entity, it only represents this ODM entity.</String>
+        </Annotation>
       </Term>
 
     </Schema>

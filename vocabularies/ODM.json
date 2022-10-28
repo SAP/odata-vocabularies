@@ -40,7 +40,6 @@
         "codeList": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityType",
@@ -52,7 +51,6 @@
         "root": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "EntitySet"
@@ -60,6 +58,25 @@
             "@Common.Experimental": true,
             "@Core.Description": "The annotated entity set contains root entities",
             "@Core.LongDescription": "Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology."
+        },
+        "identifier": {
+            "$Kind": "Term",
+            "$Type": "Edm.PropertyPath",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The named field is an OID (ODM identifier), and it uniquely identifies an ODM root entity in a customer landscape.",
+            "@Core.LongDescription": "The technical type can be UUID or String (any length), and the value must be stable and unique at least within type and landscape (better globally). \nAn entity may have other IDs, i.e. a local ID and other alternative IDs. This is the ID used for ODM."
+        },
+        "entityName": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "This annotation points to an ODM entity as a general concept, not a concrete version thereof",
+            "@Core.LongDescription": "This implies that the annotation cannot provide any contract about properties being contained in a model.\nThe annotated entity type thus is _not_ an implementation of the ODM entity, it only represents this ODM entity."
         }
     }
 }
