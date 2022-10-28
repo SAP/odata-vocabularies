@@ -55,7 +55,7 @@ An entity may have other IDs, i.e. a local ID and other alternative IDs. This is
 
       <Term Name="entityName" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="This annotation points to an ODM entity as a general concept, not a concrete version thereof" />
+        <Annotation Term="Core.Description" String="Name of an ODM entity as a general concept, not a concrete version thereof" />
         <Annotation Term="Core.LongDescription">
           <String>This implies that the annotation cannot provide any contract about properties being contained in a model.
 The annotated entity type thus is _not_ an implementation of the ODM entity, it only represents this ODM entity.</String>
