@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.OfflineOData.v1" Alias="OfflineOData" />
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Offline.v1" Alias="Offline" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="localonly.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="local">
+    <Schema Namespace="clientonly.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="client">
 
       <EntityType Name="SalesOrderType">
         <Key>
@@ -15,15 +15,15 @@
       </EntityType>
 
       <EntityContainer Name="container">
-        <EntitySet Name="SalesOrder" EntityType="local.SalesOrderType" />
+        <EntitySet Name="SalesOrder" EntityType="client.SalesOrderType" />
       </EntityContainer>
 
-      <Annotations Target="local.SalesOrderType">
-        <Annotation Term="OfflineOData.LocalOnly" />
+      <Annotations Target="client.SalesOrderType">
+        <Annotation Term="Offline.ClientOnly" />
       </Annotations>
 
-      <Annotations Target="local.SalesOrder">
-        <Annotation Term="OfflineOData.LocalOnly" Bool="true" />
+      <Annotations Target="client.SalesOrder">
+        <Annotation Term="Offline.ClientOnly" Bool="true" />
       </Annotations>
     </Schema>
   </edmx:DataServices>

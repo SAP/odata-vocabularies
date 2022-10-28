@@ -4,7 +4,7 @@
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.OfflineOData.v1" Alias="OfflineOData">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Offline.v1" Alias="Offline">
       <Annotation Term="Core.Description">
         <String>Terms for annotating Offline OData</String>
       </Annotation>
@@ -15,21 +15,21 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.xml" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.json" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Offline.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/OfflineOData.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Offline.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="LocalOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType">
-        <Annotation Term="Core.Description" String="Target model is local only to client device"/>
+      <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType">
+        <Annotation Term="Core.Description" String="Target model is persisted on client device only"/>
       </Term>
     </Schema>
   </edmx:DataServices>

@@ -1,17 +1,17 @@
 {
     "$Version": "4.0",
     "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/OfflineOData.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Offline.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.OfflineOData.v1",
-                    "$Alias": "OfflineOData"
+                    "$Namespace": "com.sap.vocabularies.Offline.v1",
+                    "$Alias": "Offline"
                 }
             ]
         }
     },
-    "localonly.sample": {
-        "$Alias": "local",
+    "clientonly.sample": {
+        "$Alias": "client",
         "SalesOrderType": {
             "$Kind": "EntityType",
             "$Key": [
@@ -25,17 +25,17 @@
             "$Kind": "EntityContainer",
             "SalesOrder": {
                 "$Collection": true,
-                "$Type": "local.SalesOrderType"
+                "$Type": "client.SalesOrderType"
             }
         },
         "$Annotations": {
-            "local.SalesOrderType": {
-                "@OfflineOData.LocalOnly": true
+            "client.SalesOrderType": {
+                "@Offline.ClientOnly": true
             },
-            "local.SalesOrder": {
-                "@OfflineOData.LocalOnly": true
+            "client.SalesOrder": {
+                "@Offline.ClientOnly": true
             }
         }
     },
-    "$EntityContainer": "localonly.sample.container"
+    "$EntityContainer": "clientonly.sample.container"
 }
