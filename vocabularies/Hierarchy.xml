@@ -81,15 +81,16 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="String property holding the human-readable key value for a node" />
           <Annotation Term="Core.LongDescription">
             <String>If a `NodeTypeProperty` exists, the external key is unique only in combination with it.
-            Otherwise, the external key can coincide with the `NodeProperty`.</String>
+            Or the external key can coincide with the `NodeProperty`.</String>
           </Annotation>
         </Property>
         <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="String property holding the type of a node" />
           <Annotation Term="Core.LongDescription">
-            <String>In a recursive hierarchy with mixed types, nodes of different type can have different (navigation) properties
-            or be represented by entities of different subtypes of a commmon entity type.
-            The common entity type is the target of the `RecursiveHierarchy` annotation.</String>
+            <String>In a recursive hierarchy with mixed types, nodes can
+            &lt;br&gt;- have a type-specific (navigation) property whose name is the node type or
+            &lt;br&gt;- be represented by entities of different subtypes of a commmon entity type that is
+            annotated with the `RecursiveHierarchy` annotation. The name of the subtype is the node type.</String>
           </Annotation>
         </Property>
         <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">

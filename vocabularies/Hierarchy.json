@@ -62,13 +62,13 @@
             "ExternalKeyProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "String property holding the human-readable key value for a node",
-                "@Core.LongDescription": "If a `NodeTypeProperty` exists, the external key is unique only in combination with it.\n            Otherwise, the external key can coincide with the `NodeProperty`."
+                "@Core.LongDescription": "If a `NodeTypeProperty` exists, the external key is unique only in combination with it.\n            Or the external key can coincide with the `NodeProperty`."
             },
             "NodeTypeProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "String property holding the type of a node",
-                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes of different type can have different (navigation) properties\n            or be represented by entities of different subtypes of a commmon entity type.\n            The common entity type is the target of the `RecursiveHierarchy` annotation."
+                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a commmon entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The name of the subtype is the node type."
             },
             "ChildCountProperty": {
                 "$Type": "Edm.PropertyPath",
