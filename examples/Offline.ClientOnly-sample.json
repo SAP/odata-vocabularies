@@ -1,0 +1,76 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Offline.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Offline.v1",
+                    "$Alias": "Offline"
+                }
+            ]
+        }
+    },
+    "clientonly.sample": {
+        "$Alias": "client",
+        "SalesOrderType": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "SalesOrder"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 32
+            },
+            "_Item": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "client.SalesOrderItemType",
+                "$Partner": "_SalesOrder"
+            }
+        },
+        "SalesOrderItemType": {
+            "$Kind": "EntityType",
+            "@Offline.ClientOnly": true,
+            "$Key": [
+                "SalesOrder",
+                "SalesOrderItem"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 32
+            },
+            "SalesOrderItem": {
+                "$MaxLength": 6
+            },
+            "_SalesOrder": {
+                "$Kind": "NavigationProperty",
+                "$Type": "client.SalesOrderType",
+                "$Partner": "_Item",
+                "$ReferentialConstraint": {
+                    "SalesOrder": "SalesOrder"
+                }
+            }
+        },
+        "container": {
+            "$Kind": "EntityContainer",
+            "SalesOrder": {
+                "$Collection": true,
+                "$Type": "client.SalesOrderType",
+                "$NavigationPropertyBinding": {
+                    "_Item": "SalesOrderItem"
+                }
+            },
+            "SalesOrderItem": {
+                "$Collection": true,
+                "$Type": "client.SalesOrderItem"
+            }
+        },
+        "$Annotations": {
+            "client.SalesOrderType": {
+                "@Offline.ClientOnly": true
+            },
+            "client.container/SalesOrder": {
+                "@Offline.ClientOnly": true
+            }
+        }
+    },
+    "$EntityContainer": "clientonly.sample.container"
+}
