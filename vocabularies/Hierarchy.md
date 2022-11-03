@@ -25,7 +25,7 @@ This function can be used as a transformation whose input set has a recursive hi
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder, preserving the precedence relationships of siblings.
+          Finally the output is sorted in preorder as with the `traverse` transformation.
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -76,8 +76,8 @@ the following collections of hierarchy nodes are distinguished:
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalKeyProperty](./Hierarchy.xml#L80:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|String property holding the human-readable key value for a node<br>If a `NodeTypeProperty` exists, the external key is unique only in combination with it. Or the external key can coincide with the `NodeProperty`.
-[NodeTypeProperty](./Hierarchy.xml#L87:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|String property holding the type of a node<br>In a recursive hierarchy with mixed types, nodes can <br>- have a type-specific (navigation) property whose name is the node type or <br>- be represented by entities of different subtypes of a commmon entity type that is annotated with the `RecursiveHierarchy` annotation. The name of the subtype is the node type.
+[ExternalKeyProperty](./Hierarchy.xml#L80:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|String property holding the human-readable key value for a node<br>If a `NodeTypeProperty` exists, the external key is unique only in combination with it. Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).
+[NodeTypeProperty](./Hierarchy.xml#L87:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|String property holding the type of a node<br>In a recursive hierarchy with mixed types, nodes can <br>- have a type-specific (navigation) property whose name is the node type or <br>- be represented by entities of different subtypes of a commmon entity type that is annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.
 [ChildCountProperty](./Hierarchy.xml#L96:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy
 [DescendantCountProperty](./Hierarchy.xml#L99:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy
 [LimitedDescendantCountProperty](./Hierarchy.xml#L102:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy

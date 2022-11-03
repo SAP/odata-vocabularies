@@ -81,7 +81,7 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="String property holding the human-readable key value for a node" />
           <Annotation Term="Core.LongDescription">
             <String>If a `NodeTypeProperty` exists, the external key is unique only in combination with it.
-            Or the external key can coincide with the `NodeProperty`.</String>
+            Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).</String>
           </Annotation>
         </Property>
         <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -90,7 +90,7 @@ the following collections of hierarchy nodes are distinguished:
             <String>In a recursive hierarchy with mixed types, nodes can
             &lt;br&gt;- have a type-specific (navigation) property whose name is the node type or
             &lt;br&gt;- be represented by entities of different subtypes of a commmon entity type that is
-            annotated with the `RecursiveHierarchy` annotation. The name of the subtype is the node type.</String>
+            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.</String>
           </Annotation>
         </Property>
         <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -179,7 +179,7 @@ the following collections of hierarchy nodes are distinguished:
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder, preserving the precedence relationships of siblings.</String>
+          Finally the output is sorted in preorder as with the `traverse` transformation.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
