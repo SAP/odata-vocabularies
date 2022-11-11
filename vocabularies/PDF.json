@@ -20,7 +20,6 @@
     },
     "com.sap.vocabularies.PDF.v1": {
         "$Alias": "PDF",
-        "@Common.Experimental": true,
         "@Core.Description": "Terms for PDF response format",
         "@Core.LongDescription": "The PDF vocabulary provides information about the PDF format of a response",
         "@Core.Description#Published": "2021-10-27 © Copyright 2021 SAP SE. All rights reserved",
@@ -44,12 +43,10 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Common.Experimental": true,
             "@Core.Description": "Features for the PDF"
         },
         "FeaturesType": {
             "$Kind": "ComplexType",
-            "@Common.Experimental": true,
             "DocumentDescriptionReference": {
                 "@Core.IsURL": true,
                 "@Core.Description": "Reference of the Service for the DocumentDescription"
