@@ -1529,7 +1529,7 @@ The trend is
         <Annotation Term="Core.LongDescription">
           <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
 
-It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."</String>
+It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).</String>
         </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />

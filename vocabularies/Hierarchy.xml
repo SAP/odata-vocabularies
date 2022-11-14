@@ -46,7 +46,7 @@
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
-          <String>The nullable property paths in this complex type refer to properties of an entity type that contain
+          <String>The property paths in this complex type refer to properties of an entity type that contain
 information about a node in a recursive hierarchy. When hierarchical transformations
 are applied whose first parameter has the annotated entity type
 and whose second parameter is the annotation qualifier,
@@ -77,7 +77,7 @@ the following collections of hierarchy nodes are distinguished:
 |limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing "New York"|rows 1–4|
 </String>
         </Annotation>
-        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
+        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="String property holding the human-readable key value for a node" />
           <Annotation Term="Core.LongDescription">
             <String>If a `NodeTypeProperty` exists, the external key is unique only in combination with it.
