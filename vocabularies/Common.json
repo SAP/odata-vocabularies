@@ -266,6 +266,17 @@
             ],
             "@Core.Description": "The annotated set or collection contains at most this number of items"
         },
+        "skip": {
+            "$Kind": "Term",
+            "$Type": "Edm.Int64",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Core.IsInstanceAnnotation": true,
+            "@Core.Description": "The server assumed this value for $skip when it determined the annotated collection",
+            "@Core.LongDescription": "The server assumes a value for $skip, for example, if the request contains the `sap-skiplocation` query option."
+        },
         "AssociationEntity": {
             "$Kind": "Term",
             "$Collection": true,

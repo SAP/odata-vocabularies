@@ -223,6 +223,14 @@
         <Annotation Term="Core.Description" String="The annotated set or collection contains at most this number of items" />
       </Term>
 
+      <Term Name="skip" Type="Edm.Int64" AppliesTo="Collection">
+        <Annotation Term="Core.IsInstanceAnnotation"/>
+        <Annotation Term="Core.Description" String="The server assumed this value for $skip when it determined the annotated collection"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The server assumes a value for $skip, for example, if the request contains the `sap-skiplocation` query option.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="AssociationEntity" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>Entity representing an n:m association with attributes</String>
