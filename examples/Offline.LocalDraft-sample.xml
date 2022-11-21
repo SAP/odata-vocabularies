@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Offline.v1" Alias="Offline" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="LocalDraft.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="client">
+
+      <EntityType Name="SalesOrderType">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="32" />
+        <!-- ... and many more -->
+        <NavigationProperty Name="_Item" Type="Collection(client.SalesOrderItemType)" Partner="_SalesOrder" />
+      </EntityType>
+
+      <EntityType Name="SalesOrderItemType">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+          <PropertyRef Name="SalesOrderItem" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="32" />
+        <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" />
+        <!-- ... and a lot more -->
+        <NavigationProperty Name="_SalesOrder" Type="client.SalesOrderType" Nullable="false" Partner="_Item">
+          <ReferentialConstraint Property="SalesOrder" ReferencedProperty="SalesOrder" />
+        </NavigationProperty>
+      </EntityType>
+
+      <EntityContainer Name="container">
+        <EntitySet Name="SalesOrder" EntityType="client.SalesOrderType">
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItem" />
+        </EntitySet>
+        <EntitySet Name="SalesOrderItem" EntityType="client.SalesOrderItemType" />
+
+        <!--SalesOrderDraft is sharing the SalesOrderType, and is annotated as LocalDraft-->
+        <EntitySet Name="SalesOrderDraft" EntityType="client.SalesOrderType">
+          <Annotation Term="Offline.LocalDraft" />
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItemDraft" />
+        </EntitySet>
+
+        <!--SalesOrderItemDraft is sharing the SalesOrderItemType, and is annotated as LocalDraft-->
+        <EntitySet Name="SalesOrderItemDraft" EntityType="client.SalesOrderItemType">
+          <Annotation Term="Offline.LocalDraft" />
+        </EntitySet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
