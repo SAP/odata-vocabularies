@@ -77,7 +77,7 @@
         <Property Name="Padding" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Padding of document" />
           <Annotation Term="Core.LongDescription">
-            <String>Sets the padding (left, right, bottom, top) in PDF units</String>
+            <String>Is padding (left, right, bottom, top) supported?</String>
           </Annotation>
         </Property>
         <Property Name="ResultSizeDefault" Type="Edm.Int32">
