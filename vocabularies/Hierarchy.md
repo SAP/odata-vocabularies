@@ -61,7 +61,7 @@ or
 ```
 SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
   descendants(..., ID, filter(ID eq 'US')),
-  ancestors(..., ID, filter(contains(Name, 'New York'))))), aggregate(...))
+  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
 /Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &$top=10
 ```
