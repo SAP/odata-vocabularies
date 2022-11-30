@@ -55,19 +55,20 @@ then these properties are derived for each node in the result set.
 For requests like
 ```
 SalesOrganizations?$apply=
-descendants(ID, filter(ID eq 'US'), keep start)
-/ancestors(ID, filter(contains(Name, 'New York'), keep start)
-/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
+descendants(..., ID, filter(ID eq 'US'), keep start)
+/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)
+/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
 or
 ```
-SalesOrganizations?$apply=groupby((rolluprecursive(ID,
-  descendants(ID, filter(ID eq 'US')),
-  ancestors(ID, filter(contains(Name, 'New York'))))), aggregate(...))
-/Hierarchy.TopLevels(NodeProperty='ID', Levels=2)
+SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
+  descendants(..., ID, filter(ID eq 'US')),
+  ancestors(..., ID, filter(contains(Name, 'New York'))))), aggregate(...))
+/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
+(where `...,` stands for hierarchy nodes and hierarchy qualifier)
 the following collections of hierarchy nodes are distinguished:
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
