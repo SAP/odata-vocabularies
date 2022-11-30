@@ -43,7 +43,7 @@ Parameter|Type|Description
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
 
 
-The property paths in this complex type refer to properties of an entity type that contain
+The property paths in this complex type refer to nullable properties of an entity type that contain
 information about a node in a recursive hierarchy. When hierarchical transformations
 are applied whose first parameter has the annotated entity type
 and whose second parameter is the annotation qualifier,

@@ -46,7 +46,7 @@
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
-          <String>The property paths in this complex type refer to properties of an entity type that contain
+          <String>The property paths in this complex type refer to nullable properties of an entity type that contain
 information about a node in a recursive hierarchy. When hierarchical transformations
 are applied whose first parameter has the annotated entity type
 and whose second parameter is the annotation qualifier,
