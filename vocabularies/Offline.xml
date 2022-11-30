@@ -54,8 +54,7 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
 
       <Term Name="LocalDraft" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated model is draft and exists only on client devices. A draft entity
-        can be converted to non-draft entity for uploading"/>
+        <Annotation Term="Core.Description" String="Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata."/>
          <Annotation Term="Core.LongDescription">
            <String>Typically for each entity type there is one corresponding entity set, however OData permits having multiple entity sets sharing the same entity type.
             This can be taken advantage of to enable a facility for local (offline) drafts by defining an additional (draft) entity set for an existing entity type.
