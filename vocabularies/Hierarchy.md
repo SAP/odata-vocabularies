@@ -21,7 +21,7 @@ Returns the first n levels of a hierarchical collection in preorder with individ
 This function can be used as a transformation whose input set has a recursive hierarchy
           defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
           annotation on the entity type of the `HierarchyNodes`.
-          (Its binding parameter is the unlimited hierarchy in the example given [here](#RecursiveHierarchyType),
+          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
