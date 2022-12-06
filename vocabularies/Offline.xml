@@ -52,7 +52,7 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
         </Annotation>
       </Term>
 
-      <Term Name="LocalDraft" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="LocalDraft" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata."/>
          <Annotation Term="Core.LongDescription">
@@ -61,7 +61,8 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
             For example, with existing entity type "Order" and existing entity set "Orders", an additional "DraftOrders" entity set could be defined, annotated with
             this annotation. When a client application creates an entity instance, it could be created in the "DraftOrders" entity set. A subsequent offline entity
             upload operation will not upload any local draft entities.
-            Draft entities and their children need to be transitioned into non-draft entities to become uploadable.</String>
+            Draft entities and their children need to be transitioned into non-draft entities to become uploadable.
+            The linked non-draft entity set using the same entity type can be definied in the string value, and the implicit default value of null indicates that the draft set is linked with the only other non-draft entity set using the same entity type.</String>
         </Annotation>
       </Term>
     </Schema>
