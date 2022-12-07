@@ -67,7 +67,7 @@
             ],
             "@Common.Experimental": true,
             "@Core.Description": "The named field is an OID (ODM identifier), and it uniquely identifies an ODM root entity in a customer landscape.",
-            "@Core.LongDescription": "The technical type can be UUID or String (any length), and the value must be stable and unique at least within type and landscape (better globally). \nAn entity may have other IDs, i.e. a local ID and other alternative IDs. This is the ID used for ODM."
+            "@Core.LongDescription": "The field is an alternative key to the entity. The technical type can be UUID or String (typically length 128), and the value must be stable and unique at least within type and landscape (better globally). \nAn entity may have other IDs, i.e. a local ID and other alternative IDs. "
         },
         "entityName": {
             "$Kind": "Term",
