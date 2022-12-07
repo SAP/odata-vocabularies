@@ -59,7 +59,7 @@
             "@Core.Description": "The annotated entity set contains root entities",
             "@Core.LongDescription": "Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology."
         },
-        "identifier": {
+        "oid": {
             "$Kind": "Term",
             "$Type": "Edm.PropertyPath",
             "$AppliesTo": [

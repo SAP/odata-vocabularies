@@ -44,7 +44,7 @@
         <Annotation Term="Core.LongDescription" String="Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology." />
       </Term>
 
-      <Term Name="identifier" Type="Edm.PropertyPath" Nullable="false" AppliesTo="EntityType">
+      <Term Name="oid" Type="Edm.PropertyPath" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The named field is an OID (ODM identifier), and it uniquely identifies an ODM root entity in a customer landscape." />
         <Annotation Term="Core.LongDescription">
