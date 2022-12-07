@@ -9,7 +9,6 @@
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.PDF.v1" Alias="PDF">
-      <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for PDF response format</String>
       </Annotation>
@@ -37,12 +36,10 @@
       </Annotation>
 
       <Term Name="Features" Type="PDF.FeaturesType" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Features for the PDF" />
       </Term>
 
       <ComplexType Name="FeaturesType">
-        <Annotation Term="Common.Experimental" />
         <Property Name="DocumentDescriptionReference" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" Bool="true" />
           <Annotation Term="Core.Description" String="Reference of the Service for the DocumentDescription" />
