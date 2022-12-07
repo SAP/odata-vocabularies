@@ -49,7 +49,7 @@
         <Annotation Term="Core.Description" String="The named field is an OID (ODM identifier), and it uniquely identifies an ODM root entity in a customer landscape." />
         <Annotation Term="Core.LongDescription">
           <String>The technical type can be UUID or String (typical length 128), and the value must be stable and unique at least within type and landscape (better globally). 
-An entity may have other IDs, i.e. a local ID and other alternative IDs. This is the ID used for ODM.</String>
+An entity may have other IDs, i.e. a local ID and other alternative IDs. </String>
         </Annotation>
       </Term>
 
