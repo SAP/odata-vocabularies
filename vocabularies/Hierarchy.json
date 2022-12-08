@@ -126,6 +126,14 @@
             "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
             "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
         },
+        "updateLink": {
+            "$Kind": "Term",
+            "@Common.Experimental": true,
+            "@Common.IsInstanceAnnotation": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "Action URL for updating an aggregate entity",
+            "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).\n          Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5]\n          as value that can be used to update the transient entity. This effectively means updating the persistent entities\n          whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service."
+        },
         "TopLevels": [
             {
                 "$Kind": "Function",

@@ -156,6 +156,20 @@ the following collections of hierarchy nodes are distinguished:
         </Annotation>
       </Term>
 
+      <Term Name="updateLink" Type="Edm.String" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="Action URL for updating an aggregate entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Transient entities that result from the application of a transformation sequence represent an
+          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).
+          Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5]
+          as value that can be used to update the transient entity. This effectively means updating the persistent entities
+          whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
+        </Annotation>
+      </Term>
+
       <!--
       <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
         <Annotation Term="Common.Experimental" />

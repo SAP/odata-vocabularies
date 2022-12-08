@@ -10,11 +10,12 @@ Term|Type|Description
 :---|:---|:----------
 [RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.
 [MatchCount](./Hierarchy.xml#L147:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
+[updateLink](./Hierarchy.xml#L159:~:text=<Term%20Name="-,updateLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="updateLink"></a>Action URL for updating an aggregate entity<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]). Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5] as value that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
 
 
 ## Functions
 
-### <a name="TopLevels"></a>[TopLevels](./Hierarchy.xml#L172:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
+### <a name="TopLevels"></a>[TopLevels](./Hierarchy.xml#L186:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
 
 Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed
 
@@ -29,15 +30,15 @@ This function can be used as a transformation whose input set has a recursive hi
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](./Hierarchy.xml#L185:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyNodes](./Hierarchy.xml#L186:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](./Hierarchy.xml#L189:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[NodeProperty](./Hierarchy.xml#L190:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
-[Levels](./Hierarchy.xml#L193:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-*[Expand](./Hierarchy.xml#L196:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Show](./Hierarchy.xml#L206:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[Collapse](./Hierarchy.xml#L216:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-[&rarr;](./Hierarchy.xml#L226:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+**[InputSet](./Hierarchy.xml#L199:~:text=<Function%20Name="-,TopLevels,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyNodes](./Hierarchy.xml#L200:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Hierarchy.xml#L203:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[NodeProperty](./Hierarchy.xml#L204:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
+[Levels](./Hierarchy.xml#L207:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
+*[Expand](./Hierarchy.xml#L210:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
+*[Show](./Hierarchy.xml#L220:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L230:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+[&rarr;](./Hierarchy.xml#L240:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
