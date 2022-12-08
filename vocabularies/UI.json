@@ -1635,6 +1635,18 @@
             "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
             "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
         },
+        "IsCopyAction": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Record"
+            ],
+            "@Common.Experimental": true,
+            "@Core.RequiresType": "UI.DataFieldForAction",
+            "@Core.Description": "The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type",
+            "@Core.LongDescription": "The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
+        },
         "CreateHidden": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -1926,7 +1938,7 @@
             "Actions": {
                 "$Collection": true,
                 "$Type": "UI.DataField",
-                "@Core.Description": "Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
+                "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
             }
         },
         "Criticality": {
@@ -2056,6 +2068,14 @@
             "@Common.Experimental": true,
             "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
             "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
+        },
+        "LeadingEntitySet": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
         }
     }
 }

@@ -1,0 +1,85 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.UI.v1",
+                    "$Alias": "UI"
+                }
+            ]
+        }
+    },
+    "UI.examples": {
+        "$Alias": "this",
+        "container": {
+            "$Kind": "EntityContainer",
+            "SalesOrder": {
+                "$Collection": true,
+                "$Type": "this.SalesOrder_Type"
+            }
+        },
+        "SalesOrder_Type": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "SalesOrder"
+            ],
+            "SalesOrder": {
+                "$MaxLength": 10
+            },
+            "canBeCopied": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true
+            },
+            "hideCopyButton": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true
+            }
+        },
+        "Copy": [
+            {
+                "$Kind": "Action",
+                "$IsBound": true,
+                "$Parameter": [
+                    {
+                        "$Name": "it",
+                        "$Type": "this.SalesOrder_Type",
+                        "$Nullable": true
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "this.SalesOrder_Type",
+                    "$Nullable": true
+                }
+            }
+        ],
+        "$Annotations": {
+            "this.Copy": {
+                "@Core.OperationAvailable": {
+                    "$Path": "it/canBeCopied"
+                }
+            },
+            "this.SalesOrder_Type": {
+                "@UI.LineItem": [
+                    {
+                        "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForAction",
+                        "@UI.Hidden": {
+                            "$Path": "hideCopyButton"
+                        },
+                        "@UI.IsCopyAction": true,
+                        "Action": "this.Copy"
+                    }
+                ]
+            }
+        }
+    },
+    "$EntityContainer": "UI.examples.container"
+}
