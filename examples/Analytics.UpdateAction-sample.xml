@@ -10,9 +10,16 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.UpdateAction" Alias="this">
       <Action Name="UpdateAggregateSales">
-        <Parameter Name="Apply" Type="Edm.String" Nullable="false" />
-        <Parameter Name="Changes" Type="SalesModel.Sale" Nullable="false" />
-        <ReturnType Type="SalesModel.Sale" Nullable="false" />
+        <Annotation Term="Core.Description" String="Updates an aggregate entity of type `SalesModel.Sale`" />
+        <Parameter Name="Apply" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="String identifying the aggregate entity to be updated" />
+        </Parameter>
+        <Parameter Name="Changes" Type="SalesModel.Sale" Nullable="false">
+          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be changed in a PATCH request" />
+        </Parameter>
+        <ReturnType Type="SalesModel.Sale" Nullable="false">
+          <Annotation Term="Core.Description" String="Aggregate entity with changes applied" />
+        </ReturnType>
       </Action>
       <EntityContainer Name="container">
         <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="SalesModel.SalesData.Sales" />

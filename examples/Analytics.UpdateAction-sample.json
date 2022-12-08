@@ -23,17 +23,21 @@
         "UpdateAggregateSales": [
             {
                 "$Kind": "Action",
+                "@Core.Description": "Updates an aggregate entity of type `SalesModel.Sale`",
                 "$Parameter": [
                     {
-                        "$Name": "Apply"
+                        "$Name": "Apply",
+                        "@Core.Description": "String identifying the aggregate entity to be updated"
                     },
                     {
                         "$Name": "Changes",
-                        "$Type": "SalesModel.Sale"
+                        "$Type": "SalesModel.Sale",
+                        "@Core.Description": "Aggregate entity with nested properties that are to be changed in a PATCH request"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "SalesModel.Sale"
+                    "$Type": "SalesModel.Sale",
+                    "@Core.Description": "Aggregate entity with changes applied"
                 }
             }
         ],
