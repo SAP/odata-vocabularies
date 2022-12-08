@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Offline.v1" Alias="Offline" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="clientonly.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="client">
+
+      <EntityType Name="SalesOrderType">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="32" />
+        <!-- ... and many more -->
+        <NavigationProperty Name="_Item" Type="Collection(client.SalesOrderItemType)" Partner="_SalesOrder" />
+      </EntityType>
+
+      <EntityType Name="SalesOrderItemType">
+        <!-- the SalesOrderItemType is annotated as client-only -->
+        <Annotation Term="Offline.ClientOnly" />
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+          <PropertyRef Name="SalesOrderItem" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="32" />
+        <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" />
+        <!-- ... and a lot more -->
+        <NavigationProperty Name="_SalesOrder" Type="client.SalesOrderType" Nullable="false" Partner="_Item">
+          <ReferentialConstraint Property="SalesOrder" ReferencedProperty="SalesOrder" />
+        </NavigationProperty>
+      </EntityType>
+
+      <EntityContainer Name="container">
+        <EntitySet Name="SalesOrder" EntityType="client.SalesOrderType">
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItem" />
+        </EntitySet>
+        <!--The SalesOrderItem is a implied client-only entity set due to the entity type is client-only-->
+        <EntitySet Name="SalesOrderItem" EntityType="client.SalesOrderItem" />
+      </EntityContainer>
+
+      <Annotations Target="client.SalesOrderType">
+        <!--The SalesOrderType is annotated as client-only-->
+        <Annotation Term="Offline.ClientOnly" />
+      </Annotations>
+
+      <Annotations Target="client.container/SalesOrder">
+        <!--The SalesOrder set is annotated as client-only as well-->
+        <!--This annotation is not necessary because the underlying entity type is client-only-->
+        <Annotation Term="Offline.ClientOnly" Bool="true" />
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

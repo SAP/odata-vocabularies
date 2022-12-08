@@ -1,0 +1,56 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+            "$Include": [
+                {
+                    "$Namespace": "com.sap.vocabularies.Common.v1",
+                    "$Alias": "Common"
+                }
+            ]
+        }
+    },
+    "com.sap.vocabularies.Offline.v1": {
+        "$Alias": "Offline",
+        "@Core.Description": "Terms for annotating Offline OData",
+        "@Core.LongDescription": "\nOffline OData is a solution for data synchronization between back-ends and mobile devices.\nIt is built on top of in-house technology which has been designed and used in database synchronization for over 20 years.\nPlease refer to the [Offline OData product home](https://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/guides/features/offline/overview.html) for details.\n        ",
+        "@Core.Description#Published": "2022-10-27 © Copyright 2022 SAP SE. All rights reserved",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Offline.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Offline.md"
+            }
+        ],
+        "ClientOnly": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType",
+                "EntitySet",
+                "EnumType",
+                "ComplexType",
+                "TypeDefinition"
+            ],
+            "@Common.Experimental": true,
+            "@Core.Description": "The annotated model element exists only on client devices",
+            "@Core.LongDescription": "Occasionally a customer will want to store additional “client-only”\n           entities in the same DB. The easiest way to accommodate this is for the client \n           to extend the backend-returned $metadata (upon which the local persistence is \n           based) and just to mark some entities as client-only so that the client won’t\n           attempt to upload any changes that are made to them locally.\n           The service as implemented on the server is described by the CSDL document if\n           all elements tagged as `Offline.ClientOnly` are removed together with all subsequently dangling references."
+        }
+    }
+}
