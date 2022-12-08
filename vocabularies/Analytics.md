@@ -17,7 +17,7 @@ Term|Type|Description
 [AggregatedProperties](./Analytics.xml#L103:~:text=<Term%20Name="-,AggregatedProperties,-") *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](./Analytics.xml#L121:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[updateLink](./Analytics.xml#L170:~:text=<Term%20Name="-,updateLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="updateLink"></a>Action URL for updating an aggregate entity<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]). Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5] as value that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
+[UpdateAction](./Analytics.xml#L170:~:text=<Term%20Name="-,UpdateAction,-") *([Experimental](Common.md#Experimental))*|[UpdateActionType](#UpdateActionType)|<a name="UpdateAction"></a>Action for updating an aggregate entity ([Example](./Analytics.xml#L181))<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]). Such a transient entity may be annotated with this term to describe a service-defined action that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
 
@@ -42,3 +42,11 @@ Property|Type|Description
 [Dimension](./Analytics.xml#L159:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+
+## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L193:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ActionURL](./Analytics.xml#L195:~:text=<ComplexType%20Name="-,UpdateActionType,-")|URL|Action URL [OData-Protocol, section 11.5.5]
+[ActionParameter](./Analytics.xml#L199:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata.

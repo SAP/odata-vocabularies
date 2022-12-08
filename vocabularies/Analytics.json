@@ -206,13 +206,33 @@
                 "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
             }
         },
-        "updateLink": {
+        "UpdateAction": {
             "$Kind": "Term",
+            "$Type": "Analytics.UpdateActionType",
             "@Common.Experimental": true,
             "@Common.IsInstanceAnnotation": true,
-            "@Core.IsURL": true,
-            "@Core.Description": "Action URL for updating an aggregate entity",
-            "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).\n          Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5]\n          as value that can be used to update the transient entity. This effectively means updating the persistent entities\n          whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service."
+            "@Core.Description": "Action for updating an aggregate entity",
+            "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).\n          Such a transient entity may be annotated with this term to describe a service-defined action that can be used\n          to update the transient entity. This effectively means updating the persistent entities whose aggregate\n          the transient entity represents, how this dis-aggregation happens is defined by the service.",
+            "@Core.Example": {
+                "Description": "See [example model](../examples/Analytics.UpdateAction-sample.xml)",
+                "@Analytics.UpdateAction": {
+                    "ActionURL": "/UpdateAggregateSales",
+                    "ActionParameter": "groupby((Customer/Country,Product/Name),aggregate(Amount with sum as Total))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')"
+                }
+            }
+        },
+        "UpdateActionType": {
+            "$Kind": "ComplexType",
+            "@Common.Experimental": true,
+            "ActionURL": {
+                "@Core.IsURL": true,
+                "@Core.Description": "Action URL [OData-Protocol, section 11.5.5]"
+            },
+            "ActionParameter": {
+                "$Nullable": true,
+                "@Core.Description": "Value that the first parameter of the action must have",
+                "@Core.LongDescription": "If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata."
+            }
         },
         "$Annotations": {
             "Aggregation.CustomAggregate": {

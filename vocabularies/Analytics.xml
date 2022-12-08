@@ -167,19 +167,43 @@
         </Property>
       </ComplexType>
 
-      <Term Name="updateLink" Type="Edm.String" Nullable="false">
+      <Term Name="UpdateAction" Type="Analytics.UpdateActionType" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.IsURL" />
-        <Annotation Term="Core.Description" String="Action URL for updating an aggregate entity" />
+        <Annotation Term="Core.Description" String="Action for updating an aggregate entity" />
         <Annotation Term="Core.LongDescription">
           <String>Transient entities that result from the application of a transformation sequence represent an
           aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).
-          Such a transient entity may be annotated with this term and a service-defined action URL [OData-Protocol, section 11.5.5]
-          as value that can be used to update the transient entity. This effectively means updating the persistent entities
-          whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
+          Such a transient entity may be annotated with this term to describe a service-defined action that can be used
+          to update the transient entity. This effectively means updating the persistent entities whose aggregate
+          the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
+        </Annotation>
+        <Annotation Term="Core.Example">
+          <Record>
+            <PropertyValue Property="Description" String="See [example model](../examples/Analytics.UpdateAction-sample.xml)" />
+            <Annotation Term="Analytics.UpdateAction">
+              <Record>
+                <PropertyValue Property="ActionURL" String="/UpdateAggregateSales" />
+                <PropertyValue Property="ActionParameter" String="groupby((Customer/Country,Product/Name),aggregate(Amount with sum as Total))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
+              </Record>
+            </Annotation>
+          </Record>
         </Annotation>
       </Term>
+      <ComplexType Name="UpdateActionType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="ActionURL" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="Action URL [OData-Protocol, section 11.5.5]" />
+        </Property>
+        <Property Name="ActionParameter" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Value that the first parameter of the action must have" />
+          <Annotation Term="Core.LongDescription">
+            <String>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.
+            Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
 
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
