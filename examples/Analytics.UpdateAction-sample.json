@@ -32,7 +32,7 @@
                     {
                         "$Name": "Changes",
                         "$Type": "SalesModel.Sale",
-                        "@Core.Description": "Aggregate entity with nested properties that are to be changed in a PATCH request"
+                        "@Core.Description": "Aggregate entity with nested properties that are to be changed, like the body of a PATCH request"
                     }
                 ],
                 "$ReturnType": {

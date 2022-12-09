@@ -15,7 +15,7 @@
           <Annotation Term="Core.Description" String="String identifying the aggregate entity to be updated" />
         </Parameter>
         <Parameter Name="Changes" Type="SalesModel.Sale" Nullable="false">
-          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be changed in a PATCH request" />
+          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be changed, like the body of a PATCH request" />
         </Parameter>
         <ReturnType Type="SalesModel.Sale" Nullable="false">
           <Annotation Term="Core.Description" String="Aggregate entity with changes applied" />
