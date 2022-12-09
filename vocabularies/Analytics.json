@@ -206,6 +206,45 @@
                 "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
             }
         },
+        "condense": [
+            {
+                "$Kind": "Function",
+                "$EntitySetPath": "InputSet",
+                "$IsBound": true,
+                "@Core.Description": "Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set",
+                "@Core.LongDescription": "An empty input set leads to an empty output set.\nThis function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of one-instance sets with disjoint property lists.\nServers SHOULD reject any other usage of this function.\n\nThe set transformation converts the input set\n\n|NumberOfLeaves|Subtotal|\n|-------------:|-------:|\n|           100|        |\n|              |    2000|\n\ninto the output set\n\n|NumberOfLeaves|Subtotal|\n|-------------:|-------:|\n|           100|    2000|\n",
+                "$Parameter": [
+                    {
+                        "$Name": "InputSet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType",
+                    "@Core.Description": "Output set with same entity set as input set"
+                }
+            },
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set",
+                "@Core.LongDescription": "This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in\n          `transformnested(StructuralProperty,concat(...)/Analytics.condense())`.",
+                "$Parameter": [
+                    {
+                        "$Name": "InputSet",
+                        "$Collection": true,
+                        "$Type": "Edm.ComplexType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.ComplexType",
+                    "@Core.Description": "Output set with same complex type as input set"
+                }
+            }
+        ],
         "$Annotations": {
             "Aggregation.CustomAggregate": {
                 "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",

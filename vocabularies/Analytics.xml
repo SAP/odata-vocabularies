@@ -167,6 +167,44 @@
         </Property>
       </ComplexType>
 
+      <Function Name="condense" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Core.Description" String="Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set"/>
+        <Annotation Term="Core.LongDescription">
+          <String>An empty input set leads to an empty output set.
+This function SHOULD only be used as a set transformation [OData-Aggr, section 7.6] after a `concat` of one-instance sets with disjoint property lists.
+Servers SHOULD reject any other usage of this function.
+
+The set transformation converts the input set
+
+|NumberOfLeaves|Subtotal|
+|-------------:|-------:|
+|           100|        |
+|              |    2000|
+
+into the output set
+
+|NumberOfLeaves|Subtotal|
+|-------------:|-------:|
+|           100|    2000|
+</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
+        <ReturnType Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="Output set with same entity set as input set"/>
+        </ReturnType>
+      </Function>
+      <Function Name="condense" IsBound="true">
+        <Annotation Term="Core.Description" String="Condenses the non-empty input set in which every property occurs in only one instance into a one-instance output set of the same type in which every property has the non-null value from the input set"/>
+        <Annotation Term="Core.LongDescription">
+          <String>This is analogous to `condense(Collection(Edm.EntityType))` but intended to be used in
+          `transformnested(StructuralProperty,concat(...)/Analytics.condense())`.</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)" Nullable="false"/>
+        <ReturnType Type="Collection(Edm.ComplexType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Output set with same complex type as input set"/>
+        </ReturnType>
+      </Function>
+
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
