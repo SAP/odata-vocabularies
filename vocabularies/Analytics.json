@@ -226,7 +226,7 @@
             "@Common.Experimental": true,
             "ActionURL": {
                 "@Core.IsURL": true,
-                "@Core.Description": "Action URL [OData-Protocol, section 11.5.5]"
+                "@Core.Description": "Action URL [OData-Protocol, section 11.5.5](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_Actions)"
             },
             "ActionParameter": {
                 "$Nullable": true,

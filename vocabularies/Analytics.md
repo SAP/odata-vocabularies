@@ -48,5 +48,5 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ActionURL](./Analytics.xml#L195:~:text=<ComplexType%20Name="-,UpdateActionType,-")|URL|Action URL [OData-Protocol, section 11.5.5]
+[ActionURL](./Analytics.xml#L195:~:text=<ComplexType%20Name="-,UpdateActionType,-")|URL|Action URL [OData-Protocol, section 11.5.5](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_Actions)
 [ActionParameter](./Analytics.xml#L199:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata.
