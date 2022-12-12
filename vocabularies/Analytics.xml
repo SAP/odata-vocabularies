@@ -232,6 +232,7 @@
         <Property Name="InProportionTo" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
+              <String>Edm.Byte</String>
               <String>Edm.Decimal</String>
               <String>Edm.Double</String>
               <String>Edm.Duration</String>
