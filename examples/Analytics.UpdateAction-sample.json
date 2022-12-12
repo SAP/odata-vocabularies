@@ -1,11 +1,19 @@
 {
     "$Version": "4.0",
     "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
             "$Include": [
                 {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
+                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
+                    "$Alias": "Analytics"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
                 }
             ]
         },
@@ -46,6 +54,17 @@
             "UpdateAggregateSales": {
                 "$Action": "this.UpdateAggregateSales",
                 "$EntitySet": "SalesModel.SalesData.Sales"
+            }
+        },
+        "$Annotations": {
+            "SalesModel.SalesData.Sales": {
+                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal",
+                "@Analytics.CustomDisaggregate#Amount": {
+                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.ProportionalDisaggregateType",
+                    "InProportionTo": {
+                        "$Path": "Amount"
+                    }
+                }
             }
         }
     },

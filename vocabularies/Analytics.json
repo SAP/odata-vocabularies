@@ -218,7 +218,7 @@
                 "Description": "See [example model](../examples/Analytics.UpdateAction-sample.xml)",
                 "@Analytics.UpdateAction": {
                     "ActionURL": "/UpdateAggregateSales",
-                    "ActionParameter": "groupby((Customer/Country,Product/Name),aggregate(Amount with sum as Total))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')"
+                    "ActionParameter": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')"
                 }
             }
         },
@@ -254,13 +254,13 @@
             "@Core.AppliesViaContainer": true,
             "@Common.Experimental": true,
             "@Core.Description": "Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)",
-            "@Core.LongDescription": "When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is\n          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed to\n          among the persistent entities according to this rule."
+            "@Core.LongDescription": "When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is\n          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed\n          among the persistent entities according to this rule."
         },
         "CustomDisaggregateType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Common.Experimental": true,
-            "@Core.Description": "A dis-aggregation rule is defined by a subtype of this abstract type"
+            "@Core.Description": "A dis-aggregation rule is defined by a derived type of this abstract type"
         },
         "ProportionalDisaggregateType": {
             "$Kind": "ComplexType",

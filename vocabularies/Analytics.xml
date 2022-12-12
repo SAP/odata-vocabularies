@@ -184,7 +184,7 @@
             <Annotation Term="Analytics.UpdateAction">
               <Record>
                 <PropertyValue Property="ActionURL" String="/UpdateAggregateSales" />
-                <PropertyValue Property="ActionParameter" String="groupby((Customer/Country,Product/Name),aggregate(Amount with sum as Total))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
+                <PropertyValue Property="ActionParameter" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
               </Record>
             </Annotation>
           </Record>
@@ -219,13 +219,13 @@
         <Annotation Term="Core.Description" String="Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)" />
         <Annotation Term="Core.LongDescription">
           <String>When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is
-          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed to
+          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed
           among the persistent entities according to this rule.</String>
         </Annotation>
       </Term>
       <ComplexType Name="CustomDisaggregateType" Abstract="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A dis-aggregation rule is defined by a subtype of this abstract type" />
+        <Annotation Term="Core.Description" String="A dis-aggregation rule is defined by a derived type of this abstract type" />
       </ComplexType>
       <ComplexType Name="ProportionalDisaggregateType" BaseType="Analytics.CustomDisaggregateType">
         <Annotation Term="Common.Experimental" />
