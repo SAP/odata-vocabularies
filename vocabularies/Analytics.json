@@ -242,6 +242,43 @@
                     "Common.Label"
                 ]
             }
+        },
+        "CustomDisaggregate": {
+            "$Kind": "Term",
+            "$Type": "Analytics.CustomDisaggregateType",
+            "$AppliesTo": [
+                "Collection",
+                "EntityType"
+            ],
+            "$BaseTerm": "Aggregation.CustomAggregate",
+            "@Core.AppliesViaContainer": true,
+            "@Common.Experimental": true,
+            "@Core.Description": "Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)",
+            "@Core.LongDescription": "When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is\n          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed to\n          among the persistent entities according to this rule."
+        },
+        "CustomDisaggregateType": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "@Common.Experimental": true,
+            "@Core.Description": "A dis-aggregation rule is defined by a subtype of this abstract type"
+        },
+        "ProportionalDisaggregateType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Analytics.CustomDisaggregateType",
+            "@Common.Experimental": true,
+            "InProportionTo": {
+                "$Type": "Edm.PrimitiveType",
+                "@Validation.DerivedTypeConstraint": [
+                    "Edm.Decimal",
+                    "Edm.Double",
+                    "Edm.Duration",
+                    "Edm.Int16",
+                    "Edm.Int32",
+                    "Edm.Int64",
+                    "Edm.SByte"
+                ],
+                "@Core.Description": "The updated value of the custom aggregate property is distributed among the persistent entities in proportion to this value"
+            }
         }
     }
 }
