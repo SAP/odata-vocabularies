@@ -54,7 +54,6 @@
         },
         "LocalDraft": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],

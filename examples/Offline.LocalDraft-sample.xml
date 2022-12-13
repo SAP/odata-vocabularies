@@ -36,13 +36,13 @@
 
         <!--SalesOrderDraft is sharing the SalesOrderType, and is annotated as LocalDraft-->
         <EntitySet Name="SalesOrderDraft" EntityType="client.SalesOrderType">
-          <Annotation Term="Offline.LocalDraft" />
+          <Annotation Term="Offline.LocalDraft" String="SalesOrder" />
           <NavigationPropertyBinding Path="_Item" Target="SalesOrderItemDraft" />
         </EntitySet>
 
         <!--SalesOrderItemDraft is sharing the SalesOrderItemType, and is annotated as LocalDraft-->
         <EntitySet Name="SalesOrderItemDraft" EntityType="client.SalesOrderItemType">
-          <Annotation Term="Offline.LocalDraft" />
+          <Annotation Term="Offline.LocalDraft" String="SalesOrderItem" />
         </EntitySet>
       </EntityContainer>
     </Schema>

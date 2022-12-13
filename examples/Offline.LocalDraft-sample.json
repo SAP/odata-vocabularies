@@ -64,7 +64,7 @@
             "SalesOrderDraft": {
                 "$Collection": true,
                 "$Type": "client.SalesOrderType",
-                "@Offline.LocalDraft": true,
+                "@Offline.LocalDraft": "SalesOrder",
                 "$NavigationPropertyBinding": {
                     "_Item": "SalesOrderItemDraft"
                 }
@@ -72,7 +72,7 @@
             "SalesOrderItemDraft": {
                 "$Collection": true,
                 "$Type": "client.SalesOrderItemType",
-                "@Offline.LocalDraft": true
+                "@Offline.LocalDraft": "SalesOrderItem"
             }
         }
     },
