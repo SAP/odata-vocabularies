@@ -52,7 +52,7 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
         </Annotation>
       </Term>
 
-      <Term Name="LocalDraft" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
+      <Term Name="LocalDraft" Type="Edm.String" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata."/>
          <Annotation Term="Core.LongDescription">
