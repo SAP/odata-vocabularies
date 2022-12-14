@@ -183,7 +183,7 @@
             <PropertyValue Property="Description" String="See [example model](../examples/Analytics.UpdateAction-sample.xml)" />
             <Annotation Term="Analytics.UpdateAction">
               <Record>
-                <PropertyValue Property="ActionURL" String="UpdateAggregateSales" />
+                <PropertyValue Property="ActionImport" String="UpdateAggregateSales" />
                 <PropertyValue Property="Aggregate" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
                 <PropertyValue Property="UpdatableProperties">
                   <Collection>
