@@ -180,7 +180,11 @@
         </Annotation>
         <Annotation Term="Core.Example">
           <Record>
-            <PropertyValue Property="Description" String="See [example model](../examples/Analytics.UpdateAction-sample.xml)" />
+            <PropertyValue Property="Description">
+              <String>Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).
+              This format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated
+              without storing an identifier, based solely on the parameter value.</String>
+            </PropertyValue>
             <Annotation Term="Analytics.UpdateAction">
               <Record>
                 <PropertyValue Property="ActionImport" String="UpdateAggregateSales" />

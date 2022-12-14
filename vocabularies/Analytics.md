@@ -43,11 +43,11 @@ Property|Type|Description
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
-## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L198:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
+## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L202:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ActionImport](./Analytics.xml#L200:~:text=<ComplexType%20Name="-,UpdateActionType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of an action import
-[Aggregate](./Analytics.xml#L203:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action invocation must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. This value MUST be treated as opaque by the client. Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.
-[UpdatableProperties](./Analytics.xml#L211:~:text=<ComplexType%20Name="-,UpdateActionType,-")|\[PropertyPath\]|Declared properties of the aggregate entity that can be updated with the action<br>If a declared property whose name equals a custom aggregate can be updated, this means updating the aggregate value.
+[ActionImport](./Analytics.xml#L204:~:text=<ComplexType%20Name="-,UpdateActionType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of an action import
+[Aggregate](./Analytics.xml#L207:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action invocation must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. This value MUST be treated as opaque by the client. Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.
+[UpdatableProperties](./Analytics.xml#L215:~:text=<ComplexType%20Name="-,UpdateActionType,-")|\[PropertyPath\]|Declared properties of the aggregate entity that can be updated with the action<br>If a declared property whose name equals a custom aggregate can be updated, this means updating the aggregate value.
