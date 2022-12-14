@@ -217,22 +217,31 @@
             "@Core.Example": {
                 "Description": "See [example model](../examples/Analytics.UpdateAction-sample.xml)",
                 "@Analytics.UpdateAction": {
-                    "ActionURL": "/UpdateAggregateSales",
-                    "ActionParameter": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')"
+                    "ActionURL": "UpdateAggregateSales",
+                    "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')",
+                    "UpdatableProperties": [
+                        "Amount"
+                    ]
                 }
             }
         },
         "UpdateActionType": {
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
-            "ActionURL": {
-                "@Core.IsURL": true,
-                "@Core.Description": "Action URL [OData-Protocol, section 11.5.5](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_Actions)"
+            "ActionImport": {
+                "$Type": "Common.SimpleIdentifier",
+                "@Core.Description": "Name of an action import"
             },
-            "ActionParameter": {
+            "Aggregate": {
                 "$Nullable": true,
-                "@Core.Description": "Value that the first parameter of the action must have",
-                "@Core.LongDescription": "If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata."
+                "@Core.Description": "Value that the first parameter of the action invocation must have",
+                "@Core.LongDescription": "If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            This value MUST be treated as opaque by the client.\n            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata."
+            },
+            "UpdatableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Declared properties of the aggregate entity that can be updated",
+                "@Core.LongDescription": "A declared property whose name equals a custom aggregate can be updated, which means updating the\n            aggregate value."
             }
         },
         "$Annotations": {
@@ -241,44 +250,6 @@
                 "@Validation.ApplicableTerms": [
                     "Common.Label"
                 ]
-            }
-        },
-        "CustomDisaggregate": {
-            "$Kind": "Term",
-            "$Type": "Analytics.CustomDisaggregateType",
-            "$AppliesTo": [
-                "Collection",
-                "EntityType"
-            ],
-            "$BaseTerm": "Aggregation.CustomAggregate",
-            "@Core.AppliesViaContainer": true,
-            "@Common.Experimental": true,
-            "@Core.Description": "Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)",
-            "@Core.LongDescription": "When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is\n          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed\n          among the persistent entities according to this rule."
-        },
-        "CustomDisaggregateType": {
-            "$Kind": "ComplexType",
-            "$Abstract": true,
-            "@Common.Experimental": true,
-            "@Core.Description": "A dis-aggregation rule is defined by a derived type of this abstract type"
-        },
-        "ProportionalDisaggregateType": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Analytics.CustomDisaggregateType",
-            "@Common.Experimental": true,
-            "InProportionTo": {
-                "$Type": "Edm.PrimitiveType",
-                "@Validation.DerivedTypeConstraint": [
-                    "Edm.Byte",
-                    "Edm.Decimal",
-                    "Edm.Double",
-                    "Edm.Duration",
-                    "Edm.Int16",
-                    "Edm.Int32",
-                    "Edm.Int64",
-                    "Edm.SByte"
-                ],
-                "@Core.Description": "The updated value of the custom aggregate property is distributed among the persistent entities in proportion to this value"
             }
         }
     }

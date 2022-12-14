@@ -14,14 +14,14 @@
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.UpdateAction" Alias="this">
       <Action Name="UpdateAggregateSales">
         <Annotation Term="Core.Description" String="Updates an aggregate entity of type `SalesModel.Sale`" />
-        <Parameter Name="Apply" Type="Edm.String" Nullable="false">
+        <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="String identifying the aggregate entity to be updated" />
         </Parameter>
         <Parameter Name="Changes" Type="SalesModel.Sale" Nullable="false">
-          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be changed, like the body of a PATCH request" />
+          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be updated, like the body of a PATCH request" />
         </Parameter>
         <ReturnType Type="SalesModel.Sale" Nullable="false">
-          <Annotation Term="Core.Description" String="Aggregate entity with changes applied" />
+          <Annotation Term="Core.Description" String="Aggregate entity with updates applied" />
         </ReturnType>
       </Action>
       <EntityContainer Name="container">
@@ -29,11 +29,6 @@
       </EntityContainer>
       <Annotations Target="SalesModel.SalesData/Sales">
         <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
-        <Annotation Term="Analytics.CustomDisaggregate" Qualifier="Amount">
-          <Record Type="Analytics.ProportionalDisaggregateType">
-            <PropertyValue Property="InProportionTo" Path="Amount" />
-          </Record>
-        </Annotation>
       </Annotations>
     </Schema>
   </edmx:DataServices>

@@ -34,18 +34,18 @@
                 "@Core.Description": "Updates an aggregate entity of type `SalesModel.Sale`",
                 "$Parameter": [
                     {
-                        "$Name": "Apply",
+                        "$Name": "Aggregate",
                         "@Core.Description": "String identifying the aggregate entity to be updated"
                     },
                     {
                         "$Name": "Changes",
                         "$Type": "SalesModel.Sale",
-                        "@Core.Description": "Aggregate entity with nested properties that are to be changed, like the body of a PATCH request"
+                        "@Core.Description": "Aggregate entity with nested properties that are to be updated, like the body of a PATCH request"
                     }
                 ],
                 "$ReturnType": {
                     "$Type": "SalesModel.Sale",
-                    "@Core.Description": "Aggregate entity with changes applied"
+                    "@Core.Description": "Aggregate entity with updates applied"
                 }
             }
         ],
@@ -58,13 +58,7 @@
         },
         "$Annotations": {
             "SalesModel.SalesData/Sales": {
-                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal",
-                "@Analytics.CustomDisaggregate#Amount": {
-                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.ProportionalDisaggregateType",
-                    "InProportionTo": {
-                        "$Path": "Amount"
-                    }
-                }
+                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
             }
         }
     },

@@ -18,7 +18,6 @@ Term|Type|Description
 [AggregatedProperty](./Analytics.xml#L121:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 [UpdateAction](./Analytics.xml#L170:~:text=<Term%20Name="-,UpdateAction,-") *([Experimental](Common.md#Experimental))*|[UpdateActionType](#UpdateActionType)|<a name="UpdateAction"></a>Action for updating an aggregate entity ([Example](./Analytics.xml#L181))<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]). Such a transient entity may be annotated with this term to describe a service-defined action that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
-[CustomDisaggregate](./Analytics.xml#L216:~:text=<Term%20Name="-,CustomDisaggregate,-") *([Experimental](Common.md#Experimental))*|[CustomDisaggregateType](#CustomDisaggregateType)|<a name="CustomDisaggregate"></a>Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)<br>When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed among the persistent entities according to this rule.
 
 ## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
 
@@ -44,23 +43,11 @@ Property|Type|Description
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
-## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L193:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
+## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L198:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ActionURL](./Analytics.xml#L195:~:text=<ComplexType%20Name="-,UpdateActionType,-")|URL|Action URL [OData-Protocol, section 11.5.5](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_Actions)
-[ActionParameter](./Analytics.xml#L199:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata.
-
-## <a name="CustomDisaggregateType"></a>[*CustomDisaggregateType*](./Analytics.xml#L226:~:text=<ComplexType%20Name="-,CustomDisaggregateType,-") *([Experimental](Common.md#Experimental))*
-A dis-aggregation rule is defined by a derived type of this abstract type
-
-**Derived Types:**
-- [ProportionalDisaggregateType](#ProportionalDisaggregateType)
-
-## <a name="ProportionalDisaggregateType"></a>[ProportionalDisaggregateType](./Analytics.xml#L230:~:text=<ComplexType%20Name="-,ProportionalDisaggregateType,-"): [CustomDisaggregateType](#CustomDisaggregateType) *([Experimental](Common.md#Experimental))*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[InProportionTo](./Analytics.xml#L232:~:text=<ComplexType%20Name="-,ProportionalDisaggregateType,-")|PrimitiveType|The updated value of the custom aggregate property is distributed among the persistent entities in proportion to this value
+[ActionImport](./Analytics.xml#L200:~:text=<ComplexType%20Name="-,UpdateActionType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of an action import
+[Aggregate](./Analytics.xml#L203:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action invocation must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. This value MUST be treated as opaque by the client. Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.
+[UpdatableProperties](./Analytics.xml#L211:~:text=<ComplexType%20Name="-,UpdateActionType,-")|\[PropertyPath\]|Declared properties of the aggregate entity that can be updated<br>A declared property whose name equals a custom aggregate can be updated, which means updating the aggregate value.

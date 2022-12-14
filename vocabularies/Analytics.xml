@@ -183,8 +183,13 @@
             <PropertyValue Property="Description" String="See [example model](../examples/Analytics.UpdateAction-sample.xml)" />
             <Annotation Term="Analytics.UpdateAction">
               <Record>
-                <PropertyValue Property="ActionURL" String="/UpdateAggregateSales" />
-                <PropertyValue Property="ActionParameter" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
+                <PropertyValue Property="ActionURL" String="UpdateAggregateSales" />
+                <PropertyValue Property="Aggregate" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
+                <PropertyValue Property="UpdatableProperties">
+                  <Collection>
+                    <PropertyPath>Amount</PropertyPath>
+                  </Collection>
+                </PropertyValue>
               </Record>
             </Annotation>
           </Record>
@@ -192,15 +197,22 @@
       </Term>
       <ComplexType Name="UpdateActionType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ActionURL" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="Action URL [OData-Protocol, section 11.5.5](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_Actions)" />
+        <Property Name="ActionImport" Type="Common.SimpleIdentifier" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of an action import" />
         </Property>
-        <Property Name="ActionParameter" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Value that the first parameter of the action must have" />
+        <Property Name="Aggregate" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Value that the first parameter of the action invocation must have" />
           <Annotation Term="Core.LongDescription">
             <String>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.
-            Subsequent parameters define how this is updated, they are explained in the action definition in the service metadata.</String>
+            This value MUST be treated as opaque by the client.
+            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.</String>
+          </Annotation>
+        </Property>
+        <Property Name="UpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Declared properties of the aggregate entity that can be updated" />
+          <Annotation Term="Core.LongDescription">
+            <String>A declared property whose name equals a custom aggregate can be updated, which means updating the
+            aggregate value.</String>
           </Annotation>
         </Property>
       </ComplexType>
@@ -213,38 +225,6 @@
           </Collection>
         </Annotation>
       </Annotations>
-      <Term Name="CustomDisaggregate" Type="Analytics.CustomDisaggregateType" Nullable="false" BaseTerm="Aggregation.CustomAggregate" AppliesTo="Collection EntityType">
-        <Annotation Term="Core.AppliesViaContainer" />
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Dis-aggregation rule for the custom aggregate defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#CustomAggregate)" />
-        <Annotation Term="Core.LongDescription">
-          <String>When an aggregate entity is updated with an [UpdateAction](#UpdateAction), the value of a property whose name is
-          the qualifier of this annotation, and for which there is a custom aggregate with the same name, is distributed
-          among the persistent entities according to this rule.</String>
-        </Annotation>
-      </Term>
-      <ComplexType Name="CustomDisaggregateType" Abstract="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A dis-aggregation rule is defined by a derived type of this abstract type" />
-      </ComplexType>
-      <ComplexType Name="ProportionalDisaggregateType" BaseType="Analytics.CustomDisaggregateType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="InProportionTo" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Validation.DerivedTypeConstraint">
-            <Collection>
-              <String>Edm.Byte</String>
-              <String>Edm.Decimal</String>
-              <String>Edm.Double</String>
-              <String>Edm.Duration</String>
-              <String>Edm.Int16</String>
-              <String>Edm.Int32</String>
-              <String>Edm.Int64</String>
-              <String>Edm.SByte</String>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="The updated value of the custom aggregate property is distributed among the persistent entities in proportion to this value" />
-        </Property>
-      </ComplexType>
 
     </Schema>
   </edmx:DataServices>
