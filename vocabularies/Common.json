@@ -757,13 +757,13 @@
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "$Nullable": true,
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath"
             },
             "SelectionVariantQualifier": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "$Nullable": true,
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
@@ -792,7 +792,7 @@
         "ValueListRelevantQualifiers": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Common.SimpleIdentifier",
+            "$Type": "Core.SimpleIdentifier",
             "@Common.Experimental": true,
             "@Core.Description": "List of qualifiers of relevant ValueList annotations",
             "@Core.LongDescription": "The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties."
@@ -860,13 +860,13 @@
                 "@Core.Description": "Hint on when to fetch values"
             },
             "PresentationVariantQualifier": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "$Nullable": true,
                 "@Core.Description": "Alternative representation of a value help, e.g. as a bar chart",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation"
             },
             "SelectionVariantQualifier": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "$Nullable": true,
                 "@Core.Description": "Optional combination of parameters and filters to query the value help entity set",
                 "@Core.LongDescription": "Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath"
@@ -1268,7 +1268,7 @@
         "DraftActivationVia": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Common.SimpleIdentifier",
+            "$Type": "Core.SimpleIdentifier",
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -1285,7 +1285,13 @@
         "SimpleIdentifier": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Core.Description": "The SimpleIdentifier of an OData construct in scope"
+            "@Core.Description": "The SimpleIdentifier of an OData construct in scope",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead"
+                }
+            ]
         },
         "QualifiedName": {
             "$Kind": "TypeDefinition",

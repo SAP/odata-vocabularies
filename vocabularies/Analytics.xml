@@ -122,7 +122,7 @@
         <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
-        <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
+        <Property Name="Name" Type="Core.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the dynamic property holding the aggregated value." />
         </Property>
         <Property Name="AggregationMethod" Type="Aggregation.AggregationMethod" Nullable="false">
