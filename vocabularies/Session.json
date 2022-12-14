@@ -79,7 +79,7 @@
                 "@Core.LongDescription": "Signature:\n\n- Binding parameter is type of annotated entity set\n\n- No non-binding parameters\n\n- Return type is same as binding parameter type \n\nOn success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. \n\nOn failure the sticky session is kept alive."
             },
             "DiscardAction": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "@Core.Description": "Action import for an unbound action that discards all changes and terminates the sticky session",
                 "@Core.LongDescription": "Signature:\n\n- No parameters\n\n- No return type \n\nIf called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. \n\nIf called outside of a sticky session the action fails and does not initiate a session."
             }

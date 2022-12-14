@@ -149,7 +149,7 @@
         "AggregatedPropertyType": {
             "$Kind": "ComplexType",
             "Name": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "@Core.Description": "Name of the dynamic property holding the aggregated value."
             },
             "AggregationMethod": {
