@@ -209,7 +209,7 @@
           </Annotation>
         </Property>
         <Property Name="UpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Declared properties of the aggregate entity that can be updated" />
+          <Annotation Term="Core.Description" String="Declared properties of the aggregate entity that can be updated with the action" />
           <Annotation Term="Core.LongDescription">
             <String>A declared property whose name equals a custom aggregate can be updated, which means updating the
             aggregate value.</String>
