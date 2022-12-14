@@ -201,7 +201,7 @@
       </Term>
       <ComplexType Name="UpdateActionType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ActionImport" Type="Common.SimpleIdentifier" Nullable="false">
+        <Property Name="ActionImport" Type="Core.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Name of an action import" />
         </Property>
         <Property Name="Aggregate" Type="Edm.String" Nullable="true">

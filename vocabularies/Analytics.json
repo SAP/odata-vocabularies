@@ -229,7 +229,7 @@
             "$Kind": "ComplexType",
             "@Common.Experimental": true,
             "ActionImport": {
-                "$Type": "Common.SimpleIdentifier",
+                "$Type": "Core.SimpleIdentifier",
                 "@Core.Description": "Name of an action import"
             },
             "Aggregate": {

@@ -48,6 +48,6 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ActionImport](./Analytics.xml#L204:~:text=<ComplexType%20Name="-,UpdateActionType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of an action import
+[ActionImport](./Analytics.xml#L204:~:text=<ComplexType%20Name="-,UpdateActionType,-")|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Name of an action import
 [Aggregate](./Analytics.xml#L207:~:text=<ComplexType%20Name="-,UpdateActionType,-")|String?|Value that the first parameter of the action invocation must have<br>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents. This value MUST be treated as opaque by the client. Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.
 [UpdatableProperties](./Analytics.xml#L215:~:text=<ComplexType%20Name="-,UpdateActionType,-")|\[PropertyPath\]|Declared properties of the aggregate entity that can be updated with the action<br>If a declared property whose name equals a custom aggregate can be updated, this means updating the aggregate value.
