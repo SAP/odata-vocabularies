@@ -25,9 +25,9 @@
         </ReturnType>
       </Action>
       <EntityContainer Name="container">
-        <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="SalesModel.SalesData.Sales" />
+        <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="SalesModel.SalesData/Sales" />
       </EntityContainer>
-      <Annotations Target="SalesModel.SalesData.Sales">
+      <Annotations Target="SalesModel.SalesData/Sales">
         <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
         <Annotation Term="Analytics.CustomDisaggregate" Qualifier="Amount">
           <Record Type="Analytics.ProportionalDisaggregateType">

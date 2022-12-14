@@ -53,11 +53,11 @@
             "$Kind": "EntityContainer",
             "UpdateAggregateSales": {
                 "$Action": "this.UpdateAggregateSales",
-                "$EntitySet": "SalesModel.SalesData.Sales"
+                "$EntitySet": "SalesModel.SalesData/Sales"
             }
         },
         "$Annotations": {
-            "SalesModel.SalesData.Sales": {
+            "SalesModel.SalesData/Sales": {
                 "@Aggregation.CustomAggregate#Amount": "Edm.Decimal",
                 "@Analytics.CustomDisaggregate#Amount": {
                     "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.ProportionalDisaggregateType",
