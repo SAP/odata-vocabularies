@@ -241,7 +241,7 @@
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Declared properties of the aggregate entity that can be updated with the action",
-                "@Core.LongDescription": "A declared property whose name equals a custom aggregate can be updated, which means updating the\n            aggregate value."
+                "@Core.LongDescription": "If a declared property whose name equals a custom aggregate can be updated, this means updating the\n            aggregate value."
             }
         },
         "$Annotations": {
