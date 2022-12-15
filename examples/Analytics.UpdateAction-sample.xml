@@ -25,11 +25,11 @@
         </ReturnType>
       </Action>
       <EntityContainer Name="container">
-        <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="SalesModel.SalesData/Sales" />
+        <EntitySet Name="Sales" EntityType="SalesModel.Sale">
+          <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
+        </EntitySet>
+        <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="Sales" />
       </EntityContainer>
-      <Annotations Target="SalesModel.SalesData/Sales">
-        <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
-      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

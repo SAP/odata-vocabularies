@@ -1,5 +1,5 @@
 {
-  "@odata.context": "$metadata#SalesModel.SalesData/Sales(Customer(Country),Product(Name),Amount)",
+  "@odata.context": "$metadata#Sales(Customer(Country),Product(Name),Amount)",
   "value": [
     {
       "Customer": {

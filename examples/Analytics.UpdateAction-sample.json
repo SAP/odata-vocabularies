@@ -51,14 +51,14 @@
         ],
         "container": {
             "$Kind": "EntityContainer",
+            "Sales": {
+                "$Collection": true,
+                "$Type": "SalesModel.Sale",
+                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
+            },
             "UpdateAggregateSales": {
                 "$Action": "this.UpdateAggregateSales",
-                "$EntitySet": "SalesModel.SalesData/Sales"
-            }
-        },
-        "$Annotations": {
-            "SalesModel.SalesData/Sales": {
-                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
+                "$EntitySet": "Sales"
             }
         }
     },
