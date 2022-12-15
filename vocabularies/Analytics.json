@@ -233,9 +233,8 @@
                 "@Core.Description": "Name of an action import"
             },
             "Aggregate": {
-                "$Nullable": true,
                 "@Core.Description": "Value that the first parameter of the action invocation must have",
-                "@Core.LongDescription": "If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            This value MUST be treated as opaque by the client.\n            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata."
+                "@Core.LongDescription": "String value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            This value MUST be treated as opaque by the client.\n            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata."
             },
             "UpdatableProperties": {
                 "$Collection": true,

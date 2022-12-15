@@ -204,10 +204,10 @@
         <Property Name="ActionImport" Type="Core.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Name of an action import" />
         </Property>
-        <Property Name="Aggregate" Type="Edm.String" Nullable="true">
+        <Property Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Value that the first parameter of the action invocation must have" />
           <Annotation Term="Core.LongDescription">
-            <String>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.
+            <String>String value of the first action parameter, which identifies the aggregate that the transient entity represents.
             This value MUST be treated as opaque by the client.
             Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.</String>
           </Annotation>
