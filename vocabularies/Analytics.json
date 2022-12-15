@@ -215,14 +215,9 @@
             "@Core.Description": "Action for updating an aggregate entity",
             "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).\n          Such a transient entity may be annotated with this term to describe a service-defined action that can be used\n          to update the transient entity. This effectively means updating the persistent entities whose aggregate\n          the transient entity represents, how this dis-aggregation happens is defined by the service.",
             "@Core.Example": {
-                "Description": "Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).\n              This format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated\n              without storing an identifier, based solely on the parameter value.",
-                "@Analytics.UpdateAction": {
-                    "ActionImport": "UpdateAggregateSales",
-                    "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')",
-                    "UpdatableProperties": [
-                        "Amount"
-                    ]
-                }
+                "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.ExternalExampleValue",
+                "Description": "Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).\n              The format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated\n              without storing an identifier, based solely on the parameter value.",
+                "ExternalValue": "../examples/Analytics.UpdateAction-result.json"
             }
         },
         "UpdateActionType": {

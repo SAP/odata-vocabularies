@@ -179,23 +179,13 @@
           the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
         </Annotation>
         <Annotation Term="Core.Example">
-          <Record>
+          <Record Type="Core.ExternalExampleValue">
             <PropertyValue Property="Description">
               <String>Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).
-              This format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated
+              The format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated
               without storing an identifier, based solely on the parameter value.</String>
             </PropertyValue>
-            <Annotation Term="Analytics.UpdateAction">
-              <Record>
-                <PropertyValue Property="ActionImport" String="UpdateAggregateSales" />
-                <PropertyValue Property="Aggregate" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
-                <PropertyValue Property="UpdatableProperties">
-                  <Collection>
-                    <PropertyPath>Amount</PropertyPath>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-            </Annotation>
+            <PropertyValue Property="ExternalValue" String="../examples/Analytics.UpdateAction-result.json" />
           </Record>
         </Annotation>
       </Term>
