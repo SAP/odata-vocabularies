@@ -38,7 +38,7 @@
                         "@Core.Description": "String identifying the aggregate entity to be updated"
                     },
                     {
-                        "$Name": "Changes",
+                        "$Name": "Updates",
                         "$Type": "SalesModel.Sale",
                         "@Core.Description": "Aggregate entity with nested properties that are to be updated, like the body of a PATCH request"
                     }
