@@ -1,111 +1,62 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
-                    "$Alias": "Analytics"
-                }
-            ]
-        },
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Aggregation.V1",
-                    "$Alias": "Aggregation"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
     },
-    "example.Analytics.UpdateAction": {
-        "$Alias": "SalesModel",
-        "Customer": {
-            "$Kind": "EntityType",
-            "$Key": [
-                "ID"
-            ],
-            "ID": {},
-            "Name": {
-                "$Nullable": true
-            },
-            "Country": {
-                "$Nullable": true
-            }
-        },
-        "Product": {
-            "$Kind": "EntityType",
-            "$Key": [
-                "ID"
-            ],
-            "ID": {},
-            "Name": {
-                "$Nullable": true
-            },
-            "Color": {
-                "$Nullable": true
-            },
-            "TaxRate": {
-                "$Type": "Edm.Decimal",
-                "$Nullable": true,
-                "$Scale": 2
-            }
-        },
-        "Sale": {
-            "$Kind": "EntityType",
-            "$Key": [
-                "ID"
-            ],
-            "ID": {},
-            "Amount": {
-                "$Type": "Edm.Decimal",
-                "$Nullable": true,
-                "$Scale": 2
-            },
-            "Product": {
-                "$Kind": "NavigationProperty",
-                "$Type": "SalesModel.Product",
-                "$Nullable": true
-            },
-            "Customer": {
-                "$Kind": "NavigationProperty",
-                "$Type": "SalesModel.Customer",
-                "$Nullable": true
-            }
-        },
-        "UpdateAggregateSales": [
-            {
-                "$Kind": "Action",
-                "@Core.Description": "Updates an aggregate entity of type `SalesModel.Sale`",
-                "$Parameter": [
-                    {
-                        "$Name": "Aggregate",
-                        "@Core.Description": "String identifying the aggregate entity to be updated"
-                    },
-                    {
-                        "$Name": "Updates",
-                        "$Type": "SalesModel.Sale",
-                        "@Core.Description": "Aggregate entity with nested properties that are to be updated, like the body of a PATCH request"
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "SalesModel.Sale",
-                    "@Core.Description": "Aggregate entity with updates applied"
-                }
-            }
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
+    }
+  },
+  "example.Analytics.UpdateAction": {
+    "$Alias": "SalesModel",
+    "Customer": {
+      "$Kind": "EntityType",
+      "$Key": ["ID"],
+      "ID": {},
+      "Name": { "$Nullable": true },
+      "Country": { "$Nullable": true }
+    },
+    "Product": {
+      "$Kind": "EntityType",
+      "$Key": ["ID"],
+      "ID": {},
+      "Name": { "$Nullable": true },
+      "Color": { "$Nullable": true },
+      "TaxRate": { "$Type": "Edm.Decimal", "$Nullable": true, "$Scale": 2 }
+    },
+    "Sale": {
+      "$Kind": "EntityType",
+      "$Key": ["ID"],
+      "ID": {},
+      "Amount": { "$Type": "Edm.Decimal", "$Nullable": true, "$Scale": 2 },
+      "Product": { "$Kind": "NavigationProperty", "$Type": "SalesModel.Product", "$Nullable": true },
+      "Customer": { "$Kind": "NavigationProperty", "$Type": "SalesModel.Customer", "$Nullable": true }
+    },
+    "UpdateAggregateSales": [
+      {
+        "$Kind": "Action",
+        "@Core.Description": "Updates an aggregate entity of type `SalesModel.Sale`",
+        "$Parameter": [
+          { "$Name": "Aggregate", "@Core.Description": "String identifying the aggregate entity to be updated" },
+          {
+            "$Name": "Updates",
+            "$Type": "SalesModel.Sale",
+            "@Core.Description": "Aggregate entity with nested properties that are to be updated, like the body of a PATCH request"
+          }
         ],
-        "container": {
-            "$Kind": "EntityContainer",
-            "Sales": {
-                "$Collection": true,
-                "$Type": "SalesModel.Sale",
-                "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
-            },
-            "UpdateAggregateSales": {
-                "$Action": "SalesModel.UpdateAggregateSales",
-                "$EntitySet": "Sales"
-            }
-        }
-    },
-    "$EntityContainer": "example.Analytics.UpdateAction.container"
+        "$ReturnType": { "$Type": "SalesModel.Sale", "@Core.Description": "Aggregate entity with updates applied" }
+      }
+    ],
+    "container": {
+      "$Kind": "EntityContainer",
+      "Sales": {
+        "$Collection": true,
+        "$Type": "SalesModel.Sale",
+        "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
+      },
+      "UpdateAggregateSales": { "$Action": "SalesModel.UpdateAggregateSales", "$EntitySet": "Sales" }
+    }
+  },
+  "$EntityContainer": "example.Analytics.UpdateAction.container"
 }
