@@ -1,89 +1,63 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.JSON.V1",
-                    "$Alias": "JSON"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "com.sap.vocabularies.Graph.v1": {
-        "$Alias": "Graph",
-        "@Common.Experimental": true,
-        "@Core.Description": "Terms for SAP Graph",
-        "@Core.Description#Published": "2020-03-11 © Copyright 2020 SAP SE. All rights reserved",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md"
-            }
-        ],
-        "traceId": {
-            "$Kind": "Term",
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries."
-        },
-        "Details": {
-            "$Kind": "Term",
-            "$Type": "Graph.DetailsType",
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Graph-specific details for error responses"
-        },
-        "DetailsType": {
-            "$Kind": "ComplexType",
-            "@Common.Experimental": true,
-            "@Core.Description": "Graph-specific details for error responses",
-            "url": {
-                "$Nullable": true,
-                "@Common.Experimental": true,
-                "@Core.IsURL": true,
-                "@Core.Description": "URL sent to the business system tenant"
-            },
-            "body": {
-                "$Type": "JSON.JSON",
-                "$Nullable": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Request body sent to the business system tenant"
-            }
-        },
-        "CompositionRoot": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "The annotated entity type is the root type of a composition tree."
-        }
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.JSON.V1", "$Alias": "JSON" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
+  },
+  "com.sap.vocabularies.Graph.v1": {
+    "$Alias": "Graph",
+    "@Common.Experimental": true,
+    "@Core.Description": "Terms for SAP Graph",
+    "@Core.Description#Published": "2020-03-11 © Copyright 2020 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Graph.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md" }
+    ],
+    "traceId": {
+      "$Kind": "Term",
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries."
+    },
+    "Details": {
+      "$Kind": "Term",
+      "$Type": "Graph.DetailsType",
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "Graph-specific details for error responses"
+    },
+    "DetailsType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.Description": "Graph-specific details for error responses",
+      "url": {
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.IsURL": true,
+        "@Core.Description": "URL sent to the business system tenant"
+      },
+      "body": {
+        "$Type": "JSON.JSON",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Request body sent to the business system tenant"
+      }
+    },
+    "CompositionRoot": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated entity type is the root type of a composition tree."
+    }
+  }
 }
