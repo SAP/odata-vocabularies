@@ -1,0 +1,75 @@
+{
+  "@odata.context": "$metadata#SalesModel.SalesData/Sales(Customer(Country),Product(Name),Amount)",
+  "value": [
+    {
+      "Customer": {
+        "Country": "Netherlands"
+      },
+      "Product": {
+        "Name": "Paper"
+      },
+      "Amount": 3,
+      "@Analytics.UpdateAction": {
+        "ActionImport": "UpdateAggregateSales",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "Netherlands"
+      },
+      "Product": {
+        "Name": "Sugar"
+      },
+      "Amount": 2,
+      "@Analytics.UpdateAction": {
+        "ActionImport": "UpdateAggregateSales",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Sugar')",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Coffee"
+      },
+      "Amount": 12,
+      "@Analytics.UpdateAction": {
+        "ActionImport": "UpdateAggregateSales",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Coffee')",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Paper"
+      },
+      "Amount": 5,
+      "@Analytics.UpdateAction": {
+        "ActionImport": "UpdateAggregateSales",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Paper')",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Sugar"
+      },
+      "Amount": 2,
+      "@Analytics.UpdateAction": {
+        "ActionImport": "UpdateAggregateSales",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Sugar')",
+        "UpdatableProperties": ["Amount"]
+      }
+    }
+  ]
+}
