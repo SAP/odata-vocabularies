@@ -6,12 +6,35 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/examples/Org.OData.Aggregation.V1.SalesModel-sample.xml">
-    <edmx:Include Namespace="org.example.odata.salesservice" Alias="SalesModel" />
-  </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.UpdateAction" Alias="this">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.UpdateAction" Alias="SalesModel">
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Color" Type="Edm.String" />
+        <Property Name="TaxRate" Type="Edm.Decimal" Scale="2"/>
+      </EntityType>
+      <EntityType Name="Sale">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2" />
+        <NavigationProperty Name="Product" Type="SalesModel.Product" />
+        <NavigationProperty Name="Customer" Type="SalesModel.Customer"/>
+      </EntityType>
       <Action Name="UpdateAggregateSales">
         <Annotation Term="Core.Description" String="Updates an aggregate entity of type `SalesModel.Sale`" />
         <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
@@ -28,7 +51,7 @@
         <EntitySet Name="Sales" EntityType="SalesModel.Sale">
           <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
         </EntitySet>
-        <ActionImport Name="UpdateAggregateSales" Action="this.UpdateAggregateSales" EntitySet="Sales" />
+        <ActionImport Name="UpdateAggregateSales" Action="SalesModel.UpdateAggregateSales" EntitySet="Sales" />
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
