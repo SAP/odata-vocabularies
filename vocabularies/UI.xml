@@ -6,6 +6,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
   </edmx:Reference>
@@ -14,6 +17,9 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
     <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="UI" Namespace="com.sap.vocabularies.UI.v1">
@@ -1406,6 +1412,18 @@ The trend is
         </Annotation>
       </Term>
 
+      <Term Name="IsCopyAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.RequiresType" String="UI.DataFieldForAction" />
+        <Annotation Term="Core.Description" String="The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type" />
+        <Annotation Term="Core.LongDescription">
+          <String>The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.
+Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,
+and the response MUST be either `201 Created` and a representation of the created entity,
+or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="CreateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Create operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from a related entity." />
@@ -1644,7 +1662,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Actions" Type="Collection(UI.DataField)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of data fields that are either DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
+          <Annotation Term="Core.Description" String="Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)" />
         </Property>
       </ComplexType>
 
@@ -1748,6 +1766,11 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
 This switches off the validation of user input with respect to decimals.</String>
         </Annotation>
+      </Term>
+
+      <Term Name="LeadingEntitySet" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
       </Term>
 
     </Schema>

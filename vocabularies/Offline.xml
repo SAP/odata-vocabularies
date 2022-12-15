@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Offline.v1" Alias="Offline">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Offline OData</String>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+Offline OData is a solution for data synchronization between back-ends and mobile devices.
+It is built on top of in-house technology which has been designed and used in database synchronization for over 20 years.
+Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64b93e5140918d676b927a3cd65b/Cloud/en-US/docs-en/guides/features/offline/overview.html) for details.
+        </String>
+     </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2022-10-27 © Copyright 2022 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Offline.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Offline.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="ClientOnly" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType EntitySet EnumType ComplexType TypeDefinition">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated model element exists only on client devices"/>
+         <Annotation Term="Core.LongDescription">
+           <String>Occasionally a customer will want to store additional “client-only”
+           entities in the same DB. The easiest way to accommodate this is for the client 
+           to extend the backend-returned $metadata (upon which the local persistence is 
+           based) and just to mark some entities as client-only so that the client won’t
+           attempt to upload any changes that are made to them locally.
+           The service as implemented on the server is described by the CSDL document if
+           all elements tagged as `Offline.ClientOnly` are removed together with all subsequently dangling references.</String>
+        </Annotation>        
+      </Term>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
