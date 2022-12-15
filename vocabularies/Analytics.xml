@@ -167,6 +167,60 @@
         </Property>
       </ComplexType>
 
+      <Term Name="UpdateAction" Type="Analytics.UpdateActionType" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Action for updating an aggregate entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Transient entities that result from the application of a transformation sequence represent an
+          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).
+          Such a transient entity may be annotated with this term to describe a service-defined action that can be used
+          to update the transient entity. This effectively means updating the persistent entities whose aggregate
+          the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
+        </Annotation>
+        <Annotation Term="Core.Example">
+          <Record>
+            <PropertyValue Property="Description">
+              <String>Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).
+              This format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated
+              without storing an identifier, based solely on the parameter value.</String>
+            </PropertyValue>
+            <Annotation Term="Analytics.UpdateAction">
+              <Record>
+                <PropertyValue Property="ActionImport" String="UpdateAggregateSales" />
+                <PropertyValue Property="Aggregate" String="groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')" />
+                <PropertyValue Property="UpdatableProperties">
+                  <Collection>
+                    <PropertyPath>Amount</PropertyPath>
+                  </Collection>
+                </PropertyValue>
+              </Record>
+            </Annotation>
+          </Record>
+        </Annotation>
+      </Term>
+      <ComplexType Name="UpdateActionType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="ActionImport" Type="Core.SimpleIdentifier" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of an action import" />
+        </Property>
+        <Property Name="Aggregate" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Value that the first parameter of the action invocation must have" />
+          <Annotation Term="Core.LongDescription">
+            <String>If present, this is the string value of the first action parameter, which identifies the aggregate that the transient entity represents.
+            This value MUST be treated as opaque by the client.
+            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.</String>
+          </Annotation>
+        </Property>
+        <Property Name="UpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Declared properties of the aggregate entity that can be updated with the action" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a declared property whose name equals a custom aggregate can be updated, this means updating the
+            aggregate value.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />
