@@ -1,194 +1,146 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Aggregation.V1",
-                    "$Alias": "Aggregation"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "com.sap.vocabularies.Hierarchy.v1": {
-        "$Alias": "Hierarchy",
-        "@Core.Description": "Terms for Hierarchies",
-        "@Core.Description#Published": "2018-01-31 © Copyright 2018 SAP SE. All rights reserved",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Hierarchy.md"
-            }
-        ],
-        "RecursiveHierarchy": {
-            "$Kind": "Term",
-            "$Type": "Hierarchy.RecursiveHierarchyType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "$BaseTerm": "Aggregation.RecursiveHierarchy",
-            "@Common.Experimental": true,
-            "@Core.Description": "Defines a recursive hierarchy",
-            "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
-        },
-        "RecursiveHierarchyType": {
-            "$Kind": "ComplexType",
-            "@Common.Experimental": true,
-            "@Core.LongDescription": "The property paths in this complex type refer to nullable properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n",
-            "ExternalKeyProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "String property holding the human-readable key value for a node",
-                "@Core.LongDescription": "If a `NodeTypeProperty` exists, the external key is unique only in combination with it.\n            Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)."
-            },
-            "NodeTypeProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "String property holding the type of a node",
-                "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a commmon entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
-            },
-            "ChildCountProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy"
-            },
-            "DescendantCountProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy"
-            },
-            "LimitedDescendantCountProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy"
-            },
-            "DrillStateProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "String property holding the drill state of a node",
-                "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
-            },
-            "DistanceFromRootProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy",
-                "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy."
-            },
-            "SiblingRankProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
-                "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0."
-            },
-            "MatchedProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Boolean property indicating [matching](#MatchCount) nodes"
-            },
-            "MatchedDescendantCountProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
-            }
-        },
-        "MatchCount": {
-            "$Kind": "Term",
-            "$Type": "Edm.Int64",
-            "$AppliesTo": [
-                "Collection"
-            ],
-            "@Common.Experimental": true,
-            "@Common.IsInstanceAnnotation": true,
-            "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-            "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
-        },
-        "TopLevels": [
-            {
-                "$Kind": "Function",
-                "$EntitySetPath": "InputSet",
-                "$IsBound": true,
-                "@Common.Experimental": true,
-                "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
-                "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder as with the `traverse` transformation.",
-                "$Parameter": [
-                    {
-                        "$Name": "InputSet",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "NodeProperty",
-                        "@Core.Description": "Property path to the node identifier, evaluated relative to the binding parameter"
-                    },
-                    {
-                        "$Name": "Levels",
-                        "$Type": "Edm.Int64",
-                        "@Core.Description": "The number n of levels to be output"
-                    },
-                    {
-                        "$Name": "Expand",
-                        "$Collection": true,
-                        "@Core.Description": "Identifiers of nodes to be expanded",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": []
-                        }
-                    },
-                    {
-                        "$Name": "Show",
-                        "$Collection": true,
-                        "@Core.Description": "Identifiers of nodes to be shown",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": []
-                        }
-                    },
-                    {
-                        "$Name": "Collapse",
-                        "$Collection": true,
-                        "@Core.Description": "Identifiers of nodes to be collapsed",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": []
-                        }
-                    }
-                ],
-                "$ReturnType": {
-                    "$Collection": true,
-                    "$Type": "Edm.EntityType"
-                }
-            }
-        ]
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
+  },
+  "com.sap.vocabularies.Hierarchy.v1": {
+    "$Alias": "Hierarchy",
+    "@Core.Description": "Terms for Hierarchies",
+    "@Core.Description#Published": "2018-01-31 © Copyright 2018 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Hierarchy.md" }
+    ],
+    "RecursiveHierarchy": {
+      "$Kind": "Term",
+      "$Type": "Hierarchy.RecursiveHierarchyType",
+      "$AppliesTo": ["EntityType"],
+      "$BaseTerm": "Aggregation.RecursiveHierarchy",
+      "@Common.Experimental": true,
+      "@Core.Description": "Defines a recursive hierarchy",
+      "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information."
+    },
+    "RecursiveHierarchyType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.LongDescription": "The property paths in this complex type refer to nullable properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n",
+      "ExternalKeyProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "String property holding the human-readable key value for a node",
+        "@Core.LongDescription": "If a `NodeTypeProperty` exists, the external key is unique only in combination with it.\n            Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)."
+      },
+      "NodeTypeProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "String property holding the type of a node",
+        "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a commmon entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
+      },
+      "ChildCountProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy"
+      },
+      "DescendantCountProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy"
+      },
+      "LimitedDescendantCountProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy"
+      },
+      "DrillStateProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "String property holding the drill state of a node",
+        "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
+      },
+      "DistanceFromRootProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy",
+        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy."
+      },
+      "SiblingRankProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the sibling rank of a node",
+        "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0."
+      },
+      "MatchedProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Boolean property indicating [matching](#MatchCount) nodes"
+      },
+      "MatchedDescendantCountProperty": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
+      }
+    },
+    "MatchCount": {
+      "$Kind": "Term",
+      "$Type": "Edm.Int64",
+      "$AppliesTo": ["Collection"],
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
+      "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+    },
+    "TopLevels": [
+      {
+        "$Kind": "Function",
+        "$EntitySetPath": "InputSet",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
+        "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder as with the `traverse` transformation.",
+        "$Parameter": [
+          { "$Name": "InputSet", "$Collection": true, "$Type": "Edm.EntityType" },
+          {
+            "$Name": "HierarchyNodes",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "A collection, given through a `$root` expression"
+          },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          {
+            "$Name": "NodeProperty",
+            "@Core.Description": "Property path to the node identifier, evaluated relative to the binding parameter"
+          },
+          { "$Name": "Levels", "$Type": "Edm.Int64", "@Core.Description": "The number n of levels to be output" },
+          {
+            "$Name": "Expand",
+            "$Collection": true,
+            "@Core.Description": "Identifiers of nodes to be expanded",
+            "@Core.OptionalParameter": { "DefaultValue": [] }
+          },
+          {
+            "$Name": "Show",
+            "$Collection": true,
+            "@Core.Description": "Identifiers of nodes to be shown",
+            "@Core.OptionalParameter": { "DefaultValue": [] }
+          },
+          {
+            "$Name": "Collapse",
+            "$Collection": true,
+            "@Core.Description": "Identifiers of nodes to be collapsed",
+            "@Core.OptionalParameter": { "DefaultValue": [] }
+          }
+        ],
+        "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
+      }
+    ]
+  }
 }

@@ -23,7 +23,7 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Analytics.xml#L125:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")|[SimpleIdentifier](Common.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
+[Name](./Analytics.xml#L125:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Name of the dynamic property holding the aggregated value.
 [AggregationMethod](./Analytics.xml#L128:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")|[AggregationMethod](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#AggregationMethod)|Name of the standard or custom aggregation method to be applied.
 [AggregatableProperty](./Analytics.xml#L131:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")|PropertyPath|Property whose values shall be aggregated.
 
