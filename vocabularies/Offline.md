@@ -22,11 +22,7 @@ Term|Type|Description
 **Derived Types:**
 - [LocalDraft](#LocalDraft)
 
-Property|Type|Description
-:-------|:---|:----------
-[IsClientOnly](./Offline.xml#L56:~:text=<ComplexType%20Name="-,ClientOnlyType,-")|Bool|
-
-## <a name="LocalDraft"></a>[LocalDraft](./Offline.xml#L58:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
+## <a name="LocalDraft"></a>[LocalDraft](./Offline.xml#L57:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
 Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata.
 
 Typically for each entity type there is one corresponding entity set, however OData permits having multiple entity sets sharing the same entity type.
@@ -39,5 +35,4 @@ Typically for each entity type there is one corresponding entity set, however OD
 
 Property|Type|Description
 :-------|:---|:----------
-[*IsClientOnly*](./Offline.xml#L56:~:text=<ComplexType%20Name="-,ClientOnlyType,-")|Bool|
-[ActiveEntitySet](./Offline.xml#L70:~:text=<ComplexType%20Name="-,LocalDraft,-")|String|
+[ActiveEntitySet](./Offline.xml#L69:~:text=<ComplexType%20Name="-,LocalDraft,-")|String|

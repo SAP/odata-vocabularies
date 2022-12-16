@@ -53,7 +53,6 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
       </Term>
       <ComplexType Name="ClientOnlyType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="IsClientOnly" Type="Edm.Bool" Nullable="false" DefaultValue="true"/>
       </ComplexType>
       <ComplexType Name="LocalDraft" BaseType="Offline.ClientOnlyType">
         <Annotation Term="Common.Experimental" />
