@@ -53,6 +53,7 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
       </Term>
       <ComplexType Name="ClientOnlyType">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Tag type for annotating client-only model elements"/>
       </ComplexType>
       <ComplexType Name="LocalDraft" BaseType="Offline.ClientOnlyType">
         <Annotation Term="Common.Experimental" />
