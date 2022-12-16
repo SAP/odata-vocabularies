@@ -36,6 +36,23 @@
         </EntitySet>
         <!--The SalesOrderItem is a implied client-only entity set due to the entity type is client-only-->
         <EntitySet Name="SalesOrderItem" EntityType="client.SalesOrderItem" />
+        <EntitySet Name="SalesOrderDraft" EntityType="client.SalesOrderType">
+          <Annotation Term="Offline.ClientOnly">
+            <Record Type="Offline.LocalDraft">
+              <PropertyValue Property="ActiveEntitySet" String="SalesOrder" />
+            </Record>
+          </Annotation>
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItemDraft" />
+        </EntitySet>
+  
+        <!--SalesOrderItemDraft is sharing the SalesOrderItemType, and is annotated as LocalDraft-->
+        <EntitySet Name="SalesOrderItemDraft" EntityType="client.SalesOrderItemType">
+          <Annotation Term="Offline.ClientOnly">
+            <Record Type="Offline.LocalDraft">
+              <PropertyValue Property="ActiveEntitySet" String="SalesOrderItem" />
+            </Record>
+          </Annotation>
+        </EntitySet>
       </EntityContainer>
 
       <Annotations Target="client.SalesOrderType">
@@ -48,6 +65,6 @@
         <!--This annotation is not necessary because the underlying entity type is client-only-->
         <Annotation Term="Offline.ClientOnly" Bool="true" />
       </Annotations>
-    </Schema>
+   </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

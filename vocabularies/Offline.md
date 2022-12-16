@@ -14,4 +14,22 @@ Please refer to the [Offline OData product home](https://help.sap.com/doc/f53c64
 
 Term|Type|Description
 :---|:---|:----------
-[ClientOnly](./Offline.xml#L41:~:text=<Term%20Name="-,ClientOnly,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ClientOnly"></a>The annotated model element exists only on client devices<br>Occasionally a customer will want to store additional “client-only” entities in the same DB. The easiest way to accommodate this is for the client to extend the backend-returned $metadata (upon which the local persistence is based) and just to mark some entities as client-only so that the client won’t attempt to upload any changes that are made to them locally. The service as implemented on the server is described by the CSDL document if all elements tagged as `Offline.ClientOnly` are removed together with all subsequently dangling references.
+[ClientOnly](./Offline.xml#L41:~:text=<Term%20Name="-,ClientOnly,-") *([Experimental](Common.md#Experimental))*|[ClientOnlyType](#ClientOnlyType)|<a name="ClientOnly"></a>The annotated model element exists only on client devices<br>Occasionally a customer will want to store additional “client-only” entities in the same DB. The easiest way to accommodate this is for the client to extend the backend-returned $metadata (upon which the local persistence is based) and just to mark some entities as client-only so that the client won’t attempt to upload any changes that are made to them locally. The service as implemented on the server is described by the CSDL document if all elements tagged as `Offline.ClientOnly` are removed together with all subsequently dangling references.
+
+## <a name="ClientOnlyType"></a>[ClientOnlyType](./Offline.xml#L54:~:text=<ComplexType%20Name="-,ClientOnlyType,-") *([Experimental](Common.md#Experimental))*
+
+
+**Derived Types:**
+- [LocalDraft](#LocalDraft)
+
+Property|Type|Description
+:-------|:---|:----------
+[IsClientOnly](./Offline.xml#L56:~:text=<ComplexType%20Name="-,ClientOnlyType,-")|Bool|
+
+## <a name="LocalDraft"></a>[LocalDraft](./Offline.xml#L58:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
+Applies only to entity sets
+
+Property|Type|Description
+:-------|:---|:----------
+[*IsClientOnly*](./Offline.xml#L56:~:text=<ComplexType%20Name="-,ClientOnlyType,-")|Bool|
+[ActiveEntitySet](./Offline.xml#L61:~:text=<ComplexType%20Name="-,LocalDraft,-")|String|
