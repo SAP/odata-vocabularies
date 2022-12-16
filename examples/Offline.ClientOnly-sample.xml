@@ -17,7 +17,9 @@
 
       <EntityType Name="SalesOrderItemType">
         <!-- the SalesOrderItemType is annotated as client-only -->
-        <Annotation Term="Offline.ClientOnly" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
         <Key>
           <PropertyRef Name="SalesOrder" />
           <PropertyRef Name="SalesOrderItem" />
@@ -57,13 +59,17 @@
 
       <Annotations Target="client.SalesOrderType">
         <!--The SalesOrderType is annotated as client-only-->
-        <Annotation Term="Offline.ClientOnly" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
       </Annotations>
 
       <Annotations Target="client.container/SalesOrder">
         <!--The SalesOrder set is annotated as client-only as well-->
         <!--This annotation is not necessary because the underlying entity type is client-only-->
-        <Annotation Term="Offline.ClientOnly" Bool="true" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
       </Annotations>
     </Schema>
   </edmx:DataServices>

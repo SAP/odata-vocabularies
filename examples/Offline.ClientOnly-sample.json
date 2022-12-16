@@ -20,7 +20,7 @@
     },
     "SalesOrderItemType": {
       "$Kind": "EntityType",
-      "@Offline.ClientOnly": true,
+      "@Offline.ClientOnly": {},
       "$Key": ["SalesOrder", "SalesOrderItem"],
       "SalesOrder": { "$MaxLength": 32 },
       "SalesOrderItem": { "$MaxLength": 6 },
@@ -58,8 +58,8 @@
       }
     },
     "$Annotations": {
-      "client.SalesOrderType": { "@Offline.ClientOnly": true },
-      "client.container/SalesOrder": { "@Offline.ClientOnly": true }
+      "client.SalesOrderType": { "@Offline.ClientOnly": {} },
+      "client.container/SalesOrder": { "@Offline.ClientOnly": {} }
     }
   },
   "$EntityContainer": "clientonly.sample.container"
