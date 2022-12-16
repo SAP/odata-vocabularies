@@ -65,6 +65,6 @@
         <!--This annotation is not necessary because the underlying entity type is client-only-->
         <Annotation Term="Offline.ClientOnly" Bool="true" />
       </Annotations>
-   </Schema>
+    </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
