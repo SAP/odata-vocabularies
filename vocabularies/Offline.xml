@@ -43,8 +43,8 @@ Occasionally a customer will want to store additional “client-only” entities
 The easiest way to accommodate this is for the client to extend the backend-returned $metadata
 (upon which the local persistence is based) and to mark some entities as client-only so that the
 client won’t attempt to upload any changes that are made to them locally.
-The service as implemented on the server is described by the CSDL document if all elements tagged
-as `Offline.ClientOnly` are removed together with all subsequently dangling references.
+The service as implemented on the server is described by the CSDL document if all elements annotated
+with `Offline.ClientOnly` are removed together with all subsequently dangling references.
           </String>
         </Annotation>
       </Term>
