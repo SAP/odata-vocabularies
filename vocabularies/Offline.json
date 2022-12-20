@@ -24,7 +24,7 @@
       "$AppliesTo": ["EntityType", "EntitySet", "EnumType", "ComplexType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated model element exists only on client devices",
-      "@Core.LongDescription": "\nOccasionally a customer will want to store additional “client-only” entities in the same database.\nThe easiest way to accommodate this is for the client to extend the backend-returned $metadata\n(upon which the local persistence is based) and to mark some entities as client-only so that the\nclient won’t attempt to upload any changes that are made to them locally.\nThe service as implemented on the server is described by the CSDL document if all elements tagged\nas `Offline.ClientOnly` are removed together with all subsequently dangling references.\n          "
+      "@Core.LongDescription": "\nOccasionally a customer will want to store additional “client-only” entities in the same database.\nThe easiest way to accommodate this is for the client to extend the backend-returned $metadata\n(upon which the local persistence is based) and to mark some entities as client-only so that the\nclient won’t attempt to upload any changes that are made to them locally.\nThe service as implemented on the server is described by the CSDL document if all elements annotated\nwith `Offline.ClientOnly` are removed together with all subsequently dangling references.\n          "
     },
     "ClientOnlyType": {
       "$Kind": "ComplexType",
