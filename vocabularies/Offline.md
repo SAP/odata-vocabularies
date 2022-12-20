@@ -24,7 +24,6 @@ Tag type for annotating client-only model elements.
 ## <a name="LocalDraft"></a>[LocalDraft](./Offline.xml#L55:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
 Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata
 
-
 Typically for each entity type there is one corresponding entity set. However OData permits having multiple entity sets sharing the same entity type.
 This can be taken advantage of to enable a facility for local (offline) drafts by defining an additional local draft entity set corresponding to an existing backend-defined entity set.
 For example, with a server-side entity set `Orders` and entity type `Order`, an additional `DraftOrders` entity set could be defined, marked with a `ClientOnly` annotation using the `LocalDraft` term type.
@@ -32,8 +31,7 @@ The annotation value is the name of the non-draft entity set using the same enti
 When a client application creates an entity instance, it could be created locally in the `DraftOrders` entity set. 
 A subsequent offline entity upload operation will not upload any local draft entities.
 Draft entities and their children need to be transitioned into non-draft entities to become uploadable.
-          
 
 Property|Type|Description
 :-------|:---|:----------
-[ActiveEntitySet](./Offline.xml#L69:~:text=<ComplexType%20Name="-,LocalDraft,-")|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Unqualified name of the corresponding non-draft entity set in the backend-defined metadata
+[ActiveEntitySet](./Offline.xml#L67:~:text=<ComplexType%20Name="-,LocalDraft,-")|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Unqualified name of the corresponding non-draft entity set in the backend-defined metadata
