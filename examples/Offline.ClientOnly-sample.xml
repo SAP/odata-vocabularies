@@ -17,7 +17,9 @@
 
       <EntityType Name="SalesOrderItemType">
         <!-- the SalesOrderItemType is annotated as client-only -->
-        <Annotation Term="Offline.ClientOnly" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
         <Key>
           <PropertyRef Name="SalesOrder" />
           <PropertyRef Name="SalesOrderItem" />
@@ -36,17 +38,38 @@
         </EntitySet>
         <!--The SalesOrderItem is a implied client-only entity set due to the entity type is client-only-->
         <EntitySet Name="SalesOrderItem" EntityType="client.SalesOrderItem" />
+        <EntitySet Name="SalesOrderDraft" EntityType="client.SalesOrderType">
+          <Annotation Term="Offline.ClientOnly">
+            <Record Type="Offline.LocalDraft">
+              <PropertyValue Property="ActiveEntitySet" String="SalesOrder" />
+            </Record>
+          </Annotation>
+          <NavigationPropertyBinding Path="_Item" Target="SalesOrderItemDraft" />
+        </EntitySet>
+  
+        <!--SalesOrderItemDraft is sharing the SalesOrderItemType, and is annotated as LocalDraft-->
+        <EntitySet Name="SalesOrderItemDraft" EntityType="client.SalesOrderItemType">
+          <Annotation Term="Offline.ClientOnly">
+            <Record Type="Offline.LocalDraft">
+              <PropertyValue Property="ActiveEntitySet" String="SalesOrderItem" />
+            </Record>
+          </Annotation>
+        </EntitySet>
       </EntityContainer>
 
       <Annotations Target="client.SalesOrderType">
         <!--The SalesOrderType is annotated as client-only-->
-        <Annotation Term="Offline.ClientOnly" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
       </Annotations>
 
       <Annotations Target="client.container/SalesOrder">
         <!--The SalesOrder set is annotated as client-only as well-->
         <!--This annotation is not necessary because the underlying entity type is client-only-->
-        <Annotation Term="Offline.ClientOnly" Bool="true" />
+        <Annotation Term="Offline.ClientOnly">
+          <Record/>
+        </Annotation>
       </Annotations>
     </Schema>
   </edmx:DataServices>
