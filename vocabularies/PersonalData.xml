@@ -55,10 +55,10 @@ Terms for contact and address information are defined in the [Communication voca
        </String>
       </Annotation>
 
-      <Term Name="EntitySemantics" Type="PersonalData.EntitySemanticsType" AppliesTo="EntitySet">
+      <Term Name="EntitySemantics" Type="PersonalData.EntitySemanticsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
       </Term>
-      <Term Name="DataSubjectRole" Type="Edm.String" AppliesTo="EntitySet">
+      <Term Name="DataSubjectRole" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
@@ -66,7 +66,7 @@ Terms for contact and address information are defined in the [Communication voca
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
-      <Term Name="DataSubjectRoleDescription" Type="Edm.String" AppliesTo="EntitySet">
+      <Term Name="DataSubjectRoleDescription" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsLanguageDependent" />
         <Annotation Term="Core.Description" String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
@@ -110,7 +110,7 @@ Terms for contact and address information are defined in the [Communication voca
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" AppliesTo="Property">
+      <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
         <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
       </Term>

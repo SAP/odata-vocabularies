@@ -146,7 +146,7 @@ On success this action returns the newly created or edited entity. The sticky se
 On failure the sticky session is kept alive.</String>
           </Annotation>
         </Property>
-        <Property Name="DiscardAction" Type="Common.SimpleIdentifier" Nullable="false">
+        <Property Name="DiscardAction" Type="Core.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:

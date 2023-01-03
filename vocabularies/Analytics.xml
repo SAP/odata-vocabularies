@@ -74,13 +74,13 @@
         <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
       </Term>
 
-      <Term Name="RolledUpPropertyCount" Type="Edm.Int16">
+      <Term Name="RolledUpPropertyCount" Type="Edm.Int16" Nullable="false">
         <!-- instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Number of properties in the entity instance that have been aggregated away" />
       </Term>
 
-      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType">
+      <Term Name="DrillURL" Type="Edm.String" AppliesTo="EntityType" Nullable="false">
         <!-- metadata annotation that can also appear as instance annotation -->
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
@@ -113,8 +113,8 @@
         <Annotation Term="Core.LongDescription">
           <String>
             Other annotations may refer in property paths to dynamic properties declared in any AgrgegatedProperties annotation of the 
-			given entity type to leverage the results of the aggregate expression determined in the context of an entity collection of 
-			the annotated type.
+            given entity type to leverage the results of the aggregate expression determined in the context of an entity collection of 
+            the annotated type.
           </String>
         </Annotation>
       </Term>
@@ -122,10 +122,10 @@
         <Annotation Term="Core.Description" String="Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type." />
       </Term>
       <ComplexType Name="AggregatedPropertyType">
-        <Property Name="Name" Type="Common.SimpleIdentifier" Nullable="false">
+        <Property Name="Name" Type="Core.SimpleIdentifier" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the dynamic property holding the aggregated value." />
         </Property>
-        <Property Name="AggregationMethod" Type="Edm.String" Nullable="false">
+        <Property Name="AggregationMethod" Type="Aggregation.AggregationMethod" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the standard or custom aggregation method to be applied." />
         </Property>
         <Property Name="AggregatableProperty" Type="Edm.PropertyPath" Nullable="false">

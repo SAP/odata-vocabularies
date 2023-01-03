@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Common.v1" Alias="Common">
       <Annotation Term="Core.Description">
@@ -356,8 +359,8 @@
         </Member>
       </EnumType>
 
-      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Record EntityType">
-        <Annotation Term="Core.Description" String="Control state of a property, or the media stream of a media entity" />
+      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Parameter Record EntityType">
+        <Annotation Term="Core.Description" String="Control state of a property, parameter, or the media stream of a media entity" />
         <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
@@ -630,11 +633,11 @@ The minimum structure is
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
-        <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
+        <Property Name="PresentationVariantQualifier" Type="Core.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
           <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath" />
         </Property>
-        <Property Name="SelectionVariantQualifier" Type="Common.SimpleIdentifier">
+        <Property Name="SelectionVariantQualifier" Type="Core.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Optional combination of parameters and filters to query the value help entity set" />
           <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
         </Property>
@@ -659,7 +662,7 @@ The minimum structure is
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="ValueListRelevantQualifiers" Type="Collection(Common.SimpleIdentifier)" Nullable="false">
+      <Term Name="ValueListRelevantQualifiers" Type="Collection(Core.SimpleIdentifier)" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="List of qualifiers of relevant ValueList annotations" />
         <Annotation Term="Core.LongDescription" String="The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties." />
@@ -702,11 +705,11 @@ The minimum structure is
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
-        <Property Name="PresentationVariantQualifier" Type="Common.SimpleIdentifier">
+        <Property Name="PresentationVariantQualifier" Type="Core.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
           <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
         </Property>
-        <Property Name="SelectionVariantQualifier" Type="Common.SimpleIdentifier">
+        <Property Name="SelectionVariantQualifier" Type="Core.SimpleIdentifier">
           <Annotation Term="Core.Description" String="Optional combination of parameters and filters to query the value help entity set" />
           <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
         </Property>
@@ -725,7 +728,6 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
@@ -740,7 +742,6 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
         <Annotation Term="Validation.ApplicableTerms">
@@ -1045,7 +1046,7 @@ The minimum structure is
         </Property>
       </ComplexType>
 
-      <Term Name="DraftActivationVia" Type="Collection(Common.SimpleIdentifier)" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="DraftActivationVia" Type="Collection(Core.SimpleIdentifier)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
       </Term>
 
@@ -1055,6 +1056,14 @@ The minimum structure is
 
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The SimpleIdentifier of an OData construct in scope" />
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
       </TypeDefinition>
 
       <TypeDefinition Name="QualifiedName" UnderlyingType="Edm.String">
@@ -1163,8 +1172,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </EnumType>
 
       <!-- Section: Default Values -->
-      <Term Name="DefaultValuesFunction" Type="Common.QualifiedName" AppliesTo="EntitySet NavigationProperty Action Function">
-        <Annotation Term="Common.Experimental" />
+      <Term Name="DefaultValuesFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntitySet NavigationProperty Action Function">
         <Annotation Term="Core.Description">
           <String>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service</String>
         </Annotation>
@@ -1193,7 +1201,7 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
 
-      <Term Name="DerivedDefaultValue" Type="Edm.String" AppliesTo="Property">
+      <Term Name="DerivedDefaultValue" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="This has been experimental for three years, consider to delete it" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context.</String>
@@ -1214,16 +1222,16 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
 
-      <Term Name="FilterDefaultValue" Type="Edm.PrimitiveType" AppliesTo="Property">
+      <Term Name="FilterDefaultValue" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A default value for the property to be used in filter expressions." />
       </Term>
 
-      <Term Name="FilterDefaultValueHigh" Type="Edm.PrimitiveType" AppliesTo="Property">
+      <Term Name="FilterDefaultValueHigh" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="Requested by Roland Trapp as a counterpart to CDS annotation @Consumption.filter.defaultValueHigh" />
         <Annotation Term="Core.Description" String="A default upper limit for the property to be used in 'less than or equal' filter expressions." />
       </Term>
 
-      <Term Name="DerivedFilterDefaultValue" Type="Edm.String" AppliesTo="Property">
+      <Term Name="DerivedFilterDefaultValue" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" String="This has been experimental for three years, consider to delete it" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</String>
@@ -1304,11 +1312,27 @@ Upon modification field control logic is invoked so that meta-information like h
       -->
 
       <Term Name="RecursiveHierarchy" BaseTerm="Aggregation.RecursiveHierarchy" Type="Common.RecursiveHierarchyType" Nullable="false">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Defines a recursive hierarchy.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="ExternalNodeKeyProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Property holding the external human-readable key identifying the node" />
         </Property>

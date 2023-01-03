@@ -1,122 +1,73 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Aggregation.V1",
-                    "$Alias": "Aggregation"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.UI.v1",
-                    "$Alias": "UI"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Analytics.v1",
-                    "$Alias": "Analytics"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
     },
-    "DynamicProperties.examples": {
-        "$Alias": "self",
-        "Sales": {
-            "$Kind": "EntityType",
-            "$Key": [
-                "Order"
-            ],
-            "Order": {},
-            "Country": {},
-            "NumberOfItems": {
-                "$Type": "Edm.Int16"
-            },
-            "Amount": {
-                "$Type": "Edm.Decimal",
-                "$Nullable": true,
-                "$Scale": 0
-            }
-        },
-        "$Annotations": {
-            "self.Sales": {
-                "@Analytics.AggregatedProperty#sum": {
-                    "Name": "Total",
-                    "AggregationMethod": "sum",
-                    "AggregatableProperty": "Amount"
-                },
-                "@Analytics.AggregatedProperty#max": {
-                    "Name": "Maximum",
-                    "AggregationMethod": "max",
-                    "AggregatableProperty": "Amount"
-                },
-                "@UI.Chart": {
-                    "ChartType": "Bubble",
-                    "Dimensions": [
-                        "Country"
-                    ],
-                    "Measures": [
-                        "NumberOfItems"
-                    ],
-                    "DynamicMeasures": [
-                        "@Analytics.AggregatedProperty#sum",
-                        "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
-                    ]
-                },
-                "@UI.SelectionVariant": {
-                    "SelectOptions": [
-                        {
-                            "DynamicPropertyName": "@Analytics.AggregatedProperty#sum",
-                            "Ranges": [
-                                {
-                                    "Sign": "I",
-                                    "Option": "LE",
-                                    "Low": 1000
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "@UI.PresentationVariant": {
-                    "SortOrder": [
-                        {
-                            "Property": "Country"
-                        },
-                        {
-                            "DynamicProperty": "@Analytics.AggregatedProperty#sum",
-                            "Descending": true
-                        },
-                        {
-                            "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
-                        }
-                    ]
-                }
-            },
-            "self.Container/me/SalesOrders": {
-                "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal"
-            }
-        },
-        "meType": {
-            "$Kind": "EntityType",
-            "SalesOrders": {
-                "$Kind": "NavigationProperty",
-                "$Collection": true,
-                "$Type": "self.Sales",
-                "$ContainsTarget": true
-            }
-        },
-        "Container": {
-            "$Kind": "EntityContainer",
-            "me": {
-                "$Type": "self.meType"
-            }
-        }
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
     },
-    "$EntityContainer": "DynamicProperties.examples.Container"
+    "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
+    }
+  },
+  "DynamicProperties.examples": {
+    "$Alias": "self",
+    "Sales": {
+      "$Kind": "EntityType",
+      "$Key": ["Order"],
+      "Order": {},
+      "Country": {},
+      "Amount": { "$Type": "Edm.Decimal", "$Nullable": true, "$Scale": 0 }
+    },
+    "$Annotations": {
+      "self.Sales": {
+        "@Analytics.AggregatedProperty#sumAmount": {
+          "Name": "Total",
+          "AggregationMethod": "sum",
+          "AggregatableProperty": "Amount"
+        },
+        "@Analytics.AggregatedProperty#maxAmount": {
+          "Name": "Maximum",
+          "AggregationMethod": "max",
+          "AggregatableProperty": "Amount"
+        },
+        "@UI.Chart": {
+          "ChartType": "Bubble",
+          "Dimensions": ["Country"],
+          "DynamicMeasures": [
+            "@Analytics.AggregatedProperty#sumAmount",
+            "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage"
+          ]
+        },
+        "@UI.SelectionVariant": {
+          "SelectOptions": [
+            {
+              "DynamicPropertyName": "@Analytics.AggregatedProperty#sumAmount",
+              "Ranges": [{ "Sign": "I", "Option": "LE", "Low": 1000 }]
+            }
+          ]
+        },
+        "@UI.PresentationVariant": {
+          "SortOrder": [
+            { "Property": "Country" },
+            { "DynamicProperty": "@Analytics.AggregatedProperty#sumAmount", "Descending": true },
+            { "DynamicProperty": "/self.Container/me/SalesOrders@Aggregation.CustomAggregate#WeightedAverage" }
+          ]
+        }
+      },
+      "self.Container/me/SalesOrders": { "@Aggregation.CustomAggregate#WeightedAverage": "Edm.Decimal" }
+    },
+    "meType": {
+      "$Kind": "EntityType",
+      "SalesOrders": {
+        "$Kind": "NavigationProperty",
+        "$Collection": true,
+        "$Type": "self.Sales",
+        "$ContainsTarget": true
+      }
+    },
+    "Container": { "$Kind": "EntityContainer", "me": { "$Type": "self.meType" } }
+  },
+  "$EntityContainer": "DynamicProperties.examples.Container"
 }
