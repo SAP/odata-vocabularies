@@ -1633,6 +1633,46 @@
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
+    },
+    "TimeRestriction": {
+      "$Kind": "Term",
+      "$Type": "UI.TimeRestrictionType",
+      "$AppliesTo": ["Property", "Parameter", "PropertyValue", "Term"],
+      "@Common.Experimental": true,
+      "@Core.Description": "UI elements representing the annotated date/time property shall offer only meaningful values to the user",
+      "@Core.LongDescription": "For example, a date picker restricted to future dates may initially show different weeks or months than\n          a date picker restricted to past dates.\n          These restrictions are only imposed by the UI, the service may also accept meaningless values\n          and the UI must be prepared to handle them, possibly at a loss of convenience for the user."
+    },
+    "TimeRestrictionType": {
+      "$Kind": "ComplexType",
+      "Earliest": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Nullable": true,
+        "$Precision": 0,
+        "@Core.Description": "Only values after the given earliest point in time are meaningful",
+        "@Core.Example": {
+          "@type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+          "Description": "The earliest meaningful `RequestedDeliveryDate` is tomorrow",
+          "Value": {
+            "$Add": [{ "$Function": "odata.date", "$Apply": [{ "$Function": "odata.now", "$Apply": [] }] }, "P1D"]
+          }
+        }
+      },
+      "Latest": {
+        "$Type": "Edm.DateTimeOffset",
+        "$Nullable": true,
+        "$Precision": 0,
+        "@Core.Description": "Only values before the given latest point in time are meaningful"
+      }
+    },
+    "TimeRestrictionWorkingDays": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.TimeRestrictionType",
+      "@Core.Description": "Only values on working days are meaningful",
+      "FactoryCalendar": {
+        "$Nullable": true,
+        "@Core.Description": "Identifier of the factory calendar governing the working days",
+        "@Core.LongDescription": "Defaults to a factory calendar determined by the context"
+      }
     }
   }
 }
