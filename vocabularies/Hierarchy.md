@@ -40,7 +40,8 @@ Parameter|Type|Description
 [&rarr;](./Hierarchy.xml#L227:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
+<a name="RecursiveHierarchyType"></a>
+## [RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
 
 
 The property paths in this complex type refer to properties of an entity type that contain

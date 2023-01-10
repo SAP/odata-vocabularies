@@ -31,6 +31,8 @@ Provide a usage example for proposed terms and term properties.
 The XML files are the source of truth, don't edit the JSON or Markdown files! Direct edits to the JSON or Markdown files will be lost after the next build. See [README - Download and Installation](README.md#download-and-installation).
 
 Execute `npm run build` before committing a change, so that the JSON and Markdown files are in sync with the edited XML files.
+This will be done automatically via a GitHub Action for pull requests in this repository.
+If you are working in a fork, please go to the "Actions" tab of your fork and enable actions.
 
 
 ## Developer Certificate of Origin (DCO)
