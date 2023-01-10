@@ -74,7 +74,8 @@ Term|Type|Description
 [DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1761:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](./UI.xml#L1771:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
-## <a name="HeaderInfoType"></a>[HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
+<a name="HeaderInfoType"></a>
+## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
 
 
 Property|Type|Description
@@ -88,7 +89,8 @@ Property|Type|Description
 [TypeImageUrl](./UI.xml#L105:~:text=<ComplexType%20Name="-,HeaderInfoType,-")|URL?|Image URL for the entity type
 [Initials](./UI.xml#L109:~:text=<ComplexType%20Name="-,HeaderInfoType,-") *([Experimental](Common.md#Experimental))*|String?|Latin letters to be used in case no `Image`, `ImageUrl`, or `TypeImageUrl` is present
 
-## <a name="BadgeType"></a>[BadgeType](./UI.xml#L124:~:text=<ComplexType%20Name="-,BadgeType,-")
+<a name="BadgeType"></a>
+## [BadgeType](./UI.xml#L124:~:text=<ComplexType%20Name="-,BadgeType,-")
 
 
 Property|Type|Description
@@ -100,7 +102,8 @@ Property|Type|Description
 [MainInfo](./UI.xml#L139:~:text=<ComplexType%20Name="-,BadgeType,-")|[DataField?](#DataField)|Main information on the business card
 [SecondaryInfo](./UI.xml#L142:~:text=<ComplexType%20Name="-,BadgeType,-")|[DataField?](#DataField)|Additional information on the business card
 
-## <a name="FieldGroupType"></a>[FieldGroupType](./UI.xml#L161:~:text=<ComplexType%20Name="-,FieldGroupType,-")
+<a name="FieldGroupType"></a>
+## [FieldGroupType](./UI.xml#L161:~:text=<ComplexType%20Name="-,FieldGroupType,-")
 
 
 Property|Type|Description
@@ -108,7 +111,8 @@ Property|Type|Description
 [Label](./UI.xml#L162:~:text=<ComplexType%20Name="-,FieldGroupType,-")|String?|Label for the field group
 [Data](./UI.xml#L166:~:text=<ComplexType%20Name="-,FieldGroupType,-")|\[[DataFieldAbstract](#DataFieldAbstract)\]|Collection of data fields
 
-## <a name="ConnectedFieldsType"></a>[ConnectedFieldsType](./UI.xml#L198:~:text=<ComplexType%20Name="-,ConnectedFieldsType,-")
+<a name="ConnectedFieldsType"></a>
+## [ConnectedFieldsType](./UI.xml#L198:~:text=<ComplexType%20Name="-,ConnectedFieldsType,-")
 Group of semantically connected fields with a representation template and an optional label
 
 Property|Type|Description
@@ -117,7 +121,8 @@ Property|Type|Description
 [Template](./UI.xml#L204:~:text=<ComplexType%20Name="-,ConnectedFieldsType,-")|String|Template for representing the connected fields<br>Template variables are identifiers enclosed in curly braces, e.g. `{MaterialName} - {MaterialClassName}`. The `Data` collection assigns values to the template variables.
 [Data](./UI.xml#L209:~:text=<ComplexType%20Name="-,ConnectedFieldsType,-")|[Dictionary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Dictionary)|Dictionary of template variables<br>Each template variable used in `Template` must be assigned a value here. The value must be of type [DataFieldAbstract](#DataFieldAbstract)
 
-## <a name="GeoLocationType"></a>[GeoLocationType](./UI.xml#L244:~:text=<ComplexType%20Name="-,GeoLocationType,-")
+<a name="GeoLocationType"></a>
+## [GeoLocationType](./UI.xml#L244:~:text=<ComplexType%20Name="-,GeoLocationType,-")
 Properties that define a geographic location
 
 Property|Type|Description
@@ -127,7 +132,8 @@ Property|Type|Description
 [Location](./UI.xml#L252:~:text=<ComplexType%20Name="-,GeoLocationType,-")|GeographyPoint?|A point in a round-earth coordinate system
 [Address](./UI.xml#L255:~:text=<ComplexType%20Name="-,GeoLocationType,-")|[AddressType?](Communication.md#AddressType)|vCard-style address
 
-## <a name="MediaResourceType"></a>[MediaResourceType](./UI.xml#L275:~:text=<ComplexType%20Name="-,MediaResourceType,-")
+<a name="MediaResourceType"></a>
+## [MediaResourceType](./UI.xml#L275:~:text=<ComplexType%20Name="-,MediaResourceType,-")
 
 
 Property|Type|Description
@@ -140,7 +146,8 @@ Property|Type|Description
 [Title](./UI.xml#L293:~:text=<ComplexType%20Name="-,MediaResourceType,-")|[DataField](#DataField)|Resource title
 [Description](./UI.xml#L296:~:text=<ComplexType%20Name="-,MediaResourceType,-")|[DataField?](#DataField)|Resource description
 
-## <a name="ImageType"></a>[ImageType](./UI.xml#L300:~:text=<ComplexType%20Name="-,ImageType,-")
+<a name="ImageType"></a>
+## [ImageType](./UI.xml#L300:~:text=<ComplexType%20Name="-,ImageType,-")
 
 
 Property|Type|Description
@@ -149,7 +156,8 @@ Property|Type|Description
 [Width](./UI.xml#L305:~:text=<ComplexType%20Name="-,ImageType,-")|String?|Width of image
 [Height](./UI.xml#L308:~:text=<ComplexType%20Name="-,ImageType,-")|String?|Height of image
 
-## <a name="DataPointType"></a>[DataPointType](./UI.xml#L329:~:text=<ComplexType%20Name="-,DataPointType,-")
+<a name="DataPointType"></a>
+## [DataPointType](./UI.xml#L329:~:text=<ComplexType%20Name="-,DataPointType,-")
 
 
 Property|Type|Description
@@ -174,7 +182,8 @@ Property|Type|Description
 [TrendCalculation](./UI.xml#L403:~:text=<ComplexType%20Name="-,DataPointType,-")|[TrendCalculationType?](#TrendCalculationType)|Parameters for client-calculated trend, alternative to Trend
 [Responsible](./UI.xml#L406:~:text=<ComplexType%20Name="-,DataPointType,-")|[ContactType?](Communication.md#ContactType)|Contact person
 
-## <a name="NumberFormat"></a>[NumberFormat](./UI.xml#L411:~:text=<ComplexType%20Name="-,NumberFormat,-")
+<a name="NumberFormat"></a>
+## [NumberFormat](./UI.xml#L411:~:text=<ComplexType%20Name="-,NumberFormat,-")
 Describes how to visualise a number
 
 Property|Type|Description
@@ -182,7 +191,8 @@ Property|Type|Description
 [ScaleFactor](./UI.xml#L413:~:text=<ComplexType%20Name="-,NumberFormat,-")|Decimal?|Display value in *ScaleFactor* units, e.g. 1000 for k (kilo), 1e6 for M (Mega)
 [NumberOfFractionalDigits](./UI.xml#L416:~:text=<ComplexType%20Name="-,NumberFormat,-")|Byte?|Number of fractional digits of the scaled value to be visualized
 
-## <a name="VisualizationType"></a>[VisualizationType](./UI.xml#L421:~:text=<EnumType%20Name="-,VisualizationType,-")
+<a name="VisualizationType"></a>
+## [VisualizationType](./UI.xml#L421:~:text=<EnumType%20Name="-,VisualizationType,-")
 
 
 Member|Value|Description
@@ -194,7 +204,8 @@ Member|Value|Description
 [Donut](./UI.xml#L434:~:text=<EnumType%20Name="-,VisualizationType,-")|4|Visualize as donut, optionally with missing segment - requires TargetValue
 [DeltaBulletChart](./UI.xml#L437:~:text=<EnumType%20Name="-,VisualizationType,-")|5|Visualize as delta bullet chart - requires TargetValue
 
-## <a name="ReferencePeriod"></a>[ReferencePeriod](./UI.xml#L442:~:text=<ComplexType%20Name="-,ReferencePeriod,-")
+<a name="ReferencePeriod"></a>
+## [ReferencePeriod](./UI.xml#L442:~:text=<ComplexType%20Name="-,ReferencePeriod,-")
 Reference period
 
 Property|Type|Description
@@ -203,7 +214,8 @@ Property|Type|Description
 [Start](./UI.xml#L448:~:text=<ComplexType%20Name="-,ReferencePeriod,-")|DateTimeOffset?|Start of the reference period
 [End](./UI.xml#L451:~:text=<ComplexType%20Name="-,ReferencePeriod,-")|DateTimeOffset?|End of the reference period
 
-## <a name="CriticalityType"></a>[CriticalityType](./UI.xml#L456:~:text=<EnumType%20Name="-,CriticalityType,-")
+<a name="CriticalityType"></a>
+## [CriticalityType](./UI.xml#L456:~:text=<EnumType%20Name="-,CriticalityType,-")
 Criticality of a value or status, represented e.g. via semantic colors (https://experience.sap.com/fiori-design-web/foundation/colors/#semantic-colors)
 
 Member|Value|Description
@@ -216,7 +228,8 @@ Member|Value|Description
 [VeryPositive](./UI.xml#L474:~:text=<EnumType%20Name="-,CriticalityType,-") *([Experimental](Common.md#Experimental))*|4|Very positive - above max stock - excess
 [Information](./UI.xml#L478:~:text=<EnumType%20Name="-,CriticalityType,-") *([Experimental](Common.md#Experimental))*|5|Information - noticable - informative
 
-## <a name="CriticalityCalculationType"></a>[CriticalityCalculationType](./UI.xml#L484:~:text=<ComplexType%20Name="-,CriticalityCalculationType,-"): [CriticalityThresholdsType](#CriticalityThresholdsType)
+<a name="CriticalityCalculationType"></a>
+## [CriticalityCalculationType](./UI.xml#L484:~:text=<ComplexType%20Name="-,CriticalityCalculationType,-"): [CriticalityThresholdsType](#CriticalityThresholdsType)
 Describes how to calculate the criticality of a value depending on the improvement direction
 
 
@@ -264,7 +277,8 @@ Property|Type|Description
 [ImprovementDirection](./UI.xml#L527:~:text=<ComplexType%20Name="-,CriticalityCalculationType,-")|[ImprovementDirectionType](#ImprovementDirectionType)|Describes in which direction the value improves
 [ConstantThresholds](./UI.xml#L530:~:text=<ComplexType%20Name="-,CriticalityCalculationType,-") *([Experimental](Common.md#Experimental))*|\[[LevelThresholdsType](#LevelThresholdsType)\]|List of thresholds depending on the aggregation level as a set of constant values<br>Constant thresholds shall only be used in order to refine constant values given for the data point overall (aggregation level with empty collection of property paths), but not if the thresholds are based on other measure elements.
 
-## <a name="CriticalityThresholdsType"></a>[CriticalityThresholdsType](./UI.xml#L537:~:text=<ComplexType%20Name="-,CriticalityThresholdsType,-")
+<a name="CriticalityThresholdsType"></a>
+## [CriticalityThresholdsType](./UI.xml#L537:~:text=<ComplexType%20Name="-,CriticalityThresholdsType,-")
 Thresholds for calculating the criticality of a value
 
 **Derived Types:**
@@ -280,7 +294,8 @@ Property|Type|Description
 [DeviationRangeLowValue](./UI.xml#L551:~:text=<ComplexType%20Name="-,CriticalityThresholdsType,-")|PrimitiveType?|Lowest value that is considered critical
 [DeviationRangeHighValue](./UI.xml#L554:~:text=<ComplexType%20Name="-,CriticalityThresholdsType,-")|PrimitiveType?|Highest value that is considered critical
 
-## <a name="ImprovementDirectionType"></a>[ImprovementDirectionType](./UI.xml#L559:~:text=<EnumType%20Name="-,ImprovementDirectionType,-")
+<a name="ImprovementDirectionType"></a>
+## [ImprovementDirectionType](./UI.xml#L559:~:text=<EnumType%20Name="-,ImprovementDirectionType,-")
 Describes which direction of a value change is seen as an improvement
 
 Member|Value|Description
@@ -289,7 +304,8 @@ Member|Value|Description
 [Target](./UI.xml#L564:~:text=<EnumType%20Name="-,ImprovementDirectionType,-")|2|Closer to the target is better
 [Maximize](./UI.xml#L567:~:text=<EnumType%20Name="-,ImprovementDirectionType,-")|3|Higher is better
 
-## <a name="LevelThresholdsType"></a>[LevelThresholdsType](./UI.xml#L572:~:text=<ComplexType%20Name="-,LevelThresholdsType,-"): [CriticalityThresholdsType](#CriticalityThresholdsType) *([Experimental](Common.md#Experimental))*
+<a name="LevelThresholdsType"></a>
+## [LevelThresholdsType](./UI.xml#L572:~:text=<ComplexType%20Name="-,LevelThresholdsType,-"): [CriticalityThresholdsType](#CriticalityThresholdsType) *([Experimental](Common.md#Experimental))*
 Thresholds for an aggregation level
 
 Property|Type|Description
@@ -302,7 +318,8 @@ Property|Type|Description
 [*DeviationRangeHighValue*](./UI.xml#L554:~:text=<ComplexType%20Name="-,CriticalityThresholdsType,-")|PrimitiveType?|Highest value that is considered critical
 [AggregationLevel](./UI.xml#L575:~:text=<ComplexType%20Name="-,LevelThresholdsType,-")|\[PropertyPath\]|An unordered tuple of dimensions, i.e. properties which are intended to be used for grouping in aggregating requests. In analytical UIs, e.g. an analytical chart, the aggregation level typically corresponds to the visible dimensions.
 
-## <a name="TrendType"></a>[TrendType](./UI.xml#L580:~:text=<EnumType%20Name="-,TrendType,-")
+<a name="TrendType"></a>
+## [TrendType](./UI.xml#L580:~:text=<EnumType%20Name="-,TrendType,-")
 The trend of a value
 
 Member|Value|Description
@@ -313,7 +330,8 @@ Member|Value|Description
 [Down](./UI.xml#L591:~:text=<EnumType%20Name="-,TrendType,-")|4|Value shrinks
 [StrongDown](./UI.xml#L594:~:text=<EnumType%20Name="-,TrendType,-")|5|Value shrinks strongly
 
-## <a name="TrendCalculationType"></a>[TrendCalculationType](./UI.xml#L599:~:text=<ComplexType%20Name="-,TrendCalculationType,-")
+<a name="TrendCalculationType"></a>
+## [TrendCalculationType](./UI.xml#L599:~:text=<ComplexType%20Name="-,TrendCalculationType,-")
 Describes how to calculate the trend of a value
 
 
@@ -336,7 +354,8 @@ Property|Type|Description
 [DownDifference](./UI.xml#L625:~:text=<ComplexType%20Name="-,TrendCalculationType,-")|Decimal|Threshold for Down
 [StrongDownDifference](./UI.xml#L628:~:text=<ComplexType%20Name="-,TrendCalculationType,-")|Decimal|Threshold for StrongDown
 
-## <a name="KPIType"></a>[KPIType](./UI.xml#L639:~:text=<ComplexType%20Name="-,KPIType,-")
+<a name="KPIType"></a>
+## [KPIType](./UI.xml#L639:~:text=<ComplexType%20Name="-,KPIType,-")
 
 
 Property|Type|Description
@@ -348,7 +367,8 @@ Property|Type|Description
 [AdditionalDataPoints](./UI.xml#L656:~:text=<ComplexType%20Name="-,KPIType,-")|\[[DataPointType](#DataPointType)\]|Additional data points, either specified inline or referencing another annotation via Path<br>Additional data points are typically related to the main data point and provide complementing information or could be used for comparisons
 [Detail](./UI.xml#L660:~:text=<ComplexType%20Name="-,KPIType,-")|[KPIDetailType?](#KPIDetailType)|Contains information about KPI details, especially drill-down presentations
 
-## <a name="KPIDetailType"></a>[KPIDetailType](./UI.xml#L664:~:text=<ComplexType%20Name="-,KPIDetailType,-")
+<a name="KPIDetailType"></a>
+## [KPIDetailType](./UI.xml#L664:~:text=<ComplexType%20Name="-,KPIDetailType,-")
 
 
 Property|Type|Description
@@ -358,7 +378,8 @@ Property|Type|Description
 [SemanticObject](./UI.xml#L671:~:text=<ComplexType%20Name="-,KPIDetailType,-")|String?|Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value
 [Action](./UI.xml#L674:~:text=<ComplexType%20Name="-,KPIDetailType,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
-## <a name="ChartDefinitionType"></a>[ChartDefinitionType](./UI.xml#L683:~:text=<ComplexType%20Name="-,ChartDefinitionType,-")
+<a name="ChartDefinitionType"></a>
+## [ChartDefinitionType](./UI.xml#L683:~:text=<ComplexType%20Name="-,ChartDefinitionType,-")
 
 
 Property|Type|Description
@@ -374,7 +395,8 @@ Property|Type|Description
 [DimensionAttributes](./UI.xml#L723:~:text=<ComplexType%20Name="-,ChartDefinitionType,-")|\[[ChartDimensionAttributeType](#ChartDimensionAttributeType)\]|Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.
 [Actions](./UI.xml#L728:~:text=<ComplexType%20Name="-,ChartDefinitionType,-")|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|Available actions
 
-## <a name="ChartType"></a>[ChartType](./UI.xml#L733:~:text=<EnumType%20Name="-,ChartType,-")
+<a name="ChartType"></a>
+## [ChartType](./UI.xml#L733:~:text=<EnumType%20Name="-,ChartType,-")
 
 
 Member|Value|Description
@@ -419,7 +441,8 @@ Member|Value|Description
 [HorizontalCombinationStackedDual](./UI.xml#L771:~:text=<EnumType%20Name="-,ChartType,-")|37|
 [Donut100](./UI.xml#L772:~:text=<EnumType%20Name="-,ChartType,-") *([Experimental](Common.md#Experimental))*|38|
 
-## <a name="ChartAxisScalingType"></a>[ChartAxisScalingType](./UI.xml#L778:~:text=<ComplexType%20Name="-,ChartAxisScalingType,-")
+<a name="ChartAxisScalingType"></a>
+## [ChartAxisScalingType](./UI.xml#L778:~:text=<ComplexType%20Name="-,ChartAxisScalingType,-")
 
 
 Property|Type|Description
@@ -428,7 +451,8 @@ Property|Type|Description
 [AutoScaleBehavior](./UI.xml#L782:~:text=<ComplexType%20Name="-,ChartAxisScalingType,-")|[ChartAxisAutoScaleBehaviorType?](#ChartAxisAutoScaleBehaviorType)|Settings for automatic scaling
 [FixedScaleMultipleStackedMeasuresBoundaryValues](./UI.xml#L785:~:text=<ComplexType%20Name="-,ChartAxisScalingType,-")|[FixedScaleMultipleStackedMeasuresBoundaryValuesType?](#FixedScaleMultipleStackedMeasuresBoundaryValuesType)|Boundary values for fixed scaling of a stacking chart type with multiple measures
 
-## <a name="ChartAxisScaleBehaviorType"></a>[ChartAxisScaleBehaviorType](./UI.xml#L790:~:text=<EnumType%20Name="-,ChartAxisScaleBehaviorType,-")
+<a name="ChartAxisScaleBehaviorType"></a>
+## [ChartAxisScaleBehaviorType](./UI.xml#L790:~:text=<EnumType%20Name="-,ChartAxisScaleBehaviorType,-")
 
 
 Member|Value|Description
@@ -436,7 +460,8 @@ Member|Value|Description
 [AutoScale](./UI.xml#L791:~:text=<EnumType%20Name="-,ChartAxisScaleBehaviorType,-")|0|Value axes scale automatically
 [FixedScale](./UI.xml#L794:~:text=<EnumType%20Name="-,ChartAxisScaleBehaviorType,-")|1|Fixed minimum and maximum values are applied, which are derived from the @UI.MeasureAttributes.DataPoint/MinimumValue and .../MaximumValue annotation by default. For stacking chart types with multiple measures, they are taken from ChartAxisScalingType/FixedScaleMultipleStackedMeasuresBoundaryValues.
 
-## <a name="ChartAxisAutoScaleBehaviorType"></a>[ChartAxisAutoScaleBehaviorType](./UI.xml#L803:~:text=<ComplexType%20Name="-,ChartAxisAutoScaleBehaviorType,-")
+<a name="ChartAxisAutoScaleBehaviorType"></a>
+## [ChartAxisAutoScaleBehaviorType](./UI.xml#L803:~:text=<ComplexType%20Name="-,ChartAxisAutoScaleBehaviorType,-")
 
 
 Property|Type|Description
@@ -444,7 +469,8 @@ Property|Type|Description
 [ZeroAlwaysVisible](./UI.xml#L804:~:text=<ComplexType%20Name="-,ChartAxisAutoScaleBehaviorType,-")|Boolean|Forces the value axis to always display the zero value
 [DataScope](./UI.xml#L807:~:text=<ComplexType%20Name="-,ChartAxisAutoScaleBehaviorType,-")|[ChartAxisAutoScaleDataScopeType](#ChartAxisAutoScaleDataScopeType)|Determines the automatic scaling
 
-## <a name="ChartAxisAutoScaleDataScopeType"></a>[ChartAxisAutoScaleDataScopeType](./UI.xml#L812:~:text=<EnumType%20Name="-,ChartAxisAutoScaleDataScopeType,-")
+<a name="ChartAxisAutoScaleDataScopeType"></a>
+## [ChartAxisAutoScaleDataScopeType](./UI.xml#L812:~:text=<EnumType%20Name="-,ChartAxisAutoScaleDataScopeType,-")
 
 
 Member|Value|Description
@@ -452,7 +478,8 @@ Member|Value|Description
 [DataSet](./UI.xml#L813:~:text=<EnumType%20Name="-,ChartAxisAutoScaleDataScopeType,-")|0|Minimum and maximum axes values are determined from the entire data set
 [VisibleData](./UI.xml#L816:~:text=<EnumType%20Name="-,ChartAxisAutoScaleDataScopeType,-")|1|Minimum and maximum axes values are determined from the currently visible data. Scrolling will change the scale.
 
-## <a name="FixedScaleMultipleStackedMeasuresBoundaryValuesType"></a>[FixedScaleMultipleStackedMeasuresBoundaryValuesType](./UI.xml#L821:~:text=<ComplexType%20Name="-,FixedScaleMultipleStackedMeasuresBoundaryValuesType,-")
+<a name="FixedScaleMultipleStackedMeasuresBoundaryValuesType"></a>
+## [FixedScaleMultipleStackedMeasuresBoundaryValuesType](./UI.xml#L821:~:text=<ComplexType%20Name="-,FixedScaleMultipleStackedMeasuresBoundaryValuesType,-")
 
 
 Property|Type|Description
@@ -460,7 +487,8 @@ Property|Type|Description
 [MinimumValue](./UI.xml#L822:~:text=<ComplexType%20Name="-,FixedScaleMultipleStackedMeasuresBoundaryValuesType,-")|Decimal|Minimum value on value axes
 [MaximumValue](./UI.xml#L825:~:text=<ComplexType%20Name="-,FixedScaleMultipleStackedMeasuresBoundaryValuesType,-")|Decimal|Maximum value on value axes
 
-## <a name="ChartDimensionAttributeType"></a>[ChartDimensionAttributeType](./UI.xml#L830:~:text=<ComplexType%20Name="-,ChartDimensionAttributeType,-")
+<a name="ChartDimensionAttributeType"></a>
+## [ChartDimensionAttributeType](./UI.xml#L830:~:text=<ComplexType%20Name="-,ChartDimensionAttributeType,-")
 
 
 Property|Type|Description
@@ -472,7 +500,8 @@ Property|Type|Description
 [EmphasizedValues](./UI.xml#L841:~:text=<ComplexType%20Name="-,ChartDimensionAttributeType,-") *([Experimental](Common.md#Experimental))*|\[String\]|All values in this collection should be emphasized.
 [EmphasisLabels](./UI.xml#L845:~:text=<ComplexType%20Name="-,ChartDimensionAttributeType,-") *([Experimental](Common.md#Experimental))*|[EmphasisLabelType?](#EmphasisLabelType)|Assign a label to values with an emphasized representation. This is required, if more than one emphasized value has been specified.
 
-## <a name="ChartMeasureAttributeType"></a>[ChartMeasureAttributeType](./UI.xml#L851:~:text=<ComplexType%20Name="-,ChartMeasureAttributeType,-")
+<a name="ChartMeasureAttributeType"></a>
+## [ChartMeasureAttributeType](./UI.xml#L851:~:text=<ComplexType%20Name="-,ChartMeasureAttributeType,-")
 Exactly one of `Measure` and `DynamicMeasure` must be present
 
 Property|Type|Description
@@ -483,7 +512,8 @@ Property|Type|Description
 [DataPoint](./UI.xml#L870:~:text=<ComplexType%20Name="-,ChartMeasureAttributeType,-")|AnnotationPath?|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure<br>Allowed terms:<br>- [DataPoint](#DataPoint)
 [UseSequentialColorLevels](./UI.xml#L878:~:text=<ComplexType%20Name="-,ChartMeasureAttributeType,-") *([Experimental](Common.md#Experimental))*|Boolean|All measures for which this setting is true should be assigned to levels of the same color.
 
-## <a name="ChartDimensionRoleType"></a>[ChartDimensionRoleType](./UI.xml#L884:~:text=<EnumType%20Name="-,ChartDimensionRoleType,-")
+<a name="ChartDimensionRoleType"></a>
+## [ChartDimensionRoleType](./UI.xml#L884:~:text=<EnumType%20Name="-,ChartDimensionRoleType,-")
 
 
 Member|Value|Description
@@ -492,7 +522,8 @@ Member|Value|Description
 [Series](./UI.xml#L886:~:text=<EnumType%20Name="-,ChartDimensionRoleType,-")|1|
 [Category2](./UI.xml#L887:~:text=<EnumType%20Name="-,ChartDimensionRoleType,-")|2|
 
-## <a name="ChartMeasureRoleType"></a>[ChartMeasureRoleType](./UI.xml#L890:~:text=<EnumType%20Name="-,ChartMeasureRoleType,-")
+<a name="ChartMeasureRoleType"></a>
+## [ChartMeasureRoleType](./UI.xml#L890:~:text=<EnumType%20Name="-,ChartMeasureRoleType,-")
 
 
 Member|Value|Description
@@ -501,7 +532,8 @@ Member|Value|Description
 [Axis2](./UI.xml#L892:~:text=<EnumType%20Name="-,ChartMeasureRoleType,-")|1|
 [Axis3](./UI.xml#L893:~:text=<EnumType%20Name="-,ChartMeasureRoleType,-")|2|
 
-## <a name="EmphasisLabelType"></a>[EmphasisLabelType](./UI.xml#L896:~:text=<ComplexType%20Name="-,EmphasisLabelType,-") *([Experimental](Common.md#Experimental))*
+<a name="EmphasisLabelType"></a>
+## [EmphasisLabelType](./UI.xml#L896:~:text=<ComplexType%20Name="-,EmphasisLabelType,-") *([Experimental](Common.md#Experimental))*
 Assigns a label to the set of emphasized values and optionally also for non-emphasized values. This information can be used for semantic coloring.
 
 Property|Type|Description
@@ -509,7 +541,8 @@ Property|Type|Description
 [EmphasizedValuesLabel](./UI.xml#L899:~:text=<ComplexType%20Name="-,EmphasisLabelType,-")|String|
 [NonEmphasizedValuesLabel](./UI.xml#L900:~:text=<ComplexType%20Name="-,EmphasisLabelType,-")|String?|
 
-## <a name="ValueCriticalityType"></a>[ValueCriticalityType](./UI.xml#L907:~:text=<ComplexType%20Name="-,ValueCriticalityType,-") *([Experimental](Common.md#Experimental))*
+<a name="ValueCriticalityType"></a>
+## [ValueCriticalityType](./UI.xml#L907:~:text=<ComplexType%20Name="-,ValueCriticalityType,-") *([Experimental](Common.md#Experimental))*
 Assigns a fixed criticality to a primitive value. This information can be used for semantic coloring.
 
 Property|Type|Description
@@ -517,7 +550,8 @@ Property|Type|Description
 [Value](./UI.xml#L910:~:text=<ComplexType%20Name="-,ValueCriticalityType,-")|PrimitiveType?|MUST be a fixed value of primitive type
 [Criticality](./UI.xml#L913:~:text=<ComplexType%20Name="-,ValueCriticalityType,-")|[CriticalityType?](#CriticalityType)|
 
-## <a name="CriticalityLabelType"></a>[CriticalityLabelType](./UI.xml#L927:~:text=<ComplexType%20Name="-,CriticalityLabelType,-") *([Experimental](Common.md#Experimental))*
+<a name="CriticalityLabelType"></a>
+## [CriticalityLabelType](./UI.xml#L927:~:text=<ComplexType%20Name="-,CriticalityLabelType,-") *([Experimental](Common.md#Experimental))*
 Assigns a label to a criticality. This information can be used for semantic coloring.
 
 Property|Type|Description
@@ -525,7 +559,8 @@ Property|Type|Description
 [Criticality](./UI.xml#L930:~:text=<ComplexType%20Name="-,CriticalityLabelType,-")|[CriticalityType](#CriticalityType)|
 [Label](./UI.xml#L931:~:text=<ComplexType%20Name="-,CriticalityLabelType,-")|String|Criticality label
 
-## <a name="Facet"></a>[*Facet*](./UI.xml#L965:~:text=<ComplexType%20Name="-,Facet,-")
+<a name="Facet"></a>
+## [*Facet*](./UI.xml#L965:~:text=<ComplexType%20Name="-,Facet,-")
 Abstract base type for facets
 
 **Derived Types:**
@@ -543,7 +578,8 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [PartOfPreview](#PartOfPreview)
 
-## <a name="CollectionFacet"></a>[CollectionFacet](./UI.xml#L981:~:text=<ComplexType%20Name="-,CollectionFacet,-"): [Facet](#Facet)
+<a name="CollectionFacet"></a>
+## [CollectionFacet](./UI.xml#L981:~:text=<ComplexType%20Name="-,CollectionFacet,-"): [Facet](#Facet)
 Collection of facets
 
 Property|Type|Description
@@ -557,7 +593,8 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [PartOfPreview](#PartOfPreview)
 
-## <a name="ReferenceFacet"></a>[ReferenceFacet](./UI.xml#L987:~:text=<ComplexType%20Name="-,ReferenceFacet,-"): [Facet](#Facet)
+<a name="ReferenceFacet"></a>
+## [ReferenceFacet](./UI.xml#L987:~:text=<ComplexType%20Name="-,ReferenceFacet,-"): [Facet](#Facet)
 Facet that refers to a thing perspective, e.g. LineItem
 
 Property|Type|Description
@@ -571,7 +608,8 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [PartOfPreview](#PartOfPreview)
 
-## <a name="ReferenceURLFacet"></a>[ReferenceURLFacet](./UI.xml#L1015:~:text=<ComplexType%20Name="-,ReferenceURLFacet,-"): [Facet](#Facet)
+<a name="ReferenceURLFacet"></a>
+## [ReferenceURLFacet](./UI.xml#L1015:~:text=<ComplexType%20Name="-,ReferenceURLFacet,-"): [Facet](#Facet)
 Facet that refers to a URL
 
 Property|Type|Description
@@ -586,7 +624,8 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [PartOfPreview](#PartOfPreview)
 
-## <a name="SelectionPresentationVariantType"></a>[SelectionPresentationVariantType](./UI.xml#L1034:~:text=<ComplexType%20Name="-,SelectionPresentationVariantType,-")
+<a name="SelectionPresentationVariantType"></a>
+## [SelectionPresentationVariantType](./UI.xml#L1034:~:text=<ComplexType%20Name="-,SelectionPresentationVariantType,-")
 
 
 Property|Type|Description
@@ -596,7 +635,8 @@ Property|Type|Description
 [SelectionVariant](./UI.xml#L1044:~:text=<ComplexType%20Name="-,SelectionPresentationVariantType,-")|[SelectionVariantType](#SelectionVariantType)|Selection variant, either specified inline or referencing another annotation via Path
 [PresentationVariant](./UI.xml#L1047:~:text=<ComplexType%20Name="-,SelectionPresentationVariantType,-")|[PresentationVariantType](#PresentationVariantType)|Presentation variant, either specified inline or referencing another annotation via Path
 
-## <a name="PresentationVariantType"></a>[PresentationVariantType](./UI.xml#L1058:~:text=<ComplexType%20Name="-,PresentationVariantType,-")
+<a name="PresentationVariantType"></a>
+## [PresentationVariantType](./UI.xml#L1058:~:text=<ComplexType%20Name="-,PresentationVariantType,-")
 
 
 Property|Type|Description
@@ -615,7 +655,8 @@ Property|Type|Description
 [RequestAtLeast](./UI.xml#L1133:~:text=<ComplexType%20Name="-,PresentationVariantType,-")|\[PropertyPath\]|Properties that should always be included in the result of the queried collection<br>Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an aggregating OData request.
 [SelectionFields](./UI.xml#L1156:~:text=<ComplexType%20Name="-,PresentationVariantType,-") *([Experimental](Common.md#Experimental))*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a `UI.SelectionFields` annotation via Path.
 
-## <a name="SelectionVariantType"></a>[SelectionVariantType](./UI.xml#L1170:~:text=<ComplexType%20Name="-,SelectionVariantType,-")
+<a name="SelectionVariantType"></a>
+## [SelectionVariantType](./UI.xml#L1170:~:text=<ComplexType%20Name="-,SelectionVariantType,-")
 
 
 Property|Type|Description
@@ -626,14 +667,16 @@ Property|Type|Description
 [FilterExpression](./UI.xml#L1183:~:text=<ComplexType%20Name="-,SelectionVariantType,-")|String?|Filter string for query part of URL, without `$filter=`
 [SelectOptions](./UI.xml#L1188:~:text=<ComplexType%20Name="-,SelectionVariantType,-")|\[[SelectOptionType](#SelectOptionType)\]|ABAP Select Options Pattern
 
-## <a name="ParameterAbstract"></a>[*ParameterAbstract*](./UI.xml#L1195:~:text=<ComplexType%20Name="-,ParameterAbstract,-")
+<a name="ParameterAbstract"></a>
+## [*ParameterAbstract*](./UI.xml#L1195:~:text=<ComplexType%20Name="-,ParameterAbstract,-")
 Key property of a parameter entity type
 
 **Derived Types:**
 - [Parameter](#Parameter)
 - [IntervalParameter](#IntervalParameter)
 
-## <a name="Parameter"></a>[Parameter](./UI.xml#L1198:~:text=<ComplexType%20Name="-,Parameter,-"): [ParameterAbstract](#ParameterAbstract)
+<a name="Parameter"></a>
+## [Parameter](./UI.xml#L1198:~:text=<ComplexType%20Name="-,Parameter,-"): [ParameterAbstract](#ParameterAbstract)
 Single-valued parameter
 
 Property|Type|Description
@@ -641,7 +684,8 @@ Property|Type|Description
 [PropertyName](./UI.xml#L1200:~:text=<ComplexType%20Name="-,Parameter,-")|PropertyPath|Path to a key property of a parameter entity type
 [PropertyValue](./UI.xml#L1203:~:text=<ComplexType%20Name="-,Parameter,-")|PrimitiveType|Value for the key property
 
-## <a name="IntervalParameter"></a>[IntervalParameter](./UI.xml#L1207:~:text=<ComplexType%20Name="-,IntervalParameter,-"): [ParameterAbstract](#ParameterAbstract)
+<a name="IntervalParameter"></a>
+## [IntervalParameter](./UI.xml#L1207:~:text=<ComplexType%20Name="-,IntervalParameter,-"): [ParameterAbstract](#ParameterAbstract)
 Interval parameter formed with a 'from' and a 'to' property
 
 Property|Type|Description
@@ -651,7 +695,8 @@ Property|Type|Description
 [PropertyNameTo](./UI.xml#L1215:~:text=<ComplexType%20Name="-,IntervalParameter,-")|PropertyPath|Path to the 'to' property of a parameter entity type
 [PropertyValueTo](./UI.xml#L1218:~:text=<ComplexType%20Name="-,IntervalParameter,-")|PrimitiveType|Value for the 'to' property
 
-## <a name="SelectOptionType"></a>[SelectOptionType](./UI.xml#L1223:~:text=<ComplexType%20Name="-,SelectOptionType,-")
+<a name="SelectOptionType"></a>
+## [SelectOptionType](./UI.xml#L1223:~:text=<ComplexType%20Name="-,SelectOptionType,-")
 List of value ranges for a single property
 
 Exactly one of `PropertyName` and `DynamicPropertyName` must be present
@@ -662,7 +707,8 @@ Property|Type|Description
 [DynamicPropertyName](./UI.xml#L1238:~:text=<ComplexType%20Name="-,SelectOptionType,-")|AnnotationPath?|Dynamic property introduced by annotations for which value ranges are specified<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored. For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).<br>Allowed terms:<br>- [AggregatedProperty](Analytics.md#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
 [Ranges](./UI.xml#L1252:~:text=<ComplexType%20Name="-,SelectOptionType,-")|\[[SelectionRangeType](#SelectionRangeType)\]|List of value ranges
 
-## <a name="SelectionRangeType"></a>[SelectionRangeType](./UI.xml#L1257:~:text=<ComplexType%20Name="-,SelectionRangeType,-")
+<a name="SelectionRangeType"></a>
+## [SelectionRangeType](./UI.xml#L1257:~:text=<ComplexType%20Name="-,SelectionRangeType,-")
 Value range. If the range option only requires a single value, the value must be in the property Low
 
 Property|Type|Description
@@ -672,7 +718,8 @@ Property|Type|Description
 [Low](./UI.xml#L1267:~:text=<ComplexType%20Name="-,SelectionRangeType,-")|PrimitiveType|Single value or lower interval boundary
 [High](./UI.xml#L1270:~:text=<ComplexType%20Name="-,SelectionRangeType,-")|PrimitiveType?|Upper interval boundary
 
-## <a name="SelectionRangeSignType"></a>[SelectionRangeSignType](./UI.xml#L1275:~:text=<EnumType%20Name="-,SelectionRangeSignType,-")
+<a name="SelectionRangeSignType"></a>
+## [SelectionRangeSignType](./UI.xml#L1275:~:text=<EnumType%20Name="-,SelectionRangeSignType,-")
 
 
 Member|Value|Description
@@ -680,7 +727,8 @@ Member|Value|Description
 [I](./UI.xml#L1276:~:text=<EnumType%20Name="-,SelectionRangeSignType,-")|0|Inclusive
 [E](./UI.xml#L1279:~:text=<EnumType%20Name="-,SelectionRangeSignType,-")|1|Exclusive
 
-## <a name="SelectionRangeOptionType"></a>[SelectionRangeOptionType](./UI.xml#L1284:~:text=<EnumType%20Name="-,SelectionRangeOptionType,-")
+<a name="SelectionRangeOptionType"></a>
+## [SelectionRangeOptionType](./UI.xml#L1284:~:text=<EnumType%20Name="-,SelectionRangeOptionType,-")
 Comparison operator
 
 Member|Value|Description
@@ -696,7 +744,8 @@ Member|Value|Description
 [GT](./UI.xml#L1310:~:text=<EnumType%20Name="-,SelectionRangeOptionType,-")|8|Greater than
 [LT](./UI.xml#L1313:~:text=<EnumType%20Name="-,SelectionRangeOptionType,-")|9|Less than
 
-## <a name="TextArrangementType"></a>[TextArrangementType](./UI.xml#L1377:~:text=<EnumType%20Name="-,TextArrangementType,-")
+<a name="TextArrangementType"></a>
+## [TextArrangementType](./UI.xml#L1377:~:text=<EnumType%20Name="-,TextArrangementType,-")
 
 
 Member|Value|Description
@@ -706,7 +755,8 @@ Member|Value|Description
 [TextSeparate](./UI.xml#L1384:~:text=<EnumType%20Name="-,TextArrangementType,-")|2|Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)
 [TextOnly](./UI.xml#L1387:~:text=<EnumType%20Name="-,TextArrangementType,-")|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
 
-## <a name="ImportanceType"></a>[ImportanceType](./UI.xml#L1395:~:text=<EnumType%20Name="-,ImportanceType,-")
+<a name="ImportanceType"></a>
+## [ImportanceType](./UI.xml#L1395:~:text=<EnumType%20Name="-,ImportanceType,-")
 
 
 Member|Value|Description
@@ -715,7 +765,8 @@ Member|Value|Description
 [Medium](./UI.xml#L1399:~:text=<EnumType%20Name="-,ImportanceType,-")|1|Medium importance
 [Low](./UI.xml#L1402:~:text=<EnumType%20Name="-,ImportanceType,-")|2|Low importance
 
-## <a name="DataFieldAbstract"></a>[*DataFieldAbstract*](./UI.xml#L1456:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")
+<a name="DataFieldAbstract"></a>
+## [*DataFieldAbstract*](./UI.xml#L1456:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")
 Elementary building block that represents a piece of data and/or allows triggering an action
 
 By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
@@ -748,7 +799,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="CriticalityRepresentationType"></a>[CriticalityRepresentationType](./UI.xml#L1486:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")
+<a name="CriticalityRepresentationType"></a>
+## [CriticalityRepresentationType](./UI.xml#L1486:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")
 
 
 Member|Value|Description
@@ -757,7 +809,8 @@ Member|Value|Description
 [WithoutIcon](./UI.xml#L1490:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-")|1|Criticality is represented without icon, e.g. only via text color
 [OnlyIcon](./UI.xml#L1493:~:text=<EnumType%20Name="-,CriticalityRepresentationType,-") *([Experimental](Common.md#Experimental))*|2|Criticality is represented only by using an icon
 
-## <a name="DataFieldForAnnotation"></a>[DataFieldForAnnotation](./UI.xml#L1499:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-"): [DataFieldAbstract](#DataFieldAbstract)
+<a name="DataFieldForAnnotation"></a>
+## [DataFieldForAnnotation](./UI.xml#L1499:~:text=<ComplexType%20Name="-,DataFieldForAnnotation,-"): [DataFieldAbstract](#DataFieldAbstract)
 A structured piece of data described by an annotation
 
 Property|Type|Description
@@ -775,7 +828,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForActionAbstract"></a>[*DataFieldForActionAbstract*](./UI.xml#L1516:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-"): [DataFieldAbstract](#DataFieldAbstract)
+<a name="DataFieldForActionAbstract"></a>
+## [*DataFieldForActionAbstract*](./UI.xml#L1516:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-"): [DataFieldAbstract](#DataFieldAbstract)
 Triggers an action
 
 **Derived Types:**
@@ -798,7 +852,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForAction"></a>[DataFieldForAction](./UI.xml#L1526:~:text=<ComplexType%20Name="-,DataFieldForAction,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+<a name="DataFieldForAction"></a>
+## [DataFieldForAction](./UI.xml#L1526:~:text=<ComplexType%20Name="-,DataFieldForAction,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers an OData action
 
 The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).
@@ -821,7 +876,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="OperationGroupingType"></a>[OperationGroupingType](./UI.xml#L1536:~:text=<EnumType%20Name="-,OperationGroupingType,-")
+<a name="OperationGroupingType"></a>
+## [OperationGroupingType](./UI.xml#L1536:~:text=<EnumType%20Name="-,OperationGroupingType,-")
 
 
 Member|Value|Description
@@ -829,7 +885,8 @@ Member|Value|Description
 [Isolated](./UI.xml#L1537:~:text=<EnumType%20Name="-,OperationGroupingType,-")|0|Invoke each action in isolation from other actions
 [ChangeSet](./UI.xml#L1540:~:text=<EnumType%20Name="-,OperationGroupingType,-")|1|Group all actions into a single change set
 
-## <a name="DataFieldForIntentBasedNavigation"></a>[DataFieldForIntentBasedNavigation](./UI.xml#L1545:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
+<a name="DataFieldForIntentBasedNavigation"></a>
+## [DataFieldForIntentBasedNavigation](./UI.xml#L1545:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers intent-based UI navigation
 
 The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
@@ -857,7 +914,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldForActionGroup"></a>[DataFieldForActionGroup](./UI.xml#L1569:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-"): [DataFieldAbstract](#DataFieldAbstract) *([Experimental](Common.md#Experimental))*
+<a name="DataFieldForActionGroup"></a>
+## [DataFieldForActionGroup](./UI.xml#L1569:~:text=<ComplexType%20Name="-,DataFieldForActionGroup,-"): [DataFieldAbstract](#DataFieldAbstract) *([Experimental](Common.md#Experimental))*
 Collection of OData actions and intent based navigations
 
 Property|Type|Description
@@ -875,7 +933,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataField"></a>[DataField](./UI.xml#L1577:~:text=<ComplexType%20Name="-,DataField,-"): [DataFieldAbstract](#DataFieldAbstract)
+<a name="DataField"></a>
+## [DataField](./UI.xml#L1577:~:text=<ComplexType%20Name="-,DataField,-"): [DataFieldAbstract](#DataFieldAbstract)
 A piece of data
 
 **Derived Types:**
@@ -900,7 +959,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithAction"></a>[DataFieldWithAction](./UI.xml#L1606:~:text=<ComplexType%20Name="-,DataFieldWithAction,-"): [DataField](#DataField)
+<a name="DataFieldWithAction"></a>
+## [DataFieldWithAction](./UI.xml#L1606:~:text=<ComplexType%20Name="-,DataFieldWithAction,-"): [DataField](#DataField)
 A piece of data that allows triggering an OData action
 
 The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.
@@ -922,7 +982,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithIntentBasedNavigation"></a>[DataFieldWithIntentBasedNavigation](./UI.xml#L1615:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-"): [DataField](#DataField)
+<a name="DataFieldWithIntentBasedNavigation"></a>
+## [DataFieldWithIntentBasedNavigation](./UI.xml#L1615:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-"): [DataField](#DataField)
 A piece of data that allows triggering intent-based UI navigation
 
 The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
@@ -949,7 +1010,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithNavigationPath"></a>[DataFieldWithNavigationPath](./UI.xml#L1635:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-"): [DataField](#DataField)
+<a name="DataFieldWithNavigationPath"></a>
+## [DataFieldWithNavigationPath](./UI.xml#L1635:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-"): [DataField](#DataField)
 A piece of data that allows navigating to related data
 
 It should be rendered as a hyperlink
@@ -971,7 +1033,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithUrl"></a>[DataFieldWithUrl](./UI.xml#L1646:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-"): [DataField](#DataField)
+<a name="DataFieldWithUrl"></a>
+## [DataFieldWithUrl](./UI.xml#L1646:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-"): [DataField](#DataField)
 A piece of data that allows navigating to other information on the Web
 
 It should be rendered as a hyperlink
@@ -994,7 +1057,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="DataFieldWithActionGroup"></a>[DataFieldWithActionGroup](./UI.xml#L1660:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-"): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
+<a name="DataFieldWithActionGroup"></a>
+## [DataFieldWithActionGroup](./UI.xml#L1660:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-"): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
 Collection of OData actions and intent based navigations
 
 Property|Type|Description
@@ -1014,7 +1078,8 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
-## <a name="RecommendationStateType"></a>[RecommendationStateType](./UI.xml#L1702:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
+<a name="RecommendationStateType"></a>
+## [RecommendationStateType](./UI.xml#L1702:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -1027,7 +1092,8 @@ Allowed Value|Description
 [1](./UI.xml#L1713:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|highlighted - without human input and with recommendation
 [2](./UI.xml#L1717:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|warning - with human or default input and with recommendation
 
-## <a name="RecommendationListType"></a>[RecommendationListType](./UI.xml#L1732:~:text=<ComplexType%20Name="-,RecommendationListType,-")
+<a name="RecommendationListType"></a>
+## [RecommendationListType](./UI.xml#L1732:~:text=<ComplexType%20Name="-,RecommendationListType,-")
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
@@ -1038,7 +1104,8 @@ Property|Type|Description
 [RankProperty](./UI.xml#L1740:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
 [Binding](./UI.xml#L1743:~:text=<ComplexType%20Name="-,RecommendationListType,-")|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
-## <a name="RecommendationBinding"></a>[RecommendationBinding](./UI.xml#L1748:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
+<a name="RecommendationBinding"></a>
+## [RecommendationBinding](./UI.xml#L1748:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
 
 
 Property|Type|Description

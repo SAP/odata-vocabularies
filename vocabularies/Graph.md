@@ -12,7 +12,8 @@ Term|Type|Description
 [Details](./Graph.xml#L45:~:text=<Term%20Name="-,Details,-") *([Experimental](Common.md#Experimental))*|[DetailsType](#DetailsType)|<a name="Details"></a>Graph-specific details for error responses
 [CompositionRoot](./Graph.xml#L64:~:text=<Term%20Name="-,CompositionRoot,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CompositionRoot"></a>The annotated entity type is the root type of a composition tree.
 
-## <a name="DetailsType"></a>[DetailsType](./Graph.xml#L50:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*
+<a name="DetailsType"></a>
+## [DetailsType](./Graph.xml#L50:~:text=<ComplexType%20Name="-,DetailsType,-") *([Experimental](Common.md#Experimental))*
 Graph-specific details for error responses
 
 Property|Type|Description

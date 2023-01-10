@@ -19,7 +19,8 @@ Term|Type|Description
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 [UpdateAction](./Analytics.xml#L170:~:text=<Term%20Name="-,UpdateAction,-") *([Experimental](Common.md#Experimental))*|[UpdateActionType](#UpdateActionType)|<a name="UpdateAction"></a>Action for updating an aggregate entity ([Example](./Analytics.xml#L181))<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]). Such a transient entity may be annotated with this term to describe a service-defined action that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
 
-## <a name="AggregatedPropertyType"></a>[AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
+<a name="AggregatedPropertyType"></a>
+## [AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
 
 
 Property|Type|Description
@@ -32,7 +33,8 @@ Property|Type|Description
 
 - [Label](Common.md#Label)
 
-## <a name="AnalyticalContextType"></a>[AnalyticalContextType](./Analytics.xml#L145:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")
+<a name="AnalyticalContextType"></a>
+## [AnalyticalContextType](./Analytics.xml#L145:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")
 Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description

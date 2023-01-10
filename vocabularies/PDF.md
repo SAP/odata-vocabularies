@@ -12,7 +12,8 @@ Term|Type|Description
 :---|:---|:----------
 [Features](./PDF.xml#L38:~:text=<Term%20Name="-,Features,-")|[FeaturesType](#FeaturesType)|<a name="Features"></a>Features for the PDF
 
-## <a name="FeaturesType"></a>[FeaturesType](./PDF.xml#L42:~:text=<ComplexType%20Name="-,FeaturesType,-")
+<a name="FeaturesType"></a>
+## [FeaturesType](./PDF.xml#L42:~:text=<ComplexType%20Name="-,FeaturesType,-")
 
 
 Property|Type|Description

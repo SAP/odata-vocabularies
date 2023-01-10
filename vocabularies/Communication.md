@@ -24,7 +24,8 @@ Term|Type|Description
 [Task](./Communication.xml#L326:~:text=<Term%20Name="-,Task,-")|[TaskData?](#TaskData)|<a name="Task"></a>Task list entry
 [Message](./Communication.xml#L351:~:text=<Term%20Name="-,Message,-")|[MessageData?](#MessageData)|<a name="Message"></a>Email message
 
-## <a name="ContactType"></a>[ContactType](./Communication.xml#L43:~:text=<ComplexType%20Name="-,ContactType,-")
+<a name="ContactType"></a>
+## [ContactType](./Communication.xml#L43:~:text=<ComplexType%20Name="-,ContactType,-")
 
 
 Property|Type|Description
@@ -48,7 +49,8 @@ Property|Type|Description
 [geo](./Communication.xml#L97:~:text=<ComplexType%20Name="-,ContactType,-")|\[[GeoDataType](#GeoDataType)\]|Geographic locations
 [url](./Communication.xml#L100:~:text=<ComplexType%20Name="-,ContactType,-")|\[[UrlType](#UrlType)\]|URLs
 
-## <a name="NameType"></a>[NameType](./Communication.xml#L106:~:text=<ComplexType%20Name="-,NameType,-")
+<a name="NameType"></a>
+## [NameType](./Communication.xml#L106:~:text=<ComplexType%20Name="-,NameType,-")
 
 
 Property|Type|Description
@@ -59,7 +61,8 @@ Property|Type|Description
 [prefix](./Communication.xml#L116:~:text=<ComplexType%20Name="-,NameType,-")|String?|Honorific prefix(es)
 [suffix](./Communication.xml#L119:~:text=<ComplexType%20Name="-,NameType,-")|String?|Honorific suffix(es)
 
-## <a name="AddressType"></a>[AddressType](./Communication.xml#L127:~:text=<ComplexType%20Name="-,AddressType,-")
+<a name="AddressType"></a>
+## [AddressType](./Communication.xml#L127:~:text=<ComplexType%20Name="-,AddressType,-")
 
 
 Property|Type|Description
@@ -77,7 +80,8 @@ Property|Type|Description
 [label](./Communication.xml#L159:~:text=<ComplexType%20Name="-,AddressType,-")|String?|Delivery address label; plain-text string representing the formatted address, may contain line breaks
 [type](./Communication.xml#L162:~:text=<ComplexType%20Name="-,AddressType,-")|[ContactInformationType?](#ContactInformationType)|Address type
 
-## <a name="PhoneNumberType"></a>[PhoneNumberType](./Communication.xml#L167:~:text=<ComplexType%20Name="-,PhoneNumberType,-")
+<a name="PhoneNumberType"></a>
+## [PhoneNumberType](./Communication.xml#L167:~:text=<ComplexType%20Name="-,PhoneNumberType,-")
 
 
 Property|Type|Description
@@ -85,7 +89,8 @@ Property|Type|Description
 [uri](./Communication.xml#L168:~:text=<ComplexType%20Name="-,PhoneNumberType,-")|URL?|This SHOULD use the tel: URL schema defined in RFC3966
 [type](./Communication.xml#L172:~:text=<ComplexType%20Name="-,PhoneNumberType,-")|[PhoneType?](#PhoneType)|Telephone type
 
-## <a name="EmailAddressType"></a>[EmailAddressType](./Communication.xml#L177:~:text=<ComplexType%20Name="-,EmailAddressType,-")
+<a name="EmailAddressType"></a>
+## [EmailAddressType](./Communication.xml#L177:~:text=<ComplexType%20Name="-,EmailAddressType,-")
 
 
 Property|Type|Description
@@ -93,7 +98,8 @@ Property|Type|Description
 [address](./Communication.xml#L178:~:text=<ComplexType%20Name="-,EmailAddressType,-")|String?|Email address
 [type](./Communication.xml#L181:~:text=<ComplexType%20Name="-,EmailAddressType,-")|[ContactInformationType?](#ContactInformationType)|Address type
 
-## <a name="GeoDataType"></a>[GeoDataType](./Communication.xml#L186:~:text=<ComplexType%20Name="-,GeoDataType,-")
+<a name="GeoDataType"></a>
+## [GeoDataType](./Communication.xml#L186:~:text=<ComplexType%20Name="-,GeoDataType,-")
 
 
 Property|Type|Description
@@ -101,7 +107,8 @@ Property|Type|Description
 [uri](./Communication.xml#L187:~:text=<ComplexType%20Name="-,GeoDataType,-")|URL?|This SHOULD use the geo: URL schema defined in RFC5870 which encodes the same information as an Edm.GeographyPoint
 [type](./Communication.xml#L191:~:text=<ComplexType%20Name="-,GeoDataType,-")|[ContactInformationType?](#ContactInformationType)|Address type
 
-## <a name="UrlType"></a>[UrlType](./Communication.xml#L196:~:text=<ComplexType%20Name="-,UrlType,-")
+<a name="UrlType"></a>
+## [UrlType](./Communication.xml#L196:~:text=<ComplexType%20Name="-,UrlType,-")
 
 
 Property|Type|Description
@@ -109,7 +116,8 @@ Property|Type|Description
 [uri](./Communication.xml#L197:~:text=<ComplexType%20Name="-,UrlType,-")|URL?|This MUST use the URL schema defined in RFC3986
 [type](./Communication.xml#L201:~:text=<ComplexType%20Name="-,UrlType,-")|[ContactInformationType?](#ContactInformationType)|URL type
 
-## <a name="KindType"></a>[KindType](./Communication.xml#L206:~:text=<EnumType%20Name="-,KindType,-")
+<a name="KindType"></a>
+## [KindType](./Communication.xml#L206:~:text=<EnumType%20Name="-,KindType,-")
 
 
 Member|Value|Description
@@ -119,7 +127,8 @@ Member|Value|Description
 [org](./Communication.xml#L213:~:text=<EnumType%20Name="-,KindType,-")|2|An organization
 [location](./Communication.xml#L216:~:text=<EnumType%20Name="-,KindType,-")|3|A named geographical place
 
-## <a name="ContactInformationType"></a>[ContactInformationType](./Communication.xml#L221:~:text=<EnumType%20Name="-,ContactInformationType,-")
+<a name="ContactInformationType"></a>
+## [ContactInformationType](./Communication.xml#L221:~:text=<EnumType%20Name="-,ContactInformationType,-")
 
 
 Flag Member|Value|Description
@@ -128,7 +137,8 @@ Flag Member|Value|Description
 [home](./Communication.xml#L225:~:text=<EnumType%20Name="-,ContactInformationType,-")|2|Related to an indivdual's personal life
 [preferred](./Communication.xml#L228:~:text=<EnumType%20Name="-,ContactInformationType,-")|4|Preferred-use contact information
 
-## <a name="PhoneType"></a>[PhoneType](./Communication.xml#L233:~:text=<EnumType%20Name="-,PhoneType,-")
+<a name="PhoneType"></a>
+## [PhoneType](./Communication.xml#L233:~:text=<EnumType%20Name="-,PhoneType,-")
 
 
 Flag Member|Value|Description
@@ -141,7 +151,8 @@ Flag Member|Value|Description
 [fax](./Communication.xml#L249:~:text=<EnumType%20Name="-,PhoneType,-")|32|Facsimile telephone number
 [video](./Communication.xml#L252:~:text=<EnumType%20Name="-,PhoneType,-")|64|Video conferencing telephone number
 
-## <a name="GenderType"></a>[GenderType](./Communication.xml#L257:~:text=<EnumType%20Name="-,GenderType,-")
+<a name="GenderType"></a>
+## [GenderType](./Communication.xml#L257:~:text=<EnumType%20Name="-,GenderType,-")
 
 
 Member|Value|Description
@@ -152,7 +163,8 @@ Member|Value|Description
 [N](./Communication.xml#L267:~:text=<EnumType%20Name="-,GenderType,-")|3|not applicable
 [U](./Communication.xml#L270:~:text=<EnumType%20Name="-,GenderType,-")|4|unknown
 
-## <a name="EventData"></a>[EventData](./Communication.xml#L287:~:text=<ComplexType%20Name="-,EventData,-")
+<a name="EventData"></a>
+## [EventData](./Communication.xml#L287:~:text=<ComplexType%20Name="-,EventData,-")
 
 
 Property|Type|Description
@@ -170,7 +182,8 @@ Property|Type|Description
 [wholeday](./Communication.xml#L318:~:text=<ComplexType%20Name="-,EventData,-")|Boolean?|Wholeday event
 [fbtype](./Communication.xml#L321:~:text=<ComplexType%20Name="-,EventData,-")|String?|Free or busy time type, e.g. FREE, BUSY, BUSY-TENTATIVE
 
-## <a name="TaskData"></a>[TaskData](./Communication.xml#L330:~:text=<ComplexType%20Name="-,TaskData,-")
+<a name="TaskData"></a>
+## [TaskData](./Communication.xml#L330:~:text=<ComplexType%20Name="-,TaskData,-")
 
 
 Property|Type|Description
@@ -182,7 +195,8 @@ Property|Type|Description
 [percentcomplete](./Communication.xml#L343:~:text=<ComplexType%20Name="-,TaskData,-")|Byte?|Percent completion of a to-do, e.g. 50 for half done
 [priority](./Communication.xml#L346:~:text=<ComplexType%20Name="-,TaskData,-")|Byte?|Relative priority, 0 = undefined, 1 = highest, 9 = lowest
 
-## <a name="MessageData"></a>[MessageData](./Communication.xml#L355:~:text=<ComplexType%20Name="-,MessageData,-")
+<a name="MessageData"></a>
+## [MessageData](./Communication.xml#L355:~:text=<ComplexType%20Name="-,MessageData,-")
 
 
 Property|Type|Description
