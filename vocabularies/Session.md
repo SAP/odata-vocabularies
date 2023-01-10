@@ -45,7 +45,8 @@ Term|Type|Description
 :---|:---|:----------
 [StickySessionSupported](./Session.xml#L71:~:text=<Term%20Name="-,StickySessionSupported,-")|[StickySessionSupportedType](#StickySessionSupportedType)|<a name="StickySessionSupported"></a>The annotated entity set allows data modification only within a sticky session ([Example](./Session.xml#L73))
 
-## <a name="StickySessionSupportedType"></a>[StickySessionSupportedType](./Session.xml#L86:~:text=<ComplexType%20Name="-,StickySessionSupportedType,-")
+<a name="StickySessionSupportedType"></a>
+## [StickySessionSupportedType](./Session.xml#L86:~:text=<ComplexType%20Name="-,StickySessionSupportedType,-")
 Actions for managing data modification within a sticky session
 
 Property|Type|Description

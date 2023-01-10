@@ -34,7 +34,8 @@ Term|Type|Description
 [IsPotentiallyPersonal](./PersonalData.xml#L186:~:text=<Term%20Name="-,IsPotentiallyPersonal,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsPotentiallyPersonal"></a>Property contains potentially personal data<br>Personal data is information relating to an identified or identifiable natural person (data subject).<br/>Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.<br/>See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)
 [IsPotentiallySensitive](./PersonalData.xml#L197:~:text=<Term%20Name="-,IsPotentiallySensitive,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsPotentiallySensitive"></a>Property contains potentially sensitive personal data<br>Sensitive data is a colloquial term usually including the following data:<br/>- Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation<br/>- Personal data subject to professional secrecy<br/>- Personal data relating to criminal or administrative offences<br/>- Personal data concerning bank or credit card accounts<br/>See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)
 
-## <a name="EntitySemanticsType"></a>[EntitySemanticsType](./PersonalData.xml#L78:~:text=<TypeDefinition%20Name="-,EntitySemanticsType,-")
+<a name="EntitySemanticsType"></a>
+## [EntitySemanticsType](./PersonalData.xml#L78:~:text=<TypeDefinition%20Name="-,EntitySemanticsType,-")
 **Type:** String
 
 Primary meaning of the data contained in the annotated entity set
@@ -45,7 +46,8 @@ Allowed Value|Description
 [DataSubjectDetails](./PersonalData.xml#L91:~:text=<TypeDefinition%20Name="-,EntitySemanticsType,-")|Entities containing details to a data subject (an identified or identifiable natural person) but not representing data subjects by themselves, e.g. street addresses, email addresses, phone numbers<br>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).
 [Other](./PersonalData.xml#L100:~:text=<TypeDefinition%20Name="-,EntitySemanticsType,-")|Entities containing personal data or references to data subjects but not representing data subjects or data subject details by themselves, e.g. customer quote, customer order, purchase order with involved business partners<br>These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics).
 
-## <a name="FieldSemanticsType"></a>[FieldSemanticsType](./PersonalData.xml#L117:~:text=<TypeDefinition%20Name="-,FieldSemanticsType,-")
+<a name="FieldSemanticsType"></a>
+## [FieldSemanticsType](./PersonalData.xml#L117:~:text=<TypeDefinition%20Name="-,FieldSemanticsType,-")
 **Type:** String
 
 Primary meaning of a data field
