@@ -10,7 +10,8 @@ Term|Type|Description
 :---|:---|:----------
 [SideEffects](./DirectEdit.xml#L38:~:text=<Term%20Name="-,SideEffects,-") *([Experimental](Common.md#Experimental))*|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Determine side effects of client-side data modification
 
-## <a name="SideEffectsType"></a>[SideEffectsType](./DirectEdit.xml#L43:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*
+<a name="SideEffectsType"></a>
+## [SideEffectsType](./DirectEdit.xml#L43:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*
 
 
 After a change to a property whose path is contained in `Triggers`, the client should pass the entity with the changed property to the `CalculationFunction` and receive the entity with all changes that happen as side effects of the given change.
