@@ -15,7 +15,8 @@ Term|Type|Description
 [SourceSystem](./DataIntegration.xml#L66:~:text=<Term%20Name="-,SourceSystem,-")|String|<a name="SourceSystem"></a>Identifier that classifies the type of the source system<br>The original type name used in annotation OriginalDataType depend are specific to different source system. Sourc system type ABAP uses other type names as source system type HANA.
 [DeltaMethod](./DataIntegration.xml#L83:~:text=<Term%20Name="-,DeltaMethod,-")|[DeltaMethodType](#DeltaMethodType)|<a name="DeltaMethod"></a>Defines which delta method the entity set supports. Only evaluated if Capabilities.ChangeTracking/Supported is true
 
-## <a name="DeltaMethodType"></a>[DeltaMethodType](./DataIntegration.xml#L71:~:text=<EnumType%20Name="-,DeltaMethodType,-")
+<a name="DeltaMethodType"></a>
+## [DeltaMethodType](./DataIntegration.xml#L71:~:text=<EnumType%20Name="-,DeltaMethodType,-")
 
 
 Flag Member|Value|Description

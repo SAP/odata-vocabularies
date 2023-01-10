@@ -15,13 +15,15 @@ Term|Type|Description
 :---|:---|:----------
 [ClientOnly](./Offline.xml#L37:~:text=<Term%20Name="-,ClientOnly,-") *([Experimental](Common.md#Experimental))*|[ClientOnlyType](#ClientOnlyType)|<a name="ClientOnly"></a>The annotated model element exists only on client devices<br>Occasionally a customer will want to store additional “client-only” entities in the same database. The easiest way to accommodate this is for the client to extend the backend-returned $metadata (upon which the local persistence is based) and to mark some entities as client-only so that the client won’t attempt to upload any changes that are made to them locally. The service as implemented on the server is described by the CSDL document if all elements annotated with `Offline.ClientOnly` are removed together with all subsequently dangling references.
 
-## <a name="ClientOnlyType"></a>[ClientOnlyType](./Offline.xml#L51:~:text=<ComplexType%20Name="-,ClientOnlyType,-") *([Experimental](Common.md#Experimental))*
+<a name="ClientOnlyType"></a>
+## [ClientOnlyType](./Offline.xml#L51:~:text=<ComplexType%20Name="-,ClientOnlyType,-") *([Experimental](Common.md#Experimental))*
 Tag type for annotating client-only model elements.
 
 **Derived Types:**
 - [LocalDraft](#LocalDraft)
 
-## <a name="LocalDraft"></a>[LocalDraft](./Offline.xml#L55:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
+<a name="LocalDraft"></a>
+## [LocalDraft](./Offline.xml#L55:~:text=<ComplexType%20Name="-,LocalDraft,-"): [ClientOnlyType](#ClientOnlyType) *([Experimental](Common.md#Experimental))*
 Marks a local draft version of an entity set, which uses the same entity type as a non-draft entity set defined in the backend defined metadata
 
 
