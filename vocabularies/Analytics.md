@@ -45,7 +45,8 @@ Property|Type|Description
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
-## <a name="UpdateActionType"></a>[UpdateActionType](./Analytics.xml#L192:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
+<a name="UpdateActionType"></a>
+## [UpdateActionType](./Analytics.xml#L192:~:text=<ComplexType%20Name="-,UpdateActionType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
