@@ -14,7 +14,8 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="TopLevels"></a>[TopLevels](./Hierarchy.xml#L173:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
+<a name="TopLevels"></a>
+### [TopLevels](./Hierarchy.xml#L173:~:text=<Function%20Name="-,TopLevels,-") *([Experimental](Common.md#Experimental))*
 
 Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed
 
