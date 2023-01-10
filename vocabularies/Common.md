@@ -110,7 +110,8 @@ Term|Type|Description
 [PrimitivePropertyPath](./Common.xml#L1438:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1443:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
 
-## <a name="TextFormatType"></a>[TextFormatType](./Common.xml#L111:~:text=<EnumType%20Name="-,TextFormatType,-")
+<a name="TextFormatType"></a>
+## [TextFormatType](./Common.xml#L111:~:text=<EnumType%20Name="-,TextFormatType,-")
 
 
 Member|Value|Description
@@ -118,7 +119,8 @@ Member|Value|Description
 [plain](./Common.xml#L112:~:text=<EnumType%20Name="-,TextFormatType,-")|0|Plain text, line breaks represented as the character 0x0A
 [html](./Common.xml#L115:~:text=<EnumType%20Name="-,TextFormatType,-")|1|Plain text with markup that can validly appear directly within an HTML DIV element
 
-## <a name="SemanticObjectMappingType"></a>[SemanticObjectMappingType](./Common.xml#L276:~:text=<ComplexType%20Name="-,SemanticObjectMappingType,-")
+<a name="SemanticObjectMappingType"></a>
+## [SemanticObjectMappingType](./Common.xml#L276:~:text=<ComplexType%20Name="-,SemanticObjectMappingType,-")
 Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object
 
 Property|Type|Description
@@ -126,13 +128,16 @@ Property|Type|Description
 [LocalProperty](./Common.xml#L278:~:text=<ComplexType%20Name="-,SemanticObjectMappingType,-")|PropertyPath|Path to a local property that provides the value for the Semantic Object property
 [SemanticObjectProperty](./Common.xml#L281:~:text=<ComplexType%20Name="-,SemanticObjectMappingType,-")|String|Name of the Semantic Object property
 
-## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](./Common.xml#L330:~:text=<ComplexType%20Name="-,FilterExpressionRestrictionType,-") *(Deprecated)*
+<a name="FilterExpressionRestrictionType"></a>
+## [FilterExpressionRestrictionType](./Common.xml#L330:~:text=<ComplexType%20Name="-,FilterExpressionRestrictionType,-") *(Deprecated)*
 Use term Capabilities.FilterRestrictions instead
 
-## <a name="FilterExpressionType"></a>[FilterExpressionType](./Common.xml#L342:~:text=<EnumType%20Name="-,FilterExpressionType,-") *(Deprecated)*
+<a name="FilterExpressionType"></a>
+## [FilterExpressionType](./Common.xml#L342:~:text=<EnumType%20Name="-,FilterExpressionType,-") *(Deprecated)*
 Use term Capabilities.FilterRestrictions instead
 
-## <a name="FieldControlType"></a>[FieldControlType](./Common.xml#L367:~:text=<EnumType%20Name="-,FieldControlType,-")
+<a name="FieldControlType"></a>
+## [FieldControlType](./Common.xml#L367:~:text=<EnumType%20Name="-,FieldControlType,-")
 Control state of a property
 
 Member|Value|Description
@@ -143,7 +148,8 @@ Member|Value|Description
 [Inapplicable](./Common.xml#L381:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Property has no meaning in the current entity state<br>This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
 [Hidden](./Common.xml#L389:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
 
-## <a name="ApplicationType"></a>[ApplicationType](./Common.xml#L405:~:text=<ComplexType%20Name="-,ApplicationType,-") *([Experimental](Common.md#Experimental))*
+<a name="ApplicationType"></a>
+## [ApplicationType](./Common.xml#L405:~:text=<ComplexType%20Name="-,ApplicationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
@@ -153,7 +159,8 @@ Property|Type|Description
 [ServiceId](./Common.xml#L413:~:text=<ComplexType%20Name="-,ApplicationType,-")|String?|...
 [ServiceVersion](./Common.xml#L416:~:text=<ComplexType%20Name="-,ApplicationType,-")|String?|...
 
-## <a name="ErrorResolutionType"></a>[ErrorResolutionType](./Common.xml#L435:~:text=<ComplexType%20Name="-,ErrorResolutionType,-") *([Experimental](Common.md#Experimental))*
+<a name="ErrorResolutionType"></a>
+## [ErrorResolutionType](./Common.xml#L435:~:text=<ComplexType%20Name="-,ErrorResolutionType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
@@ -162,7 +169,8 @@ Property|Type|Description
 [Note](./Common.xml#L440:~:text=<ComplexType%20Name="-,ErrorResolutionType,-")|String?|Note for error resolution
 [AdditionalNote](./Common.xml#L443:~:text=<ComplexType%20Name="-,ErrorResolutionType,-")|String?|Additional note for error resolution
 
-## <a name="NumericMessageSeverityType"></a>[NumericMessageSeverityType](./Common.xml#L493:~:text=<TypeDefinition%20Name="-,NumericMessageSeverityType,-")
+<a name="NumericMessageSeverityType"></a>
+## [NumericMessageSeverityType](./Common.xml#L493:~:text=<TypeDefinition%20Name="-,NumericMessageSeverityType,-")
 **Type:** Byte
 
 Classifies an end-user message as info, success, warning, or error
@@ -174,7 +182,8 @@ Allowed Value|Description
 [3](./Common.xml#L505:~:text=<TypeDefinition%20Name="-,NumericMessageSeverityType,-")|Warning - action may be required
 [4](./Common.xml#L509:~:text=<TypeDefinition%20Name="-,NumericMessageSeverityType,-")|Error - action is required
 
-## <a name="IntervalType"></a>[IntervalType](./Common.xml#L532:~:text=<ComplexType%20Name="-,IntervalType,-")
+<a name="IntervalType"></a>
+## [IntervalType](./Common.xml#L532:~:text=<ComplexType%20Name="-,IntervalType,-")
 
 
 Property|Type|Description
@@ -184,14 +193,16 @@ Property|Type|Description
 [UpperBoundary](./Common.xml#L539:~:text=<ComplexType%20Name="-,IntervalType,-")|PropertyPath|Property holding the upper interval boundary
 [UpperBoundaryIncluded](./Common.xml#L542:~:text=<ComplexType%20Name="-,IntervalType,-")|Boolean|The upper boundary value is included in the interval
 
-## <a name="SAPObjectNodeTypeType"></a>[SAPObjectNodeTypeType](./Common.xml#L563:~:text=<ComplexType%20Name="-,SAPObjectNodeTypeType,-") *([Experimental](Common.md#Experimental))*
+<a name="SAPObjectNodeTypeType"></a>
+## [SAPObjectNodeTypeType](./Common.xml#L563:~:text=<ComplexType%20Name="-,SAPObjectNodeTypeType,-") *([Experimental](Common.md#Experimental))*
 Information about an SAP Object Node Type
 
 Property|Type|Description
 :-------|:---|:----------
 [Name](./Common.xml#L566:~:text=<ComplexType%20Name="-,SAPObjectNodeTypeType,-")|String|The name of the SAP Object Node Type
 
-## <a name="ValueListType"></a>[ValueListType](./Common.xml#L595:~:text=<ComplexType%20Name="-,ValueListType,-")
+<a name="ValueListType"></a>
+## [ValueListType](./Common.xml#L595:~:text=<ComplexType%20Name="-,ValueListType,-")
 
 
 Property|Type|Description
@@ -210,7 +221,8 @@ Property|Type|Description
 
 - [QuickInfo](#QuickInfo)
 
-## <a name="FetchValuesType"></a>[FetchValuesType](./Common.xml#L649:~:text=<TypeDefinition%20Name="-,FetchValuesType,-")
+<a name="FetchValuesType"></a>
+## [FetchValuesType](./Common.xml#L649:~:text=<TypeDefinition%20Name="-,FetchValuesType,-")
 **Type:** Byte
 
 Hint on when to fetch values
@@ -220,7 +232,8 @@ Allowed Value|Description
 [1](./Common.xml#L653:~:text=<TypeDefinition%20Name="-,FetchValuesType,-")|Fetch values immediately without filter
 [2](./Common.xml#L657:~:text=<TypeDefinition%20Name="-,FetchValuesType,-")|Fetch values with a filter
 
-## <a name="ValueListMappingType"></a>[ValueListMappingType](./Common.xml#L689:~:text=<ComplexType%20Name="-,ValueListMappingType,-")
+<a name="ValueListMappingType"></a>
+## [ValueListMappingType](./Common.xml#L689:~:text=<ComplexType%20Name="-,ValueListMappingType,-")
 
 
 Property|Type|Description
@@ -237,7 +250,8 @@ Property|Type|Description
 
 - [QuickInfo](#QuickInfo)
 
-## <a name="ValueListParameter"></a>[*ValueListParameter*](./Common.xml#L721:~:text=<ComplexType%20Name="-,ValueListParameter,-")
+<a name="ValueListParameter"></a>
+## [*ValueListParameter*](./Common.xml#L721:~:text=<ComplexType%20Name="-,ValueListParameter,-")
 
 
 **Derived Types:**
@@ -252,7 +266,8 @@ Property|Type|Description
 :-------|:---|:----------
 [ValueListProperty](./Common.xml#L722:~:text=<ComplexType%20Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 
-## <a name="ValueListParameterIn"></a>[ValueListParameterIn](./Common.xml#L726:~:text=<ComplexType%20Name="-,ValueListParameterIn,-"): [ValueListParameter](#ValueListParameter)
+<a name="ValueListParameterIn"></a>
+## [ValueListParameterIn](./Common.xml#L726:~:text=<ComplexType%20Name="-,ValueListParameterIn,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
@@ -261,7 +276,8 @@ Property|Type|Description
 [LocalDataProperty](./Common.xml#L727:~:text=<ComplexType%20Name="-,ValueListParameterIn,-")|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
 [InitialValueIsSignificant](./Common.xml#L730:~:text=<ComplexType%20Name="-,ValueListParameterIn,-")|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
-## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](./Common.xml#L734:~:text=<ComplexType%20Name="-,ValueListParameterConstant,-"): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
+<a name="ValueListParameterConstant"></a>
+## [ValueListParameterConstant](./Common.xml#L734:~:text=<ComplexType%20Name="-,ValueListParameterConstant,-"): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
@@ -269,7 +285,8 @@ Property|Type|Description
 [*ValueListProperty*](./Common.xml#L722:~:text=<ComplexType%20Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [Constant](./Common.xml#L736:~:text=<ComplexType%20Name="-,ValueListParameterConstant,-")|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
 
-## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](./Common.xml#L740:~:text=<ComplexType%20Name="-,ValueListParameterInOut,-"): [ValueListParameter](#ValueListParameter)
+<a name="ValueListParameterInOut"></a>
+## [ValueListParameterInOut](./Common.xml#L740:~:text=<ComplexType%20Name="-,ValueListParameterInOut,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
@@ -282,7 +299,8 @@ Property|Type|Description
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterOut"></a>[ValueListParameterOut](./Common.xml#L753:~:text=<ComplexType%20Name="-,ValueListParameterOut,-"): [ValueListParameter](#ValueListParameter)
+<a name="ValueListParameterOut"></a>
+## [ValueListParameterOut](./Common.xml#L753:~:text=<ComplexType%20Name="-,ValueListParameterOut,-"): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
@@ -294,7 +312,8 @@ Property|Type|Description
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterDisplayOnly"></a>[ValueListParameterDisplayOnly](./Common.xml#L763:~:text=<ComplexType%20Name="-,ValueListParameterDisplayOnly,-"): [ValueListParameter](#ValueListParameter)
+<a name="ValueListParameterDisplayOnly"></a>
+## [ValueListParameterDisplayOnly](./Common.xml#L763:~:text=<ComplexType%20Name="-,ValueListParameterDisplayOnly,-"): [ValueListParameter](#ValueListParameter)
 Value list property that is not used to fill the edited entity
 
 Property|Type|Description
@@ -305,10 +324,12 @@ Property|Type|Description
 
 - [Importance](UI.md#Importance)
 
-## <a name="ValueListParameterFilterOnly"></a>[ValueListParameterFilterOnly](./Common.xml#L771:~:text=<ComplexType%20Name="-,ValueListParameterFilterOnly,-"): [ValueListParameter](#ValueListParameter) *(Deprecated)*
+<a name="ValueListParameterFilterOnly"></a>
+## [ValueListParameterFilterOnly](./Common.xml#L771:~:text=<ComplexType%20Name="-,ValueListParameterFilterOnly,-"): [ValueListParameter](#ValueListParameter) *(Deprecated)*
 All filterable properties of the value list can be used to filter
 
-## <a name="DraftRootType"></a>[DraftRootType](./Common.xml#L991:~:text=<ComplexType%20Name="-,DraftRootType,-"): [DraftNodeType](#DraftNodeType)
+<a name="DraftRootType"></a>
+## [DraftRootType](./Common.xml#L991:~:text=<ComplexType%20Name="-,DraftRootType,-"): [DraftNodeType](#DraftNodeType)
 
 
 Property|Type|Description
@@ -323,7 +344,8 @@ Property|Type|Description
 [AdditionalNewActions](./Common.xml#L1020:~:text=<ComplexType%20Name="-,DraftRootType,-")|\[[QualifiedName](#QualifiedName)\]|Additional actions beside the default POST or standard `NewAction`that create a new draft<br>The actions are bound to the draft document root entity set and have the following signature:<br/> - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
 [ShareAction](./Common.xml#L1028:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that shares a draft document with other users and restricts access to the listed users in their specified roles<br>The action is bound to the draft document root node and has the following signature:<br/> - `Users`: collection of structure with properties<br/>   ◦ `UserID` of type `String`<br/>   ◦ `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)<br/> - `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users
 
-## <a name="DraftNodeType"></a>[DraftNodeType](./Common.xml#L1050:~:text=<ComplexType%20Name="-,DraftNodeType,-")
+<a name="DraftNodeType"></a>
+## [DraftNodeType](./Common.xml#L1050:~:text=<ComplexType%20Name="-,DraftNodeType,-")
 
 
 **Derived Types:**
@@ -334,15 +356,18 @@ Property|Type|Description
 [PreparationAction](./Common.xml#L1051:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Preparation is always called on the draft root node
 [ValidationFunction](./Common.xml#L1062:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Common.xml#L1083:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-") *(Deprecated)*
+<a name="SimpleIdentifier"></a>
+## [SimpleIdentifier](./Common.xml#L1083:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-") *(Deprecated)*
 Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead
 
-## <a name="QualifiedName"></a>[QualifiedName](./Common.xml#L1095:~:text=<TypeDefinition%20Name="-,QualifiedName,-")
+<a name="QualifiedName"></a>
+## [QualifiedName](./Common.xml#L1095:~:text=<TypeDefinition%20Name="-,QualifiedName,-")
 **Type:** String
 
 The QualifiedName of an OData construct in scope
 
-## <a name="ActionOverload"></a>[ActionOverload](./Common.xml#L1099:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
+<a name="ActionOverload"></a>
+## [ActionOverload](./Common.xml#L1099:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
 **Type:** String
 
 The qualified name of an action with an optional overload
@@ -351,7 +376,8 @@ The qualified name of an action followed by parentheses
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
-## <a name="SideEffectsType"></a>[SideEffectsType](./Common.xml#L1116:~:text=<ComplexType%20Name="-,SideEffectsType,-")
+<a name="SideEffectsType"></a>
+## [SideEffectsType](./Common.xml#L1116:~:text=<ComplexType%20Name="-,SideEffectsType,-")
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -374,10 +400,12 @@ Property|Type|Description
 [TriggeredIndicator](./Common.xml#L1156:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
 [Discretionary](./Common.xml#L1161:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
 
-## <a name="EffectType"></a>[EffectType](./Common.xml#L1167:~:text=<EnumType%20Name="-,EffectType,-") *(Deprecated)*
+<a name="EffectType"></a>
+## [EffectType](./Common.xml#L1167:~:text=<EnumType%20Name="-,EffectType,-") *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
 
-## <a name="SortOrderType"></a>[SortOrderType](./Common.xml#L1292:~:text=<ComplexType%20Name="-,SortOrderType,-")
+<a name="SortOrderType"></a>
+## [SortOrderType](./Common.xml#L1292:~:text=<ComplexType%20Name="-,SortOrderType,-")
 Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
@@ -386,10 +414,12 @@ Property|Type|Description
 [DynamicProperty](./Common.xml#L1306:~:text=<ComplexType%20Name="-,SortOrderType,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](Analytics.md#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
 [Descending](./Common.xml#L1320:~:text=<ComplexType%20Name="-,SortOrderType,-")|Boolean?|Sort direction, ascending if not specified otherwise
 
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Common.xml#L1353:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *(Deprecated)*
+<a name="RecursiveHierarchyType"></a>
+## [RecursiveHierarchyType](./Common.xml#L1353:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *(Deprecated)*
 Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
 
-## <a name="UserID"></a>[UserID](./Common.xml#L1404:~:text=<TypeDefinition%20Name="-,UserID,-")
+<a name="UserID"></a>
+## [UserID](./Common.xml#L1404:~:text=<TypeDefinition%20Name="-,UserID,-")
 **Type:** String
 
 User ID

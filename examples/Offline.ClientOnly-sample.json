@@ -20,7 +20,7 @@
     },
     "SalesOrderItemType": {
       "$Kind": "EntityType",
-      "@Offline.ClientOnly": true,
+      "@Offline.ClientOnly": {},
       "$Key": ["SalesOrder", "SalesOrderItem"],
       "SalesOrder": { "$MaxLength": 32 },
       "SalesOrderItem": { "$MaxLength": 6 },
@@ -38,11 +38,28 @@
         "$Type": "client.SalesOrderType",
         "$NavigationPropertyBinding": { "_Item": "SalesOrderItem" }
       },
-      "SalesOrderItem": { "$Collection": true, "$Type": "client.SalesOrderItem" }
+      "SalesOrderItem": { "$Collection": true, "$Type": "client.SalesOrderItem" },
+      "SalesOrderDraft": {
+        "$Collection": true,
+        "$Type": "client.SalesOrderType",
+        "@Offline.ClientOnly": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml#Offline.LocalDraft",
+          "ActiveEntitySet": "SalesOrder"
+        },
+        "$NavigationPropertyBinding": { "_Item": "SalesOrderItemDraft" }
+      },
+      "SalesOrderItemDraft": {
+        "$Collection": true,
+        "$Type": "client.SalesOrderItemType",
+        "@Offline.ClientOnly": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Offline.xml#Offline.LocalDraft",
+          "ActiveEntitySet": "SalesOrderItem"
+        }
+      }
     },
     "$Annotations": {
-      "client.SalesOrderType": { "@Offline.ClientOnly": true },
-      "client.container/SalesOrder": { "@Offline.ClientOnly": true }
+      "client.SalesOrderType": { "@Offline.ClientOnly": {} },
+      "client.container/SalesOrder": { "@Offline.ClientOnly": {} }
     }
   },
   "$EntityContainer": "clientonly.sample.container"

@@ -12,7 +12,8 @@ Term|Type|Description
 :---|:---|:----------
 [CssDefaults](./HTML5.xml#L35:~:text=<Term%20Name="-,CssDefaults,-")|[CssDefaultsType](#CssDefaultsType)|<a name="CssDefaults"></a>CSS definitions that may be used as defaults<br>This term can applied to e.g. UI.DataFieldAbstract records
 
-## <a name="CssDefaultsType"></a>[CssDefaultsType](./HTML5.xml#L40:~:text=<ComplexType%20Name="-,CssDefaultsType,-")
+<a name="CssDefaultsType"></a>
+## [CssDefaultsType](./HTML5.xml#L40:~:text=<ComplexType%20Name="-,CssDefaultsType,-")
 
 
 Property|Type|Description
