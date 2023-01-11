@@ -1303,6 +1303,15 @@
       "@Core.Description": "Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.",
       "@Core.LongDescription": "Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users.\n          The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all.\n          If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations."
     },
+    "AdaptationHidden": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Property", "EntitySet", "EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization",
+      "@Core.LongDescription": "The tagged elements can only be used in UI based on metadata, annnotations or code."
+    },
     "DataFieldDefault": {
       "$Kind": "Term",
       "$Type": "UI.DataFieldAbstract",
