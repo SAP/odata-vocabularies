@@ -1448,6 +1448,12 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
         </Annotation>
       </Term>
 
+      <Term Name="AdaptationHidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntitySet EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization" />
+        <Annotation Term="Core.LongDescription" String="The tagged elements can only be used in UI based on metadata, annnotations or code." />
+      </Term>
+
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization" />
         <Annotation Term="Core.LongDescription" String="Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield." />
