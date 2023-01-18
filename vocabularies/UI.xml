@@ -1389,6 +1389,21 @@ The trend is
         </Member>
       </EnumType>
 
+      <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
+      </Term>
+      <ComplexType Name="NoteType">
+        <Property Name="Title" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Title of the note"/>
+        </Property>
+        <Property Name="MIMEType" Type="Edm.String">
+          <Annotation Term="Core.Description" String="MIME type of the note"/>
+        </Property>
+        <Property Name="Content" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Content of the note, as a string"/>
+        </Property>
+      </ComplexType>
+
       <Term Name="Importance" Type="UI.ImportanceType" Nullable="false" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
       </Term>

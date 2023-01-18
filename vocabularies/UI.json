@@ -1241,6 +1241,18 @@
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
     },
+    "Note": {
+      "$Kind": "Term",
+      "$Type": "UI.NoteType",
+      "$AppliesTo": ["EntityType"],
+      "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes"
+    },
+    "NoteType": {
+      "$Kind": "ComplexType",
+      "Title": { "$Nullable": true, "@Core.Description": "Title of the note" },
+      "MIMEType": { "$Nullable": true, "@Core.Description": "MIME type of the note" },
+      "Content": { "$Nullable": true, "@Core.Description": "Content of the note, as a string" }
+    },
     "Importance": {
       "$Kind": "Term",
       "$Type": "UI.ImportanceType",
