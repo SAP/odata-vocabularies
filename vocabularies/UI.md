@@ -763,9 +763,9 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Title](./UI.xml#L1396:~:text=<ComplexType%20Name="-,NoteType,-")|String?|Title of the note
-[MIMEType](./UI.xml#L1399:~:text=<ComplexType%20Name="-,NoteType,-")|String?|MIME type of the note
-[Content](./UI.xml#L1402:~:text=<ComplexType%20Name="-,NoteType,-")|String?|Content of the note, as a string
+[Title](./UI.xml#L1396:~:text=<ComplexType%20Name="-,NoteType,-")|String|Title of the note
+[MIMEType](./UI.xml#L1399:~:text=<ComplexType%20Name="-,NoteType,-")|String|MIME type of the note
+[Content](./UI.xml#L1402:~:text=<ComplexType%20Name="-,NoteType,-")|String|Content of the note, as a string
 
 <a name="ImportanceType"></a>
 ## [ImportanceType](./UI.xml#L1410:~:text=<EnumType%20Name="-,ImportanceType,-")

@@ -1249,9 +1249,9 @@
     },
     "NoteType": {
       "$Kind": "ComplexType",
-      "Title": { "$Nullable": true, "@Core.Description": "Title of the note" },
-      "MIMEType": { "$Nullable": true, "@Core.Description": "MIME type of the note" },
-      "Content": { "$Nullable": true, "@Core.Description": "Content of the note, as a string" }
+      "Title": { "@Core.Description": "Title of the note" },
+      "MIMEType": { "@Core.Description": "MIME type of the note" },
+      "Content": { "@Core.Description": "Content of the note, as a string" }
     },
     "Importance": {
       "$Kind": "Term",
