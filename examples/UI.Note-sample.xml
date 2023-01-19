@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="Note.example" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
       <EntityType Name="NoteType">
         <Key>
           <PropertyRef Name="NoteBasicUUID" />
@@ -73,6 +76,15 @@
         <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false" />
         <Property Name="longtextUrl" Type="Edm.String" />
       </ComplexType>
+      <Annotations Target="self.NoteType">
+        <Annotation Term="UI.Note">
+          <Record>
+            <PropertyValue Property="Title" Path="NoteBasicTitle" />
+            <PropertyValue Property="MIMEType" Path="NoteBasicMIMEType" />
+            <PropertyValue Property="Content" Path="NoteBasicContent" />
+          </Record>
+        </Annotation>
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

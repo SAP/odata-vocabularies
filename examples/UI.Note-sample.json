@@ -1,6 +1,11 @@
 {
   "$Version": "4.0",
-  "Note.example": {
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    }
+  },
+  "UI.examples": {
     "$Alias": "self",
     "NoteType": {
       "$Kind": "EntityType",
@@ -72,6 +77,15 @@
       "transition": { "$Type": "Edm.Boolean" },
       "numericSeverity": { "$Type": "Edm.Byte" },
       "longtextUrl": { "$Nullable": true }
+    },
+    "$Annotations": {
+      "self.NoteType": {
+        "@UI.Note": {
+          "Title": { "$Path": "NoteBasicTitle" },
+          "MIMEType": { "$Path": "NoteBasicMIMEType" },
+          "Content": { "$Path": "NoteBasicContent" }
+        }
+      }
     }
   }
 }
