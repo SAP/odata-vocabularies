@@ -58,6 +58,14 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type is the root type of a composition tree."
+    },
+    "SourceEntities": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Core.QualifiedName",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Entities of the annotated type are a composed from entities of these source types."
     }
   }
 }

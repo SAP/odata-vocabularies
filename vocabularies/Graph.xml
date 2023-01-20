@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+  <edmx:Reference
+    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
+  <edmx:Reference
+    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
     <edmx:Include Alias="JSON" Namespace="Org.OData.JSON.V1" />
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
@@ -11,7 +13,8 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Graph.v1" Alias="Graph">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+      Namespace="com.sap.vocabularies.Graph.v1" Alias="Graph">
       <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for SAP Graph</String>
@@ -23,15 +26,18 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml" />
+            <PropertyValue Property="href"
+              String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.json" />
+            <PropertyValue Property="href"
+              String="https://sap.github.io/odata-vocabularies/vocabularies/Graph.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md" />
+            <PropertyValue Property="href"
+              String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -39,7 +45,8 @@
       <Term Name="traceId" Type="Edm.String" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries." />
+        <Annotation Term="Core.Description"
+          String="The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries." />
       </Term>
 
       <Term Name="Details" Type="Graph.DetailsType" Nullable="false">
@@ -57,13 +64,23 @@
         </Property>
         <Property Name="body" Type="JSON.JSON">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Request body sent to the business system tenant" />
+          <Annotation Term="Core.Description"
+            String="Request body sent to the business system tenant" />
         </Property>
       </ComplexType>
 
-      <Term Name="CompositionRoot" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
+      <Term Name="CompositionRoot" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type is the root type of a composition tree." />
+        <Annotation Term="Core.Description"
+          String="The annotated entity type is the root type of a composition tree." />
+      </Term>
+
+      <Term Name="SourceEntities" Type="Collection(Core.QualifiedName)"
+        Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description"
+          String="Entities of the annotated type are a composed from entities of these source types." />
       </Term>
 
     </Schema>
