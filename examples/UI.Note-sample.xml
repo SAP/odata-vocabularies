@@ -80,7 +80,7 @@
         <Annotation Term="UI.Note">
           <Record>
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
-            <PropertyValue Property="MIMEType" Path="NoteBasicMIMEType" />
+            <PropertyValue Property="ContentType" Path="NoteBasicMIMEType" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
           </Record>
         </Annotation>

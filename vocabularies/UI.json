@@ -1250,7 +1250,7 @@
     "NoteType": {
       "$Kind": "ComplexType",
       "Title": { "@Core.Description": "Title of the note" },
-      "MIMEType": { "@Core.Description": "MIME type of the note" },
+      "ContentType": { "@Core.IsMediaType": true, "@Core.Description": "MIME type of the note" },
       "Content": { "@Core.Description": "Content of the note, as a string" }
     },
     "Importance": {

@@ -82,7 +82,7 @@
       "self.NoteType": {
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
-          "MIMEType": { "$Path": "NoteBasicMIMEType" },
+          "ContentType": { "$Path": "NoteBasicMIMEType" },
           "Content": { "$Path": "NoteBasicContent" }
         }
       }
