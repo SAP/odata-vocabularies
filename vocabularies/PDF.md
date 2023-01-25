@@ -28,6 +28,6 @@ Property|Type|Description
 [Margin](./PDF.xml#L65:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Margin size
 [Border](./PDF.xml#L68:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Border size of the table
 [FitToPage](./PDF.xml#L71:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Fit to page<br>If this option is selected, the font size is automatically selected in such a way that all columns of a table fit on one page. Other layout options like margin, border and composite cell spacing are adapted accordingly, with respect to the chose scaling factor.
-[Padding](./PDF.xml#L71:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Padding of document<br>Is padding (left, right, bottom, top) supported?
-[ResultSizeDefault](./PDF.xml#L77:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Default result size<br>Default result size for PDF documents. Used if $top has not been provided.
-[ResultSizeMaximum](./PDF.xml#L83:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Maximum result size<br>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum
+[Padding](./PDF.xml#L77:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Padding of document<br>Is padding (left, right, bottom, top) supported?
+[ResultSizeDefault](./PDF.xml#L83:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Default result size<br>Default result size for PDF documents. Used if $top has not been provided.
+[ResultSizeMaximum](./PDF.xml#L89:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Maximum result size<br>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum
