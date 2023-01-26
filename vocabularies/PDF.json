@@ -57,7 +57,7 @@
       "HeaderFooter": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "A header and Footer of the document is supported",
+        "@Core.Description": "Page header and footer supported",
         "@Core.LongDescription": "Headers and footers are areas in the top and the bottom page margins, where you can add page number and date information"
       },
       "ResultSizeDefault": {
