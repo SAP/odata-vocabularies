@@ -54,6 +54,12 @@
         "@Core.Description": "Padding of document",
         "@Core.LongDescription": "Is padding (left, right, bottom, top) supported?"
       },
+      "HeaderFooter": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the document contains header and footer",
+        "@Core.LongDescription": "Headers and footers are areas in the top and the bottom page margins, where you can add page number and date information"
+      },
       "ResultSizeDefault": {
         "$Type": "Edm.Int32",
         "$Nullable": true,
