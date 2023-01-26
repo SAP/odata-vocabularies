@@ -80,6 +80,13 @@
             <String>Is padding (left, right, bottom, top) supported?</String>
           </Annotation>
         </Property>
+        <Property Name="HeaderFooter" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Page header and footer supported" />
+          <Annotation Term="Core.LongDescription">
+            <String>Headers and footers are areas in the top and the bottom page margins, where you can add page number and date information</String>
+          </Annotation>
+        </Property>
         <Property Name="ResultSizeDefault" Type="Edm.Int32">
           <Annotation Term="Core.Description" String="Default result size" />
           <Annotation Term="Core.LongDescription">
