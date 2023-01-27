@@ -36,12 +36,20 @@
         "$DefaultValue": false,
         "@Core.Description": "PDF/A conformant format supported"
       },
-      "Signature": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Signing the document supported" },
+      "Signature": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Signing the document supported"
+      },
       "CoverPage": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Cover Page supported" },
       "FontName": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Font name supported" },
       "FontSize": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Font size supported" },
       "Margin": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Margin size supported" },
-      "Border": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Border size of the table supported" },
+      "Border": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Border size of the table supported"
+      },
       "FitToPage": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
