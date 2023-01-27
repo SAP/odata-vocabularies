@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "files": ["examples/*.json", "vocabularies/*.json"],
+      "options": {
+        "parser": "json",
+        "printWidth": 120
+      }
+    }
+  ]
+}
