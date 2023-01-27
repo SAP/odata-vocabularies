@@ -48,7 +48,7 @@
           <Annotation Term="Core.Description" String="Name of entity set containing the DocumentDescription" />
         </Property>
         <Property Name="ArchiveFormat" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="PDFA conformant format supported" />
+          <Annotation Term="Core.Description" String="PDF/A conformant format supported" />
         </Property>
         <Property Name="Signature" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Signing the document supported" />
