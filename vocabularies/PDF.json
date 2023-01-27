@@ -34,7 +34,7 @@
       "ArchiveFormat": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "PDFA conformant format supported"
+        "@Core.Description": "PDF/A conformant format supported"
       },
       "Signature": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Signing the document supported" },
       "CoverPage": { "$Type": "Edm.Boolean", "$DefaultValue": false, "@Core.Description": "Cover Page supported" },

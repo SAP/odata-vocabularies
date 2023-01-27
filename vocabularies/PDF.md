@@ -20,7 +20,7 @@ Property|Type|Description
 :-------|:---|:----------
 [DocumentDescriptionReference](./PDF.xml#L43:~:text=<ComplexType%20Name="-,FeaturesType,-")|URL|Reference of the Service for the DocumentDescription
 [DocumentDescriptionCollection](./PDF.xml#L47:~:text=<ComplexType%20Name="-,FeaturesType,-")|String|Name of entity set containing the DocumentDescription
-[ArchiveFormat](./PDF.xml#L50:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|PDFA conformant format supported
+[ArchiveFormat](./PDF.xml#L50:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|PDF/A conformant format supported
 [Signature](./PDF.xml#L53:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Signing the document supported
 [CoverPage](./PDF.xml#L56:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Cover Page supported
 [FontName](./PDF.xml#L59:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|Font name supported
