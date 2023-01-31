@@ -904,6 +904,7 @@
           "UI.KPI",
           "UI.LineItem",
           "UI.MediaResource",
+          "UI.Note",
           "UI.PresentationVariant",
           "UI.SelectionFields",
           "UI.SelectionPresentationVariant",

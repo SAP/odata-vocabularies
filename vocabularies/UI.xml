@@ -1004,6 +1004,7 @@ The trend is
               <String>UI.KPI</String>
               <String>UI.LineItem</String>
               <String>UI.MediaResource</String>
+              <String>UI.Note</String>
               <String>UI.PresentationVariant</String>
               <String>UI.SelectionFields</String>
               <String>UI.SelectionPresentationVariant</String>
