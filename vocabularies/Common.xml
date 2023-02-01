@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
-  <edmx:Reference
-    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
-  <edmx:Reference
-    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
-  <edmx:Reference
-    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
@@ -19,8 +16,7 @@
     <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
-      Namespace="com.sap.vocabularies.Common.v1" Alias="Common">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Common.v1" Alias="Common">
       <Annotation Term="Core.Description">
         <String>Common terms for all SAP vocabularies</String>
       </Annotation>
@@ -31,18 +27,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://sap.github.io/odata-vocabularies/vocabularies/Common.json" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Common.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Common.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Common.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -59,95 +52,74 @@
 
       <!-- Section: Versioning -->
       <Term Name="ServiceVersion" Type="Edm.Int32" Nullable="false" AppliesTo="Schema">
-        <Annotation Term="Core.Description"
-          String="1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI" />
+        <Annotation Term="Core.Description" String="1 for first version of a service, incremented when schema changes incompatibly and service is published with a different URI" />
       </Term>
       <Term Name="ServiceSchemaVersion" Type="Edm.Int32" Nullable="false" AppliesTo="Schema">
-        <Annotation Term="Core.Description"
-          String="0 for first schema version within a service version, incremented when schema changes compatibly" />
+        <Annotation Term="Core.Description" String="0 for first schema version within a service version, incremented when schema changes compatibly" />
       </Term>
 
       <!-- Section: General Semantics -->
       <Term Name="Label" Type="Edm.String" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="A short, human-readable text suitable for labels and captions in UIs" />
+        <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
       <Term Name="Heading" Type="Edm.String" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="A short, human-readable text suitable for column headings in UIs" />
+        <Annotation Term="Core.Description" String="A short, human-readable text suitable for column headings in UIs" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
       <Term Name="QuickInfo" Type="Edm.String" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="A short, human-readable text suitable for tool tips in UIs" />
+        <Annotation Term="Core.Description" String="A short, human-readable text suitable for tool tips in UIs" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
       <Term Name="Text" Type="Edm.String" Nullable="true" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.Description" String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
       <Term Name="TextFor" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
-        <Annotation Term="Core.Description"
-          String="The annotated property contains a descriptive text for values of the referenced property." />
+        <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
       <Term Name="ExternalID" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
-        <Annotation Term="Core.LongDescription"
-          String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
+        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
       </Term>
 
       <!--
       <Term Name="ExternalIDs" Type="Collection(Edm.String)" Nullable="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for
-      values of the annotated property. Value MUST be a dynamic expression when used as metadata
-      annotation." />
-        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign
-      key of a resource, the collection of external ids constitutes a human readable (part of an)
-      identifier of this resource. There is a one-to-one relationship between each possible value of
-      the annotated property and the corresponding collection of external ids." />
+        <Annotation Term="Core.Description" String="A list of parts of a human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the collection of external ids constitutes a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding collection of external ids." />
       </Term>
       -->
 
-      <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsLanguageIdentifier" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="An identifier to distinguish multiple texts in different languages for the same entity" />
+        <Annotation Term="Core.Description" String="An identifier to distinguish multiple texts in different languages for the same entity" />
       </Term>
 
-      <Term Name="TextFormat" Type="Common.TextFormatType" Nullable="false"
-        AppliesTo="Property Parameter ReturnType">
-        <Annotation Term="Core.Description"
-          String="The annotated property, parameter, or return type contains human-readable text that may contain formatting information" />
+      <Term Name="TextFormat" Type="Common.TextFormatType" Nullable="false" AppliesTo="Property Parameter ReturnType">
+        <Annotation Term="Core.Description" String="The annotated property, parameter, or return type contains human-readable text that may contain formatting information" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
       <EnumType Name="TextFormatType">
         <Member Name="plain">
-          <Annotation Term="Core.Description"
-            String="Plain text, line breaks represented as the character 0x0A" />
+          <Annotation Term="Core.Description" String="Plain text, line breaks represented as the character 0x0A" />
         </Member>
         <Member Name="html">
-          <Annotation Term="Core.Description"
-            String="Plain text with markup that can validly appear directly within an HTML DIV element" />
+          <Annotation Term="Core.Description" String="Plain text with markup that can validly appear directly within an HTML DIV element" />
         </Member>
       </EnumType>
 
       <Term Name="Timezone" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
+        <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be interpreted in the given time zone" />
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
             If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.</String>
@@ -156,8 +128,7 @@
       </Term>
 
       <!-- under discussion
-        <Term Name="ValidationConstraint" Type="Common.ValidationConstraintType" Nullable="false"
-      AppliesTo="Property EntityType ComplexType">
+        <Term Name="ValidationConstraint" Type="Common.ValidationConstraintType" Nullable="false" AppliesTo="Property EntityType ComplexType">
         <Annotation Term="Core.Description" String="Condition that the annotation target has to fulfill" />
         </Term>
         <ComplexType Name="ValidationConstraintType">
@@ -166,8 +137,7 @@
         </Property>
         <Property Name="Condition" Type="Edm.Boolean" Nullable="false">
         <Annotation Term="Core.Description"
-        String="Value MUST be a dynamic expression that evaluates to true if and only if the constraint is
-      fulfilled" />
+        String="Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled" />
         </Property>
         </ComplexType>
       -->
@@ -198,91 +168,69 @@
       -->
       <!--
         could later be combined with a client-side function sap.matchRegularExpression
-        Two arguments of type string, second argument MUST evaluate to a JavaScript regular expression, see
-      e.g.
+        Two arguments of type string, second argument MUST evaluate to a JavaScript regular expression, see e.g.
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-        Function returns true if and only if the whole first argument matches the regular expression in the
-      second argumentReturns
+        Function returns true if and only if the whole first argument matches the regular expression in the second argumentReturns
       -->
 
-      <Term Name="IsDigitSequence" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Parameter">
+      <Term Name="IsDigitSequence" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains only digits" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsUpperCase" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Parameter">
+      <Term Name="IsUpperCase" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains just uppercase characters" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description"
-          String="Annotated property or parameter is a currency code" />
+      <Term Name="IsCurrency" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="Annotated property or parameter is a currency code" />
 
       </Term>
 
-      <Term Name="IsUnit" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description"
-          String="Annotated property or parameter is a unit of measure" />
+      <Term Name="IsUnit" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="Annotated property or parameter is a unit of measure" />
       </Term>
 
       <Term Name="UnitSpecificScale" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="The number of fractional decimal digits of a currency amount or measured quantity" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device." />
+        <Annotation Term="Core.Description" String="The number of fractional decimal digits of a currency amount or measured quantity" />
+        <Annotation Term="Core.LongDescription" String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default scale of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of fractional digits captured by that device." />
       </Term>
 
-      <Term Name="UnitSpecificPrecision" Type="Edm.PrimitiveType" Nullable="false"
-        AppliesTo="Property">
+      <Term Name="UnitSpecificPrecision" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The number of significant decimal digits of a currency amount or measured quantity" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
+        <Annotation Term="Core.Description" String="The number of significant decimal digits of a currency amount or measured quantity" />
+        <Annotation Term="Core.LongDescription" String="The annotated property contains a currency code or unit of measure, and the annotation value specifies the default precision of numeric values with that currency code or unit of measure. Can be used in e.g. a list of available currency codes or units of measure, or a list of measuring devices to specify the number of significant digits captured by that device." />
       </Term>
 
-      <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)"
-        Nullable="false">
+      <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use term `AlternateKeys` from the OASIS Core vocabulary instead" />
+              <PropertyValue Property="Description" String="Use term `AlternateKeys` from the OASIS Core vocabulary instead" />
             </Record>
           </Collection>
         </Annotation>
-        <Annotation Term="Core.Description"
-          String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
+        <Annotation Term="Core.Description" String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
       </Term>
 
-      <Term Name="MinOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter"
-        Type="Edm.Int64" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="The annotated set or collection contains at least this number of items" />
+      <Term Name="MinOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter" Type="Edm.Int64" Nullable="false">
+        <Annotation Term="Core.Description" String="The annotated set or collection contains at least this number of items" />
       </Term>
 
-      <Term Name="MaxOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter"
-        Type="Edm.Int64" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="The annotated set or collection contains at most this number of items" />
+      <Term Name="MaxOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter" Type="Edm.Int64" Nullable="false">
+        <Annotation Term="Core.Description" String="The annotated set or collection contains at most this number of items" />
       </Term>
 
-      <Term Name="AssociationEntity" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false"
-        AppliesTo="EntityType">
+      <Term Name="AssociationEntity" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>Entity representing an n:m association with attributes</String>
         </Annotation>
         <Annotation Term="Common.MinOccurs" Int="2" />
       </Term>
 
-      <Term Name="DerivedNavigation" Type="Edm.NavigationPropertyPath" Nullable="false"
-        AppliesTo="NavigationProperty">
+      <Term Name="DerivedNavigation" Type="Edm.NavigationPropertyPath" Nullable="false" AppliesTo="NavigationProperty">
         <Annotation Term="Core.Description">
           <String>Shortcut for a multi-segment navigation, contains the long path with all its segments</String>
         </Annotation>
@@ -306,8 +254,7 @@
       <Term Name="MaskedValue" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description"
-          String="Property contains sensitive data that is by default not transferred" />
+        <Annotation Term="Core.Description" String="Property contains sensitive data that is by default not transferred" />
         <Annotation Term="Core.LongDescription">
           <String>By default a masked property is excluded from responses and instead an instance annotation with this term is sent, containing a masked value that can be rendered by user interfaces.</String>
         </Annotation>
@@ -316,60 +263,43 @@
       <Term Name="RevealOnDemand" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description"
-          String="Unmasked data for this property can be requested with custom query option `masked-values=false`" />
+        <Annotation Term="Core.Description" String="Unmasked data for this property can be requested with custom query option `masked-values=false`" />
       </Term>
 
-      <Term Name="SemanticObject" Type="Edm.String" Nullable="true"
-        AppliesTo="EntitySet EntityType Property NavigationProperty">
-        <Annotation Term="Core.Description"
-          String="Name of the Semantic Object represented as this entity type or identified by this property" />
+      <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property NavigationProperty">
+        <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property" />
       </Term>
-      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject"
-        Type="Collection(Common.SemanticObjectMappingType)" Nullable="false"
-        AppliesTo="EntitySet EntityType Property">
-        <Annotation Term="Core.Description"
-          String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
-        <Annotation Term="Core.LongDescription"
-          String="This allows &quot;renaming&quot; of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their &quot;local&quot; name." />
+      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false" AppliesTo="EntitySet EntityType Property">
+        <Annotation Term="Core.Description" String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
+        <Annotation Term="Core.LongDescription" String="This allows &quot;renaming&quot; of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their &quot;local&quot; name." />
       </Term>
       <ComplexType Name="SemanticObjectMappingType">
-        <Annotation Term="Core.Description"
-          String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
+        <Annotation Term="Core.Description" String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
         <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Path to a local property that provides the value for the Semantic Object property" />
+          <Annotation Term="Core.Description" String="Path to a local property that provides the value for the Semantic Object property" />
         </Property>
         <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object property" />
         </Property>
       </ComplexType>
-      <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject"
-        Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntitySet EntityType Property">
-        <Annotation Term="Core.Description"
-          String="List of actions that are not available in the current state of the instance of the Semantic Object" />
+      <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntitySet EntityType Property">
+        <Annotation Term="Core.Description" String="List of actions that are not available in the current state of the instance of the Semantic Object" />
       </Term>
 
-      <Term Name="IsInstanceAnnotation" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Term">
-        <Annotation Term="Core.Description"
-          String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied" />
+      <Term Name="IsInstanceAnnotation" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
+        <Annotation Term="Core.Description" String="Term can also be used as instance annotation; AppliesTo of this term specifies where it can be applied" />
       </Term>
 
       <!-- use Capabilities instead
-      <Term Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true"
-      AppliesTo="NavigationProperty">
+      <Term Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
-          <String>Specifies whether the service allows to create an entity by sending a POST request to the
-      navigation link URL (in this case the created entity is automatically linked to the entity
-      containing the navigation link)</String>
+          <String>Specifies whether the service allows to create an entity by sending a POST request to the navigation link URL (in this case the created entity is automatically linked to the entity containing the navigation link)</String>
         </Annotation>
       </Term>
 
-      <Term Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true"
-      AppliesTo="EntityType">
+      <Term Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
@@ -377,8 +307,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true"
-      AppliesTo="EntityType">
+      <Term Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description">
@@ -387,17 +316,13 @@
       </Term>
       -->
 
-      <Term Name="FilterExpressionRestrictions"
-        Type="Collection(Common.FilterExpressionRestrictionType)" Nullable="false"
-        AppliesTo="EntitySet">
-        <Annotation Term="Core.Description"
-          String="These properties only allow a subset of expressions" />
+      <Term Name="FilterExpressionRestrictions" Type="Collection(Common.FilterExpressionRestrictionType)" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use term Capabilities.FilterRestrictions instead" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -407,8 +332,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use term Capabilities.FilterRestrictions instead" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -420,8 +344,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use term Capabilities.FilterRestrictions instead" />
+              <PropertyValue Property="Description" String="Use term Capabilities.FilterRestrictions instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -432,40 +355,31 @@
           <Annotation Term="Core.Description" String="one or more 'eq' clauses, separated by 'or'" />
         </Member>
         <Member Name="SingleInterval">
-          <Annotation Term="Core.Description"
-            String="at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause" />
+          <Annotation Term="Core.Description" String="at most one 'ge' and one 'le' clause, separated by 'and', alternatively a single 'eq' clause" />
         </Member>
       </EnumType>
 
-      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional"
-        AppliesTo="Property Parameter Record EntityType">
-        <Annotation Term="Core.Description"
-          String="Control state of a property, parameter, or the media stream of a media entity" />
-        <Annotation Term="Core.LongDescription"
-          String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
+      <Term Name="FieldControl" Type="Common.FieldControlType" DefaultValue="Optional" AppliesTo="Property Parameter Record EntityType">
+        <Annotation Term="Core.Description" String="Control state of a property, parameter, or the media stream of a media entity" />
+        <Annotation Term="Core.LongDescription" String="This term can be used for static field control, providing an enumeration member value in $metadata, as well as dynamically, providing a `Path` expression.&#x0A;&#x0A;In the dynamic case the property referenced by the `Path` expression MUST be of type `Edm.Byte` to accommodate OData V2 services as well as V4 infrastructures that don't support enumeration types." />
         <Annotation Term="Common.IsInstanceAnnotation" />
       </Term>
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property" />
         <Member Name="Mandatory" Value="7">
-          <Annotation Term="Core.Description"
-            String="Property is mandatory from a business perspective" />
-          <Annotation Term="Core.LongDescription"
-            String="This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md)." />
+          <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
+          <Annotation Term="Core.LongDescription" String="This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md)." />
         </Member>
         <Member Name="Optional" Value="3">
           <Annotation Term="Core.Description" String="Property may have a value" />
-          <Annotation Term="Core.LongDescription"
-            String="This value does not make sense as a static annotation value." />
+          <Annotation Term="Core.LongDescription" String="This value does not make sense as a static annotation value." />
         </Member>
         <Member Name="ReadOnly" Value="1">
           <Annotation Term="Core.Description" String="Property value cannot be changed" />
-          <Annotation Term="Core.LongDescription"
-            String="To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead" />
+          <Annotation Term="Core.LongDescription" String="To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead" />
         </Member>
         <Member Name="Inapplicable" Value="0">
-          <Annotation Term="Core.Description"
-            String="Property has no meaning in the current entity state" />
+          <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
           <Annotation Term="Core.LongDescription">
             <String>This value does not make sense as a static annotation value.
 
@@ -473,10 +387,8 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">
-          <Annotation Term="Core.Description"
-            String="Deprecated synonymn for Inapplicable, do not use" />
-          <Annotation Term="Core.LongDescription"
-            String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
+          <Annotation Term="Core.Description" String="Deprecated synonymn for Inapplicable, do not use" />
+          <Annotation Term="Core.LongDescription" String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
         </Member>
       </EnumType>
 
@@ -556,39 +468,30 @@ The minimum structure is
           </String>
         </Annotation>
       </Term>
-      <Term Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"
-        AppliesTo="Record">
+      <Term Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Additional targets for the message" />
-        <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
+        <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="longtextUrl" Type="Edm.String" Nullable="false" AppliesTo="Record">
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Location of the message long text" />
-        <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
+        <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
       <Term Name="numericSeverity" Type="Common.NumericMessageSeverityType" Nullable="false">
         <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description"
-          String="Classifies an end-user message as info, success, warning, or error" />
-        <Annotation Term="Core.LongDescription"
-          String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
+        <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
+        <Annotation Term="Core.LongDescription" String="This instance annotation can be applied to the `error` object and the objects within the `details` array of an OData error response" />
       </Term>
-      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType"
-        BaseTerm="Common.Messages" Nullable="true" AppliesTo="EntityType">
+      <Term Name="MaximumNumericMessageSeverity" Type="Common.NumericMessageSeverityType" BaseTerm="Common.Messages" Nullable="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The maximum severity of all end-user messages attached to an entity, null if no messages are attached" />
-        <Annotation Term="Core.LongDescription"
-          String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
+        <Annotation Term="Core.Description" String="The maximum severity of all end-user messages attached to an entity, null if no messages are attached" />
+        <Annotation Term="Core.LongDescription" String="This metadata annotation can be applied to entity types that are also annotated with term [`Common.Messages`](#Messages)" />
       </Term>
       <TypeDefinition Name="NumericMessageSeverityType" UnderlyingType="Edm.Byte">
-        <Annotation Term="Core.Description"
-          String="Classifies an end-user message as info, success, warning, or error" />
+        <Annotation Term="Core.Description" String="Classifies an end-user message as info, success, warning, or error" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
@@ -611,50 +514,37 @@ The minimum structure is
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="IsActionCritical" Type="Edm.Boolean" Nullable="false" DefaultValue="true"
-        AppliesTo="Action Function ActionImport FunctionImport">
-        <Annotation Term="Core.Description"
-          String="Criticality of the function or action to enforce a warning or similar before it's executed" />
+      <Term Name="IsActionCritical" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed" />
       </Term>
 
-      <Term Name="Attributes" Type="Collection(Edm.PropertyPath)" Nullable="false"
-        AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="Attributes related to this property, which may occur in denormalized entity types" />
+      <Term Name="Attributes" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Attributes related to this property, which may occur in denormalized entity types" />
       </Term>
 
-      <Term Name="RelatedRecursiveHierarchy" Type="Edm.AnnotationPath" Nullable="false"
-        AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A recursive hierarchy related to this property. The annotation path must end in Aggregation.RecursiveHierarchy." />
+      <Term Name="RelatedRecursiveHierarchy" Type="Edm.AnnotationPath" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A recursive hierarchy related to this property. The annotation path must end in Aggregation.RecursiveHierarchy." />
       </Term>
 
-      <Term Name="Interval" Type="Common.IntervalType" Nullable="false"
-        AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description"
-          String="An interval with lower and upper boundaries described by two properties" />
+      <Term Name="Interval" Type="Common.IntervalType" Nullable="false" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Core.Description" String="An interval with lower and upper boundaries described by two properties" />
       </Term>
       <ComplexType Name="IntervalType">
         <Property Name="LowerBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the lower interval boundary" />
         </Property>
-        <Property Name="LowerBoundaryIncluded" Type="Edm.Boolean" Nullable="false"
-          DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="The lower boundary value is included in the interval" />
+        <Property Name="LowerBoundaryIncluded" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The lower boundary value is included in the interval" />
         </Property>
         <Property Name="UpperBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the upper interval boundary" />
         </Property>
-        <Property Name="UpperBoundaryIncluded" Type="Edm.Boolean" Nullable="false"
-          DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="The upper boundary value is included in the interval" />
+        <Property Name="UpperBoundaryIncluded" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The upper boundary value is included in the interval" />
         </Property>
       </ComplexType>
 
-      <Term Name="ResultContext" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityType">
+      <Term Name="ResultContext" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description">
           <String>The annotated entity type has one or more containment navigation properties.
             An instance of the annotated entity type provides the context required for determining
@@ -662,11 +552,9 @@ The minimum structure is
         </Annotation>
       </Term>
 
-      <Term Name="SAPObjectNodeType" Type="Common.SAPObjectNodeTypeType" Nullable="false"
-        AppliesTo="EntityType">
+      <Term Name="SAPObjectNodeType" Type="Common.SAPObjectNodeTypeType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The SAP Object Node Type represented by the annotated entity type" />
+        <Annotation Term="Core.Description" String="The SAP Object Node Type represented by the annotated entity type" />
         <Annotation Term="Core.LongDescription">
           <String>SAP Object Node Types define the structure of SAP Object Types, which are a generalization of Business Object, Technical Object, Configuration Object, and Analytical Object.</String>
         </Annotation>
@@ -680,43 +568,33 @@ The minimum structure is
         </Property>
       </ComplexType>
 
-      <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="NavigationProperty">
+      <Term Name="Composition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The annotated navigation property represents a logical composition, even though it is non-containment" />
+        <Annotation Term="Core.Description" String="The annotated navigation property represents a logical composition, even though it is non-containment" />
         <Annotation Term="Core.LongDescription">
           <String>The entities related via this navigation property have an existential dependency on their composition parent. The entity set of the composition parent MUST contain a NavigationPropertyBinding for this navigation property.</String>
         </Annotation>
       </Term>
 
 
-      <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false"
-        AppliesTo="Property">
+      <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="The name of the SAP Object Node Type referenced by the annotated property" />
+        <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
       </Term>
 
-      <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityType Annotation">
-        <Annotation Term="Core.Description"
-          String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
+      <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">
+        <Annotation Term="Core.Description" String="The annotated entity type (e.g. `Employee`) or annotation (e.g. `IsImageUrl`) represents a natural person" />
       </Term>
 
 
       <!-- Section: Value Help -->
-      <Term Name="ValueList" Type="Common.ValueListType" Nullable="false"
-        AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description"
-          String="Specifies how to get a list of acceptable values for a property or parameter" />
-        <Annotation Term="Core.LongDescription"
-          String="The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists." />
+      <Term Name="ValueList" Type="Common.ValueListType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="Specifies how to get a list of acceptable values for a property or parameter" />
+        <Annotation Term="Core.LongDescription" String="The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists." />
       </Term>
       <ComplexType Name="ValueListType">
         <!--
-          Example: Value list for currency code using entity set Currencies with properties Code, Text,
-        Symbol and more
+          Example: Value list for currency code using entity set Currencies with properties Code, Text, Symbol and more
           that are not needed in the value list
           - CollectionPath: Currencies
           - SearchSupported: true
@@ -737,45 +615,34 @@ The minimum structure is
         </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Core.Description"
-            String="Headline for value list, fallback is the label of the property or parameter" />
+          <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
+          <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
         </Property>
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Service root of the value list collection; not specified means local to the document containing the annotation" />
+          <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false"
-          DefaultValue="false">
-          <Annotation Term="Core.Description"
-            String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Value list supports the $search query option" />
-          <Annotation Term="Core.LongDescription"
-            String="The value of the target property is used as the search expression instead of in $filter" />
+          <Annotation Term="Core.LongDescription" String="The value of the target property is used as the search expression instead of in $filter" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Core.SimpleIdentifier">
-          <Annotation Term="Core.Description"
-            String="Alternative representation of a value help, e.g. as a bar chart" />
-          <Annotation Term="Core.LongDescription"
-            String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath" />
+          <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
+          <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the entity set identified via CollectionPath" />
         </Property>
         <Property Name="SelectionVariantQualifier" Type="Core.SimpleIdentifier">
-          <Annotation Term="Core.Description"
-            String="Optional combination of parameters and filters to query the value help entity set" />
-          <Annotation Term="Core.LongDescription"
-            String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
+          <Annotation Term="Core.Description" String="Optional combination of parameters and filters to query the value help entity set" />
+          <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
         </Property>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Instructions on how to construct the value list request and consume response properties" />
+          <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
       </ComplexType>
 
@@ -795,41 +662,29 @@ The minimum structure is
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="ValueListRelevantQualifiers" Type="Collection(Core.SimpleIdentifier)"
-        Nullable="false">
+      <Term Name="ValueListRelevantQualifiers" Type="Collection(Core.SimpleIdentifier)" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="List of qualifiers of relevant ValueList annotations" />
-        <Annotation Term="Core.LongDescription"
-          String="The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties." />
+        <Annotation Term="Core.Description" String="List of qualifiers of relevant ValueList annotations" />
+        <Annotation Term="Core.LongDescription" String="The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties." />
       </Term>
 
-      <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description"
-          String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
+      <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
       </Term>
 
-      <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false"
-        AppliesTo="Property Parameter">
+      <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
+        <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
       </Term>
 
-      <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false"
-        AppliesTo="Property Parameter">
+      <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.IsURL" />
-        <Annotation Term="Core.Description"
-          String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
+        <Annotation Term="Core.Description" String="A list of URLs of CSDL documents containing value list mappings for this parameter or property" />
       </Term>
 
-      <Term Name="ValueListMapping" Type="Common.ValueListMappingType" Nullable="false"
-        AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description"
-          String="Specifies the mapping between data service properties and value list properties" />
-        <Annotation Term="Core.LongDescription"
-          String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
+      <Term Name="ValueListMapping" Type="Common.ValueListMappingType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="Specifies the mapping between data service properties and value list properties" />
+        <Annotation Term="Core.LongDescription" String="The value list can be filtered based on user input. It can be used for type-ahead and classical pick lists. There may be many alternative mappings with different qualifiers." />
       </Term>
       <ComplexType Name="ValueListMappingType">
         <Annotation Term="Validation.ApplicableTerms">
@@ -839,72 +694,55 @@ The minimum structure is
         </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Core.Description"
-            String="Headline for value list, fallback is the label of the property or parameter" />
+          <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
         <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
+          <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to the document containing the value list mapping" />
         </Property>
-        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false"
-          DefaultValue="false">
-          <Annotation Term="Core.Description"
-            String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
+        <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
         <Property Name="FetchValues" Type="Common.FetchValuesType" Nullable="true">
           <Annotation Term="Core.Description" String="Hint on when to fetch values" />
         </Property>
         <Property Name="PresentationVariantQualifier" Type="Core.SimpleIdentifier">
-          <Annotation Term="Core.Description"
-            String="Alternative representation of a value help, e.g. as a bar chart" />
-          <Annotation Term="Core.LongDescription"
-            String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
+          <Annotation Term="Core.Description" String="Alternative representation of a value help, e.g. as a bar chart" />
+          <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.PresentationVariant](UI.md#PresentationVariant) on the value list entity set identified via CollectionPath in the ValueListReference annotation" />
         </Property>
         <Property Name="SelectionVariantQualifier" Type="Core.SimpleIdentifier">
-          <Annotation Term="Core.Description"
-            String="Optional combination of parameters and filters to query the value help entity set" />
-          <Annotation Term="Core.LongDescription"
-            String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
+          <Annotation Term="Core.Description" String="Optional combination of parameters and filters to query the value help entity set" />
+          <Annotation Term="Core.LongDescription" String="Qualifier for annotation with term [UI.SelectionVariant](UI.md#SelectionVariant) on the entity set identified via CollectionPath" />
         </Property>
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Instructions on how to construct the value list request and consume response properties" />
+          <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="ValueListParameter" Abstract="true">
         <Property Name="ValueListProperty" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Path to property in the value list . Format is identical to PropertyPath annotations." />
+          <Annotation Term="Core.Description" String="Path to property in the value list . Format is identical to PropertyPath annotations." />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterIn" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Path to property that is used to filter the value list with `eq` comparison" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false"
-          Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Initial value, e.g. empty string, is a valid and significant value" />
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+          <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
         <Annotation Term="Common.Experimental" />
         <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
+          <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false"
-          Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Initial value, e.g. empty string, is a valid and significant value" />
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+          <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -923,8 +761,7 @@ The minimum structure is
         </Annotation>
       </ComplexType>
       <ComplexType Name="ValueListParameterDisplayOnly" BaseType="Common.ValueListParameter">
-        <Annotation Term="Core.Description"
-          String="Value list property that is not used to fill the edited entity" />
+        <Annotation Term="Core.Description" String="Value list property that is not used to fill the edited entity" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>UI.Importance</String>
@@ -932,22 +769,19 @@ The minimum structure is
         </Annotation>
       </ComplexType>
       <ComplexType Name="ValueListParameterFilterOnly" BaseType="Common.ValueListParameter">
-        <Annotation Term="Core.Description"
-          String="Value list property that is used to filter the value list, not connected to the edited entity" />
+        <Annotation Term="Core.Description" String="Value list property that is used to filter the value list, not connected to the edited entity" />
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="All filterable properties of the value list can be used to filter" />
+              <PropertyValue Property="Description" String="All filterable properties of the value list can be used to filter" />
             </Record>
           </Collection>
         </Annotation>
       </ComplexType>
 
       <!-- Section: Calendar Points in Time -->
-      <Term Name="IsCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a year number as string following the logical pattern (-?)YYYY(Y*) consisting of an optional
             minus sign for years B.C. followed by at least four digits. The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})
@@ -956,8 +790,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a halfyear number as string following the logical pattern H consisting of a single digit.
             The string matches the regex pattern [1-2]
@@ -966,8 +799,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar quarter number as string following the logical pattern Q consisting of a single digit.
             The string matches the regex pattern [1-4]
@@ -976,8 +808,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar month number as string following the logical pattern MM consisting of two digits.
             The string matches the regex pattern 0[1-9]|1[0-2]
@@ -986,8 +817,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarWeek" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar week number as string following the logical pattern WW consisting of two digits.
             The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]
@@ -996,8 +826,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsDayOfCalendarMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Day number relative to a calendar month. Valid values are between 1 and 31.
           </String>
@@ -1005,8 +834,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.SByte" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsDayOfCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsDayOfCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Day number relative to a calendar year. Valid values are between 1 and 366.
           </String>
@@ -1014,8 +842,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.Int16" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarYearHalfyear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and halfyear as string following the logical pattern (-?)YYYY(Y*)H consisting
             of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the halfyear.
@@ -1025,8 +852,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and quarter as string following the logical pattern (-?)YYYY(Y*)Q consisting
             of an optional minus sign for years B.C. followed by at least five digits, where the last digit represents the quarter.
@@ -1036,8 +862,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarYearMonth" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarYearMonth" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and month as string following the logical pattern (-?)YYYY(Y*)MM consisting
             of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent the months January to
@@ -1048,8 +873,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting 
           of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.
@@ -1059,8 +883,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsCalendarDate" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsCalendarDate" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting 
           of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent 
@@ -1077,8 +900,7 @@ The minimum structure is
 
 
       <!-- Section: Fiscal Points in Time -->
-      <Term Name="IsFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. 
           The string matches the regex pattern [1-9][0-9]{3}
@@ -1087,8 +909,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. 
           The string matches the regex pattern [0-9]{3}
@@ -1097,8 +918,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalYearPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalYearPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting 
           of seven digits, where the last three digits represent the fiscal period in the year.
@@ -1108,8 +928,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. 
           The string matches the regex pattern [1-4]</String>
@@ -1117,8 +936,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of
           five digits, where the last digit represents the quarter. 
@@ -1127,8 +945,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalWeek" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. 
           The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</String>
@@ -1136,8 +953,7 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of 
           six digits, where the last two digits represent the week number in the year. 
@@ -1146,16 +962,14 @@ The minimum structure is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsDayOfFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsDayOfFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Day number relative to a fiscal year. Valid values are between 1 and 371.</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
       </Term>
-      <Term Name="IsFiscalYearVariant" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
+      <Term Name="IsFiscalYearVariant" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property encodes a fiscal year variant" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Common.MutuallyExclusiveTerm" Qualifier="DatePart" />
@@ -1163,10 +977,8 @@ The minimum structure is
 
 
       <!-- Section: Term Constraints -->
-      <Term Name="MutuallyExclusiveTerm" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Term">
-        <Annotation Term="Core.Description"
-          String="Only one term of the group identified with the Qualifier attribute can be applied" />
+      <Term Name="MutuallyExclusiveTerm" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term">
+        <Annotation Term="Core.Description" String="Only one term of the group identified with the Qualifier attribute can be applied" />
       </Term>
 
 
@@ -1189,19 +1001,15 @@ The minimum structure is
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
-          <Annotation Term="Core.LongDescription"
-            String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
+          <Annotation Term="Core.LongDescription" String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
         </Property>
-        <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)"
-          Nullable="false">
+        <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
-          <Annotation Term="Core.LongDescription"
-            String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
+          <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
 
@@ -1223,57 +1031,47 @@ The minimum structure is
       </Term>
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
-          <Annotation Term="Core.Description"
-            String="Action that prepares a draft document for later activation" />
+          <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description"
-                  String="Separate validation without side-effects is not useful" />
+                <PropertyValue Property="Description" String="Separate validation without side-effects is not useful" />
               </Record>
             </Collection>
           </Annotation>
-          <Annotation Term="Core.Description"
-            String="Function that validates whether a draft document is ready for activation" />
+          <Annotation Term="Core.Description" String="Function that validates whether a draft document is ready for activation" />
         </Property>
       </ComplexType>
 
-      <Term Name="DraftActivationVia" Type="Collection(Core.SimpleIdentifier)" Nullable="false"
-        AppliesTo="EntitySet">
-        <Annotation Term="Core.Description"
-          String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
+      <Term Name="DraftActivationVia" Type="Collection(Core.SimpleIdentifier)" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
       </Term>
 
       <Term Name="EditableFieldFor" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="The annotated property is an editable field for the referenced key property" />
+        <Annotation Term="Core.Description" String="The annotated property is an editable field for the referenced key property" />
       </Term>
 
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description"
-          String="The SimpleIdentifier of an OData construct in scope" />
+        <Annotation Term="Core.Description" String="The SimpleIdentifier of an OData construct in scope" />
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead" />
+              <PropertyValue Property="Description" String="Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead" />
             </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
 
       <TypeDefinition Name="QualifiedName" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description"
-          String="The QualifiedName of an OData construct in scope" />
+        <Annotation Term="Core.Description" String="The QualifiedName of an OData construct in scope" />
       </TypeDefinition>
 
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description"
-          String="The qualified name of an action with an optional overload" />
+        <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
           <String>The qualified name of an action, optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
@@ -1282,20 +1080,15 @@ The minimum structure is
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)"
-        Nullable="false">
-        <Annotation Term="Core.Description"
-          String="The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity" />
+      <Term Name="SemanticKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Annotation Term="Core.Description" String="The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity" />
       </Term>
 
-      <Term Name="SideEffects" Type="Common.SideEffectsType" Nullable="false"
-        AppliesTo="EntitySet EntityType ComplexType Action">
-        <Annotation Term="Core.Description"
-          String="Describes side-effects of modification operations" />
+      <Term Name="SideEffects" Type="Common.SideEffectsType" Nullable="false" AppliesTo="EntitySet EntityType ComplexType Action">
+        <Annotation Term="Core.Description" String="Describes side-effects of modification operations" />
       </Term>
       <ComplexType Name="SideEffectsType">
-        <Annotation Term="Core.Description"
-          String="Changes to the source properties or source entities may have side-effects on the target properties or entities." />
+        <Annotation Term="Core.Description" String="Changes to the source properties or source entities may have side-effects on the target properties or entities." />
         <Annotation Term="Core.LongDescription">
           <String>If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
 An empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.
@@ -1307,57 +1100,42 @@ only `TargetProperties` and `TargetEntities` are relevant. They are addressed vi
 This can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.</String>
         </Annotation>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Changes to the values of one or more of these structural properties may affect the targets" />
+          <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
         </Property>
-        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)"
-          Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
+        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="These structural properties may be affected if the value of one of the sources changes" />
-          <Annotation Term="Core.LongDescription"
-            String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
+          <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
+          <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
         </Property>
-        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)"
-          Nullable="false">
-          <Annotation Term="Core.Description"
-            String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
+        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description"
-                  String="All side effects are essentially value changes, differentiation not needed." />
+                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed." />
               </Record>
             </Collection>
           </Annotation>
-          <Annotation Term="Core.Description"
-            String="One or more of the targets may show these effects. If not specified, any effect is possible." />
+          <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
         <Property Name="TriggerAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Bound action to trigger side-effects after modifying an entity" />
-          <Annotation Term="Core.LongDescription"
-            String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
+          <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
+          <Annotation Term="Core.LongDescription" String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
         </Property>
         <Property Name="TriggeredIndicator" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description"
-            String="Indicates whether the side-effect has already happened" />
-          <Annotation Term="Core.LongDescription"
-            String="The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested." />
+          <Annotation Term="Core.Description" String="Indicates whether the side-effect has already happened" />
+          <Annotation Term="Core.LongDescription" String="The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested." />
         </Property>
         <Property Name="Discretionary" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description"
-            String="Indicates whether the client can decide if a side-effect should be triggered or not" />
-          <Annotation Term="Core.LongDescription"
-            String="The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client." />
+          <Annotation Term="Core.Description" String="Indicates whether the client can decide if a side-effect should be triggered or not" />
+          <Annotation Term="Core.LongDescription" String="The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client." />
         </Property>
       </ComplexType>
       <EnumType Name="EffectType" IsFlags="true">
@@ -1365,8 +1143,7 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="All side effects are essentially value changes, differentiation not needed." />
+              <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed." />
             </Record>
           </Collection>
         </Annotation>
@@ -1386,8 +1163,7 @@ Upon modification preparation logic is performed that determines additional valu
           </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
-          <Annotation Term="Core.Description"
-            String="The value of the Common.FieldControl annotation of a target changes" />
+          <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes" />
           <Annotation Term="Core.LongDescription">
             <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  
 Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</String>
@@ -1396,8 +1172,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </EnumType>
 
       <!-- Section: Default Values -->
-      <Term Name="DefaultValuesFunction" Type="Common.QualifiedName" Nullable="false"
-        AppliesTo="EntitySet NavigationProperty Action Function">
+      <Term Name="DefaultValuesFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntitySet NavigationProperty Action Function">
         <Annotation Term="Core.Description">
           <String>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service</String>
         </Annotation>
@@ -1427,8 +1202,7 @@ Upon modification field control logic is invoked so that meta-information like h
       </Term>
 
       <Term Name="DerivedDefaultValue" Type="Edm.String" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental"
-          String="This has been experimental for three years, consider to delete it" />
+        <Annotation Term="Common.Experimental" String="This has been experimental for three years, consider to delete it" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context.</String>
         </Annotation>
@@ -1449,21 +1223,16 @@ Upon modification field control logic is invoked so that meta-information like h
       </Term>
 
       <Term Name="FilterDefaultValue" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A default value for the property to be used in filter expressions." />
+        <Annotation Term="Core.Description" String="A default value for the property to be used in filter expressions." />
       </Term>
 
-      <Term Name="FilterDefaultValueHigh" Type="Edm.PrimitiveType" Nullable="true"
-        AppliesTo="Property">
-        <Annotation Term="Common.Experimental"
-          String="Requested by Roland Trapp as a counterpart to CDS annotation @Consumption.filter.defaultValueHigh" />
-        <Annotation Term="Core.Description"
-          String="A default upper limit for the property to be used in 'less than or equal' filter expressions." />
+      <Term Name="FilterDefaultValueHigh" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" String="Requested by Roland Trapp as a counterpart to CDS annotation @Consumption.filter.defaultValueHigh" />
+        <Annotation Term="Core.Description" String="A default upper limit for the property to be used in 'less than or equal' filter expressions." />
       </Term>
 
       <Term Name="DerivedFilterDefaultValue" Type="Edm.String" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental"
-          String="This has been experimental for three years, consider to delete it" />
+        <Annotation Term="Common.Experimental" String="This has been experimental for three years, consider to delete it" />
         <Annotation Term="Core.Description">
           <String>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</String>
         </Annotation>
@@ -1486,8 +1255,7 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
 
-      <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false"
-        AppliesTo="EntitySet EntityType">
+      <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="List of sort criteria" />
         <Annotation Term="Core.LongDescription">
           <String>The items of the annotated entity set or the items of the 
@@ -1496,8 +1264,7 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Annotation Term="Core.Description"
-          String="Exactly one of `Property` and `DynamicProperty` must be present" />
+        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Sort property" />
@@ -1505,15 +1272,13 @@ Upon modification field control logic is invoked so that meta-information like h
             <Collection>
               <Record>
                 <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
-                <PropertyValue Property="Description"
-                  String="Now nullable if `DynamicProperty` is present" />
+                <PropertyValue Property="Description" String="Now nullable if `DynamicProperty` is present" />
               </Record>
             </Collection>
           </Annotation>
         </Property>
         <Property Name="DynamicProperty" Type="Edm.AnnotationPath">
-          <Annotation Term="Core.Description"
-            String="Dynamic property introduced by an annotation and used as sort property" />
+          <Annotation Term="Core.Description" String="Dynamic property introduced by an annotation and used as sort property" />
           <Annotation Term="Core.LongDescription">
             <String>If the annotation referenced by the annotation path does not apply to the same collection of entities
             as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation,
@@ -1527,37 +1292,31 @@ Upon modification field control logic is invoked so that meta-information like h
           </Annotation>
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Sort direction, ascending if not specified otherwise" />
+          <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
         </Property>
       </ComplexType>
 
       <!-- under discussion with Heiko Theissen, Heiko Gerwens, Christoph Glania, and Ralf Dentzer
-        <Term Name="CacheControlProposal" Type="Common.CacheControlProposalType" Nullable="false"
-      AppliesTo="EntitySet">
+        <Term Name="CacheControlProposal" Type="Common.CacheControlProposalType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description">
-        <String>Proposed values for the Cache-Control request header when accessing this entity set, see
-      https://tools.ietf.org/html/rfc7234#section-5.2.1</String>
+        <String>Proposed values for the Cache-Control request header when accessing this entity set, see https://tools.ietf.org/html/rfc7234#section-5.2.1</String>
         </Annotation>
         </Term>
         <ComplexType Name="CacheControlProposalType">
         <Property Name="MaxAge" Type="Edm.Int32">
         <Annotation Term="Core.Description"
-        String="Maximum acceptable age of the response in seconds, see
-      https://tools.ietf.org/html/rfc7234#section-5.2.1.1"
+        String="Maximum acceptable age of the response in seconds, see https://tools.ietf.org/html/rfc7234#section-5.2.1.1"
         />
         </Property>
         </ComplexType>
       -->
 
-      <Term Name="RecursiveHierarchy" BaseTerm="Aggregation.RecursiveHierarchy"
-        Type="Common.RecursiveHierarchyType" Nullable="false">
+      <Term Name="RecursiveHierarchy" BaseTerm="Aggregation.RecursiveHierarchy" Type="Common.RecursiveHierarchyType" Nullable="false">
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
             </Record>
           </Collection>
         </Annotation>
@@ -1570,14 +1329,12 @@ Upon modification field control logic is invoked so that meta-information like h
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description"
-                String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
+              <PropertyValue Property="Description" String="Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead" />
             </Record>
           </Collection>
         </Annotation>
         <Property Name="ExternalNodeKeyProperty" Type="Edm.PropertyPath">
-          <Annotation Term="Core.Description"
-            String="Property holding the external human-readable key identifying the node" />
+          <Annotation Term="Core.Description" String="Property holding the external human-readable key identifying the node" />
         </Property>
         <Property Name="NodeDescendantCountProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description">
@@ -1627,28 +1384,22 @@ Upon modification field control logic is invoked so that meta-information like h
       <!-- Metadata annotations for converters -->
 
       <Term Name="OriginalProtocolVersion" Type="Edm.String" Nullable="false" AppliesTo="Schema">
-        <Annotation Term="Core.Description"
-          String="Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`" />
+        <Annotation Term="Core.Description" String="Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`" />
       </Term>
 
       <!-- Odds and ends -->
-      <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false"
-        DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="ApplyMultiUnitBehaviorForSortingAndFiltering" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
-        <Annotation Term="Core.LongDescription"
-          String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
+        <Annotation Term="Core.Description" String="Sorting and filtering of amounts in multiple currencies needs special consideration" />
+        <Annotation Term="Core.LongDescription" String="TODO: add link to UX documentation on https://experience.sap.com/fiori-design/" />
       </Term>
 
-      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false"
-        AppliesTo="Property EntityType">
+      <Term Name="mediaUploadLink" Type="Edm.String" Nullable="false" AppliesTo="Property EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Core.IsURL" />
-        <Annotation Term="Core.Description"
-          String="URL for uploading new media content to a Document Management Service" />
+        <Annotation Term="Core.Description" String="URL for uploading new media content to a Document Management Service" />
         <Annotation Term="Core.LongDescription">
           <String>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource.
 The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578.
@@ -1658,11 +1409,9 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Annotation>
       </Term>
 
-      <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Term Property">
+      <Term Name="PrimitivePropertyPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description"
-          String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
+        <Annotation Term="Core.Description" String="A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property" />
       </Term>
 
       <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
