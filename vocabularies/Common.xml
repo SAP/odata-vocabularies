@@ -1073,7 +1073,7 @@ The minimum structure is
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The qualified name of an action followed by parentheses 
+          <String>The qualified name of an action, optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
 
