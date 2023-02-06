@@ -1395,62 +1395,62 @@ The trend is
       </Term>
       <ComplexType Name="NoteType">
         <Property Name="Title" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Title of the note"/>
+          <Annotation Term="Core.Description" String="Title of the note" />
         </Property>
         <Property Name="ContentType" Type="Edm.String">
           <Annotation Term="Core.IsMediaType" />
-          <Annotation Term="Core.Description" String="MIME type of the note"/>
+          <Annotation Term="Core.Description" String="MIME type of the note" />
         </Property>
         <Property Name="Content" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Content of the note, as a string"/>
+          <Annotation Term="Core.Description" String="Content of the note, as a string" />
         </Property>
         <Property Name="Type" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Type of the note"/>
+          <Annotation Term="Core.Description" String="Type of the note" />
         </Property>
         <Property Name="TypeDescription" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Description for the type of the note"/>
+          <Annotation Term="Core.Description" String="Description for the type of the note" />
         </Property>
         <Property Name="Language" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Language of the note"/>
+          <Annotation Term="Core.Description" String="Language of the note" />
         </Property>
         <Property Name="LanguageName" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Name of the language of the note"/>
+          <Annotation Term="Core.Description" String="Name of the language of the note" />
         </Property>
         <Property Name="ObjectNodeType" Type="Edm.String">
           <Annotation Term="Core.Description" String="Type of the object node to which the note belongs" />
         </Property>
         <Property Name="LanguageDependent" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether the note is language-dependent"/>
+          <Annotation Term="Core.Description" String="Whether the note is language-dependent" />
         </Property>
         <Property Name="MaximalLength" Type="Edm.Int32">
-          <Annotation Term="Core.Description" String="MaximalLength of the text of the note"/>
+          <Annotation Term="Core.Description" String="MaximalLength of the text of the note" />
         </Property>
         <Property Name="MultipleNotes" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether multiple notes are allowed"/>
+          <Annotation Term="Core.Description" String="Whether multiple notes are allowed" />
         </Property>
         <Property Name="HideTitle" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether to hide the note title"/>
+          <Annotation Term="Core.Description" String="Whether to hide the note title" />
         </Property>
         <Property Name="IsTextPlain" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether the note contains plain text"/>
+          <Annotation Term="Core.Description" String="Whether the note contains plain text" />
         </Property>
         <Property Name="CreatedByUser" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Who created the note"/>
+          <Annotation Term="Core.Description" String="Who created the note" />
         </Property>
         <Property Name="CreatedByUserDescription" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Description of user who created the note"/>
+          <Annotation Term="Core.Description" String="Description of user who created the note" />
         </Property>
         <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7">
-          <Annotation Term="Core.Description" String="When the note was created"/>
+          <Annotation Term="Core.Description" String="When the note was created" />
         </Property>
         <Property Name="LastChangedByUser" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Who last changed the note"/>
+          <Annotation Term="Core.Description" String="Who last changed the note" />
         </Property>
         <Property Name="LastChangedByUserDescription" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Description of user who last changed the note"/>
+          <Annotation Term="Core.Description" String="Description of user who last changed the note" />
         </Property>
         <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7">
-          <Annotation Term="Core.Description" String="When the note was last changed"/>
+          <Annotation Term="Core.Description" String="When the note was last changed" />
         </Property>
       </ComplexType>
 
