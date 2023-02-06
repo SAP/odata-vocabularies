@@ -82,6 +82,21 @@
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
             <PropertyValue Property="ContentType" Path="NoteBasicMIMEType" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
+            <PropertyValue Property="Type" Path="NoteBasicType" />
+            <PropertyValue Property="TypeDescription" Path="NoteBasicTypeDescription" />
+            <PropertyValue Property="Language" Path="NoteBasicLanguage" />
+            <PropertyValue Property="LanguageName" Path="NoteBasicLanguageName" />
+            <PropertyValue Property="ObjectNodeType" Path="NoteBasicType/NoteBasicObjectNodeType" />
+            <PropertyValue Property="LanguageDependent" Path="NoteBasicType/NoteBasicLanguageDependent" />
+            <PropertyValue Property="MaximalLength" Path="NoteBasicType/NoteBasicMaximalLength" />
+            <PropertyValue Property="MultipleNotes" Path="NoteBasicType/NoteBasicMultipleNotes" />
+            <PropertyValue Property="HideTitle" Path="NoteBasicType/NoteBasicHideTitle" />
+            <PropertyValue Property="IsTextPlain" Path="NoteBasicType/NoteBasicIsTextPlain" />
+            <PropertyValue Property="CreatedByUser" Path="CreatedByUser" />
+            <PropertyValue Property="CreationDateTime" Path="CreationDateTime" />
+            <PropertyValue Property="LastChangedByUser" Path="LastChangedByUser" />
+            <PropertyValue Property="LastChangedByUserDescription" Path="LastChangedByUserDescription" />
+            <PropertyValue Property="LastChangeDateTime" Path="LastChangeDateTime" />
           </Record>
         </Annotation>
       </Annotations>

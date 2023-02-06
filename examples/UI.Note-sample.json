@@ -83,7 +83,22 @@
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
           "ContentType": { "$Path": "NoteBasicMIMEType" },
-          "Content": { "$Path": "NoteBasicContent" }
+          "Content": { "$Path": "NoteBasicContent" },
+          "Type": { "$Path": "NoteBasicType" },
+          "TypeDescription": { "$Path": "NoteBasicTypeDescription" },
+          "Language": { "$Path": "NoteBasicLanguage" },
+          "LanguageName": { "$Path": "NoteBasicLanguageName" },
+          "ObjectNodeType": { "$Path": "NoteBasicType/NoteBasicObjectNodeType" },
+          "LanguageDependent": { "$Path": "NoteBasicType/NoteBasicLanguageDependent" },
+          "MaximalLength": { "$Path": "NoteBasicType/NoteBasicMaximalLength" },
+          "MultipleNotes": { "$Path": "NoteBasicType/NoteBasicMultipleNotes" },
+          "HideTitle": { "$Path": "NoteBasicType/NoteBasicHideTitle" },
+          "IsTextPlain": { "$Path": "NoteBasicType/NoteBasicIsTextPlain" },
+          "CreatedByUser": { "$Path": "CreatedByUser" },
+          "CreationDateTime": { "$Path": "CreationDateTime" },
+          "LastChangedByUser": { "$Path": "LastChangedByUser" },
+          "LastChangedByUserDescription": { "$Path": "LastChangedByUserDescription" },
+          "LastChangeDateTime": { "$Path": "LastChangeDateTime" }
         }
       }
     }
