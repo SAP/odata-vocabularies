@@ -36,50 +36,7 @@
       "IsActiveEntity": { "$Type": "Edm.Boolean" },
       "__EntityControl": { "$Type": "self.EntityControl", "$Nullable": true },
       "__OperationControl": { "$Type": "self.OperationControl", "$Nullable": true },
-      "SAP__Messages": { "$Collection": true, "$Type": "self.SAP__Message" },
-      "DraftAdministrativeData": {
-        "$Kind": "NavigationProperty",
-        "$Type": "self.I_DraftAdministrativeDataType",
-        "$Nullable": true
-      },
-      "SiblingEntity": { "$Kind": "NavigationProperty", "$Type": "self.NoteType", "$Nullable": true }
-    },
-    "I_DraftAdministrativeDataType": {
-      "$Kind": "EntityType",
-      "$Key": ["DraftUUID", "DraftEntityType"],
-      "DraftUUID": { "$Type": "Edm.Guid" },
-      "DraftEntityType": { "$MaxLength": 30 },
-      "CreationDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "CreatedByUser": { "$MaxLength": 12 },
-      "LastChangeDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "LastChangedByUser": { "$MaxLength": 12 },
-      "DraftAccessType": { "$MaxLength": 1 },
-      "ProcessingStartDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "InProcessByUser": { "$MaxLength": 12 },
-      "DraftIsKeptByUser": { "$Type": "Edm.Boolean" },
-      "EnqueueStartDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "DraftIsCreatedByMe": { "$Type": "Edm.Boolean" },
-      "DraftIsLastChangedByMe": { "$Type": "Edm.Boolean" },
-      "DraftIsProcessedByMe": { "$Type": "Edm.Boolean" },
-      "CreatedByUserDescription": { "$MaxLength": 80 },
-      "LastChangedByUserDescription": { "$MaxLength": 80 },
-      "InProcessByUserDescription": { "$MaxLength": 80 }
-    },
-    "EntityControl": {
-      "$Kind": "ComplexType",
-      "Deletable": { "$Type": "Edm.Boolean" },
-      "Updatable": { "$Type": "Edm.Boolean" }
-    },
-    "OperationControl": { "$Kind": "ComplexType", "Edit": { "$Type": "Edm.Boolean" } },
-    "SAP__Message": {
-      "$Kind": "ComplexType",
-      "code": {},
-      "message": {},
-      "target": { "$Nullable": true },
-      "additionalTargets": { "$Collection": true },
-      "transition": { "$Type": "Edm.Boolean" },
-      "numericSeverity": { "$Type": "Edm.Byte" },
-      "longtextUrl": { "$Nullable": true }
+      "SAP__Messages": { "$Collection": true, "$Type": "self.SAP__Message" }
     },
     "$Annotations": {
       "self.NoteType": {

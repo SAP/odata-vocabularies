@@ -37,48 +37,7 @@
         <Property Name="__EntityControl" Type="self.EntityControl" />
         <Property Name="__OperationControl" Type="self.OperationControl" />
         <Property Name="SAP__Messages" Type="Collection(self.SAP__Message)" Nullable="false" />
-        <NavigationProperty Name="DraftAdministrativeData" Type="self.I_DraftAdministrativeDataType"/>
-        <NavigationProperty Name="SiblingEntity" Type="self.NoteType"/>
       </EntityType>
-      <EntityType Name="I_DraftAdministrativeDataType">
-        <Key>
-          <PropertyRef Name="DraftUUID" />
-          <PropertyRef Name="DraftEntityType" />
-        </Key>
-        <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" />
-        <Property Name="DraftEntityType" Type="Edm.String" Nullable="false" MaxLength="30" />
-        <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" />
-        <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12" />
-        <Property Name="DraftAccessType" Type="Edm.String" Nullable="false" MaxLength="1" />
-        <Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="InProcessByUser" Type="Edm.String" Nullable="false" MaxLength="12" />
-        <Property Name="DraftIsKeptByUser" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="CreatedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" />
-        <Property Name="LastChangedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" />
-        <Property Name="InProcessByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" />
-      </EntityType>
-      <ComplexType Name="EntityControl">
-        <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" />
-      </ComplexType>
-      <ComplexType Name="OperationControl">
-        <Property Name="Edit" Type="Edm.Boolean" Nullable="false"/>
-      </ComplexType>
-      <ComplexType Name="SAP__Message">
-        <Property Name="code" Type="Edm.String" Nullable="false" />
-        <Property Name="message" Type="Edm.String" Nullable="false" />
-        <Property Name="target" Type="Edm.String" />
-        <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false" />
-        <Property Name="transition" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false" />
-        <Property Name="longtextUrl" Type="Edm.String" />
-      </ComplexType>
       <Annotations Target="self.NoteType">
         <Annotation Term="UI.Note">
           <Record>
