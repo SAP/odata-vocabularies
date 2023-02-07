@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
-    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.xml">
+    <edmx:Include Namespace="Org.OData.UI.V1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Common.V1.xml">
+    <edmx:Include Namespace="Org.OData.Common.V1" Alias="Common" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
@@ -92,13 +95,12 @@
             <PropertyValue Property="MultipleNotes" Path="NoteBasicType/NoteBasicMultipleNotes" />
             <PropertyValue Property="HideTitle" Path="NoteBasicType/NoteBasicHideTitle" />
             <PropertyValue Property="IsTextPlain" Path="NoteBasicType/NoteBasicIsTextPlain" />
-            <PropertyValue Property="CreatedByUser" Path="CreatedByUser" />
-            <PropertyValue Property="CreationDateTime" Path="CreationDateTime" />
-            <PropertyValue Property="LastChangedByUser" Path="LastChangedByUser" />
-            <PropertyValue Property="LastChangedByUserDescription" Path="LastChangedByUserDescription" />
-            <PropertyValue Property="LastChangeDateTime" Path="LastChangeDateTime" />
           </Record>
         </Annotation>
+        <Annotation Term="Common.CreatedBy" Path="CreatedByUser" />
+        <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
+        <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
+        <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
       </Annotations>
     </Schema>
   </edmx:DataServices>

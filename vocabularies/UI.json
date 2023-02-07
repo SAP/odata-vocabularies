@@ -1250,57 +1250,19 @@
     },
     "NoteType": {
       "$Kind": "ComplexType",
-      "Title": { "$Nullable": true, "@Core.Description": "Title of the note" },
-      "ContentType": { "$Nullable": true, "@Core.IsMediaType": true, "@Core.Description": "MIME type of the note" },
-      "Content": { "$Nullable": true, "@Core.Description": "Content of the note, as a string" },
-      "Type": { "$Nullable": true, "@Core.Description": "Type of the note" },
-      "TypeDescription": { "$Nullable": true, "@Core.Description": "Description for the type of the note" },
-      "Language": { "$Nullable": true, "@Core.Description": "Language of the note" },
-      "LanguageName": { "$Nullable": true, "@Core.Description": "Name of the language of the note" },
-      "ObjectNodeType": { "$Nullable": true, "@Core.Description": "Type of the object node to which the note belongs" },
-      "LanguageDependent": {
-        "$Type": "Edm.Boolean",
-        "$Nullable": true,
-        "@Core.Description": "Whether the note is language-dependent"
-      },
-      "MaximalLength": {
-        "$Type": "Edm.Int32",
-        "$Nullable": true,
-        "@Core.Description": "MaximalLength of the text of the note"
-      },
-      "MultipleNotes": {
-        "$Type": "Edm.Boolean",
-        "$Nullable": true,
-        "@Core.Description": "Whether multiple notes are allowed"
-      },
-      "HideTitle": { "$Type": "Edm.Boolean", "$Nullable": true, "@Core.Description": "Whether to hide the note title" },
-      "IsTextPlain": {
-        "$Type": "Edm.Boolean",
-        "$Nullable": true,
-        "@Core.Description": "Whether the note contains plain text"
-      },
-      "CreatedByUser": { "$Nullable": true, "@Core.Description": "Who created the note" },
-      "CreatedByUserDescription": {
-        "$Nullable": true,
-        "@Core.Description": "Description of user who created the note"
-      },
-      "CreationDateTime": {
-        "$Type": "Edm.DateTimeOffset",
-        "$Nullable": true,
-        "$Precision": 7,
-        "@Core.Description": "When the note was created"
-      },
-      "LastChangedByUser": { "$Nullable": true, "@Core.Description": "Who last changed the note" },
-      "LastChangedByUserDescription": {
-        "$Nullable": true,
-        "@Core.Description": "Description of user who last changed the note"
-      },
-      "LastChangeDateTime": {
-        "$Type": "Edm.DateTimeOffset",
-        "$Nullable": true,
-        "$Precision": 7,
-        "@Core.Description": "When the note was last changed"
-      }
+      "Title": { "@Core.Description": "Title of the note" },
+      "ContentType": { "@Core.IsMediaType": true, "@Core.Description": "MIME type of the note" },
+      "Content": { "@Core.Description": "Content of the note, as a string" },
+      "Type": { "@Core.Description": "Type of the note" },
+      "TypeDescription": { "@Core.Description": "Description for the type of the note" },
+      "Language": { "@Core.Description": "Language of the note" },
+      "LanguageName": { "@Core.Description": "Name of the language of the note" },
+      "ObjectNodeType": { "@Core.Description": "Type of the object node to which the note belongs" },
+      "LanguageDependent": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note is language-dependent" },
+      "MaximalLength": { "$Type": "Edm.Int32", "@Core.Description": "MaximalLength of the text of the note" },
+      "MultipleNotes": { "$Type": "Edm.Boolean", "@Core.Description": "Whether multiple notes are allowed" },
+      "HideTitle": { "$Type": "Edm.Boolean", "@Core.Description": "Whether to hide the note title" },
+      "IsTextPlain": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note contains plain text" }
     },
     "Importance": {
       "$Kind": "Term",

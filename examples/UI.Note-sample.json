@@ -1,8 +1,11 @@
 {
   "$Version": "4.0",
   "$Reference": {
-    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.UI.V1", "$Alias": "UI" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Common.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Common.V1", "$Alias": "Common" }]
     }
   },
   "UI.examples": {
@@ -93,13 +96,12 @@
           "MaximalLength": { "$Path": "NoteBasicType/NoteBasicMaximalLength" },
           "MultipleNotes": { "$Path": "NoteBasicType/NoteBasicMultipleNotes" },
           "HideTitle": { "$Path": "NoteBasicType/NoteBasicHideTitle" },
-          "IsTextPlain": { "$Path": "NoteBasicType/NoteBasicIsTextPlain" },
-          "CreatedByUser": { "$Path": "CreatedByUser" },
-          "CreationDateTime": { "$Path": "CreationDateTime" },
-          "LastChangedByUser": { "$Path": "LastChangedByUser" },
-          "LastChangedByUserDescription": { "$Path": "LastChangedByUserDescription" },
-          "LastChangeDateTime": { "$Path": "LastChangeDateTime" }
-        }
+          "IsTextPlain": { "$Path": "NoteBasicType/NoteBasicIsTextPlain" }
+        },
+        "@Common.CreatedBy": { "$Path": "CreatedByUser" },
+        "@Common.CreatedAt": { "$Path": "CreationDateTime" },
+        "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
+        "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       }
     }
   }
