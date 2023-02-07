@@ -1,6 +1,9 @@
 {
   "$Version": "4.0",
   "$Reference": {
+    "/sap/opu/odata4/sap/ui_nte_demo_m_o4/srvd/sap/ui_nte_demo_m/0001/$metadata": {
+      "$Include": [{ "$Namespace": "com.sap.gateway.srvd.ui_nte_demo_m.v0001", "$Alias": "service" }]
+    },
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.UI.V1", "$Alias": "UI" }]
     },
@@ -10,33 +13,8 @@
   },
   "UI.examples": {
     "$Alias": "self",
-    "NoteType": {
-      "$Kind": "EntityType",
-      "$Key": ["NoteBasicUUID", "IsActiveEntity"],
-      "NoteBasicUUID": { "$Type": "Edm.Guid" },
-      "NoteBasicObjectNodeType": { "$MaxLength": 30 },
-      "NoteBasicObject": { "$MaxLength": 90 },
-      "NoteBasicType": { "$MaxLength": 20 },
-      "NoteBasicTypeDescription": { "$MaxLength": 255 },
-      "NoteBasicLanguage": { "$MaxLength": 2 },
-      "LanguageName": { "$MaxLength": 16 },
-      "NoteBasicTitle": { "$MaxLength": 255 },
-      "NoteBasicMIMEType": { "$MaxLength": 127 },
-      "NoteBasicLength": { "$Type": "Edm.Int32" },
-      "CreatedByUser": { "$MaxLength": 12 },
-      "CreationDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "LastChangedByUser": { "$MaxLength": 12 },
-      "LastChangedByUserDescription": { "$MaxLength": 80 },
-      "LastChangeDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "NoteBasicContent": {},
-      "HasDraftEntity": { "$Type": "Edm.Boolean" },
-      "DraftEntityCreationDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "DraftEntityLastChangeDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
-      "HasActiveEntity": { "$Type": "Edm.Boolean" },
-      "IsActiveEntity": { "$Type": "Edm.Boolean" }
-    },
     "$Annotations": {
-      "self.NoteType": {
+      "service.C_NoteBasicTPType": {
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
           "ContentType": { "$Path": "NoteBasicMIMEType" },
@@ -44,13 +22,13 @@
           "Type": { "$Path": "NoteBasicType" },
           "TypeDescription": { "$Path": "NoteBasicTypeDescription" },
           "Language": { "$Path": "NoteBasicLanguage" },
-          "LanguageName": { "$Path": "NoteBasicLanguageName" },
-          "ObjectNodeType": { "$Path": "NoteBasicType/NoteBasicObjectNodeType" },
-          "LanguageDependent": { "$Path": "NoteBasicType/NoteBasicLanguageDependent" },
-          "MaximalLength": { "$Path": "NoteBasicType/NoteBasicMaximalLength" },
-          "MultipleNotes": { "$Path": "NoteBasicType/NoteBasicMultipleNotes" },
-          "HideTitle": { "$Path": "NoteBasicType/NoteBasicHideTitle" },
-          "IsTextPlain": { "$Path": "NoteBasicType/NoteBasicIsTextPlain" }
+          "LanguageName": { "$Path": "LanguageName" },
+          "ObjectNodeType": { "$Path": "_NoteBasic/NoteBasicObjectNodeType" },
+          "LanguageDependent": { "$Path": "_NoteBasic/NoteBasicLanguageDependent" },
+          "MaximalLength": { "$Path": "_NoteBasic/NoteBasicMaximalLength" },
+          "MultipleNotes": { "$Path": "_NoteBasic/NoteBasicMultipleNotes" },
+          "HideTitle": { "$Path": "_NoteBasic/NoteBasicHideTitle" },
+          "IsTextPlain": { "$Path": "_NoteBasic/NoteBasicIsTextPlain" }
         },
         "@Common.CreatedBy": { "$Path": "CreatedByUser" },
         "@Common.CreatedAt": { "$Path": "CreationDateTime" },

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="/sap/opu/odata4/sap/ui_nte_demo_m_o4/srvd/sap/ui_nte_demo_m/0001/$metadata">
+    <edmx:Include Namespace="com.sap.gateway.srvd.ui_nte_demo_m.v0001" Alias="service" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.xml">
     <edmx:Include Namespace="Org.OData.UI.V1" Alias="UI" />
   </edmx:Reference>
@@ -8,34 +11,7 @@
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
-      <EntityType Name="NoteType">
-        <Key>
-          <PropertyRef Name="NoteBasicUUID" />
-          <PropertyRef Name="IsActiveEntity" />
-        </Key>
-        <Property Name="NoteBasicUUID" Type="Edm.Guid" Nullable="false" />
-        <Property Name="NoteBasicObjectNodeType" Type="Edm.String" Nullable="false" MaxLength="30" />
-        <Property Name="NoteBasicObject" Type="Edm.String" Nullable="false" MaxLength="90" />
-        <Property Name="NoteBasicType" Type="Edm.String" Nullable="false" MaxLength="20" />
-        <Property Name="NoteBasicTypeDescription" Type="Edm.String" Nullable="false" MaxLength="255" />
-        <Property Name="NoteBasicLanguage" Type="Edm.String" Nullable="false" MaxLength="2" />
-        <Property Name="LanguageName" Type="Edm.String" Nullable="false" MaxLength="16" />
-        <Property Name="NoteBasicTitle" Type="Edm.String" Nullable="false" MaxLength="255" />
-        <Property Name="NoteBasicMIMEType" Type="Edm.String" Nullable="false" MaxLength="127" />
-        <Property Name="NoteBasicLength" Type="Edm.Int32" Nullable="false" />
-        <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" />
-        <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12" />
-        <Property Name="LastChangedByUserDescription" Type="Edm.String" Nullable="false" MaxLength="80" />
-        <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="NoteBasicContent" Type="Edm.String" Nullable="false" />
-        <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" />
-        <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" />
-      </EntityType>
-      <Annotations Target="self.NoteType">
+      <Annotations Target="service.C_NoteBasicTPType">
         <Annotation Term="UI.Note">
           <Record>
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
@@ -44,13 +20,13 @@
             <PropertyValue Property="Type" Path="NoteBasicType" />
             <PropertyValue Property="TypeDescription" Path="NoteBasicTypeDescription" />
             <PropertyValue Property="Language" Path="NoteBasicLanguage" />
-            <PropertyValue Property="LanguageName" Path="NoteBasicLanguageName" />
-            <PropertyValue Property="ObjectNodeType" Path="NoteBasicType/NoteBasicObjectNodeType" />
-            <PropertyValue Property="LanguageDependent" Path="NoteBasicType/NoteBasicLanguageDependent" />
-            <PropertyValue Property="MaximalLength" Path="NoteBasicType/NoteBasicMaximalLength" />
-            <PropertyValue Property="MultipleNotes" Path="NoteBasicType/NoteBasicMultipleNotes" />
-            <PropertyValue Property="HideTitle" Path="NoteBasicType/NoteBasicHideTitle" />
-            <PropertyValue Property="IsTextPlain" Path="NoteBasicType/NoteBasicIsTextPlain" />
+            <PropertyValue Property="LanguageName" Path="LanguageName" />
+            <PropertyValue Property="ObjectNodeType" Path="_NoteBasic/NoteBasicObjectNodeType" />
+            <PropertyValue Property="LanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
+            <PropertyValue Property="MaximalLength" Path="_NoteBasic/NoteBasicMaximalLength" />
+            <PropertyValue Property="MultipleNotes" Path="_NoteBasic/NoteBasicMultipleNotes" />
+            <PropertyValue Property="HideTitle" Path="_NoteBasic/NoteBasicHideTitle" />
+            <PropertyValue Property="IsTextPlain" Path="_NoteBasic/NoteBasicIsTextPlain" />
           </Record>
         </Annotation>
         <Annotation Term="Common.CreatedBy" Path="CreatedByUser" />
