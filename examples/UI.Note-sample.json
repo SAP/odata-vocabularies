@@ -33,10 +33,7 @@
       "DraftEntityCreationDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
       "DraftEntityLastChangeDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 7 },
       "HasActiveEntity": { "$Type": "Edm.Boolean" },
-      "IsActiveEntity": { "$Type": "Edm.Boolean" },
-      "__EntityControl": { "$Type": "self.EntityControl", "$Nullable": true },
-      "__OperationControl": { "$Type": "self.OperationControl", "$Nullable": true },
-      "SAP__Messages": { "$Collection": true, "$Type": "self.SAP__Message" }
+      "IsActiveEntity": { "$Type": "Edm.Boolean" }
     },
     "$Annotations": {
       "self.NoteType": {

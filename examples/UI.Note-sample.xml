@@ -34,9 +34,6 @@
         <Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" />
         <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" />
         <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" />
-        <Property Name="__EntityControl" Type="self.EntityControl" />
-        <Property Name="__OperationControl" Type="self.OperationControl" />
-        <Property Name="SAP__Messages" Type="Collection(self.SAP__Message)" Nullable="false" />
       </EntityType>
       <Annotations Target="self.NoteType">
         <Annotation Term="UI.Note">
