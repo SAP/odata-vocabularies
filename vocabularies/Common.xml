@@ -123,7 +123,7 @@
         <Annotation Term="Core.LongDescription">
           <String>Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.
             If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.
-            The annotation value can be a path expression resolving to a property tagged as [`IsTimezone`](#IsTimezone).</String>
+            The annotation value can be a path expression resolving to a property that may be tagged as [`IsTimezone`](#IsTimezone).</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
