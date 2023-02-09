@@ -110,7 +110,7 @@
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
       "@Core.Description": "The point in time represented by the annotated property or parameter shall be interpreted in the given time zone",
-      "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.\n            This annotation can be given as a path expression to a property tagged as [`IsTimezone`](#IsTimezone).",
+      "@Core.LongDescription": "Time zones shall be specified according to the [IANA](https://www.iana.org/time-zones) standard.\n            If this annotation is absent or null or an empty string, points in time are typically interpreted in the current user's or default time zone.\n            The annotation value can be a path expression resolving to a property tagged as [`IsTimezone`](#IsTimezone).",
       "@Core.RequiresType": "Edm.DateTimeOffset"
     },
     "IsTimezone": {
