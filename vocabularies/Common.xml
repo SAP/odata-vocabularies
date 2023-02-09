@@ -128,6 +128,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
       <Term Name="IsTimezone" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Annotated property or parameter is a time zone" />
       </Term>
 
