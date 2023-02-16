@@ -104,7 +104,7 @@ the following collections of hierarchy nodes are distinguished:
         <Property Name="LimitedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy" />
         </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
+        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:

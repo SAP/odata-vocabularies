@@ -62,7 +62,6 @@
       },
       "DrillStateProperty": {
         "$Type": "Edm.PropertyPath",
-        "$Nullable": true,
         "@Core.Description": "String property holding the drill state of a node",
         "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
       },
