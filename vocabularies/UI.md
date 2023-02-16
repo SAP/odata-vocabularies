@@ -768,7 +768,7 @@ Property|Type|Description
 [Content](./UI.xml#L1404:~:text=<ComplexType%20Name="-,NoteType,-")|String|Content of the note, as a string
 [Type](./UI.xml#L1407:~:text=<ComplexType%20Name="-,NoteType,-")|String|Type of the note
 [TypeDescription](./UI.xml#L1410:~:text=<ComplexType%20Name="-,NoteType,-")|String|Description for the type of the note
-[LanguageName](./UI.xml#L1413:~:text=<ComplexType%20Name="-,NoteType,-")|String|Name of the language of the note<br>The language identifier is tagged with [`IsLanguageIdentifier`](#IsLanguageIdentifier).
+[LanguageName](./UI.xml#L1413:~:text=<ComplexType%20Name="-,NoteType,-")|String|Name of the language of the note<br>The language identifier is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier).
 [ObjectNodeType](./UI.xml#L1419:~:text=<ComplexType%20Name="-,NoteType,-")|String|Type of the object node to which the note belongs
 [LanguageDependent](./UI.xml#L1422:~:text=<ComplexType%20Name="-,NoteType,-")|Boolean|Whether the note is language-dependent
 [MaximalLength](./UI.xml#L1425:~:text=<ComplexType%20Name="-,NoteType,-")|Int32|MaximalLength of the text of the note

@@ -1413,7 +1413,7 @@ The trend is
         <Property Name="LanguageName" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the language of the note" />
           <Annotation Term="Core.LongDescription">
-            <String>The language identifier is tagged with [`IsLanguageIdentifier`](#IsLanguageIdentifier).</String>
+            <String>The language identifier is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier).</String>
           </Annotation>
         </Property>
         <Property Name="ObjectNodeType" Type="Edm.String" Nullable="false">

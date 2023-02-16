@@ -1257,7 +1257,7 @@
       "TypeDescription": { "@Core.Description": "Description for the type of the note" },
       "LanguageName": {
         "@Core.Description": "Name of the language of the note",
-        "@Core.LongDescription": "The language identifier is tagged with [`IsLanguageIdentifier`](#IsLanguageIdentifier)."
+        "@Core.LongDescription": "The language identifier is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)."
       },
       "ObjectNodeType": { "@Core.Description": "Type of the object node to which the note belongs" },
       "LanguageDependent": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note is language-dependent" },
