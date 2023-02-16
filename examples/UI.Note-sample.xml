@@ -19,7 +19,6 @@
             <PropertyValue Property="Content" Path="NoteBasicContent" />
             <PropertyValue Property="Type" Path="NoteBasicType" />
             <PropertyValue Property="TypeDescription" Path="NoteBasicTypeDescription" />
-            <PropertyValue Property="Language" Path="NoteBasicLanguage" />
             <PropertyValue Property="LanguageName" Path="LanguageName" />
             <PropertyValue Property="ObjectNodeType" Path="_NoteBasic/NoteBasicObjectNodeType" />
             <PropertyValue Property="LanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
@@ -33,6 +32,9 @@
         <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
         <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
         <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
+        <Annotation Term="Common.IsLanguageIdentifier" />
       </Annotations>
     </Schema>
   </edmx:DataServices>

@@ -1410,11 +1410,11 @@ The trend is
         <Property Name="TypeDescription" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Description for the type of the note" />
         </Property>
-        <Property Name="Language" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Language of the note" />
-        </Property>
         <Property Name="LanguageName" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the language of the note" />
+          <Annotation Term="Core.LongDescription">
+            <String>The language identifier is tagged with [`IsLanguageIdentifier`](#IsLanguageIdentifier).</String>
+          </Annotation>
         </Property>
         <Property Name="ObjectNodeType" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Type of the object node to which the note belongs" />

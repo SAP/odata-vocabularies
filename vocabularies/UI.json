@@ -1255,8 +1255,10 @@
       "Content": { "@Core.Description": "Content of the note, as a string" },
       "Type": { "@Core.Description": "Type of the note" },
       "TypeDescription": { "@Core.Description": "Description for the type of the note" },
-      "Language": { "@Core.Description": "Language of the note" },
-      "LanguageName": { "@Core.Description": "Name of the language of the note" },
+      "LanguageName": {
+        "@Core.Description": "Name of the language of the note",
+        "@Core.LongDescription": "The language identifier is tagged with [`IsLanguageIdentifier`](#IsLanguageIdentifier)."
+      },
       "ObjectNodeType": { "@Core.Description": "Type of the object node to which the note belongs" },
       "LanguageDependent": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note is language-dependent" },
       "MaximalLength": { "$Type": "Edm.Int32", "@Core.Description": "MaximalLength of the text of the note" },
