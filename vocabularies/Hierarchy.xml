@@ -91,7 +91,7 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.LongDescription">
             <String>In a recursive hierarchy with mixed types, nodes can
             &lt;br&gt;- have a type-specific (navigation) property whose name is the node type or
-            &lt;br&gt;- be represented by entities of different subtypes of a commmon entity type that is
+            &lt;br&gt;- be represented by entities of different subtypes of a common entity type that is
             annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.</String>
           </Annotation>
         </Property>
