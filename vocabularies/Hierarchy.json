@@ -43,7 +43,7 @@
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
         "@Core.Description": "String property holding the type of a node",
-        "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a commmon entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
+        "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a common entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
       },
       "ChildCountProperty": {
         "$Type": "Edm.PropertyPath",
