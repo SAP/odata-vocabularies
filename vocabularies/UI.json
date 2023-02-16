@@ -1246,10 +1246,12 @@
       "$Kind": "Term",
       "$Type": "UI.NoteType",
       "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes"
     },
     "NoteType": {
       "$Kind": "ComplexType",
+      "@Common.Experimental": true,
       "Title": { "@Core.Description": "Title of the note" },
       "ContentType": { "@Core.IsMediaType": true, "@Core.Description": "MIME type of the note" },
       "Content": { "@Core.Description": "Content of the note, as a string" },

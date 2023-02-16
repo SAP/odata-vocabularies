@@ -1391,9 +1391,11 @@ The trend is
       </EnumType>
 
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
       </Term>
       <ComplexType Name="NoteType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Title" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Title of the note" />
         </Property>
