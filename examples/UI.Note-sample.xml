@@ -18,14 +18,16 @@
             <PropertyValue Property="ContentType" Path="NoteBasicMIMEType" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
             <PropertyValue Property="Type" Path="NoteBasicType" />
-            <PropertyValue Property="TypeDescription" Path="NoteBasicTypeDescription" />
-            <PropertyValue Property="LanguageName" Path="LanguageName" />
-            <PropertyValue Property="ObjectNodeType" Path="_NoteBasic/NoteBasicObjectNodeType" />
-            <PropertyValue Property="LanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
+            <PropertyValue Property="IsLanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
             <PropertyValue Property="MaximalLength" Path="_NoteBasic/NoteBasicMaximalLength" />
             <PropertyValue Property="MultipleNotes" Path="_NoteBasic/NoteBasicMultipleNotes" />
             <PropertyValue Property="HideTitle" Path="_NoteBasic/NoteBasicHideTitle" />
             <PropertyValue Property="IsTextPlain" Path="_NoteBasic/NoteBasicIsTextPlain" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Common.SAPObjectNodeType">
+          <Record>
+            <PropertyValue Property="Name" Path="_NoteBasic/NoteBasicObjectNodeType" />
           </Record>
         </Annotation>
         <Annotation Term="Common.CreatedBy" Path="CreatedByUser" />
@@ -35,6 +37,10 @@
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />
+        <Annotation Term="Common.Label" Path="LanguageName" />
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicType">
+        <Annotation Term="Common.Label" Path="NoteBasicTypeDescription" />
       </Annotations>
     </Schema>
   </edmx:DataServices>
