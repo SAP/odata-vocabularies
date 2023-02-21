@@ -15,6 +15,12 @@
     "$Alias": "self",
     "$Annotations": {
       "service.C_NoteBasicTPType": {
+        "@UI.Facets": [
+          {
+            "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.xml#UI.ReferenceFacet",
+            "Target": "@UI.Note"
+          }
+        ],
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
           "ContentType": { "$Path": "NoteBasicMIMEType" },

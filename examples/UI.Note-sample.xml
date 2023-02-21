@@ -12,6 +12,13 @@
   <edmx:DataServices>
     <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
       <Annotations Target="service.C_NoteBasicTPType">
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.Note" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="UI.Note">
           <Record>
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
