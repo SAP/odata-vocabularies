@@ -38,11 +38,7 @@
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
         "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       },
-      "service.C_NoteBasicTPType/NoteBasicLanguage": {
-        "@Common.IsLanguageIdentifier": true,
-        "@Common.Label": { "$Path": "LanguageName" }
-      },
-      "service.C_NoteBasicTPType/NoteBasicType": { "@Common.Label": { "$Path": "NoteBasicTypeDescription" } }
+      "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
     }
   }
 }

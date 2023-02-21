@@ -44,10 +44,6 @@
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />
-        <Annotation Term="Common.Label" Path="LanguageName" />
-      </Annotations>
-      <Annotations Target="service.C_NoteBasicTPType/NoteBasicType">
-        <Annotation Term="Common.Label" Path="NoteBasicTypeDescription" />
       </Annotations>
     </Schema>
   </edmx:DataServices>
