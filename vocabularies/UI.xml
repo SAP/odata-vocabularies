@@ -1392,9 +1392,9 @@ The trend is
 
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
+        <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
         <Annotation Term="Core.LongDescription">
-          <String>Besides this annotation the reuse component also evaluates the annotations
+          <String>Administrative data is given by the annotations
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),
           [`Common.ChangedBy`](Common.md#ChangedBy),
@@ -1404,38 +1404,30 @@ The trend is
       </Term>
       <ComplexType Name="NoteType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Title" Type="Edm.String" Nullable="false">
+        <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the note" />
         </Property>
         <Property Name="Content" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Content of the note, as a string" />
           <Annotation Term="Core.LongDescription">
-            <String>The reuse component also evaluates the [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)
-            annotation on this property.</String>
+            <String>The [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)
+            annotation on this property contains the content type.
+            When this property is tagged with [`Core.IsLanguageDependent`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType),
+            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
+            determines the language of the note.</String>
           </Annotation>
         </Property>
         <Property Name="Type" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Type of the note" />
         </Property>
-        <Property Name="IsLanguageDependent" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the note is language-dependent" />
-          <Annotation Term="Core.LongDescription">
-            <String>When this is true, the reuse component also evalutes the property of the same entity type
-            that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
-            in order to determine the language of the note.</String>
-          </Annotation>
-        </Property>
-        <Property Name="MaximalLength" Type="Edm.Int32" Nullable="false">
-          <Annotation Term="Core.Description" String="MaximalLength of the text of the note" />
+        <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
+          <Annotation Term="Core.Description" String="Maximal length of the text of the note" />
         </Property>
         <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether multiple notes are allowed" />
         </Property>
         <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether to hide the note title" />
-        </Property>
-        <Property Name="IsTextPlain" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the note contains plain text" />
         </Property>
       </ComplexType>
 

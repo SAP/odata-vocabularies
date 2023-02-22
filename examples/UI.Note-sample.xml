@@ -27,11 +27,9 @@
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
             <PropertyValue Property="Type" Path="NoteBasicType" />
-            <PropertyValue Property="IsLanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
             <PropertyValue Property="MaximalLength" Path="_NoteBasic/NoteBasicMaximalLength" />
             <PropertyValue Property="MultipleNotes" Path="_NoteBasic/NoteBasicMultipleNotes" />
             <PropertyValue Property="HideTitle" Path="_NoteBasic/NoteBasicHideTitle" />
-            <PropertyValue Property="IsTextPlain" Path="_NoteBasic/NoteBasicIsTextPlain" />
           </Record>
         </Annotation>
         <Annotation Term="Common.SAPObjectNodeType">
@@ -46,6 +44,7 @@
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicContent">
         <Annotation Term="Core.MediaType" Path="NoteBasicMIMEType" />
+        <Annotation Term="Core.IsLanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />

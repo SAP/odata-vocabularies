@@ -28,11 +28,9 @@
           "Title": { "$Path": "NoteBasicTitle" },
           "Content": { "$Path": "NoteBasicContent" },
           "Type": { "$Path": "NoteBasicType" },
-          "IsLanguageDependent": { "$Path": "_NoteBasic/NoteBasicLanguageDependent" },
           "MaximalLength": { "$Path": "_NoteBasic/NoteBasicMaximalLength" },
           "MultipleNotes": { "$Path": "_NoteBasic/NoteBasicMultipleNotes" },
-          "HideTitle": { "$Path": "_NoteBasic/NoteBasicHideTitle" },
-          "IsTextPlain": { "$Path": "_NoteBasic/NoteBasicIsTextPlain" }
+          "HideTitle": { "$Path": "_NoteBasic/NoteBasicHideTitle" }
         },
         "@Common.SAPObjectNodeType": { "Name": { "$Path": "_NoteBasic/NoteBasicObjectNodeType" } },
         "@Common.CreatedBy": { "$Path": "CreatedByUser" },
@@ -40,7 +38,10 @@
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
         "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       },
-      "service.C_NoteBasicTPType/NoteBasicContent": { "@Core.MediaType": { "$Path": "NoteBasicMIMEType" } },
+      "service.C_NoteBasicTPType/NoteBasicContent": {
+        "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
+        "@Core.IsLanguageDependent": { "$Path": "_NoteBasic/NoteBasicLanguageDependent" }
+      },
       "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
     }
   }
