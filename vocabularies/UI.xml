@@ -1395,7 +1395,7 @@ The trend is
         <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
         <Annotation Term="Core.LongDescription">
           <String>Besides this annotation the reuse component also evaluates the annotations
-          [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),
+          [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType) on the `Content` and
           [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),

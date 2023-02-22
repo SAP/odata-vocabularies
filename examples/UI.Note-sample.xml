@@ -44,8 +44,8 @@
         <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
         <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
       </Annotations>
-      <Annotations Target="service.C_NoteBasicTPType/NoteBasicMIMEType">
-        <Annotation Term="Core.IsMediaType" />
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicContent">
+        <Annotation Term="Core.MediaType" Path="NoteBasicMIMEType" />
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />

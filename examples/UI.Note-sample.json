@@ -40,7 +40,7 @@
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
         "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       },
-      "service.C_NoteBasicTPType/NoteBasicMIMEType": { "@Core.IsMediaType": true },
+      "service.C_NoteBasicTPType/NoteBasicContent": { "@Core.MediaType": { "$Path": "NoteBasicMIMEType" } },
       "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
     }
   }
