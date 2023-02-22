@@ -1248,7 +1248,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes",
-      "@Core.LongDescription": "Besides this annotation, the reuse component also evaluates the annotations\n          [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),\n          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on properties of the same entity type."
+      "@Core.LongDescription": "Besides this annotation the reuse component also evaluates the annotations\n          [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),\n          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type and on its properties."
     },
     "NoteType": {
       "$Kind": "ComplexType",

@@ -1394,14 +1394,14 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
         <Annotation Term="Core.LongDescription">
-          <String>Besides this annotation, the reuse component also evaluates the annotations
+          <String>Besides this annotation the reuse component also evaluates the annotations
           [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),
           [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),
           [`Common.ChangedBy`](Common.md#ChangedBy),
           [`Common.ChangedAt`](Common.md#ChangedAt)
-          on properties of the same entity type.</String>
+          on the same entity type and on its properties.</String>
         </Annotation>
       </Term>
       <ComplexType Name="NoteType">
