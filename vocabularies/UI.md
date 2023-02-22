@@ -883,7 +883,7 @@ Property|Type|Description
 [*IconUrl*](./UI.xml#L1536:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
 [*Inline*](./UI.xml#L1574:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
 [*Determining*](./UI.xml#L1577:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
-[Action](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionOverload](Common.md#ActionOverload)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[Action](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
 [InvocationGrouping](./UI.xml#L1588:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
 
 **Applicable Annotation Terms:**
@@ -990,7 +990,7 @@ Property|Type|Description
 [*IconUrl*](./UI.xml#L1536:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
 [*Value*](./UI.xml#L1635:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
 [Value](./UI.xml#L1665:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|PrimitiveType|
-[Action](./UI.xml#L1666:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|[QualifiedName](Common.md#QualifiedName)|Qualified name of an Action, Function, ActionImport or FunctionImport in scope
+[Action](./UI.xml#L1666:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
 
 **Applicable Annotation Terms:**
 
@@ -1129,3 +1129,16 @@ Property|Type|Description
 :-------|:---|:----------
 [LocalDataProperty](./UI.xml#L1805:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1808:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+
+<a name="ActionName"></a>
+## [ActionName](./UI.xml#L1832:~:text=<TypeDefinition%20Name="-,ActionName,-")
+**Type:** String
+
+Name of an Action, Function, ActionImport, or FunctionImport in scope
+
+Possible values are
+        
+- Qualified name of an action or function (`foo.bar`)
+- Qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
+- Simple name of an action import or function import of the annotated service (`quux`)
+- Qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)

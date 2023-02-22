@@ -6,6 +6,7 @@
     }
   ],
   "xml.catalogs": ["./node_modules/odata-csdl/catalog.xml"],
+  "xml.format.legacy": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
