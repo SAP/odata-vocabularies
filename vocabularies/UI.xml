@@ -1423,10 +1423,10 @@ The trend is
         <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
           <Annotation Term="Core.Description" String="Maximal length of the text of the note" />
         </Property>
-        <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false">
+        <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether multiple notes are allowed" />
         </Property>
-        <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false">
+        <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether to hide the note title" />
         </Property>
       </ComplexType>

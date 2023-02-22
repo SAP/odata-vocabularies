@@ -1264,8 +1264,16 @@
         "$Nullable": true,
         "@Core.Description": "Maximal length of the text of the note"
       },
-      "MultipleNotes": { "$Type": "Edm.Boolean", "@Core.Description": "Whether multiple notes are allowed" },
-      "HideTitle": { "$Type": "Edm.Boolean", "@Core.Description": "Whether to hide the note title" }
+      "MultipleNotes": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether multiple notes are allowed"
+      },
+      "HideTitle": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether to hide the note title"
+      }
     },
     "Importance": {
       "$Kind": "Term",
