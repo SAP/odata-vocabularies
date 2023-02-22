@@ -1393,15 +1393,21 @@ The trend is
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
+        <Annotation Term="Core.LongDescription">
+          <String>Besides this annotation, the reuse component also evaluates the annotations
+          [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),
+          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),
+          [`Common.CreatedBy`](Common.md#CreatedBy),
+          [`Common.CreatedAt`](Common.md#CreatedAt),
+          [`Common.ChangedBy`](Common.md#ChangedBy),
+          [`Common.ChangedAt`](Common.md#ChangedAt)
+          on properties of the same entity type.</String>
+        </Annotation>
       </Term>
       <ComplexType Name="NoteType">
         <Annotation Term="Common.Experimental" />
         <Property Name="Title" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Title of the note" />
-        </Property>
-        <Property Name="ContentType" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.IsMediaType" />
-          <Annotation Term="Core.Description" String="MIME type of the note" />
         </Property>
         <Property Name="Content" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Content of the note, as a string" />

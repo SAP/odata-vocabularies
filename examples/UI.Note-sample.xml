@@ -3,11 +3,14 @@
   <edmx:Reference Uri="/sap/opu/odata4/sap/ui_nte_demo_m_o4/srvd/sap/ui_nte_demo_m/0001/$metadata">
     <edmx:Include Namespace="com.sap.gateway.srvd.ui_nte_demo_m.v0001" Alias="service" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.UI.V1.xml">
-    <edmx:Include Namespace="Org.OData.UI.V1" Alias="UI" />
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Common.V1.xml">
-    <edmx:Include Namespace="Org.OData.Common.V1" Alias="Common" />
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
@@ -22,7 +25,6 @@
         <Annotation Term="UI.Note">
           <Record>
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
-            <PropertyValue Property="ContentType" Path="NoteBasicMIMEType" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
             <PropertyValue Property="Type" Path="NoteBasicType" />
             <PropertyValue Property="IsLanguageDependent" Path="_NoteBasic/NoteBasicLanguageDependent" />
@@ -41,6 +43,9 @@
         <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
         <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
         <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicMIMEType">
+        <Annotation Term="Core.IsMediaType" />
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />

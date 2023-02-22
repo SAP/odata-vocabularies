@@ -1247,13 +1247,13 @@
       "$Type": "UI.NoteType",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes"
+      "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes",
+      "@Core.LongDescription": "Besides this annotation, the reuse component also evaluates the annotations\n          [`Core.IsMediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#IsMediaType),\n          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on properties of the same entity type."
     },
     "NoteType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "Title": { "@Core.Description": "Title of the note" },
-      "ContentType": { "@Core.IsMediaType": true, "@Core.Description": "MIME type of the note" },
       "Content": { "@Core.Description": "Content of the note, as a string" },
       "Type": { "@Core.Description": "Type of the note" },
       "IsLanguageDependent": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note is language-dependent" },
