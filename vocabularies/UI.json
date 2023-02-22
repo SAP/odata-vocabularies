@@ -1248,15 +1248,22 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type can be visualized in a reuse component for notes",
-      "@Core.LongDescription": "Besides this annotation the reuse component also evaluates the annotations\n          [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType) on the `Content` and\n          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type and on its properties."
+      "@Core.LongDescription": "Besides this annotation the reuse component also evaluates the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
     },
     "NoteType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "Title": { "@Core.Description": "Title of the note" },
-      "Content": { "@Core.Description": "Content of the note, as a string" },
+      "Content": {
+        "@Core.Description": "Content of the note, as a string",
+        "@Core.LongDescription": "The reuse component also evaluates the [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)\n            annotation on this property."
+      },
       "Type": { "@Core.Description": "Type of the note" },
-      "IsLanguageDependent": { "$Type": "Edm.Boolean", "@Core.Description": "Whether the note is language-dependent" },
+      "IsLanguageDependent": {
+        "$Type": "Edm.Boolean",
+        "@Core.Description": "Whether the note is language-dependent",
+        "@Core.LongDescription": "When this is true, the reuse component also evalutes the property of the same entity type\n            that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            in order to determine the language of the note."
+      },
       "MaximalLength": { "$Type": "Edm.Int32", "@Core.Description": "MaximalLength of the text of the note" },
       "MultipleNotes": { "$Type": "Edm.Boolean", "@Core.Description": "Whether multiple notes are allowed" },
       "HideTitle": { "$Type": "Edm.Boolean", "@Core.Description": "Whether to hide the note title" },

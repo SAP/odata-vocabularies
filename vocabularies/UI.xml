@@ -1395,13 +1395,11 @@ The trend is
         <Annotation Term="Core.Description" String="The annotated entity type can be visualized in a reuse component for notes" />
         <Annotation Term="Core.LongDescription">
           <String>Besides this annotation the reuse component also evaluates the annotations
-          [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType) on the `Content` and
-          [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier),
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),
           [`Common.ChangedBy`](Common.md#ChangedBy),
           [`Common.ChangedAt`](Common.md#ChangedAt)
-          on the same entity type and on its properties.</String>
+          on the same entity type.</String>
         </Annotation>
       </Term>
       <ComplexType Name="NoteType">
@@ -1411,12 +1409,21 @@ The trend is
         </Property>
         <Property Name="Content" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Content of the note, as a string" />
+          <Annotation Term="Core.LongDescription">
+            <String>The reuse component also evaluates the [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)
+            annotation on this property.</String>
+          </Annotation>
         </Property>
         <Property Name="Type" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Type of the note" />
         </Property>
         <Property Name="IsLanguageDependent" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the note is language-dependent" />
+          <Annotation Term="Core.LongDescription">
+            <String>When this is true, the reuse component also evalutes the property of the same entity type
+            that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
+            in order to determine the language of the note.</String>
+          </Annotation>
         </Property>
         <Property Name="MaximalLength" Type="Edm.Int32" Nullable="false">
           <Annotation Term="Core.Description" String="MaximalLength of the text of the note" />
