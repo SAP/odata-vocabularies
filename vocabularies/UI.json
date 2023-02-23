@@ -1248,7 +1248,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Visualization of a note attached to an entity",
-      "@Core.LongDescription": "Administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
+      "@Core.LongDescription": "The SAP object node type of the entity is given by the annotation\n          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).\n          Its administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
     },
     "NoteType": {
       "$Kind": "ComplexType",
@@ -1258,7 +1258,6 @@
         "@Core.Description": "Content of the note, as a string",
         "@Core.LongDescription": "The [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)\n            annotation on this property contains the content type.\n            When this property is tagged with [`Core.IsLanguageDependent`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType),\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
       },
-      "Type": { "@Core.Description": "Type of the note" },
       "MaximalLength": {
         "$Type": "Edm.Int32",
         "$Nullable": true,
@@ -1267,7 +1266,7 @@
       "MultipleNotes": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "Whether multiple notes are allowed"
+        "@Core.Description": "Whether multiple notes are allowed for one object"
       },
       "HideTitle": {
         "$Type": "Edm.Boolean",

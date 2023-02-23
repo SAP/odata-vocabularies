@@ -1394,7 +1394,9 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
         <Annotation Term="Core.LongDescription">
-          <String>Administrative data is given by the annotations
+          <String>The SAP object node type of the entity is given by the annotation
+          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).
+          Its administrative data is given by the annotations
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),
           [`Common.ChangedBy`](Common.md#ChangedBy),
@@ -1417,14 +1419,11 @@ The trend is
             determines the language of the note.</String>
           </Annotation>
         </Property>
-        <Property Name="Type" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Type of the note" />
-        </Property>
         <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
           <Annotation Term="Core.Description" String="Maximal length of the text of the note" />
         </Property>
         <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether multiple notes are allowed" />
+          <Annotation Term="Core.Description" String="Whether multiple notes are allowed for one object" />
         </Property>
         <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether to hide the note title" />

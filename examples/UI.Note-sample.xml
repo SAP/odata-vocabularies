@@ -26,7 +26,6 @@
           <Record>
             <PropertyValue Property="Title" Path="NoteBasicTitle" />
             <PropertyValue Property="Content" Path="NoteBasicContent" />
-            <PropertyValue Property="Type" Path="NoteBasicType" />
             <PropertyValue Property="MaximalLength" Path="_NoteBasic/NoteBasicMaximalLength" />
             <PropertyValue Property="MultipleNotes" Path="_NoteBasic/NoteBasicMultipleNotes" />
             <PropertyValue Property="HideTitle" Path="_NoteBasic/NoteBasicHideTitle" />
