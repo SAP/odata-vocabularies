@@ -1394,7 +1394,7 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
         <Annotation Term="Core.LongDescription">
-          <String>The SAP object node type of the entity is given by the annotation
+          <String>The SAP object node type of the entity is defined by the note type, it is given by the annotation
           [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).
           Its administrative data is given by the annotations
           [`Common.CreatedBy`](Common.md#CreatedBy),
@@ -1423,13 +1423,13 @@ The trend is
           <Annotation Term="Core.Description" String="A type used for grouping notes" />
         </Property>
         <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
-          <Annotation Term="Core.Description" String="Maximal length of the text of the note" />
+          <Annotation Term="Core.Description" String="Type-specific maximal length of the content of the note" />
         </Property>
         <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether multiple notes are allowed for one object" />
+          <Annotation Term="Core.Description" String="Whether the type allows multiple notes for one object" />
         </Property>
         <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether to hide the note title" />
+          <Annotation Term="Core.Description" String="Whether the type demands hiding of the note title" />
         </Property>
       </ComplexType>
 

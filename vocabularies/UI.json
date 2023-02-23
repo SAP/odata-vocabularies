@@ -1248,7 +1248,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Visualization of a note attached to an entity",
-      "@Core.LongDescription": "The SAP object node type of the entity is given by the annotation\n          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).\n          Its administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
+      "@Core.LongDescription": "The SAP object node type of the entity is defined by the note type, it is given by the annotation\n          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).\n          Its administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
     },
     "NoteType": {
       "$Kind": "ComplexType",
@@ -1262,17 +1262,17 @@
       "MaximalLength": {
         "$Type": "Edm.Int32",
         "$Nullable": true,
-        "@Core.Description": "Maximal length of the text of the note"
+        "@Core.Description": "Type-specific maximal length of the content of the note"
       },
       "MultipleNotes": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "Whether multiple notes are allowed for one object"
+        "@Core.Description": "Whether the type allows multiple notes for one object"
       },
       "HideTitle": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "Whether to hide the note title"
+        "@Core.Description": "Whether the type demands hiding of the note title"
       }
     },
     "Importance": {
