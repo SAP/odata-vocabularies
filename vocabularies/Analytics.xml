@@ -173,7 +173,7 @@
         <Annotation Term="Core.Description" String="Action for updating an aggregate entity" />
         <Annotation Term="Core.LongDescription">
           <String>Transient entities that result from the application of a transformation sequence represent an
-          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr, example 19]).
+          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr], first example in simple grouping section).
           Such a transient entity may be annotated with this term to describe a service-defined action that can be used
           to update the transient entity. This effectively means updating the persistent entities whose aggregate
           the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
