@@ -1419,6 +1419,9 @@ The trend is
             determines the language of the note.</String>
           </Annotation>
         </Property>
+        <Property Name="Type" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="A type used for grouping notes" />
+        </Property>
         <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
           <Annotation Term="Core.Description" String="Maximal length of the text of the note" />
         </Property>

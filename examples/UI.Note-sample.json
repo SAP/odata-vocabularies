@@ -27,6 +27,7 @@
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
           "Content": { "$Path": "NoteBasicContent" },
+          "Type": { "$Path": "NoteBasicType" },
           "MaximalLength": { "$Path": "_NoteBasic/NoteBasicMaximalLength" },
           "MultipleNotes": { "$Path": "_NoteBasic/NoteBasicMultipleNotes" },
           "HideTitle": { "$Path": "_NoteBasic/NoteBasicHideTitle" }

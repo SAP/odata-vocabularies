@@ -1258,6 +1258,7 @@
         "@Core.Description": "Content of the note, as a string",
         "@Core.LongDescription": "The [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)\n            annotation on this property contains the content type.\n            When this property is tagged with [`Core.IsLanguageDependent`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType),\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
       },
+      "Type": { "@Core.Description": "A type used for grouping notes" },
       "MaximalLength": {
         "$Type": "Edm.Int32",
         "$Nullable": true,
