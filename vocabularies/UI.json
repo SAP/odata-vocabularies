@@ -1260,12 +1260,12 @@
       },
       "Content": {
         "@Core.Description": "Content of the note, as a string",
+        "@Core.LongDescription": "This property must be annotated with `Core.MediaType` and `Common.SAPObjectNodeTypeReference`.\n            When it is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note.",
         "@Validation.ApplicableTerms": [
           "Core.MediaType",
           "Core.IsLanguageDependent",
           "Common.SAPObjectNodeTypeReference"
-        ],
-        "@Core.LongDescription": "When this property is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
+        ]
       },
       "Type": { "@Core.Description": "A type used for grouping notes" },
       "MaximalLength": {

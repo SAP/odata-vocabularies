@@ -1414,17 +1414,18 @@ The trend is
         </Property>
         <Property Name="Content" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Content of the note, as a string" />
+          <Annotation Term="Core.LongDescription">
+            <String>This property must be annotated with `Core.MediaType` and `Common.SAPObjectNodeTypeReference`.
+            When it is tagged with `Core.IsLanguageDependent`,
+            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
+            determines the language of the note.</String>
+          </Annotation>
           <Annotation Term="Validation.ApplicableTerms">
             <Collection>
               <String>Core.MediaType</String>
               <String>Core.IsLanguageDependent</String>
               <String>Common.SAPObjectNodeTypeReference</String>
             </Collection>
-          </Annotation>
-          <Annotation Term="Core.LongDescription">
-            <String>When this property is tagged with `Core.IsLanguageDependent`,
-            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
-            determines the language of the note.</String>
           </Annotation>
         </Property>
         <Property Name="Type" Type="Edm.String" Nullable="false">
