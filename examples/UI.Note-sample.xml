@@ -13,7 +13,7 @@
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Annotations Target="service.C_NTE_DEMO_MType">
         <Annotation Term="UI.Facets">
           <Collection>

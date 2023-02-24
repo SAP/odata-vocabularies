@@ -15,7 +15,6 @@
     }
   },
   "UI.examples": {
-    "$Alias": "self",
     "$Annotations": {
       "service.C_NTE_DEMO_MType": {
         "@UI.Facets": [
