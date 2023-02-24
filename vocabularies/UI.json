@@ -1253,10 +1253,15 @@
     "NoteType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "Title": { "$Nullable": true, "@Core.Description": "Title of the note" },
+      "Title": {
+        "$Nullable": true,
+        "@Core.Description": "Title of the note",
+        "@Validation.ApplicableTerms": ["UI.Hidden"]
+      },
       "Content": {
         "@Core.Description": "Content of the note, as a string",
-        "@Core.LongDescription": "The [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)\n            annotation on this property contains the content type.\n            When this property is tagged with [`Core.IsLanguageDependent`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType),\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
+        "@Validation.ApplicableTerms": ["Core.MediaType", "Core.IsLanguageDependent"],
+        "@Core.LongDescription": "When this property is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
       },
       "Type": { "@Core.Description": "A type used for grouping notes" },
       "MaximalLength": {
@@ -1268,11 +1273,6 @@
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
         "@Core.Description": "Whether the type allows multiple notes for one object"
-      },
-      "HideTitle": {
-        "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
-        "@Core.Description": "Whether the type demands hiding of the note title"
       }
     },
     "Importance": {

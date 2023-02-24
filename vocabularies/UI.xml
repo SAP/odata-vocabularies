@@ -1408,13 +1408,22 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the note" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>UI.Hidden</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Content" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Content of the note, as a string" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>Core.MediaType</String>
+              <String>Core.IsLanguageDependent</String>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.LongDescription">
-            <String>The [`Core.MediaType`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType)
-            annotation on this property contains the content type.
-            When this property is tagged with [`Core.IsLanguageDependent`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#MediaType),
+            <String>When this property is tagged with `Core.IsLanguageDependent`,
             another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
             determines the language of the note.</String>
           </Annotation>
@@ -1427,9 +1436,6 @@ The trend is
         </Property>
         <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Whether the type allows multiple notes for one object" />
-        </Property>
-        <Property Name="HideTitle" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the type demands hiding of the note title" />
         </Property>
       </ComplexType>
 

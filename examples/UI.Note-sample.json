@@ -31,8 +31,7 @@
           "Content": { "$Path": "NoteBasicContent" },
           "Type": { "$Path": "NoteBasicType" },
           "MaximalLength": { "$Path": "_NoteBasicType/NoteBasicMaximalLength" },
-          "MultipleNotes": { "$Path": "_NoteBasicType/NoteBasicMultipleNotes" },
-          "HideTitle": { "$Path": "_NoteBasicType/NoteBasicHideTitle" }
+          "MultipleNotes": { "$Path": "_NoteBasicType/NoteBasicMultipleNotes" }
         },
         "@Common.SAPObjectNodeType": { "Name": { "$Path": "_NoteBasicType/NoteBasicObjectNodeType" } },
         "@Common.CreatedBy": { "$Path": "CreatedByUser" },
@@ -40,6 +39,7 @@
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
         "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       },
+      "service.C_NoteBasicTPType/NoteBasicTitle": { "@UI.Hidden": { "$Path": "_NoteBasicType/NoteBasicHideTitle" } },
       "service.C_NoteBasicTPType/NoteBasicContent": {
         "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
         "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" }
