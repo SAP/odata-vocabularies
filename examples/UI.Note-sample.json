@@ -17,22 +17,24 @@
   "UI.examples": {
     "$Alias": "self",
     "$Annotations": {
-      "service.C_NoteBasicTPType": {
+      "service.C_NTE_DEMO_MType": {
         "@UI.Facets": [
           {
             "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
-            "Target": "@UI.Note"
+            "Target": "_NoteBasic/@UI.Note"
           }
-        ],
+        ]
+      },
+      "service.C_NoteBasicTPType": {
         "@UI.Note": {
           "Title": { "$Path": "NoteBasicTitle" },
           "Content": { "$Path": "NoteBasicContent" },
           "Type": { "$Path": "NoteBasicType" },
-          "MaximalLength": { "$Path": "_NoteBasic/NoteBasicMaximalLength" },
-          "MultipleNotes": { "$Path": "_NoteBasic/NoteBasicMultipleNotes" },
-          "HideTitle": { "$Path": "_NoteBasic/NoteBasicHideTitle" }
+          "MaximalLength": { "$Path": "_NoteBasicType/NoteBasicMaximalLength" },
+          "MultipleNotes": { "$Path": "_NoteBasicType/NoteBasicMultipleNotes" },
+          "HideTitle": { "$Path": "_NoteBasicType/NoteBasicHideTitle" }
         },
-        "@Common.SAPObjectNodeType": { "Name": { "$Path": "_NoteBasic/NoteBasicObjectNodeType" } },
+        "@Common.SAPObjectNodeType": { "Name": { "$Path": "_NoteBasicType/NoteBasicObjectNodeType" } },
         "@Common.CreatedBy": { "$Path": "CreatedByUser" },
         "@Common.CreatedAt": { "$Path": "CreationDateTime" },
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
@@ -40,7 +42,7 @@
       },
       "service.C_NoteBasicTPType/NoteBasicContent": {
         "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
-        "@Core.IsLanguageDependent": { "$Path": "_NoteBasic/NoteBasicLanguageDependent" }
+        "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" }
       },
       "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
     }
