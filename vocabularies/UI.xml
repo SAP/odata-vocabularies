@@ -1394,9 +1394,7 @@ The trend is
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
         <Annotation Term="Core.LongDescription">
-          <String>The SAP object node type of the entity is defined by the note type, it is given by the annotation
-          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).
-          Its administrative data is given by the annotations
+          <String>Administrative data is given by the annotations
           [`Common.CreatedBy`](Common.md#CreatedBy),
           [`Common.CreatedAt`](Common.md#CreatedAt),
           [`Common.ChangedBy`](Common.md#ChangedBy),
@@ -1420,6 +1418,7 @@ The trend is
             <Collection>
               <String>Core.MediaType</String>
               <String>Core.IsLanguageDependent</String>
+              <String>Common.SAPObjectNodeTypeReference</String>
             </Collection>
           </Annotation>
           <Annotation Term="Core.LongDescription">

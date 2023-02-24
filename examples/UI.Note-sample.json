@@ -33,7 +33,6 @@
           "MaximalLength": { "$Path": "_NoteBasicType/NoteBasicMaximalLength" },
           "MultipleNotes": { "$Path": "_NoteBasicType/NoteBasicMultipleNotes" }
         },
-        "@Common.SAPObjectNodeType": { "Name": { "$Path": "_NoteBasicType/NoteBasicObjectNodeType" } },
         "@Common.CreatedBy": { "$Path": "CreatedByUser" },
         "@Common.CreatedAt": { "$Path": "CreationDateTime" },
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
@@ -42,7 +41,8 @@
       "service.C_NoteBasicTPType/NoteBasicTitle": { "@UI.Hidden": { "$Path": "_NoteBasicType/NoteBasicHideTitle" } },
       "service.C_NoteBasicTPType/NoteBasicContent": {
         "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
-        "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" }
+        "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" },
+        "@Common.SAPObjectNodeTypeReference": { "$Path": "_NoteBasicType/NoteBasicObjectNodeType" }
       },
       "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
     }

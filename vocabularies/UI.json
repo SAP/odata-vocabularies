@@ -1248,7 +1248,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Visualization of a note attached to an entity",
-      "@Core.LongDescription": "The SAP object node type of the entity is defined by the note type, it is given by the annotation\n          [`Common.SAPObjectNodeType`](Common.md#SAPObjectNodeType).\n          Its administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
+      "@Core.LongDescription": "Administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
     },
     "NoteType": {
       "$Kind": "ComplexType",
@@ -1260,7 +1260,11 @@
       },
       "Content": {
         "@Core.Description": "Content of the note, as a string",
-        "@Validation.ApplicableTerms": ["Core.MediaType", "Core.IsLanguageDependent"],
+        "@Validation.ApplicableTerms": [
+          "Core.MediaType",
+          "Core.IsLanguageDependent",
+          "Common.SAPObjectNodeTypeReference"
+        ],
         "@Core.LongDescription": "When this property is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note."
       },
       "Type": { "@Core.Description": "A type used for grouping notes" },

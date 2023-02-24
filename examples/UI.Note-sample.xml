@@ -33,11 +33,6 @@
             <PropertyValue Property="MultipleNotes" Path="_NoteBasicType/NoteBasicMultipleNotes" />
           </Record>
         </Annotation>
-        <Annotation Term="Common.SAPObjectNodeType">
-          <Record>
-            <PropertyValue Property="Name" Path="_NoteBasicType/NoteBasicObjectNodeType" />
-          </Record>
-        </Annotation>
         <Annotation Term="Common.CreatedBy" Path="CreatedByUser" />
         <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
         <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
@@ -49,6 +44,7 @@
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicContent">
         <Annotation Term="Core.MediaType" Path="NoteBasicMIMEType" />
         <Annotation Term="Core.IsLanguageDependent" Path="_NoteBasicType/NoteBasicLanguageDependent" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" Path="_NoteBasicType/NoteBasicObjectNodeType" />
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
         <Annotation Term="Common.IsLanguageIdentifier" />
