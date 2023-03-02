@@ -131,6 +131,12 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Annotated property or parameter is a time zone" />
       </Term>
+      <Term Name="Time24h" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.RequiresType" String="Edm.TimeOfDay" />
+        <Annotation Term="Core.Description" String="The annotated time-of-day element with value null represents 24:00:00" />
+      </Term>
 
       <!-- under discussion
         <Term Name="ValidationConstraint" Type="Common.ValidationConstraintType" Nullable="false" AppliesTo="Property EntityType ComplexType">
