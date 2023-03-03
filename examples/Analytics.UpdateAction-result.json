@@ -1,5 +1,5 @@
 {
-  "@odata.context": "$metadata#Sales(Customer(Country),Product(Name),Amount)",
+  "@odata.context": "$metadata#Sales",
   "value": [
     {
       "Customer": {
@@ -11,7 +11,7 @@
       "Amount": 3,
       "@Analytics.UpdateAction": {
         "ActionImport": "UpdateAggregateSales",
-        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1BhcGVyJyk=",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Paper')",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -25,7 +25,7 @@
       "Amount": 2,
       "@Analytics.UpdateAction": {
         "ActionImport": "UpdateAggregateSales",
-        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1N1Z2FyJyk=",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'Netherlands' and Product/Name eq 'Sugar')",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -39,7 +39,7 @@
       "Amount": 12,
       "@Analytics.UpdateAction": {
         "ActionImport": "UpdateAggregateSales",
-        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdDb2ZmZWUnKQ==",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Coffee')",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -53,7 +53,7 @@
       "Amount": 5,
       "@Analytics.UpdateAction": {
         "ActionImport": "UpdateAggregateSales",
-        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdQYXBlcicp",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Paper')",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -67,7 +67,7 @@
       "Amount": 2,
       "@Analytics.UpdateAction": {
         "ActionImport": "UpdateAggregateSales",
-        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdTdWdhcicp",
+        "Aggregate": "groupby((Customer/Country,Product/Name),aggregate(Amount))/filter(Customer/Country eq 'USA' and Product/Name eq 'Sugar')",
         "UpdatableProperties": ["Amount"]
       }
     }
