@@ -151,7 +151,8 @@ the following collections of hierarchy nodes are distinguished:
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
           <String>The service designates a subset of the `$apply` result as "matching nodes".
-          This subset is the output set of the `filter` or `search` transformation in the fourth parameter of the last `ancestors` transformation.&lt;br&gt;
+          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
+          of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
           This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
           and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
