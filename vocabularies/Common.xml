@@ -378,7 +378,7 @@
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription">
-            <String>A requested change of the property to its initial value or null is rejected if this annotation is `Mandatory` in the after-image of the request.
+            <String>A requested change of the property to its initial value or null is ignored if this annotation is `Mandatory` in the after-image of the request.
             This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
           </Annotation>
         </Member>
@@ -389,14 +389,14 @@
         <Member Name="ReadOnly" Value="1">
           <Annotation Term="Core.Description" String="Property value cannot be changed" />
           <Annotation Term="Core.LongDescription">
-            <String>A requested change of the property is rejected if this annotation is `ReadOnly` in the before-image _and_ the after-image of the request.
+            <String>A requested change of the property is ignored if this annotation is `ReadOnly` in the before-image _and_ the after-image of the request.
             To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.</String>
           </Annotation>
         </Member>
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
           <Annotation Term="Core.LongDescription">
-            <String>A requested change setting the property to a non-initial non-null value is rejected if this annotation is `Inapplicable` in the after-image of the request.
+            <String>A requested change setting the property to a non-initial non-null value is ignored if this annotation is `Inapplicable` in the after-image of the request.
             This value does not make sense as a static annotation value.
 
 Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
