@@ -378,7 +378,7 @@
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription">
-            <String>A requested removal of the property is rejected if this annotation is `Mandatory` in the after-image of the request.
+            <String>A requested change of the property to its initial value or null is rejected if this annotation is `Mandatory` in the after-image of the request.
             This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
           </Annotation>
         </Member>
@@ -396,7 +396,7 @@
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
           <Annotation Term="Core.LongDescription">
-            <String>A requested change mentioning the property is rejected if this annotation is `Inapplicable` in the after-image of the request.
+            <String>A requested change setting the property to a non-initial non-null value is rejected if this annotation is `Inapplicable` in the after-image of the request.
             This value does not make sense as a static annotation value.
 
 Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
