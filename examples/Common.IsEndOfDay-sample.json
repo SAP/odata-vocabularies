@@ -8,10 +8,10 @@
   "isendofday.sample": {
     "WorkerTimeSheet": {
       "$Kind": "EntityType",
-      "WorkingDate": { "$Type": "Edm.Date", "$Nullable": true },
-      "ClockInTime": { "$Type": "Edm.TimeOfDay", "$Nullable": true },
+      "WorkingDate": { "$Type": "Edm.Date" },
+      "ClockInTime": { "$Type": "Edm.TimeOfDay" },
       "ClockOutTime": { "$Type": "Edm.TimeOfDay", "$Nullable": true },
-      "ClockOutMidnight": { "$Type": "Edm.Boolean", "$Nullable": true }
+      "ClockOutMidnight": { "$Type": "Edm.Boolean" }
     },
     "$Annotations": {
       "timezone.sample.WorkerTimeSheet/ClockOutTime": { "@Common.IsEndOfDay": { "$Path": "ClockOutMidnight" } }

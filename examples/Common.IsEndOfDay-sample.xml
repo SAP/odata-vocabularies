@@ -6,10 +6,10 @@
   <edmx:DataServices>
     <Schema Namespace="isendofday.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="WorkerTimeSheet">
-        <Property Name="WorkingDate" Type="Edm.Date" />
-        <Property Name="ClockInTime" Type="Edm.TimeOfDay" />
-        <Property Name="ClockOutTime" Type="Edm.TimeOfDay" />
-        <Property Name="ClockOutMidnight" Type="Edm.Boolean" />
+        <Property Name="WorkingDate" Type="Edm.Date" Nullable="false" />
+        <Property Name="ClockInTime" Type="Edm.TimeOfDay" Nullable="false" />
+        <Property Name="ClockOutTime" Type="Edm.TimeOfDay" Nullable="true" />
+        <Property Name="ClockOutMidnight" Type="Edm.Boolean" Nullable="false" />
       </EntityType>
       <Annotations Target="timezone.sample.WorkerTimeSheet/ClockOutTime">
         <Annotation Term="Common.IsEndOfDay" Path="ClockOutMidnight" />
