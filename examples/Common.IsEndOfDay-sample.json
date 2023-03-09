@@ -1,0 +1,20 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "isendofday.sample": {
+    "WorkerTimeSheet": {
+      "$Kind": "EntityType",
+      "WorkingDate": { "$Type": "Edm.Date", "$Nullable": true },
+      "ClockInTime": { "$Type": "Edm.TimeOfDay", "$Nullable": true },
+      "ClockOutTime": { "$Type": "Edm.TimeOfDay", "$Nullable": true },
+      "ClockOutMidnight": { "$Type": "Edm.Boolean", "$Nullable": true }
+    },
+    "$Annotations": {
+      "timezone.sample.WorkerTimeSheet/ClockOutTime": { "@Common.IsEndOfDay": { "$Path": "ClockOutMidnight" } }
+    }
+  }
+}
