@@ -122,7 +122,7 @@
             "$Name": "Levels",
             "$Type": "Edm.Int64",
             "@Core.Description": "The number n of levels to be output, absent means all levels",
-            "@Core.OptionalParameter": true,
+            "@Core.OptionalParameter": {},
             "@Validation.Minimum": 1
           },
           {
