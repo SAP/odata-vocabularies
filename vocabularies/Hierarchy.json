@@ -118,7 +118,12 @@
             "$Name": "NodeProperty",
             "@Core.Description": "Property path to the node identifier, evaluated relative to the binding parameter"
           },
-          { "$Name": "Levels", "$Type": "Edm.Int64", "@Core.Description": "The number n of levels to be output" },
+          {
+            "$Name": "Levels",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "The number n of levels to be output, absent means all levels",
+            "@Core.OptionalParameter": true
+          },
           {
             "$Name": "Expand",
             "$Collection": true,
