@@ -179,6 +179,15 @@ Terms for contact and address information are defined in the [Communication voca
                 <String>A user is an individual who interacts with the services supplied by a system.</String>
               </Annotation>
             </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="EndOfBusinessDate" />
+              <Annotation Term="Core.Description" String="The end of business date of a record." />
+              <Annotation Term="Core.LongDescription">
+                <String>The end of business date of a legal ground or data subject record. 
+                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated.</String>
+              </Annotation>
+            </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
