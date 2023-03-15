@@ -890,7 +890,7 @@ Member|Value|Description
 ## [DataFieldForIntentBasedNavigation](./UI.xml#L1551:~:text=<ComplexType%20Name="-,DataFieldForIntentBasedNavigation,-"): [DataFieldForActionAbstract](#DataFieldForActionAbstract)
 Triggers intent-based UI navigation
 
-The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
 It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."
 
@@ -987,7 +987,7 @@ Property|Type|Description
 ## [DataFieldWithIntentBasedNavigation](./UI.xml#L1621:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-"): [DataField](#DataField)
 A piece of data that allows triggering intent-based UI navigation
 
-The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
 It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.
