@@ -114,9 +114,9 @@ the following collections of hierarchy nodes are distinguished:
           </Annotation>
         </Property>
         <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy" />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy (or the unlimited hierarchy, which amounts to the same)" />
           <Annotation Term="Core.LongDescription">
-            <String>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.</String>
+            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves one.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
@@ -150,9 +150,11 @@ the following collections of hierarchy nodes are distinguished:
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The service designates a subset of the `$apply` result as "matching nodes".
-          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
+          <String>The service MAY designate a subset of the `$apply` result as "matching nodes".
+          For requests following [this pattern](#RecursiveHierarchyType), this subset is the output set of the
+          `filter` or `search` transformation that occurs as the fourth parameter
           of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
+          For requests not following this pattern, the subset NEED NOT be defined.&lt;br&gt;
           This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
           and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
