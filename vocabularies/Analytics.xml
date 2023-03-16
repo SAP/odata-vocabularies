@@ -167,7 +167,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="AggregateEntity" Type="Analytics.UpdateActionType" Nullable="false">
+      <Term Name="AggregateEntity" Type="Analytics.AggregateEntityType" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Function and action for retrieving and updating an aggregate entity" />
