@@ -304,7 +304,7 @@
       "$Kind": "EnumType",
       "$UnderlyingType": "Edm.Byte",
       "@Core.Description": "Control state of a property",
-      "@Core.LongDescription": "If this annotation is given dynamically in the metadata, its value in the before-image or after-image of a request\n          plays a role when changes are requested.",
+      "@Core.LongDescription": "When changes are requested, the value of this annotation in the before-image or after-image\n          of the request plays a role. These may differ is the value given dynamically in the metadata.",
       "Mandatory": 7,
       "Mandatory@Core.Description": "Property is mandatory from a business perspective",
       "Mandatory@Core.LongDescription": "A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.\n\n            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",

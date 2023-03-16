@@ -372,8 +372,8 @@
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property" />
         <Annotation Term="Core.LongDescription">
-          <String>If this annotation is given dynamically in the metadata, its value in the before-image or after-image of a request
-          plays a role when changes are requested.</String>
+          <String>When changes are requested, the value of this annotation in the before-image or after-image
+          of the request plays a role. These may differ is the value given dynamically in the metadata.</String>
         </Annotation>
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />

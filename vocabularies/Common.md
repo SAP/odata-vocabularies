@@ -141,8 +141,8 @@ Use term Capabilities.FilterRestrictions instead
 ## [FieldControlType](./Common.xml#L372:~:text=<EnumType%20Name="-,FieldControlType,-")
 Control state of a property
 
-If this annotation is given dynamically in the metadata, its value in the before-image or after-image of a request
-          plays a role when changes are requested.
+When changes are requested, the value of this annotation in the before-image or after-image
+          of the request plays a role. These may differ is the value given dynamically in the metadata.
 
 Member|Value|Description
 :-----|----:|:----------
