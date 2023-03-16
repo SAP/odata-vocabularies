@@ -156,26 +156,42 @@
         "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
       }
     },
-    "UpdateAction": {
+    "AggregateEntity": {
       "$Kind": "Term",
       "$Type": "Analytics.UpdateActionType",
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
-      "@Core.Description": "Action for updating an aggregate entity",
-      "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr], first example in simple grouping section).\n          Such a transient entity may be annotated with this term to describe a service-defined action that can be used\n          to update the transient entity. This effectively means updating the persistent entities whose aggregate\n          the transient entity represents, how this dis-aggregation happens is defined by the service.",
+      "@Core.Description": "Function and action for retrieving and updating an aggregate entity",
+      "@Core.LongDescription": "Transient entities that result from the application of a transformation sequence represent an\n          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr], first example in simple grouping section).\n          Such a transient entity may be annotated with this term to describe<br>\n          - a service-defined function that can be used to retrieve the transient entity in order to `$expand` additional properties<br>\n          - a service-defined action that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate\n          the transient entity represents, how this dis-aggregation happens is defined by the service.",
       "@Core.Example": {
         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.ExternalExampleValue",
-        "Description": "Based on the [example model](../examples/Analytics.UpdateAction-sample.xml).\n              The format of the `Aggregate` parameter allows the server to re-create the transient entity to be updated\n              without storing an identifier, based solely on the parameter value.",
-        "ExternalValue": "../examples/Analytics.UpdateAction-result.json"
+        "Description": "Based on the [example model](../examples/Analytics.AggregateEntity-sample.xml).\n              The format of the `Aggregate` parameter allows the server to re-create the transient entity\n              without storing an identifier, based solely on the parameter value.",
+        "ExternalValue": "../examples/Analytics.AggregateEntity-result.json"
       }
     },
-    "UpdateActionType": {
+    "AggregateEntityType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "ActionImport": { "$Type": "Core.SimpleIdentifier", "@Core.Description": "Name of an action import" },
       "Aggregate": {
-        "@Core.Description": "Value that the first parameter of the action invocation must have",
-        "@Core.LongDescription": "String value of the first action parameter, which identifies the aggregate that the transient entity represents.\n            This value MUST be treated as opaque by the client.\n            Subsequent action parameters define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata."
+        "@Core.Description": "Value that the first parameter of the function or action invocation must have",
+        "@Core.LongDescription": "String value of the first parameter, which identifies the aggregate that the transient entity represents.\n            This value MUST be treated as opaque by the client."
+      },
+      "RetrieveFunctionImport": {
+        "$Type": "Core.SimpleIdentifier",
+        "$Nullable": true,
+        "@Core.Description": "Name of a function import",
+        "@Core.LongDescription": "The function has only one parameter."
+      },
+      "UpdateActionImport": {
+        "$Type": "Core.SimpleIdentifier",
+        "$Nullable": true,
+        "@Core.Description": "Name of an action import",
+        "@Core.LongDescription": "Action parameters after the first define how the identified aggregate entity is updated,\n            they are explained in the action definition in the service metadata."
+      },
+      "ExpandableProperties": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "Declared navigation properties of the aggregate entity that can be expanded"
       },
       "UpdatableProperties": {
         "$Collection": true,

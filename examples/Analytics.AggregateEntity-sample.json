@@ -8,7 +8,7 @@
       "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
     }
   },
-  "example.Analytics.UpdateAction": {
+  "example.Analytics.AggregateEntity": {
     "$Alias": "SalesModel",
     "Customer": {
       "$Kind": "EntityType",
@@ -48,6 +48,16 @@
         "$ReturnType": { "$Type": "SalesModel.Sale", "@Core.Description": "Aggregate entity with updates applied" }
       }
     ],
+    "RetrieveAggregateSales": [
+      {
+        "$Kind": "Action",
+        "@Core.Description": "Retrieves an aggregate entity of type `SalesModel.Sale`",
+        "$Parameter": [
+          { "$Name": "Aggregate", "@Core.Description": "String identifying the aggregate entity to be retrieved" }
+        ],
+        "$ReturnType": { "$Type": "SalesModel.Sale" }
+      }
+    ],
     "container": {
       "$Kind": "EntityContainer",
       "Sales": {
@@ -55,8 +65,9 @@
         "$Type": "SalesModel.Sale",
         "@Aggregation.CustomAggregate#Amount": "Edm.Decimal"
       },
-      "UpdateAggregateSales": { "$Action": "SalesModel.UpdateAggregateSales", "$EntitySet": "Sales" }
+      "UpdateAggregateSales": { "$Action": "SalesModel.UpdateAggregateSales", "$EntitySet": "Sales" },
+      "RetrieveAggregateSales": { "$Function": "SalesModel.RetrieveAggregateSales", "$EntitySet": "Sales" }
     }
   },
-  "$EntityContainer": "example.Analytics.UpdateAction.container"
+  "$EntityContainer": "example.Analytics.AggregateEntity.container"
 }

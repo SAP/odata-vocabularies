@@ -9,9 +9,10 @@
         "Name": "Paper"
       },
       "Amount": 3,
-      "@Analytics.UpdateAction": {
-        "ActionImport": "UpdateAggregateSales",
+      "@Analytics.AggregateEntity": {
         "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1BhcGVyJyk=",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -23,9 +24,10 @@
         "Name": "Sugar"
       },
       "Amount": 2,
-      "@Analytics.UpdateAction": {
-        "ActionImport": "UpdateAggregateSales",
+      "@Analytics.AggregateEntity": {
         "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1N1Z2FyJyk=",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -37,9 +39,10 @@
         "Name": "Coffee"
       },
       "Amount": 12,
-      "@Analytics.UpdateAction": {
-        "ActionImport": "UpdateAggregateSales",
+      "@Analytics.AggregateEntity": {
         "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdDb2ZmZWUnKQ==",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -51,9 +54,10 @@
         "Name": "Paper"
       },
       "Amount": 5,
-      "@Analytics.UpdateAction": {
-        "ActionImport": "UpdateAggregateSales",
+      "@Analytics.AggregateEntity": {
         "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdQYXBlcicp",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
         "UpdatableProperties": ["Amount"]
       }
     },
@@ -65,9 +69,10 @@
         "Name": "Sugar"
       },
       "Amount": 2,
-      "@Analytics.UpdateAction": {
-        "ActionImport": "UpdateAggregateSales",
+      "@Analytics.AggregateEntity": {
         "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdTdWdhcicp",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
         "UpdatableProperties": ["Amount"]
       }
     }

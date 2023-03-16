@@ -8,7 +8,7 @@
   </edmx:Reference>
 
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.UpdateAction" Alias="SalesModel">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.AggregateEntity" Alias="SalesModel">
       <EntityType Name="Customer">
         <Key>
           <PropertyRef Name="ID" />
@@ -47,11 +47,19 @@
           <Annotation Term="Core.Description" String="Aggregate entity with updates applied" />
         </ReturnType>
       </Action>
+      <Action Name="RetrieveAggregateSales">
+        <Annotation Term="Core.Description" String="Retrieves an aggregate entity of type `SalesModel.Sale`" />
+        <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="String identifying the aggregate entity to be retrieved" />
+        </Parameter>
+        <ReturnType Type="SalesModel.Sale" Nullable="false" />
+      </Action>
       <EntityContainer Name="container">
         <EntitySet Name="Sales" EntityType="SalesModel.Sale">
           <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
         </EntitySet>
         <ActionImport Name="UpdateAggregateSales" Action="SalesModel.UpdateAggregateSales" EntitySet="Sales" />
+        <FunctionImport Name="RetrieveAggregateSales" Function="SalesModel.RetrieveAggregateSales" EntitySet="Sales" />
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
