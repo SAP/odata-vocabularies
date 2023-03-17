@@ -142,13 +142,13 @@ Use term Capabilities.FilterRestrictions instead
 Control state of a property
 
 When changes are requested, the value of this annotation in the before-image or after-image
-          of the request plays a role. These may differ is the value given dynamically in the metadata.
+          of the request plays a role. These may differ if the value is given dynamically in the metadata.
 
 Member|Value|Description
 :-----|----:|:----------
 [Mandatory](./Common.xml#L378:~:text=<EnumType%20Name="-,FieldControlType,-")|7|Property is mandatory from a business perspective<br>A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.<br/> This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).
 [Optional](./Common.xml#L386:~:text=<EnumType%20Name="-,FieldControlType,-")|3|Property may have a value<br>This value does not make sense as a static annotation value.
-[ReadOnly](./Common.xml#L390:~:text=<EnumType%20Name="-,FieldControlType,-")|1|Property value cannot be changed<br>A requested change of this property is effectively omitted from the request if this annotation is `ReadOnly` in the before-image of the request.<br/> To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.
+[ReadOnly](./Common.xml#L390:~:text=<EnumType%20Name="-,FieldControlType,-")|1|Property value cannot be changed<br>A requested change of the property is effectively omitted from the request if this annotation is `ReadOnly` in the before-image of the request.<br/> To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.
 [Inapplicable](./Common.xml#L398:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Property has no meaning in the current entity state<br>A request that sets the property to a non-initial non-null value fails entirely if this annotation is `Inapplicable` in the after-image of the request.<br/> This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
 [Hidden](./Common.xml#L408:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
 
