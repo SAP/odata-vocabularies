@@ -406,7 +406,7 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">
-          <Annotation Term="Core.Description" String="Deprecated synonymn for Inapplicable, do not use" />
+          <Annotation Term="Core.Description" String="Deprecated synonym for Inapplicable, do not use" />
           <Annotation Term="Core.LongDescription" String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
         </Member>
       </EnumType>

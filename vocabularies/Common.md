@@ -150,7 +150,7 @@ Member|Value|Description
 [Optional](./Common.xml#L386:~:text=<EnumType%20Name="-,FieldControlType,-")|3|Property may have a value<br>This value does not make sense as a static annotation value.
 [ReadOnly](./Common.xml#L390:~:text=<EnumType%20Name="-,FieldControlType,-")|1|Property value cannot be changed<br>A requested change of the property is effectively omitted from the request if this annotation is `ReadOnly` in the before-image of the request.<br/> To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.
 [Inapplicable](./Common.xml#L398:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Property has no meaning in the current entity state<br>A request that sets the property to a non-initial non-null value fails entirely if this annotation is `Inapplicable` in the after-image of the request.<br/> This value does not make sense as a static annotation value.<br/>Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.
-[Hidden](./Common.xml#L408:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Deprecated synonymn for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
+[Hidden](./Common.xml#L408:~:text=<EnumType%20Name="-,FieldControlType,-")|0|Deprecated synonym for Inapplicable, do not use<br>To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead
 
 <a name="ApplicationType"></a>
 ## [ApplicationType](./Common.xml#L424:~:text=<ComplexType%20Name="-,ApplicationType,-") *([Experimental](Common.md#Experimental))*

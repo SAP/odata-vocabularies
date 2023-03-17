@@ -318,7 +318,7 @@
       "Inapplicable@Core.Description": "Property has no meaning in the current entity state",
       "Inapplicable@Core.LongDescription": "A request that sets the property to a non-initial non-null value fails entirely if this annotation is `Inapplicable` in the after-image of the request.\n\n            This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
       "Hidden": 0,
-      "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
+      "Hidden@Core.Description": "Deprecated synonym for Inapplicable, do not use",
       "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead"
     },
     "ExceptionCategory": {
