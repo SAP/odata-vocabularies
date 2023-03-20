@@ -159,6 +159,7 @@
     "AggregateEntity": {
       "$Kind": "Term",
       "$Type": "Analytics.AggregateEntityType",
+      "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Function and action for retrieving and updating an aggregate entity",
