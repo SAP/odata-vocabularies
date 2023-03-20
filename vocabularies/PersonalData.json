@@ -120,7 +120,7 @@
           "@Common.Experimental": true,
           "Value": "EndOfPurposeDate",
           "@Core.Description": "The end of business date of a record.",
-          "@Core.LongDescription": "The end of purpose date for a legal ground or data subject record in the sense of [GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504&from=EN#tocId9)\n                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
+          "@Core.LongDescription": "The end of purpose date for a legal ground or data subject record in the sense of [GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1807-1-1)\n                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
         }
       ]
     },
