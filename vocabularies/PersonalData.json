@@ -118,9 +118,9 @@
         },
         {
           "@Common.Experimental": true,
-          "Value": "EndOfBusinessDate",
+          "Value": "EndOfPurposeDate",
           "@Core.Description": "The end of business date of a record.",
-          "@Core.LongDescription": "The end of business date of a legal ground or data subject record. \n                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
+          "@Core.LongDescription": "The end of purpose date for a legal ground or data subject record. \n                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
         }
       ]
     },

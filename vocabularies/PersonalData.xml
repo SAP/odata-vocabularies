@@ -181,10 +181,10 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="EndOfBusinessDate" />
+              <PropertyValue Property="Value" String="EndOfPurposeDate" />
               <Annotation Term="Core.Description" String="The end of business date of a record." />
               <Annotation Term="Core.LongDescription">
-                <String>The end of business date of a legal ground or data subject record. 
+                <String>The end of purpose date for a legal ground or data subject record. 
                   Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated.</String>
               </Annotation>
             </Record>
