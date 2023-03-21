@@ -1728,7 +1728,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="RecommendationList" Type="UI.RecommendationListType" Nullable="false" AppliesTo="Property Parameter">
+      <Term Name="RecommendationList" Type="UI.RecommendationListType" Nullable="false" AppliesTo="Property Parameter TypeDefinition">
         <Annotation Term="Core.Description" String="Specifies how to get a list of recommended values for a property or parameter" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>

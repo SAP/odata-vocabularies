@@ -1594,7 +1594,7 @@
     "RecommendationList": {
       "$Kind": "Term",
       "$Type": "UI.RecommendationListType",
-      "$AppliesTo": ["Property", "Parameter"],
+      "$AppliesTo": ["Property", "Parameter", "TypeDefinition"],
       "@Core.Description": "Specifies how to get a list of recommended values for a property or parameter",
       "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
     },
