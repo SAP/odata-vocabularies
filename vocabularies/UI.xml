@@ -913,7 +913,7 @@ The trend is
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
-      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property EntityType">
+      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property EntityType TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>
@@ -1338,7 +1338,7 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet" />
       </Term>
 
-      <Term Name="IsImageURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
+      <Term Name="IsImageURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term TypeDefinition">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Validation.ApplicableTerms">
@@ -1348,7 +1348,7 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
+      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image." />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
@@ -1359,12 +1359,12 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter">
+      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter TypeDefinition">
         <Annotation Term="Core.Description" String="Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
         <Annotation Term="Core.IsLanguageDependent" />
@@ -1764,7 +1764,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
-      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
+      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Do not check the number of fractional digits of the annotated measured quantity" />
         <Annotation Term="Core.LongDescription">
