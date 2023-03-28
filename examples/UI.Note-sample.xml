@@ -26,7 +26,9 @@
       <Annotations Target="service.C_NoteBasicTPType">
         <Annotation Term="UI.Note">
           <Record>
-            <PropertyValue Property="Title" Path="NoteBasicTitle" />
+            <PropertyValue Property="Title" Path="NoteBasicTitle">
+              <Annotation Term="UI.Hidden" Path="_NoteBasicType/NoteBasicHideTitle" />
+            </PropertyValue>
             <PropertyValue Property="Content" Path="NoteBasicContent" />
             <PropertyValue Property="Type" Path="NoteBasicType" />
             <PropertyValue Property="MaximalLength" Path="_NoteBasicType/NoteBasicMaximalLength" />
@@ -37,9 +39,6 @@
         <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
         <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
         <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
-      </Annotations>
-      <Annotations Target="service.C_NoteBasicTPType/NoteBasicTitle">
-        <Annotation Term="UI.Hidden" Path="_NoteBasicType/NoteBasicHideTitle" />
       </Annotations>
       <Annotations Target="service.C_NoteBasicTPType/NoteBasicContent">
         <Annotation Term="Core.MediaType" Path="NoteBasicMIMEType" />

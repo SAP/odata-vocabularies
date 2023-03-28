@@ -26,6 +26,7 @@
       },
       "service.C_NoteBasicTPType": {
         "@UI.Note": {
+          "Title@UI.Hidden": { "$Path": "_NoteBasicType/NoteBasicHideTitle" },
           "Title": { "$Path": "NoteBasicTitle" },
           "Content": { "$Path": "NoteBasicContent" },
           "Type": { "$Path": "NoteBasicType" },
@@ -37,7 +38,6 @@
         "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
         "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
       },
-      "service.C_NoteBasicTPType/NoteBasicTitle": { "@UI.Hidden": { "$Path": "_NoteBasicType/NoteBasicHideTitle" } },
       "service.C_NoteBasicTPType/NoteBasicContent": {
         "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
         "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" },
