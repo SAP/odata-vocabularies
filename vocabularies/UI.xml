@@ -1408,7 +1408,7 @@ The trend is
           <Annotation Term="Core.Description" String="Title of the note" />
           <Annotation Term="Core.LongDescription">
             <String>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with
-            an annotation of the property targeted by `@UI.Note/Title`.</String>
+            an annotation on the property targeted by `@UI.Note/Title`.</String>
           </Annotation>
           <Annotation Term="Validation.ApplicableTerms">
             <Collection>

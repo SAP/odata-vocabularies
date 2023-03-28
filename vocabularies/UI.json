@@ -1256,7 +1256,7 @@
       "Title": {
         "$Nullable": true,
         "@Core.Description": "Title of the note",
-        "@Core.LongDescription": "The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with\n            an annotation of the property targeted by `@UI.Note/Title`.",
+        "@Core.LongDescription": "The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with\n            an annotation on the property targeted by `@UI.Note/Title`.",
         "@Validation.ApplicableTerms": ["UI.Hidden"]
       },
       "Content": {
