@@ -30,10 +30,10 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "The annotated entity set contains root entities",
-      "@Core.LongDescription": "Root Entities have an independent lifetime and are reachable as top level resources in APIs. These are usually the key entities of a domain, sometimes also called 'business objects'. They are called aggregate roots in DDD terminology."
+      "@Core.Description": "The annotated entity type represents an ODM root entity",
+      "@Core.LongDescription": "A root entity is the root of a business object. It has a distinct existence. Examples are real-world objects, like a workforce person or a piece of equipment or other more abstract real-world concepts, like a contract or an order. It has an independent lifetime / identity and is globally and uniquely addressable (through its [unique identifier](#oid))."
     },
     "oid": {
       "$Kind": "Term",
