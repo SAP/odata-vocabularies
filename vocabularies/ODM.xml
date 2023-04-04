@@ -42,7 +42,7 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated entity type represents an ODM root entity" />
         <Annotation Term="Core.LongDescription">
-          <String>A root entity is the root of a business object. It has a distinct existence. Examples are real-world objects, like a workforce person or a piece of equipment or other more abstract real-world concepts, like a contract or an order. It has an independent lifetime / identity and is globally and uniquely addressable (through its [unique identifier](#oid)).</String>
+          <String>A root entity is the root of a business object. It has a distinct existence. Examples are real-world objects, like a workforce person or a piece of equipment or other more abstract real-world concepts, like a contract or an order. It has an independent lifetime / identity and is globally and uniquely addressable (via the unique identifier provided by the property referenced in the [oid](#oid) annotation).</String>
         </Annotation>
       </Term>
 
