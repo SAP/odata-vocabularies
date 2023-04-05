@@ -42,7 +42,7 @@ Parameter|Type|Description
 [HierarchyQualifier](./Hierarchy.xml#L268:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Node](./Hierarchy.xml#L269:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType?|Node identifier of the node to be moved
 [NewParent](./Hierarchy.xml#L272:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType?|Node identifier of the node's new parent (null if the node shall become a root)
-*[RemoveParent](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)<br>For a node with only one parent, this default to its node identifier.
+*[RemoveParent](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)<br>For a node with only one parent, this defaults to its node identifier.
 [SiblingRank](./Hierarchy.xml#L282:~:text=<Action%20Name="-,Template_MoveAction,-")|Int64?|Optional integer rank of the node among its siblings under the new parent
 [&rarr;](./Hierarchy.xml#L285:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|The node with new parents
 
