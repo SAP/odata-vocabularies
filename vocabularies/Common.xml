@@ -584,7 +584,7 @@ The minimum structure is
 
       <Term Name="SAPObjectNodeTypeReference" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The name of the SAP Object Node Type referenced by the annotated property" />
+        <Annotation Term="Core.Description" String="The annotated property references an entity of this [`SAPObjectNodeType`](#SAPObjectNodeType), which may differ from the `SAPObjectNodeType` of the entity type containing the property" />
       </Term>
 
       <Term Name="IsNaturalPerson" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Annotation">

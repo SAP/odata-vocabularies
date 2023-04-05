@@ -502,7 +502,7 @@
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": true,
-      "@Core.Description": "The name of the SAP Object Node Type referenced by the annotated property"
+      "@Core.Description": "The annotated property references an entity of this [`SAPObjectNodeType`](#SAPObjectNodeType), which may differ from the `SAPObjectNodeType` of the entity type containing the property"
     },
     "IsNaturalPerson": {
       "$Kind": "Term",
