@@ -10,6 +10,42 @@ Term|Type|Description
 :---|:---|:----------
 [RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.
 [MatchCount](./Hierarchy.xml#L148:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
+[IsCreateAction](./Hierarchy.xml#L231:~:text=<Term%20Name="-,IsCreateAction,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCreateAction"></a>Tags an action that creates a new node in a recursive hierarchy<br>The action MUST have the same parameters as [this template](#Template_CreateAction), with `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
+[IsMoveAction](./Hierarchy.xml#L257:~:text=<Term%20Name="-,IsMoveAction,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsMoveAction"></a>Tags an action that moves a node to a new parent in a recursive hierarchy<br>The action MUST have the same parameters as [this template](#Template_MoveAction), with `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
+
+
+## Actions
+
+<a name="Template_CreateAction"></a>
+### [Template_CreateAction](./Hierarchy.xml#L238:~:text=<Action%20Name="-,Template_CreateAction,-")
+
+
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[HierarchyNodes](./Hierarchy.xml#L239:~:text=<Action%20Name="-,Template_CreateAction,-")**|\[EntityType\]|**Binding parameter:** A collection, given through a `$root` expression
+[HierarchyQualifier](./Hierarchy.xml#L242:~:text=<Action%20Name="-,Template_CreateAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Entity](./Hierarchy.xml#L243:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new entity to be created
+[Parent](./Hierarchy.xml#L246:~:text=<Action%20Name="-,Template_CreateAction,-")|PrimitiveType?|Node identifier of the new node's parent (null if the new node shall be a root)
+[SiblingRank](./Hierarchy.xml#L249:~:text=<Action%20Name="-,Template_CreateAction,-")|Int64?|Optional integer rank of the new node among its siblings
+[&rarr;](./Hierarchy.xml#L252:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node
+
+
+<a name="Template_MoveAction"></a>
+### [Template_MoveAction](./Hierarchy.xml#L264:~:text=<Action%20Name="-,Template_MoveAction,-")
+
+
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[HierarchyNodes](./Hierarchy.xml#L265:~:text=<Action%20Name="-,Template_MoveAction,-")**|\[EntityType\]|**Binding parameter:** A collection, given through a `$root` expression
+[HierarchyQualifier](./Hierarchy.xml#L268:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L269:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType?|Node identifier of the node to be moved
+[NewParent](./Hierarchy.xml#L272:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType?|Node identifier of the node's new parent (null if the node shall become a root)
+*[RemoveParent](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)
+[SiblingRank](./Hierarchy.xml#L282:~:text=<Action%20Name="-,Template_MoveAction,-")|Int64?|Optional integer rank of the node among its siblings under the new parent
+[&rarr;](./Hierarchy.xml#L285:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|The node with new parents
+
 
 
 ## Functions

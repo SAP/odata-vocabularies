@@ -228,6 +228,65 @@ the following collections of hierarchy nodes are distinguished:
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
+      <Term Name="IsCreateAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
+        <Annotation Term="Core.Description" String="Tags an action that creates a new node in a recursive hierarchy" />
+        <Annotation Term="Core.LongDescription">
+          <String>The action MUST have the same parameters as [this template](#Template_CreateAction), with
+          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.</String>
+        </Annotation>
+      </Term>
+      <Action Name="Template_CreateAction" IsBound="true" EntitySetPath="HierarchyNodes">
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The new entity to be created" />
+        </Parameter>
+        <Parameter Name="Parent" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the new node's parent (null if the new node shall be a root)" />
+        </Parameter>
+        <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Optional integer rank of the new node among its siblings" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The new node" />
+        </ReturnType>
+      </Action>
+      
+      <Term Name="IsMoveAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
+        <Annotation Term="Core.Description" String="Tags an action that moves a node to a new parent in a recursive hierarchy" />
+        <Annotation Term="Core.LongDescription">
+          <String>The action MUST have the same parameters as [this template](#Template_MoveAction), with
+          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.</String>
+        </Annotation>
+      </Term>
+      <Action Name="Template_MoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the node to be moved" />
+        </Parameter>
+        <Parameter Name="NewParent" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the node's new parent (null if the node shall become a root)" />
+        </Parameter>
+        <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+            <Annotation Term="Core.Description" String="For a node with only one parent, this default to its node identifier" />
+          </Annotation>
+        </Parameter>
+        <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Optional integer rank of the node among its siblings under the new parent" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node with new parents" />
+        </ReturnType>
+      </Action>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

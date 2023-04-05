@@ -140,6 +140,95 @@
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
+    ],
+    "IsCreateAction": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action"],
+      "@Core.Description": "Tags an action that creates a new node in a recursive hierarchy",
+      "@Core.LongDescription": "The action MUST have the same parameters as [this template](#Template_CreateAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined."
+    },
+    "Template_CreateAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "HierarchyNodes",
+        "$IsBound": true,
+        "$Parameter": [
+          {
+            "$Name": "HierarchyNodes",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "A collection, given through a `$root` expression"
+          },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The new entity to be created" },
+          {
+            "$Name": "Parent",
+            "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
+            "@Core.Description": "Node identifier of the new node's parent (null if the new node shall be a root)"
+          },
+          {
+            "$Name": "SiblingRank",
+            "$Type": "Edm.Int64",
+            "$Nullable": true,
+            "@Core.Description": "Optional integer rank of the new node among its siblings"
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The new node" }
+      }
+    ],
+    "IsMoveAction": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action"],
+      "@Core.Description": "Tags an action that moves a node to a new parent in a recursive hierarchy",
+      "@Core.LongDescription": "The action MUST have the same parameters as [this template](#Template_MoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined."
+    },
+    "Template_MoveAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "HierarchyNodes",
+        "$IsBound": true,
+        "$Parameter": [
+          {
+            "$Name": "HierarchyNodes",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "A collection, given through a `$root` expression"
+          },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          {
+            "$Name": "Node",
+            "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
+            "@Core.Description": "Node identifier of the node to be moved"
+          },
+          {
+            "$Name": "NewParent",
+            "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
+            "@Core.Description": "Node identifier of the node's new parent (null if the node shall become a root)"
+          },
+          {
+            "$Name": "RemoveParent",
+            "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
+            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)",
+            "@Core.OptionalParameter@Core.Description": "For a node with only one parent, this default to its node identifier",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "SiblingRank",
+            "$Type": "Edm.Int64",
+            "$Nullable": true,
+            "@Core.Description": "Optional integer rank of the node among its siblings under the new parent"
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with new parents" }
+      }
     ]
   }
 }
