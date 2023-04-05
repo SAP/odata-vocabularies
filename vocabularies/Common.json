@@ -1282,6 +1282,14 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "ValidationFunction": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["Parameter", "Action", "Function"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Function that validates whether the parameter value, or parameter values (in case of Action and Function) is correct or not",
+      "@Core.LongDescription": "This annotation must not target a binding parameter. When it targets a non-binding parameter, the validation function has one parameter to which the to-be-validated parameter value must be passed. When this annotation targets an action or function, the validation function has one parameter per non-binding action/function parameter to which the to-be-validated value must be passed. The validation function returns true or false."
     }
   }
 }

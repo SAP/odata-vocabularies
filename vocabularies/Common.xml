@@ -1425,6 +1425,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="ValidationFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="Parameter Action Function">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Function that validates whether the parameter value, or parameter values (in case of Action and Function) is correct or not" />
+        <Annotation Term="Core.LongDescription">
+          <String>This annotation must not target a binding parameter. When it targets a non-binding parameter, the validation function has one parameter to which the to-be-validated parameter value must be passed. When this annotation targets an action or function, the validation function has one parameter per non-binding action/function parameter to which the to-be-validated value must be passed. The validation function returns true or false.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
