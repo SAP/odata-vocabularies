@@ -203,7 +203,6 @@
           {
             "$Name": "Node",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "@Core.Description": "Node identifier of the node to be moved"
           },
           {

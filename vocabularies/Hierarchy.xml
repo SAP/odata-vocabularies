@@ -266,7 +266,7 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node identifier of the node to be moved" />
         </Parameter>
         <Parameter Name="NewParent" Type="Edm.PrimitiveType" Nullable="true">
