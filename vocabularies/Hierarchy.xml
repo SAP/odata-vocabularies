@@ -274,9 +274,9 @@ the following collections of hierarchy nodes are distinguished:
         </Parameter>
         <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)" />
+          <Annotation Term="Core.LongDescription" String="For a node with only one parent, this default to its node identifier." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
-            <Annotation Term="Core.Description" String="For a node with only one parent, this default to its node identifier" />
           </Annotation>
         </Parameter>
         <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">

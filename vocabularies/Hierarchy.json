@@ -217,7 +217,7 @@
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)",
-            "@Core.OptionalParameter@Core.Description": "For a node with only one parent, this default to its node identifier",
+            "@Core.LongDescription": "For a node with only one parent, this default to its node identifier.",
             "@Core.OptionalParameter": {}
           },
           {
