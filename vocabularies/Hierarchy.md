@@ -18,13 +18,13 @@ Term|Type|Description
 <a name="Template_CreateAction"></a>
 ### [Template_CreateAction](./Hierarchy.xml#L254:~:text=<Action%20Name="-,Template_CreateAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType), cannot be invoked
+Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType); this template cannot be invoked
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[HierarchyNodes](./Hierarchy.xml#L257:~:text=<Action%20Name="-,Template_CreateAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L258:~:text=<Action%20Name="-,Template_CreateAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Entity](./Hierarchy.xml#L259:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new entity to be created
+[Entity](./Hierarchy.xml#L259:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node to be created
 [Parent](./Hierarchy.xml#L262:~:text=<Action%20Name="-,Template_CreateAction,-")|PrimitiveType?|Node identifier of the new node's parent (null if the new node shall be a root)
 [SiblingRank](./Hierarchy.xml#L265:~:text=<Action%20Name="-,Template_CreateAction,-")|Int64?|Optional integer rank of the new node among its siblings
 [&rarr;](./Hierarchy.xml#L268:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node
@@ -33,7 +33,7 @@ Parameter|Type|Description
 <a name="Template_MoveAction"></a>
 ### [Template_MoveAction](./Hierarchy.xml#L272:~:text=<Action%20Name="-,Template_MoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType), cannot be invoked
+Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType); this template cannot be invoked
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -50,7 +50,7 @@ Parameter|Type|Description
 <a name="Template_RemoveAction"></a>
 ### [Template_RemoveAction](./Hierarchy.xml#L308:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType), cannot be invoked
+Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType); this template cannot be invoked
 
 To remove a node from its last parent, do not use this action.
           Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.
@@ -155,6 +155,6 @@ The actions MUST have the same signature as the template actions linked below, w
 
 Property|Type|Description
 :-------|:---|:----------
-[CreateAction](./Hierarchy.xml#L244:~:text=<ComplexType%20Name="-,MaintenanceActionsType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that creates a new node, following [this template](#Template_CreateAction)
-[MoveAction](./Hierarchy.xml#L247:~:text=<ComplexType%20Name="-,MaintenanceActionsType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that moves a node to a new parent, following [this template](#Template_MoveAction)
+[CreateAction](./Hierarchy.xml#L244:~:text=<ComplexType%20Name="-,MaintenanceActionsType,-")|[QualifiedActionName](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that creates a new node, following [this template](#Template_CreateAction)
+[MoveAction](./Hierarchy.xml#L247:~:text=<ComplexType%20Name="-,MaintenanceActionsType,-")|[QualifiedActionName](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that moves a node to a new parent, following [this template](#Template_MoveAction)
 [RemoveAction](./Hierarchy.xml#L250:~:text=<ComplexType%20Name="-,MaintenanceActionsType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that removes a node from a parent, following [this template](#Template_RemoveAction)

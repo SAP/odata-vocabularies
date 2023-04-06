@@ -241,10 +241,10 @@ the following collections of hierarchy nodes are distinguished:
           Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
           [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.</String>
         </Annotation>
-        <Property Name="CreateAction" Type="Core.QualifiedActionName" Nullable="true">
+        <Property Name="CreateAction" Type="Core.QualifiedActionName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that creates a new node, following [this template](#Template_CreateAction)" />
         </Property>
-        <Property Name="MoveAction" Type="Core.QualifiedActionName" Nullable="true">
+        <Property Name="MoveAction" Type="Core.QualifiedActionName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that moves a node to a new parent, following [this template](#Template_MoveAction)" />
         </Property>
         <Property Name="RemoveAction" Type="Core.QualifiedActionName" Nullable="true">
@@ -253,11 +253,11 @@ the following collections of hierarchy nodes are distinguished:
       </ComplexType>
       <Action Name="Template_CreateAction" IsBound="true" EntitySetPath="HierarchyNodes">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType), cannot be invoked" />
+        <Annotation Term="Core.Description" String="Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType); this template cannot be invoked" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The new entity to be created" />
+          <Annotation Term="Core.Description" String="The new node to be created" />
         </Parameter>
         <Parameter Name="Parent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of the new node's parent (null if the new node shall be a root)" />
@@ -271,7 +271,7 @@ the following collections of hierarchy nodes are distinguished:
       </Action>
       <Action Name="Template_MoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType), cannot be invoked" />
+        <Annotation Term="Core.Description" String="Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType); this template cannot be invoked" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
@@ -307,7 +307,7 @@ the following collections of hierarchy nodes are distinguished:
       </Action>
       <Action Name="Template_RemoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType), cannot be invoked" />
+        <Annotation Term="Core.Description" String="Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType); this template cannot be invoked" />
         <Annotation Term="Core.LongDescription">
           <String>To remove a node from its last parent, do not use this action.
           Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.</String>

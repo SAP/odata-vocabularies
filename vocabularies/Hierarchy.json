@@ -155,12 +155,10 @@
       "@Core.LongDescription": "The actions MUST have the same signature as the template actions linked below, with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.",
       "CreateAction": {
         "$Type": "Core.QualifiedActionName",
-        "$Nullable": true,
         "@Core.Description": "Action that creates a new node, following [this template](#Template_CreateAction)"
       },
       "MoveAction": {
         "$Type": "Core.QualifiedActionName",
-        "$Nullable": true,
         "@Core.Description": "Action that moves a node to a new parent, following [this template](#Template_MoveAction)"
       },
       "RemoveAction": {
@@ -175,11 +173,11 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType), cannot be invoked",
+        "@Core.Description": "Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType); this template cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The new entity to be created" },
+          { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The new node to be created" },
           {
             "$Name": "Parent",
             "$Type": "Edm.PrimitiveType",
@@ -202,7 +200,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType), cannot be invoked",
+        "@Core.Description": "Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType); this template cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -247,7 +245,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType), cannot be invoked",
+        "@Core.Description": "Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType); this template cannot be invoked",
         "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
