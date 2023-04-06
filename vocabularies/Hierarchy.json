@@ -173,7 +173,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionsType); this template cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -200,7 +200,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionsType); this template cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -245,7 +245,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionsType); this template cannot be invoked",
         "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },

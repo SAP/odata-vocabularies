@@ -18,7 +18,7 @@ Term|Type|Description
 <a name="Template_CreateAction"></a>
 ### [Template_CreateAction](./Hierarchy.xml#L254:~:text=<Action%20Name="-,Template_CreateAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType); this template cannot be invoked
+Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionsType); this template cannot be invoked
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -33,7 +33,7 @@ Parameter|Type|Description
 <a name="Template_MoveAction"></a>
 ### [Template_MoveAction](./Hierarchy.xml#L272:~:text=<Action%20Name="-,Template_MoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType); this template cannot be invoked
+Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionsType); this template cannot be invoked
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -50,7 +50,7 @@ Parameter|Type|Description
 <a name="Template_RemoveAction"></a>
 ### [Template_RemoveAction](./Hierarchy.xml#L308:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType); this template cannot be invoked
+Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionsType); this template cannot be invoked
 
 To remove a node from its last parent, do not use this action.
           Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.
