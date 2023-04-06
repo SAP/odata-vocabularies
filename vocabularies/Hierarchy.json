@@ -32,7 +32,7 @@
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n",
+      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n\nThe qualified action names identify actions for maintaining nodes in the recursive hierarchy. \nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nParameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.\nWhen invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.\nThe template actions themselves cannot be invoked.\n",
       "ExternalKeyProperty": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
@@ -86,6 +86,21 @@
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
         "@Core.Description": "Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
+      },
+      "CreateAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that creates a new node, following [this template](#Template_CreateAction)"
+      },
+      "MoveAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that moves a node to a new parent, following [this template](#Template_MoveAction)"
+      },
+      "RemoveAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that removes a node from a parent, following [this template](#Template_RemoveAction)"
       }
     },
     "MatchCount": {
@@ -141,43 +156,28 @@
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
-    "MaintenanceActions": {
-      "$Kind": "Term",
-      "$Type": "Hierarchy.MaintenanceActionsType",
-      "$AppliesTo": ["EntityType"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Actions for maintaining nodes in a recursive hierarchy on the annotated entity type"
-    },
-    "MaintenanceActionsType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "@Core.Description": "Qualified names of actions bound to a collection of nodes of the annotated entity type",
-      "@Core.LongDescription": "The actions MUST have the same signature as the template actions linked below, with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.",
-      "CreateAction": {
-        "$Type": "Core.QualifiedActionName",
-        "@Core.Description": "Action that creates a new node, following [this template](#Template_CreateAction)"
-      },
-      "MoveAction": {
-        "$Type": "Core.QualifiedActionName",
-        "@Core.Description": "Action that moves a node to a new parent, following [this template](#Template_MoveAction)"
-      },
-      "RemoveAction": {
-        "$Type": "Core.QualifiedActionName",
-        "$Nullable": true,
-        "@Core.Description": "Action that removes a node from a parent, following [this template](#Template_RemoveAction)"
-      }
-    },
     "Template_CreateAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that create a new node, named in [`MaintenanceActions/CreateAction`](#MaintenanceActionsType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that create a new node and are named in [`RecursiveHierarchy/CreateAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The new node to be created" },
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "The new node to be created",
+            "@Core.LongDescription": "If the entity exists already without a node identifier for the recursive hierarchy,\n            it is upserted with PATCH semantics.\n            It is an error if the entity exists already with a node identifier for the recursive hierarchy."
+          },
+          {
+            "$Name": "Node",
+            "$Type": "Edm.PrimitiveType",
+            "@Core.Description": "The node identifier, defaults to the node property of the `Entity`",
+            "@Core.OptionalParameter": {}
+          },
           {
             "$Name": "Parent",
             "$Type": "Edm.PrimitiveType",
@@ -200,7 +200,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that move a node to a new parent, named in [`MaintenanceActions/MoveAction`](#MaintenanceActionsType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -245,7 +245,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that remove a node from a parent, named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionsType); this template cannot be invoked",
+        "@Core.Description": "Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
         "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
