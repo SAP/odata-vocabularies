@@ -147,20 +147,16 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Action"],
       "@Core.Description": "Tags an action that creates a new node in a recursive hierarchy",
-      "@Core.LongDescription": "The action MUST have the same parameters as [this template](#Template_CreateAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined."
+      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_CreateAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
     },
     "Template_CreateAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
+        "@Core.Description": "Template for actions tagged with [`IsCreateAction`](#IsCreateAction), cannot be invoked",
         "$Parameter": [
-          {
-            "$Name": "HierarchyNodes",
-            "$Collection": true,
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "A collection, given through a `$root` expression"
-          },
+          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
           { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The new entity to be created" },
           {
@@ -185,20 +181,16 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Action"],
       "@Core.Description": "Tags an action that moves a node to a new parent in a recursive hierarchy",
-      "@Core.LongDescription": "The action MUST have the same parameters as [this template](#Template_MoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined."
+      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_MoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
     },
     "Template_MoveAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
+        "@Core.Description": "Template for actions tagged with [`IsMoveAction`](#IsMoveAction), cannot be invoked",
         "$Parameter": [
-          {
-            "$Name": "HierarchyNodes",
-            "$Collection": true,
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "A collection, given through a `$root` expression"
-          },
+          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
           {
             "$Name": "Node",
@@ -212,11 +204,17 @@
             "@Core.Description": "Node identifier of the node's new parent (null if the node shall become a root)"
           },
           {
+            "$Name": "KeepParents",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "Whether the current parents of the node shall be kept in addition to the new parent",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          },
+          {
             "$Name": "RemoveParent",
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
-            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the current parents shall be kept)",
-            "@Core.LongDescription": "For a node with only one parent, this defaults to its node identifier.",
+            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)",
+            "@Core.LongDescription": "This parameter is ignored if `KeepParent` is true.\n            Otherwise, for a node with only one parent, it defaults to its node identifier.",
             "@Core.OptionalParameter": {}
           },
           {
@@ -227,6 +225,38 @@
           }
         ],
         "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with new parents" }
+      }
+    ],
+    "IsRemoveAction": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action"],
+      "@Core.Description": "Tags an action that removes a node fom a parent in a recursive hierarchy",
+      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_RemoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
+    },
+    "Template_RemoveAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "HierarchyNodes",
+        "$IsBound": true,
+        "@Core.Description": "Template for actions tagged with [`IsRemoveAction`](#IsRemoveAction), cannot be invoked",
+        "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
+        "$Parameter": [
+          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          {
+            "$Name": "Node",
+            "$Type": "Edm.PrimitiveType",
+            "@Core.Description": "Node identifier of the node to be removed from its parent"
+          },
+          {
+            "$Name": "RemoveParent",
+            "$Type": "Edm.PrimitiveType",
+            "@Core.Description": "Node identifier of a parent from which the node shall be removed"
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with remaining parents" }
       }
     ]
   }
