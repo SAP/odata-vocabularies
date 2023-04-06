@@ -141,20 +141,41 @@
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
-    "IsCreateAction": {
+    "MaintenanceActions": {
       "$Kind": "Term",
-      "$Type": "Core.Tag",
-      "$DefaultValue": true,
-      "$AppliesTo": ["Action"],
-      "@Core.Description": "Tags an action that creates a new node in a recursive hierarchy",
-      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_CreateAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
+      "$Type": "Hierarchy.MaintenanceActionsType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Actions for maintaining nodes in a recursive hierarchy on the annotated entity type"
+    },
+    "MaintenanceActionsType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified names of actions bound to a collection of nodes of the annotated entity type",
+      "@Core.LongDescription": "The actions MUST have the same signature as the template actions linked below, with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.",
+      "CreateAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that creates a new node, following [this template](#Template_CreateAction)"
+      },
+      "MoveAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that moves a node to a new parent, following [this template](#Template_MoveAction)"
+      },
+      "RemoveAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that removes a node from a parent, following [this template](#Template_RemoveAction)"
+      }
     },
     "Template_CreateAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
-        "@Core.Description": "Template for actions tagged with [`IsCreateAction`](#IsCreateAction), cannot be invoked",
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for actions named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType), cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -175,20 +196,13 @@
         "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The new node" }
       }
     ],
-    "IsMoveAction": {
-      "$Kind": "Term",
-      "$Type": "Core.Tag",
-      "$DefaultValue": true,
-      "$AppliesTo": ["Action"],
-      "@Core.Description": "Tags an action that moves a node to a new parent in a recursive hierarchy",
-      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_MoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
-    },
     "Template_MoveAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
-        "@Core.Description": "Template for actions tagged with [`IsMoveAction`](#IsMoveAction), cannot be invoked",
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for actions named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType), cannot be invoked",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -198,7 +212,7 @@
             "@Core.Description": "Node identifier of the node to be moved"
           },
           {
-            "$Name": "NewParent",
+            "$Name": "Parent",
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "@Core.Description": "Node identifier of the node's new parent (null if the node shall become a root)"
@@ -214,7 +228,7 @@
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "This parameter is ignored if `KeepParent` is true.\n            Otherwise, for a node with only one parent, it defaults to its node identifier.",
+            "@Core.LongDescription": "This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's node identifier.",
             "@Core.OptionalParameter": {}
           },
           {
@@ -227,20 +241,13 @@
         "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with new parents" }
       }
     ],
-    "IsRemoveAction": {
-      "$Kind": "Term",
-      "$Type": "Core.Tag",
-      "$DefaultValue": true,
-      "$AppliesTo": ["Action"],
-      "@Core.Description": "Tags an action that removes a node fom a parent in a recursive hierarchy",
-      "@Core.LongDescription": "The action MUST have the same signature as [this template](#Template_RemoveAction), with\n          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary."
-    },
     "Template_RemoveAction": [
       {
         "$Kind": "Action",
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
-        "@Core.Description": "Template for actions tagged with [`IsRemoveAction`](#IsRemoveAction), cannot be invoked",
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for actions named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType), cannot be invoked",
         "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },

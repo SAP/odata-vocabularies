@@ -228,17 +228,32 @@ the following collections of hierarchy nodes are distinguished:
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
-      <Term Name="IsCreateAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
-        <Annotation Term="Core.Description" String="Tags an action that creates a new node in a recursive hierarchy" />
+      <Term Name="MaintenanceActions" Type="Hierarchy.MaintenanceActionsType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Actions for maintaining nodes in a recursive hierarchy on the annotated entity type" />
+      </Term>
+      <ComplexType Name="MaintenanceActionsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Qualified names of actions bound to a collection of nodes of the annotated entity type" />
         <Annotation Term="Core.LongDescription">
-          <String>The action MUST have the same signature as [this template](#Template_CreateAction), with
+          <String>The actions MUST have the same signature as the template actions linked below, with
           `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
           Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
           [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.</String>
         </Annotation>
-      </Term>
+        <Property Name="CreateAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that creates a new node, following [this template](#Template_CreateAction)" />
+        </Property>
+        <Property Name="MoveAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that moves a node to a new parent, following [this template](#Template_MoveAction)" />
+        </Property>
+        <Property Name="RemoveAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that removes a node from a parent, following [this template](#Template_RemoveAction)" />
+        </Property>
+      </ComplexType>
       <Action Name="Template_CreateAction" IsBound="true" EntitySetPath="HierarchyNodes">
-        <Annotation Term="Core.Description" String="Template for actions tagged with [`IsCreateAction`](#IsCreateAction), cannot be invoked" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/CreateAction`](#MaintenanceActionType), cannot be invoked" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
@@ -254,24 +269,15 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="The new node" />
         </ReturnType>
       </Action>
-      
-      <Term Name="IsMoveAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
-        <Annotation Term="Core.Description" String="Tags an action that moves a node to a new parent in a recursive hierarchy" />
-        <Annotation Term="Core.LongDescription">
-          <String>The action MUST have the same signature as [this template](#Template_MoveAction), with
-          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
-          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
-          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.</String>
-        </Annotation>
-      </Term>
       <Action Name="Template_MoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
-        <Annotation Term="Core.Description" String="Template for actions tagged with [`IsMoveAction`](#IsMoveAction), cannot be invoked" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/MoveAction`](#MaintenanceActionType), cannot be invoked" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node identifier of the node to be moved" />
         </Parameter>
-        <Parameter Name="NewParent" Type="Edm.PrimitiveType" Nullable="true">
+        <Parameter Name="Parent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of the node's new parent (null if the node shall become a root)" />
         </Parameter>
         <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
@@ -285,8 +291,8 @@ the following collections of hierarchy nodes are distinguished:
         <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
-            <String>This parameter is ignored if `KeepParent` is true.
-            Otherwise, for a node with only one parent, it defaults to its node identifier.</String>
+            <String>This parameter is ignored if `KeepParents` is true.
+            Otherwise, for a node with only one parent, it defaults to that parent's node identifier.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -299,18 +305,9 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="The node with new parents" />
         </ReturnType>
       </Action>
-
-      <Term Name="IsRemoveAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
-        <Annotation Term="Core.Description" String="Tags an action that removes a node fom a parent in a recursive hierarchy" />
-        <Annotation Term="Core.LongDescription">
-          <String>The action MUST have the same signature as [this template](#Template_RemoveAction), with
-          `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
-          Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
-          [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.</String>
-        </Annotation>
-      </Term>
       <Action Name="Template_RemoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
-        <Annotation Term="Core.Description" String="Template for actions tagged with [`IsRemoveAction`](#IsRemoveAction), cannot be invoked" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions named in [`MaintenanceActions/RemoveAction`](#MaintenanceActionType), cannot be invoked" />
         <Annotation Term="Core.LongDescription">
           <String>To remove a node from its last parent, do not use this action.
           Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.</String>
