@@ -52,15 +52,15 @@ Parameter|Type|Description
 
 Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
-To remove a node from its last parent, do not use this action.
-          Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.
+When a node is removed from its last parent, the entity is not deleted but its node property is set to null.
+          Alternatively, you can [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete the entity completely.
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[HierarchyNodes](./Hierarchy.xml#L320:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L321:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Node](./Hierarchy.xml#L322:~:text=<Action%20Name="-,Template_RemoveAction,-")|PrimitiveType|Node identifier of the node to be removed from its parent
-[RemoveParent](./Hierarchy.xml#L325:~:text=<Action%20Name="-,Template_RemoveAction,-")|PrimitiveType|Node identifier of a parent from which the node shall be removed
+[RemoveParent](./Hierarchy.xml#L325:~:text=<Action%20Name="-,Template_RemoveAction,-")|PrimitiveType?|Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)
 [&rarr;](./Hierarchy.xml#L328:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|The node with remaining parents
 
 

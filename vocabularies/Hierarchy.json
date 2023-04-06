@@ -246,7 +246,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "To remove a node from its last parent, do not use this action.\n          Instead, [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete it entirely.",
+        "@Core.LongDescription": "When a node is removed from its last parent, the entity is not deleted but its node property is set to null.\n          Alternatively, you can [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete the entity completely.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -258,7 +258,8 @@
           {
             "$Name": "RemoveParent",
             "$Type": "Edm.PrimitiveType",
-            "@Core.Description": "Node identifier of a parent from which the node shall be removed"
+            "$Nullable": true,
+            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)"
           }
         ],
         "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with remaining parents" }

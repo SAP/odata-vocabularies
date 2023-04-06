@@ -314,16 +314,16 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>To remove a node from its last parent, do not use this action.
-          Instead, [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete it entirely.</String>
+          <String>When a node is removed from its last parent, the entity is not deleted but its node property is set to null.
+          Alternatively, you can [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete the entity completely.</String>
         </Annotation>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node identifier of the node to be removed from its parent" />
         </Parameter>
-        <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed" />
+        <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
         </Parameter>
         <ReturnType Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node with remaining parents" />
