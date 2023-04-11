@@ -263,24 +263,25 @@ Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L715)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
 [LocalDataProperty](Common.xml#L720)|PropertyPath|Path to property that is used to filter the value list with `eq` comparison
-[InitialValueIsSignificant](Common.xml#L723) *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
+[InitialValueIsSignificant](Common.xml#L723)|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
-## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](Common.xml#L728): [ValueListParameter](#ValueListParameter) *([Experimental](Common.md#Experimental))*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[*ValueListProperty*](Common.xml#L715)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constant](Common.xml#L730)|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
-
-## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L734): [ValueListParameter](#ValueListParameter)
+## <a name="ValueListParameterConstant"></a>[ValueListParameterConstant](Common.xml#L727): [ValueListParameter](#ValueListParameter)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](Common.xml#L715)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[LocalDataProperty](Common.xml#L735)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
-[InitialValueIsSignificant](Common.xml#L738) *([Experimental](Common.md#Experimental))*|Boolean|Initial value, e.g. empty string, is a valid and significant value
+[Constant](Common.xml#L728)|PrimitiveType|Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
+[InitialValueIsSignificant](Common.xml#L731)|Boolean|Initial value, e.g. empty string, is a valid and significant value
+
+## <a name="ValueListParameterInOut"></a>[ValueListParameterInOut](Common.xml#L735): [ValueListParameter](#ValueListParameter)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*ValueListProperty*](Common.xml#L715)|String|Path to property in the value list . Format is identical to PropertyPath annotations.
+[LocalDataProperty](Common.xml#L736)|PropertyPath|Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item
+[InitialValueIsSignificant](Common.xml#L739)|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 **Applicable Annotation Terms:**
 
