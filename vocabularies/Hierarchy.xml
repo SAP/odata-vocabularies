@@ -251,7 +251,7 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The new node to be created" />
+          <Annotation Term="Core.Description" String="The entity to become a new node" />
           <Annotation Term="Core.LongDescription">
             <String>If the entity exists already without a node identifier for the recursive hierarchy,
             it is upserted with PATCH semantics.
@@ -260,6 +260,10 @@ The template actions themselves cannot be invoked.
         </Parameter>
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="The node identifier, defaults to the node property of the `Entity`" />
+          <Annotation Term="Core.LongDescription">
+            <String>To insert an existing entity with key property `ID` as a new node with server-determined node identifier,
+            provide the parameter `"Entity": {"ID": "..."}` and omit `Node`.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -314,8 +318,8 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>When a node is removed from its last parent, the entity is not deleted but its node property is set to null.
-          Alternatively, you can [move](#Template_MoveAction) the node to a root (with `"Parent": null`) or delete the entity completely.</String>
+          <String>When a node is removed from its last parent or has no parents and ceases being a root,
+          the entity is not deleted but its node property is set to null. This removes the node from the recursive hierarchy.</String>
         </Annotation>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
@@ -326,7 +330,7 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
         </Parameter>
         <ReturnType Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node with remaining parents" />
+          <Annotation Term="Core.Description" String="The node with remaining parents or the entity after removal from the recursive hierarchy" />
         </ReturnType>
       </Action>
 

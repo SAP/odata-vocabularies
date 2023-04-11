@@ -169,13 +169,14 @@
           {
             "$Name": "Entity",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "The new node to be created",
+            "@Core.Description": "The entity to become a new node",
             "@Core.LongDescription": "If the entity exists already without a node identifier for the recursive hierarchy,\n            it is upserted with PATCH semantics.\n            It is an error if the entity exists already with a node identifier for the recursive hierarchy."
           },
           {
             "$Name": "Node",
             "$Type": "Edm.PrimitiveType",
             "@Core.Description": "The node identifier, defaults to the node property of the `Entity`",
+            "@Core.LongDescription": "To insert an existing entity with key property `ID` as a new node with server-determined node identifier,\n            provide the parameter `\"Entity\": {\"ID\": \"...\"}` and omit `Node`.",
             "@Core.OptionalParameter": {}
           },
           {
@@ -246,7 +247,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "When a node is removed from its last parent, the entity is not deleted but its node property is set to null.\n          Alternatively, you can [move](#Template_MoveAction) the node to a root (with `\"Parent\": null`) or delete the entity completely.",
+        "@Core.LongDescription": "When a node is removed from its last parent or has no parents and ceases being a root,\n          the entity is not deleted but its node property is set to null. This removes the node from the recursive hierarchy.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -262,7 +263,10 @@
             "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)"
           }
         ],
-        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with remaining parents" }
+        "$ReturnType": {
+          "$Type": "Edm.EntityType",
+          "@Core.Description": "The node with remaining parents or the entity after removal from the recursive hierarchy"
+        }
       }
     ]
   }
