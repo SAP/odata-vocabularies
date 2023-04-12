@@ -3,6 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
+    <edmx:Include Alias="JSON" Namespace="Org.OData.JSON.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
@@ -28,46 +31,40 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/Graph.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Graph.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="links" Type="Collection(Graph.link)" Nullable="false" AppliesTo="EntityType">
+      <Term Name="traceId" Type="Edm.String" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Navigation links" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="The traceId contains a unique string that is preserved across multiple requests and log files. It is used in error responses to help diagnose problems by correlating log entries." />
       </Term>
 
-      <ComplexType Name="link">
+      <Term Name="Details" Type="Graph.DetailsType" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Navigation link" />
-        <Property Name="title" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Title of the navigation link" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Graph-specific details for error responses" />
+      </Term>
+      <ComplexType Name="DetailsType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Graph-specific details for error responses" />
+        <Property Name="url" Type="Edm.String">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL sent to the business system tenant" />
         </Property>
-        <Property Name="alias" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Name of the virtual navigation property" />
-        </Property>
-        <Property Name="target" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Name of the target entity set" />
-        </Property>
-        <Property Name="parameters" Type="Collection(Graph.binding)" Nullable="false">
-          <Annotation Term="Core.Description" String="Map of parameter names in the target operation to property paths in the annotated entity type" />
-        </Property>
-        <Property Name="filter" Type="Collection(Graph.binding)" Nullable="false">
-          <Annotation Term="Core.Description" String="Map of single-valued property paths in the target entity to property paths in the annotated entity type" />
-          <Annotation Term="Core.LongDescription" String="Used to construct a `$filter` expression and triggers the `Read` (list) operation on the target entity set" />
+        <Property Name="body" Type="JSON.JSON">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Request body sent to the business system tenant" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="binding">
+      <Term Name="CompositionRoot" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="source" Type="Edm.PropertyPath">
-          <Annotation Term="Core.Description" String="Path to primitive property in the annotated entity type" />
-        </Property>
-        <Property Name="target" Type="Edm.PropertyPath">
-          <Annotation Term="Core.Description" String="Path to primitive property in the target entity set" />
-        </Property>
-      </ComplexType>
+        <Annotation Term="Core.Description" String="The annotated entity type is the root type of a composition tree." />
+      </Term>
 
     </Schema>
   </edmx:DataServices>

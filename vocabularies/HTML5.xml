@@ -3,13 +3,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
-  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5">
-      <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Description">
         <String>Terms for HTML5</String>
       </Annotation>
@@ -31,19 +27,17 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/HTML5.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/HTML5.md" />
           </Record>
         </Collection>
       </Annotation>
 
       <Term Name="CssDefaults" Type="HTML5.CssDefaultsType" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="CSS definitions that may be used as defaults" />
         <Annotation Term="Core.LongDescription" String="This term can applied to e.g. UI.DataFieldAbstract records" />
       </Term>
 
       <ComplexType Name="CssDefaultsType">
-        <Annotation Term="Common.Experimental" />
         <Property Name="width" Type="Edm.String">
           <Annotation Term="Core.Description" String="css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width" />
           <Annotation Term="Core.LongDescription">

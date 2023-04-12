@@ -30,7 +30,7 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/DirectEdit.md" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/DirectEdit.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -52,7 +52,7 @@
         <Property Name="CalculationFunction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="The operation calculating the side effects. While non-changing for the service, this technically is an action bound to the entity set so that the parameters can be sent in the POST request body. The action has the following non-binding parameters:
 
-- `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
+- `Qualifier` of type [`Core.SimpleIdentifier`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)
     or cast-compatible: the qualifier of the `SideEffects` annotation
 
 - `Trigger` of type `Edm.String`: the trigger of the side-effects determination, see `Triggers` property

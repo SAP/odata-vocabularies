@@ -1,19 +1,16 @@
 {
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "examples/*.json",
-                "test/*.json"
-            ],
-            "url": "./node_modules/odata-csdl/schemas/csdl.schema.json"
-        }
-    ],
-    "xml.catalogs": [
-        "./node_modules/odata-csdl/catalog.xml"
-    ],
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["examples/*.json", "test/*.json"],
+      "url": "./node_modules/odata-csdl/schemas/csdl.schema.json"
+    }
+  ],
+  "xml.catalogs": ["./node_modules/odata-csdl/catalog.xml"],
+  "xml.format.legacy": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "cSpell.words": ["CSDL", "OData"]
 }
