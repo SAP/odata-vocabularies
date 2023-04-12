@@ -227,7 +227,7 @@
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's node identifier.",
+            "@Core.LongDescription": "This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's node identifier (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           },
           {
@@ -260,7 +260,9 @@
             "$Name": "RemoveParent",
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
-            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)"
+            "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)",
+            "@Core.LongDescription": "For a node with only one parent, this parameter defaults to that parent's node identifier (null if the node is only a root).",
+            "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": {
