@@ -1375,7 +1375,9 @@ The trend is
         <Annotation Term="Core.LongDescription">
           <String>This term annotates one of the following:&lt;br&gt;
           (1) a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text&lt;br&gt;
-          (2) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type.</String>
+          (2) a [`Common.ValueList`](Common.md#ValueList) annotation of the code or ID property whose
+          corresponding property in the `CollectionPath` is annotated with `Common.Text`&lt;br&gt;
+          (3) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type.</String>
         </Annotation>
       </Term>
       <EnumType Name="TextArrangementType">
