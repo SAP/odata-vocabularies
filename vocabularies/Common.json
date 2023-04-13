@@ -64,7 +64,8 @@
       "$Nullable": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-      "@Core.IsLanguageDependent": true
+      "@Core.IsLanguageDependent": true,
+      "@Validation.ApplicableTerms": ["UI.TextArrangement"]
     },
     "TextFor": {
       "$Kind": "Term",
@@ -304,20 +305,21 @@
       "$Kind": "EnumType",
       "$UnderlyingType": "Edm.Byte",
       "@Core.Description": "Control state of a property",
+      "@Core.LongDescription": "When changes are requested, the value of this annotation in the before-image or after-image\n          of the request plays a role. These may differ if the value is given dynamically in the metadata.",
       "Mandatory": 7,
       "Mandatory@Core.Description": "Property is mandatory from a business perspective",
-      "Mandatory@Core.LongDescription": "This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
+      "Mandatory@Core.LongDescription": "A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.\n\n            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
       "Optional": 3,
       "Optional@Core.Description": "Property may have a value",
       "Optional@Core.LongDescription": "This value does not make sense as a static annotation value.",
       "ReadOnly": 1,
       "ReadOnly@Core.Description": "Property value cannot be changed",
-      "ReadOnly@Core.LongDescription": "To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead",
+      "ReadOnly@Core.LongDescription": "A request to change the property to a value that differs from the before-image fails entirely\n            according to [OData-Protocol, section 11.4.3](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateanEntity)\n            if this annotation is given dynamically as `ReadOnly` in the before-image of the request.\n\n            To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.",
       "Inapplicable": 0,
       "Inapplicable@Core.Description": "Property has no meaning in the current entity state",
-      "Inapplicable@Core.LongDescription": "This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
+      "Inapplicable@Core.LongDescription": "A request that sets the property to a non-initial non-null value fails entirely if this annotation is `Inapplicable` in the after-image of the request.\n\n            This value does not make sense as a static annotation value.\n\nExample for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.",
       "Hidden": 0,
-      "Hidden@Core.Description": "Deprecated synonymn for Inapplicable, do not use",
+      "Hidden@Core.Description": "Deprecated synonym for Inapplicable, do not use",
       "Hidden@Core.LongDescription": "To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead"
     },
     "ExceptionCategory": {
@@ -674,10 +676,15 @@
     "ValueListParameterConstant": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
-      "@Common.Experimental": true,
       "Constant": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)"
+      },
+      "InitialValueIsSignificant": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Common.Experimental": true,
+        "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       }
     },
     "ValueListParameterInOut": {

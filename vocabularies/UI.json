@@ -1229,7 +1229,7 @@
       "$Type": "UI.TextArrangementType",
       "$AppliesTo": ["Annotation", "EntityType"],
       "@Core.Description": "Describes the arrangement of a code or ID value and its text",
-      "@Core.LongDescription": "If used for a single property the Common.Text annotation is annotated"
+      "@Core.LongDescription": "This term annotates one of the following:<br>\n          (1) a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text<br>\n          (2) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type."
     },
     "TextArrangementType": {
       "$Kind": "EnumType",
@@ -1450,7 +1450,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataFieldForActionAbstract",
       "@Core.Description": "Triggers intent-based UI navigation",
-      "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).\"",
+      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).\"",
       "SemanticObject": { "@Core.Description": "Name of the Semantic Object" },
       "Action": {
         "$Nullable": true,
@@ -1527,7 +1527,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataField",
       "@Core.Description": "A piece of data that allows triggering intent-based UI navigation",
-      "@Core.LongDescription": "The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is tied to a data value which should be rendered as a hyperlink.\nThis is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
+      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is tied to a data value which should be rendered as a hyperlink.\nThis is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.",
       "Value": { "$Type": "Edm.PrimitiveType" },
       "SemanticObject": { "@Core.Description": "Name of the Semantic Object" },
       "Action": {
