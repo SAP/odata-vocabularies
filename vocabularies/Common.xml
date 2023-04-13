@@ -617,6 +617,13 @@ The minimum structure is
       <Term Name="ValueList" Type="Common.ValueListType" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Specifies how to get a list of acceptable values for a property or parameter" />
         <Annotation Term="Core.LongDescription" String="The value list can be based on user input that is passed in the value list request. The value list can be used for type-ahead and classical pick lists." />
+        <!--
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.TextArrangement</String>
+          </Collection>
+        </Annotation>
+        -->
       </Term>
       <ComplexType Name="ValueListType">
         <!--
