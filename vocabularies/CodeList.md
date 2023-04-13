@@ -14,7 +14,8 @@ Term|Type|Description
 [ExternalCode](./CodeList.xml#L59:~:text=<Term%20Name="-,ExternalCode,-") *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="ExternalCode"></a>Property containing code values that can be used for visualization<br>The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization.
 [IsConfigurationDeprecationCode](./CodeList.xml#L65:~:text=<Term%20Name="-,IsConfigurationDeprecationCode,-")|Boolean|<a name="IsConfigurationDeprecationCode"></a>Property contains a Configuration Deprecation Code<br>The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`).
 
-## <a name="CodeListSource"></a>[CodeListSource](./CodeList.xml#L43:~:text=<ComplexType%20Name="-,CodeListSource,-")
+<a name="CodeListSource"></a>
+## [CodeListSource](./CodeList.xml#L43:~:text=<ComplexType%20Name="-,CodeListSource,-")
 An entity set containing the code list for currencies
 
 Property|Type|Description
