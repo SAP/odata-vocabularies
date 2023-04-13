@@ -1370,9 +1370,11 @@ The trend is
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
+      <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
-        <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
+        <Annotation Term="Core.LongDescription">
+          <String>This term annotates a [`Common.Text`](Common.md#Text) annotation of the code or ID property whose value is the text.</String>
+        </Annotation>
       </Term>
       <EnumType Name="TextArrangementType">
         <Member Name="TextFirst">

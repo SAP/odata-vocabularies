@@ -1226,9 +1226,9 @@
     "TextArrangement": {
       "$Kind": "Term",
       "$Type": "UI.TextArrangementType",
-      "$AppliesTo": ["Annotation", "EntityType"],
+      "$AppliesTo": ["Annotation"],
       "@Core.Description": "Describes the arrangement of a code or ID value and its text",
-      "@Core.LongDescription": "If used for a single property the Common.Text annotation is annotated"
+      "@Core.LongDescription": "This term annotates a [`Common.Text`](Common.md#Text) annotation of the code or ID property whose value is the text."
     },
     "TextArrangementType": {
       "$Kind": "EnumType",
