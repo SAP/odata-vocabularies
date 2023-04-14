@@ -123,19 +123,19 @@
             "$Name": "Expand",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be expanded",
-            "@Core.OptionalParameter": { "DefaultValue": [] }
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "Show",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be shown",
-            "@Core.OptionalParameter": { "DefaultValue": [] }
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "Collapse",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be collapsed",
-            "@Core.OptionalParameter": { "DefaultValue": [] }
+            "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
