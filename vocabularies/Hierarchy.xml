@@ -243,24 +243,17 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.LongDescription">
             <String>If the entity exists already without a node identifier for the recursive hierarchy,
             it is upserted with PATCH semantics.
+            To insert an existing entity with key property `ID` as a new node with server-determined node identifier,
+            provide the parameter `"Entity": {"ID": "..."}` without node identifier property.
             It is an error if the entity exists already with a node identifier for the recursive hierarchy.</String>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node identifier, defaults to the node property of the `Entity`" />
-          <Annotation Term="Core.LongDescription">
-            <String>To insert an existing entity with key property `ID` as a new node with server-determined node identifier,
-            provide the parameter `"Entity": {"ID": "..."}` and omit `Node`.</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Parent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of the new node's parent (null if the new node shall be a root)" />
         </Parameter>
-        <Parameter Name="SiblingRank" Type="Edm.Int64">
-          <Annotation Term="Core.Description" String="Optional integer rank of the new node among its siblings" />
+        <Parameter Name="RightSibling" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the new node's right sibling (null if the new node shall be the rightmost sibling)" />
+          <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -303,8 +296,9 @@ The template actions themselves cannot be invoked.
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="SiblingRank" Type="Edm.Int64">
-          <Annotation Term="Core.Description" String="Optional integer rank of the node among its siblings under the new parent" />
+        <Parameter Name="RightSibling" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)" />
+          <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>

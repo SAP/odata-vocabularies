@@ -170,14 +170,7 @@
             "$Name": "Entity",
             "$Type": "Edm.EntityType",
             "@Core.Description": "The entity to become a new node",
-            "@Core.LongDescription": "If the entity exists already without a node identifier for the recursive hierarchy,\n            it is upserted with PATCH semantics.\n            It is an error if the entity exists already with a node identifier for the recursive hierarchy."
-          },
-          {
-            "$Name": "Node",
-            "$Type": "Edm.PrimitiveType",
-            "@Core.Description": "The node identifier, defaults to the node property of the `Entity`",
-            "@Core.LongDescription": "To insert an existing entity with key property `ID` as a new node with server-determined node identifier,\n            provide the parameter `\"Entity\": {\"ID\": \"...\"}` and omit `Node`.",
-            "@Core.OptionalParameter": {}
+            "@Core.LongDescription": "If the entity exists already without a node identifier for the recursive hierarchy,\n            it is upserted with PATCH semantics.\n            To insert an existing entity with key property `ID` as a new node with server-determined node identifier,\n            provide the parameter `\"Entity\": {\"ID\": \"...\"}` without node identifier property.\n            It is an error if the entity exists already with a node identifier for the recursive hierarchy."
           },
           {
             "$Name": "Parent",
@@ -186,10 +179,11 @@
             "@Core.Description": "Node identifier of the new node's parent (null if the new node shall be a root)"
           },
           {
-            "$Name": "SiblingRank",
-            "$Type": "Edm.Int64",
+            "$Name": "RightSibling",
+            "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
-            "@Core.Description": "Optional integer rank of the new node among its siblings",
+            "@Core.Description": "Node identifier of the new node's right sibling (null if the new node shall be the rightmost sibling)",
+            "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
         ],
@@ -235,10 +229,11 @@
             "@Core.OptionalParameter": {}
           },
           {
-            "$Name": "SiblingRank",
-            "$Type": "Edm.Int64",
+            "$Name": "RightSibling",
+            "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
-            "@Core.Description": "Optional integer rank of the node among its siblings under the new parent",
+            "@Core.Description": "Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)",
+            "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
         ]
