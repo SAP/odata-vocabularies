@@ -36,9 +36,9 @@ Parameter|Type|Description
 [NodeProperty](./Hierarchy.xml#L194:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
 [Levels](./Hierarchy.xml#L197:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
 *[Expand](./Hierarchy.xml#L200:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Show](./Hierarchy.xml#L210:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[Collapse](./Hierarchy.xml#L220:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-[&rarr;](./Hierarchy.xml#L230:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+*[Show](./Hierarchy.xml#L206:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L212:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+[&rarr;](./Hierarchy.xml#L218:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 <a name="RecursiveHierarchyType"></a>

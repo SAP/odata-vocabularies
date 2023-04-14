@@ -371,9 +371,17 @@
       </Term>
       <EnumType Name="FieldControlType" UnderlyingType="Edm.Byte">
         <Annotation Term="Core.Description" String="Control state of a property" />
+        <Annotation Term="Core.LongDescription">
+          <String>When changes are requested, the value of this annotation in the before-image or after-image
+          of the request plays a role. These may differ if the value is given dynamically in the metadata.</String>
+        </Annotation>
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
-          <Annotation Term="Core.LongDescription" String="This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md)." />
+          <Annotation Term="Core.LongDescription">
+            <String>A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.
+
+            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
+          </Annotation>
         </Member>
         <Member Name="Optional" Value="3">
           <Annotation Term="Core.Description" String="Property may have a value" />
@@ -381,18 +389,26 @@
         </Member>
         <Member Name="ReadOnly" Value="1">
           <Annotation Term="Core.Description" String="Property value cannot be changed" />
-          <Annotation Term="Core.LongDescription" String="To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead" />
+          <Annotation Term="Core.LongDescription">
+            <String>A request to change the property to a value that differs from the before-image fails entirely
+            according to [OData-Protocol, section 11.4.3](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateanEntity)
+            if this annotation is given dynamically as `ReadOnly` in the before-image of the request.
+
+            To statically mark a property as read-only use term [Core.Computed](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Computed) instead.</String>
+          </Annotation>
         </Member>
         <Member Name="Inapplicable" Value="0">
           <Annotation Term="Core.Description" String="Property has no meaning in the current entity state" />
           <Annotation Term="Core.LongDescription">
-            <String>This value does not make sense as a static annotation value.
+            <String>A request that sets the property to a non-initial non-null value fails entirely if this annotation is `Inapplicable` in the after-image of the request.
+
+            This value does not make sense as a static annotation value.
 
 Example for dynamic use: in a travel expense report the property `DestinationCountry` is inapplicable if trip type is domestic, and mandatory if trip type is international.</String>
           </Annotation>
         </Member>
         <Member Name="Hidden" Value="0">
-          <Annotation Term="Core.Description" String="Deprecated synonymn for Inapplicable, do not use" />
+          <Annotation Term="Core.Description" String="Deprecated synonym for Inapplicable, do not use" />
           <Annotation Term="Core.LongDescription" String="To statically hide a property on a UI use [UI.Hidden](UI.md#Hidden) instead" />
         </Member>
       </EnumType>
@@ -737,9 +753,12 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
-        <Annotation Term="Common.Experimental" />
         <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
+        </Property>
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">

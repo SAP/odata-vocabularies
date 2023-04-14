@@ -200,31 +200,19 @@ the following collections of hierarchy nodes are distinguished:
         <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue">
-                <Collection />
-              </PropertyValue>
-            </Record>
+            <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
           <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue">
-                <Collection />
-              </PropertyValue>
-            </Record>
+            <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
           <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue">
-                <Collection />
-              </PropertyValue>
-            </Record>
+            <Record/>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />

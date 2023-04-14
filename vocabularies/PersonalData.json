@@ -115,6 +115,12 @@
           "Value": "UserID",
           "@Core.Description": "The unique identifier of a user",
           "@Core.LongDescription": "A user is an individual who interacts with the services supplied by a system."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "EndOfPurposeDate",
+          "@Core.Description": "The end of purpose date of a record",
+          "@Core.LongDescription": "The point in time when the processing of a set of personal data is no longer required for the primary business purpose\n                ([GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1807-1-1)),\n                for example, when a contract is fulfilled. After this has been reached, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
         }
       ]
     },
