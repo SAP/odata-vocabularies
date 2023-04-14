@@ -259,8 +259,11 @@ The template actions themselves cannot be invoked.
         <Parameter Name="Parent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of the new node's parent (null if the new node shall be a root)" />
         </Parameter>
-        <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+        <Parameter Name="SiblingRank" Type="Edm.Int64">
           <Annotation Term="Core.Description" String="Optional integer rank of the new node among its siblings" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node" />
@@ -300,8 +303,11 @@ The template actions themselves cannot be invoked.
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+        <Parameter Name="SiblingRank" Type="Edm.Int64">
           <Annotation Term="Core.Description" String="Optional integer rank of the node among its siblings under the new parent" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
         </Parameter>
       </Action>
       <Action Name="Template_RemoveAction" IsBound="true">

@@ -189,7 +189,8 @@
             "$Name": "SiblingRank",
             "$Type": "Edm.Int64",
             "$Nullable": true,
-            "@Core.Description": "Optional integer rank of the new node among its siblings"
+            "@Core.Description": "Optional integer rank of the new node among its siblings",
+            "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": {
@@ -237,7 +238,8 @@
             "$Name": "SiblingRank",
             "$Type": "Edm.Int64",
             "$Nullable": true,
-            "@Core.Description": "Optional integer rank of the node among its siblings under the new parent"
+            "@Core.Description": "Optional integer rank of the node among its siblings under the new parent",
+            "@Core.OptionalParameter": {}
           }
         ]
       }
