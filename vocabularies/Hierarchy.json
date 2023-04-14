@@ -192,13 +192,16 @@
             "@Core.Description": "Optional integer rank of the new node among its siblings"
           }
         ],
-        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The new node" }
+        "$ReturnType": {
+          "$Type": "Edm.EntityType",
+          "@Core.Description": "The new node",
+          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a [`Hierarchy.TopLevels`](#TopLevels) transformation\n            in an `$apply` query option."
+        }
       }
     ],
     "Template_MoveAction": [
       {
         "$Kind": "Action",
-        "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveAction`](#RecursiveHierarchyType)",
@@ -236,14 +239,12 @@
             "$Nullable": true,
             "@Core.Description": "Optional integer rank of the node among its siblings under the new parent"
           }
-        ],
-        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with new parents" }
+        ]
       }
     ],
     "Template_RemoveAction": [
       {
         "$Kind": "Action",
-        "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
@@ -264,11 +265,7 @@
             "@Core.LongDescription": "For a node with only one parent, this parameter defaults to that parent's node identifier (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           }
-        ],
-        "$ReturnType": {
-          "$Type": "Edm.EntityType",
-          "@Core.Description": "The node with remaining parents or the entity after removal from the recursive hierarchy"
-        }
+        ]
       }
     ]
   }

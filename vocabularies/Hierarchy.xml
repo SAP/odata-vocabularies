@@ -276,9 +276,14 @@ The template actions themselves cannot be invoked.
         </Parameter>
         <ReturnType Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node" />
+          <Annotation Term="Core.LongDescription">
+            <String>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation
+            can only be obtained with a subsequent GET request that contains a [`Hierarchy.TopLevels`](#TopLevels) transformation
+            in an `$apply` query option.</String>
+          </Annotation>
         </ReturnType>
       </Action>
-      <Action Name="Template_MoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
+      <Action Name="Template_MoveAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveAction`](#RecursiveHierarchyType)" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
@@ -310,11 +315,8 @@ The template actions themselves cannot be invoked.
         <Parameter Name="SiblingRank" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Optional integer rank of the node among its siblings under the new parent" />
         </Parameter>
-        <ReturnType Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node with new parents" />
-        </ReturnType>
       </Action>
-      <Action Name="Template_RemoveAction" IsBound="true" EntitySetPath="HierarchyNodes">
+      <Action Name="Template_RemoveAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
@@ -334,10 +336,7 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
-         </Parameter>
-        <ReturnType Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node with remaining parents or the entity after removal from the recursive hierarchy" />
-        </ReturnType>
+        </Parameter>
       </Action>
 
     </Schema>
