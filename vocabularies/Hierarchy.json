@@ -255,7 +255,7 @@
             "@Core.Description": "Node identifier of the node to be removed from its parent"
           },
           {
-            "$Name": "RemoveParent",
+            "$Name": "PreviousParent",
             "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "@Core.Description": "Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)",

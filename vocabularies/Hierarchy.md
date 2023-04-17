@@ -58,7 +58,7 @@ Parameter|Type|Description
 **[HierarchyNodes](./Hierarchy.xml#L314:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L315:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Node](./Hierarchy.xml#L316:~:text=<Action%20Name="-,Template_RemoveAction,-")|PrimitiveType|Node identifier of the node to be removed from its parent
-*[RemoveParent](./Hierarchy.xml#L319:~:text=<Action%20Name="-,Template_RemoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)<br>For a node with only one parent, this parameter defaults to that parent's node identifier (null if the node is only a root).
+*[PreviousParent](./Hierarchy.xml#L319:~:text=<Action%20Name="-,Template_RemoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)<br>For a node with only one parent, this parameter defaults to that parent's node identifier (null if the node is only a root).
 
 
 
