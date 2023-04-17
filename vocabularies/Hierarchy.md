@@ -41,7 +41,7 @@ Parameter|Type|Description
 [Node](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType|Node identifier of the node to be moved
 [Parent](./Hierarchy.xml#L278:~:text=<Action%20Name="-,Template_MoveAction,-")|PrimitiveType?|Node identifier of the node's new parent (null if the node shall become a root)
 *[KeepParents](./Hierarchy.xml#L281:~:text=<Action%20Name="-,Template_MoveAction,-")*|Boolean|*Optional parameter:* Whether the current parents of the node shall be kept in addition to the new parent
-*[RemoveParent](./Hierarchy.xml#L289:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)<br>This parameter is ignored if `KeepParents` is true. Otherwise, for a node with only one parent, it defaults to that parent's node identifier (null if the node is only a root).
+*[PreviousParent](./Hierarchy.xml#L289:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)<br>This parameter is ignored if `KeepParents` is true. Otherwise, for a node with only one parent, it defaults to that parent's node identifier (null if the node is only a root).
 *[RightSibling](./Hierarchy.xml#L299:~:text=<Action%20Name="-,Template_MoveAction,-")*|PrimitiveType?|*Optional parameter:* Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
 
 

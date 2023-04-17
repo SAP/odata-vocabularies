@@ -286,7 +286,7 @@ The template actions themselves cannot be invoked.
             </Record>
           </Annotation>
         </Parameter>
-        <Parameter Name="RemoveParent" Type="Edm.PrimitiveType" Nullable="true">
+        <Parameter Name="PreviousParent" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node identifier of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
             <String>This parameter is ignored if `KeepParents` is true.
