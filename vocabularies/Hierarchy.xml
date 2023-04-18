@@ -246,12 +246,12 @@ The template actions themselves cannot be invoked.
         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying the new node's parent (null if the new node shall be a root)" />
-          <Annotation Term="Core.LongDescription" String="Only the key properties of the entity are relevant." />
+          <Annotation Term="Core.LongDescription" String="Only the key properties of this parameter are relevant." />
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying the new node's next sibling (null if the new node shall be the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties of the entity are relevant.
+            <String>Only the key properties of this parameter are relevant.
             In the absence of this parameter, the sibling position is determined by the service.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
@@ -298,11 +298,11 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key identifying the node to be moved" />
-          <Annotation Term="Core.LongDescription" String="Only the key properties of the entity are relevant." />
+          <Annotation Term="Core.LongDescription" String="Only the key properties of this parameter are relevant." />
         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying the node's new parent (null if the node shall become a root)" />
-          <Annotation Term="Core.LongDescription" String="Only the key properties of the entity are relevant." />
+          <Annotation Term="Core.LongDescription" String="Only the key properties of this parameter are relevant." />
         </Parameter>
         <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the current parents of the node shall be kept in addition to the new parent" />
@@ -315,7 +315,7 @@ The template actions themselves cannot be invoked.
         <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties of the entity are relevant.
+            <String>Only the key properties of this parameter are relevant.
             This parameter is ignored if `KeepParents` is true.
             Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).</String>
           </Annotation>
@@ -342,12 +342,12 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key identifying the node to be removed from its parent" />
-          <Annotation Term="Core.LongDescription" String="Only the key properties of the entity are relevant." />
+          <Annotation Term="Core.LongDescription" String="Only the key properties of this parameter are relevant." />
         </Parameter>
         <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties of the entity are relevant.
+            <String>Only the key properties of this parameter are relevant.
             For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">

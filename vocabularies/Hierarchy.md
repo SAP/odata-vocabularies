@@ -24,8 +24,8 @@ Parameter|Type|Description
 **[HierarchyNodes](./Hierarchy.xml#L242:~:text=<Action%20Name="-,Template_CreateAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L243:~:text=<Action%20Name="-,Template_CreateAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Node](./Hierarchy.xml#L244:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new entity to be created as a node
-[Parent](./Hierarchy.xml#L247:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType?|Key identifying the new node's parent (null if the new node shall be a root)<br>Only the key properties of the entity are relevant.
-*[NextSibling](./Hierarchy.xml#L251:~:text=<Action%20Name="-,Template_CreateAction,-")*|EntityType?|*Optional parameter:* Key identifying the new node's next sibling (null if the new node shall be the last sibling)<br>Only the key properties of the entity are relevant. In the absence of this parameter, the sibling position is determined by the service.
+[Parent](./Hierarchy.xml#L247:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType?|Key identifying the new node's parent (null if the new node shall be a root)<br>Only the key properties of this parameter are relevant.
+*[NextSibling](./Hierarchy.xml#L251:~:text=<Action%20Name="-,Template_CreateAction,-")*|EntityType?|*Optional parameter:* Key identifying the new node's next sibling (null if the new node shall be the last sibling)<br>Only the key properties of this parameter are relevant. In the absence of this parameter, the sibling position is determined by the service.
 [&rarr;](./Hierarchy.xml#L261:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node<br>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation can only be obtained with a subsequent GET request that contains a [`Hierarchy.TopLevels`](#TopLevels) transformation in an `$apply` query option.
 
 
@@ -56,10 +56,10 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[HierarchyNodes](./Hierarchy.xml#L297:~:text=<Action%20Name="-,Template_MoveAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L298:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L299:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|Key identifying the node to be moved<br>Only the key properties of the entity are relevant.
-[Parent](./Hierarchy.xml#L303:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType?|Key identifying the node's new parent (null if the node shall become a root)<br>Only the key properties of the entity are relevant.
+[Node](./Hierarchy.xml#L299:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|Key identifying the node to be moved<br>Only the key properties of this parameter are relevant.
+[Parent](./Hierarchy.xml#L303:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType?|Key identifying the node's new parent (null if the node shall become a root)<br>Only the key properties of this parameter are relevant.
 *[KeepParents](./Hierarchy.xml#L307:~:text=<Action%20Name="-,Template_MoveAction,-")*|Boolean|*Optional parameter:* Whether the current parents of the node shall be kept in addition to the new parent
-*[PreviousParent](./Hierarchy.xml#L315:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>Only the key properties of the entity are relevant. This parameter is ignored if `KeepParents` is true. Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).
+*[PreviousParent](./Hierarchy.xml#L315:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>Only the key properties of this parameter are relevant. This parameter is ignored if `KeepParents` is true. Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).
 *[RightSibling](./Hierarchy.xml#L326:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
 
 
@@ -75,8 +75,8 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[HierarchyNodes](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the node to be removed from its parent<br>Only the key properties of the entity are relevant.
-*[PreviousParent](./Hierarchy.xml#L347:~:text=<Action%20Name="-,Template_RemoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>Only the key properties of the entity are relevant. For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).
+[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the node to be removed from its parent<br>Only the key properties of this parameter are relevant.
+*[PreviousParent](./Hierarchy.xml#L347:~:text=<Action%20Name="-,Template_RemoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>Only the key properties of this parameter are relevant. For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).
 
 
 

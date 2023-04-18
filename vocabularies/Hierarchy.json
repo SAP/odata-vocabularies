@@ -177,14 +177,14 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying the new node's parent (null if the new node shall be a root)",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant."
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
           },
           {
             "$Name": "NextSibling",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying the new node's next sibling (null if the new node shall be the last sibling)",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant.\n            In the absence of this parameter, the sibling position is determined by the service.",
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
         ],
@@ -231,14 +231,14 @@
             "$Name": "Node",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Key identifying the node to be moved",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant."
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
           },
           {
             "$Name": "Parent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying the node's new parent (null if the node shall become a root)",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant."
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
           },
           {
             "$Name": "KeepParents",
@@ -251,7 +251,7 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant.\n            This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).",
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           },
           {
@@ -279,14 +279,14 @@
             "$Name": "Node",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Key identifying the node to be removed from its parent",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant."
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
           },
           {
             "$Name": "PreviousParent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "Only the key properties of the entity are relevant.\n            For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).",
+            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           }
         ]
