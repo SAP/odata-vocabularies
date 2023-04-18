@@ -54,25 +54,22 @@ Parameter|Type|Description
 [HierarchyQualifier](./Hierarchy.xml#L297:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [Node](./Hierarchy.xml#L298:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|Key identifying the node to be moved
 [Parent](./Hierarchy.xml#L301:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType?|Key identifying the node's new parent (null if the node shall become a root)
-*[KeepParents](./Hierarchy.xml#L304:~:text=<Action%20Name="-,Template_MoveAction,-")*|Boolean|*Optional parameter:* Whether the current parents of the node shall be kept in addition to the new parent
-*[PreviousParent](./Hierarchy.xml#L312:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>This parameter is ignored if `KeepParents` is true. Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).
-*[RightSibling](./Hierarchy.xml#L322:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+*[NextSibling](./Hierarchy.xml#L324:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key identifying the node's next sibling under the new parent (null if the node shall become the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
 
 
 <a name="Template_RemoveAction"></a>
-### [Template_RemoveAction](./Hierarchy.xml#L330:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_RemoveAction](./Hierarchy.xml#L332:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
+Template for actions that remove a leaf from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
-When a node is removed from its last parent or has no parents and ceases being a root,
-          the entity is not deleted but its node property is set to null. This removes the node from the recursive hierarchy.
+When a leaf is removed from its last parent or has no parents and ceases being a root,
+          the entity is not deleted but its node identifier property is set to null. This removes the leaf from the recursive hierarchy.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L337:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L338:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L339:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the node to be removed from its parent
-*[PreviousParent](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_RemoveAction,-")*|EntityType?|*Optional parameter:* Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)<br>For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).
+**[HierarchyNodes](./Hierarchy.xml#L339:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L340:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the node to be removed from its parent
 
 
 

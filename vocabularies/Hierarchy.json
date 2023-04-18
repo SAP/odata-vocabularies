@@ -248,24 +248,10 @@
             "@Core.Description": "Key identifying the node's new parent (null if the node shall become a root)"
           },
           {
-            "$Name": "KeepParents",
-            "$Type": "Edm.Boolean",
-            "@Core.Description": "Whether the current parents of the node shall be kept in addition to the new parent",
-            "@Core.OptionalParameter": { "DefaultValue": "false" }
-          },
-          {
-            "$Name": "PreviousParent",
+            "$Name": "NextSibling",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
-            "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).",
-            "@Core.OptionalParameter": {}
-          },
-          {
-            "$Name": "RightSibling",
-            "$Type": "Edm.EntityType",
-            "$Nullable": true,
-            "@Core.Description": "Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)",
+            "@Core.Description": "Key identifying the node's next sibling under the new parent (null if the node shall become the last sibling)",
             "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
@@ -277,8 +263,8 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "When a node is removed from its last parent or has no parents and ceases being a root,\n          the entity is not deleted but its node property is set to null. This removes the node from the recursive hierarchy.",
+        "@Core.Description": "Template for actions that remove a leaf from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "When a leaf is removed from its last parent or has no parents and ceases being a root,\n          the entity is not deleted but its node identifier property is set to null. This removes the leaf from the recursive hierarchy.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -286,14 +272,6 @@
             "$Name": "Node",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Key identifying the node to be removed from its parent"
-          },
-          {
-            "$Name": "PreviousParent",
-            "$Type": "Edm.EntityType",
-            "$Nullable": true,
-            "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).",
-            "@Core.OptionalParameter": {}
           }
         ]
       }

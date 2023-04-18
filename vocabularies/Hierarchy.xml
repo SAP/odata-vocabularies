@@ -301,6 +301,7 @@ The template actions themselves cannot be invoked.
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying the node's new parent (null if the node shall become a root)" />
         </Parameter>
+        <!--
         <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the current parents of the node shall be kept in addition to the new parent" />
           <Annotation Term="Core.OptionalParameter">
@@ -319,8 +320,9 @@ The template actions themselves cannot be invoked.
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="RightSibling" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node identifier of the node's right sibling under the new parent (null if the node shall become the rightmost sibling)" />
+        -->
+        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
+          <Annotation Term="Core.Description" String="Key identifying the node's next sibling under the new parent (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -329,16 +331,17 @@ The template actions themselves cannot be invoked.
       </Action>
       <Action Name="Template_RemoveAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that remove a node from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for actions that remove a leaf from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>When a node is removed from its last parent or has no parents and ceases being a root,
-          the entity is not deleted but its node property is set to null. This removes the node from the recursive hierarchy.</String>
+          <String>When a leaf is removed from its last parent or has no parents and ceases being a root,
+          the entity is not deleted but its node identifier property is set to null. This removes the leaf from the recursive hierarchy.</String>
         </Annotation>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key identifying the node to be removed from its parent" />
         </Parameter>
+        <!--
         <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
@@ -348,6 +351,7 @@ The template actions themselves cannot be invoked.
             <Record/>
           </Annotation>
         </Parameter>
+        -->
       </Action>
 
     </Schema>
