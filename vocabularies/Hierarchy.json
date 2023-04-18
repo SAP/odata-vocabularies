@@ -32,7 +32,7 @@
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n\nThe qualified action names identify actions for maintaining nodes in the recursive hierarchy. \nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nParameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.\nWhen invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.\nThe template actions themselves cannot be invoked.\n",
+      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n\nThe qualified action names identify actions for maintaining nodes in the recursive hierarchy. \nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nParameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.\nWhen invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.\nIn parameters of type `Edm.EntityType` that are defined as \"Key identifying …\", only the key properties are relevant.\nThe template actions themselves cannot be invoked.\n",
       "ExternalKeyProperty": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
@@ -171,27 +171,30 @@
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The new entity to be created as a node" },
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "The new entity to be created as a node"
+          },
           {
             "$Name": "Parent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
-            "@Core.Description": "Key identifying the new node's parent (null if the new node shall be a root)",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
+            "@Core.Description": "Key identifying the new node's parent (null if the new node shall be a root)"
           },
           {
             "$Name": "NextSibling",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying the new node's next sibling (null if the new node shall be the last sibling)",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            In the absence of this parameter, the sibling position is determined by the service.",
+            "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": {
           "$Type": "Edm.EntityType",
           "@Core.Description": "The new node",
-          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a [`Hierarchy.TopLevels`](#TopLevels) transformation\n            in an `$apply` query option."
+          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in an `$apply` query option."
         }
       }
     ],
@@ -202,20 +205,30 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "The parameters `Parent`, `NextSibling` and the return value have the same meaning as in the\n          [create action](#Template_CreateAction).",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
           {
             "$Name": "Node",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "The entity to become a new node",
-            "@Core.LongDescription": "The entity is updated with PATCH semantics, its key properties must be provided.\n            It is an error if the entity exists already with a node identifier for the recursive hierarchy."
+            "@Core.Description": "Key identifying the entity to become a new node",
+            "@Core.LongDescription": "It is an error if the entity exists already with a node identifier for the recursive hierarchy."
           },
-          { "$Name": "Parent", "$Type": "Edm.EntityType", "$Nullable": true },
-          { "$Name": "NextSibling", "$Type": "Edm.EntityType", "$Nullable": true, "@Core.OptionalParameter": {} }
-        ],
-        "$ReturnType": { "$Type": "Edm.EntityType" }
+          {
+            "$Name": "Parent",
+            "$Type": "Edm.EntityType",
+            "$Nullable": true,
+            "@Core.Description": "Key identifying the new node's parent (null if the new node shall be a root)"
+          },
+          {
+            "$Name": "NextSibling",
+            "$Type": "Edm.EntityType",
+            "$Nullable": true,
+            "@Core.Description": "Key identifying the new node's next sibling (null if the new node shall be the last sibling)",
+            "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
+            "@Core.OptionalParameter": {}
+          }
+        ]
       }
     ],
     "Template_MoveAction": [
@@ -227,18 +240,12 @@
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          {
-            "$Name": "Node",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "Key identifying the node to be moved",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
-          },
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "Key identifying the node to be moved" },
           {
             "$Name": "Parent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
-            "@Core.Description": "Key identifying the node's new parent (null if the node shall become a root)",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
+            "@Core.Description": "Key identifying the node's new parent (null if the node shall become a root)"
           },
           {
             "$Name": "KeepParents",
@@ -251,7 +258,7 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).",
+            "@Core.LongDescription": "This parameter is ignored if `KeepParents` is true.\n            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           },
           {
@@ -278,15 +285,14 @@
           {
             "$Name": "Node",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "Key identifying the node to be removed from its parent",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant."
+            "@Core.Description": "Key identifying the node to be removed from its parent"
           },
           {
             "$Name": "PreviousParent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)",
-            "@Core.LongDescription": "Only the key properties of this parameter are relevant.\n            For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).",
+            "@Core.LongDescription": "For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).",
             "@Core.OptionalParameter": {}
           }
         ]
