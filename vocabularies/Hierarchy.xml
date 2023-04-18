@@ -269,7 +269,7 @@ The template actions themselves cannot be invoked.
       </Action>
       <Action Name="Template_MakeNodeAction" IsBound="true" EntitySetPath="HierarchyNodes">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/CreateAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
           <String>The parameters `Parent`, `NextSibling` and the return value have the same meaning as in the
           [create action](#Template_CreateAction).</String>

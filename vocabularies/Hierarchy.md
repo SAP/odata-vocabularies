@@ -32,7 +32,7 @@ Parameter|Type|Description
 <a name="Template_MakeNodeAction"></a>
 ### [Template_MakeNodeAction](./Hierarchy.xml#L270:~:text=<Action%20Name="-,Template_MakeNodeAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/CreateAction`](#RecursiveHierarchyType)
+Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)
 
 The parameters `Parent`, `NextSibling` and the return value have the same meaning as in the
           [create action](#Template_CreateAction).

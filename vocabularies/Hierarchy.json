@@ -201,7 +201,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/CreateAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)",
         "@Core.LongDescription": "The parameters `Parent`, `NextSibling` and the return value have the same meaning as in the\n          [create action](#Template_CreateAction).",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
