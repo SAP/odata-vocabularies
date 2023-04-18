@@ -60,16 +60,13 @@ Parameter|Type|Description
 <a name="Template_RemoveAction"></a>
 ### [Template_RemoveAction](./Hierarchy.xml#L332:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that remove a leaf from a parent and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
-
-When a leaf is removed from its last parent or has no parents and ceases being a root,
-          the entity is not deleted but its node identifier property is set to null. This removes the leaf from the recursive hierarchy.
+Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L339:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L340:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the node to be removed from its parent
+**[HierarchyNodes](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key identifying the leaf to be removed
 
 
 
