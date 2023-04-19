@@ -267,7 +267,11 @@
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "Key of the leaf to be removed" }
+          {
+            "$Name": "Node",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "Key of the leaf to be removed (null if the leaf was also a root)"
+          }
         ]
       }
     ]
