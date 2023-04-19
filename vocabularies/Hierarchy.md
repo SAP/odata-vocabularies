@@ -141,7 +141,7 @@ These actions MUST have the same signature as the template actions linked below,
 Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
 [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.
 When invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.
-In parameters of type `Edm.EntityType` that are defined as "Key of …", only the key properties are relevant.
+In parameters of entity type that are defined as "Key of …", only the key properties are relevant.
 The template actions themselves cannot be invoked.
 
 
