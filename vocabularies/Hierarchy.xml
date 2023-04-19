@@ -84,7 +84,7 @@ These actions MUST have the same signature as the template actions linked below,
 Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
 [`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.
 When invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.
-In parameters of type `Edm.EntityType` that are defined as "Key identifying &hellip;", only the key properties are relevant.
+In parameters of type `Edm.EntityType` that are defined as "Key of &hellip;", only the key properties are relevant.
 The template actions themselves cannot be invoked.
 </String>
         </Annotation>
@@ -246,10 +246,10 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.Description" String="The new entity to be created as a node" />
         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the new node's parent (null if the new node shall be a root)" />
+          <Annotation Term="Core.Description" String="Key of the new node's parent (null if the new node shall be a root)" />
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the new node's next sibling (null if the new node shall be the last sibling)" />
+          <Annotation Term="Core.Description" String="Key of the new node's next sibling (null if the new node shall be the last sibling)" />
           <Annotation Term="Core.LongDescription">
             <String>In the absence of this parameter, the sibling position is determined by the service.</String>
           </Annotation>
@@ -272,16 +272,16 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Key identifying the entity to become a new node" />
+          <Annotation Term="Core.Description" String="Key of the entity to become a new node" />
           <Annotation Term="Core.LongDescription">
             <String>It is an error if the entity exists already with a node identifier for the recursive hierarchy.</String>
           </Annotation>
         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the new node's parent (null if the new node shall be a root)" />
+          <Annotation Term="Core.Description" String="Key of the new node's parent (null if the new node shall be a root)" />
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the new node's next sibling (null if the new node shall be the last sibling)" />
+          <Annotation Term="Core.Description" String="Key of the new node's next sibling (null if the new node shall be the last sibling)" />
           <Annotation Term="Core.LongDescription">
             <String>In the absence of this parameter, the sibling position is determined by the service.</String>
           </Annotation>
@@ -296,10 +296,10 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Key identifying the node to be moved" />
+          <Annotation Term="Core.Description" String="Key of the node to be moved" />
         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the node's new parent (null if the node shall become a root)" />
+          <Annotation Term="Core.Description" String="Key of the node's new parent (null if the node shall become a root)" />
         </Parameter>
         <!--
         <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
@@ -311,7 +311,7 @@ The template actions themselves cannot be invoked.
           </Annotation>
         </Parameter>
         <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)" />
+          <Annotation Term="Core.Description" String="Key of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
             <String>This parameter is ignored if `KeepParents` is true.
             Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).</String>
@@ -322,7 +322,7 @@ The template actions themselves cannot be invoked.
         </Parameter>
         -->
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying the node's next sibling under the new parent (null if the node shall become the last sibling)" />
+          <Annotation Term="Core.Description" String="Key of the node's next sibling under the new parent (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -341,11 +341,11 @@ The template actions themselves cannot be invoked.
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Key identifying the leaf to be removed" />
+          <Annotation Term="Core.Description" String="Key of the leaf to be removed" />
         </Parameter>
         <!--
         <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key identifying a parent from which the node shall be removed (null if the node shall no longer be a root)" />
+          <Annotation Term="Core.Description" String="Key of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
           <Annotation Term="Core.LongDescription">
             <String>For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).</String>
           </Annotation>
