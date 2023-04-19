@@ -66,7 +66,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[HierarchyNodes](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
 [HierarchyQualifier](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed (null if the leaf was also a root)
+[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed
 
 
 
