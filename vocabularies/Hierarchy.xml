@@ -336,7 +336,9 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>When a leaf is removed, the entity is not deleted but its node identifier property is set to null.</String>
+          <String>When a leaf is removed, the entity is not deleted but its node identifier property is set to null.
+          A DELETE request that deletes an entity also removes it from all recursive hierarchies defined on the entity type,
+          but the effect on any hierarchy-specific descendants is application-specific.</String>
         </Annotation>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />

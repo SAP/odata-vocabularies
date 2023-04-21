@@ -65,12 +65,14 @@ Parameter|Type|Description
 Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
 When a leaf is removed, the entity is not deleted but its node identifier property is set to null.
+          A DELETE request that deletes an entity also removes it from all recursive hierarchies defined on the entity type,
+          but the effect on any hierarchy-specific descendants is application-specific.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed
+**[HierarchyNodes](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L344:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L345:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed
 
 
 
