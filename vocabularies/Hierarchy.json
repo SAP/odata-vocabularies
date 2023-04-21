@@ -204,11 +204,12 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "The new node will be a leaf, since it cannot have children yet.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
           {
-            "$Name": "Node",
+            "$Name": "EntityKey",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Key of the entity to become a new node",
             "@Core.LongDescription": "It is an error if the entity exists already with a node identifier for the recursive hierarchy."
@@ -263,6 +264,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "When a leaf is removed, the entity is not deleted but its node identifier property is set to null.\n          A DELETE request that deletes an entity also removes it and its descendants from the recursive hierarchy,\n          but does not delete the hierarchy-specific descendants.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
