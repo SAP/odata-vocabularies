@@ -1551,7 +1551,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="Triggers intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
-          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          <String>The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
 It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).</String>
         </Annotation>
@@ -1621,7 +1621,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
-          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          <String>The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
 It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
