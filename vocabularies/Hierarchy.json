@@ -264,7 +264,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "When a leaf is removed, the entity is not deleted but its node identifier property is set to null.\n          A DELETE request that deletes an entity also removes it and its descendants from the recursive hierarchy,\n          but does not delete the hierarchy-specific descendants.",
+        "@Core.LongDescription": "When a leaf is removed, the entity is not deleted but its node identifier property is set to null.",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
