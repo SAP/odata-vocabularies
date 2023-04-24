@@ -228,7 +228,8 @@
             "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
             "@Core.OptionalParameter": {}
           }
-        ]
+        ],
+        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new node" }
       }
     ],
     "Template_MoveAction": [

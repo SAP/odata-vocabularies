@@ -292,6 +292,9 @@ The template actions themselves cannot be invoked.
             <Record/>
           </Annotation>
         </Parameter>
+        <ReturnType Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node identifier of the new node" />
+        </ReturnType>
       </Action>
       <Action Name="Template_MoveAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
