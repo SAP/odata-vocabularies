@@ -210,7 +210,7 @@ In parameters of entity type that are defined as "Key of …", only the key prop
 
 The instance-bound actions MUST appear only in batch requests and the resource path MUST contain a dependency
 to the result of an earlier [create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.
-The action then inherits the `HierarchyNodes` collection and the `HierarchyQualifier` from that action.
+The action then inherits the `HierarchyNodes` collection and the `HierarchyQualifier` from that earlier action.
 
 The template actions themselves cannot be invoked.
 
