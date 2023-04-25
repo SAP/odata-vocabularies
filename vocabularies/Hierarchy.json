@@ -249,7 +249,7 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -274,14 +274,14 @@
             "@Core.OptionalParameter": {}
           }
         ],
-        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new leaf" }
+        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new node" }
       }
     ],
     "Template_InsertChildAction": [
       {
         "$Kind": "Action",
         "$IsBound": true,
-        "@Core.Description": "Template for instance-bound actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for instance-bound actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "Parent", "$Type": "Edm.EntityType", "@Core.Description": "The new node's parent" },
           {
@@ -299,7 +299,7 @@
             "@Core.OptionalParameter": {}
           }
         ],
-        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new leaf" }
+        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new node" }
       }
     ],
     "Template_MoveAction": [

@@ -332,7 +332,7 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
       </Action>
       <Action Name="Template_InsertAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="EntityKey" Type="Edm.EntityType" Nullable="false">
@@ -354,11 +354,11 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
           </Annotation>
         </Parameter>
         <ReturnType Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node identifier of the new leaf" />
+          <Annotation Term="Core.Description" String="The node identifier of the new node" />
         </ReturnType>
       </Action>
       <Action Name="Template_InsertChildAction" IsBound="true">
-        <Annotation Term="Core.Description" String="Template for instance-bound actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for instance-bound actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)" />
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node's parent" />
         </Parameter>
@@ -378,7 +378,7 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
           </Annotation>
         </Parameter>
         <ReturnType Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node identifier of the new leaf" />
+          <Annotation Term="Core.Description" String="The node identifier of the new node" />
         </ReturnType>
       </Action>
       <Action Name="Template_MoveAction" IsBound="true">

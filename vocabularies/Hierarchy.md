@@ -67,7 +67,7 @@ Parameter|Type|Description
 <a name="Template_InsertAction"></a>
 ### [Template_InsertAction](./Hierarchy.xml#L333:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
+Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -76,20 +76,20 @@ Parameter|Type|Description
 [EntityKey](./Hierarchy.xml#L338:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
 [Parent](./Hierarchy.xml#L344:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType?|Key of the new node's parent (null if the new node shall be a root)
 *[NextSibling](./Hierarchy.xml#L347:~:text=<Action%20Name="-,Template_InsertAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L356:~:text=<Action%20Name="-,Template_InsertAction,-")|PrimitiveType|The node identifier of the new leaf
+[&rarr;](./Hierarchy.xml#L356:~:text=<Action%20Name="-,Template_InsertAction,-")|PrimitiveType|The node identifier of the new node
 
 
 <a name="Template_InsertChildAction"></a>
 ### [Template_InsertChildAction](./Hierarchy.xml#L360:~:text=<Action%20Name="-,Template_InsertChildAction,-")
 
-Template for instance-bound actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)
+Template for instance-bound actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[Parent](./Hierarchy.xml#L362:~:text=<Action%20Name="-,Template_InsertChildAction,-")**|EntityType|**Binding parameter:** The new node's parent
 [EntityKey](./Hierarchy.xml#L365:~:text=<Action%20Name="-,Template_InsertChildAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
 *[NextSibling](./Hierarchy.xml#L371:~:text=<Action%20Name="-,Template_InsertChildAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L380:~:text=<Action%20Name="-,Template_InsertChildAction,-")|PrimitiveType|The node identifier of the new leaf
+[&rarr;](./Hierarchy.xml#L380:~:text=<Action%20Name="-,Template_InsertChildAction,-")|PrimitiveType|The node identifier of the new node
 
 
 <a name="Template_MoveAction"></a>
