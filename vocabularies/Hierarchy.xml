@@ -273,9 +273,9 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for instance-bound actions that create a new non-root node and are named in [`RecursiveHierarchy/CreateChildAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>When this action appears in a batch request and the resource path contains a (direct or indirect) reference
-to the result of an earlier [create action](#Template_CreateAction) from the same batch request,
-this action inherits the `HierarchyNodes` collection from that create action.
+          <String>This action MUST appear in a batch request and the resource path MUST contain a (direct or indirect) reference
+to the result of an earlier [create action](#Template_CreateAction) from the same batch request.
+This action then inherits the `HierarchyNodes` collection from that create action.
 
 This can be used when creating several nodes in one JSON batch request like:
 ```
