@@ -92,10 +92,15 @@
         "$Nullable": true,
         "@Core.Description": "Action that creates a new node, following [this template](#Template_CreateAction)"
       },
-      "MakeNodeAction": {
+      "CreateChildAction": {
         "$Type": "Core.QualifiedActionName",
         "$Nullable": true,
-        "@Core.Description": "Action that makes an existing entity a new node, following [this template](#Template_MakeNodeAction)"
+        "@Core.Description": "Instance-bound action that creates a new non-root node, following [this template](#Template_CreateChildAction)"
+      },
+      "InsertAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that inserts an existing entity as a new leaf following [this template](#Template_InsertAction)"
       },
       "MoveAction": {
         "$Type": "Core.QualifiedActionName",
@@ -105,7 +110,7 @@
       "RemoveAction": {
         "$Type": "Core.QualifiedActionName",
         "$Nullable": true,
-        "@Core.Description": "Action that removes a node from a parent, following [this template](#Template_RemoveAction)"
+        "@Core.Description": "Action that removes a leaf from a recursive hierarchy, following [this template](#Template_RemoveAction)"
       }
     },
     "MatchCount": {
@@ -198,13 +203,44 @@
         }
       }
     ],
-    "Template_MakeNodeAction": [
+    "Template_CreateChildAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "HierarchyNodes",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for instance-bound actions that create a new non-root node and are named in [`RecursiveHierarchy/CreateChildAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "When this action appears in a batch request and the resource path contains a (direct or indirect) reference\nto the result of an earlier [create action](#Template_CreateAction) from the same batch request,\nthis action inherits the `HierarchyNodes` collection from that create action.\n\nThis can be used when creating several nodes in one JSON batch request like:\n```\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"/service/HierarchyDirectory(1)/SalesOrganizations/CreateAction\",\n  \"body\": {\n    \"HierarchyQualifier\": \"SalesOrgHierarchy\",\n    \"Entity\": {\"ID\": \"WW\", \"Name\": \"Worldwide\", ...}\n  }\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"post\",\n  \"url\": \"$1/CreateChildAction\",\n  \"body\": {\n    \"HierarchyQualifier\": \"SalesOrgHierarchy\",\n    \"Entity\": {\"ID\": \"EMEA\", \"Name\": \"EMEA\", ...}\n  }\n}]}\n```\nThe binding parameter `Parent` in the second request is given by the (non-canonical) URL\n`/service/HierarchyDirectory(1)/SalesOrganizations('ID')`, that is, it inherits the hierarchy directory key 1.",
+        "$Parameter": [
+          { "$Name": "Parent", "$Type": "Edm.EntityType", "@Core.Description": "The new node's parent" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "The new entity to be created as a node"
+          },
+          {
+            "$Name": "NextSibling",
+            "$Type": "Edm.EntityType",
+            "$Nullable": true,
+            "@Core.Description": "Key of the new node's next sibling (null if the new node shall be the last sibling)",
+            "@Core.LongDescription": "In the absence of this parameter, the sibling position is determined by the service.",
+            "@Core.OptionalParameter": {}
+          }
+        ],
+        "$ReturnType": {
+          "$Type": "Edm.EntityType",
+          "@Core.Description": "The new node",
+          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in an `$apply` query option."
+        }
+      }
+    ],
+    "Template_InsertAction": [
       {
         "$Kind": "Action",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that make an existing entity a new node and are named in [`RecursiveHierarchy/MakeNodeAction`](#RecursiveHierarchyType)",
-        "@Core.LongDescription": "The new node will be a leaf, since it cannot have children yet.",
+        "@Core.Description": "Template for actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -229,7 +265,7 @@
             "@Core.OptionalParameter": {}
           }
         ],
-        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new node" }
+        "$ReturnType": { "$Type": "Edm.PrimitiveType", "@Core.Description": "The node identifier of the new leaf" }
       }
     ],
     "Template_MoveAction": [
