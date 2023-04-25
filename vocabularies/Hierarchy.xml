@@ -392,26 +392,6 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new parent (null if the node shall become a root)" />
         </Parameter>
-        <!--
-        <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the current parents of the node shall be kept in addition to the new parent" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue" String="false" />
-            </Record>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
-          <Annotation Term="Core.LongDescription">
-            <String>This parameter is ignored if `KeepParents` is true.
-            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        -->
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's next sibling under the new parent (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
@@ -429,26 +409,6 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the node to be moved" />
         </Parameter>
-        <!--
-        <Parameter Name="KeepParents" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the current parents of the node shall be kept in addition to the new parent" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue" String="false" />
-            </Record>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
-          <Annotation Term="Core.LongDescription">
-            <String>This parameter is ignored if `KeepParents` is true.
-            Otherwise, for a node with only one parent, it defaults to that parent's key (null if the node is only a root).</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        -->
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's next sibling under the new parent (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
@@ -470,17 +430,6 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the leaf to be removed" />
         </Parameter>
-        <!--
-        <Parameter Name="PreviousParent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key of a parent from which the node shall be removed (null if the node shall no longer be a root)" />
-          <Annotation Term="Core.LongDescription">
-            <String>For a node with only one parent, this parameter defaults to that parent's key (null if the node is only a root).</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        -->
       </Action>
 
     </Schema>
