@@ -88,7 +88,7 @@ In parameters of entity type that are defined as "Key of &hellip;", only the key
 
 The instance-bound actions MUST appear only in batch requests and the resource path MUST contain a dependency
 to the result of an earlier [create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.
-The action then inherits the `HierarchyNodes` collection from that action.
+The action then inherits the `HierarchyNodes` collection and the `HierarchyQualifier` from that action.
 
 The template actions themselves cannot be invoked.
 </String>
@@ -292,7 +292,7 @@ The template actions themselves cannot be invoked.
   "url": "HierarchyDirectory(1)/SalesOrganizations/CreateAction",
   "body": {
     "HierarchyQualifier": "SalesOrgHierarchy",
-    "Entity": {"ID": "WW", "Name": "Worldwide", ...}
+    "Entity": {"Name": "Worldwide", ...}
   }
 }, {
   "id": "2",
@@ -300,18 +300,15 @@ The template actions themselves cannot be invoked.
   "method": "post",
   "url": "$1/CreateChildAction",
   "body": {
-    "HierarchyQualifier": "SalesOrgHierarchy",
-    "Entity": {"ID": "EMEA", "Name": "EMEA", ...}
+    "Entity": {"Name": "EMEA", ...}
   }
 }]}
 ```
-The binding parameter `Parent` in the second request is given by the (non-canonical) URL
-`HierarchyDirectory(1)/SalesOrganizations('WW')`, that is, it inherits the hierarchy directory key 1.</String>
+The second request inherits the hierarchy directory key 1 from the first.</String>
         </Annotation>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node's parent" />
         </Parameter>
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new entity to be created as a node" />
         </Parameter>
@@ -362,15 +359,9 @@ The binding parameter `Parent` in the second request is given by the (non-canoni
       </Action>
       <Action Name="Template_InsertChildAction" IsBound="true">
         <Annotation Term="Core.Description" String="Template for instance-bound actions that insert an existing entity as a new leaf and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)" />
-        <Annotation Term="Core.LongDescription">
-          <String>This action MUST appear only in batch requests and the resource path MUST contain a dependency
-to the result of an earlier [create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.
-This action then inherits the `HierarchyNodes` collection from that action.</String>
-        </Annotation>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node's parent" />
         </Parameter>
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="EntityKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the entity to become a new node" />
           <Annotation Term="Core.LongDescription">
@@ -432,15 +423,9 @@ This action then inherits the `HierarchyNodes` collection from that action.</Str
       <Action Name="Template_MoveChildAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for instance-bound actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveChildAction`](#RecursiveHierarchyType)" />
-        <Annotation Term="Core.LongDescription">
-          <String>This action MUST appear only in batch requests and the resource path MUST contain a dependency
-to the result of an earlier [create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.
-This action then inherits the `HierarchyNodes` collection from that action.</String>
-        </Annotation>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node's new parent" />
         </Parameter>
-        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the node to be moved" />
         </Parameter>
