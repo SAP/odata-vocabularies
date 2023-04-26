@@ -1261,7 +1261,7 @@
       },
       "Content": {
         "@Core.Description": "Content of the note, as a string",
-        "@Core.LongDescription": "The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and\n            `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note.",
+        "@Core.LongDescription": "The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and\n            may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note.",
         "@Validation.ApplicableTerms": [
           "Core.MediaType",
           "Core.IsLanguageDependent",

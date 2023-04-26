@@ -1424,7 +1424,7 @@ The trend is
           <Annotation Term="Core.Description" String="Content of the note, as a string" />
           <Annotation Term="Core.LongDescription">
             <String>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and
-            `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,
+            may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,
             another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
             determines the language of the note.</String>
           </Annotation>
