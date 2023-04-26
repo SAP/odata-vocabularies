@@ -1,75 +1,56 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.UI.v1",
-                    "$Alias": "UI"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        },
-        "/sap/opu/odata4/standard-functions.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.gateway.functions.standard",
-                    "$Alias": "SAP"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
     },
-    "datafielddefault.sample": {
-        "$Annotations": {
-            "my.container/QueryParameters/P_Date": {
-                "@UI.DataFieldDefault#FiscalDateFunction": {
-                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithValueFunction",
-                    "Label": "Fiscal date function",
-                    "Value": {
-                        "$Path": "P_Date"
-                    },
-                    "Action": "SAP.FiscalDateFunction()"
-                },
-                "@UI.DataFieldDefault#GregorianDateFunction": {
-                    "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithValueFunction",
-                    "Label": "Gregorian date function",
-                    "Value": {
-                        "$Path": "P_Date"
-                    },
-                    "Action": "SAP.GregorianDateFunction()"
-                }
-            },
-            "SAP.FiscalDateFunction/P_DateFunctionID": {
-                "@Common.ValueList": {
-                    "CollectionPath": "FiscalDateFunctions",
-                    "Parameters": [
-                        {
-                            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ValueListParameterOut",
-                            "ValueListProperty": "DateFunctionID",
-                            "LocalDataProperty": "P_DateFunctionID"
-                        }
-                    ]
-                }
-            },
-            "SAP.GregorianDateFunction/P_DateFunctionID": {
-                "@Common.ValueList": {
-                    "CollectionPath": "GregorianDateFunctions",
-                    "Parameters": [
-                        {
-                            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ValueListParameterOut",
-                            "ValueListProperty": "DateFunctionID",
-                            "LocalDataProperty": "P_DateFunctionID"
-                        }
-                    ]
-                }
-            }
-        }
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "/sap/opu/odata4/standard-functions.xml": {
+      "$Include": [{ "$Namespace": "com.sap.gateway.functions.standard", "$Alias": "SAP" }]
     }
+  },
+  "datafielddefault.sample": {
+    "$Annotations": {
+      "my.container/QueryParameters/P_Date": {
+        "@UI.DataFieldDefault#FiscalDateFunction": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithValueFunction",
+          "Label": "Fiscal date function",
+          "Value": { "$Path": "P_Date" },
+          "Action": "SAP.FiscalDateFunction()"
+        },
+        "@UI.DataFieldDefault#GregorianDateFunction": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithValueFunction",
+          "Label": "Gregorian date function",
+          "Value": { "$Path": "P_Date" },
+          "Action": "SAP.GregorianDateFunction()"
+        }
+      },
+      "SAP.FiscalDateFunction/P_DateFunctionID": {
+        "@Common.ValueList": {
+          "CollectionPath": "FiscalDateFunctions",
+          "Parameters": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ValueListParameterOut",
+              "ValueListProperty": "DateFunctionID",
+              "LocalDataProperty": "P_DateFunctionID"
+            }
+          ]
+        }
+      },
+      "SAP.GregorianDateFunction/P_DateFunctionID": {
+        "@Common.ValueList": {
+          "CollectionPath": "GregorianDateFunctions",
+          "Parameters": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ValueListParameterOut",
+              "ValueListProperty": "DateFunctionID",
+              "LocalDataProperty": "P_DateFunctionID"
+            }
+          ]
+        }
+      }
+    }
+  }
 }

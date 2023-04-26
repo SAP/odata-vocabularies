@@ -1,61 +1,34 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        }
-    },
-    "com.sap.vocabularies.HTML5.v1": {
-        "$Alias": "HTML5",
-        "@Common.Experimental": true,
-        "@Core.Description": "Terms for HTML5",
-        "@Core.LongDescription": "The HTML5 vocabulary provides rendering hints for HTML5 clients",
-        "@Core.Description#Published": "2020-04-21 © Copyright 2020 SAP SE. All rights reserved",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/HTML5.md"
-            }
-        ],
-        "CssDefaults": {
-            "$Kind": "Term",
-            "$Type": "HTML5.CssDefaultsType",
-            "$AppliesTo": [
-                "Record"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "CSS definitions that may be used as defaults",
-            "@Core.LongDescription": "This term can applied to e.g. UI.DataFieldAbstract records"
-        },
-        "CssDefaultsType": {
-            "$Kind": "ComplexType",
-            "@Common.Experimental": true,
-            "width": {
-                "$Nullable": true,
-                "@Core.Description": "css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width",
-                "@Core.LongDescription": "\n              The property allows all values specified for the original css width property.\n              Note that clients consuming this annotation may only support selected length units.\n            "
-            }
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     }
+  },
+  "com.sap.vocabularies.HTML5.v1": {
+    "$Alias": "HTML5",
+    "@Core.Description": "Terms for HTML5",
+    "@Core.LongDescription": "The HTML5 vocabulary provides rendering hints for HTML5 clients",
+    "@Core.Description#Published": "2020-04-21 © Copyright 2020 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/HTML5.md" }
+    ],
+    "CssDefaults": {
+      "$Kind": "Term",
+      "$Type": "HTML5.CssDefaultsType",
+      "$AppliesTo": ["Record"],
+      "@Core.Description": "CSS definitions that may be used as defaults",
+      "@Core.LongDescription": "This term can applied to e.g. UI.DataFieldAbstract records"
+    },
+    "CssDefaultsType": {
+      "$Kind": "ComplexType",
+      "width": {
+        "$Nullable": true,
+        "@Core.Description": "css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width",
+        "@Core.LongDescription": "\n              The property allows all values specified for the original css width property.\n              Note that clients consuming this annotation may only support selected length units.\n            "
+      }
+    }
+  }
 }

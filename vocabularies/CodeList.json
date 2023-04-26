@@ -1,98 +1,64 @@
 {
-    "$Version": "4.01",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        }
+  "$Version": "4.01",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "com.sap.vocabularies.CodeList.v1": {
-        "$Alias": "CodeList",
-        "@Core.Description": "Terms for Code Lists",
-        "@Core.Description#Published": "2018-12-04 © Copyright 2018 SAP SE. All rights reserved",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/CodeList.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/CodeList.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/CodeList.md"
-            }
-        ],
-        "CurrencyCodes": {
-            "$Kind": "Term",
-            "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Core.Description": "An entity set containing the code list for currencies"
-        },
-        "UnitsOfMeasure": {
-            "$Kind": "Term",
-            "$Type": "CodeList.CodeListSource",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Core.Description": "An entity set containing the code list for units of measure"
-        },
-        "CodeListSource": {
-            "$Kind": "ComplexType",
-            "@Core.Description": "An entity set containing the code list for currencies",
-            "Url": {
-                "@Core.IsURL": true,
-                "@Core.Description": "URL of a CSDL document describing an entity set for a code list"
-            },
-            "CollectionPath": {
-                "@Core.Description": "Name of the entity set for the code list"
-            }
-        },
-        "StandardCode": {
-            "$Kind": "Term",
-            "$Type": "Edm.PropertyPath",
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Property containing standard code values"
-        },
-        "ExternalCode": {
-            "$Kind": "Term",
-            "$Type": "Edm.PropertyPath",
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Property containing code values that can be used for visualization",
-            "@Core.LongDescription": "The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization."
-        },
-        "IsConfigurationDeprecationCode": {
-            "$Kind": "Term",
-            "$Type": "Edm.Boolean",
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Property contains a Configuration Deprecation Code",
-            "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
-        }
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
+  },
+  "com.sap.vocabularies.CodeList.v1": {
+    "$Alias": "CodeList",
+    "@Core.Description": "Terms for Code Lists",
+    "@Core.Description#Published": "2018-12-04 © Copyright 2018 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/CodeList.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/CodeList.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/CodeList.md" }
+    ],
+    "CurrencyCodes": {
+      "$Kind": "Term",
+      "$Type": "CodeList.CodeListSource",
+      "$AppliesTo": ["EntityContainer"],
+      "@Core.Description": "An entity set containing the code list for currencies"
+    },
+    "UnitsOfMeasure": {
+      "$Kind": "Term",
+      "$Type": "CodeList.CodeListSource",
+      "$AppliesTo": ["EntityContainer"],
+      "@Core.Description": "An entity set containing the code list for units of measure"
+    },
+    "CodeListSource": {
+      "$Kind": "ComplexType",
+      "@Core.Description": "An entity set containing the code list for currencies",
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL of a CSDL document describing an entity set for a code list"
+      },
+      "CollectionPath": { "@Core.Description": "Name of the entity set for the code list" }
+    },
+    "StandardCode": {
+      "$Kind": "Term",
+      "$Type": "Edm.PropertyPath",
+      "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Property containing standard code values"
+    },
+    "ExternalCode": {
+      "$Kind": "Term",
+      "$Type": "Edm.PropertyPath",
+      "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Property containing code values that can be used for visualization",
+      "@Core.LongDescription": "The annotated property contains values that are not intended for visualization and should thus stay hidden from end-users. Instead the values of the referenced properties are used for visualization."
+    },
+    "IsConfigurationDeprecationCode": {
+      "$Kind": "Term",
+      "$Type": "Edm.Boolean",
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Property contains a Configuration Deprecation Code",
+      "@Core.LongDescription": "The Configuration Deprecation Code indicates whether a code list value is valid (deprecation code is empty/space), deprecated (deprecation code `W`), or revoked (deprecation code `E`). "
+    }
+  }
 }

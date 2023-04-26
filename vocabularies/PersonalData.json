@@ -1,186 +1,144 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Validation.V1",
-                    "$Alias": "Validation"
-                }
-            ]
-        },
-        "https://sap.github.io/odata-vocabularies/vocabularies/Common.xml": {
-            "$Include": [
-                {
-                    "$Namespace": "com.sap.vocabularies.Common.v1",
-                    "$Alias": "Common"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "com.sap.vocabularies.PersonalData.v1": {
-        "$Alias": "PersonalData",
-        "@Core.Description": "Terms for annotating Personal Data",
-        "@Core.Description#Published": "2018-01-24 © Copyright 2018 SAP SE. All rights reserved",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/sap/odata-vocabularies/blob/master/vocabularies/PersonalData.md"
-            }
-        ],
-        "@Core.LongDescription": "\n## Definition\n\nPersonal Data is any information relating to an identified or identifiable natural person (\"data subject\"). \n\nAn identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.\n\nPersonal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.\n\nThis vocabulary defines terms specific to the European [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en).\n\nTerms for contact and address information are defined in the [Communication vocabulary](Communication.md#).\n\n### References\n- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)\n- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)\n- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).\n       ",
-        "EntitySemantics": {
-            "$Kind": "Term",
-            "$Type": "PersonalData.EntitySemanticsType",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "EntitySet"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Primary meaning of the entities in the annotated entity set"
-        },
-        "DataSubjectRole": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "EntitySet"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
-            "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
-        },
-        "DataSubjectRoleDescription": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "EntitySet"
-            ],
-            "@Common.Experimental": true,
-            "@Core.IsLanguageDependent": true,
-            "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
-            "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
-        },
-        "EntitySemanticsType": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Common.Experimental": true,
-            "@Core.Description": "Primary meaning of the data contained in the annotated entity set",
-            "@Validation.AllowedValues": [
-                {
-                    "@Common.Experimental": true,
-                    "Value": "DataSubject",
-                    "@Core.Description": "Entities describing a data subject (an identified or identifiable natural person), e.g. customer, vendor, employee",
-                    "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "DataSubjectDetails",
-                    "@Core.Description": "Entities containing details to a data subject (an identified or identifiable natural person) but not representing data subjects by themselves, e.g. street addresses, email addresses, phone numbers",
-                    "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "Other",
-                    "@Core.Description": "Entities containing personal data or references to data subjects but not representing data subjects or data subject details by themselves, e.g. customer quote, customer order, purchase order with involved business partners",
-                    "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
-                }
-            ]
-        },
-        "FieldSemantics": {
-            "$Kind": "Term",
-            "$Type": "PersonalData.FieldSemanticsType",
-            "$Nullable": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
-            "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
-        },
-        "FieldSemanticsType": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Common.Experimental": true,
-            "@Core.Description": "Primary meaning of a data field",
-            "@Validation.AllowedValues": [
-                {
-                    "@Common.Experimental": true,
-                    "Value": "DataSubjectID",
-                    "@Core.Description": "The unique identifier for a data subject"
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "DataSubjectIDType",
-                    "@Core.Description": "The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "ConsentID",
-                    "@Core.Description": "The unique identifier for a consent",
-                    "@Core.LongDescription": "A consent is the action of the data subject confirming that \n                the usage of his or her personal data shall be allowed for a given purpose. \n                A consent functionality allows the storage of a consent record in relation \n                to a specific purpose and shows if a data subject has granted, withdrawn, \n                or denied consent."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "PurposeID",
-                    "@Core.Description": "The unique identifier for the purpose of a consent",
-                    "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "ContractRelatedID",
-                    "@Core.Description": "The unique identifier for transactional data that is related to a contract that requires processing of personal data",
-                    "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "LegalEntityID",
-                    "@Core.Description": "The unique identifier of a legal entity",
-                    "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
-                },
-                {
-                    "@Common.Experimental": true,
-                    "Value": "UserID",
-                    "@Core.Description": "The unique identifier of a user",
-                    "@Core.LongDescription": "A user is an individual who interacts with the services supplied by a system."
-                }
-            ]
-        },
-        "IsPotentiallyPersonal": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Common.Experimental": true,
-            "@Core.Description": "Property contains potentially personal data",
-            "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
-        },
-        "IsPotentiallySensitive": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "Property"
-            ],
-            "@Core.Description": "Property contains potentially sensitive personal data",
-            "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n\n-  Personal data subject to professional secrecy\n\n-  Personal data relating to criminal or administrative offences\n\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
-        }
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
+  },
+  "com.sap.vocabularies.PersonalData.v1": {
+    "$Alias": "PersonalData",
+    "@Core.Description": "Terms for annotating Personal Data",
+    "@Core.Description#Published": "2018-01-24 © Copyright 2018 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.json" },
+      {
+        "rel": "describedby",
+        "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/PersonalData.md"
+      }
+    ],
+    "@Core.LongDescription": "\n## Definition\n\nPersonal Data is any information relating to an identified or identifiable natural person (\"data subject\"). \n\nAn identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person.\n\nPersonal data can only be processed under certain legal grounds, e.g. explicit consent of the data subject or a contractual obligation.\n\nThis vocabulary defines terms specific to the European [General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection_en).\n\nTerms for contact and address information are defined in the [Communication vocabulary](Communication.md#).\n\n### References\n- [European Commission: Reform of EU data protection rules](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en)\n- [European Commission: Rules for business and organisations](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations_en)\n- [European Commission: Legal grounds for processing data](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data_en).\n       ",
+    "EntitySemantics": {
+      "$Kind": "Term",
+      "$Type": "PersonalData.EntitySemanticsType",
+      "$AppliesTo": ["EntitySet"],
+      "@Core.Description": "Primary meaning of the entities in the annotated entity set"
+    },
+    "DataSubjectRole": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "$AppliesTo": ["EntitySet"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
+      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+    },
+    "DataSubjectRoleDescription": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "$AppliesTo": ["EntitySet"],
+      "@Common.Experimental": true,
+      "@Core.IsLanguageDependent": true,
+      "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
+      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+    },
+    "EntitySemanticsType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "Primary meaning of the data contained in the annotated entity set",
+      "@Validation.AllowedValues": [
+        {
+          "Value": "DataSubject",
+          "@Core.Description": "Entities describing a data subject (an identified or identifiable natural person), e.g. customer, vendor, employee",
+          "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
+        },
+        {
+          "Value": "DataSubjectDetails",
+          "@Core.Description": "Entities containing details to a data subject (an identified or identifiable natural person) but not representing data subjects by themselves, e.g. street addresses, email addresses, phone numbers",
+          "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
+        },
+        {
+          "Value": "Other",
+          "@Core.Description": "Entities containing personal data or references to data subjects but not representing data subjects or data subject details by themselves, e.g. customer quote, customer order, purchase order with involved business partners",
+          "@Core.LongDescription": "These entities are relevant for audit logging. There are no restrictions on their structure. The properties should be annotated suitably with [FieldSemantics](#FieldSemantics)."
+        }
+      ]
+    },
+    "FieldSemantics": {
+      "$Kind": "Term",
+      "$Type": "PersonalData.FieldSemanticsType",
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
+      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
+    },
+    "FieldSemanticsType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "Primary meaning of a data field",
+      "@Validation.AllowedValues": [
+        { "Value": "DataSubjectID", "@Core.Description": "The unique identifier for a data subject" },
+        {
+          "@Common.Experimental": true,
+          "Value": "DataSubjectIDType",
+          "@Core.Description": "The type of ID identifying the data subject and which is allocated when creating a consent record, e.g. an e-mail address or a phone number."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "ConsentID",
+          "@Core.Description": "The unique identifier for a consent",
+          "@Core.LongDescription": "A consent is the action of the data subject confirming that \n                the usage of his or her personal data shall be allowed for a given purpose. \n                A consent functionality allows the storage of a consent record in relation \n                to a specific purpose and shows if a data subject has granted, withdrawn, \n                or denied consent."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "PurposeID",
+          "@Core.Description": "The unique identifier for the purpose of a consent",
+          "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
+        },
+        {
+          "Value": "ContractRelatedID",
+          "@Core.Description": "The unique identifier for transactional data that is related to a contract that requires processing of personal data",
+          "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "LegalEntityID",
+          "@Core.Description": "The unique identifier of a legal entity",
+          "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "UserID",
+          "@Core.Description": "The unique identifier of a user",
+          "@Core.LongDescription": "A user is an individual who interacts with the services supplied by a system."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "EndOfPurposeDate",
+          "@Core.Description": "The end of purpose date of a record",
+          "@Core.LongDescription": "The point in time when the processing of a set of personal data is no longer required for the primary business purpose\n                ([GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1807-1-1)),\n                for example, when a contract is fulfilled. After this has been reached, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
+        }
+      ]
+    },
+    "IsPotentiallyPersonal": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Property contains potentially personal data",
+      "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
+    },
+    "IsPotentiallySensitive": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Property contains potentially sensitive personal data",
+      "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n\n-  Personal data subject to professional secrecy\n\n-  Personal data relating to criminal or administrative offences\n\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
+    }
+  }
 }

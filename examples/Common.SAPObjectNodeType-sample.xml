@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.SAPObjectNodeType" Alias="this">
+
+      <EntityType Name="A_Country">
+        <Key>
+          <PropertyRef Name="Country" />
+        </Key>
+        <Property Name="Country" Type="Edm.String" />
+        <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" />
+      </EntityType>
+
+      <Annotations Target="this.A_Country">
+        <Annotation Term="Common.SAPObjectNodeType">
+          <Record>
+            <PropertyValue Property="Name" String="Country" />
+          </Record>
+        </Annotation>
+      </Annotations>
+
+
+      <EntityType Name="A_Region">
+        <Key>
+          <PropertyRef Name="Country" />
+          <PropertyRef Name="Region" />
+        </Key>
+        <Property Name="Country" Type="Edm.String" />
+        <Property Name="Region" Type="Edm.String" />
+        <Property Name="CountryThreeLetterISOCode" Type="Edm.String" />
+      </EntityType>
+
+      <Annotations Target="this.A_Region">
+        <Annotation Term="Common.SAPObjectNodeType">
+          <Record>
+            <PropertyValue Property="Name" String="Region" />
+          </Record>
+        </Annotation>
+      </Annotations>
+
+      <Annotations Target="this.A_Region/Country">
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
+      </Annotations>
+
+
+      <EntityType Name="A_AnyEntity">
+        <Key>
+          <PropertyRef Name="AnyEntity" />
+        </Key>
+        <Property Name="AnyEntity" Type="Edm.String" Nullable="false" />
+        <Property Name="Country" Type="Edm.String" />
+        <Property Name="Region" Type="Edm.String" />
+        <Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" />
+      </EntityType>
+
+      <Annotations Target="this.A_AnyEntity/Country">
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
+      </Annotations>
+
+      <Annotations Target="this.A_AnyEntity/Region">
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Region" />
+      </Annotations>
+
+      <Annotations Target="this.A_AnyEntity/CountryThreeLetterISOCode">
+        <Annotation Term="Common.SAPObjectNodeTypeReference" String="Country" />
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
