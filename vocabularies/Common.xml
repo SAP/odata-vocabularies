@@ -77,6 +77,11 @@
       <Term Name="Text" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.IsLanguageDependent" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>UI.TextArrangement</String>
+          </Collection>
+        </Annotation>
       </Term>
 
       <Term Name="TextFor" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">

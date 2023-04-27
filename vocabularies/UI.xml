@@ -1372,7 +1372,11 @@ The trend is
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
-        <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
+        <Annotation Term="Core.LongDescription">
+          <String>This term annotates one of the following:&lt;br&gt;
+          (1) a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text&lt;br&gt;
+          (2) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type.</String>
+        </Annotation>
       </Term>
       <EnumType Name="TextArrangementType">
         <Member Name="TextFirst">
