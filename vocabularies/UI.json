@@ -901,6 +901,7 @@
           "UI.KPI",
           "UI.LineItem",
           "UI.MediaResource",
+          "UI.Note",
           "UI.PresentationVariant",
           "UI.SelectionFields",
           "UI.SelectionPresentationVariant",
@@ -1237,6 +1238,44 @@
       "TextSeparate@Core.Description": "Code/ID and text are represented separately",
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
+    },
+    "Note": {
+      "$Kind": "Term",
+      "$Type": "UI.NoteType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Visualization of a note attached to an entity",
+      "@Core.LongDescription": "Administrative data is given by the annotations\n          [`Common.CreatedBy`](Common.md#CreatedBy),\n          [`Common.CreatedAt`](Common.md#CreatedAt),\n          [`Common.ChangedBy`](Common.md#ChangedBy),\n          [`Common.ChangedAt`](Common.md#ChangedAt)\n          on the same entity type."
+    },
+    "NoteType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Title": {
+        "$Nullable": true,
+        "@Core.Description": "Title of the note",
+        "@Core.LongDescription": "The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with\n            an annotation on the property targeted by `@UI.Note/Title`.",
+        "@Validation.ApplicableTerms": ["UI.Hidden"]
+      },
+      "Content": {
+        "@Core.Description": "Content of the note, as a string",
+        "@Core.LongDescription": "The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and\n            may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,\n            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)\n            determines the language of the note.",
+        "@Validation.ApplicableTerms": [
+          "Core.MediaType",
+          "Core.IsLanguageDependent",
+          "Common.SAPObjectNodeTypeReference"
+        ]
+      },
+      "Type": { "@Core.Description": "A type used for grouping notes" },
+      "MaximalLength": {
+        "$Type": "Edm.Int32",
+        "$Nullable": true,
+        "@Core.Description": "Type-specific maximal length of the content of the note"
+      },
+      "MultipleNotes": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the type allows multiple notes for one object"
+      }
     },
     "Importance": {
       "$Kind": "Term",
