@@ -398,7 +398,10 @@
       "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
       "VeryPositive": 4,
       "VeryPositive@Common.Experimental": true,
-      "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess"
+      "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess",
+      "Information": 5,
+      "Information@Common.Experimental": true,
+      "Information@Core.Description": "Information - noticable - informative"
     },
     "CriticalityCalculationType": {
       "$Kind": "ComplexType",
@@ -1235,7 +1238,7 @@
       "TextLast": 1,
       "TextLast@Core.Description": "Code/ID is first, followed by the text (e.g. separated by a dash)",
       "TextSeparate": 2,
-      "TextSeparate@Core.Description": "Code/ID and text are represented separately",
+      "TextSeparate@Core.Description": "Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)",
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
     },
@@ -1320,14 +1323,14 @@
     "UpdateHidden": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": ["EntitySet", "EntityType"],
       "@Core.Description": "EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically",
       "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
     },
     "DeleteHidden": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": ["EntitySet", "EntityType"],
       "@Core.Description": "EntitySets annotated with this term can control the visibility of the Delete operation dynamically",
       "@Core.LongDescription": "The annotation value should be a path to another property from the same or a related entity."
     },

@@ -475,6 +475,10 @@ A renderer should take an optional `Common.Text` annotation into consideration.
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
         </Member>
+        <Member Name="Information" Value="5">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Information - noticable - informative" />
+        </Member>
       </EnumType>
 
       <ComplexType Name="CriticalityCalculationType" BaseType="UI.CriticalityThresholdsType">
@@ -1383,7 +1387,7 @@ The trend is
           <Annotation Term="Core.Description" String="Code/ID is first, followed by the text (e.g. separated by a dash)" />
         </Member>
         <Member Name="TextSeparate">
-          <Annotation Term="Core.Description" String="Code/ID and text are represented separately" />
+          <Annotation Term="Core.Description" String="Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)" />
         </Member>
         <Member Name="TextOnly">
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
@@ -1483,12 +1487,12 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from a related entity." />
       </Term>
 
-      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="UpdateHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
 
-      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="DeleteHidden" Type="Core.Tag" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="EntitySets annotated with this term can control the visibility of the Delete operation dynamically" />
         <Annotation Term="Core.LongDescription" String="The annotation value should be a path to another property from the same or a related entity." />
       </Term>
