@@ -1004,6 +1004,7 @@ The trend is
               <String>UI.KPI</String>
               <String>UI.LineItem</String>
               <String>UI.MediaResource</String>
+              <String>UI.Note</String>
               <String>UI.PresentationVariant</String>
               <String>UI.SelectionFields</String>
               <String>UI.SelectionPresentationVariant</String>
@@ -1392,6 +1393,59 @@ The trend is
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
+
+      <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Administrative data is given by the annotations
+          [`Common.CreatedBy`](Common.md#CreatedBy),
+          [`Common.CreatedAt`](Common.md#CreatedAt),
+          [`Common.ChangedBy`](Common.md#ChangedBy),
+          [`Common.ChangedAt`](Common.md#ChangedAt)
+          on the same entity type.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="NoteType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the note" />
+          <Annotation Term="Core.LongDescription">
+            <String>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with
+            an annotation on the property targeted by `@UI.Note/Title`.</String>
+          </Annotation>
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>UI.Hidden</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Content" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Content of the note, as a string" />
+          <Annotation Term="Core.LongDescription">
+            <String>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and
+            may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,
+            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
+            determines the language of the note.</String>
+          </Annotation>
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>Core.MediaType</String>
+              <String>Core.IsLanguageDependent</String>
+              <String>Common.SAPObjectNodeTypeReference</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Type" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="A type used for grouping notes" />
+        </Property>
+        <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
+          <Annotation Term="Core.Description" String="Type-specific maximal length of the content of the note" />
+        </Property>
+        <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the type allows multiple notes for one object" />
+        </Property>
+      </ComplexType>
 
       <Term Name="Importance" Type="UI.ImportanceType" Nullable="false" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
