@@ -193,7 +193,11 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="The number n of levels to be output" />
+          <Annotation Term="Core.Description" String="The number n of levels to be output, absent means all levels" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
