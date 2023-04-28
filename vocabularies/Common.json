@@ -64,7 +64,8 @@
       "$Nullable": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-      "@Core.IsLanguageDependent": true
+      "@Core.IsLanguageDependent": true,
+      "@Validation.ApplicableTerms": ["UI.TextArrangement"]
     },
     "TextFor": {
       "$Kind": "Term",
