@@ -985,8 +985,7 @@ Property|Type|Description
 [*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1673:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|PrimitiveType|
+[Value](./UI.xml#L1673:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|PrimitiveType|The data field's value
 [Action](./UI.xml#L1674:~:text=<ComplexType%20Name="-,DataFieldWithAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
 
 **Applicable Annotation Terms:**
@@ -1011,8 +1010,7 @@ Property|Type|Description
 [*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1687:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|PrimitiveType|
+[Value](./UI.xml#L1687:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|PrimitiveType|The data field's value
 [SemanticObject](./UI.xml#L1688:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String|Name of the Semantic Object
 [Action](./UI.xml#L1691:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 [Mapping](./UI.xml#L1694:~:text=<ComplexType%20Name="-,DataFieldWithIntentBasedNavigation,-")|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
@@ -1036,8 +1034,7 @@ Property|Type|Description
 [*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1702:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|PrimitiveType|
+[Value](./UI.xml#L1702:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|PrimitiveType|The data field's value
 [Target](./UI.xml#L1703:~:text=<ComplexType%20Name="-,DataFieldWithNavigationPath,-")|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
 **Applicable Annotation Terms:**
@@ -1059,8 +1056,7 @@ Property|Type|Description
 [*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1713:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|PrimitiveType|
+[Value](./UI.xml#L1713:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|PrimitiveType|The data field's value
 [Url](./UI.xml#L1714:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|URL|Target of the hyperlink
 [UrlContentType](./UI.xml#L1718:~:text=<ComplexType%20Name="-,DataFieldWithUrl,-")|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
 
@@ -1081,8 +1077,7 @@ Property|Type|Description
 [*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
-[*Value*](./UI.xml#L1643:~:text=<ComplexType%20Name="-,DataField,-")|Untyped|The data field's value
-[Value](./UI.xml#L1727:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|PrimitiveType|
+[Value](./UI.xml#L1727:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|PrimitiveType|The data field's value
 [Actions](./UI.xml#L1728:~:text=<ComplexType%20Name="-,DataFieldWithActionGroup,-")|\[[DataField](#DataField)\]|Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
 
 **Applicable Annotation Terms:**
