@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata4/standard-functions.xml">
+    <edmx:Include Namespace="com.sap.gateway.functions.standard" Alias="SAP" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="datafielddefault.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotations Target="my.container/QueryParameters/P_Date">
+        <!-- Based on these annotations, the facet filter for the P_Date parameter shall, in addition to the usual date picker,
+             offer two input helps
+             * one computes the P_Date based on a fiscal date function that is chosen from the FiscalDateFunctions entity set, e.g., "current period"
+             * one computes the P_Date based on a Gregorian date function that is chosen from the GregorianDateFunctions entity set, e.g., "today".
+             In both cases the computation happens on the server, when an OData request like in com.sap.vocabularies.UI.v1.SelectionVariant-sample.xml is executed.
+        -->
+        <Annotation Term="UI.DataFieldDefault" Qualifier="FiscalDateFunction">
+          <Record Type="UI.DataFieldWithValueFunction">
+            <PropertyValue Property="Label" String="Fiscal date function" />
+            <PropertyValue Property="Value" Path="P_Date" />
+            <PropertyValue Property="Action" String="SAP.FiscalDateFunction()" />
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.DataFieldDefault" Qualifier="GregorianDateFunction">
+          <Record Type="UI.DataFieldWithValueFunction">
+            <PropertyValue Property="Label" String="Gregorian date function" />
+            <PropertyValue Property="Value" Path="P_Date" />
+            <PropertyValue Property="Action" String="SAP.GregorianDateFunction()" />
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="SAP.FiscalDateFunction/P_DateFunctionID">
+        <Annotation Term="Common.ValueList">
+          <Record>
+            <PropertyValue Property="CollectionPath" String="FiscalDateFunctions" />
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="UI.ValueListParameterOut">
+                  <PropertyValue Property="ValueListProperty" String="DateFunctionID" />
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="P_DateFunctionID" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>      
+      <Annotations Target="SAP.GregorianDateFunction/P_DateFunctionID">
+        <Annotation Term="Common.ValueList">
+          <Record>
+            <PropertyValue Property="CollectionPath" String="GregorianDateFunctions" />
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="UI.ValueListParameterOut">
+                  <PropertyValue Property="ValueListProperty" String="DateFunctionID" />
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="P_DateFunctionID" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>      
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

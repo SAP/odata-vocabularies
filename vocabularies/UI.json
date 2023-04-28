@@ -1523,6 +1523,12 @@
         "@Core.Description": "Name of an Action, Function, ActionImport, or FunctionImport in scope"
       }
     },
+    "DataFieldWithValueFunction": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DataFieldWithAction",
+      "@Core.Description": "A data field whose value can be computed through an OData function on the OData server",
+      "@Core.LongDescription": "The `Action` is an OData Function or FunctionImport which returns a value suitable for this data field.\n          The function is evaluated on the server during the processing of an OData request, e.g.,\n- because the function occurs in a `$filter=… eq …` expression comparing this data field\n- or, if the data field is a key property of an entity set, because the function occurs in a parameter alias (ABNF parameterValue) for that key property.\n\nInput fields (e.g., in a filter bar) for this data field should be rendered with an additional \"functional input help\".\nWhereas a [value list](Common.md#ValueList) allows users to insert a literal into a request URL (as in `$filter=PostingDate eq '2020-08-01'`),\nsuch a \"functional input help\" inserts a function expression (as in `$filter=PostingDate eq SAP.GregorianDateFunction(P_DateFunctionID='TODAY')`,\nassuming `{\"Value\": {\"$Path\": \"PostingDate\"}, \"Action\": \"SAP.GregorianDateFunction\"}`),\nand this function expression is re-evaluated per request execution even if the request URL has been bookmarked."
+    },
     "DataFieldWithIntentBasedNavigation": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataField",

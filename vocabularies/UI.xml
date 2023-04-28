@@ -1676,6 +1676,22 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         </Property>
       </ComplexType>
 
+      <ComplexType Name="DataFieldWithValueFunction" BaseType="UI.DataFieldWithAction">
+        <Annotation Term="Core.Description" String="A data field whose value can be computed through an OData function on the OData server" />
+        <Annotation Term="Core.LongDescription">
+          <String>The `Action` is an OData Function or FunctionImport which returns a value suitable for this data field.
+          The function is evaluated on the server during the processing of an OData request, e.g.,
+- because the function occurs in a `$filter=… eq …` expression comparing this data field
+- or, if the data field is a key property of an entity set, because the function occurs in a parameter alias (ABNF parameterValue) for that key property.
+
+Input fields (e.g., in a filter bar) for this data field should be rendered with an additional "functional input help".
+Whereas a [value list](Common.md#ValueList) allows users to insert a literal into a request URL (as in `$filter=PostingDate eq '2020-08-01'`),
+such a "functional input help" inserts a function expression (as in `$filter=PostingDate eq SAP.GregorianDateFunction(P_DateFunctionID='TODAY')`,
+assuming `{"Value": {"$Path": "PostingDate"}, "Action": "SAP.GregorianDateFunction"}`),
+and this function expression is re-evaluated per request execution even if the request URL has been bookmarked.</String>
+        </Annotation>
+      </ComplexType>
+
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
