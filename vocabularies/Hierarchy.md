@@ -15,22 +15,22 @@ Term|Type|Description
 ## Actions
 
 <a name="Template_CreateAction"></a>
-### [Template_CreateAction](./Hierarchy.xml#L254:~:text=<Action%20Name="-,Template_CreateAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_CreateAction](./Hierarchy.xml#L258:~:text=<Action%20Name="-,Template_CreateAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that create a new node and are named in [`RecursiveHierarchy/CreateAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L257:~:text=<Action%20Name="-,Template_CreateAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L258:~:text=<Action%20Name="-,Template_CreateAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Entity](./Hierarchy.xml#L259:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new entity to be created as a node
-[Parent](./Hierarchy.xml#L262:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType?|Key of the new node's parent (null if the new node shall be a root)
-*[NextSibling](./Hierarchy.xml#L265:~:text=<Action%20Name="-,Template_CreateAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L274:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node<br>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation can only be obtained with a subsequent GET request that contains a hierarchical transformation in an `$apply` query option.
+**[HierarchyNodes](./Hierarchy.xml#L261:~:text=<Action%20Name="-,Template_CreateAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L262:~:text=<Action%20Name="-,Template_CreateAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Entity](./Hierarchy.xml#L263:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new entity to be created as a node
+[Parent](./Hierarchy.xml#L266:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType?|Key of the new node's parent (null if the new node shall be a root)
+*[NextSibling](./Hierarchy.xml#L269:~:text=<Action%20Name="-,Template_CreateAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+[&rarr;](./Hierarchy.xml#L278:~:text=<Action%20Name="-,Template_CreateAction,-")|EntityType|The new node<br>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation can only be obtained with a subsequent GET request that contains a hierarchical transformation in an `$apply` query option.
 
 
 <a name="Template_CreateChildAction"></a>
-### [Template_CreateChildAction](./Hierarchy.xml#L283:~:text=<Action%20Name="-,Template_CreateChildAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_CreateChildAction](./Hierarchy.xml#L287:~:text=<Action%20Name="-,Template_CreateChildAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for instance-bound actions that create a new non-root node and are named in [`RecursiveHierarchy/CreateChildAction`](#RecursiveHierarchyType)
 
@@ -58,68 +58,68 @@ The second request inherits the hierarchy directory key 1 from the first.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Parent](./Hierarchy.xml#L309:~:text=<Action%20Name="-,Template_CreateChildAction,-")**|EntityType|**Binding parameter:** The new node's parent
-[Entity](./Hierarchy.xml#L312:~:text=<Action%20Name="-,Template_CreateChildAction,-")|EntityType|The new entity to be created as a node
-*[NextSibling](./Hierarchy.xml#L315:~:text=<Action%20Name="-,Template_CreateChildAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L324:~:text=<Action%20Name="-,Template_CreateChildAction,-")|EntityType|The new node<br>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation can only be obtained with a subsequent GET request that contains a hierarchical transformation in an `$apply` query option.
+**[Parent](./Hierarchy.xml#L313:~:text=<Action%20Name="-,Template_CreateChildAction,-")**|EntityType|**Binding parameter:** The new node's parent
+[Entity](./Hierarchy.xml#L316:~:text=<Action%20Name="-,Template_CreateChildAction,-")|EntityType|The new entity to be created as a node
+*[NextSibling](./Hierarchy.xml#L319:~:text=<Action%20Name="-,Template_CreateChildAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+[&rarr;](./Hierarchy.xml#L328:~:text=<Action%20Name="-,Template_CreateChildAction,-")|EntityType|The new node<br>The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation can only be obtained with a subsequent GET request that contains a hierarchical transformation in an `$apply` query option.
 
 
 <a name="Template_InsertAction"></a>
-### [Template_InsertAction](./Hierarchy.xml#L333:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_InsertAction](./Hierarchy.xml#L337:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L336:~:text=<Action%20Name="-,Template_InsertAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L337:~:text=<Action%20Name="-,Template_InsertAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[EntityKey](./Hierarchy.xml#L338:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
-[Parent](./Hierarchy.xml#L344:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType?|Key of the new node's parent (null if the new node shall be a root)
-*[NextSibling](./Hierarchy.xml#L347:~:text=<Action%20Name="-,Template_InsertAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L356:~:text=<Action%20Name="-,Template_InsertAction,-")|PrimitiveType|The node identifier of the new node
+**[HierarchyNodes](./Hierarchy.xml#L340:~:text=<Action%20Name="-,Template_InsertAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L341:~:text=<Action%20Name="-,Template_InsertAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[EntityKey](./Hierarchy.xml#L342:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
+[Parent](./Hierarchy.xml#L348:~:text=<Action%20Name="-,Template_InsertAction,-")|EntityType?|Key of the new node's parent (null if the new node shall be a root)
+*[NextSibling](./Hierarchy.xml#L351:~:text=<Action%20Name="-,Template_InsertAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+[&rarr;](./Hierarchy.xml#L360:~:text=<Action%20Name="-,Template_InsertAction,-")|PrimitiveType|The node identifier of the new node
 
 
 <a name="Template_InsertChildAction"></a>
-### [Template_InsertChildAction](./Hierarchy.xml#L360:~:text=<Action%20Name="-,Template_InsertChildAction,-")
+### [Template_InsertChildAction](./Hierarchy.xml#L364:~:text=<Action%20Name="-,Template_InsertChildAction,-")
 
 Template for instance-bound actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Parent](./Hierarchy.xml#L362:~:text=<Action%20Name="-,Template_InsertChildAction,-")**|EntityType|**Binding parameter:** The new node's parent
-[EntityKey](./Hierarchy.xml#L365:~:text=<Action%20Name="-,Template_InsertChildAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
-*[NextSibling](./Hierarchy.xml#L371:~:text=<Action%20Name="-,Template_InsertChildAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
-[&rarr;](./Hierarchy.xml#L380:~:text=<Action%20Name="-,Template_InsertChildAction,-")|PrimitiveType|The node identifier of the new node
+**[Parent](./Hierarchy.xml#L366:~:text=<Action%20Name="-,Template_InsertChildAction,-")**|EntityType|**Binding parameter:** The new node's parent
+[EntityKey](./Hierarchy.xml#L369:~:text=<Action%20Name="-,Template_InsertChildAction,-")|EntityType|Key of the entity to become a new node<br>It is an error if the entity exists already with a node identifier for the recursive hierarchy.
+*[NextSibling](./Hierarchy.xml#L375:~:text=<Action%20Name="-,Template_InsertChildAction,-")*|EntityType?|*Optional parameter:* Key of the new node's next sibling (null if the new node shall be the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+[&rarr;](./Hierarchy.xml#L384:~:text=<Action%20Name="-,Template_InsertChildAction,-")|PrimitiveType|The node identifier of the new node
 
 
 <a name="Template_MoveAction"></a>
-### [Template_MoveAction](./Hierarchy.xml#L384:~:text=<Action%20Name="-,Template_MoveAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_MoveAction](./Hierarchy.xml#L388:~:text=<Action%20Name="-,Template_MoveAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L387:~:text=<Action%20Name="-,Template_MoveAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L388:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L389:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|Key of the node to be moved
-[Parent](./Hierarchy.xml#L392:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType?|Key of the node's new parent (null if the node shall become a root)
-*[NextSibling](./Hierarchy.xml#L395:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key of the node's next sibling under the new parent (null if the node shall become the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+**[HierarchyNodes](./Hierarchy.xml#L391:~:text=<Action%20Name="-,Template_MoveAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L392:~:text=<Action%20Name="-,Template_MoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L393:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType|Key of the node to be moved
+[Parent](./Hierarchy.xml#L396:~:text=<Action%20Name="-,Template_MoveAction,-")|EntityType?|Key of the node's new parent (null if the node shall become a root)
+*[NextSibling](./Hierarchy.xml#L399:~:text=<Action%20Name="-,Template_MoveAction,-")*|EntityType?|*Optional parameter:* Key of the node's next sibling under the new parent (null if the node shall become the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
 
 
 <a name="Template_MoveChildAction"></a>
-### [Template_MoveChildAction](./Hierarchy.xml#L403:~:text=<Action%20Name="-,Template_MoveChildAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_MoveChildAction](./Hierarchy.xml#L407:~:text=<Action%20Name="-,Template_MoveChildAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for instance-bound actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveChildAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Parent](./Hierarchy.xml#L406:~:text=<Action%20Name="-,Template_MoveChildAction,-")**|EntityType|**Binding parameter:** The node's new parent
-[Node](./Hierarchy.xml#L409:~:text=<Action%20Name="-,Template_MoveChildAction,-")|EntityType|Key of the node to be moved
-*[NextSibling](./Hierarchy.xml#L412:~:text=<Action%20Name="-,Template_MoveChildAction,-")*|EntityType?|*Optional parameter:* Key of the node's next sibling under the new parent (null if the node shall become the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
+**[Parent](./Hierarchy.xml#L410:~:text=<Action%20Name="-,Template_MoveChildAction,-")**|EntityType|**Binding parameter:** The node's new parent
+[Node](./Hierarchy.xml#L413:~:text=<Action%20Name="-,Template_MoveChildAction,-")|EntityType|Key of the node to be moved
+*[NextSibling](./Hierarchy.xml#L416:~:text=<Action%20Name="-,Template_MoveChildAction,-")*|EntityType?|*Optional parameter:* Key of the node's next sibling under the new parent (null if the node shall become the last sibling)<br>In the absence of this parameter, the sibling position is determined by the service.
 
 
 <a name="Template_RemoveAction"></a>
-### [Template_RemoveAction](./Hierarchy.xml#L420:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_RemoveAction](./Hierarchy.xml#L424:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
@@ -129,9 +129,9 @@ When a leaf is removed, the entity is not deleted but its node identifier proper
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[HierarchyNodes](./Hierarchy.xml#L428:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
-[HierarchyQualifier](./Hierarchy.xml#L429:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
-[Node](./Hierarchy.xml#L430:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed
+**[HierarchyNodes](./Hierarchy.xml#L432:~:text=<Action%20Name="-,Template_RemoveAction,-")**|\[EntityType\]|**Binding parameter**
+[HierarchyQualifier](./Hierarchy.xml#L433:~:text=<Action%20Name="-,Template_RemoveAction,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
+[Node](./Hierarchy.xml#L434:~:text=<Action%20Name="-,Template_RemoveAction,-")|EntityType|Key of the leaf to be removed
 
 
 
@@ -157,11 +157,11 @@ Parameter|Type|Description
 [HierarchyNodes](./Hierarchy.xml#L223:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Hierarchy.xml#L226:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [NodeProperty](./Hierarchy.xml#L227:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
-[Levels](./Hierarchy.xml#L230:~:text=<Function%20Name="-,TopLevels,-")|Int64|The number n of levels to be output
-*[Expand](./Hierarchy.xml#L233:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
-*[Show](./Hierarchy.xml#L239:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[Collapse](./Hierarchy.xml#L245:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
-[&rarr;](./Hierarchy.xml#L251:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+*[Levels](./Hierarchy.xml#L230:~:text=<Function%20Name="-,TopLevels,-")*|Int64|*Optional parameter:* The number n of levels to be output, absent means all levels
+*[Expand](./Hierarchy.xml#L237:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be expanded
+*[Show](./Hierarchy.xml#L243:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L249:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be collapsed
+[&rarr;](./Hierarchy.xml#L255:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 <a name="RecursiveHierarchyType"></a>
