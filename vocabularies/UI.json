@@ -398,7 +398,7 @@
       "Positive@Core.Description": "Positive / green status - completed - available - on track - acceptable",
       "VeryPositive": 4,
       "VeryPositive@Common.Experimental": true,
-      "VeryPositive@Core.Description": "Very positive / blue status - above max stock - excess",
+      "VeryPositive@Core.Description": "Very positive - above max stock - excess",
       "Information": 5,
       "Information@Common.Experimental": true,
       "Information@Core.Description": "Information - noticable - informative"
@@ -1299,7 +1299,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "NavigationProperty", "Record"],
+      "$AppliesTo": ["Property", "NavigationProperty", "Record", "Parameter"],
       "@Core.Description": "Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.",
       "@Core.LongDescription": "Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.\n          The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations."
     },

@@ -227,7 +227,7 @@ Member|Value|Description
 [Negative](./UI.xml#L465:~:text=<EnumType%20Name="-,CriticalityType,-")|1|Negative / red status - attention - overload - alert
 [Critical](./UI.xml#L468:~:text=<EnumType%20Name="-,CriticalityType,-")|2|Critical / orange status - warning
 [Positive](./UI.xml#L471:~:text=<EnumType%20Name="-,CriticalityType,-")|3|Positive / green status - completed - available - on track - acceptable
-[VeryPositive](./UI.xml#L474:~:text=<EnumType%20Name="-,CriticalityType,-") *([Experimental](Common.md#Experimental))*|4|Very positive / blue status - above max stock - excess
+[VeryPositive](./UI.xml#L474:~:text=<EnumType%20Name="-,CriticalityType,-") *([Experimental](Common.md#Experimental))*|4|Very positive - above max stock - excess
 [Information](./UI.xml#L478:~:text=<EnumType%20Name="-,CriticalityType,-") *([Experimental](Common.md#Experimental))*|5|Information - noticable - informative
 
 <a name="CriticalityCalculationType"></a>

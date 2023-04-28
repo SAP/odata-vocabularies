@@ -473,7 +473,7 @@ A renderer should take an optional `Common.Text` annotation into consideration.
         </Member>
         <Member Name="VeryPositive" Value="4">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Very positive / blue status - above max stock - excess" />
+          <Annotation Term="Core.Description" String="Very positive - above max stock - excess" />
         </Member>
         <Member Name="Information" Value="5">
           <Annotation Term="Common.Experimental" />
@@ -1462,7 +1462,7 @@ The trend is
         </Member>
       </EnumType>
 
-      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record">
+      <Term Name="Hidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty Record Parameter">
         <Annotation Term="Core.Description" String="Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true." />
         <Annotation Term="Core.LongDescription">
           <String>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users.
