@@ -342,7 +342,10 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="EntityKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the entity to become a new node" />
-        </Parameter>
+          <Annotation Term="Core.LongDescription">
+            <String>It is an error if the entity is already a node in the recursive hierarchy.</String>
+          </Annotation>
+         </Parameter>
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the new node's parent (null if the new node shall be a root)" />
         </Parameter>
@@ -366,6 +369,9 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         </Parameter>
         <Parameter Name="EntityKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the entity to become a new node" />
+          <Annotation Term="Core.LongDescription">
+            <String>It is an error if the entity is already a node in the recursive hierarchy.</String>
+          </Annotation>
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the new node's next sibling (null if the new node shall be the last sibling)" />
