@@ -262,8 +262,7 @@
           {
             "$Name": "EntityKey",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "Key of the entity to become a new node",
-            "@Core.LongDescription": "It is an error if the entity exists already with a node identifier for the recursive hierarchy."
+            "@Core.Description": "Key of the entity to become a new node"
           },
           {
             "$Name": "Parent",
@@ -293,8 +292,7 @@
           {
             "$Name": "EntityKey",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "Key of the entity to become a new node",
-            "@Core.LongDescription": "It is an error if the entity exists already with a node identifier for the recursive hierarchy."
+            "@Core.Description": "Key of the entity to become a new node"
           },
           {
             "$Name": "NextSibling",
