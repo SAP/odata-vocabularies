@@ -60,6 +60,24 @@
         "@Core.Description": "Property holding the preorder rank of a node",
         "@Core.LongDescription": "The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0."
       }
+    },
+    "ApplySupported": {
+      "$Kind": "Term",
+      "$Type": "Hierarchy.ApplySupportedType",
+      "$AppliesTo": ["Collection"],
+      "$BaseTerm": "Aggregation.ApplySupported",
+      "@Core.AppliesViaContainer": true,
+      "@Common.Experimental": true,
+      "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#ApplySupported)\n          governs whether a collection supports the `$apply` system query option specified in the OData specification,\n          whereas this annotation describes implementation-specific restrictions."
+    },
+    "ApplySupportedType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "IsRecursiveHierarchy": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": true,
+        "@Core.Description": "Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type"
+      }
     }
   }
 }

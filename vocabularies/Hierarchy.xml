@@ -66,6 +66,22 @@
         </Property>
       </ComplexType>
 
+      <Term Name="ApplySupported" Type="Hierarchy.ApplySupportedType" BaseTerm="Aggregation.ApplySupported" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#ApplySupported)
+          governs whether a collection supports the `$apply` system query option specified in the OData specification,
+          whereas this annotation describes implementation-specific restrictions.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ApplySupportedType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="IsRecursiveHierarchy" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type" />
+        </Property>
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
