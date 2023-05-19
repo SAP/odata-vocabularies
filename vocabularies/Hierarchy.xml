@@ -45,26 +45,180 @@
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the external key value for a node" />
+        <Annotation Term="Core.LongDescription">
+          <String>The property paths in this complex type refer to properties of an entity type that contain
+information about a node in a recursive hierarchy. When hierarchical transformations
+are applied whose first parameter has the annotated entity type
+and whose second parameter is the annotation qualifier,
+then these properties are derived for each node in the result set.
+Otherwise, the property paths may evaluate to null.
+
+For requests like
+```
+SalesOrganizations?$apply=
+descendants(..., ID, filter(ID eq 'US'), keep start)
+/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)
+/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
+&amp;$top=10
+```
+or
+```
+SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
+  descendants(..., ID, filter(ID eq 'US')),
+  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
+/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
+&amp;$top=10
+```
+(where `...,` stands for hierarchy nodes and hierarchy qualifier)
+the following collections of hierarchy nodes are distinguished:
+|Collection|Definition|Value|Where in request|
+|----------|----------|-----|----------------|
+|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|
+|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with "New York" in their name|output set of `filter` transformation in row 3|
+|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing "New York"|rows 1–3|
+|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing "New York"|rows 1–4|
+</String>
+        </Annotation>
+        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="String property holding the human-readable key value for a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a `NodeTypeProperty` exists, the external key is unique only in combination with it.
+            Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).</String>
+          </Annotation>
+        </Property>
+        <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="String property holding the type of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>In a recursive hierarchy with mixed types, nodes can
+            &lt;br&gt;- have a type-specific (navigation) property whose name is the node type or
+            &lt;br&gt;- be represented by entities of different subtypes of a common entity type that is
+            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.</String>
+          </Annotation>
+        </Property>
+        <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of descendants of a node" />
-          <Annotation Term="Core.LongDescription" String="The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer data type." />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy" />
         </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the drill state of a node" />
-          <Annotation Term="Core.LongDescription" String="The drill state is indicated by one of the following string values: `collapsed`, `expanded`, `leaf`. For an expanded node, its children are included in the result collection. For a collapsed node, the children are included in the entity set, but they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set." />
+        <Property Name="LimitedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy" />
+        </Property>
+        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>Possible drill states are:
+            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
+            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
+            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
+          </Annotation>
+        </Property>
+        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.</String>
+          </Annotation>
         </Property>
         <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the sibling rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The sibling rank of a node is the index of the node in the sequence of all nodes with the same parent created by preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first sibling is at position 0." />
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>The sibling rank of a node is the index of the node in the sequence of all nodes
+            in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
+          </Annotation>
         </Property>
-        <Property Name="PreorderRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the preorder rank of a node" />
-          <Annotation Term="Core.LongDescription" String="The preorder rank of a node expresses its position in the sequence of nodes created from preorder traversal of the hierarchy structure after evaluating the $filter expression in the request excluding any conditions on key properties. The first node in preorder traversal has rank 0." />
+        <!--
+        <Property Name="SiblingOrderProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties that define the relative order of siblings" />
+          <Annotation Term="Core.LongDescription" String="A PATCH request on these properties changes the relative order of siblings." />
         </Property>
+        -->
+        <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
+        </Property>
+        <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
+        </Property>
+        <!--
+        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
+        </Property>
+        -->
       </ComplexType>
+
+      <Term Name="MatchCount" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
+        <Annotation Term="Core.LongDescription">
+          <String>The service designates a subset of the `$apply` result as "matching nodes".
+          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
+          of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
+          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
+          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
+        </Annotation>
+      </Term>
+
+      <!--
+      <Term Name="StartNodeCounts" Type="Collection(Edm.Int64)" AppliesTo="Collection">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of start nodes for each `ancestors` or `descendants` transformation" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotation value is an integer collection whose n-th entry is the number of start nodes determined
+          for the n-th `ancestors` or `descendants` transformation in the order in which they occur in the `$apply` query option.
+          Start nodes are determined by the fourth parameter of an `ancestors` or `descendants` transformation.</String>
+        </Annotation>
+      </Term>
+      -->
+
+      <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
+        <Annotation Term="Core.LongDescription">
+          <String>This function can be used as a transformation whose input set has a recursive hierarchy
+          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+          annotation on the entity type of the `HierarchyNodes`.
+          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),
+          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
+          in the hierarchical collection given in the binding parameter.
+          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
+          Finally the output is sorted in preorder as with the `traverse` transformation.</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
+        </Parameter>
+        <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
+          <Annotation Term="Core.Description" String="The number n of levels to be output, absent means all levels" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Collection(Edm.EntityType)" />
+      </Function>
 
       <Term Name="ApplySupported" Type="Hierarchy.ApplySupportedType" BaseTerm="Aggregation.ApplySupported" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />

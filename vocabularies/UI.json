@@ -1450,7 +1450,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataFieldForActionAbstract",
       "@Core.Description": "Triggers intent-based UI navigation",
-      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).\"",
+      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).",
       "SemanticObject": { "@Core.Description": "Name of the Semantic Object" },
       "Action": {
         "$Nullable": true,
