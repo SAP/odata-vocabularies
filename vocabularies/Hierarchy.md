@@ -145,8 +145,8 @@ When invoking an action, clients MUST set the `HierarchyQualifier` to the qualif
 In parameters of entity type that are defined as "Key of …", only the key properties are relevant.
 
 The resource path identifying the binding parameter MUST traverse the collection of hierarchy nodes.
-If the action invocation appears in a batch request, the resource path MUST contain a dependency
-to the result of an earlier POST request whose resource path traversed the collection of hierarchy nodes.[create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.
+If the action invocation appears in a batch request, the resource path MUST contain a dependency to the result
+of an earlier POST request from the same batch request whose resource path traversed the collection of hierarchy nodes.
 
 The template actions themselves cannot be invoked.
 
