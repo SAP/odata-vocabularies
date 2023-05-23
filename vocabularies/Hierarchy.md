@@ -21,13 +21,13 @@ Template for actions that link a node to a parent and are named in [`RecursiveHi
 
 In single-parent hierarchies, the node is first unlinked from its current parent, if any.
 
-To link an existing node to a new parent, this action can be used in a JSON batch request like:
+To create a new node as child of an existing parent, this action can be used in a JSON batch request like:
 ```
 {"requests": [{
   "id": "1",
   "method": "post",
   "url": "HierarchyDirectory(1)/SalesOrganizations",
-  "body": {"Name": "Worldwide", ...}
+  "body": {"Name": "EMEA", ...}
 }, {
   "id": "2",
   "dependsOn": ["1"],
@@ -35,7 +35,7 @@ To link an existing node to a new parent, this action can be used in a JSON batc
   "url": "$1/LinkAction",
   "body": {
     "HierarchyQualifier": "SalesOrgHierarchy",
-    "Parent": {"Name": "EMEA", ...}
+    "Parent": {"Name": "Worldwide"}
   }
 }]}
 ```
