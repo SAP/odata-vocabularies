@@ -75,6 +75,7 @@ Term|Type|Description
 [ExcludeFromNavigationContext](./UI.xml#L1821:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1825:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](./UI.xml#L1835:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[SelectionAction](./UI.xml#L1840:~:text=<Term%20Name="-,SelectionAction,-") *([Experimental](Common.md#Experimental))*|[SelectionActionType](#SelectionActionType)|<a name="SelectionAction"></a>The annotated action is executed during manipulation of a selection of entities
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
@@ -1122,8 +1123,57 @@ Property|Type|Description
 [LocalDataProperty](./UI.xml#L1813:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1816:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
+<a name="SelectionActionType"></a>
+## [*SelectionActionType*](./UI.xml#L1844:~:text=<ComplexType%20Name="-,SelectionActionType,-") *([Experimental](Common.md#Experimental))*
+Specifies how to invoke the annotated action
+
+Different subtypes of this abstract type are used to associate the annotated action with
+          different types of manipulation of the selection.
+
+**Derived Types:**
+- [DeleteSelectionActionType](#DeleteSelectionActionType)
+- [DragSelectionActionType](#DragSelectionActionType)
+  - [CtrlDragSelectionActionType](#CtrlDragSelectionActionType)
+
+Property|Type|Description
+:-------|:---|:----------
+[SelectionParameter](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
+[QualifierParameter](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
+
+<a name="DeleteSelectionActionType"></a>
+## [DeleteSelectionActionType](./UI.xml#L1858:~:text=<ComplexType%20Name="-,DeleteSelectionActionType,-"): [SelectionActionType](#SelectionActionType)
+Invocation of the annotated action when the delete button is pressed
+
+Property|Type|Description
+:-------|:---|:----------
+[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
+
+<a name="DragSelectionActionType"></a>
+## [DragSelectionActionType](./UI.xml#L1861:~:text=<ComplexType%20Name="-,DragSelectionActionType,-"): [SelectionActionType](#SelectionActionType)
+Invocation of the annotated action during drag and drop
+
+**Derived Types:**
+- [CtrlDragSelectionActionType](#CtrlDragSelectionActionType)
+
+Property|Type|Description
+:-------|:---|:----------
+[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
+[DropTargetParameter](./UI.xml#L1863:~:text=<ComplexType%20Name="-,DragSelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the entity on which the selection is dropped
+
+<a name="CtrlDragSelectionActionType"></a>
+## [CtrlDragSelectionActionType](./UI.xml#L1867:~:text=<ComplexType%20Name="-,CtrlDragSelectionActionType,-"): [DragSelectionActionType](#DragSelectionActionType)
+Invocation of the annotated action during drag and drop with ctrl key pressed
+
+Property|Type|Description
+:-------|:---|:----------
+[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
+[*DropTargetParameter*](./UI.xml#L1863:~:text=<ComplexType%20Name="-,DragSelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the entity on which the selection is dropped
+
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1840:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1871:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope

@@ -1837,6 +1837,37 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
       </Term>
 
+      <Term Name="SelectionAction" Type="UI.SelectionActionType" Nullable="false" AppliesTo="Action">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated action is executed during manipulation of a selection of entities" />
+      </Term>
+      <ComplexType Name="SelectionActionType" Abstract="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Specifies how to invoke the annotated action" />
+        <Annotation Term="Core.LongDescription">
+          <String>Different subtypes of this abstract type are used to associate the annotated action with
+          different types of manipulation of the selection.</String>
+        </Annotation>
+        <Property Name="SelectionParameter" Type="Edm.NavigationPropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="This action parameter is set to the selected entity or collection of entities" />
+        </Property>
+        <Property Name="QualifierParameter" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="This action parameter is set to the qualifier of this annotation" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="DeleteSelectionActionType" BaseType="UI.SelectionActionType">
+        <Annotation Term="Core.Description" String="Invocation of the annotated action when the delete button is pressed" />
+      </ComplexType>
+      <ComplexType Name="DragSelectionActionType" BaseType="UI.SelectionActionType">
+        <Annotation Term="Core.Description" String="Invocation of the annotated action during drag and drop" />
+        <Property Name="DropTargetParameter" Type="Edm.NavigationPropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="This action parameter is set to the entity on which the selection is dropped" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="CtrlDragSelectionActionType" BaseType="UI.DragSelectionActionType">
+        <Annotation Term="Core.Description" String="Invocation of the annotated action during drag and drop with ctrl key pressed" />
+      </ComplexType>
+
       <TypeDefinition Name="ActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         <Annotation Term="Core.LongDescription">

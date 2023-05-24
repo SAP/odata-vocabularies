@@ -1682,6 +1682,48 @@
       "@Common.Experimental": true,
       "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
     },
+    "SelectionAction": {
+      "$Kind": "Term",
+      "$Type": "UI.SelectionActionType",
+      "$AppliesTo": ["Action"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated action is executed during manipulation of a selection of entities"
+    },
+    "SelectionActionType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Specifies how to invoke the annotated action",
+      "@Core.LongDescription": "Different subtypes of this abstract type are used to associate the annotated action with\n          different types of manipulation of the selection.",
+      "SelectionParameter": {
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "This action parameter is set to the selected entity or collection of entities"
+      },
+      "QualifierParameter": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "This action parameter is set to the qualifier of this annotation"
+      }
+    },
+    "DeleteSelectionActionType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.SelectionActionType",
+      "@Core.Description": "Invocation of the annotated action when the delete button is pressed"
+    },
+    "DragSelectionActionType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.SelectionActionType",
+      "@Core.Description": "Invocation of the annotated action during drag and drop",
+      "DropTargetParameter": {
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "This action parameter is set to the entity on which the selection is dropped"
+      }
+    },
+    "CtrlDragSelectionActionType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DragSelectionActionType",
+      "@Core.Description": "Invocation of the annotated action during drag and drop with ctrl key pressed"
+    },
     "ActionName": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",

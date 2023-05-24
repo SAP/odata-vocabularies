@@ -1,0 +1,72 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/examples/Org.OData.Aggregation.V1.SalesModel-sample.xml": {
+      "$Include": [{ "$Namespace": "org.example.odata.salesservice", "$Alias": "SalesModel" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    }
+  },
+  "UI.examples": {
+    "$Alias": "this",
+    "LinkAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Core.Description": "Drag a sales organization to a new parent",
+        "@UI.SelectionAction#SalesOrgHierarchy": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DragSelectionActionType",
+          "SelectionParameter": "Child",
+          "DropTargetParameter": "Parent",
+          "QualifierParameter": "HierarchyQualifier"
+        },
+        "$Parameter": [
+          { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          { "$Name": "Parent", "$Type": "SalesModel.SalesOrganization" }
+        ]
+      }
+    ],
+    "UnlinkAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Core.Description": "Unlink a sales organization from its parent",
+        "@UI.SelectionAction#SalesOrgHierarchy": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DeleteSelectionActionType",
+          "SelectionParameter": "Child",
+          "QualifierParameter": "HierarchyQualifier"
+        },
+        "$Parameter": [
+          { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" }
+        ]
+      }
+    ],
+    "CopyAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Core.Description": "Copy (ctrl+drag+drop) a sales organization to a new parent",
+        "@UI.SelectionAction#SalesOrgHierarchy": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.CtrlDragSelectionActionType",
+          "SelectionParameter": "Child",
+          "DropTargetParameter": "Parent",
+          "QualifierParameter": "HierarchyQualifier"
+        },
+        "$Parameter": [
+          { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          { "$Name": "Parent", "$Type": "SalesModel.SalesOrganization" }
+        ]
+      }
+    ]
+  }
+}
