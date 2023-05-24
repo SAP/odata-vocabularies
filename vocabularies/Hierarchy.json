@@ -32,7 +32,7 @@
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n\nThe qualified action names identify actions for maintaining nodes in the recursive hierarchy. \nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nParameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.\nWhen invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.\nIn parameters of entity type that are defined as \"Key of …\", only the key properties are relevant.\n\nThe instance-bound actions MUST appear only in batch requests and the resource path MUST contain a dependency\nto the result of an earlier [create action](#Template_CreateAction) or [create-child action](#Template_CreateChildAction) from the same batch request.\nThe action then inherits the `HierarchyNodes` collection and the `HierarchyQualifier` from that earlier action.\n\nThe template actions themselves cannot be invoked.\n",
+      "@Core.LongDescription": "The property paths in this complex type refer to properties of an entity type that contain\ninformation about a node in a recursive hierarchy. When hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier,\nthen these properties are derived for each node in the result set.\nOtherwise, the property paths may evaluate to null.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n\nThe qualified action names identify actions for maintaining nodes in the recursive hierarchy. \nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nParameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the\n[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.\nWhen invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.\nIn parameters of entity type that are defined as \"Key of …\", only the key properties are relevant.\n\nThe resource path identifying the binding parameter MUST traverse the collection of hierarchy nodes.\nIf the action invocation appears in a batch request, the resource path MUST contain a dependency to the result\nof an earlier POST request from the same batch request whose resource path traversed the collection of hierarchy nodes.\nThe action then inherits the `HierarchyQualifier` from that earlier action.\n\nThe template actions themselves cannot be invoked.\n",
       "ExternalKeyProperty": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
@@ -129,7 +129,7 @@
       "$AppliesTo": ["Collection"],
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
-      "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
+      "@Core.Description": "Instance annotation on the result of a `$apply` query option containing the number of matching nodes after hierarchical transformations",
       "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
     },
     "TopLevels": [
@@ -215,7 +215,7 @@
         "$ReturnType": {
           "$Type": "Edm.EntityType",
           "@Core.Description": "The new node",
-          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in an `$apply` query option."
+          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in a `$apply` query option."
         }
       }
     ],
@@ -225,7 +225,7 @@
         "$EntitySetPath": "HierarchyNodes",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for instance-bound actions that create a new non-root node and are named in [`RecursiveHierarchy/CreateChildAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for actions that create a new non-root node and are named in [`RecursiveHierarchy/CreateChildAction`](#RecursiveHierarchyType)",
         "@Core.LongDescription": "This action can be used when creating several nodes in one JSON batch request like:\n```\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/SalesOrganizations/CreateAction\",\n  \"body\": {\n    \"HierarchyQualifier\": \"SalesOrgHierarchy\",\n    \"Entity\": {\"Name\": \"Worldwide\", ...}\n  }\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"post\",\n  \"url\": \"$1/CreateChildAction\",\n  \"body\": {\n    \"Entity\": {\"Name\": \"EMEA\", ...}\n  }\n}]}\n```\nThe second request inherits the hierarchy directory key 1 from the first.",
         "$Parameter": [
           { "$Name": "Parent", "$Type": "Edm.EntityType", "@Core.Description": "The new node's parent" },
@@ -246,7 +246,7 @@
         "$ReturnType": {
           "$Type": "Edm.EntityType",
           "@Core.Description": "The new node",
-          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in an `$apply` query option."
+          "@Core.LongDescription": "The values of the properties declared in the [`RecursiveHierarchy`](#RecursiveHierarchyType) annotation\n            can only be obtained with a subsequent GET request that contains a hierarchical transformation\n            in a `$apply` query option."
         }
       }
     ],
@@ -257,14 +257,8 @@
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
         "$Parameter": [
-          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
+          { "$Name": "Entity", "$Type": "Edm.EntityType", "@Core.Description": "The entity to become a new node" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          {
-            "$Name": "EntityKey",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "Key of the entity to become a new node",
-            "@Core.LongDescription": "It is an error if the entity is already a node in the recursive hierarchy."
-          },
           {
             "$Name": "Parent",
             "$Type": "Edm.EntityType",
@@ -287,11 +281,11 @@
       {
         "$Kind": "Action",
         "$IsBound": true,
-        "@Core.Description": "Template for instance-bound actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for actions that insert an existing entity as a new node and are named in [`RecursiveHierarchy/InsertChildAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "Parent", "$Type": "Edm.EntityType", "@Core.Description": "The new node's parent" },
           {
-            "$Name": "EntityKey",
+            "$Name": "Entity",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Key of the entity to become a new node",
             "@Core.LongDescription": "It is an error if the entity is already a node in the recursive hierarchy."
@@ -314,15 +308,17 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "As an alternative to the [`CreateAction`](#Template_CreateAction), a new node can be\ncreated and moved to an existing parent with this action in a JSON batch request like:\n```\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/SalesOrganizations\",\n  \"body\": {\"Name\": \"EMEA\", ...}\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"post\",\n  \"url\": \"$1/MoveAction\",\n  \"body\": {\n    \"HierarchyQualifier\": \"SalesOrgHierarchy\",\n    \"Parent\": {\"Name\": \"Worldwide\"}\n  }\n}]}\n```\nThe second request inherits the hierarchy directory key 1 from the first.",
         "$Parameter": [
-          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be moved" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "Key of the node to be moved" },
           {
             "$Name": "Parent",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
-            "@Core.Description": "Key of the node's new parent (null if the node shall become a root)"
+            "@Core.Description": "Key of the node's new parent (null if the node shall become a root)",
+            "@Core.LongDescription": "In the absence of this parameter, parent it not changed.",
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "NextSibling",
@@ -340,7 +336,7 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for instance-bound actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveChildAction`](#RecursiveHierarchyType)",
+        "@Core.Description": "Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/MoveChildAction`](#RecursiveHierarchyType)",
         "$Parameter": [
           { "$Name": "Parent", "$Type": "Edm.EntityType", "@Core.Description": "The node's new parent" },
           { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "Key of the node to be moved" },
@@ -363,9 +359,8 @@
         "@Core.Description": "Template for actions that remove a leaf from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
         "@Core.LongDescription": "When a leaf is removed, the entity is not deleted but its node identifier property is set to null.\n          A DELETE request that deletes an entity also removes it from all recursive hierarchies defined on the entity type,\n          but the effect on any hierarchy-specific descendants is application-specific.",
         "$Parameter": [
-          { "$Name": "HierarchyNodes", "$Collection": true, "$Type": "Edm.EntityType" },
-          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "Key of the leaf to be removed" }
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The leaf to be removed" },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" }
         ]
       }
     ]
