@@ -47,20 +47,20 @@
             </Record>
             <Record Type="UI.DataFieldForDragSelectionAction">
               <PropertyValue Property="Action" String="LinkAction" />
-              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-              <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
-              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+              <PropertyValue Property="SelectionParameter" String="Child" />
+              <PropertyValue Property="DropTargetParameter" String="Parent" />
+              <PropertyValue Property="QualifierParameter" String="HierarchyQualifier" />
             </Record>
             <Record Type="UI.DataFieldForCtrlDragSelectionAction">
               <PropertyValue Property="Action" String="CopyAction" />
-              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-              <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
-              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+              <PropertyValue Property="SelectionParameter" String="Child" />
+              <PropertyValue Property="DropTargetParameter" String="Parent" />
+              <PropertyValue Property="QualifierParameter" String="HierarchyQualifier" />
             </Record>
             <Record Type="UI.DataFieldForDeleteSelectionAction">
               <PropertyValue Property="Action" String="UnlinkAction" />
-              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+              <PropertyValue Property="SelectionParameter" String="Child" />
+              <PropertyValue Property="QualifierParameter" String="HierarchyQualifier" />
             </Record>
           </Collection>
         </Annotation>
