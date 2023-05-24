@@ -65,17 +65,16 @@ Term|Type|Description
 [HiddenFilter](./UI.xml#L1500:~:text=<Term%20Name="-,HiddenFilter,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<br>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all. If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.
 [AdaptationHidden](./UI.xml#L1509:~:text=<Term%20Name="-,AdaptationHidden,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AdaptationHidden"></a>Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization<br>The tagged elements can only be used in UI based on metadata, annnotations or code.
 [DataFieldDefault](./UI.xml#L1515:~:text=<Term%20Name="-,DataFieldDefault,-")|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
-[Criticality](./UI.xml#L1733:~:text=<Term%20Name="-,Criticality,-")|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](./UI.xml#L1737:~:text=<Term%20Name="-,CriticalityCalculation,-")|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[Emphasized](./UI.xml#L1741:~:text=<Term%20Name="-,Emphasized,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
-[OrderBy](./UI.xml#L1747:~:text=<Term%20Name="-,OrderBy,-") *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
-[ParameterDefaultValue](./UI.xml#L1753:~:text=<Term%20Name="-,ParameterDefaultValue,-")|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
-[RecommendationState](./UI.xml#L1759:~:text=<Term%20Name="-,RecommendationState,-")|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
-[RecommendationList](./UI.xml#L1789:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[ExcludeFromNavigationContext](./UI.xml#L1821:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1825:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
-[LeadingEntitySet](./UI.xml#L1835:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
-[SelectionAction](./UI.xml#L1840:~:text=<Term%20Name="-,SelectionAction,-") *([Experimental](Common.md#Experimental))*|[SelectionActionType](#SelectionActionType)|<a name="SelectionAction"></a>The annotated action is executed during manipulation of a selection of entities
+[Criticality](./UI.xml#L1763:~:text=<Term%20Name="-,Criticality,-")|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](./UI.xml#L1767:~:text=<Term%20Name="-,CriticalityCalculation,-")|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[Emphasized](./UI.xml#L1771:~:text=<Term%20Name="-,Emphasized,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
+[OrderBy](./UI.xml#L1777:~:text=<Term%20Name="-,OrderBy,-") *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
+[ParameterDefaultValue](./UI.xml#L1783:~:text=<Term%20Name="-,ParameterDefaultValue,-")|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
+[RecommendationState](./UI.xml#L1789:~:text=<Term%20Name="-,RecommendationState,-")|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
+[RecommendationList](./UI.xml#L1819:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
+[ExcludeFromNavigationContext](./UI.xml#L1851:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1855:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[LeadingEntitySet](./UI.xml#L1865:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
@@ -791,6 +790,10 @@ By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the
 - [DataFieldForAnnotation](#DataFieldForAnnotation)
 - *[DataFieldForActionAbstract](#DataFieldForActionAbstract)*
   - [DataFieldForAction](#DataFieldForAction)
+    - *[DataFieldForSelectionAction](#DataFieldForSelectionAction)*
+      - [DataFieldForDeleteSelectionAction](#DataFieldForDeleteSelectionAction)
+      - [DataFieldForDragSelectionAction](#DataFieldForDragSelectionAction)
+        - [DataFieldForCtrlDragSelectionAction](#DataFieldForCtrlDragSelectionAction)
   - [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation)
 - [DataFieldForActionGroup](#DataFieldForActionGroup)
 - [DataField](#DataField)
@@ -849,6 +852,10 @@ Triggers an action
 
 **Derived Types:**
 - [DataFieldForAction](#DataFieldForAction)
+  - *[DataFieldForSelectionAction](#DataFieldForSelectionAction)*
+    - [DataFieldForDeleteSelectionAction](#DataFieldForDeleteSelectionAction)
+    - [DataFieldForDragSelectionAction](#DataFieldForDragSelectionAction)
+      - [DataFieldForCtrlDragSelectionAction](#DataFieldForCtrlDragSelectionAction)
 - [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation)
 
 Property|Type|Description
@@ -872,6 +879,12 @@ Property|Type|Description
 Triggers an OData action
 
 The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction)).
+
+**Derived Types:**
+- *[DataFieldForSelectionAction](#DataFieldForSelectionAction)*
+  - [DataFieldForDeleteSelectionAction](#DataFieldForDeleteSelectionAction)
+  - [DataFieldForDragSelectionAction](#DataFieldForDragSelectionAction)
+    - [DataFieldForCtrlDragSelectionAction](#DataFieldForCtrlDragSelectionAction)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -1088,8 +1101,117 @@ Property|Type|Description
 - [PartOfPreview](#PartOfPreview)
 - [CssDefaults](HTML5.md#CssDefaults)
 
+<a name="DataFieldForSelectionAction"></a>
+## [*DataFieldForSelectionAction*](./UI.xml#L1733:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-"): [DataFieldForAction](#DataFieldForAction) *([Experimental](Common.md#Experimental))*
+Action to be executed during manipulation of a selection of entities
+
+Different subtypes of this abstract type are used to associate the action with
+          different types of manipulation of the selection.
+
+**Derived Types:**
+- [DataFieldForDeleteSelectionAction](#DataFieldForDeleteSelectionAction)
+- [DataFieldForDragSelectionAction](#DataFieldForDragSelectionAction)
+  - [DataFieldForCtrlDragSelectionAction](#DataFieldForCtrlDragSelectionAction)
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](./UI.xml#L1534:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1582:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Action*](./UI.xml#L1593:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
+[*InvocationGrouping*](./UI.xml#L1596:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[SelectionParameter](./UI.xml#L1740:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String|This action parameter is set to the selected entity or collection of entities
+[QualifierParameter](./UI.xml#L1743:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String?|This action parameter is set to the qualifier of this annotation
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [PartOfPreview](#PartOfPreview)
+- [CssDefaults](HTML5.md#CssDefaults)
+
+<a name="DataFieldForDeleteSelectionAction"></a>
+## [DataFieldForDeleteSelectionAction](./UI.xml#L1747:~:text=<ComplexType%20Name="-,DataFieldForDeleteSelectionAction,-"): [DataFieldForSelectionAction](#DataFieldForSelectionAction) *([Experimental](Common.md#Experimental))*
+Invocation of the annotated action when the delete button is pressed
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](./UI.xml#L1534:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1582:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Action*](./UI.xml#L1593:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
+[*InvocationGrouping*](./UI.xml#L1596:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*SelectionParameter*](./UI.xml#L1740:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1743:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String?|This action parameter is set to the qualifier of this annotation
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [PartOfPreview](#PartOfPreview)
+- [CssDefaults](HTML5.md#CssDefaults)
+
+<a name="DataFieldForDragSelectionAction"></a>
+## [DataFieldForDragSelectionAction](./UI.xml#L1751:~:text=<ComplexType%20Name="-,DataFieldForDragSelectionAction,-"): [DataFieldForSelectionAction](#DataFieldForSelectionAction) *([Experimental](Common.md#Experimental))*
+Invocation of the annotated action during drag and drop
+
+**Derived Types:**
+- [DataFieldForCtrlDragSelectionAction](#DataFieldForCtrlDragSelectionAction)
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](./UI.xml#L1534:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1582:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Action*](./UI.xml#L1593:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
+[*InvocationGrouping*](./UI.xml#L1596:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*SelectionParameter*](./UI.xml#L1740:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1743:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String?|This action parameter is set to the qualifier of this annotation
+[DropTargetParameter](./UI.xml#L1754:~:text=<ComplexType%20Name="-,DataFieldForDragSelectionAction,-")|String|This action parameter is set to the entity on which the selection is dropped
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [PartOfPreview](#PartOfPreview)
+- [CssDefaults](HTML5.md#CssDefaults)
+
+<a name="DataFieldForCtrlDragSelectionAction"></a>
+## [DataFieldForCtrlDragSelectionAction](./UI.xml#L1758:~:text=<ComplexType%20Name="-,DataFieldForCtrlDragSelectionAction,-"): [DataFieldForDragSelectionAction](#DataFieldForDragSelectionAction) *([Experimental](Common.md#Experimental))*
+Invocation of the annotated action during drag and drop with ctrl key pressed
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](./UI.xml#L1534:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](./UI.xml#L1538:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](./UI.xml#L1541:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](./UI.xml#L1544:~:text=<ComplexType%20Name="-,DataFieldAbstract,-")|URL?|Optional icon
+[*Inline*](./UI.xml#L1582:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Action should be placed close to (or even inside) the visualized term
+[*Determining*](./UI.xml#L1585:~:text=<ComplexType%20Name="-,DataFieldForActionAbstract,-")|Boolean|Determines whether the action completes a process step (e.g. approve, reject).
+[*Action*](./UI.xml#L1593:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[ActionName](#ActionName)|Name of an Action, Function, ActionImport, or FunctionImport in scope
+[*InvocationGrouping*](./UI.xml#L1596:~:text=<ComplexType%20Name="-,DataFieldForAction,-")|[OperationGroupingType?](#OperationGroupingType)|Expresses how invocations of this action on multiple instances should be grouped
+[*SelectionParameter*](./UI.xml#L1740:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String|This action parameter is set to the selected entity or collection of entities
+[*QualifierParameter*](./UI.xml#L1743:~:text=<ComplexType%20Name="-,DataFieldForSelectionAction,-")|String?|This action parameter is set to the qualifier of this annotation
+[*DropTargetParameter*](./UI.xml#L1754:~:text=<ComplexType%20Name="-,DataFieldForDragSelectionAction,-")|String|This action parameter is set to the entity on which the selection is dropped
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [PartOfPreview](#PartOfPreview)
+- [CssDefaults](HTML5.md#CssDefaults)
+
 <a name="RecommendationStateType"></a>
-## [RecommendationStateType](./UI.xml#L1766:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
+## [RecommendationStateType](./UI.xml#L1796:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -1098,82 +1220,33 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](./UI.xml#L1773:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|regular - with human or default input, no recommendation
-[1](./UI.xml#L1777:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|highlighted - without human input and with recommendation
-[2](./UI.xml#L1781:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|warning - with human or default input and with recommendation
+[0](./UI.xml#L1803:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|regular - with human or default input, no recommendation
+[1](./UI.xml#L1807:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|highlighted - without human input and with recommendation
+[2](./UI.xml#L1811:~:text=<TypeDefinition%20Name="-,RecommendationStateType,-")|warning - with human or default input and with recommendation
 
 <a name="RecommendationListType"></a>
-## [RecommendationListType](./UI.xml#L1796:~:text=<ComplexType%20Name="-,RecommendationListType,-")
+## [RecommendationListType](./UI.xml#L1826:~:text=<ComplexType%20Name="-,RecommendationListType,-")
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](./UI.xml#L1801:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Resource path of a collection of recommended values
-[RankProperty](./UI.xml#L1804:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](./UI.xml#L1807:~:text=<ComplexType%20Name="-,RecommendationListType,-")|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](./UI.xml#L1831:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Resource path of a collection of recommended values
+[RankProperty](./UI.xml#L1834:~:text=<ComplexType%20Name="-,RecommendationListType,-")|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](./UI.xml#L1837:~:text=<ComplexType%20Name="-,RecommendationListType,-")|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
 <a name="RecommendationBinding"></a>
-## [RecommendationBinding](./UI.xml#L1812:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
+## [RecommendationBinding](./UI.xml#L1842:~:text=<ComplexType%20Name="-,RecommendationBinding,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](./UI.xml#L1813:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](./UI.xml#L1816:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
-
-<a name="SelectionActionType"></a>
-## [*SelectionActionType*](./UI.xml#L1844:~:text=<ComplexType%20Name="-,SelectionActionType,-") *([Experimental](Common.md#Experimental))*
-Specifies how to invoke the annotated action
-
-Different subtypes of this abstract type are used to associate the annotated action with
-          different types of manipulation of the selection.
-
-**Derived Types:**
-- [DeleteSelectionActionType](#DeleteSelectionActionType)
-- [DragSelectionActionType](#DragSelectionActionType)
-  - [CtrlDragSelectionActionType](#CtrlDragSelectionActionType)
-
-Property|Type|Description
-:-------|:---|:----------
-[SelectionParameter](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
-[QualifierParameter](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
-
-<a name="DeleteSelectionActionType"></a>
-## [DeleteSelectionActionType](./UI.xml#L1858:~:text=<ComplexType%20Name="-,DeleteSelectionActionType,-"): [SelectionActionType](#SelectionActionType)
-Invocation of the annotated action when the delete button is pressed
-
-Property|Type|Description
-:-------|:---|:----------
-[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
-[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
-
-<a name="DragSelectionActionType"></a>
-## [DragSelectionActionType](./UI.xml#L1861:~:text=<ComplexType%20Name="-,DragSelectionActionType,-"): [SelectionActionType](#SelectionActionType)
-Invocation of the annotated action during drag and drop
-
-**Derived Types:**
-- [CtrlDragSelectionActionType](#CtrlDragSelectionActionType)
-
-Property|Type|Description
-:-------|:---|:----------
-[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
-[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
-[DropTargetParameter](./UI.xml#L1863:~:text=<ComplexType%20Name="-,DragSelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the entity on which the selection is dropped
-
-<a name="CtrlDragSelectionActionType"></a>
-## [CtrlDragSelectionActionType](./UI.xml#L1867:~:text=<ComplexType%20Name="-,CtrlDragSelectionActionType,-"): [DragSelectionActionType](#DragSelectionActionType)
-Invocation of the annotated action during drag and drop with ctrl key pressed
-
-Property|Type|Description
-:-------|:---|:----------
-[*SelectionParameter*](./UI.xml#L1851:~:text=<ComplexType%20Name="-,SelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the selected entity or collection of entities
-[*QualifierParameter*](./UI.xml#L1854:~:text=<ComplexType%20Name="-,SelectionActionType,-")|PropertyPath?|This action parameter is set to the qualifier of this annotation
-[*DropTargetParameter*](./UI.xml#L1863:~:text=<ComplexType%20Name="-,DragSelectionActionType,-")|NavigationPropertyPath|This action parameter is set to the entity on which the selection is dropped
+[LocalDataProperty](./UI.xml#L1843:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](./UI.xml#L1846:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1871:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1870:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope

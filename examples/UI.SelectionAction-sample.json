@@ -21,12 +21,6 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Core.Description": "Drag a sales organization to a new parent",
-        "@UI.SelectionAction#SalesOrgHierarchy": {
-          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DragSelectionActionType",
-          "SelectionParameter": "Child",
-          "DropTargetParameter": "Parent",
-          "QualifierParameter": "HierarchyQualifier"
-        },
         "$Parameter": [
           { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
@@ -39,11 +33,6 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Core.Description": "Unlink a sales organization from its parent",
-        "@UI.SelectionAction#SalesOrgHierarchy": {
-          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DeleteSelectionActionType",
-          "SelectionParameter": "Child",
-          "QualifierParameter": "HierarchyQualifier"
-        },
         "$Parameter": [
           { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" }
@@ -55,18 +44,46 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Core.Description": "Copy (ctrl+drag+drop) a sales organization to a new parent",
-        "@UI.SelectionAction#SalesOrgHierarchy": {
-          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.CtrlDragSelectionActionType",
-          "SelectionParameter": "Child",
-          "DropTargetParameter": "Parent",
-          "QualifierParameter": "HierarchyQualifier"
-        },
         "$Parameter": [
           { "$Name": "Child", "$Type": "SalesModel.SalesOrganization" },
           { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
           { "$Name": "Parent", "$Type": "SalesModel.SalesOrganization" }
         ]
       }
-    ]
+    ],
+    "$Annotations": {
+      "SalesModel.SalesOrganization": {
+        "@UI.LineItem#SalesOrgHierarchy": [
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+            "Value": { "$Path": "ID" }
+          },
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+            "Value": { "$Path": "Name" }
+          },
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForDragSelectionAction",
+            "Action": "LinkAction",
+            "SelectionParameter": "Child",
+            "DropTargetParameter": "Parent",
+            "QualifierParameter": "HierarchyQualifier"
+          },
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForCtrlDragSelectionAction",
+            "Action": "CopyAction",
+            "SelectionParameter": "Child",
+            "DropTargetParameter": "Parent",
+            "QualifierParameter": "HierarchyQualifier"
+          },
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForDeleteSelectionAction",
+            "Action": "UnlinkAction",
+            "SelectionParameter": "Child",
+            "QualifierParameter": "HierarchyQualifier"
+          }
+        ]
+      }
+    }
   }
 }

@@ -18,13 +18,6 @@
 
       <Action Name="LinkAction" IsBound="true">
         <Annotation Term="Core.Description" String="Drag a sales organization to a new parent" />
-        <Annotation Term="UI.SelectionAction" Qualifier="SalesOrgHierarchy">
-          <Record Type="UI.DragSelectionActionType">
-            <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-            <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
-            <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
-          </Record>
-        </Annotation>
         <Parameter Name="Child" Type="SalesModel.SalesOrganization" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Parent" Type="SalesModel.SalesOrganization" Nullable="false" />
@@ -32,29 +25,46 @@
 
       <Action Name="UnlinkAction" IsBound="true">
         <Annotation Term="Core.Description" String="Unlink a sales organization from its parent" />
-        <Annotation Term="UI.SelectionAction" Qualifier="SalesOrgHierarchy">
-          <Record Type="UI.DeleteSelectionActionType">
-            <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-            <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
-          </Record>
-        </Annotation>
         <Parameter Name="Child" Type="SalesModel.SalesOrganization" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
       </Action>
 
       <Action Name="CopyAction" IsBound="true">
         <Annotation Term="Core.Description" String="Copy (ctrl+drag+drop) a sales organization to a new parent" />
-        <Annotation Term="UI.SelectionAction" Qualifier="SalesOrgHierarchy">
-          <Record Type="UI.CtrlDragSelectionActionType">
-            <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
-            <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
-            <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
-          </Record>
-        </Annotation>
         <Parameter Name="Child" Type="SalesModel.SalesOrganization" Nullable="false" />
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Parent" Type="SalesModel.SalesOrganization" Nullable="false" />
       </Action>
+
+      <Annotations Target="SalesModel.SalesOrganization">
+        <Annotation Term="UI.LineItem" Qualifier="SalesOrgHierarchy">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="ID" />
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="Name" />
+            </Record>
+            <Record Type="UI.DataFieldForDragSelectionAction">
+              <PropertyValue Property="Action" String="LinkAction" />
+              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
+              <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
+              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+            </Record>
+            <Record Type="UI.DataFieldForCtrlDragSelectionAction">
+              <PropertyValue Property="Action" String="CopyAction" />
+              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
+              <PropertyValue Property="DropTargetParameter" NavigationPropertyPath="Parent" />
+              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+            </Record>
+            <Record Type="UI.DataFieldForDeleteSelectionAction">
+              <PropertyValue Property="Action" String="UnlinkAction" />
+              <PropertyValue Property="SelectionParameter" NavigationPropertyPath="Child" />
+              <PropertyValue Property="QualifierParameter" PropertyPath="HierarchyQualifier" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>
