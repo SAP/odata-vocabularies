@@ -1837,6 +1837,26 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
       </Term>
 
+      <Term Name="RecursiveHierarchy" BaseTerm="Hierarchy.RecursiveHierarchy" Type="UI.RecursiveHierarchyType" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+      </Term>
+      <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="PasteRules" Type="Collection(UI.RecursiveHierarchyPasteType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Which nodes can be pasted into (or dropped onto) this node" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RecursiveHierarchyPasteType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))" />
+        <Property Name="SourceType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Node type, or null if this rule shall apply to all node types" />
+        </Property>
+        <Property Name="PasteAllowed" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether nodes of the specified type can be pasted on the annotated node" />
+        </Property>
+      </ComplexType>
+
       <TypeDefinition Name="ActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         <Annotation Term="Core.LongDescription">

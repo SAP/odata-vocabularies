@@ -1682,6 +1682,36 @@
       "@Common.Experimental": true,
       "@Core.Description": "The referenced entity set is the preferred starting point for UIs using this service"
     },
+    "RecursiveHierarchy": {
+      "$Kind": "Term",
+      "$Type": "UI.RecursiveHierarchyType",
+      "$Nullable": true,
+      "$AppliesTo": ["EntityType"],
+      "$BaseTerm": "Hierarchy.RecursiveHierarchy",
+      "@Common.Experimental": true
+    },
+    "RecursiveHierarchyType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "PasteRules": {
+        "$Collection": true,
+        "$Type": "UI.RecursiveHierarchyPasteType",
+        "@Core.Description": "Which nodes can be pasted into (or dropped onto) this node"
+      }
+    },
+    "RecursiveHierarchyPasteType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.Description": "Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))",
+      "SourceType": {
+        "$Nullable": true,
+        "@Core.Description": "Node type, or null if this rule shall apply to all node types"
+      },
+      "PasteAllowed": {
+        "$Type": "Edm.Boolean",
+        "@Core.Description": "Whether nodes of the specified type can be pasted on the annotated node"
+      }
+    },
     "ActionName": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
