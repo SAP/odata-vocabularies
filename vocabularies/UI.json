@@ -1688,28 +1688,30 @@
       "$Nullable": true,
       "$AppliesTo": ["EntityType"],
       "$BaseTerm": "Hierarchy.RecursiveHierarchy",
-      "@Common.Experimental": true
+      "@Common.Experimental": true,
+      "@Core.Description": "Rules for hierarchy nodes that a UI can guide the user towards",
+      "@Core.LongDescription": "For example, dropping a node on another node can be prevented if the dropped node cannot\n          be a child of the target node."
     },
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "PasteRules": {
+      "ChildRules": {
         "$Collection": true,
         "$Type": "UI.RecursiveHierarchyPasteType",
-        "@Core.Description": "Which nodes can be pasted into (or dropped onto) this node"
+        "@Core.Description": "Which nodes can be children of this node"
       }
     },
-    "RecursiveHierarchyPasteType": {
+    "RecursiveHierarchyChildType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "@Core.Description": "Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))",
-      "SourceType": {
+      "ChildType": {
         "$Nullable": true,
-        "@Core.Description": "Node type, or null if this rule shall apply to all node types"
+        "@Core.Description": "Node type of a child, or null if this rule shall apply to all node types"
       },
-      "PasteAllowed": {
+      "Allowed": {
         "$Type": "Edm.Boolean",
-        "@Core.Description": "Whether nodes of the specified type can be pasted on the annotated node"
+        "@Core.Description": "Whether nodes of the specified type can be children of the annotated node"
       }
     },
     "ActionName": {

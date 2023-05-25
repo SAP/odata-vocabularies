@@ -1839,21 +1839,26 @@ This switches off the validation of user input with respect to decimals.</String
 
       <Term Name="RecursiveHierarchy" BaseTerm="Hierarchy.RecursiveHierarchy" Type="UI.RecursiveHierarchyType" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Rules for hierarchy nodes that a UI can guide the user towards" />
+        <Annotation Term="Core.LongDescription">
+          <String>For example, dropping a node on another node can be prevented if the dropped node cannot
+          be a child of the target node.</String>
+        </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="PasteRules" Type="Collection(UI.RecursiveHierarchyPasteType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Which nodes can be pasted into (or dropped onto) this node" />
+        <Property Name="ChildRules" Type="Collection(UI.RecursiveHierarchyPasteType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Which nodes can be children of this node" />
         </Property>
       </ComplexType>
-      <ComplexType Name="RecursiveHierarchyPasteType">
+      <ComplexType Name="RecursiveHierarchyChildType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))" />
-        <Property Name="SourceType" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Node type, or null if this rule shall apply to all node types" />
+        <Property Name="ChildType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Node type of a child, or null if this rule shall apply to all node types" />
         </Property>
-        <Property Name="PasteAllowed" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether nodes of the specified type can be pasted on the annotated node" />
+        <Property Name="Allowed" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether nodes of the specified type can be children of the annotated node" />
         </Property>
       </ComplexType>
 
