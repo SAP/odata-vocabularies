@@ -82,15 +82,13 @@ the following collections of hierarchy nodes are distinguished:
 The qualified action names identify actions for maintaining nodes in the recursive hierarchy. 
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
-Parameters `HierarchyNodes` and `HierarchyQualifier` have the same meaning as for functions in the
-[`Aggregation`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html) vocabulary.
 When invoking an action, clients MUST set the `HierarchyQualifier` to the qualifier of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation.
 In parameters of entity type that are defined as "Key of …", only the key properties are relevant.
 
 The resource path identifying the binding parameter MUST traverse the collection of hierarchy nodes.
-If the action invocation appears in a batch request, the resource path MUST contain a dependency to the result
-of an earlier POST request from the same batch request whose resource path traversed the collection of hierarchy nodes.
-The action then inherits the `HierarchyQualifier` from that earlier action.
+If the action invocation appears in a batch request, the resource path MUST contain a direct or indirect dependency on the result
+of an earlier request from the same batch request whose resource path traversed the collection of hierarchy nodes.
+The action then inherits the hierarchy collection and `HierarchyQualifier` from that earlier action.
 
 The template actions themselves cannot be invoked.
 </String>
@@ -364,7 +362,7 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The new node's parent" />
         </Parameter>
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
+        <Parameter Name="EntityKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Key of the entity to become a new node" />
           <Annotation Term="Core.LongDescription">
             <String>It is an error if the entity is already a node in the recursive hierarchy.</String>
@@ -414,14 +412,17 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new parent (null if the node shall become a root)" />
-          <Annotation Term="Core.LongDescription" String="In the absence of this parameter, parent it not changed." />
+          <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the parent is not changed." />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's next sibling under the new parent (null if the node shall become the last sibling)" />
-          <Annotation Term="Core.LongDescription" String="In the absence of this parameter, the sibling position is determined by the service." />
+          <Annotation Term="Core.LongDescription">
+            <String>It is an error if the next sibling has a different parent than the moved node.
+            In the absence of this parameter, the sibling position is determined by the service.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
