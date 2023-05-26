@@ -1697,7 +1697,7 @@
       "@Common.Experimental": true,
       "ChildRules": {
         "$Collection": true,
-        "$Type": "UI.RecursiveHierarchyPasteType",
+        "$Type": "UI.RecursiveHierarchyChildType",
         "@Core.Description": "Which nodes can be children of this node"
       }
     },

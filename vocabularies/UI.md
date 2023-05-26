@@ -1129,7 +1129,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ChildRules](./UI.xml#L1850:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|\[[RecursiveHierarchyPasteType](#RecursiveHierarchyPasteType)\]|Which nodes can be children of this node
+[ChildRules](./UI.xml#L1850:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|\[[RecursiveHierarchyChildType](#RecursiveHierarchyChildType)\]|Which nodes can be children of this node
 
 <a name="RecursiveHierarchyChildType"></a>
 ## [RecursiveHierarchyChildType](./UI.xml#L1854:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-") *([Experimental](Common.md#Experimental))*

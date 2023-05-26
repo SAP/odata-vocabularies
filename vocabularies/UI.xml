@@ -1847,7 +1847,7 @@ This switches off the validation of user input with respect to decimals.</String
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ChildRules" Type="Collection(UI.RecursiveHierarchyPasteType)" Nullable="false">
+        <Property Name="ChildRules" Type="Collection(UI.RecursiveHierarchyChildType)" Nullable="false">
           <Annotation Term="Core.Description" String="Which nodes can be children of this node" />
         </Property>
       </ComplexType>
