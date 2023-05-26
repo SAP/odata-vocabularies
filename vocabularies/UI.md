@@ -1129,19 +1129,19 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ChildRules](./UI.xml#L1850:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|\[[RecursiveHierarchyChildType](#RecursiveHierarchyChildType)\]|Which nodes can be children of this node
+[ChildRules](./UI.xml#L1850:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|\[[RecursiveHierarchyChildType](#RecursiveHierarchyChildType)\]|Which nodes can be children of this node<br>If this property is empty or absent, there are no restrictions regarding child nodes.
 
 <a name="RecursiveHierarchyChildType"></a>
-## [RecursiveHierarchyChildType](./UI.xml#L1854:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-") *([Experimental](Common.md#Experimental))*
+## [RecursiveHierarchyChildType](./UI.xml#L1857:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-") *([Experimental](Common.md#Experimental))*
 Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))
 
 Property|Type|Description
 :-------|:---|:----------
-[ChildType](./UI.xml#L1857:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|String?|Node type of a child, or null if this rule shall apply to all node types
-[Allowed](./UI.xml#L1860:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|Boolean|Whether nodes of the specified type can be children of the annotated node
+[ChildType](./UI.xml#L1860:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|String?|Node type of a child, or null if this rule shall apply to all node types
+[Allowed](./UI.xml#L1863:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|Boolean|Whether nodes of the specified type can be children of the annotated node
 
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1865:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1868:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope

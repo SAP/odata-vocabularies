@@ -1698,7 +1698,8 @@
       "ChildRules": {
         "$Collection": true,
         "$Type": "UI.RecursiveHierarchyChildType",
-        "@Core.Description": "Which nodes can be children of this node"
+        "@Core.Description": "Which nodes can be children of this node",
+        "@Core.LongDescription": "If this property is empty or absent, there are no restrictions regarding child nodes."
       }
     },
     "RecursiveHierarchyChildType": {
