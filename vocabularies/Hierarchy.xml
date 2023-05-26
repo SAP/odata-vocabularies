@@ -159,7 +159,7 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.Description" String="Action that moves a node before a newly-created sibling, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         <Property Name="InsertAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that inserts a new root into a recursive hierarchy, following [this template](#Template_InsertAction)" />
+          <Annotation Term="Core.Description" String="Action that inserts a root into a recursive hierarchy, following [this template](#Template_InsertAction)" />
         </Property>
         <Property Name="RemoveAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)" />
@@ -271,7 +271,7 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that insert a root into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The new root to be inserted" />
+          <Annotation Term="Core.Description" String="The root to be inserted" />
         </Parameter>
       </Action>
       <Action Name="Template_RemoveAction" IsBound="true">
