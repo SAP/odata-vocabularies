@@ -84,10 +84,9 @@ which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 In parameters that are defined as "Key of …", only the key properties are relevant.
-Except for the [`RemoveAction`](#Template_RemoveAction), if the entity in an action parameter is without
-node identifier, one is generated as part of the action.
 
-The resource path identifying the binding parameter MUST traverse the collection of hierarchy nodes.
+The resource path identifying the binding parameter MUST traverse the collection of hierarchy nodes to
+which the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation applies.
 If the action invocation appears in a batch request, the resource path MUST contain a dependency on the result
 of an earlier request from the same batch request whose resource path traversed the collection of hierarchy nodes.
 The action then inherits the recursive hierarchy from that earlier action.
@@ -159,17 +158,14 @@ The template actions themselves cannot be invoked.
           <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
         </Property>
         -->
-        <Property Name="ChangeParentAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node to a new parent, following [this template](#Template_ChangeParentAction)" />
-        </Property>
-        <Property Name="AddChildAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node to a newly-created parent, following [this template](#Template_AddChildAction)" />
-        </Property>
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
         <Property Name="ChangePreviousSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node before a newly-created sibling, following [this template](#Template_ChangePreviousSiblingAction)" />
+        </Property>
+        <Property Name="InsertAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that inserts a new root into a recursive hierarchy, following [this template](#Template_InsertAction)" />
         </Property>
         <Property Name="RemoveAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that removes a leaf from a recursive hierarchy, following [this template](#Template_RemoveAction)" />
@@ -251,71 +247,6 @@ The template actions themselves cannot be invoked.
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
-      <Action Name="Template_ChangeParentAction" IsBound="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node to a new parent and are named in [`RecursiveHierarchy/ChangeParentAction`](#RecursiveHierarchyType)" />
-        <Annotation Term="Core.LongDescription">
-          <String>The child is removed from its current parent, if any.
-
-As an alternative to `POST HierarchyDirectory(1)/SalesOrganizations('Worldwide')/Children`,
-a new node can be created and moved to an existing parent with this action in a JSON batch request like:
-```
-{"requests": [{
-  "id": "1",
-  "method": "post",
-  "url": "HierarchyDirectory(1)/SalesOrganizations",
-  "body": {"Name": "EMEA", ...}
-}, {
-  "id": "2",
-  "dependsOn": ["1"],
-  "method": "post",
-  "url": "$1/ChangeParentAction",
-  "body": {
-    "Parent": {"Name": "Worldwide"}
-  }
-}]}
-```
-The second request inherits the hierarchy directory key 1 from the first.</String>
-        </Annotation>
-        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node to be moved" />
-        </Parameter>
-        <Parameter Name="Parent" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key of the node's new parent (null if the node shall become a root)" />
-        </Parameter>
-      </Action>
-      <Action Name="Template_AddChildAction" IsBound="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node to a newly-created parent and are named in [`RecursiveHierarchy/AddChildAction`](#RecursiveHierarchyType)" />
-        <Annotation Term="Core.LongDescription">
-          <String>The child is removed from its current parent, if any.
-
-This action can be used in a JSON batch request to create a new parent for an existing child:
-```
-{"requests": [{
-  "id": "1",
-  "method": "post",
-  "url": "HierarchyDirectory(1)/SalesOrganizations",
-  "body": {"Name": "Worldwide", ...}
-}, {
-  "id": "2",
-  "dependsOn": ["1"],
-  "method": "post",
-  "url": "$1/AddChildAction",
-  "body": {
-    "Node": {"Name": "EMEA"}
-  }
-}]}
-```
-The second request inherits the hierarchy directory key 1 from the first.</String>
-        </Annotation>
-        <Parameter Name="Parent" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node's new parent" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Key of the node to be moved" />
-        </Parameter>
-      </Action>
       <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchy/ChangeNextSiblingAction`](#RecursiveHierarchyType)" />
@@ -340,6 +271,13 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
           <Annotation Term="Core.LongDescription">
             <String>It is an error if the `Node` has a different parent than the `NextSibling`.</String>
           </Annotation>
+        </Parameter>
+      </Action>
+      <Action Name="Template_InsertAction" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions that insert a root into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)" />
+        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The new root to be inserted" />
         </Parameter>
       </Action>
       <Action Name="Template_RemoveAction" IsBound="true">
