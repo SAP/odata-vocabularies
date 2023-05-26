@@ -162,14 +162,14 @@ The template actions themselves cannot be invoked.
         <Property Name="ChangeParentAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node to a new parent, following [this template](#Template_ChangeParentAction)" />
         </Property>
-        <Property Name="MakeChildAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node to a newly-created parent, following [this template](#Template_MakeChildAction)" />
+        <Property Name="AddChildAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that moves a node to a newly-created parent, following [this template](#Template_AddChildAction)" />
         </Property>
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
-        <Property Name="MakePreviousSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node before a newly-created sibling, following [this template](#Template_MakePreviousSiblingAction)" />
+        <Property Name="ChangePreviousSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that moves a node before a newly-created sibling, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         <Property Name="RemoveAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that removes a leaf from a recursive hierarchy, following [this template](#Template_RemoveAction)" />
@@ -284,9 +284,9 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
           <Annotation Term="Core.Description" String="Key of the node's new parent (null if the node shall become a root)" />
         </Parameter>
       </Action>
-      <Action Name="Template_MakeChildAction" IsBound="true">
+      <Action Name="Template_AddChildAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node to a newly-created parent and are named in [`RecursiveHierarchy/MakeChildAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for actions that move a node to a newly-created parent and are named in [`RecursiveHierarchy/AddChildAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
           <String>The child is removed from its current parent, if any.
 
@@ -301,7 +301,7 @@ This action can be used in a JSON batch request to create a new parent for an ex
   "id": "2",
   "dependsOn": ["1"],
   "method": "post",
-  "url": "$1/MakeChildAction",
+  "url": "$1/AddChildAction",
   "body": {
     "Node": {"Name": "EMEA"}
   }
@@ -329,9 +329,9 @@ The second request inherits the hierarchy directory key 1 from the first.</Strin
           </Annotation>
         </Parameter>
       </Action>
-      <Action Name="Template_MakePreviousSiblingAction" IsBound="true">
+      <Action Name="Template_ChangePreviousSiblingAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node before a newly-created sibling and are named in [`RecursiveHierarchy/MakePreviousSiblingAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.Description" String="Template for actions that move a node before a newly-created sibling and are named in [`RecursiveHierarchy/ChangePreviousSiblingAction`](#RecursiveHierarchyType)" />
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node's new next sibling" />
         </Parameter>
