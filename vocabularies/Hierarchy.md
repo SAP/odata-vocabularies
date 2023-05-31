@@ -39,11 +39,11 @@ Parameter|Type|Description
 <a name="Template_InsertAction"></a>
 ### [Template_InsertAction](./Hierarchy.xml#L270:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
 
-Template for actions that insert a root into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
+Template for actions that insert a node into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L273:~:text=<Action%20Name="-,Template_InsertAction,-")**|EntityType|**Binding parameter:** The root to be inserted
+**[Node](./Hierarchy.xml#L273:~:text=<Action%20Name="-,Template_InsertAction,-")**|EntityType|**Binding parameter:** The entity to be inserted as a new node
 
 
 <a name="Template_RemoveAction"></a>
@@ -53,7 +53,7 @@ Template for actions that remove a node from a recursive hierarchy and are named
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L280:~:text=<Action%20Name="-,Template_RemoveAction,-")**|EntityType|**Binding parameter:** The leaf to be removed
+**[Node](./Hierarchy.xml#L280:~:text=<Action%20Name="-,Template_RemoveAction,-")**|EntityType|**Binding parameter:** The node to be removed
 
 
 
@@ -145,5 +145,5 @@ Property|Type|Description
 [MatchedDescendantCountProperty](./Hierarchy.xml#L147:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy
 [ChangeNextSiblingAction](./Hierarchy.xml#L155:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)
 [ChangePreviousSiblingAction](./Hierarchy.xml#L158:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that moves a node before a newly-created sibling, following [this template](#Template_ChangePreviousSiblingAction)
-[InsertAction](./Hierarchy.xml#L161:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that inserts a root into a recursive hierarchy, following [this template](#Template_InsertAction)
+[InsertAction](./Hierarchy.xml#L161:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)
 [RemoveAction](./Hierarchy.xml#L164:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|[QualifiedActionName?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#QualifiedActionName)|Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)

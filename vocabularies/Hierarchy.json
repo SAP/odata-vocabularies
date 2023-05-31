@@ -100,7 +100,7 @@
       "InsertAction": {
         "$Type": "Core.QualifiedActionName",
         "$Nullable": true,
-        "@Core.Description": "Action that inserts a root into a recursive hierarchy, following [this template](#Template_InsertAction)"
+        "@Core.Description": "Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)"
       },
       "RemoveAction": {
         "$Type": "Core.QualifiedActionName",
@@ -207,8 +207,10 @@
         "$Kind": "Action",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that insert a root into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
-        "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The root to be inserted" }]
+        "@Core.Description": "Template for actions that insert a node into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)",
+        "$Parameter": [
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The entity to be inserted as a new node" }
+        ]
       }
     ],
     "Template_RemoveAction": [
@@ -217,7 +219,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that remove a node from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)",
-        "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The leaf to be removed" }]
+        "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be removed" }]
       }
     ]
   }
