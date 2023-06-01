@@ -155,9 +155,6 @@ The template actions themselves cannot be invoked.
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
-        <Property Name="ChangePreviousSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node before a newly-created sibling, following [this template](#Template_ChangePreviousSiblingAction)" />
-        </Property>
         <Property Name="InsertAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)" />
         </Property>
@@ -245,25 +242,14 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchy/ChangeNextSiblingAction`](#RecursiveHierarchyType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node to be moved" />
+          <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
         <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
-          <Annotation Term="Core.Description" String="Key of the node's new next sibling (null if the node shall become the last sibling)" />
+          <Annotation Term="Core.Description" String="Key of the node's new next sibling S (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>It is an error if the `NextSibling` has a different parent than the `Node`.</String>
-          </Annotation>
-        </Parameter>
-      </Action>
-      <Action Name="Template_ChangePreviousSiblingAction" IsBound="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node before a newly-created sibling and are named in [`RecursiveHierarchy/ChangePreviousSiblingAction`](#RecursiveHierarchyType)" />
-        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node's new next sibling" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Key of the node to be moved" />
-          <Annotation Term="Core.LongDescription">
-            <String>It is an error if the `Node` has a different parent than the `NextSibling`.</String>
+            <String>next(T) = S after the action.
+            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
+            It is an error if S has a different parent than T.</String>
           </Annotation>
         </Parameter>
       </Action>
