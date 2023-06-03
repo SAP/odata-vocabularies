@@ -155,6 +155,9 @@ The template actions themselves cannot be invoked.
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
+        <Property Name="CopyAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
+        </Property>
         <Property Name="InsertAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)" />
         </Property>
@@ -252,6 +255,35 @@ The template actions themselves cannot be invoked.
             It is an error if S has a different parent than T.</String>
           </Annotation>
         </Parameter>
+      </Action>
+      <Action Name="Template_CopyAction" IsBound="true" EntitySetPath="Node">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchy/CopyAction`](#RecursiveHierarchyType)" />
+        <Annotation Term="Core.LongDescription">
+          <String>To give the copied sub-hierarchy a parent, the action invocation
+must be followed by a PATCH like in this JSON batch request:
+```json
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "HierarchyDirectory(1)/Nodes('A')/CopyAction"
+}, {
+  "id": "2",
+  "dependsOn": ["1"],
+  "method": "patch",
+  "url": "$1",
+  "body": {
+    "Superordinate@bind": {"@id": "Nodes('B')"}
+  }
+}]}
+```</String>
+        </Annotation>
+        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node to be copied" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The copied node" />
+        </ReturnType>
       </Action>
       <Action Name="Template_InsertAction" IsBound="true">
         <Annotation Term="Common.Experimental" />

@@ -92,6 +92,11 @@
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
+      "CopyAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
+      },
       "InsertAction": {
         "$Type": "Core.QualifiedActionName",
         "$Nullable": true,
@@ -178,6 +183,18 @@
             "@Core.LongDescription": "next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
+      }
+    ],
+    "Template_CopyAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "Node",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchy/CopyAction`](#RecursiveHierarchyType)",
+        "@Core.LongDescription": "To give the copied sub-hierarchy a parent, the action invocation\nmust be followed by a PATCH like in this JSON batch request:\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes('A')/CopyAction\"\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"patch\",\n  \"url\": \"$1\",\n  \"body\": {\n    \"Superordinate@bind\": {\"@id\": \"Nodes('B')\"}\n  }\n}]}\n```",
+        "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be copied" }],
+        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The copied node" }
       }
     ],
     "Template_InsertAction": [
