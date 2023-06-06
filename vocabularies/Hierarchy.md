@@ -30,8 +30,9 @@ Parameter|Type|Description
 
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchy/CopyAction`](#RecursiveHierarchyType)
 
-To give the copied sub-hierarchy a parent, the action invocation
-must be followed by a PATCH like in this JSON batch request:
+The resource path of the binding parameter MUST traverse the hierarchy collection,
+including any hierarchy directory. To give the copied sub-hierarchy a parent, the action invocation must be followed
+by a PATCH that binds the parent navigation property (`Superordinate` in the following JSON batch request).
 ```json
 {"requests": [{
   "id": "1",
@@ -50,28 +51,28 @@ must be followed by a PATCH like in this JSON batch request:
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L281:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
-[&rarr;](./Hierarchy.xml#L284:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
+**[Node](./Hierarchy.xml#L282:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
+[&rarr;](./Hierarchy.xml#L285:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
 
 
 <a name="Template_InsertAction"></a>
-### [Template_InsertAction](./Hierarchy.xml#L288:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_InsertAction](./Hierarchy.xml#L289:~:text=<Action%20Name="-,Template_InsertAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that insert a node into a recursive hierarchy and are named in [`RecursiveHierarchy/InsertAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L291:~:text=<Action%20Name="-,Template_InsertAction,-")**|EntityType|**Binding parameter:** The entity to be inserted as a new node
+**[Node](./Hierarchy.xml#L292:~:text=<Action%20Name="-,Template_InsertAction,-")**|EntityType|**Binding parameter:** The entity to be inserted as a new node
 
 
 <a name="Template_RemoveAction"></a>
-### [Template_RemoveAction](./Hierarchy.xml#L295:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_RemoveAction](./Hierarchy.xml#L296:~:text=<Action%20Name="-,Template_RemoveAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that remove a node from a recursive hierarchy and are named in [`RecursiveHierarchy/RemoveAction`](#RecursiveHierarchyType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L298:~:text=<Action%20Name="-,Template_RemoveAction,-")**|EntityType|**Binding parameter:** The node to be removed
+**[Node](./Hierarchy.xml#L299:~:text=<Action%20Name="-,Template_RemoveAction,-")**|EntityType|**Binding parameter:** The node to be removed
 
 
 

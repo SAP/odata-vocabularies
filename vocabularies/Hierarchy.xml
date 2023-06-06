@@ -260,8 +260,9 @@ The template actions themselves cannot be invoked.
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchy/CopyAction`](#RecursiveHierarchyType)" />
         <Annotation Term="Core.LongDescription">
-          <String>To give the copied sub-hierarchy a parent, the action invocation
-must be followed by a PATCH like in this JSON batch request:
+          <String>The resource path of the binding parameter MUST traverse the hierarchy collection,
+including any hierarchy directory. To give the copied sub-hierarchy a parent, the action invocation must be followed
+by a PATCH that binds the parent navigation property (`Superordinate` in the following JSON batch request).
 ```json
 {"requests": [{
   "id": "1",
