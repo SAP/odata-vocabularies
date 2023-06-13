@@ -40,8 +40,7 @@
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
         <Annotation Term="Core.LongDescription">
           <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information
-          and actions for manipulating the hierarchy.</String>
+          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
@@ -148,7 +147,7 @@ the following collections of hierarchy nodes are distinguished:
 
       <Term Name="RecursiveHierarchyActions" Type="Hierarchy.RecursiveHierarchyActionsType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Actions for hierarchy maintenance" />
+        <Annotation Term="Core.Description" String="Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)" />
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
         <Annotation Term="Core.LongDescription">
