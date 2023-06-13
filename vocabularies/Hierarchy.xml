@@ -125,23 +125,12 @@ the following collections of hierarchy nodes are distinguished:
             in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
         </Property>
-        <!--
-        <Property Name="SiblingOrderProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties that define the relative order of siblings" />
-          <Annotation Term="Core.LongDescription" String="A PATCH request on these properties changes the relative order of siblings." />
-        </Property>
-        -->
         <Property Name="Matched" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Indicator for [matching](#MatchCount) nodes" />
         </Property>
         <Property Name="MatchedDescendantCount" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
-        <!--
-        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
-        </Property>
-        -->
       </ComplexType>
 
       <Term Name="MatchCount" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
