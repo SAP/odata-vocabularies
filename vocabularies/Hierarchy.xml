@@ -37,21 +37,20 @@
 
       <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
+        <Annotation Term="Core.Description" String="Hierarchy-specific information in the result set of a hierarchical request" />
         <Annotation Term="Core.LongDescription">
           <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information for the instances in a result set.</String>
+          governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
-an occurrence of a node in the result set of a hierarchical request. When hierarchical transformations
+an occurrence of a node in the result set of a hierarchical request.
+They are derived when hierarchical transformations
 are applied whose first parameter has the annotated entity type
-and whose second parameter is the annotation qualifier,
-then these properties are derived for each node in the result set.
-Otherwise, the properties may be null.
+and whose second parameter is the annotation qualifier.
 
 For requests like
 ```
