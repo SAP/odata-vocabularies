@@ -162,6 +162,9 @@ The template actions themselves cannot be invoked.</String>
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
+        <Property Name="ChangePreviousSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
+        </Property>
         <Property Name="CopyAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
@@ -259,6 +262,21 @@ The template actions themselves cannot be invoked.</String>
           <Annotation Term="Core.LongDescription">
             <String>next(T) = S after the action.
             If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
+            It is an error if S has a different parent than T.</String>
+          </Annotation>
+        </Parameter>
+      </Action>
+      <Action Name="Template_ChangePreviousSiblingAction" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)" />
+        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node T to be moved" />
+        </Parameter>
+        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
+          <Annotation Term="Core.Description" String="Key of the node's new previous sibling S (null if the node shall become the first sibling)" />
+          <Annotation Term="Core.LongDescription">
+            <String>prev(T) = S after the action.
+            If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
           </Annotation>
         </Parameter>

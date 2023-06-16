@@ -104,6 +104,11 @@
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
+      "ChangePreviousSiblingAction": {
+        "$Type": "Core.QualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)"
+      },
       "CopyAction": {
         "$Type": "Core.QualifiedActionName",
         "$Nullable": true,
@@ -193,6 +198,24 @@
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
             "@Core.LongDescription": "next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+          }
+        ]
+      }
+    ],
+    "Template_ChangePreviousSiblingAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)",
+        "$Parameter": [
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
+          {
+            "$Name": "NextSibling",
+            "$Type": "Edm.EntityType",
+            "$Nullable": true,
+            "@Core.Description": "Key of the node's new previous sibling S (null if the node shall become the first sibling)",
+            "@Core.LongDescription": "prev(T) = S after the action.\n            If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }
