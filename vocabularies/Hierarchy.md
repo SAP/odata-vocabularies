@@ -34,7 +34,7 @@ Template for actions that move a node among its siblings and are named in [`Recu
 Parameter|Type|Description
 :--------|:---|:----------
 **[Node](./Hierarchy.xml#L272:~:text=<Action%20Name="-,Template_ChangePreviousSiblingAction,-")**|EntityType|**Binding parameter:** The node T to be moved
-[NextSibling](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_ChangePreviousSiblingAction,-")|EntityType?|Key of the node's new previous sibling S (null if the node shall become the first sibling)<br>prev(T) = S after the action. If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
+[PreviousSibling](./Hierarchy.xml#L275:~:text=<Action%20Name="-,Template_ChangePreviousSiblingAction,-")|EntityType?|Key of the node's new previous sibling S (null if the node shall become the first sibling)<br>prev(T) = S after the action. If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
 
 
 <a name="Template_CopyAction"></a>

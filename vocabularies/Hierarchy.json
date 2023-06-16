@@ -211,7 +211,7 @@
         "$Parameter": [
           { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
           {
-            "$Name": "NextSibling",
+            "$Name": "PreviousSibling",
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new previous sibling S (null if the node shall become the first sibling)",
