@@ -9,7 +9,7 @@ Terms for Hierarchies
 Term|Type|Description
 :---|:---|:----------
 [RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Hierarchy-specific information in the result set of a hierarchical request<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information.
-[MatchCount](./Hierarchy.xml#L136:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
+[MatchCount](./Hierarchy.xml#L138:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service designates a subset of the `$apply` result as "matching nodes". This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.
 
 
 ## Functions
@@ -42,12 +42,13 @@ Parameter|Type|Description
 
 
 <a name="RecursiveHierarchyType"></a>
-## [RecursiveHierarchyType](./Hierarchy.xml#L46:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
+## [RecursiveHierarchyType](./Hierarchy.xml#L47:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
 
 
 The properties in this complex type contain information about
-an occurrence of a node in the result set of a hierarchical request.
-They are derived when hierarchical transformations
+a node in the result set of a hierarchical request. If the same node occurs multiple times
+with different parents, certain properties may differ between the occurrences.
+The properties are derived when hierarchical transformations
 are applied whose first parameter has the annotated entity type
 and whose second parameter is the annotation qualifier.
 
@@ -55,7 +56,7 @@ For requests like
 ```
 SalesOrganizations?$apply=
 descendants(..., ID, filter(ID eq 'US'), keep start)
-/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)
+/ancestors(..., ID, filter(contains(Name, 'New York')), keep start)
 /Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &$top=10
 ```
@@ -79,13 +80,13 @@ the following collections of hierarchy nodes are distinguished:
 
 Property|Type|Description
 :-------|:---|:----------
-[ExternalKey](./Hierarchy.xml#L81:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Human-readable key value for a node<br>If a `NodeType` exists, the external key is unique only in combination with it. Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).
-[NodeType](./Hierarchy.xml#L88:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Type of a node<br>In a recursive hierarchy with mixed types, nodes can <br>- have a type-specific (navigation) property whose name is the node type or <br>- be represented by entities of different subtypes of a common entity type that is annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.
-[ChildCount](./Hierarchy.xml#L97:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of children a node has in the unlimited hierarchy
-[DescendantCount](./Hierarchy.xml#L100:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of descendants a node has in the unlimited hierarchy
-[LimitedDescendantCount](./Hierarchy.xml#L103:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of descendants a node has in the limited hierarchy
-[DrillState](./Hierarchy.xml#L106:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Drill state of a node<br>Possible drill states are: <br>- `expanded` if a node has children in the limited hierarchy <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy <br>- `leaf` if a node has no children in the unlimited hierarchy
-[DistanceFromRoot](./Hierarchy.xml#L115:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of ancestors a node has in the limited hierarchy<br>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.
-[SiblingRank](./Hierarchy.xml#L121:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes in the unlimited hierarchy with the same parent. The first sibling has rank 0.
-[Matched](./Hierarchy.xml#L128:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Boolean?|Indicator for [matching](#MatchCount) nodes
-[MatchedDescendantCount](./Hierarchy.xml#L131:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy
+[ExternalKey](./Hierarchy.xml#L83:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Human-readable key value for a node<br>If a `NodeType` exists, the external key is unique only in combination with it. Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).
+[NodeType](./Hierarchy.xml#L90:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Type of a node<br>In a recursive hierarchy with mixed types, nodes can <br>- have a type-specific (navigation) property whose name is the node type or <br>- be represented by entities of different subtypes of a common entity type that is annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.
+[ChildCount](./Hierarchy.xml#L99:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of children a node has in the unlimited hierarchy
+[DescendantCount](./Hierarchy.xml#L102:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of descendants a node has in the unlimited hierarchy
+[LimitedDescendantCount](./Hierarchy.xml#L105:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of descendants a node has in the limited hierarchy
+[DrillState](./Hierarchy.xml#L108:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|String?|Drill state of an occurrence of a node<br>Possible drill states are: <br>- `expanded` if a node has children in the limited hierarchy <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy <br>- `leaf` if a node has no children in the unlimited hierarchy
+[DistanceFromRoot](./Hierarchy.xml#L117:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of ancestors an occurrence of a node has in the limited hierarchy<br>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.
+[SiblingRank](./Hierarchy.xml#L123:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes in the unlimited hierarchy with the same parent. The first sibling has rank 0.
+[Matched](./Hierarchy.xml#L130:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Boolean?|Flag indicating [matching](#MatchCount) nodes
+[MatchedDescendantCount](./Hierarchy.xml#L133:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Int64?|Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy
