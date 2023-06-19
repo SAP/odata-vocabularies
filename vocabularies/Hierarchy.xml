@@ -159,6 +159,9 @@ In parameters that are defined as "Key of …", only the key properties are rele
 
 The template actions themselves cannot be invoked.</String>
         </Annotation>
+        <Property Name="MakeStartNodeAction" Type="Core.QualifiedActionName" Nullable="true">
+          <Annotation Term="Core.Description" String="Action that makes a node a start node, following [this template](#Template_MakeStartNodeAction)" />
+        </Property>
         <Property Name="ChangeNextSiblingAction" Type="Core.QualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
@@ -251,6 +254,18 @@ The template actions themselves cannot be invoked.</String>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
+      <Action Name="Template_MakeStartNodeAction" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for actions that make a node a start node and are named in [`RecursiveHierarchyActions/MakeStartNodeAction`](#RecursiveHierarchyActionsType)" />
+        <Annotation Term="Core.LongDescription">
+          <String>Depending on the definition of start node in the recursive hierarchy, this action may fail for certain nodes.
+          If the [`RecursiveHierarchy/ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+          is single-valued, the new start node loses a parent it may have had.</String>
+        </Annotation>
+        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node to be made a root" />
+        </Parameter>
+      </Action>
       <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)" />
