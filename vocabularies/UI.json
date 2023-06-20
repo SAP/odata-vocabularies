@@ -230,11 +230,7 @@
     },
     "MediaResourceType": {
       "$Kind": "ComplexType",
-      "Url": {
-        "@Core.Description": "URL of media resource",
-        "@Core.IsURL": true,
-        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
-      },
+      "Url": { "@Core.Description": "URL of media resource", "@Core.IsURL": true },
       "ContentType": {
         "$Nullable": true,
         "@Core.Description": "Content type, such as application/pdf, video/x-flv, image/jpeg",
@@ -920,11 +916,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.Facet",
       "@Core.Description": "Facet that refers to a URL",
-      "Url": {
-        "@Core.IsURL": true,
-        "@Core.Description": "URL of referenced information",
-        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
-      },
+      "Url": { "@Core.IsURL": true, "@Core.Description": "URL of referenced information" },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.IsMediaType": true,
@@ -1565,11 +1557,7 @@
       "@Core.Description": "A piece of data that allows navigating to other information on the Web",
       "@Core.LongDescription": "It should be rendered as a hyperlink",
       "Value": { "$Type": "Edm.PrimitiveType" },
-      "Url": {
-        "@Core.Description": "Target of the hyperlink",
-        "@Core.IsURL": true,
-        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
-      },
+      "Url": { "@Core.Description": "Target of the hyperlink", "@Core.IsURL": true },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.Description": "Media type of the hyperlink target, e.g. `video/mp4`",

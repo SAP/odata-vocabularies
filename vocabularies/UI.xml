@@ -276,11 +276,6 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="URL of media resource" />
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Validation.ApplicableTerms">
-            <Collection>
-              <String>HTML5.LinkTarget</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="ContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Content type, such as application/pdf, video/x-flv, image/jpeg" />
@@ -1023,11 +1018,6 @@ The trend is
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of referenced information" />
-          <Annotation Term="Validation.ApplicableTerms">
-            <Collection>
-              <String>HTML5.LinkTarget</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsMediaType" />
@@ -1724,11 +1714,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target of the hyperlink" />
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Validation.ApplicableTerms">
-            <Collection>
-              <String>HTML5.LinkTarget</String>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `video/mp4`" />

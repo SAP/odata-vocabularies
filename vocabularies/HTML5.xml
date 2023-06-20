@@ -58,6 +58,27 @@
           If the value is null or absent, the link is opened in the current browsing context.</String>
         </Annotation>
       </Term>
+      <Annotations Target="UI.MediaResourceType/Url">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>HTML5.LinkTarget</String>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="UI.ReferenceUrlFacet/Url">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>HTML5.LinkTarget</String>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="UI.DataFieldWithUrl/Url">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>HTML5.LinkTarget</String>
+          </Collection>
+        </Annotation>
+      </Annotations>
 
     </Schema>
   </edmx:DataServices>
