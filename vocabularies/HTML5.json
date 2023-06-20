@@ -51,11 +51,6 @@
         { "Value": "_parent" },
         { "Value": "_top" }
       ]
-    },
-    "$Annotations": {
-      "UI.MediaResourceType/Url": { "@Validation.ApplicableTerms": ["HTML5.LinkTarget"] },
-      "UI.ReferenceUrlFacet/Url": { "@Validation.ApplicableTerms": ["HTML5.LinkTarget"] },
-      "UI.DataFieldWithUrl/Url": { "@Validation.ApplicableTerms": ["HTML5.LinkTarget"] }
     }
   }
 }

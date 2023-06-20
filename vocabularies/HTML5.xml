@@ -78,27 +78,6 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
-      <Annotations Target="UI.MediaResourceType/Url">
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>HTML5.LinkTarget</String>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="UI.ReferenceUrlFacet/Url">
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>HTML5.LinkTarget</String>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="UI.DataFieldWithUrl/Url">
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>HTML5.LinkTarget</String>
-          </Collection>
-        </Annotation>
-      </Annotations>
 
     </Schema>
   </edmx:DataServices>
