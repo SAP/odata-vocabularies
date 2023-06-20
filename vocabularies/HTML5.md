@@ -11,6 +11,7 @@ The HTML5 vocabulary provides rendering hints for HTML5 clients
 Term|Type|Description
 :---|:---|:----------
 [CssDefaults](./HTML5.xml#L35:~:text=<Term%20Name="-,CssDefaults,-")|[CssDefaultsType](#CssDefaultsType)|<a name="CssDefaults"></a>CSS definitions that may be used as defaults<br>This term can applied to e.g. UI.DataFieldAbstract records
+[LinkTarget](./HTML5.xml#L52:~:text=<Term%20Name="-,LinkTarget,-")|String?|<a name="LinkTarget"></a>Where to open a link that follows the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)<br>Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations. The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML. If the value is null or absent, the link is opened in the current browsing context.
 
 <a name="CssDefaultsType"></a>
 ## [CssDefaultsType](./HTML5.xml#L40:~:text=<ComplexType%20Name="-,CssDefaultsType,-")

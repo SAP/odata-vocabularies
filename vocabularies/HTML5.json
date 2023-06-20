@@ -29,6 +29,13 @@
         "@Core.Description": "css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width",
         "@Core.LongDescription": "\n              The property allows all values specified for the original css width property.\n              Note that clients consuming this annotation may only support selected length units.\n            "
       }
+    },
+    "LinkTarget": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Where to open a link that follows the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)",
+      "@Core.LongDescription": "Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.\n          The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML.\n          If the value is null or absent, the link is opened in the current browsing context."
     }
   }
 }

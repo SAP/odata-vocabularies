@@ -230,7 +230,11 @@
     },
     "MediaResourceType": {
       "$Kind": "ComplexType",
-      "Url": { "@Core.Description": "URL of media resource", "@Core.IsURL": true },
+      "Url": {
+        "@Core.Description": "URL of media resource",
+        "@Core.IsURL": true,
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "ContentType": {
         "$Nullable": true,
         "@Core.Description": "Content type, such as application/pdf, video/x-flv, image/jpeg",
@@ -916,7 +920,11 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.Facet",
       "@Core.Description": "Facet that refers to a URL",
-      "Url": { "@Core.IsURL": true, "@Core.Description": "URL of referenced information" },
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL of referenced information",
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.IsMediaType": true,
@@ -1557,7 +1565,11 @@
       "@Core.Description": "A piece of data that allows navigating to other information on the Web",
       "@Core.LongDescription": "It should be rendered as a hyperlink",
       "Value": { "$Type": "Edm.PrimitiveType" },
-      "Url": { "@Core.Description": "Target of the hyperlink", "@Core.IsURL": true },
+      "Url": {
+        "@Core.Description": "Target of the hyperlink",
+        "@Core.IsURL": true,
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.Description": "Media type of the hyperlink target, e.g. `video/mp4`",
@@ -1575,14 +1587,6 @@
         "$Type": "UI.DataField",
         "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
       }
-    },
-    "LinkTarget": {
-      "$Kind": "Term",
-      "$Nullable": true,
-      "$AppliesTo": ["Property", "Parameter", "Annotation"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Where to open a link that follows the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)",
-      "@Core.LongDescription": "The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML.\n          If the value is null or absent, the link is opened in the current browsing context."
     },
     "Criticality": {
       "$Kind": "Term",
