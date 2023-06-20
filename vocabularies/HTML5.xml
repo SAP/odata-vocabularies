@@ -65,15 +65,19 @@
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="_self" />
+              <Annotation Term="Core.Description" String="Open link in the current browsing context" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="_blank" />
+              <Annotation Term="Core.Description" String="Open link in a new browsing context" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="_parent" />
+              <Annotation Term="Core.Description" String="Open link in the parent browsing context" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="_top" />
+              <Annotation Term="Core.Description" String="Open link in the top browsing context" />
             </Record>
           </Collection>
         </Annotation>

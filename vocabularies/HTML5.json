@@ -46,10 +46,10 @@
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "The values are interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML",
       "@Validation.AllowedValues": [
-        { "Value": "_self" },
-        { "Value": "_blank" },
-        { "Value": "_parent" },
-        { "Value": "_top" }
+        { "Value": "_self", "@Core.Description": "Open link in the current browsing context" },
+        { "Value": "_blank", "@Core.Description": "Open link in a new browsing context" },
+        { "Value": "_parent", "@Core.Description": "Open link in the parent browsing context" },
+        { "Value": "_top", "@Core.Description": "Open link in the top browsing context" }
       ]
     }
   }

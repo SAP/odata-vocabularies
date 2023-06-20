@@ -29,7 +29,7 @@ The values are interpreted like the [target attribute](https://html.spec.whatwg.
 
 Allowed Value|Description
 :------------|:----------
-[_self](./HTML5.xml#L66:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|
-[_blank](./HTML5.xml#L69:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|
-[_parent](./HTML5.xml#L72:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|
-[_top](./HTML5.xml#L75:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|
+[_self](./HTML5.xml#L66:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|Open link in the current browsing context
+[_blank](./HTML5.xml#L70:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|Open link in a new browsing context
+[_parent](./HTML5.xml#L74:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|Open link in the parent browsing context
+[_top](./HTML5.xml#L78:~:text=<TypeDefinition%20Name="-,LinkTargetType,-")|Open link in the top browsing context
