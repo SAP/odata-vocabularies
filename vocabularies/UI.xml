@@ -1731,6 +1731,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </ComplexType>
 
       <Term Name="LinkTarget" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter Annotation">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Where to open a link that follows the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)" />
         <Annotation Term="Core.LongDescription">
           <String>The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML.
