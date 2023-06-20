@@ -49,7 +49,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="LinkTarget" Type="Edm.String" Nullable="true">
+      <Term Name="LinkTarget" Type="HTML5.LinkTargetType" Nullable="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Where to open a link for the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)" />
         <Annotation Term="Core.LongDescription">
@@ -58,6 +58,24 @@
           If the value is null or absent, the link is opened in the current browsing context.</String>
         </Annotation>
       </Term>
+      <TypeDefinition Name="LinkTargetType" UnderlyingType="Edm.String">
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="_self" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="_blank" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="_parent" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="_top" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
       <Annotations Target="UI.MediaResourceType/Url">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
