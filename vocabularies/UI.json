@@ -1576,6 +1576,13 @@
         "@Core.Description": "Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)"
       }
     },
+    "LinkTarget": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "$AppliesTo": ["Property", "Parameter", "Annotation"],
+      "@Core.Description": "Where to open a link that follows the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)",
+      "@Core.LongDescription": "The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML.\n          If the value is null or absent, the link is opened in the current browsing context."
+    },
     "Criticality": {
       "$Kind": "Term",
       "$Type": "UI.CriticalityType",
