@@ -56,11 +56,11 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Where to open a link for the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)" />
         <Annotation Term="Core.LongDescription">
-          <String>Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.
-          The value of this annotation is interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML.</String>
+          <String>Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.</String>
         </Annotation>
       </Term>
       <TypeDefinition Name="LinkTargetType" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The values are interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
