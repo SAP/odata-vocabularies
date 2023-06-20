@@ -94,7 +94,8 @@
       "$AppliesTo": ["EntityType"],
       "$BaseTerm": "Aggregation.RecursiveHierarchy",
       "@Common.Experimental": true,
-      "@Core.Description": "Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)"
+      "@Core.Description": "Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)",
+      "@Core.LongDescription": "When this annotation is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)\n          in the base term must not have a collection-valued segment prior to its last segment."
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
@@ -197,7 +198,7 @@
         "@Core.Description": "Template for actions that make a node a start node and are named in [`RecursiveHierarchyActions/MakeStartNodeAction`](#RecursiveHierarchyActionsType)",
         "@Core.LongDescription": "Depending on the definition of start node in the recursive hierarchy, this action may fail for certain nodes.\n          If the [`RecursiveHierarchy/ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          is single-valued, the new start node loses a parent it may have had.",
         "$Parameter": [
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be made a root" }
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be made a start node" }
         ]
       }
     ],

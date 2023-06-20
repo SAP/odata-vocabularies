@@ -148,6 +148,10 @@ the following collections of hierarchy nodes are distinguished:
       <Term Name="RecursiveHierarchyActions" Type="Hierarchy.RecursiveHierarchyActionsType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)" />
+        <Annotation Term="Core.LongDescription">
+          <String>When this annotation is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)
+          in the base term must not have a collection-valued segment prior to its last segment.</String>
+        </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
         <Annotation Term="Core.LongDescription">
@@ -263,7 +267,7 @@ The template actions themselves cannot be invoked.</String>
           is single-valued, the new start node loses a parent it may have had.</String>
         </Annotation>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="The node to be made a root" />
+          <Annotation Term="Core.Description" String="The node to be made a start node" />
         </Parameter>
       </Action>
       <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
