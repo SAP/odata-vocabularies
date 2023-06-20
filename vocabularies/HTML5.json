@@ -3,6 +3,9 @@
   "$Reference": {
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
     }
   },
   "com.sap.vocabularies.HTML5.v1": {
@@ -42,10 +45,10 @@
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
       "@Validation.AllowedValues": [
-        { "Value": "_self", "@Core.Description": "Open link in the current browsing context" },
-        { "Value": "_blank", "@Core.Description": "Open link in a new browsing context" },
-        { "Value": "_parent", "@Core.Description": "Open link in the parent browsing context" },
-        { "Value": "_top", "@Core.Description": "Open link in the top browsing context" }
+        { "Value": "_self" },
+        { "Value": "_blank" },
+        { "Value": "_parent" },
+        { "Value": "_top" }
       ]
     },
     "$Annotations": {
