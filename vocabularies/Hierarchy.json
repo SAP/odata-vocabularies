@@ -99,28 +99,34 @@
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
-      "@Core.LongDescription": "The properties of this type are namespace-qualified action names that identify actions\nfor maintaining nodes in the recursive hierarchy, which are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nIn parameters that are defined as \"Key of …\", only the key properties are relevant.\n\nThe template actions themselves cannot be invoked.",
+      "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nIn parameters that are defined as \"Key of …\", only the key properties are relevant.\n\nThe template actions themselves cannot be invoked.",
       "MakeStartNodeAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that makes a node a start node, following [this template](#Template_MakeStartNodeAction)"
       },
       "ChangeNextSiblingAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
       "ChangePreviousSiblingAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)"
       },
       "CopyAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
       },
       "InsertAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)"
       },
       "RemoveAction": {
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)"
       }

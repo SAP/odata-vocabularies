@@ -1290,6 +1290,11 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "NamespaceQualifiedActionName": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "The name of an action in scope, qualified with a namespace (not an alias)"
     }
   }
 }

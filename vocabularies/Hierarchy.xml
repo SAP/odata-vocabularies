@@ -155,30 +155,30 @@ the following collections of hierarchy nodes are distinguished:
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
         <Annotation Term="Core.LongDescription">
-          <String>The properties of this type are namespace-qualified action names that identify actions
-for maintaining nodes in the recursive hierarchy, which are specific for the given annotation qualifier.
+          <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
+which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 In parameters that are defined as "Key of …", only the key properties are relevant.
 
 The template actions themselves cannot be invoked.</String>
         </Annotation>
-        <Property Name="MakeStartNodeAction" Type="Edm.String" Nullable="true">
+        <Property Name="MakeStartNodeAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that makes a node a start node, following [this template](#Template_MakeStartNodeAction)" />
         </Property>
-        <Property Name="ChangeNextSiblingAction" Type="Edm.String" Nullable="true">
+        <Property Name="ChangeNextSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
-        <Property Name="ChangePreviousSiblingAction" Type="Edm.String" Nullable="true">
+        <Property Name="ChangePreviousSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
-        <Property Name="CopyAction" Type="Edm.String" Nullable="true">
+        <Property Name="CopyAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
-        <Property Name="InsertAction" Type="Edm.String" Nullable="true">
+        <Property Name="InsertAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)" />
         </Property>
-        <Property Name="RemoveAction" Type="Edm.String" Nullable="true">
+        <Property Name="RemoveAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)" />
         </Property>
       </ComplexType>

@@ -185,8 +185,8 @@ Property|Type|Description
 ## [RecursiveHierarchyActionsType](./Hierarchy.xml#L156:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")
 
 
-The properties of this type are namespace-qualified action names that identify actions
-for maintaining nodes in the recursive hierarchy, which are specific for the given annotation qualifier.
+The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
+which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 In parameters that are defined as "Key of …", only the key properties are relevant.
@@ -195,9 +195,9 @@ The template actions themselves cannot be invoked.
 
 Property|Type|Description
 :-------|:---|:----------
-[MakeStartNodeAction](./Hierarchy.xml#L166:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that makes a node a start node, following [this template](#Template_MakeStartNodeAction)
-[ChangeNextSiblingAction](./Hierarchy.xml#L169:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)
-[ChangePreviousSiblingAction](./Hierarchy.xml#L172:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)
-[CopyAction](./Hierarchy.xml#L175:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
-[InsertAction](./Hierarchy.xml#L178:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)
-[RemoveAction](./Hierarchy.xml#L181:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|String?|Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)
+[MakeStartNodeAction](./Hierarchy.xml#L166:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that makes a node a start node, following [this template](#Template_MakeStartNodeAction)
+[ChangeNextSiblingAction](./Hierarchy.xml#L169:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)
+[ChangePreviousSiblingAction](./Hierarchy.xml#L172:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)
+[CopyAction](./Hierarchy.xml#L175:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
+[InsertAction](./Hierarchy.xml#L178:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that inserts a node into a recursive hierarchy, following [this template](#Template_InsertAction)
+[RemoveAction](./Hierarchy.xml#L181:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that removes a node from a recursive hierarchy, following [this template](#Template_RemoveAction)
