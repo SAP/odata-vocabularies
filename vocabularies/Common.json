@@ -1294,6 +1294,7 @@
     "NamespaceQualifiedActionName": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
+      "@Common.Experimental": true,
       "@Core.Description": "The name of an action in scope, qualified with a namespace (not an alias)"
     }
   }
