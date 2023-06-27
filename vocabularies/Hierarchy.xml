@@ -167,13 +167,17 @@ The template actions themselves cannot be invoked.</String>
         <Property Name="IsNode" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Whether the entity is a node in the recursive hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>This property is null if membership in the recursive hierarchy is not exposed in the metadata.</String>
+            <String>This property is null if membership in the recursive hierarchy is not exposed in the metadata.
+            Otherwise, if it is given as a dynamic expression based on an entity property, that property
+            may be changed move an entity into or out of the hierarchy.</String>
           </Annotation>
         </Property>
         <Property Name="IsStartNode" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the node is a start node for hierarchy traversal" />
+          <Annotation Term="Core.Description" String="Whether the entity is a start node for hierarchy traversal" />
           <Annotation Term="Core.LongDescription">
-            <String>The service may start traversal with additional nodes (for example, root nodes) irrespective of this property.</String>
+            <String>If this is given as a dynamic expression based on an entity property, that property
+            may be changed to make a node a start node.
+            The service may start traversal with additional nodes (for example, root nodes) irrespective of this property.</String>
           </Annotation>
         </Property>
         <Property Name="ChangeNextSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
