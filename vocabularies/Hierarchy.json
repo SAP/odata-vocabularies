@@ -99,7 +99,7 @@
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
-      "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nIn parameters that are defined as \"Key of …\", only the key properties are relevant.\n\nThe template actions themselves cannot be invoked.",
+      "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\n\nThe template actions themselves cannot be invoked.",
       "MakeStartNodeAction": {
         "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
@@ -215,7 +215,7 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
-            "@Core.LongDescription": "next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+            "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }
@@ -233,7 +233,7 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new previous sibling S (null if the node shall become the first sibling)",
-            "@Core.LongDescription": "prev(T) = S after the action.\n            If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+            "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            prev(T) = S after the action.\n            If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }
@@ -245,7 +245,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)",
-        "@Core.LongDescription": "The resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory. To give the copied sub-hierarchy a parent, the action invocation must be followed\nby a PATCH that binds the parent navigation property (for example, `Superordinate` in the following JSON batch request).\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes('A')/CopyAction\"\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"patch\",\n  \"url\": \"$1\",\n  \"body\": {\n    \"Superordinate@bind\": {\"@id\": \"Nodes('B')\"}\n  }\n}]}\n```",
+        "@Core.LongDescription": "The resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory. To give the copied sub-hierarchy a parent, the action invocation can be followed\nby a PATCH that binds the parent navigation property (for example, `Superordinate` in the following JSON batch request).\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes('A')/CopyAction\"\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"patch\",\n  \"url\": \"$1\",\n  \"body\": {\n    \"Superordinate\": {\"@id\": \"Nodes('B')\"}\n  }\n}]}\n```",
         "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be copied" }],
         "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The copied node" }
       }
