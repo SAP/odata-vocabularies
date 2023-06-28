@@ -104,13 +104,13 @@
         "$Type": "Edm.Boolean",
         "$Nullable": true,
         "@Core.Description": "Whether the entity is a node in the recursive hierarchy",
-        "@Core.LongDescription": "This property is null if membership in the recursive hierarchy is not exposed in the metadata.\n            Otherwise, if it is given as a dynamic expression based on an entity property, that property\n            may be changed move an entity into or out of the hierarchy."
+        "@Core.LongDescription": "This property is null or absent if membership in the recursive hierarchy is not exposed.\n            Otherwise, if it is given as a dynamic expression based on an entity property, that property\n            may be changed to move an entity into or out of the hierarchy."
       },
       "IsStartNode": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
-        "@Core.Description": "Whether the entity is a start node for hierarchy traversal",
-        "@Core.LongDescription": "If this is given as a dynamic expression based on an entity property, that property\n            may be changed to make a node a start node.\n            The service may start traversal with additional nodes (for example, root nodes) irrespective of this property."
+        "@Core.Description": "Whether the entity is a start node for hierarchy traversal by [`TopLevels`](#TopLevels)",
+        "@Core.LongDescription": "This property is null or absent if being a start node is not exposed.\n            Otherwise, if it is given as a dynamic expression based on an entity property, that property\n            may be changed to make a node a start node.\n            The service may start traversal with additional nodes (for example, root nodes) irrespective of this property."
       },
       "ChangeNextSiblingAction": {
         "$Type": "Common.NamespaceQualifiedActionName",
