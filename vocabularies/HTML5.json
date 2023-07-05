@@ -3,6 +3,9 @@
   "$Reference": {
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
     }
   },
   "com.sap.vocabularies.HTML5.v1": {
@@ -29,6 +32,25 @@
         "@Core.Description": "css: width, see https://www.w3.org/TR/CSS21/visudet.html#propdef-width",
         "@Core.LongDescription": "\n              The property allows all values specified for the original css width property.\n              Note that clients consuming this annotation may only support selected length units.\n            "
       }
+    },
+    "LinkTarget": {
+      "$Kind": "Term",
+      "$Type": "HTML5.LinkTargetType",
+      "$DefaultValue": "_self",
+      "@Common.Experimental": true,
+      "@Core.Description": "Where to open a link for the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)",
+      "@Core.LongDescription": "When the UI contains a link to the URL, it shall open as specified by this annotation.\n          This can be achieved, for example, by giving the UI5 `sap.m.Link` element a corresponding `target` property.\n          Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations."
+    },
+    "LinkTargetType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "The values are interpreted like the [target attribute](https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target) in HTML",
+      "@Validation.AllowedValues": [
+        { "Value": "_self", "@Core.Description": "Open link in the current browsing context" },
+        { "Value": "_blank", "@Core.Description": "Open link in a new browsing context" },
+        { "Value": "_parent", "@Core.Description": "Open link in the parent browsing context" },
+        { "Value": "_top", "@Core.Description": "Open link in the top browsing context" }
+      ]
     }
   }
 }
