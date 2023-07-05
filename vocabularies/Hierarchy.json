@@ -100,27 +100,10 @@
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory.\n\nThe template actions themselves cannot be invoked.",
-      "IsNode": {
-        "$Type": "Edm.Boolean",
-        "$Nullable": true,
-        "@Core.Description": "Whether the entity is a node in the recursive hierarchy",
-        "@Core.LongDescription": "This property is null or absent if membership in the recursive hierarchy is not exposed.\n            Otherwise, if it is given as a dynamic expression based on an entity property, that property\n            may be changed to move an entity into or out of the hierarchy."
-      },
-      "IsStartNode": {
-        "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
-        "@Core.Description": "Whether the entity is a start node for hierarchy traversal by [`TopLevels`](#TopLevels)",
-        "@Core.LongDescription": "This property is null or absent if being a start node is not exposed.\n            Otherwise, if it is given as a dynamic expression based on an entity property, that property\n            may be changed to make a node a start node.\n            The service may start traversal with additional nodes (for example, root nodes) irrespective of this property."
-      },
       "ChangeNextSiblingAction": {
         "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
-      },
-      "ChangePreviousSiblingAction": {
-        "$Type": "Common.NamespaceQualifiedActionName",
-        "$Nullable": true,
-        "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)"
       },
       "CopyAction": {
         "$Type": "Common.NamespaceQualifiedActionName",
@@ -201,24 +184,6 @@
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
             "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
-          }
-        ]
-      }
-    ],
-    "Template_ChangePreviousSiblingAction": [
-      {
-        "$Kind": "Action",
-        "$IsBound": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)",
-        "$Parameter": [
-          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
-          {
-            "$Name": "PreviousSibling",
-            "$Type": "Edm.EntityType",
-            "$Nullable": true,
-            "@Core.Description": "Key of the node's new previous sibling S (null if the node shall become the first sibling)",
-            "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            prev(T) = S after the action.\n            If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }
