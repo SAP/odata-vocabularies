@@ -583,7 +583,6 @@
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "Core.SimpleIdentifier",
-      "@Common.Experimental": true,
       "@Core.Description": "List of qualifiers of relevant ValueList annotations",
       "@Core.LongDescription": "The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties."
     },
@@ -597,7 +596,6 @@
     "ValueListForValidation": {
       "$Kind": "Term",
       "$AppliesTo": ["Property", "Parameter"],
-      "@Common.Experimental": true,
       "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
     },
     "ValueListReferences": {

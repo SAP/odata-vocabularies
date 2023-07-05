@@ -692,7 +692,6 @@ The minimum structure is
       </TypeDefinition>
 
       <Term Name="ValueListRelevantQualifiers" Type="Collection(Core.SimpleIdentifier)" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="List of qualifiers of relevant ValueList annotations" />
         <Annotation Term="Core.LongDescription" String="The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties." />
       </Term>
@@ -702,7 +701,6 @@ The minimum structure is
       </Term>
 
       <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
       </Term>
 
