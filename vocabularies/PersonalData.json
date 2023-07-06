@@ -34,18 +34,16 @@
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "DataSubjectRoleDescription": {
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.IsLanguageDependent": true,
       "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "EntitySemanticsType": {
       "$Kind": "TypeDefinition",
