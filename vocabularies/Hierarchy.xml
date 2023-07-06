@@ -133,6 +133,9 @@ the following collections of hierarchy nodes are distinguished:
         <Property Name="MatchedDescendantCount" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
+        <Property Name="Cycle" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="There is a cycle from this occurrence of a node to the node itself following the [`Aggregation.UpPath`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#UpPath)" />
+        </Property>
       </ComplexType>
 
       <Term Name="MatchCount" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
