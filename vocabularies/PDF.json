@@ -80,13 +80,13 @@
         "$Nullable": true,
         "@Core.Description": "Maximum result size",
         "@Core.LongDescription": "Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum"
-     },	 
-	 "IANATimezoneFormat": {
+      },
+      "IANATimezoneFormat": {
         "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
+        "$Nullable": true,
         "@Core.Description": "Formatting DateTimeOffset in IANA-time zone supported",
-        "@Core.LongDescription": "DateTimeOffset can be formatted in user's IANA time zone or by a defined time zone-property."		  
-	  }
+        "@Core.LongDescription": "DateTimeOffset can be formatted in user's IANA time zone or by a defined time zone-property."
+      }
     }
   }
 }
