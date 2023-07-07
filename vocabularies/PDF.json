@@ -83,7 +83,6 @@
       },
       "IANATimezoneFormat": {
         "$Type": "Edm.Boolean",
-        "$Nullable": true,
         "@Core.Description": "Formatting DateTimeOffset in IANA-time zone supported",
         "@Core.LongDescription": "DateTimeOffset can be formatted in user's IANA time zone or by a defined time zone-property."
       }
