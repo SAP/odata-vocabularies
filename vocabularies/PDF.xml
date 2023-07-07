@@ -99,6 +99,12 @@
             <String>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum</String>
           </Annotation>
         </Property>
+        <Property Name="IANATimezoneFormat" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="Formatting DateTimeOffset in IANA-time zone supported" />
+          <Annotation Term="Core.LongDescription">
+            <String>DateTimeOffset can be formatted in user's IANA time zone or by a defined time zone-property.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
     </Schema>
