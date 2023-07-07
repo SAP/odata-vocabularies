@@ -1452,6 +1452,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <TypeDefinition Name="NamespaceQualifiedActionName" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The name of an action in scope, qualified with a namespace (not an alias)" />
+      </TypeDefinition>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

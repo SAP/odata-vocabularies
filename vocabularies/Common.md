@@ -427,3 +427,9 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 **Type:** String
 
 User ID
+
+<a name="NamespaceQualifiedActionName"></a>
+## [NamespaceQualifiedActionName](./Common.xml#L1455:~:text=<TypeDefinition%20Name="-,NamespaceQualifiedActionName,-") *([Experimental](Common.md#Experimental))*
+**Type:** String
+
+The name of an action in scope, qualified with a namespace (not an alias)
