@@ -26,11 +26,22 @@
     },
     "FeaturesType": {
       "$Kind": "ComplexType",
+      "DocumentDescriptionLocation": {
+        "$Type": "PDF.DocumentDescriptionLocation",
+        "$Nullable": true,
+        "$DefaultValue": 0,
+        "@Core.Description": "Whether the document description is given in an entity set or in a request header",
+        "@Core.LongDescription": "If value is 'entitySet', also set property 'DocumentDescriptionReference' and 'DocumentDescriptionCollection'. If value is 'header', set request header 'SAP-Document-Description' to base64-encoded JSON string of the document description."
+      },
       "DocumentDescriptionReference": {
+        "$Nullable": true,
         "@Core.IsURL": true,
         "@Core.Description": "Reference of the Service for the DocumentDescription"
       },
-      "DocumentDescriptionCollection": { "@Core.Description": "Name of entity set containing the DocumentDescription" },
+      "DocumentDescriptionCollection": {
+        "$Nullable": true,
+        "@Core.Description": "Name of entity set containing the DocumentDescription"
+      },
       "ArchiveFormat": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
@@ -81,6 +92,13 @@
         "@Core.Description": "Maximum result size",
         "@Core.LongDescription": "Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum"
       }
+    },
+    "DocumentDescriptionLocation": {
+      "$Kind": "EnumType",
+      "entitySet": 0,
+      "entitySet@Core.Description": "Document description is given as entity set",
+      "header": 1,
+      "header@Core.Description": "Document description is given in a request header"
     }
   }
 }
