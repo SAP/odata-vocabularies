@@ -17,9 +17,9 @@
   "HTML5.examples": {
     "$Annotations": {
       "service.DemoType": {
-        "@SAP__UI.LineItem": [
+        "@UI.LineItem": [
           {
-            "@odata.type": "#SAP__UI.DataFieldWithUrl",
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithUrl",
             "Value": { "$Path": "url" },
             "Url@HTML5.LinkTarget": "_blank",
             "Url": { "$Path": "url" }

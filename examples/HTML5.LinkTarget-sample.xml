@@ -16,9 +16,9 @@
     <Schema Namespace="HTML5.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <Annotations Target="service.DemoType">
-        <Annotation Term="SAP__UI.LineItem">
+        <Annotation Term="UI.LineItem">
           <Collection>
-            <Record Type="SAP__UI.DataFieldWithUrl">
+            <Record Type="UI.DataFieldWithUrl">
               <PropertyValue Property="Value" Path="url" />
               <PropertyValue Property="Url" Path="url">
                 <Annotation Term="HTML5.LinkTarget" String="_blank" />
