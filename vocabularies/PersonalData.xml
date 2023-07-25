@@ -110,7 +110,7 @@ Terms for contact and address information are defined in the [Communication voca
 
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
-        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log." />
+        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data." />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Primary meaning of a data field" />
