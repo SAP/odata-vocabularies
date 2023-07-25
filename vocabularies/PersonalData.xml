@@ -59,19 +59,17 @@ Terms for contact and address information are defined in the [Communication voca
         <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
       </Term>
       <Term Name="DataSubjectRole" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
       <Term Name="DataSubjectRoleDescription" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsLanguageDependent" />
         <Annotation Term="Core.Description" String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
