@@ -74,7 +74,7 @@
       "$Type": "PersonalData.FieldSemanticsType",
       "$AppliesTo": ["Property"],
       "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
-      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
+      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log."
     },
     "FieldSemanticsType": {
       "$Kind": "TypeDefinition",
