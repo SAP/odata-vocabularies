@@ -83,8 +83,7 @@
       },
       "IANATimezoneFormat": {
         "$Type": "Edm.Boolean",
-        "@Core.Description": "Formatting DateTimeOffset in IANA-time zone supported",
-        "@Core.LongDescription": "DateTimeOffset can be formatted in user's IANA time zone or by a defined time zone-property."
+        "@Core.Description": "If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description"
       }
     }
   }
