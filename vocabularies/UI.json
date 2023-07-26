@@ -230,7 +230,11 @@
     },
     "MediaResourceType": {
       "$Kind": "ComplexType",
-      "Url": { "@Core.Description": "URL of media resource", "@Core.IsURL": true },
+      "Url": {
+        "@Core.Description": "URL of media resource",
+        "@Core.IsURL": true,
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "ContentType": {
         "$Nullable": true,
         "@Core.Description": "Content type, such as application/pdf, video/x-flv, image/jpeg",
@@ -916,7 +920,11 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.Facet",
       "@Core.Description": "Facet that refers to a URL",
-      "Url": { "@Core.IsURL": true, "@Core.Description": "URL of referenced information" },
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL of referenced information",
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.IsMediaType": true,
@@ -1220,7 +1228,6 @@
     "Placeholder": {
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
-      "@Common.Experimental": true,
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
     },
@@ -1557,7 +1564,11 @@
       "@Core.Description": "A piece of data that allows navigating to other information on the Web",
       "@Core.LongDescription": "It should be rendered as a hyperlink",
       "Value": { "$Type": "Edm.PrimitiveType" },
-      "Url": { "@Core.Description": "Target of the hyperlink", "@Core.IsURL": true },
+      "Url": {
+        "@Core.Description": "Target of the hyperlink",
+        "@Core.IsURL": true,
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "UrlContentType": {
         "$Nullable": true,
         "@Core.Description": "Media type of the hyperlink target, e.g. `video/mp4`",

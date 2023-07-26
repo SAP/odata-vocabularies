@@ -34,18 +34,16 @@
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "DataSubjectRoleDescription": {
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.IsLanguageDependent": true,
       "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "EntitySemanticsType": {
       "$Kind": "TypeDefinition",
@@ -74,7 +72,7 @@
       "$Type": "PersonalData.FieldSemanticsType",
       "$AppliesTo": ["Property"],
       "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
-      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
+      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data."
     },
     "FieldSemanticsType": {
       "$Kind": "TypeDefinition",
