@@ -40,11 +40,17 @@
       </Term>
 
       <ComplexType Name="FeaturesType">
-        <Property Name="DocumentDescriptionReference" Type="Edm.String" Nullable="false">
+        <Property Name="DocumentDescriptionLocation" Type="PDF.DocumentDescriptionLocation" DefaultValue="0">
+          <Annotation Term="Core.Description" String="Whether the document description is given in an entity set or in a request header" />
+          <Annotation Term="Core.LongDescription">
+            <String>If value is 'entitySet', also set property 'DocumentDescriptionReference' and 'DocumentDescriptionCollection'. If value is 'header', set request header 'SAP-Document-Description' to base64-encoded JSON string of the document description.</String>
+          </Annotation>
+        </Property>
+        <Property Name="DocumentDescriptionReference" Type="Edm.String">
           <Annotation Term="Core.IsURL" Bool="true" />
           <Annotation Term="Core.Description" String="Reference of the Service for the DocumentDescription" />
         </Property>
-        <Property Name="DocumentDescriptionCollection" Type="Edm.String" Nullable="false">
+        <Property Name="DocumentDescriptionCollection" Type="Edm.String">
           <Annotation Term="Core.Description" String="Name of entity set containing the DocumentDescription" />
         </Property>
         <Property Name="ArchiveFormat" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -100,6 +106,14 @@
           </Annotation>
         </Property>
       </ComplexType>
+      <EnumType Name="DocumentDescriptionLocation">
+        <Member Name="entitySet" Value="0">
+          <Annotation Term="Core.Description" String="Document description is given as entity set" />
+        </Member>
+        <Member Name="header" Value="1">
+          <Annotation Term="Core.Description" String="Document description is given in a request header" />
+        </Member>
+      </EnumType>
 
     </Schema>
   </edmx:DataServices>
