@@ -103,6 +103,7 @@
           <Annotation Term="Core.Description" String="If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description" />
         </Property>
         <Property Name="Treeview" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Treeview output supported" />
           <Annotation Term="Core.LongDescription">
             <String>If this is true, treeview output is supported for hierarchical data</String>
