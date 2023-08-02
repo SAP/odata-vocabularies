@@ -84,7 +84,13 @@
       "IANATimezoneFormat": {
         "$Type": "Edm.Boolean",
         "@Core.Description": "If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description"
-      }
+      },
+      "Treeview": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Treeview output supported",
+        "@Core.LongDescription": "If this is true, treeview output is supported for hierarchical data"
+      },
     }
   }
 }
