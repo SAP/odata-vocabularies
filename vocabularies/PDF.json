@@ -87,6 +87,7 @@
       },
       "Treeview": {
         "$Type": "Edm.Boolean",
+        "@Common.Experimental": true,
         "@Core.Description": "Treeview output supported",
         "@Core.LongDescription": "If this is true, treeview output is supported for hierarchical data"
       }
