@@ -33,3 +33,4 @@ Property|Type|Description
 [ResultSizeDefault](./PDF.xml#L90:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Default result size<br>Default result size for PDF documents. Used if $top has not been provided.
 [ResultSizeMaximum](./PDF.xml#L96:~:text=<ComplexType%20Name="-,FeaturesType,-")|Int32?|Maximum result size<br>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum
 [IANATimezoneFormat](./PDF.xml#L102:~:text=<ComplexType%20Name="-,FeaturesType,-")|Boolean|If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description
+[Treeview](./PDF.xml#L105:~:text=<ComplexType%20Name="-,FeaturesType,-") *([Experimental](Common.md#Experimental))*|Boolean|Treeview output supported<br>If this is true, treeview output is supported for hierarchical data
