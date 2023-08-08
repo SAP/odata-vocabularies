@@ -47,13 +47,13 @@
           <Annotation Term="Core.Description" String="Aggregate entity with updates applied" />
         </ReturnType>
       </Action>
-      <Action Name="RetrieveAggregateSales">
+      <Function Name="RetrieveAggregateSales">
         <Annotation Term="Core.Description" String="Retrieves an aggregate entity of type `SalesModel.Sale`" />
         <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="String identifying the aggregate entity to be retrieved" />
         </Parameter>
         <ReturnType Type="SalesModel.Sale" Nullable="false" />
-      </Action>
+      </Function>
       <EntityContainer Name="container">
         <EntitySet Name="Sales" EntityType="SalesModel.Sale">
           <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />

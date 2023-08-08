@@ -173,10 +173,10 @@
         <Annotation Term="Core.Description" String="Function and action for retrieving and updating an aggregate entity" />
         <Annotation Term="Core.LongDescription">
           <String>Transient entities that result from the application of a transformation sequence represent an
-          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Aggr], first example in simple grouping section).
+          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Data-Agg-v4.0], first example in simple grouping section).
           Such a transient entity may be annotated with this term to describe&lt;br&gt;
-          - a service-defined function that can be used to retrieve the transient entity in order to `$expand` additional properties&lt;br&gt;
-          - a service-defined action that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate
+          - a service-defined function import that can be used to retrieve the transient entity in order to `$expand` additional properties&lt;br&gt;
+          - a service-defined action import that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate
           the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
         </Annotation>
         <Annotation Term="Core.Example">
@@ -195,7 +195,7 @@
         <Property Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Value that the first parameter of the function or action invocation must have" />
           <Annotation Term="Core.LongDescription">
-            <String>String value of the first parameter, which identifies the aggregate that the transient entity represents.
+            <String>This string value identifies the aggregate that the transient entity represents.
             This value MUST be treated as opaque by the client.</String>
           </Annotation>
         </Property>

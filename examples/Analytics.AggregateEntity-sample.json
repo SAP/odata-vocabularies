@@ -50,7 +50,7 @@
     ],
     "RetrieveAggregateSales": [
       {
-        "$Kind": "Action",
+        "$Kind": "Function",
         "@Core.Description": "Retrieves an aggregate entity of type `SalesModel.Sale`",
         "$Parameter": [
           { "$Name": "Aggregate", "@Core.Description": "String identifying the aggregate entity to be retrieved" }
