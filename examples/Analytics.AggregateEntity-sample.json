@@ -36,7 +36,7 @@
     "UpdateAggregateSales": [
       {
         "$Kind": "Action",
-        "@Core.Description": "Updates an aggregate entity of type `SalesModel.Sale`",
+        "@Core.Description": "Updates an aggregate entity in the `Sales` entity set",
         "$Parameter": [
           { "$Name": "Aggregate", "@Core.Description": "String identifying the aggregate entity to be updated" },
           {
@@ -51,7 +51,7 @@
     "RetrieveAggregateSales": [
       {
         "$Kind": "Function",
-        "@Core.Description": "Retrieves an aggregate entity of type `SalesModel.Sale`",
+        "@Core.Description": "Retrieves an aggregate entity in the `Sales` entity set",
         "$Parameter": [
           { "$Name": "Aggregate", "@Core.Description": "String identifying the aggregate entity to be retrieved" }
         ],

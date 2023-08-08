@@ -36,7 +36,7 @@
         <NavigationProperty Name="Customer" Type="SalesModel.Customer"/>
       </EntityType>
       <Action Name="UpdateAggregateSales">
-        <Annotation Term="Core.Description" String="Updates an aggregate entity of type `SalesModel.Sale`" />
+        <Annotation Term="Core.Description" String="Updates an aggregate entity in the `Sales` entity set" />
         <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="String identifying the aggregate entity to be updated" />
         </Parameter>
@@ -48,7 +48,7 @@
         </ReturnType>
       </Action>
       <Function Name="RetrieveAggregateSales">
-        <Annotation Term="Core.Description" String="Retrieves an aggregate entity of type `SalesModel.Sale`" />
+        <Annotation Term="Core.Description" String="Retrieves an aggregate entity in the `Sales` entity set" />
         <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="String identifying the aggregate entity to be retrieved" />
         </Parameter>
