@@ -12,6 +12,9 @@
       <Annotations Target="timezone.sample.WorkerTimeSheet/ClockInDateTime">
         <Annotation Term="Common.Timezone" Path="ClockInTimezone" />
       </Annotations>
+      <Annotations Target="timezone.sample.WorkerTimeSheet/ClockInTimezone">
+        <Annotation Term="Common.IsTimezone" />
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>      

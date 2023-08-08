@@ -1004,6 +1004,7 @@ The trend is
               <String>UI.KPI</String>
               <String>UI.LineItem</String>
               <String>UI.MediaResource</String>
+              <String>UI.Note</String>
               <String>UI.PresentationVariant</String>
               <String>UI.SelectionFields</String>
               <String>UI.SelectionPresentationVariant</String>
@@ -1372,7 +1373,11 @@ The trend is
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
-        <Annotation Term="Core.LongDescription" String="If used for a single property the Common.Text annotation is annotated" />
+        <Annotation Term="Core.LongDescription">
+          <String>This term annotates one of the following:&lt;br&gt;
+          (1) a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text&lt;br&gt;
+          (2) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type.</String>
+        </Annotation>
       </Term>
       <EnumType Name="TextArrangementType">
         <Member Name="TextFirst">
@@ -1388,6 +1393,59 @@ The trend is
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
+
+      <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Administrative data is given by the annotations
+          [`Common.CreatedBy`](Common.md#CreatedBy),
+          [`Common.CreatedAt`](Common.md#CreatedAt),
+          [`Common.ChangedBy`](Common.md#ChangedBy),
+          [`Common.ChangedAt`](Common.md#ChangedAt)
+          on the same entity type.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="NoteType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the note" />
+          <Annotation Term="Core.LongDescription">
+            <String>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with
+            an annotation on the property targeted by `@UI.Note/Title`.</String>
+          </Annotation>
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>UI.Hidden</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Content" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Content of the note, as a string" />
+          <Annotation Term="Core.LongDescription">
+            <String>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and
+            may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`,
+            another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier)
+            determines the language of the note.</String>
+          </Annotation>
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>Core.MediaType</String>
+              <String>Core.IsLanguageDependent</String>
+              <String>Common.SAPObjectNodeTypeReference</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Type" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="A type used for grouping notes" />
+        </Property>
+        <Property Name="MaximalLength" Type="Edm.Int32" Nullable="true">
+          <Annotation Term="Core.Description" String="Type-specific maximal length of the content of the note" />
+        </Property>
+        <Property Name="MultipleNotes" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the type allows multiple notes for one object" />
+        </Property>
+      </ComplexType>
 
       <Term Name="Importance" Type="UI.ImportanceType" Nullable="false" AppliesTo="Annotation Record">
         <Annotation Term="Core.Description" String="Expresses the importance of e.g. a DataField or an annotation" />
@@ -1446,6 +1504,12 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
           The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all.
           If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.</String>
         </Annotation>
+      </Term>
+
+      <Term Name="AdaptationHidden" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntitySet EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization" />
+        <Annotation Term="Core.LongDescription" String="The tagged elements can only be used in UI based on metadata, annnotations or code." />
       </Term>
 
       <Term Name="DataFieldDefault" Type="UI.DataFieldAbstract" Nullable="false" AppliesTo="Property">
@@ -1526,8 +1590,8 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
       <ComplexType Name="DataFieldForAction" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="Triggers an OData action" />
         <Annotation Term="Core.LongDescription" String="The action is NOT tied to a data value (in contrast to [DataFieldWithAction](#DataFieldWithAction))." />
-        <Property Name="Action" Type="Common.ActionOverload" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
+        <Property Name="Action" Type="UI.ActionName" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         </Property>
         <Property Name="InvocationGrouping" Type="UI.OperationGroupingType">
           <Annotation Term="Core.Description" String="Expresses how invocations of this action on multiple instances should be grouped" />
@@ -1545,9 +1609,9 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
       <ComplexType Name="DataFieldForIntentBasedNavigation" BaseType="UI.DataFieldForActionAbstract">
         <Annotation Term="Core.Description" String="Triggers intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
-          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          <String>The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
-It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."</String>
+It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).</String>
         </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
@@ -1607,15 +1671,15 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action" />
         <Annotation Term="Core.LongDescription" String="The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value." />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="Action" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of an Action, Function, ActionImport or FunctionImport in scope" />
+        <Property Name="Action" Type="UI.ActionName" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />
         <Annotation Term="Core.LongDescription">
-          <String>The navigation intent is is expressed as a Semantic Object and optionally an Action on that object.
+          <String>The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
 It is tied to a data value which should be rendered as a hyperlink.
 This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBasedNavigation) which is not tied to a specific data value.</String>
@@ -1772,6 +1836,18 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
       </Term>
+
+      <TypeDefinition Name="ActionName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
+        <Annotation Term="Core.LongDescription">
+          <String>Possible values are
+        
+- Qualified name of an action or function (`foo.bar`)
+- Qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
+- Simple name of an action import or function import of the annotated service (`quux`)
+- Qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)</String>
+        </Annotation>
+      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>

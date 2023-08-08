@@ -12,7 +12,8 @@
       "ClockInTimezone": { "$Nullable": true }
     },
     "$Annotations": {
-      "timezone.sample.WorkerTimeSheet/ClockInDateTime": { "@Common.Timezone": { "$Path": "ClockInTimezone" } }
+      "timezone.sample.WorkerTimeSheet/ClockInDateTime": { "@Common.Timezone": { "$Path": "ClockInTimezone" } },
+      "timezone.sample.WorkerTimeSheet/ClockInTimezone": { "@Common.IsTimezone": true }
     }
   }
 }
