@@ -1,0 +1,29 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "recommendation.sample": {
+    "WorkerTimeSheet": {
+      "$Kind": "EntityType",
+      "ClockInDateTime": { "$Type": "Edm.DateTimeOffset", "$Nullable": true, "$Precision": 0 },
+      "ClockInTimezone": { "$Nullable": true },
+      "ClockInTimezone_Recommendation": { "$Type": "recommendation.sample.Recommendation", "$Nullable": true }
+    },
+    "Recommendation": {
+      "$Kind": "ComplexType",
+      "value": { "$Type": "Edm.PrimitiveType" },
+      "text": { "$Type": "Text", "$Nullable": true },
+      "alternatives": { "$Collection": true }
+    },
+    "$Annotations": {
+      "recommendation.sample.WorkerTimeSheet/ClockInTimezone": {
+        "@Common.Recommendation@Common.Text": { "$Path": "ClickInTimezone_Recommendation/text" },
+        "@Common.Recommendation": { "$Path": "ClickInTimezone_Recommendation/value" },
+        "@Common.RecommendationAlternatives": { "$Path": "ClickInTimezone_Recommendation/alternatives" }
+      }
+    }
+  }
+}

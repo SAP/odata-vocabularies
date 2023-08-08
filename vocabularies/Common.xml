@@ -1450,6 +1450,20 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="Recommendation" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A recommended value for this property" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Text</String>
+          </Collection>
+        </Annotation>
+      </Term>
+      <Term Name="RecommendationAlternatives" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Alternative recommended values for this property" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

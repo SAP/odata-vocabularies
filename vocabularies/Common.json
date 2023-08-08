@@ -1288,6 +1288,21 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "Recommendation": {
+      "$Kind": "Term",
+      "$Type": "Edm.PrimitiveType",
+      "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A recommended value for this property",
+      "@Validation.ApplicableTerms": ["Common.Text"]
+    },
+    "RecommendationAlternatives": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Alternative recommended values for this property"
     }
   }
 }

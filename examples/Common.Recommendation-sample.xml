@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="recommendation.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="WorkerTimeSheet">
+        <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="ClockInTimezone" Type="Edm.String" />
+        <Property Name="ClockInTimezone_Recommendation" Type="recommendation.sample.Recommendation" />
+      </EntityType>
+      <ComplexType Name="Recommendation">
+        <Property Name="value" Type="Edm.PrimitiveType" Nullable="false" />
+        <Property Name="text" Type="Text" />
+        <Property Name="alternatives" Type="Collection(Edm.String)" Nullable="false" />
+      </ComplexType>
+      <Annotations Target="recommendation.sample.WorkerTimeSheet/ClockInTimezone">
+        <Annotation Term="Common.Recommendation" Path="ClickInTimezone_Recommendation/value">
+          <Annotation Term="Common.Text" Path="ClickInTimezone_Recommendation/text" />
+        </Annotation>
+        <Annotation Term="Common.RecommendationAlternatives" Path="ClickInTimezone_Recommendation/alternatives" />
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
