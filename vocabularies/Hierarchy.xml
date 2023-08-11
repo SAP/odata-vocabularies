@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/JSON.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.JSON.v1" Alias="JSON" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy">
@@ -232,20 +235,20 @@ The template actions themselves cannot be invoked.</String>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
+        <Parameter Name="Expand" Type="JSON.JSON" Nullable="false">
+          <Annotation Term="Core.Description" String="Nested Javascript object whose member names are identifiers of nodes to be expanded" />
+          <Annotation Term="Core.LongDescription">
+            <String>The members of the object A must have as value null or another object that follows the same rule, possibly empty.
+            Given a sequence of node identifiers N1,...,Nm, the node reached by descending from the root via nodes identified by N1,...,Nm
+            &lt;br&gt;- must be expanded if A[N1]...[Nm] is an empty object, even if that leads beyond level n
+            &lt;br&gt;- must be collapsed if A[N1]...[Nm] = null.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>

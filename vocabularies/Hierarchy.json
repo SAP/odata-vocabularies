@@ -9,6 +9,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/JSON.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.JSON.v1", "$Alias": "JSON" }]
     }
   },
   "com.sap.vocabularies.Hierarchy.v1": {
@@ -150,20 +153,15 @@
           },
           {
             "$Name": "Expand",
-            "$Collection": true,
-            "@Core.Description": "Identifiers of nodes to be expanded",
+            "$Type": "JSON.JSON",
+            "@Core.Description": "Nested Javascript object whose member names are identifiers of nodes to be expanded",
+            "@Core.LongDescription": "The members of the object A must have as value null or another object that follows the same rule, possibly empty.\n            Given a sequence of node identifiers N1,...,Nm, the node reached by descending from the root via nodes identified by N1,...,Nm\n            <br>- must be expanded if A[N1]...[Nm] is an empty object, even if that leads beyond level n\n            <br>- must be collapsed if A[N1]...[Nm] = null.",
             "@Core.OptionalParameter": {}
           },
           {
             "$Name": "Show",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be shown",
-            "@Core.OptionalParameter": {}
-          },
-          {
-            "$Name": "Collapse",
-            "$Collection": true,
-            "@Core.Description": "Identifiers of nodes to be collapsed",
             "@Core.OptionalParameter": {}
           }
         ],
