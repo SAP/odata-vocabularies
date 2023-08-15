@@ -155,7 +155,7 @@
             "$Name": "Expand",
             "$Type": "JSON.JSON",
             "@Core.Description": "Nested Javascript object whose member names are identifiers of nodes to be expanded",
-            "@Core.LongDescription": "The members of the object A must have as value a number or another object that follows the same rule, possibly empty.\n            Given a sequence of node identifiers N1,...,Nk such that A[N1]...[Nk] = m is an integer, the nodes on a descending path\n            N1,...,Nk must be expanded, and Nk must be expanded m levels deep, even if that leads beyond level n.\n            If m = 0, then Nk must be collapsed.",
+            "@Core.LongDescription": "The members of the object A must have as value a number or another object that follows the same rule, possibly empty.\n            Given a sequence of node identifiers N1,...,Nk such that A[N1]...[Nk] = m is an integer, the nodes occurring on a descending path\n            N1,...,Nk must be expanded, and Nk must be expanded m levels deep, even if that leads beyond level n.\n            If m = 0, then Nk must be collapsed. For each occurrence, only the longest sequence leading to it is considered.",
             "@Core.OptionalParameter": {}
           },
           {
