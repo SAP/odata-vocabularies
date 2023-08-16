@@ -1678,7 +1678,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 
       <ComplexType Name="DataFieldWithAction" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action" />
-        <Annotation Term="Core.LongDescription" String="The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value." />
+        <Annotation Term="Core.LongDescription" String="The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value." />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Action" Type="UI.ActionName" Nullable="false">
           <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
