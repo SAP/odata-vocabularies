@@ -977,7 +977,7 @@ Property|Type|Description
 ## [DataFieldWithAction](./UI.xml#L1679:~:text=<ComplexType%20Name="-,DataFieldWithAction,-"): [DataField](#DataField)
 A piece of data that allows triggering an OData action
 
-The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.
+The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value.
 
 Property|Type|Description
 :-------|:---|:----------
