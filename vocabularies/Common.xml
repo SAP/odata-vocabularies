@@ -1450,23 +1450,31 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="Recommendations" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
+      <TypeDefinition Name="NamespaceQualifiedActionName" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated function or action retrieves AI-based recommendations (see [template](#Template_GetRecommendations))" />
+        <Annotation Term="Core.Description" String="The name of an action in scope, qualified with a namespace (not an alias)" />
+      </TypeDefinition>
+
+      <Term Name="GetRecommendationsAction" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type" />
       </Term>
-      <Function Name="Template_GetRecommendations">
+      <Action Name="Template_GetRecommendationsAction">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for functions that retrieve AI-based recommendations for an entity and its related entities" />
+        <Annotation Term="Core.Description" String="Template for actions that retrieve AI-based recommendations for an entity and its related entities" />
+        <Annotation Term="Core.LongDescription">
+          <String>The template action itself cannot be invoked.</String>
+        </Annotation>
         <Parameter Name="EntityKeys" Type="Edm.ComplexType" Nullable="false">
           <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The nested complex type of this parameter has the same structure as the entity type of the root object
+            <String>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation
             and its related entity types, but contains only their key properties.
-            If this parameter is too long to be included in a URL, an action can be used instead of a function.</String>
+            If this parameter can be included in a URL, a function can be used instead of an action.</String>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.RecommendationPropertyType)" Nullable="false" />
-      </Function>
+      </Action>
       <ComplexType Name="RecommendationPropertyType">
         <Annotation Term="Common.Experimental" />
         <Property Name="target" Type="Edm.String" Nullable="false">

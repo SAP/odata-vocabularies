@@ -1289,25 +1289,30 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "Recommendations": {
-      "$Kind": "Term",
-      "$Type": "Core.Tag",
-      "$DefaultValue": true,
-      "$AppliesTo": ["Action", "Function"],
+    "NamespaceQualifiedActionName": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
       "@Common.Experimental": true,
-      "@Core.Description": "The annotated function or action retrieves AI-based recommendations (see [template](#Template_GetRecommendations))"
+      "@Core.Description": "The name of an action in scope, qualified with a namespace (not an alias)"
     },
-    "Template_GetRecommendations": [
+    "GetRecommendationsAction": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type"
+    },
+    "Template_GetRecommendationsAction": [
       {
-        "$Kind": "Function",
+        "$Kind": "Action",
         "@Common.Experimental": true,
-        "@Core.Description": "Template for functions that retrieve AI-based recommendations for an entity and its related entities",
+        "@Core.Description": "Template for actions that retrieve AI-based recommendations for an entity and its related entities",
+        "@Core.LongDescription": "The template action itself cannot be invoked.",
         "$Parameter": [
           {
             "$Name": "EntityKeys",
             "$Type": "Edm.ComplexType",
             "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
-            "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type of the root object\n            and its related entity types, but contains only their key properties.\n            If this parameter is too long to be included in a URL, an action can be used instead of a function."
+            "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation\n            and its related entity types, but contains only their key properties.\n            If this parameter can be included in a URL, a function can be used instead of an action."
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Common.RecommendationPropertyType" }
