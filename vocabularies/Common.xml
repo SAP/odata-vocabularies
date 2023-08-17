@@ -1450,11 +1450,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <TypeDefinition Name="NamespaceQualifiedActionName" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The name of an action in scope, qualified with a namespace (not an alias)" />
-      </TypeDefinition>
-
       <Term Name="GetRecommendationsAction" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type" />
@@ -1466,7 +1461,8 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <String>The template action itself cannot be invoked.</String>
         </Annotation>
         <Parameter Name="EntityKeys" Type="Edm.ComplexType" Nullable="false">
-          <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
+          <Annotation Term="Core.Description" String="Neste
+          d structure containing the keys of entities for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
             <String>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation
             and its related entity types, but contains only their key properties.
