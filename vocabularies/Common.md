@@ -110,6 +110,26 @@ Term|Type|Description
 [mediaUploadLink](./Common.xml#L1427:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](./Common.xml#L1442:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1447:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
+[Recommendations](./Common.xml#L1453:~:text=<Term%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Recommendations"></a>The annotated function or action retrieves AI-based recommendations (see [template](#Template_GetRecommendations))
+
+
+## Functions
+
+<a name="Template_GetRecommendations"></a>
+### [Template_GetRecommendations](./Common.xml#L1457:~:text=<Function%20Name="-,Template_GetRecommendations,-") *([Experimental](Common.md#Experimental))*
+
+Template for functions that retrieve AI-based recommendations for an entity and its related entities
+
+Recommendations are retrieved for the entity given in the binding parameter and for those
+          related entities whose keys are provided in parameter `EntityKeys`. If that parameter is too long to be
+          included in a URL, an action can be used instead of a function.
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[Entity](./Common.xml#L1465:~:text=<Function%20Name="-,Template_GetRecommendations,-")**|EntityType|**Binding parameter:** Entity for which to retrieve recommendations
+*[EntityKeys](./Common.xml#L1468:~:text=<Function%20Name="-,Template_GetRecommendations,-")*|ComplexType|*Optional parameter:* Nested structure containing the keys of entities that related to `Entity` and for which recommendations shall also be retrieved<br>The nested complex type of this parameter has the same structure as the entity type of the binding parameter but contains only the key properties.
+[&rarr;](./Common.xml#L1478:~:text=<Function%20Name="-,Template_GetRecommendations,-")|\[[RecommendationPropertyType](#RecommendationPropertyType)\]|
+
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](./Common.xml#L116:~:text=<EnumType%20Name="-,TextFormatType,-")
@@ -427,3 +447,31 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 **Type:** String
 
 User ID
+
+<a name="RecommendationPropertyType"></a>
+## [RecommendationPropertyType](./Common.xml#L1480:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[target](./Common.xml#L1482:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|String|Target for this recommendation, like the `target` in [`Messages`](#Messages)
+[proposal](./Common.xml#L1485:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|[RecommendationProposalType](#RecommendationProposalType)|
+
+<a name="RecommendationProposalType"></a>
+## [RecommendationProposalType](./Common.xml#L1487:~:text=<ComplexType%20Name="-,RecommendationProposalType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[value](./Common.xml#L1489:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
+[text](./Common.xml#L1490:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
+[alternatives](./Common.xml#L1491:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|
+
+<a name="AlternativeRecommendationType"></a>
+## [AlternativeRecommendationType](./Common.xml#L1493:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[value](./Common.xml#L1495:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|
+[score](./Common.xml#L1496:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|
