@@ -124,8 +124,8 @@ The template action itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|ComplexType|Neste d structure containing the keys of entities for which recommendations shall be retrieved<br>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
-[&rarr;](./Common.xml#L1472:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|\[[RecommendationPropertyType](#RecommendationPropertyType)\]|
+[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|ComplexType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
+[&rarr;](./Common.xml#L1471:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|\[[RecommendationPropertyType](#RecommendationPropertyType)\]|
 
 
 <a name="TextFormatType"></a>
@@ -446,29 +446,29 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 User ID
 
 <a name="RecommendationPropertyType"></a>
-## [RecommendationPropertyType](./Common.xml#L1474:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationPropertyType](./Common.xml#L1473:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[target](./Common.xml#L1476:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|String|Target for this recommendation, like the `target` in [`Messages`](#Messages)
-[proposal](./Common.xml#L1479:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|[RecommendationProposalType](#RecommendationProposalType)|
+[target](./Common.xml#L1475:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|String|Target for this recommendation, like the `target` in [`Messages`](#Messages)
+[proposal](./Common.xml#L1478:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|[RecommendationProposalType](#RecommendationProposalType)|
 
 <a name="RecommendationProposalType"></a>
-## [RecommendationProposalType](./Common.xml#L1481:~:text=<ComplexType%20Name="-,RecommendationProposalType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationProposalType](./Common.xml#L1480:~:text=<ComplexType%20Name="-,RecommendationProposalType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1483:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
-[text](./Common.xml#L1484:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
-[alternatives](./Common.xml#L1485:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|
+[value](./Common.xml#L1482:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
+[text](./Common.xml#L1483:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
+[alternatives](./Common.xml#L1484:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|
 
 <a name="AlternativeRecommendationType"></a>
-## [AlternativeRecommendationType](./Common.xml#L1487:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeRecommendationType](./Common.xml#L1486:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1489:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|
-[score](./Common.xml#L1490:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|
+[value](./Common.xml#L1488:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|
+[score](./Common.xml#L1489:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|
