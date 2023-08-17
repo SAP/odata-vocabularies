@@ -27,7 +27,7 @@
         <String>Terms for presenting data in user interfaces</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>The SAP UI Vocabulary aims to optimize usage of data in UI channels.
+        <String>foobar The SAP UI Vocabulary aims to optimize usage of data in UI channels.
 It focuses on usage patterns of data in UIs, not on UI patterns, and it is completely independent of the
 UI technologies or devices used to visualize the data.
 
