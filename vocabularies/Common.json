@@ -1300,22 +1300,14 @@
     "Template_GetRecommendations": [
       {
         "$Kind": "Function",
-        "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that retrieve AI-based recommendations for an entity and its related entities",
-        "@Core.LongDescription": "Recommendations are retrieved for the entity given in the binding parameter and for those\n          related entities whose keys are provided in parameter `EntityKeys`. If that parameter is too long to be\n          included in a URL, an action can be used instead of a function.",
         "$Parameter": [
-          {
-            "$Name": "Entity",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "Entity for which to retrieve recommendations"
-          },
           {
             "$Name": "EntityKeys",
             "$Type": "Edm.ComplexType",
-            "@Core.Description": "Nested structure containing the keys of entities that related to `Entity` and for which recommendations shall also be retrieved",
-            "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type of the binding\n            parameter but contains only the key properties.",
-            "@Core.OptionalParameter": {}
+            "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
+            "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type of the root object\n            and its related entity types, but contains only their key properties.\n            If this parameter is too long to be included in a URL, an action can be used instead of a function."
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Common.RecommendationPropertyType" }

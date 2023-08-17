@@ -1454,25 +1454,15 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The annotated function or action retrieves AI-based recommendations (see [template](#Template_GetRecommendations))" />
       </Term>
-      <Function Name="Template_GetRecommendations" IsBound="true">
+      <Function Name="Template_GetRecommendations">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that retrieve AI-based recommendations for an entity and its related entities" />
-        <Annotation Term="Core.LongDescription">
-          <String>Recommendations are retrieved for the entity given in the binding parameter and for those
-          related entities whose keys are provided in parameter `EntityKeys`. If that parameter is too long to be
-          included in a URL, an action can be used instead of a function.</String>
-        </Annotation>
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Entity for which to retrieve recommendations" />
-        </Parameter>
         <Parameter Name="EntityKeys" Type="Edm.ComplexType" Nullable="false">
-          <Annotation Term="Core.Description" String="Nested structure containing the keys of entities that related to `Entity` and for which recommendations shall also be retrieved" />
+          <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The nested complex type of this parameter has the same structure as the entity type of the binding
-            parameter but contains only the key properties.</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
+            <String>The nested complex type of this parameter has the same structure as the entity type of the root object
+            and its related entity types, but contains only their key properties.
+            If this parameter is too long to be included in a URL, an action can be used instead of a function.</String>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.RecommendationPropertyType)" Nullable="false" />
