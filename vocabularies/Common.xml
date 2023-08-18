@@ -1450,11 +1450,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="GetRecommendationsAction" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
+      <Term Name="RecommendationsAction" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type" />
+        <Annotation Term="Core.Description" String="Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_RecommendationsAction)) for an entity of the annotated type" />
       </Term>
-      <Action Name="Template_GetRecommendationsAction">
+      <Action Name="Template_RecommendationsAction">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that retrieve AI-based recommendations for an entity and its related entities" />
         <Annotation Term="Core.LongDescription">
@@ -1468,25 +1468,31 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
             If this parameter can be included in a URL, a function can be used instead of an action.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Common.RecommendationPropertyType)" Nullable="false" />
+        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false" />
       </Action>
-      <ComplexType Name="RecommendationPropertyType">
+      <ComplexType Name="PropertyRecommendationType">
         <Annotation Term="Common.Experimental" />
         <Property Name="target" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target for this recommendation, like the `target` in [`Messages`](#Messages)" />
         </Property>
-        <Property Name="proposal" Type="Common.RecommendationProposalType" Nullable="false" />
-      </ComplexType>
-      <ComplexType Name="RecommendationProposalType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="value" Type="Edm.String" Nullable="false" />
-        <Property Name="text" Type="Edm.String" Nullable="false" />
-        <Property Name="alternatives" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false" />
+        <Property Name="value" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Recommended value, converted to string" />
+        </Property>
+        <Property Name="text" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the recommended value" />
+        </Property>
+        <Property Name="alternatives" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Alternative recommendations" />
+        </Property>
       </ComplexType>
       <ComplexType Name="AlternativeRecommendationType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="value" Type="Edm.String" Nullable="false" />
-        <Property Name="score" Type="Edm.Decimal" Scale="variable" Nullable="true" />
+        <Property Name="value" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
+        </Property>
+        <Property Name="score" Type="Edm.Decimal" Scale="variable" Nullable="true">
+          <Annotation Term="Core.Description" String="Score of the alternatively recommended value" />
+        </Property>
       </ComplexType>
     </Schema>
   </edmx:DataServices>

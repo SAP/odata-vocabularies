@@ -110,13 +110,13 @@ Term|Type|Description
 [mediaUploadLink](./Common.xml#L1427:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](./Common.xml#L1442:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1447:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
-[GetRecommendationsAction](./Common.xml#L1453:~:text=<Term%20Name="-,GetRecommendationsAction,-") *([Experimental](Common.md#Experimental))*|String|<a name="GetRecommendationsAction"></a>Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type
+[RecommendationsAction](./Common.xml#L1453:~:text=<Term%20Name="-,RecommendationsAction,-") *([Experimental](Common.md#Experimental))*|String|<a name="RecommendationsAction"></a>Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_RecommendationsAction)) for an entity of the annotated type
 
 
 ## Actions
 
-<a name="Template_GetRecommendationsAction"></a>
-### [Template_GetRecommendationsAction](./Common.xml#L1457:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-") *([Experimental](Common.md#Experimental))*
+<a name="Template_RecommendationsAction"></a>
+### [Template_RecommendationsAction](./Common.xml#L1457:~:text=<Action%20Name="-,Template_RecommendationsAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that retrieve AI-based recommendations for an entity and its related entities
 
@@ -124,8 +124,8 @@ The template action itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|ComplexType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
-[&rarr;](./Common.xml#L1471:~:text=<Action%20Name="-,Template_GetRecommendationsAction,-")|\[[RecommendationPropertyType](#RecommendationPropertyType)\]|
+[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_RecommendationsAction,-")|ComplexType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
+[&rarr;](./Common.xml#L1471:~:text=<Action%20Name="-,Template_RecommendationsAction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|
 
 
 <a name="TextFormatType"></a>
@@ -445,30 +445,22 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 
 User ID
 
-<a name="RecommendationPropertyType"></a>
-## [RecommendationPropertyType](./Common.xml#L1473:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-") *([Experimental](Common.md#Experimental))*
+<a name="PropertyRecommendationType"></a>
+## [PropertyRecommendationType](./Common.xml#L1473:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[target](./Common.xml#L1475:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|String|Target for this recommendation, like the `target` in [`Messages`](#Messages)
-[proposal](./Common.xml#L1478:~:text=<ComplexType%20Name="-,RecommendationPropertyType,-")|[RecommendationProposalType](#RecommendationProposalType)|
-
-<a name="RecommendationProposalType"></a>
-## [RecommendationProposalType](./Common.xml#L1480:~:text=<ComplexType%20Name="-,RecommendationProposalType,-") *([Experimental](Common.md#Experimental))*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[value](./Common.xml#L1482:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
-[text](./Common.xml#L1483:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|String|
-[alternatives](./Common.xml#L1484:~:text=<ComplexType%20Name="-,RecommendationProposalType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|
+[target](./Common.xml#L1475:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Target for this recommendation, like the `target` in [`Messages`](#Messages)
+[value](./Common.xml#L1478:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
+[text](./Common.xml#L1481:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
+[alternatives](./Common.xml#L1484:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|Alternative recommendations
 
 <a name="AlternativeRecommendationType"></a>
-## [AlternativeRecommendationType](./Common.xml#L1486:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeRecommendationType](./Common.xml#L1488:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1488:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|
-[score](./Common.xml#L1489:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|
+[value](./Common.xml#L1490:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
+[score](./Common.xml#L1493:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Score of the alternatively recommended value

@@ -1289,13 +1289,13 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "GetRecommendationsAction": {
+    "RecommendationsAction": {
       "$Kind": "Term",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_GetRecommendationsAction)) for an entity of the annotated type"
+      "@Core.Description": "Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_RecommendationsAction)) for an entity of the annotated type"
     },
-    "Template_GetRecommendationsAction": [
+    "Template_RecommendationsAction": [
       {
         "$Kind": "Action",
         "@Common.Experimental": true,
@@ -1309,27 +1309,30 @@
             "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation\n            and its related entity types, but contains only their key properties.\n            If this parameter can be included in a URL, a function can be used instead of an action."
           }
         ],
-        "$ReturnType": { "$Collection": true, "$Type": "Common.RecommendationPropertyType" }
+        "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }
       }
     ],
-    "RecommendationPropertyType": {
+    "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "target": { "@Core.Description": "Target for this recommendation, like the `target` in [`Messages`](#Messages)" },
-      "proposal": { "$Type": "Common.RecommendationProposalType" }
-    },
-    "RecommendationProposalType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "value": {},
-      "text": {},
-      "alternatives": { "$Collection": true, "$Type": "Common.AlternativeRecommendationType" }
+      "value": { "@Core.Description": "Recommended value, converted to string" },
+      "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
+      "alternatives": {
+        "$Collection": true,
+        "$Type": "Common.AlternativeRecommendationType",
+        "@Core.Description": "Alternative recommendations"
+      }
     },
     "AlternativeRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "value": {},
-      "score": { "$Type": "Edm.Decimal", "$Nullable": true }
+      "value": { "@Core.Description": "Alternatively recommended value, converted to string" },
+      "score": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Score of the alternatively recommended value"
+      }
     }
   }
 }
