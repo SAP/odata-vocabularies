@@ -1460,10 +1460,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.LongDescription">
           <String>The template action itself cannot be invoked.</String>
         </Annotation>
-        <Parameter Name="EntityKeys" Type="Edm.ComplexType" Nullable="false">
+        <Parameter Name="EntityKeys" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation
+            <String>This parameter has the same structure as the entity type bearing the [`RecommendationsAction`](#RecommendationsAction) annotation
             and its related entity types, but contains only their key properties.
             If this parameter can be included in a URL, a function can be used instead of an action.</String>
           </Annotation>

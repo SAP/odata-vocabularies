@@ -1304,9 +1304,9 @@
         "$Parameter": [
           {
             "$Name": "EntityKeys",
-            "$Type": "Edm.ComplexType",
+            "$Type": "Edm.EntityType",
             "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
-            "@Core.LongDescription": "The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation\n            and its related entity types, but contains only their key properties.\n            If this parameter can be included in a URL, a function can be used instead of an action."
+            "@Core.LongDescription": "This parameter has the same structure as the entity type bearing the [`RecommendationsAction`](#RecommendationsAction) annotation\n            and its related entity types, but contains only their key properties.\n            If this parameter can be included in a URL, a function can be used instead of an action."
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }

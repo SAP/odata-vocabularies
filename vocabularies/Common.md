@@ -124,7 +124,7 @@ The template action itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_RecommendationsAction,-")|ComplexType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>The nested complex type of this parameter has the same structure as the entity type bearing the [`GetRecommendationsAction`](#GetRecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
+[EntityKeys](./Common.xml#L1463:~:text=<Action%20Name="-,Template_RecommendationsAction,-")|EntityType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>This parameter has the same structure as the entity type bearing the [`RecommendationsAction`](#RecommendationsAction) annotation and its related entity types, but contains only their key properties. If this parameter can be included in a URL, a function can be used instead of an action.
 [&rarr;](./Common.xml#L1471:~:text=<Action%20Name="-,Template_RecommendationsAction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|
 
 
