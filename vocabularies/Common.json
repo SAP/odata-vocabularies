@@ -1289,24 +1289,52 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "RecommendationsAction": {
-      "$Kind": "Term",
-      "$AppliesTo": ["EntityType"],
+    "NamespaceQualifiedActionName": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
       "@Common.Experimental": true,
-      "@Core.Description": "Name of an action (or function) import that retrieves AI-based recommendations (see [template](#Template_RecommendationsAction)) for an entity of the annotated type"
+      "@Core.Description": "The name of an action in scope, qualified with a namespace (not an alias)"
+    },
+    "Recommendations": {
+      "$Kind": "Term",
+      "$Type": "Common.RecommendationsType",
+      "$AppliesTo": ["EntitySet", "Singleton", "Collection"],
+      "@Core.AppliesViaContainer": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "AI-based recommendations for entities in the annotation target"
+    },
+    "RecommendationsType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Action": {
+        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Nullable": true,
+        "@Core.Description": "Name of an action (or function) that retrieves recommendations (see [template](#Template_RecommendationsAction))"
+      },
+      "Dependencies": {
+        "$Collection": true,
+        "$Type": "Common.RecommendationsDependency",
+        "@Core.Description": "Predictors for each recommendation target"
+      }
     },
     "Template_RecommendationsAction": [
       {
         "$Kind": "Action",
+        "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for actions that retrieve AI-based recommendations for an entity and its related entities",
+        "@Core.Description": "Template for actions that retrieve AI-based recommendations for the bound entity and its related entities",
         "@Core.LongDescription": "The template action itself cannot be invoked.",
         "$Parameter": [
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "Entity relative to which the `EntityKeys` are interpreted"
+          },
           {
             "$Name": "EntityKeys",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
-            "@Core.LongDescription": "This parameter has the same structure as the entity type bearing the [`RecommendationsAction`](#RecommendationsAction) annotation\n            and its related entity types, but contains only their key properties.\n            If this parameter can be included in a URL, a function can be used instead of an action."
+            "@Core.LongDescription": "This parameter has the same structure as the binding parameter\n            and its related entity types, but contains only their key properties.\n            If this parameter does not exceed the URL size, a function can be used instead of an action."
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }
@@ -1315,7 +1343,7 @@
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "target": { "@Core.Description": "Target for this recommendation, like the `target` in [`Messages`](#Messages)" },
+      "target": { "@Core.Description": "Target for this recommendation, format tbd" },
       "value": { "@Core.Description": "Recommended value, converted to string" },
       "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
       "alternatives": {
