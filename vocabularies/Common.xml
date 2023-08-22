@@ -1482,8 +1482,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
             <String>This parameter has the same structure as the binding parameter
-            and its related entity types, but contains only their key properties.
-            If this parameter does not exceed the URL size, a function can be used instead of an action.</String>
+and its related entity types, but contains only their key properties.
+The keys given in this parameter identify entities that are equal or related to the entity
+given in the binding parameter and for which recommendations shall be retrieved.&lt;br&gt;
+The value `{"SalesOrder": "A", "_Items": [{"SalesOrderItem": "010"}]}`
+means that recommendations are to be retrieved for header and item 010, whereas
+`{"_Items": [{"SalesOrder": "A", "SalesOrderItem": "010"}]}`
+means that recommendations are to be retrieved for item 010 only.&lt;br&gt;
+If this parameter does not exceed the URL size, a function can be used instead of an action.</String>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false" />

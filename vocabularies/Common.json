@@ -1334,7 +1334,7 @@
             "$Name": "EntityKeys",
             "$Type": "Edm.EntityType",
             "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
-            "@Core.LongDescription": "This parameter has the same structure as the binding parameter\n            and its related entity types, but contains only their key properties.\n            If this parameter does not exceed the URL size, a function can be used instead of an action."
+            "@Core.LongDescription": "This parameter has the same structure as the binding parameter\nand its related entity types, but contains only their key properties.\nThe keys given in this parameter identify entities that are equal or related to the entity\ngiven in the binding parameter and for which recommendations shall be retrieved.<br>\nThe value `{\"SalesOrder\": \"A\", \"_Items\": [{\"SalesOrderItem\": \"010\"}]}`\nmeans that recommendations are to be retrieved for header and item 010, whereas\n`{\"_Items\": [{\"SalesOrder\": \"A\", \"SalesOrderItem\": \"010\"}]}`\nmeans that recommendations are to be retrieved for item 010 only.<br>\nIf this parameter does not exceed the URL size, a function can be used instead of an action."
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }
