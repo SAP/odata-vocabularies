@@ -1450,11 +1450,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <TypeDefinition Name="NamespaceQualifiedActionName" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The name of an action in scope, qualified with a namespace (not an alias)" />
-      </TypeDefinition>
-
       <Term Name="Recommendations" Type="Common.RecommendationsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Common.Experimental" />
@@ -1462,8 +1457,8 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
       <ComplexType Name="RecommendationsType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Action" Type="Common.NamespaceQualifiedActionName">
-          <Annotation Term="Core.Description" String="Name of an action (or function) that retrieves recommendations (see [template](#Template_RecommendationsAction))" />
+        <Property Name="Action" Type="Common.QualifiedName">
+          <Annotation Term="Core.Description" String="Qualified name of an action (or function) that retrieves recommendations (see [template](#Template_RecommendationsAction))" />
         </Property>
         <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)">
           <Annotation Term="Core.Description" String="Predictors for each recommendation target" />

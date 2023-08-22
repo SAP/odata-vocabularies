@@ -1289,12 +1289,6 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "NamespaceQualifiedActionName": {
-      "$Kind": "TypeDefinition",
-      "$UnderlyingType": "Edm.String",
-      "@Common.Experimental": true,
-      "@Core.Description": "The name of an action in scope, qualified with a namespace (not an alias)"
-    },
     "Recommendations": {
       "$Kind": "Term",
       "$Type": "Common.RecommendationsType",
@@ -1307,9 +1301,9 @@
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "Action": {
-        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Name of an action (or function) that retrieves recommendations (see [template](#Template_RecommendationsAction))"
+        "@Core.Description": "Qualified name of an action (or function) that retrieves recommendations (see [template](#Template_RecommendationsAction))"
       },
       "Dependencies": {
         "$Collection": true,
