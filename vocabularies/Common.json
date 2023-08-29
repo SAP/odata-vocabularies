@@ -1292,23 +1292,32 @@
     "Recommendations": {
       "$Kind": "Term",
       "$Type": "Common.RecommendationsType",
-      "$AppliesTo": ["EntitySet", "Singleton", "Collection"],
-      "@Core.AppliesViaContainer": true,
+      "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "AI-based recommendations for entities in the annotation target"
+      "@Core.Description": "AI-based recommendations for entities of the annotated type"
     },
     "RecommendationsType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "Function": {
         "$Type": "Common.QualifiedName",
-        "$Nullable": true,
         "@Core.Description": "Qualified name of a function that retrieves recommendations (see [template](#Template_RecommendationsFunction))"
       },
       "Dependencies": {
         "$Collection": true,
         "$Type": "Common.RecommendationsDependency",
-        "@Core.Description": "Predictors for each recommendation target"
+        "@Core.Description": "Predictors for each recommendation target",
+        "@Core.LongDescription": "The instances in this collection must differ in their `TargetProperty`."
+      }
+    },
+    "RecommendationsDependency": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "TargetProperty": { "$Type": "Edm.PropertyPath", "@Core.Description": "Property targeted by a recommendation" },
+      "Predictors": {
+        "$Collection": true,
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "Properties on which the recommendations for the `TargetProperty` depend"
       }
     },
     "Template_RecommendationsFunction": [

@@ -1450,18 +1450,29 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="Recommendations" Type="Common.RecommendationsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
-        <Annotation Term="Core.AppliesViaContainer" />
+      <Term Name="Recommendations" Type="Common.RecommendationsType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="AI-based recommendations for entities in the annotation target" />
+        <Annotation Term="Core.Description" String="AI-based recommendations for entities of the annotated type" />
       </Term>
       <ComplexType Name="RecommendationsType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Function" Type="Common.QualifiedName">
+        <Property Name="Function" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of a function that retrieves recommendations (see [template](#Template_RecommendationsFunction))" />
         </Property>
-        <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)">
+        <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)" Nullable="false">
           <Annotation Term="Core.Description" String="Predictors for each recommendation target" />
+          <Annotation Term="Core.LongDescription">
+            <String>The instances in this collection must differ in their `TargetProperty`.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RecommendationsDependency">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="TargetProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property targeted by a recommendation" />
+        </Property>
+        <Property Name="Predictors" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties on which the recommendations for the `TargetProperty` depend" />
         </Property>
       </ComplexType>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
