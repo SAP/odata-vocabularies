@@ -9,9 +9,6 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
-    },
-    "https://sap.github.io/odata-vocabularies/vocabularies/JSON.json": {
-      "$Include": [{ "$Namespace": "com.sap.vocabularies.JSON.v1", "$Alias": "JSON" }]
     }
   },
   "com.sap.vocabularies.Hierarchy.v1": {
@@ -153,9 +150,9 @@
           },
           {
             "$Name": "Expand",
-            "$Type": "JSON.JSON",
-            "@Core.Description": "Nested Javascript object whose member names are identifiers of nodes to be expanded",
-            "@Core.LongDescription": "The members of the object A must have as value a number or another object that follows the same rule, possibly empty.\n            Given a sequence of node identifiers N1,...,Nk such that A[N1]...[Nk] = m is an integer, the nodes occurring on a descending path\n            from the top level via nodes N1,...,Nk must be expanded, and Nk must be expanded m levels deep, even if that leads beyond level n.\n            If m = 0, then Nk must be collapsed.",
+            "$Collection": true,
+            "$Type": "Hierarchy.TopLevelsExpandType",
+            "@Core.Description": "Nodes to be expanded",
             "@Core.OptionalParameter": {}
           },
           {
@@ -168,6 +165,16 @@
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
+    "TopLevelsExpandType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "NodeID": { "@Core.Description": "Identifier of a node to be expanded" },
+      "Levels": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
+      }
+    },
     "Template_ChangeNextSiblingAction": [
       {
         "$Kind": "Action",
