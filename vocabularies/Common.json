@@ -78,10 +78,10 @@
     "ExternalID": {
       "$Kind": "Term",
       "$Nullable": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
-      "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-      "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
+      "@Core.Description": "A human readable identifier for values of the annotated property or parameter. Value MUST be a dynamic expression when used as metadata annotation.",
+      "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource.\n            There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id.\n            The annotation of a parameter refers to a property of the operation binding parameter."
     },
     "IsLanguageIdentifier": {
       "$Kind": "Term",
