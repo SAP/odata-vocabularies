@@ -1299,7 +1299,7 @@
     "RecommendationsType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "ComputeFunction": {
+      "Function": {
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))"
       },

@@ -465,7 +465,7 @@ User ID
 
 Property|Type|Description
 :-------|:---|:----------
-[ComputeFunction](./Common.xml#L1459:~:text=<ComplexType%20Name="-,RecommendationsType,-")|[QualifiedName](#QualifiedName)|Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))
+[Function](./Common.xml#L1459:~:text=<ComplexType%20Name="-,RecommendationsType,-")|[QualifiedName](#QualifiedName)|Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))
 [Dependencies](./Common.xml#L1462:~:text=<ComplexType%20Name="-,RecommendationsType,-")|\[[RecommendationsDependency](#RecommendationsDependency)\]|Predictors for each recommendation target<br>The instances in this collection must differ in their `TargetProperty`.
 
 <a name="RecommendationsDependency"></a>

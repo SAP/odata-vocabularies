@@ -1456,7 +1456,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
       <ComplexType Name="RecommendationsType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="ComputeFunction" Type="Common.QualifiedName" Nullable="false">
+        <Property Name="Function" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))" />
         </Property>
         <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)" Nullable="false">
