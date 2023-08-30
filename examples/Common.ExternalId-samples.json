@@ -33,7 +33,7 @@
         "$Kind": "Action",
         "$IsBound": true,
         "$Parameter": [
-          { "$Name": "it", "$Type": "this.SalesOrder_Type", "$Nullable": true },
+          { "$Name": "it", "$Type": "this.SalesOrder_Type" },
           { "$Name": "PurchaseOrderId", "$Type": "Edm.Guid", "$Nullable": true }
         ],
         "$ReturnType": { "$Type": "this.SalesOrder_Type", "$Nullable": true }
