@@ -37,8 +37,8 @@
         <Annotation Term="Core.Description" String="Original data type of the annotated property in its source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalDataType" String="CHAR(000010)" />
+          <Record Type="Core.PrimitiveExampleValue">
+            <PropertyValue Property="Value" String="CHAR(000010)" />
           </Record>
         </Annotation>
       </Term>
@@ -47,8 +47,8 @@
         <Annotation Term="Core.Description" String="Original name of the annotated model element in its source model" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local names to Edm identifiers, which may require removing or replacing characters that are not allowed." />
         <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.OriginalName" String="what::is-in.a/name?" />
+          <Record Type="Core.PrimitiveExampleValue">
+            <PropertyValue Property="Value" String="what::is-in.a/name?" />
           </Record>
         </Annotation>
       </Term>
@@ -57,8 +57,8 @@
         <Annotation Term="Core.Description" String="Identifier that describes the special output conversion of the annotated property in the source system" />
         <Annotation Term="Core.LongDescription" String="The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition." />
         <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="com.sap.vocabularies.DataIntegration.v1.ConversionExit" String="ALPHA" />
+          <Record Type="Core.PrimitiveExampleValue">
+            <PropertyValue Property="Value" String="ALPHA" />
           </Record>
         </Annotation>
       </Term>

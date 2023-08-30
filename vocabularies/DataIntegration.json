@@ -29,20 +29,29 @@
       "$AppliesTo": ["Property"],
       "@Core.Description": "Original data type of the annotated property in its source system",
       "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
-      "@Core.Example": { "@DataIntegration.OriginalDataType": "CHAR(000010)" }
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Value": "CHAR(000010)"
+      }
     },
     "OriginalName": {
       "$Kind": "Term",
       "@Core.Description": "Original name of the annotated model element in its source model",
       "@Core.LongDescription": "The provider of an OData service maps its local names to Edm identifiers, which may require removing or replacing characters that are not allowed.",
-      "@Core.Example": { "@DataIntegration.OriginalName": "what::is-in.a/name?" }
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Value": "what::is-in.a/name?"
+      }
     },
     "ConversionExit": {
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
       "@Core.Description": "Identifier that describes the special output conversion of the annotated property in the source system",
       "@Core.LongDescription": "The provider of an OData service maps its local type definitions to Edm types. Sometimes, specific type information is lost. This additional annotation gives the consumer hints about the type original type definition.",
-      "@Core.Example": { "@DataIntegration.ConversionExit": "ALPHA" }
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Value": "ALPHA"
+      }
     },
     "SourceSystem": {
       "$Kind": "Term",

@@ -153,7 +153,8 @@
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "Group of semantically connected fields with a representation template and an optional label",
       "@Core.Example": {
-        "@UI.ConnectedFields#Material": {
+        "@type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.ComplexExampleValue",
+        "Value": {
           "Label": "Material",
           "Template": "{MaterialName} - {MaterialClassName}",
           "Data": {

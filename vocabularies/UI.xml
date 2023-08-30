@@ -171,8 +171,8 @@ a collection of business object instances, e.g. as a list or table.</String>
       <Term Name="ConnectedFields" Type="UI.ConnectedFieldsType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Group of semantically connected fields with a representation template and an optional label" />
         <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="com.sap.vocabularies.UI.v1.ConnectedFields" Qualifier="Material">
+          <Record Type="Core.ComplexExampleValue">
+            <PropertyValue Property="Value">
               <Record>
                 <PropertyValue Property="Label" String="Material" />
                 <PropertyValue Property="Template" String="{MaterialName} - {MaterialClassName}" />
@@ -191,7 +191,7 @@ a collection of business object instances, e.g. as a list or table.</String>
                   </Record>
                 </PropertyValue>
               </Record>
-            </Annotation>
+            </PropertyValue>
           </Record>
         </Annotation>
       </Term>

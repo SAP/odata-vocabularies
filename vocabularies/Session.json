@@ -24,12 +24,8 @@
       "$AppliesTo": ["EntitySet"],
       "@Core.Description": "The annotated entity set allows data modification only within a sticky session",
       "@Core.Example": {
-        "@Session.SessionOnlyStateSupported": {
-          "NewAction": "...",
-          "EditAction": "...",
-          "SaveAction": "...",
-          "DiscardAction": "..."
-        }
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.ComplexExampleValue",
+        "Value": { "NewAction": "...", "EditAction": "...", "SaveAction": "...", "DiscardAction": "..." }
       }
     },
     "StickySessionSupportedType": {

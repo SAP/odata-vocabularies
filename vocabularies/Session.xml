@@ -71,15 +71,15 @@ combined as one UI app.
       <Term Name="StickySessionSupported" Type="Session.StickySessionSupportedType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="The annotated entity set allows data modification only within a sticky session" />
         <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="Session.SessionOnlyStateSupported">
+          <Record Type="Core.ComplexExampleValue">
+            <PropertyValue Property="Value">
               <Record>
                 <PropertyValue Property="NewAction" String="..." />
                 <PropertyValue Property="EditAction" String="..." />
                 <PropertyValue Property="SaveAction" String="..." />
                 <PropertyValue Property="DiscardAction" String="..." />
               </Record>
-            </Annotation>
+            </PropertyValue>
           </Record>
         </Annotation>
       </Term>
