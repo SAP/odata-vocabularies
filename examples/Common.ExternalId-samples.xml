@@ -36,7 +36,7 @@
       </EntityType>
 
       <Action Name="ChangePOReference" IsBound="true">
-        <Parameter Name="it" Type="this.SalesOrder_Type" />
+        <Parameter Name="it" Type="this.SalesOrder_Type" Nullable="false" />
         <Parameter Name="PurchaseOrderId" Type="Edm.Guid" />
         <ReturnType Type="this.SalesOrder_Type"></ReturnType>
       </Action>
