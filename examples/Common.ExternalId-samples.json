@@ -40,6 +40,7 @@
       }
     ],
     "$Annotations": {
+      "this.PurchaseOrder_Type/PurchaseOrderId": { "@Common.ExternalId": { "$Path": "PurchaseOrder" } },
       "this.ChangePOReference/PurchaseOrderId": {
         "@Common.ExternalId": { "$Path": "it/to_PurchaseOrder/PurchaseOrder" }
       }
