@@ -41,6 +41,12 @@
         <ReturnType Type="this.SalesOrder_Type"></ReturnType>
       </Action>
 
+      <!-- External Id for the property PurchaseOrderId of PurchaseOrder_Type -->
+      <Annotations Target="this.PurchaseOrder_Type/PurchaseOrderId">
+        <Annotation Term="Common.ExternalId" Path="PurchaseOrder" />
+      </Annotations>
+
+      <!-- External Id for the parameter PurchaseOrderId on the action ChangePOReference -->
       <Annotations Target="this.ChangePOReference/PurchaseOrderId">
         <Annotation Term="Common.ExternalId" Path="it/to_PurchaseOrder/PurchaseOrder" />
       </Annotations>
