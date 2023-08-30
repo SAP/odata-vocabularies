@@ -118,7 +118,7 @@ Term|Type|Description
 <a name="Template_RecommendationsFunction"></a>
 ### [Template_RecommendationsFunction](./Common.xml#L1478:~:text=<Function%20Name="-,Template_RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*
 
-Template for functions that retrieve AI-based recommendations for the bound entity and its related entities
+Template for functions that compute AI-based recommendations for the bound entity and its related entities
 
 The template function itself cannot be invoked.
 
@@ -126,7 +126,20 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Common.xml#L1484:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter:** Entity relative to which the `EntityKeys` are interpreted
 [EntityKeys](./Common.xml#L1487:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|EntityType|Nested structure containing the keys of entities for which recommendations shall be retrieved<br>This parameter has the same structure as the binding parameter and its related entity types, but contains only their key properties. The keys given in this parameter identify entities that are equal or related to the entity given in the binding parameter and for which recommendations shall be retrieved.<br> The value `{"SalesOrder": "A", "_Items": [{"SalesOrderItem": "010"}]}` means that recommendations are to be retrieved for header and item 010, whereas `{"_Items": [{"SalesOrder": "A", "SalesOrderItem": "010"}]}` means that recommendations are to be retrieved for item 010 only.
-[&rarr;](./Common.xml#L1500:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations per targeted property
+[&rarr;](./Common.xml#L1500:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|URL|URL for retrieving the recommendations (which are computed asynchronously) ([Example](./Common.xml#L1503))
+
+
+<a name="Template_RecommendationsRetrievalFunction"></a>
+### [Template_RecommendationsRetrievalFunction](./Common.xml#L1511:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-") *([Experimental](Common.md#Experimental))*
+
+Template for functions that retrieve AI-based recommendations for the bound entity and its related entities
+
+The template function itself cannot be invoked.
+
+Parameter|Type|Description
+:--------|:---|:----------
+[ID](./Common.xml#L1517:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|String|ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)
+[&rarr;](./Common.xml#L1520:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations per targeted property
 
 
 <a name="TextFormatType"></a>
@@ -452,7 +465,7 @@ User ID
 
 Property|Type|Description
 :-------|:---|:----------
-[Function](./Common.xml#L1459:~:text=<ComplexType%20Name="-,RecommendationsType,-")|[QualifiedName](#QualifiedName)|Qualified name of a function that retrieves recommendations (see [template](#Template_RecommendationsFunction))
+[ComputeFunction](./Common.xml#L1459:~:text=<ComplexType%20Name="-,RecommendationsType,-")|[QualifiedName](#QualifiedName)|Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))
 [Dependencies](./Common.xml#L1462:~:text=<ComplexType%20Name="-,RecommendationsType,-")|\[[RecommendationsDependency](#RecommendationsDependency)\]|Predictors for each recommendation target<br>The instances in this collection must differ in their `TargetProperty`.
 
 <a name="RecommendationsDependency"></a>
@@ -465,21 +478,21 @@ Property|Type|Description
 [Predictors](./Common.xml#L1474:~:text=<ComplexType%20Name="-,RecommendationsDependency,-")|\[PropertyPath\]|Properties on which the recommendations for the `TargetProperty` depend
 
 <a name="PropertyRecommendationType"></a>
-## [PropertyRecommendationType](./Common.xml#L1504:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [PropertyRecommendationType](./Common.xml#L1524:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[target](./Common.xml#L1506:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Property targeted by this recommendation, format tbd
-[value](./Common.xml#L1509:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
-[text](./Common.xml#L1512:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
-[alternatives](./Common.xml#L1515:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|Alternative recommendations
+[target](./Common.xml#L1526:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Property targeted by this recommendation, format tbd
+[value](./Common.xml#L1529:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
+[text](./Common.xml#L1532:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
+[alternatives](./Common.xml#L1535:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|Alternative recommendations
 
 <a name="AlternativeRecommendationType"></a>
-## [AlternativeRecommendationType](./Common.xml#L1519:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeRecommendationType](./Common.xml#L1539:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1521:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
-[score](./Common.xml#L1524:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Score of the alternatively recommended value
+[value](./Common.xml#L1541:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
+[score](./Common.xml#L1544:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Score of the alternatively recommended value

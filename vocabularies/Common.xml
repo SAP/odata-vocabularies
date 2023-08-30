@@ -1456,8 +1456,8 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
       <ComplexType Name="RecommendationsType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Function" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of a function that retrieves recommendations (see [template](#Template_RecommendationsFunction))" />
+        <Property Name="ComputeFunction" Type="Common.QualifiedName" Nullable="false">
+          <Annotation Term="Core.Description" String="Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))" />
         </Property>
         <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)" Nullable="false">
           <Annotation Term="Core.Description" String="Predictors for each recommendation target" />
@@ -1477,7 +1477,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </ComplexType>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for functions that retrieve AI-based recommendations for the bound entity and its related entities" />
+        <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations for the bound entity and its related entities" />
         <Annotation Term="Core.LongDescription">
           <String>The template function itself cannot be invoked.</String>
         </Annotation>
@@ -1496,6 +1496,26 @@ means that recommendations are to be retrieved for header and item 010, whereas
 `{"_Items": [{"SalesOrder": "A", "SalesOrderItem": "010"}]}`
 means that recommendations are to be retrieved for item 010 only.</String>
           </Annotation>
+        </Parameter>
+        <ReturnType Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL for retrieving the recommendations (which are computed asynchronously)" />
+          <Annotation Term="Core.Example">
+            <Record Type="Core.PrimitiveExampleValue">
+              <PropertyValue Property="Description" String="Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)" />
+              <PropertyValue Property="Value" String="../RetrieveRecommendations?ID=af43c2" />
+            </Record>
+          </Annotation>
+        </ReturnType>
+      </Function>
+      <Function Name="Template_RecommendationsRetrievalFunction">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for functions that retrieve AI-based recommendations for the bound entity and its related entities" />
+        <Annotation Term="Core.LongDescription">
+          <String>The template function itself cannot be invoked.</String>
+        </Annotation>
+        <Parameter Name="ID" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)" />
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection of recommendations per targeted property" />
