@@ -1326,18 +1326,18 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The template function itself cannot be invoked.",
+        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD omit\n          recommendations whose predictors have not changed since the previous invocation.\n\n          The template function itself cannot be invoked.",
         "$Parameter": [
           {
             "$Name": "Entity",
             "$Type": "Edm.EntityType",
-            "@Core.Description": "Entity relative to which the `EntityKeys` are interpreted"
+            "@Core.Description": "Entity relative to which the URLs in `Targets` are interpreted"
           },
           {
-            "$Name": "EntityKeys",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "Nested structure containing the keys of entities for which recommendations shall be retrieved",
-            "@Core.LongDescription": "This parameter has the same structure as the binding parameter\nand its related entity types, but contains only their key properties.\nThe keys given in this parameter identify entities that are equal or related to the entity\ngiven in the binding parameter and for which recommendations shall be retrieved.<br>\nThe value `{\"SalesOrder\": \"A\", \"_Items\": [{\"SalesOrderItem\": \"010\"}]}`\nmeans that recommendations are to be retrieved for header and item 010, whereas\n`{\"_Items\": [{\"SalesOrder\": \"A\", \"SalesOrderItem\": \"010\"}]}`\nmeans that recommendations are to be retrieved for item 010 only."
+            "$Name": "Targets",
+            "$Collection": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "URLs (relative to the value of the binding parameter) that address entities, properties or action/function parameters for which recommendations shall be retrieved"
           }
         ],
         "$ReturnType": {
@@ -1373,7 +1373,10 @@
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "target": { "@Core.Description": "Property targeted by this recommendation, format tbd" },
+      "target": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL addressing a property [OData-URL, section 4.6] that is targeted by this recommendation"
+      },
       "value": { "@Core.Description": "Recommended value, converted to string" },
       "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
       "alternatives": {
