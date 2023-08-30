@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="ExternalId.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="container">
+        <EntitySet Name="SalesOrder" EntityType="this.SalesOrder_Type" />
+        <EntitySet Name="PurchaseOrder" EntityType="this.PurchaseOrder_Type" />
+      </EntityContainer>
+
+      <EntityType Name="SalesOrder_Type">
+        <Key>
+          <PropertyRef Name="SalesOrder" />
+        </Key>
+        <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" />
+        <Property Name="PurchaseOrderId" Type="Edm.Guid" Nullable="true" />
+        <NavigationProperty Name="to_PurchaseOrder" Type="Collection(this.PurchaseOrder_Type)" />
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <EntityType Name="PurchaseOrder_Type">
+        <Key>
+          <PropertyRef Name="PurchaseOrderId" />
+        </Key>
+        <Property Name="PurchaseOrderId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="PurchaseOrder" Type="Edm.String" Nullable="true" MaxLength="10" />
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <Action Name="ChangePOReference" IsBound="true">
+        <Parameter Name="it" Type="this.SalesOrder_Type" />
+        <Parameter Name="PurchaseOrderId" Type="Edm.Guid" />
+        <ReturnType Type="this.SalesOrder_Type"></ReturnType>
+      </Action>
+
+      <Annotations Target="this.ChangePOReference/PurchaseOrderId">
+        <Annotation Term="Common.ExternalId" Path="it/to_PurchaseOrder/PurchaseOrder" />
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
