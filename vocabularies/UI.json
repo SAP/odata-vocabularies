@@ -1523,7 +1523,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataField",
       "@Core.Description": "A piece of data that allows triggering an OData action",
-      "@Core.LongDescription": "The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value.",
+      "@Core.LongDescription": "The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value.",
       "Value": { "$Type": "Edm.PrimitiveType" },
       "Action": {
         "$Type": "UI.ActionName",
