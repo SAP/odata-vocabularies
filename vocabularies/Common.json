@@ -1289,7 +1289,7 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "Recommendations": {
+    "RecommendationsFunction": {
       "$Kind": "Term",
       "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntityType"],
@@ -1302,7 +1302,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD omit\n          recommendations whose predictors have not changed since the previous invocation.\n\n          The template function itself cannot be invoked.",
+        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\n          recompute recommendations whose predictors have not changed since the previous invocation.\n\n          The template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {

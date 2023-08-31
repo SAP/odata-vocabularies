@@ -110,7 +110,7 @@ Term|Type|Description
 [mediaUploadLink](./Common.xml#L1431:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](./Common.xml#L1446:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1451:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
-[Recommendations](./Common.xml#L1457:~:text=<Term%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="Recommendations"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))
+[RecommendationsFunction](./Common.xml#L1457:~:text=<Term%20Name="-,RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="RecommendationsFunction"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))
 [RecommendationsRole](./Common.xml#L1532:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
 
 
@@ -121,8 +121,8 @@ Term|Type|Description
 
 Template for functions that compute AI-based recommendations for the bound entity and its related entities
 
-If the function is invoked repeatedly in a stateful session, it SHOULD omit
-          recommendations whose predictors have not changed since the previous invocation.
+If the function is invoked repeatedly in a stateful session, it SHOULD NOT
+          recompute recommendations whose predictors have not changed since the previous invocation.
 
           The template function itself cannot be invoked.
 

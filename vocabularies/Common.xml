@@ -1454,7 +1454,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="Recommendations" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
+      <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))" />
       </Term>
@@ -1462,8 +1462,8 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations for the bound entity and its related entities" />
         <Annotation Term="Core.LongDescription">
-          <String>If the function is invoked repeatedly in a stateful session, it SHOULD omit
-          recommendations whose predictors have not changed since the previous invocation.
+          <String>If the function is invoked repeatedly in a stateful session, it SHOULD NOT
+          recompute recommendations whose predictors have not changed since the previous invocation.
 
           The template function itself cannot be invoked.</String>
         </Annotation>
