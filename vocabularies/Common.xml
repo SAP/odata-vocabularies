@@ -1454,31 +1454,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="Recommendations" Type="Common.RecommendationsType" Nullable="false" AppliesTo="EntityType">
+      <Term Name="Recommendations" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="AI-based recommendations for entities of the annotated type" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))" />
       </Term>
-      <ComplexType Name="RecommendationsType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="Function" Type="Common.QualifiedName" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))" />
-        </Property>
-        <Property Name="Dependencies" Type="Collection(Common.RecommendationsDependency)" Nullable="false">
-          <Annotation Term="Core.Description" String="Predictors for each recommendation target" />
-          <Annotation Term="Core.LongDescription">
-            <String>The instances in this collection must differ in their `TargetProperty`.</String>
-          </Annotation>
-        </Property>
-      </ComplexType>
-      <ComplexType Name="RecommendationsDependency">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="TargetProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property targeted by a recommendation" />
-        </Property>
-        <Property Name="Predictors" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties on which the recommendations for the `TargetProperty` depend" />
-        </Property>
-      </ComplexType>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations for the bound entity and its related entities" />
@@ -1495,21 +1474,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URLs (relative to the value of the binding parameter) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
         </Parameter>
-        <!--
-        <Parameter Name="EntityKeys" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Nested structure containing the keys of entities for which recommendations shall be retrieved" />
-          <Annotation Term="Core.LongDescription">
-            <String>This parameter has the same structure as the binding parameter
-and its related entity types, but contains only their key properties.
-The keys given in this parameter identify entities that are equal or related to the entity
-given in the binding parameter and for which recommendations shall be retrieved.&lt;br&gt;
-The value `{"SalesOrder": "A", "_Items": [{"SalesOrderItem": "010"}]}`
-means that recommendations are to be retrieved for header and item 010, whereas
-`{"_Items": [{"SalesOrder": "A", "SalesOrderItem": "010"}]}`
-means that recommendations are to be retrieved for item 010 only.</String>
-          </Annotation>
-        </Parameter>
-        -->
         <ReturnType Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL for retrieving the recommendations (which are computed asynchronously)" />
@@ -1559,6 +1523,22 @@ means that recommendations are to be retrieved for item 010 only.</String>
           <Annotation Term="Core.Description" String="Score of the alternatively recommended value" />
         </Property>
       </ComplexType>
+      <Term Name="RecommendationsRole" Type="Common.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
+      </Term>
+      <EnumType Name="RecommendationsRoleType" IsFlags="true">
+        <Annotation Term="Common.Experimental" />
+        <Member Name="Input" Value="1">
+          <Annotation Term="Core.Description" String="The property is input for some recommendation" />
+        </Member>
+        <Member Name="Output" Value="2">
+          <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
+        </Member>
+        <Member Name="Required" Value="4">
+          <Annotation Term="Core.Description" String="The property is mandatory before recommendations can be requested" />
+        </Member>
+      </EnumType>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

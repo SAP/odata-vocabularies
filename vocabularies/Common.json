@@ -1291,34 +1291,10 @@
     },
     "Recommendations": {
       "$Kind": "Term",
-      "$Type": "Common.RecommendationsType",
+      "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "AI-based recommendations for entities of the annotated type"
-    },
-    "RecommendationsType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "Function": {
-        "$Type": "Common.QualifiedName",
-        "@Core.Description": "Qualified name of a function that computes recommendations (see [template](#Template_RecommendationsFunction))"
-      },
-      "Dependencies": {
-        "$Collection": true,
-        "$Type": "Common.RecommendationsDependency",
-        "@Core.Description": "Predictors for each recommendation target",
-        "@Core.LongDescription": "The instances in this collection must differ in their `TargetProperty`."
-      }
-    },
-    "RecommendationsDependency": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "TargetProperty": { "$Type": "Edm.PropertyPath", "@Core.Description": "Property targeted by a recommendation" },
-      "Predictors": {
-        "$Collection": true,
-        "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Properties on which the recommendations for the `TargetProperty` depend"
-      }
+      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))"
     },
     "Template_RecommendationsFunction": [
       {
@@ -1394,6 +1370,24 @@
         "$Nullable": true,
         "@Core.Description": "Score of the alternatively recommended value"
       }
+    },
+    "RecommendationsRole": {
+      "$Kind": "Term",
+      "$Type": "Common.RecommendationsRoleType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Role of this property or parameter regarding AI-based recommendations"
+    },
+    "RecommendationsRoleType": {
+      "$Kind": "EnumType",
+      "$IsFlags": true,
+      "@Common.Experimental": true,
+      "Input": 1,
+      "Input@Core.Description": "The property is input for some recommendation",
+      "Output": 2,
+      "Output@Core.Description": "The property or parameter is the target of some recommendation",
+      "Required": 4,
+      "Required@Core.Description": "The property is mandatory before recommendations can be requested"
     }
   }
 }
