@@ -1294,7 +1294,7 @@
       "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))"
+      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction) and [template for asynchronous OData requests](#Template_AsyncRecommendationsFunction))"
     },
     "Template_RecommendationsFunction": [
       {
@@ -1341,6 +1341,19 @@
           "$Type": "Common.PropertyRecommendationType",
           "@Core.Description": "A collection of recommendations per targeted property"
         }
+      }
+    ],
+    "Template_AsyncRecommendationsFunction": [
+      {
+        "$Kind": "Function",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for functions that compute AI-based recommendations in asynchronous OData requests",
+        "$Parameter": [
+          { "$Name": "Entity", "$Type": "Edm.EntityType" },
+          { "$Name": "Targets", "$Collection": true, "@Core.IsURL": true }
+        ],
+        "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }
       }
     ],
     "PropertyRecommendationType": {

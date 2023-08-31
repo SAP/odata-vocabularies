@@ -1456,7 +1456,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
       <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction))" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction) and [template for asynchronous OData requests](#Template_AsyncRecommendationsFunction))" />
       </Term>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
@@ -1499,6 +1499,15 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection of recommendations per targeted property" />
         </ReturnType>
+      </Function>
+      <Function Name="Template_AsyncRecommendationsFunction" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations in asynchronous OData requests" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Parameter>
+        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false" />
       </Function>
       <ComplexType Name="PropertyRecommendationType">
         <Annotation Term="Common.Experimental" />
