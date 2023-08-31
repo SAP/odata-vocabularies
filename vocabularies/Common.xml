@@ -1478,11 +1478,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Parameter>
         <ReturnType Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL for retrieving the recommendations (which are computed asynchronously)" />
+          <Annotation Term="Core.Description" String="URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)" />
           <Annotation Term="Core.Example">
             <Record Type="Core.PrimitiveExampleValue">
               <PropertyValue Property="Description" String="Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)" />
-              <PropertyValue Property="Value" String="../RetrieveRecommendations?ID=af43c2" />
+              <PropertyValue Property="Value" String="RetrieveRecommendations?ID=af43c2" />
             </Record>
           </Annotation>
         </ReturnType>

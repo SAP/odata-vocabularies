@@ -1315,11 +1315,11 @@
         ],
         "$ReturnType": {
           "@Core.IsURL": true,
-          "@Core.Description": "URL for retrieving the recommendations (which are computed asynchronously)",
+          "@Core.Description": "URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)",
           "@Core.Example": {
             "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
             "Description": "Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)",
-            "Value": "../RetrieveRecommendations?ID=af43c2"
+            "Value": "RetrieveRecommendations?ID=af43c2"
           }
         }
       }
