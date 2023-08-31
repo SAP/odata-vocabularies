@@ -90,10 +90,14 @@
         <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
-      <Term Name="ExternalID" Type="Edm.String" Nullable="true" AppliesTo="Property">
+      <Term Name="ExternalID" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
-        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
+        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property or parameter. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription">
+          <String>If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource.
+            There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id.
+            The annotation of a parameter refers to a property of the operation binding parameter.</String>
+        </Annotation>
       </Term>
 
       <!--
