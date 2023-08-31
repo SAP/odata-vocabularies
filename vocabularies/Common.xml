@@ -1467,12 +1467,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
           The template function itself cannot be invoked.</String>
         </Annotation>
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Entity relative to which the URLs in `Targets` are interpreted" />
-        </Parameter>
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URLs (relative to the value of the binding parameter) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["Items(10)"]`
+            retrieves recommendations for the entity `SalesOrder('A')/Items(10)`.</String>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
@@ -1502,7 +1504,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Property Name="target" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...`
+            might retrieve a recommendation with `"target": "Items(10)/Product"`.</String>
+          </Annotation>
         </Property>
         <Property Name="value" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value, converted to string" />

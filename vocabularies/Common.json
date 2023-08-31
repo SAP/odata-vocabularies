@@ -1304,16 +1304,13 @@
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
         "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD omit\n          recommendations whose predictors have not changed since the previous invocation.\n\n          The template function itself cannot be invoked.",
         "$Parameter": [
-          {
-            "$Name": "Entity",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "Entity relative to which the URLs in `Targets` are interpreted"
-          },
+          { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
             "$Name": "Targets",
             "$Collection": true,
             "@Core.IsURL": true,
-            "@Core.Description": "URLs (relative to the value of the binding parameter) that address entities, properties or action/function parameters for which recommendations shall be retrieved"
+            "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
+            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[\"Items(10)\"]`\n            retrieves recommendations for the entity `SalesOrder('A')/Items(10)`."
           }
         ],
         "$ReturnType": {
@@ -1351,7 +1348,8 @@
       "@Common.Experimental": true,
       "target": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL addressing a property [OData-URL, section 4.6] that is targeted by this recommendation"
+        "@Core.Description": "URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...`\n            might retrieve a recommendation with `\"target\": \"Items(10)/Product\"`."
       },
       "value": { "@Core.Description": "Recommended value, converted to string" },
       "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
