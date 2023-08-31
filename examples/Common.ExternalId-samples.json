@@ -1,0 +1,50 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "ExternalId.examples": {
+    "$Alias": "this",
+    "container": {
+      "$Kind": "EntityContainer",
+      "SalesOrder": { "$Collection": true, "$Type": "this.SalesOrder_Type" },
+      "PurchaseOrder": { "$Collection": true, "$Type": "this.PurchaseOrder_Type" }
+    },
+    "SalesOrder_Type": {
+      "$Kind": "EntityType",
+      "$Key": ["SalesOrder"],
+      "SalesOrder": { "$MaxLength": 10 },
+      "PurchaseOrderId": { "$Type": "Edm.Guid", "$Nullable": true },
+      "to_PurchaseOrder": { "$Kind": "NavigationProperty", "$Collection": true, "$Type": "this.PurchaseOrder_Type" }
+    },
+    "PurchaseOrder_Type": {
+      "$Kind": "EntityType",
+      "$Key": ["PurchaseOrderId"],
+      "PurchaseOrderId": { "$Type": "Edm.Guid" },
+      "PurchaseOrder": { "$Nullable": true, "$MaxLength": 10 }
+    },
+    "ChangePOReference": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "$Parameter": [
+          { "$Name": "it", "$Type": "this.SalesOrder_Type" },
+          { "$Name": "PurchaseOrderId", "$Type": "Edm.Guid", "$Nullable": true }
+        ],
+        "$ReturnType": { "$Type": "this.SalesOrder_Type", "$Nullable": true }
+      }
+    ],
+    "$Annotations": {
+      "this.PurchaseOrder_Type/PurchaseOrderId": { "@Common.ExternalId": { "$Path": "PurchaseOrder" } },
+      "this.ChangePOReference/PurchaseOrderId": {
+        "@Common.ExternalId": { "$Path": "it/to_PurchaseOrder/PurchaseOrder" }
+      }
+    }
+  },
+  "$EntityContainer": "ExternalId.examples.container"
+}
