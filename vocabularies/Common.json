@@ -1350,10 +1350,23 @@
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations in asynchronous OData requests",
         "$Parameter": [
-          { "$Name": "Entity", "$Type": "Edm.EntityType" },
-          { "$Name": "Targets", "$Collection": true, "@Core.IsURL": true }
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
+          },
+          {
+            "$Name": "Targets",
+            "$Collection": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
+          }
         ],
-        "$ReturnType": { "$Collection": true, "$Type": "Common.PropertyRecommendationType" }
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Common.PropertyRecommendationType",
+          "@Core.Description": "See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)"
+        }
       }
     ],
     "PropertyRecommendationType": {

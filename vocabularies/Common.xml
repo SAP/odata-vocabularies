@@ -1503,11 +1503,16 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       <Function Name="Template_AsyncRecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations in asynchronous OData requests" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
+        </Parameter>
         <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
         </Parameter>
-        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false" />
+        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)" />
+        </ReturnType>
       </Function>
       <ComplexType Name="PropertyRecommendationType">
         <Annotation Term="Common.Experimental" />
