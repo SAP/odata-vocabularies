@@ -1503,6 +1503,9 @@ The template function itself cannot be invoked.</String>
       <Function Name="Template_AsyncRecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations in asynchronous OData requests" />
+        <Annotation Term="Core.LongDescription">
+          <String>The template function itself cannot be invoked.</String>
+        </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
         </Parameter>
@@ -1531,7 +1534,10 @@ The template function itself cannot be invoked.</String>
           <Annotation Term="Core.Description" String="Description of the recommended value" />
         </Property>
         <Property Name="alternatives" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Alternative recommendations" />
+          <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a value is recommended via property `value`, it must be the first entry in this list.</String>
+          </Annotation>
         </Property>
       </ComplexType>
       <ComplexType Name="AlternativeRecommendationType">
@@ -1540,7 +1546,7 @@ The template function itself cannot be invoked.</String>
           <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
         </Property>
         <Property Name="score" Type="Edm.Decimal" Scale="variable" Nullable="true">
-          <Annotation Term="Core.Description" String="Score of the alternatively recommended value" />
+          <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
         </Property>
       </ComplexType>
       <Term Name="RecommendationsRole" Type="Common.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">

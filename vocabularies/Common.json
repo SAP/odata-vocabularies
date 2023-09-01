@@ -1349,6 +1349,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations in asynchronous OData requests",
+        "@Core.LongDescription": "The template function itself cannot be invoked.",
         "$Parameter": [
           {
             "$Name": "Entity",
@@ -1382,7 +1383,8 @@
       "alternatives": {
         "$Collection": true,
         "$Type": "Common.AlternativeRecommendationType",
-        "@Core.Description": "Alternative recommendations"
+        "@Core.Description": "A list of alternative values, sorted by confidence score in descending order",
+        "@Core.LongDescription": "If a value is recommended via property `value`, it must be the first entry in this list."
       }
     },
     "AlternativeRecommendationType": {
@@ -1392,7 +1394,7 @@
       "score": {
         "$Type": "Edm.Decimal",
         "$Nullable": true,
-        "@Core.Description": "Score of the alternatively recommended value"
+        "@Core.Description": "Confidence score of the alternatively recommended value"
       }
     },
     "RecommendationsRole": {
