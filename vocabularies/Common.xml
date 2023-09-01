@@ -1456,7 +1456,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
       <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction) and [template for asynchronous OData requests](#Template_AsyncRecommendationsFunction))" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))" />
       </Term>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
@@ -1464,6 +1464,8 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.LongDescription">
           <String>If the function is invoked repeatedly in a stateful session, it SHOULD NOT
 recompute recommendations whose predictors have not changed since the previous invocation.
+
+The function computes the recommendations asynchronously and returns a URL where its result can be retrieved.
 
 The template function itself cannot be invoked.</String>
         </Annotation>
@@ -1500,11 +1502,13 @@ The template function itself cannot be invoked.</String>
           <Annotation Term="Core.Description" String="A collection of recommendations per targeted property" />
         </ReturnType>
       </Function>
-      <Function Name="Template_AsyncRecommendationsFunction" IsBound="true">
+      <Function Name="Template_RecommendationsFunction2" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations in asynchronous OData requests" />
+        <Annotation Term="Core.Description" String="Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
         <Annotation Term="Core.LongDescription">
-          <String>The template function itself cannot be invoked.</String>
+          <String>The function returns the recommendations but can be invoked with `Prefer: respond-async`.
+
+The template function itself cannot be invoked.</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />

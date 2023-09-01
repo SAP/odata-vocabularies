@@ -110,8 +110,8 @@ Term|Type|Description
 [mediaUploadLink](./Common.xml#L1431:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](./Common.xml#L1446:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1451:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
-[RecommendationsFunction](./Common.xml#L1457:~:text=<Term%20Name="-,RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="RecommendationsFunction"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [template](#Template_RecommendationsFunction) and [template for asynchronous OData requests](#Template_AsyncRecommendationsFunction))
-[RecommendationsRole](./Common.xml#L1552:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+[RecommendationsFunction](./Common.xml#L1457:~:text=<Term%20Name="-,RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="RecommendationsFunction"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))
+[RecommendationsRole](./Common.xml#L1556:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
 
 
 ## Functions
@@ -124,17 +124,19 @@ Template for functions that compute AI-based recommendations for the bound entit
 If the function is invoked repeatedly in a stateful session, it SHOULD NOT
 recompute recommendations whose predictors have not changed since the previous invocation.
 
+The function computes the recommendations asynchronously and returns a URL where its result can be retrieved.
+
 The template function itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Common.xml#L1470:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
-[Targets](./Common.xml#L1471:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
-[&rarr;](./Common.xml#L1479:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|URL|URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously) ([Example](./Common.xml#L1482))
+**[Entity](./Common.xml#L1472:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
+[Targets](./Common.xml#L1473:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[&rarr;](./Common.xml#L1481:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|URL|URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously) ([Example](./Common.xml#L1484))
 
 
 <a name="Template_RecommendationsRetrievalFunction"></a>
-### [Template_RecommendationsRetrievalFunction](./Common.xml#L1490:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-") *([Experimental](Common.md#Experimental))*
+### [Template_RecommendationsRetrievalFunction](./Common.xml#L1492:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-") *([Experimental](Common.md#Experimental))*
 
 Template for functions that retrieve AI-based recommendations for the bound entity and its related entities
 
@@ -142,22 +144,24 @@ The template function itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[ID](./Common.xml#L1496:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|String|ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)
-[&rarr;](./Common.xml#L1499:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations per targeted property
+[ID](./Common.xml#L1498:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|String|ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)
+[&rarr;](./Common.xml#L1501:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations per targeted property
 
 
-<a name="Template_AsyncRecommendationsFunction"></a>
-### [Template_AsyncRecommendationsFunction](./Common.xml#L1503:~:text=<Function%20Name="-,Template_AsyncRecommendationsFunction,-") *([Experimental](Common.md#Experimental))*
+<a name="Template_RecommendationsFunction2"></a>
+### [Template_RecommendationsFunction2](./Common.xml#L1505:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-") *([Experimental](Common.md#Experimental))*
 
-Template for functions that compute AI-based recommendations in asynchronous OData requests
+Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+
+The function returns the recommendations but can be invoked with `Prefer: respond-async`.
 
 The template function itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Common.xml#L1509:~:text=<Function%20Name="-,Template_AsyncRecommendationsFunction,-")**|EntityType|**Binding parameter:** See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
-[Targets](./Common.xml#L1512:~:text=<Function%20Name="-,Template_AsyncRecommendationsFunction,-")|\[URL\]|See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
-[&rarr;](./Common.xml#L1516:~:text=<Function%20Name="-,Template_AsyncRecommendationsFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)
+**[Entity](./Common.xml#L1513:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")**|EntityType|**Binding parameter:** See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+[Targets](./Common.xml#L1516:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")|\[URL\]|See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+[&rarr;](./Common.xml#L1520:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)
 
 
 <a name="TextFormatType"></a>
@@ -478,31 +482,31 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 User ID
 
 <a name="PropertyRecommendationType"></a>
-## [PropertyRecommendationType](./Common.xml#L1520:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [PropertyRecommendationType](./Common.xml#L1524:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[target](./Common.xml#L1522:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...` might retrieve a recommendation with `"target": "Items(10)/Product"`.
-[value](./Common.xml#L1530:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
-[text](./Common.xml#L1533:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
-[alternatives](./Common.xml#L1536:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `value`, it must be the first entry in this list.
+[target](./Common.xml#L1526:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...` might retrieve a recommendation with `"target": "Items(10)/Product"`.
+[value](./Common.xml#L1534:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
+[text](./Common.xml#L1537:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
+[alternatives](./Common.xml#L1540:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `value`, it must be the first entry in this list.
 
 <a name="AlternativeRecommendationType"></a>
-## [AlternativeRecommendationType](./Common.xml#L1543:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeRecommendationType](./Common.xml#L1547:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1545:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
-[score](./Common.xml#L1548:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
+[value](./Common.xml#L1549:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
+[score](./Common.xml#L1552:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
 
 <a name="RecommendationsRoleType"></a>
-## [RecommendationsRoleType](./Common.xml#L1556:~:text=<EnumType%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationsRoleType](./Common.xml#L1560:~:text=<EnumType%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[Input](./Common.xml#L1558:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|1|The property is input for some recommendation
-[Output](./Common.xml#L1561:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|2|The property or parameter is the target of some recommendation
-[Required](./Common.xml#L1564:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|4|The property is mandatory for recommendations to be requested
+[Input](./Common.xml#L1562:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|1|The property is input for some recommendation
+[Output](./Common.xml#L1565:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|2|The property or parameter is the target of some recommendation
+[Required](./Common.xml#L1568:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|4|The property is mandatory for recommendations to be requested
