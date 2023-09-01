@@ -1551,7 +1551,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
         </Member>
         <Member Name="Required" Value="4">
-          <Annotation Term="Core.Description" String="The property is mandatory before recommendations can be requested" />
+          <Annotation Term="Core.Description" String="The property is mandatory for recommendations to be requested" />
         </Member>
       </EnumType>
     </Schema>

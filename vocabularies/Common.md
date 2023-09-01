@@ -503,4 +503,4 @@ Flag Member|Value|Description
 :-----|----:|:----------
 [Input](./Common.xml#L1547:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|1|The property is input for some recommendation
 [Output](./Common.xml#L1550:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|2|The property or parameter is the target of some recommendation
-[Required](./Common.xml#L1553:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|4|The property is mandatory before recommendations can be requested
+[Required](./Common.xml#L1553:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|4|The property is mandatory for recommendations to be requested

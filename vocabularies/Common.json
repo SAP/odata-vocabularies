@@ -1398,7 +1398,7 @@
       "Output": 2,
       "Output@Core.Description": "The property or parameter is the target of some recommendation",
       "Required": 4,
-      "Required@Core.Description": "The property is mandatory before recommendations can be requested"
+      "Required@Core.Description": "The property is mandatory for recommendations to be requested"
     }
   }
 }
