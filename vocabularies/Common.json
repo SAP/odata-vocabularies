@@ -1310,7 +1310,7 @@
             "$Collection": true,
             "@Core.IsURL": true,
             "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[\"Items(10)\"]`\n            retrieves recommendations for the entity `SalesOrder('A')/Items(10)`."
+            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[\".\",\"Items(10)\"]`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
           }
         ],
         "$ReturnType": {
