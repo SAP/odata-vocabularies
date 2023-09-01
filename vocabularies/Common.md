@@ -129,7 +129,7 @@ The template function itself cannot be invoked.
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Common.xml#L1470:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
-[Targets](./Common.xml#L1471:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[".","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[Targets](./Common.xml#L1471:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
 [&rarr;](./Common.xml#L1479:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|URL|URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously) ([Example](./Common.xml#L1482))
 
 

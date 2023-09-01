@@ -1472,7 +1472,7 @@ The template function itself cannot be invoked.</String>
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[".","Items(10)"]`
+            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]`
             retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
           </Annotation>
         </Parameter>
