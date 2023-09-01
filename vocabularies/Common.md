@@ -122,9 +122,9 @@ Term|Type|Description
 Template for functions that compute AI-based recommendations for the bound entity and its related entities
 
 If the function is invoked repeatedly in a stateful session, it SHOULD NOT
-          recompute recommendations whose predictors have not changed since the previous invocation.
+recompute recommendations whose predictors have not changed since the previous invocation.
 
-          The template function itself cannot be invoked.
+The template function itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
