@@ -1557,7 +1557,7 @@ The template function itself cannot be invoked.</String>
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
       </Term>
-      <EnumType Name="RecommendationsRoleType" IsFlags="true">
+      <EnumType Name="RecommendationsRoleType" UnderlyingType="Edm.Byte" IsFlags="true">
         <Annotation Term="Common.Experimental" />
         <Member Name="Input" Value="1">
           <Annotation Term="Core.Description" String="The property is input for some recommendation" />
@@ -1565,8 +1565,8 @@ The template function itself cannot be invoked.</String>
         <Member Name="Output" Value="2">
           <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
         </Member>
-        <Member Name="Required" Value="4">
-          <Annotation Term="Core.Description" String="The property is mandatory for recommendations to be requested" />
+        <Member Name="Required" Value="5">
+          <Annotation Term="Core.Description" String="The property is mandatory input for recommendations to be requested" />
         </Member>
       </EnumType>
     </Schema>
