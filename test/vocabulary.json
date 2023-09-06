@@ -1,0 +1,56 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [
+        {
+          "$Namespace": "com.sap.vocabularies.Common.v1",
+          "$Alias": "Common"
+        }
+      ]
+    }
+  },
+  "com.sap.vocabularies.test.v1": {
+    "$Alias": "test",
+    "SimpleTerm": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName"
+    },
+    "ComplexTerm": {
+      "$Kind": "Term",
+      "$Type": "test.ComplexType"
+    },
+    "ComplexType": {
+      "$Kind": "ComplexType",
+      "Name": {
+        "$Type": "Common.QualifiedName"
+      }
+    },
+    "DerivedType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "com.sap.vocabularies.test.v1.ComplexType",
+      "Description": {}
+    },
+    "Function": [
+      {
+        "$Kind": "Function",
+        "$Parameter": [
+          {
+            "SingleParam": {
+              "$Type": "com.sap.vocabularies.Common.v1.QualifiedName"
+            }
+          },
+          {
+            "DoubleParam": {
+              "$Type": "Common.QualifiedName"
+            },
+            "DoubleParam2": {}
+          }
+        ],
+        "$ReturnType": {
+          "$Type": "com.sap.vocabularies.test.v1.DerivedType"
+        }
+      }
+    ]
+  }
+}

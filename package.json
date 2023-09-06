@@ -17,11 +17,14 @@
     "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
+    "c8": "^8.0.1",
     "eslint": "^8.44.0",
+    "mocha": "^10.2.0",
     "prettier": "^2.8.1"
   },
   "scripts": {
-    "build": "node lib/transform.js"
+    "build": "node lib/transform.js",
+    "test": "c8 -r html -r text mocha"
   },
   "author": "",
   "license": ""
