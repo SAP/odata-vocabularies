@@ -368,15 +368,17 @@ Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies
 ## [QualifiedName](./Common.xml#L1103:~:text=<TypeDefinition%20Name="-,QualifiedName,-")
 **Type:** String
 
-The QualifiedName of an OData construct in scope
+The namespace-qualified name of an OData construct in scope
+
+Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended.
 
 <a name="ActionOverload"></a>
-## [ActionOverload](./Common.xml#L1107:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
+## [ActionOverload](./Common.xml#L1108:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
 **Type:** String
 
-The qualified name of an action with an optional overload
+The namespace-qualified name of an action with an optional overload
 
-The qualified name of an action, optionally followed by parentheses 
+The namespace-qualified name of an action, optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
