@@ -11,7 +11,7 @@
     }
   },
   "com.sap.vocabularies.test.v1": {
-	  "@com.sap.vocabularies.Core.v1.Links": [],
+    "@com.sap.vocabularies.Core.v1.Links": [],
     "$Alias": "test",
     "SimpleTerm": {
       "$Kind": "Term",
