@@ -68,7 +68,7 @@
         "$Type": "Edm.Int64",
         "$Nullable": true,
         "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
-        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves one."
+        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
       "SiblingRank": {
         "$Type": "Edm.Int64",
@@ -117,7 +117,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following [this pattern](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
     },
     "TopLevels": [
       {
