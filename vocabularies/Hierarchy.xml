@@ -117,7 +117,7 @@ the following collections of hierarchy nodes are distinguished:
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.</String>
+            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
@@ -177,9 +177,13 @@ The template actions themselves cannot be invoked.</String>
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The service designates a subset of the `$apply` result as "matching nodes".
-          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
-          of the last `ancestors` transformation or occurs nested into it.</String>
+          <String>The service MAY designate a subset of the `$apply` result as "matching nodes".
+          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the
+          `filter` or `search` transformation that occurs as the fourth parameter
+          of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
+          For requests not following this pattern, the subset NEED NOT be defined.&lt;br&gt;
+          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
+          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
       </Term>
 
