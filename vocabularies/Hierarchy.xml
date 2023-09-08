@@ -159,15 +159,15 @@ including any hierarchy directory.
 
 The template actions themselves cannot be invoked.</String>
         </Annotation>
-        <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
+        <Property Name="ChangeNextSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
         <!--
-        <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
+        <Property Name="ChangePreviousSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         -->
-        <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
+        <Property Name="CopyAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
       </ComplexType>

@@ -100,12 +100,12 @@
       "$Kind": "ComplexType",
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory.\n\nThe template actions themselves cannot be invoked.",
       "ChangeNextSiblingAction": {
-        "$Type": "Common.QualifiedName",
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
       "CopyAction": {
-        "$Type": "Common.QualifiedName",
+        "$Type": "Common.NamespaceQualifiedActionName",
         "$Nullable": true,
         "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
       }
