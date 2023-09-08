@@ -151,5 +151,5 @@ The template actions themselves cannot be invoked.
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeNextSiblingAction](./Hierarchy.xml#L167:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)
-[CopyAction](./Hierarchy.xml#L175:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
+[ChangeNextSiblingAction](./Hierarchy.xml#L167:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)
+[CopyAction](./Hierarchy.xml#L175:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
