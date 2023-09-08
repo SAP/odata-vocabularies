@@ -159,15 +159,15 @@ including any hierarchy directory.
 
 The template actions themselves cannot be invoked.</String>
         </Annotation>
-        <Property Name="ChangeNextSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
         <!--
-        <Property Name="ChangePreviousSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         -->
-        <Property Name="CopyAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
       </ComplexType>
@@ -256,10 +256,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="NextSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new next sibling S (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             next(T) = S after the action.
             If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
@@ -273,10 +273,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="PreviousSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="PreviousSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new previous sibling S (null if the node shall become the first sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             prev(T) = S after the action.
             If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
