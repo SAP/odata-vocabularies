@@ -16,18 +16,18 @@ Term|Type|Description
 ## Actions
 
 <a name="Template_ChangeNextSiblingAction"></a>
-### [Template_ChangeNextSiblingAction](./Hierarchy.xml#L259:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_ChangeNextSiblingAction](./Hierarchy.xml#L287:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L262:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")**|EntityType|**Binding parameter:** The node T to be moved
-[NextSibling](./Hierarchy.xml#L265:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")|EntityType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>Only the key properties in this parameter are relevant. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
+**[Node](./Hierarchy.xml#L290:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")**|EntityType|**Binding parameter:** The node T to be moved
+[NextSibling](./Hierarchy.xml#L293:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")|EntityType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>Only the key properties in this parameter are relevant. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
 
 
 <a name="Template_CopyAction"></a>
-### [Template_CopyAction](./Hierarchy.xml#L293:~:text=<Action%20Name="-,Template_CopyAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_CopyAction](./Hierarchy.xml#L321:~:text=<Action%20Name="-,Template_CopyAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)
 
@@ -51,8 +51,8 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L315:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
-[&rarr;](./Hierarchy.xml#L318:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
+**[Node](./Hierarchy.xml#L343:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
+[&rarr;](./Hierarchy.xml#L346:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
 
 
 
@@ -80,9 +80,11 @@ Parameter|Type|Description
 [HierarchyQualifier](./Hierarchy.xml#L224:~:text=<Function%20Name="-,TopLevels,-")|[HierarchyQualifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|
 [NodeProperty](./Hierarchy.xml#L225:~:text=<Function%20Name="-,TopLevels,-")|String|Property path to the node identifier, evaluated relative to the binding parameter
 *[Levels](./Hierarchy.xml#L228:~:text=<Function%20Name="-,TopLevels,-")*|Int64|*Optional parameter:* The number n of levels to be output, absent means all levels
-*[Expand](./Hierarchy.xml#L235:~:text=<Function%20Name="-,TopLevels,-")*|\[[TopLevelsExpandType](#TopLevelsExpandType)\]|*Optional parameter:* Nodes to be expanded
-*[Show](./Hierarchy.xml#L241:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-[&rarr;](./Hierarchy.xml#L247:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
+*[Expand](./Hierarchy.xml#L235:~:text=<Function%20Name="-,TopLevels,-")* *(Deprecated)*|\[String\]|*Optional parameter:* Deprecated in favor of `ExpandLevels`
+*[Show](./Hierarchy.xml#L249:~:text=<Function%20Name="-,TopLevels,-")*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
+*[Collapse](./Hierarchy.xml#L255:~:text=<Function%20Name="-,TopLevels,-")* *(Deprecated)*|\[String\]|*Optional parameter:* Deprecated in favor of `ExpandLevels`
+*[ExpandLevels](./Hierarchy.xml#L269:~:text=<Function%20Name="-,TopLevels,-")*|\[[TopLevelsExpandType](#TopLevelsExpandType)\]|*Optional parameter:* Nodes to be expanded
+[&rarr;](./Hierarchy.xml#L275:~:text=<Function%20Name="-,TopLevels,-")|\[EntityType\]|
 
 
 <a name="RecursiveHierarchyType"></a>
@@ -154,10 +156,10 @@ Property|Type|Description
 [CopyAction](./Hierarchy.xml#L175:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[NamespaceQualifiedActionName?](Common.md#NamespaceQualifiedActionName)|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
 
 <a name="TopLevelsExpandType"></a>
-## [TopLevelsExpandType](./Hierarchy.xml#L249:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-") *([Experimental](Common.md#Experimental))*
+## [TopLevelsExpandType](./Hierarchy.xml#L277:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeID](./Hierarchy.xml#L251:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|String|Identifier of a node to be expanded
-[Levels](./Hierarchy.xml#L254:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[NodeID](./Hierarchy.xml#L279:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|String|Identifier of a node to be expanded
+[Levels](./Hierarchy.xml#L282:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
