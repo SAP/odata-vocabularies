@@ -1405,16 +1405,21 @@
       "@Core.Description": "Role of this property or parameter regarding AI-based recommendations"
     },
     "RecommendationsRoleType": {
-      "$Kind": "EnumType",
-      "$UnderlyingType": "Edm.Byte",
-      "$IsFlags": true,
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
       "@Common.Experimental": true,
-      "Input": 1,
-      "Input@Core.Description": "The property is input for some recommendation",
-      "Output": 2,
-      "Output@Core.Description": "The property or parameter is the target of some recommendation",
-      "Required": 5,
-      "Required@Core.Description": "The property is mandatory input for recommendations to be requested"
+      "@Validation.AllowedValues": [
+        { "Value": "Input", "@Core.Description": "The property is input for some recommendation" },
+        { "Value": "Output", "@Core.Description": "The property or parameter is the target of some recommendation" },
+        {
+          "Value": "InputOutput",
+          "@Core.Description": "The property is input for and the target of some recommendation"
+        },
+        {
+          "Value": "Required",
+          "@Core.Description": "The property is mandatory input for recommendations to be requested"
+        }
+      ]
     }
   }
 }

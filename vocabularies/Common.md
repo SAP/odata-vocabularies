@@ -502,11 +502,14 @@ Property|Type|Description
 [score](./Common.xml#L1552:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
 
 <a name="RecommendationsRoleType"></a>
-## [RecommendationsRoleType](./Common.xml#L1560:~:text=<EnumType%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationsRoleType](./Common.xml#L1560:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+**Type:** String
 
 
-Flag Member|Value|Description
-:-----|----:|:----------
-[Input](./Common.xml#L1562:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|1|The property is input for some recommendation
-[Output](./Common.xml#L1565:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|2|The property or parameter is the target of some recommendation
-[Required](./Common.xml#L1568:~:text=<EnumType%20Name="-,RecommendationsRoleType,-")|5|The property is mandatory input for recommendations to be requested
+
+Allowed Value|Description
+:------------|:----------
+[Input](./Common.xml#L1564:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
+[Output](./Common.xml#L1568:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
+[InputOutput](./Common.xml#L1572:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
+[Required](./Common.xml#L1576:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is mandatory input for recommendations to be requested
