@@ -100,12 +100,12 @@
       "$Kind": "ComplexType",
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory.\n\nThe template actions themselves cannot be invoked.",
       "ChangeNextSiblingAction": {
-        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
       "CopyAction": {
-        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
       }
@@ -179,10 +179,10 @@
           { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
           {
             "$Name": "NextSibling",
-            "$Type": "Edm.EntityType",
+            "$Type": "Edm.ComplexType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
-            "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+            "@Core.LongDescription": "This parameter has properties with the same names as the key properties of the entity type.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }
