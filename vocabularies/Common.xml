@@ -1133,6 +1133,9 @@ Special case where the side effect is annotated on an action: here the change tr
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
 This can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.</String>
         </Annotation>
+        <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="These events may affect the targets" />
+        </Property>
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
         </Property>
