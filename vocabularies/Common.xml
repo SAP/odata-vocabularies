@@ -1101,16 +1101,16 @@ The minimum structure is
       </TypeDefinition>
 
       <TypeDefinition Name="QualifiedName" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="The QualifiedName of an OData construct in scope" />
+        <Annotation Term="Core.Description" String="The namespace-qualified name of an OData construct in scope" />
+        <Annotation Term="Core.LongDescription" String="Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended." />
       </TypeDefinition>
 
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
+        <Annotation Term="Core.Description" String="The namespace-qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The qualified name of an action, optionally followed by parentheses 
+          <String>The namespace-qualified name of an action, optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
-
         </Annotation>
       </TypeDefinition>
 
