@@ -1026,6 +1026,10 @@ The minimum structure is
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document" />
         </Property>
+        <Property Name="ActivationWithRecommendationsAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Action that activates a draft document while inserting AI-based recommendations" />
+        </Property>
         <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Action that discards a draft document" />

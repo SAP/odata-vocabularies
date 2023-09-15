@@ -931,6 +931,12 @@
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Action that activates a draft document"
       },
+      "ActivationWithRecommendationsAction": {
+        "$Type": "Common.QualifiedName",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Action that activates a draft document while inserting AI-based recommendations"
+      },
       "DiscardAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
