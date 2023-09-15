@@ -1029,6 +1029,10 @@ The minimum structure is
         <Property Name="ActivationWithRecommendationsAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Action that activates a draft document while inserting AI-based recommendations" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action has a non-binding parameter `Targets` like the [`Template_GetRecommendations`](#Template_GetRecommendations) function.
+            Only for these targets are recommendations inserted.</String>
+          </Annotation>
         </Property>
         <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Common.Experimental" />
@@ -1458,6 +1462,132 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))" />
+      </Term>
+      <Function Name="Template_RecommendationsFunction" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations for the bound entity and its related entities" />
+        <Annotation Term="Core.LongDescription">
+          <String>If the function is invoked repeatedly in a stateful session, it SHOULD NOT
+recompute recommendations whose predictors have not changed since the previous invocation.
+
+The function computes the recommendations asynchronously and returns a URL where its result can be retrieved.
+
+The template function itself cannot be invoked.</String>
+        </Annotation>
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]`
+            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)" />
+          <Annotation Term="Core.Example">
+            <Record Type="Core.PrimitiveExampleValue">
+              <PropertyValue Property="Description" String="Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)" />
+              <PropertyValue Property="Value" String="RetrieveRecommendations?ID=af43c2" />
+            </Record>
+          </Annotation>
+        </ReturnType>
+      </Function>
+      <Function Name="Template_RecommendationsRetrievalFunction">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Template for functions that retrieve AI-based recommendations for the bound entity and its related entities" />
+        <Annotation Term="Core.LongDescription">
+          <String>The template function itself cannot be invoked.</String>
+        </Annotation>
+        <Parameter Name="ID" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)" />
+        </Parameter>
+        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection of recommendations per targeted property" />
+        </ReturnType>
+      </Function>
+      <Function Name="Template_RecommendationsFunction2" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
+        <Annotation Term="Core.LongDescription">
+          <String>The function returns the recommendations but can be invoked with `Prefer: respond-async`.
+
+The template function itself cannot be invoked.</String>
+        </Annotation>
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
+        </Parameter>
+        <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
+        </Parameter>
+        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="PropertyRecommendationType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="target" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...`
+            might retrieve a recommendation with `"target": "Items(10)/Product"`.</String>
+          </Annotation>
+        </Property>
+        <Property Name="value" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Recommended value, converted to string" />
+        </Property>
+        <Property Name="text" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the recommended value" />
+        </Property>
+        <Property Name="alternatives" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a value is recommended via property `value`, it must be the first entry in this list.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="AlternativeRecommendationType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="value" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
+        </Property>
+        <Property Name="score" Type="Edm.Decimal" Scale="variable" Nullable="true">
+          <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
+        </Property>
+      </ComplexType>
+      <Term Name="RecommendationsRole" Type="Common.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
+      </Term>
+      <TypeDefinition Name="RecommendationsRoleType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" Int="Input" />
+              <Annotation Term="Core.Description" String="The property is input for some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="Output" />
+              <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="InputOutput" />
+              <Annotation Term="Core.Description" String="The property is input for and the target of some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="Required" />
+              <Annotation Term="Core.Description" String="The property is mandatory input for recommendations to be requested" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

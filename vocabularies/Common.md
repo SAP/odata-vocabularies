@@ -89,27 +89,80 @@ Term|Type|Description
 [IsFiscalYearVariant](./Common.xml#L1006:~:text=<Term%20Name="-,IsFiscalYearVariant,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsFiscalYearVariant"></a>Property encodes a fiscal year variant
 [MutuallyExclusiveTerm](./Common.xml#L1014:~:text=<Term%20Name="-,MutuallyExclusiveTerm,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
 [DraftRoot](./Common.xml#L1020:~:text=<Term%20Name="-,DraftRoot,-")|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
-[DraftNode](./Common.xml#L1065:~:text=<Term%20Name="-,DraftNode,-")|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
-[DraftActivationVia](./Common.xml#L1087:~:text=<Term%20Name="-,DraftActivationVia,-")|\[[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
-[EditableFieldFor](./Common.xml#L1091:~:text=<Term%20Name="-,EditableFieldFor,-")|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
-[SemanticKey](./Common.xml#L1121:~:text=<Term%20Name="-,SemanticKey,-")|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](./Common.xml#L1125:~:text=<Term%20Name="-,SideEffects,-")|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DefaultValuesFunction](./Common.xml#L1213:~:text=<Term%20Name="-,DefaultValuesFunction,-")|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call
-[DerivedDefaultValue](./Common.xml#L1242:~:text=<Term%20Name="-,DerivedDefaultValue,-") *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
-[FilterDefaultValue](./Common.xml#L1263:~:text=<Term%20Name="-,FilterDefaultValue,-")|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](./Common.xml#L1267:~:text=<Term%20Name="-,FilterDefaultValueHigh,-") *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](./Common.xml#L1272:~:text=<Term%20Name="-,DerivedFilterDefaultValue,-") *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
-[SortOrder](./Common.xml#L1296:~:text=<Term%20Name="-,SortOrder,-")|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
-[RecursiveHierarchy](./Common.xml#L1352:~:text=<Term%20Name="-,RecursiveHierarchy,-") *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
-[CreatedAt](./Common.xml#L1400:~:text=<Term%20Name="-,CreatedAt,-")|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](./Common.xml#L1404:~:text=<Term%20Name="-,CreatedBy,-")|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](./Common.xml#L1408:~:text=<Term%20Name="-,ChangedAt,-")|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](./Common.xml#L1412:~:text=<Term%20Name="-,ChangedBy,-")|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](./Common.xml#L1424:~:text=<Term%20Name="-,OriginalProtocolVersion,-")|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](./Common.xml#L1429:~:text=<Term%20Name="-,ApplyMultiUnitBehaviorForSortingAndFiltering,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
-[mediaUploadLink](./Common.xml#L1435:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
-[PrimitivePropertyPath](./Common.xml#L1450:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
-[WebSocketBaseURL](./Common.xml#L1455:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
+[DraftNode](./Common.xml#L1069:~:text=<Term%20Name="-,DraftNode,-")|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Entities in this set are parts of business documents that support the draft pattern
+[DraftActivationVia](./Common.xml#L1091:~:text=<Term%20Name="-,DraftActivationVia,-")|\[[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)\]|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity sets
+[EditableFieldFor](./Common.xml#L1095:~:text=<Term%20Name="-,EditableFieldFor,-")|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
+[SemanticKey](./Common.xml#L1125:~:text=<Term%20Name="-,SemanticKey,-")|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
+[SideEffects](./Common.xml#L1129:~:text=<Term%20Name="-,SideEffects,-")|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DefaultValuesFunction](./Common.xml#L1217:~:text=<Term%20Name="-,DefaultValuesFunction,-")|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br>The default values function must have a bound overload whose binding parameter type matches the annotation target<br/> - for an entity set: collection of entity type of entity set<br/> - for a navigation property: identical to the type of the navigation property (single- or collection-valued)<br/> - for a bound action/function: identical to the binding parameter type of the annotated action/function<br/> In addition the overload can have non-binding parameters for values that the user has already entered:<br/> - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created<br/> - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called<br/> The result type of the default values function is a complex type whose properties correspond in name and type to a subset of<br/> - the properties of the entity to create, or<br/> - the parameters of the action or function to call
+[DerivedDefaultValue](./Common.xml#L1246:~:text=<Term%20Name="-,DerivedDefaultValue,-") *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
+[FilterDefaultValue](./Common.xml#L1267:~:text=<Term%20Name="-,FilterDefaultValue,-")|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](./Common.xml#L1271:~:text=<Term%20Name="-,FilterDefaultValueHigh,-") *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](./Common.xml#L1276:~:text=<Term%20Name="-,DerivedFilterDefaultValue,-") *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
+[SortOrder](./Common.xml#L1300:~:text=<Term%20Name="-,SortOrder,-")|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
+[RecursiveHierarchy](./Common.xml#L1356:~:text=<Term%20Name="-,RecursiveHierarchy,-") *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
+[CreatedAt](./Common.xml#L1404:~:text=<Term%20Name="-,CreatedAt,-")|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](./Common.xml#L1408:~:text=<Term%20Name="-,CreatedBy,-")|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](./Common.xml#L1412:~:text=<Term%20Name="-,ChangedAt,-")|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](./Common.xml#L1416:~:text=<Term%20Name="-,ChangedBy,-")|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
+[OriginalProtocolVersion](./Common.xml#L1428:~:text=<Term%20Name="-,OriginalProtocolVersion,-")|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](./Common.xml#L1433:~:text=<Term%20Name="-,ApplyMultiUnitBehaviorForSortingAndFiltering,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
+[mediaUploadLink](./Common.xml#L1439:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
+[PrimitivePropertyPath](./Common.xml#L1454:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
+[WebSocketBaseURL](./Common.xml#L1459:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
+[RecommendationsFunction](./Common.xml#L1465:~:text=<Term%20Name="-,RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="RecommendationsFunction"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))
+[RecommendationsRole](./Common.xml#L1564:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+
+
+## Functions
+
+<a name="Template_RecommendationsFunction"></a>
+### [Template_RecommendationsFunction](./Common.xml#L1469:~:text=<Function%20Name="-,Template_RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*
+
+Template for functions that compute AI-based recommendations for the bound entity and its related entities
+
+If the function is invoked repeatedly in a stateful session, it SHOULD NOT
+recompute recommendations whose predictors have not changed since the previous invocation.
+
+The function computes the recommendations asynchronously and returns a URL where its result can be retrieved.
+
+The template function itself cannot be invoked.
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[Entity](./Common.xml#L1480:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
+[Targets](./Common.xml#L1481:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[&rarr;](./Common.xml#L1489:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|URL|URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously) ([Example](./Common.xml#L1492))
+
+
+<a name="Template_RecommendationsRetrievalFunction"></a>
+### [Template_RecommendationsRetrievalFunction](./Common.xml#L1500:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-") *([Experimental](Common.md#Experimental))*
+
+Template for functions that retrieve AI-based recommendations for the bound entity and its related entities
+
+The template function itself cannot be invoked.
+
+Parameter|Type|Description
+:--------|:---|:----------
+[ID](./Common.xml#L1506:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|String|ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)
+[&rarr;](./Common.xml#L1509:~:text=<Function%20Name="-,Template_RecommendationsRetrievalFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations per targeted property
+
+
+<a name="Template_RecommendationsFunction2"></a>
+### [Template_RecommendationsFunction2](./Common.xml#L1513:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-") *([Experimental](Common.md#Experimental))*
+
+Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+
+The function returns the recommendations but can be invoked with `Prefer: respond-async`.
+
+The template function itself cannot be invoked.
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[Entity](./Common.xml#L1521:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")**|EntityType|**Binding parameter:** See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+[Targets](./Common.xml#L1524:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")|\[URL\]|See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)
+[&rarr;](./Common.xml#L1528:~:text=<Function%20Name="-,Template_RecommendationsFunction2,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)
+
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](./Common.xml#L120:~:text=<EnumType%20Name="-,TextFormatType,-")
@@ -339,18 +392,18 @@ All filterable properties of the value list can be used to filter
 
 Property|Type|Description
 :-------|:---|:----------
-[*PreparationAction*](./Common.xml#L1071:~:text=<ComplexType%20Name="-,DraftNodeType,-")|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation
-[*ValidationFunction*](./Common.xml#L1074:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[*PreparationAction*](./Common.xml#L1075:~:text=<ComplexType%20Name="-,DraftNodeType,-")|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation
+[*ValidationFunction*](./Common.xml#L1078:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 [ActivationAction](./Common.xml#L1026:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName](#QualifiedName)|Action that activates a draft document
-[ActivationWithRecommendationsAction](./Common.xml#L1029:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that activates a draft document while inserting AI-based recommendations
-[DiscardAction](./Common.xml#L1033:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
-[EditAction](./Common.xml#L1037:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
-[NewAction](./Common.xml#L1040:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
-[AdditionalNewActions](./Common.xml#L1044:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
-[ShareAction](./Common.xml#L1049:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that shares a draft document with other users<br>The action is bound to the draft document root node and has the following signature:<br/> - `Users`: collection of structure with properties<br/>   - `UserID` of type `String` and<br/>   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)<br/> It restricts access to the listed users in their specified roles.
+[ActivationWithRecommendationsAction](./Common.xml#L1029:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that activates a draft document while inserting AI-based recommendations<br>The action has a non-binding parameter `Targets` like the [`Template_GetRecommendations`](#Template_GetRecommendations) function. Only for these targets are recommendations inserted.
+[DiscardAction](./Common.xml#L1037:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|[QualifiedName?](#QualifiedName)|Action that discards a draft document
+[EditAction](./Common.xml#L1041:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates an edit draft
+[NewAction](./Common.xml#L1044:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>New drafts may also be created by POSTing an empty entity without any properties to the entity set.
+[AdditionalNewActions](./Common.xml#L1048:~:text=<ComplexType%20Name="-,DraftRootType,-") *([Experimental](Common.md#Experimental))*|\[[QualifiedName](#QualifiedName)\]|Additional actions that create a new draft<br>Additional actions beside the default POST or standard `NewAction` that create a new draft.
+[ShareAction](./Common.xml#L1053:~:text=<ComplexType%20Name="-,DraftRootType,-")|[QualifiedName?](#QualifiedName)|Action that shares a draft document with other users<br>The action is bound to the draft document root node and has the following signature:<br/> - `Users`: collection of structure with properties<br/>   - `UserID` of type `String` and<br/>   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)<br/> It restricts access to the listed users in their specified roles.
 
 <a name="DraftNodeType"></a>
-## [DraftNodeType](./Common.xml#L1070:~:text=<ComplexType%20Name="-,DraftNodeType,-")
+## [DraftNodeType](./Common.xml#L1074:~:text=<ComplexType%20Name="-,DraftNodeType,-")
 
 
 **Derived Types:**
@@ -358,15 +411,15 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[PreparationAction](./Common.xml#L1071:~:text=<ComplexType%20Name="-,DraftNodeType,-")|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation
-[ValidationFunction](./Common.xml#L1074:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[PreparationAction](./Common.xml#L1075:~:text=<ComplexType%20Name="-,DraftNodeType,-")|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation
+[ValidationFunction](./Common.xml#L1078:~:text=<ComplexType%20Name="-,DraftNodeType,-") *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 
 <a name="SimpleIdentifier"></a>
-## [SimpleIdentifier](./Common.xml#L1095:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-") *(Deprecated)*
+## [SimpleIdentifier](./Common.xml#L1099:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-") *(Deprecated)*
 Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead
 
 <a name="QualifiedName"></a>
-## [QualifiedName](./Common.xml#L1107:~:text=<TypeDefinition%20Name="-,QualifiedName,-")
+## [QualifiedName](./Common.xml#L1111:~:text=<TypeDefinition%20Name="-,QualifiedName,-")
 **Type:** String
 
 The namespace-qualified name of an OData construct in scope
@@ -374,7 +427,7 @@ The namespace-qualified name of an OData construct in scope
 Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended.
 
 <a name="ActionOverload"></a>
-## [ActionOverload](./Common.xml#L1112:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
+## [ActionOverload](./Common.xml#L1116:~:text=<TypeDefinition%20Name="-,ActionOverload,-")
 **Type:** String
 
 The namespace-qualified name of an action with an optional overload
@@ -384,7 +437,7 @@ The namespace-qualified name of an action, optionally followed by parentheses
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
 <a name="SideEffectsType"></a>
-## [SideEffectsType](./Common.xml#L1128:~:text=<ComplexType%20Name="-,SideEffectsType,-")
+## [SideEffectsType](./Common.xml#L1132:~:text=<ComplexType%20Name="-,SideEffectsType,-")
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -398,35 +451,68 @@ This can also be used with OData V2 services: the annotation target is a functio
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](./Common.xml#L1140:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
-[SourceEntities](./Common.xml#L1143:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
-[TargetProperties](./Common.xml#L1146:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
-[TargetEntities](./Common.xml#L1150:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
-[EffectTypes](./Common.xml#L1153:~:text=<ComplexType%20Name="-,SideEffectsType,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
-[TriggerAction](./Common.xml#L1164:~:text=<ComplexType%20Name="-,SideEffectsType,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
-[TriggeredIndicator](./Common.xml#L1168:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
-[Discretionary](./Common.xml#L1173:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
+[SourceProperties](./Common.xml#L1144:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
+[SourceEntities](./Common.xml#L1147:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|Changes to one or more of these entities may affect the targets. An empty path means the annotation target.
+[TargetProperties](./Common.xml#L1150:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
+[TargetEntities](./Common.xml#L1154:~:text=<ComplexType%20Name="-,SideEffectsType,-")|\[NavigationPropertyPath\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target.
+[EffectTypes](./Common.xml#L1157:~:text=<ComplexType%20Name="-,SideEffectsType,-") *(Deprecated)*|[EffectType?](#EffectType)|All side effects are essentially value changes, differentiation not needed.
+[TriggerAction](./Common.xml#L1168:~:text=<ComplexType%20Name="-,SideEffectsType,-")|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
+[TriggeredIndicator](./Common.xml#L1172:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean?|Indicates whether the side-effect has already happened<br>The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested.
+[Discretionary](./Common.xml#L1177:~:text=<ComplexType%20Name="-,SideEffectsType,-") *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
 
 <a name="EffectType"></a>
-## [EffectType](./Common.xml#L1179:~:text=<EnumType%20Name="-,EffectType,-") *(Deprecated)*
+## [EffectType](./Common.xml#L1183:~:text=<EnumType%20Name="-,EffectType,-") *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
 
 <a name="SortOrderType"></a>
-## [SortOrderType](./Common.xml#L1304:~:text=<ComplexType%20Name="-,SortOrderType,-")
+## [SortOrderType](./Common.xml#L1308:~:text=<ComplexType%20Name="-,SortOrderType,-")
 Exactly one of `Property` and `DynamicProperty` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](./Common.xml#L1306:~:text=<ComplexType%20Name="-,SortOrderType,-")|PropertyPath?|Sort property
-[DynamicProperty](./Common.xml#L1318:~:text=<ComplexType%20Name="-,SortOrderType,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](Analytics.md#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
-[Descending](./Common.xml#L1332:~:text=<ComplexType%20Name="-,SortOrderType,-")|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](./Common.xml#L1310:~:text=<ComplexType%20Name="-,SortOrderType,-")|PropertyPath?|Sort property
+[DynamicProperty](./Common.xml#L1322:~:text=<ComplexType%20Name="-,SortOrderType,-")|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<br>- [AggregatedProperty](Analytics.md#AggregatedProperty)<br>- [CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)
+[Descending](./Common.xml#L1336:~:text=<ComplexType%20Name="-,SortOrderType,-")|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="RecursiveHierarchyType"></a>
-## [RecursiveHierarchyType](./Common.xml#L1365:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *(Deprecated)*
+## [RecursiveHierarchyType](./Common.xml#L1369:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *(Deprecated)*
 Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
 
 <a name="UserID"></a>
-## [UserID](./Common.xml#L1416:~:text=<TypeDefinition%20Name="-,UserID,-")
+## [UserID](./Common.xml#L1420:~:text=<TypeDefinition%20Name="-,UserID,-")
 **Type:** String
 
 User ID
+
+<a name="PropertyRecommendationType"></a>
+## [PropertyRecommendationType](./Common.xml#L1532:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[target](./Common.xml#L1534:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...` might retrieve a recommendation with `"target": "Items(10)/Product"`.
+[value](./Common.xml#L1542:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
+[text](./Common.xml#L1545:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
+[alternatives](./Common.xml#L1548:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `value`, it must be the first entry in this list.
+
+<a name="AlternativeRecommendationType"></a>
+## [AlternativeRecommendationType](./Common.xml#L1555:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[value](./Common.xml#L1557:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
+[score](./Common.xml#L1560:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
+
+<a name="RecommendationsRoleType"></a>
+## [RecommendationsRoleType](./Common.xml#L1568:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+**Type:** String
+
+
+
+Allowed Value|Description
+:------------|:----------
+[Input](./Common.xml#L1572:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
+[Output](./Common.xml#L1576:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
+[InputOutput](./Common.xml#L1580:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
+[Required](./Common.xml#L1584:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is mandatory input for recommendations to be requested

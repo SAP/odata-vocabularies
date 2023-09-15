@@ -150,7 +150,9 @@ On failure the sticky session is kept alive.</String>
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Bound action that saves a new or edited entity while inserting AI-based recommendations" />
           <Annotation Term="Core.LongDescription">
-            <String>Signature like `SaveAction`.</String>
+            <String>Signature like `SaveAction` but with an additional non-binding parameter `Targets`
+            like the [`Template_GetRecommendations`](Common.md#Template_GetRecommendations) function.
+            Only for these targets are recommendations inserted.</String>
           </Annotation>
         </Property>
         <Property Name="DiscardAction" Type="Core.SimpleIdentifier" Nullable="false">

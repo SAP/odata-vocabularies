@@ -62,7 +62,7 @@
         "$Nullable": true,
         "@Common.Experimental": true,
         "@Core.Description": "Bound action that saves a new or edited entity while inserting AI-based recommendations",
-        "@Core.LongDescription": "Signature like `SaveAction`."
+        "@Core.LongDescription": "Signature like `SaveAction` but with an additional non-binding parameter `Targets`\n            like the [`Template_GetRecommendations`](Common.md#Template_GetRecommendations) function.\n            Only for these targets are recommendations inserted."
       },
       "DiscardAction": {
         "$Type": "Core.SimpleIdentifier",

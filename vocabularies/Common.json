@@ -935,7 +935,8 @@
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Action that activates a draft document while inserting AI-based recommendations"
+        "@Core.Description": "Action that activates a draft document while inserting AI-based recommendations",
+        "@Core.LongDescription": "The action has a non-binding parameter `Targets` like the [`Template_GetRecommendations`](#Template_GetRecommendations) function.\n            Only for these targets are recommendations inserted."
       },
       "DiscardAction": {
         "$Type": "Common.QualifiedName",
@@ -1295,6 +1296,138 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "RecommendationsFunction": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))"
+    },
+    "Template_RecommendationsFunction": [
+      {
+        "$Kind": "Function",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
+        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function computes the recommendations asynchronously and returns a URL where its result can be retrieved.\n\nThe template function itself cannot be invoked.",
+        "$Parameter": [
+          { "$Name": "Entity", "$Type": "Edm.EntityType" },
+          {
+            "$Name": "Targets",
+            "$Collection": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
+            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[\"\",\"Items(10)\"]`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+          }
+        ],
+        "$ReturnType": {
+          "@Core.IsURL": true,
+          "@Core.Description": "URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)",
+          "@Core.Example": {
+            "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+            "Description": "Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)",
+            "Value": "RetrieveRecommendations?ID=af43c2"
+          }
+        }
+      }
+    ],
+    "Template_RecommendationsRetrievalFunction": [
+      {
+        "$Kind": "Function",
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for functions that retrieve AI-based recommendations for the bound entity and its related entities",
+        "@Core.LongDescription": "The template function itself cannot be invoked.",
+        "$Parameter": [
+          {
+            "$Name": "ID",
+            "@Core.Description": "ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)"
+          }
+        ],
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Common.PropertyRecommendationType",
+          "@Core.Description": "A collection of recommendations per targeted property"
+        }
+      }
+    ],
+    "Template_RecommendationsFunction2": [
+      {
+        "$Kind": "Function",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)",
+        "@Core.LongDescription": "The function returns the recommendations but can be invoked with `Prefer: respond-async`.\n\nThe template function itself cannot be invoked.",
+        "$Parameter": [
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
+          },
+          {
+            "$Name": "Targets",
+            "$Collection": true,
+            "@Core.IsURL": true,
+            "@Core.Description": "See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
+          }
+        ],
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Common.PropertyRecommendationType",
+          "@Core.Description": "See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)"
+        }
+      }
+    ],
+    "PropertyRecommendationType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "target": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...`\n            might retrieve a recommendation with `\"target\": \"Items(10)/Product\"`."
+      },
+      "value": { "@Core.Description": "Recommended value, converted to string" },
+      "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
+      "alternatives": {
+        "$Collection": true,
+        "$Type": "Common.AlternativeRecommendationType",
+        "@Core.Description": "A list of alternative values, sorted by confidence score in descending order",
+        "@Core.LongDescription": "If a value is recommended via property `value`, it must be the first entry in this list."
+      }
+    },
+    "AlternativeRecommendationType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "value": { "@Core.Description": "Alternatively recommended value, converted to string" },
+      "score": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Confidence score of the alternatively recommended value"
+      }
+    },
+    "RecommendationsRole": {
+      "$Kind": "Term",
+      "$Type": "Common.RecommendationsRoleType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Role of this property or parameter regarding AI-based recommendations"
+    },
+    "RecommendationsRoleType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Common.Experimental": true,
+      "@Validation.AllowedValues": [
+        { "Value": "Input", "@Core.Description": "The property is input for some recommendation" },
+        { "Value": "Output", "@Core.Description": "The property or parameter is the target of some recommendation" },
+        {
+          "Value": "InputOutput",
+          "@Core.Description": "The property is input for and the target of some recommendation"
+        },
+        {
+          "Value": "Required",
+          "@Core.Description": "The property is mandatory input for recommendations to be requested"
+        }
+      ]
     }
   }
 }
