@@ -1456,7 +1456,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
       <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction))" />
       </Term>
       <Function Name="Template_RecommendationsFunction" IsBound="true">
         <Annotation Term="Common.Experimental" />
@@ -1465,9 +1465,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <String>If the function is invoked repeatedly in a stateful session, it SHOULD NOT
 recompute recommendations whose predictors have not changed since the previous invocation.
 
-The function computes the recommendations asynchronously and returns a URL where its result can be retrieved.
-The result is a collection of [`Common.PropertyRecommendationType`](#PropertyRecommendationType)
-whose entries differ in their `target`.
+The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).
 
 The template function itself cannot be invoked.</String>
         </Annotation>
@@ -1479,32 +1477,6 @@ The template function itself cannot be invoked.</String>
             <String>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]`
             retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
           </Annotation>
-        </Parameter>
-        <ReturnType Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)" />
-          <Annotation Term="Core.Example">
-            <Record Type="Core.PrimitiveExampleValue">
-              <PropertyValue Property="Description" String="Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)" />
-              <PropertyValue Property="Value" String="RetrieveRecommendations?ID=af43c2" />
-            </Record>
-          </Annotation>
-        </ReturnType>
-      </Function>
-      <Function Name="Template_RecommendationsFunction2" IsBound="true">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
-        <Annotation Term="Core.LongDescription">
-          <String>The function returns the recommendations but can be invoked with `Prefer: respond-async`.
-
-The template function itself cannot be invoked.</String>
-        </Annotation>
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
-        </Parameter>
-        <Parameter Name="Targets" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)" />
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `target`" />

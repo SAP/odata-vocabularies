@@ -1295,7 +1295,7 @@
       "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction) and [this alternative](#Template_RecommendationsFunction2))"
+      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction))"
     },
     "Template_RecommendationsFunction": [
       {
@@ -1303,7 +1303,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function computes the recommendations asynchronously and returns a URL where its result can be retrieved.\nThe result is a collection of [`Common.PropertyRecommendationType`](#PropertyRecommendationType)\nwhose entries differ in their `target`.\n\nThe template function itself cannot be invoked.",
+        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
@@ -1312,37 +1312,6 @@
             "@Core.IsURL": true,
             "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
             "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=[\"\",\"Items(10)\"]`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
-          }
-        ],
-        "$ReturnType": {
-          "@Core.IsURL": true,
-          "@Core.Description": "URL (relative to the service URL) for retrieving the recommendations (which are computed asynchronously)",
-          "@Core.Example": {
-            "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
-            "Description": "Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)",
-            "Value": "RetrieveRecommendations?ID=af43c2"
-          }
-        }
-      }
-    ],
-    "Template_RecommendationsFunction2": [
-      {
-        "$Kind": "Function",
-        "$IsBound": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Variant of [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)",
-        "@Core.LongDescription": "The function returns the recommendations but can be invoked with `Prefer: respond-async`.\n\nThe template function itself cannot be invoked.",
-        "$Parameter": [
-          {
-            "$Name": "Entity",
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "See parameter `Entity` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
-          },
-          {
-            "$Name": "Targets",
-            "$Collection": true,
-            "@Core.IsURL": true,
-            "@Core.Description": "See parameter `Targets` in [`Template_RecommendationsFunction`](#Template_RecommendationsFunction)"
           }
         ],
         "$ReturnType": {
