@@ -1303,7 +1303,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function computes the recommendations asynchronously and returns a URL where its result can be retrieved.\n\nThe template function itself cannot be invoked.",
+        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function computes the recommendations asynchronously and returns a URL where its result can be retrieved.\nThe result is a collection of [`Common.PropertyRecommendationType`](#PropertyRecommendationType)\nwhose entries differ in their `target`.\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
@@ -1322,25 +1322,6 @@
             "Description": "Relative URL for invoking a function import of the [retrieval function](#Template_RecommendationsRetrievalFunction)",
             "Value": "RetrieveRecommendations?ID=af43c2"
           }
-        }
-      }
-    ],
-    "Template_RecommendationsRetrievalFunction": [
-      {
-        "$Kind": "Function",
-        "@Common.Experimental": true,
-        "@Core.Description": "Template for functions that retrieve AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The template function itself cannot be invoked.",
-        "$Parameter": [
-          {
-            "$Name": "ID",
-            "@Core.Description": "ID that occurs in the URL returned by a prior invocation of the [recommendations function](#Template_RecommendationsFunction)"
-          }
-        ],
-        "$ReturnType": {
-          "$Collection": true,
-          "$Type": "Common.PropertyRecommendationType",
-          "@Core.Description": "A collection of recommendations per targeted property"
         }
       }
     ],
@@ -1367,7 +1348,7 @@
         "$ReturnType": {
           "$Collection": true,
           "$Type": "Common.PropertyRecommendationType",
-          "@Core.Description": "See return type in [`Template_RecommendationsRetrievalFunction`](#Template_RecommendationsRetrievalFunction)"
+          "@Core.Description": "A collection of recommendations that differ in their `target`"
         }
       }
     ],
