@@ -8,9 +8,9 @@ sequenceDiagram
     participant task as New task
   end
   participant AI as BTP recommendations service
-  activate client
-  note over client: sticky session
-  client ->>+ server: POST $batch
+  activate server
+  note over server: sticky session
+  client ->> server: POST $batch
   server ->> server: PATCH SalesOrder('A')
   par
     server ->> server: GET SalesOrder('A')?$expand=... for side effects
@@ -18,11 +18,10 @@ sequenceDiagram
     server ->> server: GET SalesOrder('A')/ns.Recommendations?Targets=...<br>Prefer: respond-async
     server ->>+ task: call function ... starting new task
   end
-  server -->>- client: $batch response with<br>Location header for recommendations
+  server -->> client: $batch response with<br>Location header for recommendations
   task ->>+ AI: compute recommendations
   client ->>+ server: GET «Location header for recommendations»
-  activate client
-  note right of client: outside sticky session
+  note right of server: outside sticky session
   par
     loop until successful lookup
      server ->> server: look up recommendations on database
@@ -33,9 +32,8 @@ sequenceDiagram
     deactivate task
   end
   server -->>- client: return recommendations
-  deactivate client
-  note over client: sticky session continues
-  deactivate client
+  note over server: sticky session continues
+  deactivate server
 ```
 
 The lower half of the diagram could alternatively use a web socket:
@@ -47,7 +45,7 @@ sequenceDiagram
     participant task as New task
   end
   participant AI as BTP recommendations service
-  activate client
+  activate server
   activate task
   task ->>+ AI: compute recommendations
   AI -->>- task: return recommendations
@@ -55,10 +53,8 @@ sequenceDiagram
   task ->> client: send recommendation retrieval URL over web socket
   deactivate task
   client ->>+ server: GET «recommendation retrieval URL»
-  activate client
-  note right of client: outside sticky session
+  note right of server: outside sticky session
   server -->>- client: return recommendations
-  deactivate client
-  note over client: sticky session continues
-  deactivate client
+  note over server: sticky session continues
+  deactivate server
 ```
