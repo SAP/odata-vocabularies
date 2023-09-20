@@ -1303,7 +1303,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "If the function is invoked repeatedly in a stateful session, it SHOULD NOT\nrecompute recommendations whose predictors have not changed since the previous invocation.\n\nThe function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).\n\nThe template function itself cannot be invoked.",
+        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
@@ -1368,7 +1368,7 @@
         },
         {
           "Value": "Required",
-          "@Core.Description": "The property is mandatory input for recommendations to be requested"
+          "@Core.Description": "The property is required input before any recommendations are requested"
         }
       ]
     }

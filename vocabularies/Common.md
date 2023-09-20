@@ -111,7 +111,7 @@ Term|Type|Description
 [PrimitivePropertyPath](./Common.xml#L1446:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1451:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
 [RecommendationsFunction](./Common.xml#L1457:~:text=<Term%20Name="-,RecommendationsFunction,-") *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="RecommendationsFunction"></a>Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction))
-[RecommendationsRole](./Common.xml#L1517:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+[RecommendationsRole](./Common.xml#L1514:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
 
 
 ## Functions
@@ -121,18 +121,15 @@ Term|Type|Description
 
 Template for functions that compute AI-based recommendations for the bound entity and its related entities
 
-If the function is invoked repeatedly in a stateful session, it SHOULD NOT
-recompute recommendations whose predictors have not changed since the previous invocation.
-
 The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).
 
 The template function itself cannot be invoked.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Common.xml#L1472:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
-[Targets](./Common.xml#L1473:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
-[&rarr;](./Common.xml#L1481:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations that differ in their `target`
+**[Entity](./Common.xml#L1469:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")**|EntityType|**Binding parameter**
+[Targets](./Common.xml#L1470:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=["","Items(10)"]` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[&rarr;](./Common.xml#L1478:~:text=<Function%20Name="-,Template_RecommendationsFunction,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations that differ in their `target`
 
 
 <a name="TextFormatType"></a>
@@ -455,34 +452,34 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 User ID
 
 <a name="PropertyRecommendationType"></a>
-## [PropertyRecommendationType](./Common.xml#L1485:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [PropertyRecommendationType](./Common.xml#L1482:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[target](./Common.xml#L1487:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...` might retrieve a recommendation with `"target": "Items(10)/Product"`.
-[value](./Common.xml#L1495:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
-[text](./Common.xml#L1498:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
-[alternatives](./Common.xml#L1501:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `value`, it must be the first entry in this list.
+[target](./Common.xml#L1484:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...` might retrieve a recommendation with `"target": "Items(10)/Product"`.
+[value](./Common.xml#L1492:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
+[text](./Common.xml#L1495:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
+[alternatives](./Common.xml#L1498:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `value`, it must be the first entry in this list.
 
 <a name="AlternativeRecommendationType"></a>
-## [AlternativeRecommendationType](./Common.xml#L1508:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeRecommendationType](./Common.xml#L1505:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[value](./Common.xml#L1510:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
-[score](./Common.xml#L1513:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
+[value](./Common.xml#L1507:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
+[score](./Common.xml#L1510:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
 
 <a name="RecommendationsRoleType"></a>
-## [RecommendationsRoleType](./Common.xml#L1521:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationsRoleType](./Common.xml#L1518:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[Input](./Common.xml#L1525:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
-[Output](./Common.xml#L1529:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
-[InputOutput](./Common.xml#L1533:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
-[Required](./Common.xml#L1537:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is mandatory input for recommendations to be requested
+[Input](./Common.xml#L1522:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
+[Output](./Common.xml#L1526:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
+[InputOutput](./Common.xml#L1530:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
+[Required](./Common.xml#L1534:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested

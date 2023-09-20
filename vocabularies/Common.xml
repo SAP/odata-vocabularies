@@ -1462,10 +1462,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for functions that compute AI-based recommendations for the bound entity and its related entities" />
         <Annotation Term="Core.LongDescription">
-          <String>If the function is invoked repeatedly in a stateful session, it SHOULD NOT
-recompute recommendations whose predictors have not changed since the previous invocation.
-
-The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).
+          <String>The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).
 
 The template function itself cannot be invoked.</String>
         </Annotation>
@@ -1536,7 +1533,7 @@ The template function itself cannot be invoked.</String>
             </Record>
             <Record>
               <PropertyValue Property="Value" Int="Required" />
-              <Annotation Term="Core.Description" String="The property is mandatory input for recommendations to be requested" />
+              <Annotation Term="Core.Description" String="The property is required input before any recommendations are requested" />
             </Record>
           </Collection>
         </Annotation>
