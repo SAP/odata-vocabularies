@@ -1367,7 +1367,7 @@
           "@Core.Description": "The property is input for and the target of some recommendation"
         },
         {
-          "Value": "Required",
+          "Value": "RequiredInput",
           "@Core.Description": "The property is required input before any recommendations are requested"
         }
       ]

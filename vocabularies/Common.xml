@@ -1532,7 +1532,7 @@ The template function itself cannot be invoked.</String>
               <Annotation Term="Core.Description" String="The property is input for and the target of some recommendation" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" Int="Required" />
+              <PropertyValue Property="Value" Int="RequiredInput" />
               <Annotation Term="Core.Description" String="The property is required input before any recommendations are requested" />
             </Record>
           </Collection>

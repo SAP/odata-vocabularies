@@ -482,4 +482,4 @@ Allowed Value|Description
 [Input](./Common.xml#L1522:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
 [Output](./Common.xml#L1526:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
 [InputOutput](./Common.xml#L1530:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
-[Required](./Common.xml#L1534:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested
+[RequiredInput](./Common.xml#L1534:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested
