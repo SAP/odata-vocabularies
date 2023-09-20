@@ -1303,7 +1303,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).\n\nThe template function itself cannot be invoked.",
+        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {

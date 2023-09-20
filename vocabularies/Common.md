@@ -121,7 +121,7 @@ Term|Type|Description
 
 Template for functions that compute AI-based recommendations for the bound entity and its related entities
 
-The function SHOULD compute the recommendations asynchronously (`Prefer: respond-async`).
+The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).
 
 The template function itself cannot be invoked.
 
