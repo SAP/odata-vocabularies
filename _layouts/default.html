@@ -7,6 +7,18 @@
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$']]
+        }
+      };
+    </script>
+    
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
@@ -29,5 +41,12 @@
         </p> 
       </div>
     </footer>
+
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({startOnLoad: true});
+      mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    </script>
+
   </body>
 </html>
