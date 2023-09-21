@@ -1308,8 +1308,8 @@
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
             "$Name": "Targets",
-            "@Core.Description": "Whitespace-separated URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-            "@Core.LongDescription": "Spaces separating the URLs are percent-encoded, and spaces in each URL must be doubly percent-encoded.\n            The request `SalesOrder('A')/ns.RecommendationsFunction?Targets='%20Items(''Boiled%2520Eggs'')'`\n            retrieves recommendations for the entities `SalesOrder('A')` (corresponding to the empty URL before the space)\n            and `SalesOrder('A')/Items('Boiled Eggs')` (corresponding to the URL `Items('Boiled%20Eggs')` after the space)."
+            "@Core.Description": "Newline-separated URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
+            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets='%0aItems(''Boiled%20Eggs'')'`\n            retrieves recommendations for the entities `SalesOrder('A')` (corresponding to the empty URL before the newline)\n            and `SalesOrder('A')/Items('Boiled Eggs')` (corresponding to the URL `Items('Boiled%20Eggs')` after the newline)."
           }
         ],
         "$ReturnType": {
