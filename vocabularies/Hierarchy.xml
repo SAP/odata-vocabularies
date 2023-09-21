@@ -229,14 +229,42 @@ The template actions themselves cannot be invoked.</String>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Expand" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Nodes to be expanded" />
+        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
+              </Record>
+            </Collection>
+          </Annotation>
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
+              </Record>
+            </Collection>
+          </Annotation>
+          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>

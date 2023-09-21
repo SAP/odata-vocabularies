@@ -150,14 +150,28 @@
           {
             "$Name": "Expand",
             "$Collection": true,
-            "$Type": "Hierarchy.TopLevelsExpandType",
-            "@Core.Description": "Nodes to be expanded",
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
+            "@Core.Description": "Identifiers of nodes to be expanded",
             "@Core.OptionalParameter": {}
           },
           {
             "$Name": "Show",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be shown",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "Collapse",
+            "$Collection": true,
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
+            "@Core.Description": "Identifiers of nodes to be collapsed",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ExpandLevels",
+            "$Collection": true,
+            "$Type": "Hierarchy.TopLevelsExpandType",
+            "@Core.Description": "Nodes to be expanded",
             "@Core.OptionalParameter": {}
           }
         ],
