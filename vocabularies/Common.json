@@ -1306,11 +1306,7 @@
         "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
-          {
-            "$Name": "Targets",
-            "@Core.Description": "Newline-separated URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-            "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets='%0aItems(''Boiled%20Eggs'')'`\n            retrieves recommendations for the entities `SalesOrder('A')` (corresponding to the empty URL before the newline)\n            and `SalesOrder('A')/Items('Boiled Eggs')` (corresponding to the URL `Items('Boiled%20Eggs')` after the newline)."
-          }
+          { "$Name": "Targets", "$Type": "Common.RecommendationsTargetsType" }
         ],
         "$ReturnType": {
           "$Collection": true,
@@ -1319,6 +1315,16 @@
         }
       }
     ],
+    "RecommendationsTargetsType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "URLs": {
+        "$Collection": true,
+        "@Core.IsURL": true,
+        "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+      }
+    },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
