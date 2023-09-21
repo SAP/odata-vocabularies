@@ -37,27 +37,28 @@
 
       <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Hierarchy-specific information in the result set of a hierarchical request" />
         <Annotation Term="Core.LongDescription">
           <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          governs what are the nodes and parents in the hierarchy, whereas this annotation designates properties that contain derived information.</String>
+          governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
-          <String>The property paths in this complex type refer to properties of an entity type that contain
-information about a node in a recursive hierarchy. When hierarchical transformations
+          <String>The properties in this complex type contain information about
+a node in the result set of a hierarchical request. If the same node occurs multiple times
+with different parents, certain properties may differ between the occurrences.
+The properties are derived when hierarchical transformations
 are applied whose first parameter has the annotated entity type
-and whose second parameter is the annotation qualifier,
-then these properties are derived for each node in the result set.
-Otherwise, the property paths may evaluate to null.
+and whose second parameter is the annotation qualifier.
 
 For requests like
 ```
 SalesOrganizations?$apply=
 descendants(..., ID, filter(ID eq 'US'), keep start)
-/ancestors(..., ID, filter(contains(Name, 'New York'), keep start)
+/ancestors(..., ID, filter(contains(Name, 'New York')), keep start)
 /Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
@@ -79,15 +80,15 @@ the following collections of hierarchy nodes are distinguished:
 |limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing "New York"|rows 1–4|
 </String>
         </Annotation>
-        <Property Name="ExternalKeyProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="String property holding the human-readable key value for a node" />
+        <Property Name="ExternalKey" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Human-readable key value for a node" />
           <Annotation Term="Core.LongDescription">
-            <String>If a `NodeTypeProperty` exists, the external key is unique only in combination with it.
+            <String>If a `NodeType` exists, the external key is unique only in combination with it.
             Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType).</String>
           </Annotation>
         </Property>
-        <Property Name="NodeTypeProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="String property holding the type of a node" />
+        <Property Name="NodeType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Type of a node" />
           <Annotation Term="Core.LongDescription">
             <String>In a recursive hierarchy with mixed types, nodes can
             &lt;br&gt;- have a type-specific (navigation) property whose name is the node type or
@@ -95,17 +96,17 @@ the following collections of hierarchy nodes are distinguished:
             annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.</String>
           </Annotation>
         </Property>
-        <Property Name="ChildCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of children a node has in the unlimited hierarchy" />
+        <Property Name="ChildCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of children a node has in the unlimited hierarchy" />
         </Property>
-        <Property Name="DescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the unlimited hierarchy" />
+        <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of descendants a node has in the unlimited hierarchy" />
         </Property>
-        <Property Name="LimitedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of descendants a node has in the limited hierarchy" />
+        <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of descendants a node has in the limited hierarchy" />
         </Property>
-        <Property Name="DrillStateProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="String property holding the drill state of a node" />
+        <Property Name="DrillState" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Drill state of an occurrence of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
             &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
@@ -113,34 +114,28 @@ the following collections of hierarchy nodes are distinguished:
             &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
           </Annotation>
         </Property>
-        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the number of ancestors a node has in the limited hierarchy" />
+        <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.</String>
+            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
-        <Property Name="SiblingRankProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the sibling rank of a node" />
+        <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
             in the unlimited hierarchy with the same parent. The first sibling has rank 0.</String>
           </Annotation>
         </Property>
-        <!--
-        <Property Name="SiblingOrderProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties that define the relative order of siblings" />
-          <Annotation Term="Core.LongDescription" String="A PATCH request on these properties changes the relative order of siblings." />
+        <Property Name="Matched" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Flag indicating [matching](#MatchCount) nodes" />
         </Property>
-        -->
-        <Property Name="MatchedProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Boolean property indicating [matching](#MatchCount) nodes" />
-        </Property>
-        <Property Name="MatchedDescendantCountProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Integer property of type `Edm.Int64` holding the the number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
+        <Property Name="MatchedDescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
         <!--
-        <Property Name="StartNodeCountsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Whether the service provides the [`StartNodeCounts`](#StartNodeCounts) instance annotation" />
+        <Property Name="Cycle" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="There is a cycle from this occurrence of a node to the node itself following the [`Aggregation.UpPath`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#UpPath)" />
         </Property>
         -->
       </ComplexType>
@@ -182,9 +177,11 @@ The template actions themselves cannot be invoked.</String>
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The service designates a subset of the `$apply` result as "matching nodes".
-          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
+          <String>The service MAY designate a subset of the `$apply` result as "matching nodes".
+          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the
+          `filter` or `search` transformation that occurs as the fourth parameter
           of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
+          For requests not following this pattern, the subset NEED NOT be defined.&lt;br&gt;
           This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
           and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
@@ -232,42 +229,14 @@ The template actions themselves cannot be invoked.</String>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
+        <Parameter Name="Expand" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -290,10 +259,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="NextSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new next sibling S (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             next(T) = S after the action.
             If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
@@ -307,10 +276,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="PreviousSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="PreviousSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new previous sibling S (null if the node shall become the first sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             prev(T) = S after the action.
             If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
