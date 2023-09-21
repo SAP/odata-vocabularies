@@ -24,7 +24,7 @@ sequenceDiagram
   note right of server: outside sticky session
   par
     loop until successful lookup
-     server ->> server: look up recommendations on database
+      server ->> server: look up recommendations on database
     end
   and
     AI -->>- task: return recommendations
@@ -36,7 +36,35 @@ sequenceDiagram
   deactivate server
 ```
 
-The lower half of the diagram could alternatively use a web socket:
+Instead of "long polling" outside the sticky session, the client could also make repeated poll requests in the sticky session.
+The lower half of the diagram then becomes:
+```mermaid
+sequenceDiagram
+  actor client as Fiori client
+  box ABAP
+    participant server as OData service
+    participant task as New task
+  end
+  participant AI as BTP recommendations service
+  activate server
+  activate task
+  task ->>+ AI: compute recommendations
+  par
+    loop until successful lookup
+      client ->> server: GET «Location header for recommendations»
+      server ->> server: look up recommendations on database
+      server -->> client: return recommendations if found
+    end
+  and
+    AI -->>- task: return recommendations
+    task ->> task: write recommendations to database
+    deactivate task
+  end
+  note over server: sticky session continues
+  deactivate server
+```
+
+Or the client could be notified via web socket when the recommendations are available:
 ```mermaid
 sequenceDiagram
   actor client as Fiori client
@@ -53,7 +81,7 @@ sequenceDiagram
   task ->> client: send recommendation retrieval URL over web socket
   deactivate task
   client ->>+ server: GET «recommendation retrieval URL»
-  note right of server: outside sticky session
+  note right of server: outside or inside sticky session
   server -->>- client: return recommendations
   note over server: sticky session continues
   deactivate server
