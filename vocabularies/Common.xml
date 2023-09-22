@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
@@ -1450,18 +1450,49 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="Recommendation" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property">
+      <Term Name="Recommendation" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property ReturnType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A recommended value for this property" />
+        <Annotation Term="Core.Description" String="A recommended value for this property or in this returned value" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Common.Text</String>
+            <String>Common.RecommendationScore</String>
           </Collection>
         </Annotation>
       </Term>
-      <Term Name="RecommendationAlternatives" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property">
+      <Term Name="RecommendationScore" Type="Edm.Decimal" Scale="variable" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Alternative recommended values for this property" />
+        <Annotation Term="Core.Description" String="Confidence score of a recommendation" />
+      </Term>
+      <Term Name="RecommendationAlternatives" Type="Collection(Edm.Untyped)" Nullable="false" AppliesTo="Property ReturnType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Alternative recommended values for this property or in this returned value" />
+        <Annotation Term="Validation.DerivedTypeConstraint">
+          <Collection>
+            <String>Edm.Binary</String>
+            <String>Edm.Boolean</String>
+            <String>Edm.Byte</String>
+            <String>Edm.Date</String>
+            <String>Edm.DateTimeOffset</String>
+            <String>Edm.Decimal</String>
+            <String>Edm.Double</String>
+            <String>Edm.Duration</String>
+            <String>Edm.Guid</String>
+            <String>Edm.Int16</String>
+            <String>Edm.Int32</String>
+            <String>Edm.Int64</String>
+            <String>Edm.SByte</String>
+            <String>Edm.Single</String>
+            <String>Edm.String</String>
+            <String>Edm.TimeOfDay</String>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Text</String>
+            <String>Common.RecommendationScore</String>
+          </Collection>
+        </Annotation>
       </Term>
 
     </Schema>
