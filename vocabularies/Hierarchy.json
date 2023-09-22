@@ -150,6 +150,7 @@
           {
             "$Name": "Expand",
             "$Collection": true,
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
             "@Core.Description": "Identifiers of nodes to be expanded",
             "@Core.OptionalParameter": {}
           },
@@ -162,13 +163,31 @@
           {
             "$Name": "Collapse",
             "$Collection": true,
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
             "@Core.Description": "Identifiers of nodes to be collapsed",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ExpandLevels",
+            "$Collection": true,
+            "$Type": "Hierarchy.TopLevelsExpandType",
+            "@Core.Description": "Nodes to be expanded",
             "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
+    "TopLevelsExpandType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "NodeID": { "@Core.Description": "Identifier of a node to be expanded" },
+      "Levels": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
+      }
+    },
     "Template_ChangeNextSiblingAction": [
       {
         "$Kind": "Action",
