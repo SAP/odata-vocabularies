@@ -157,17 +157,20 @@ including any hierarchy directory.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
-          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.ChangeNextSibling" />
+          <Annotation Term="Core.ImplementsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance"
+            String="Hierarchy.ChangeNextSibling" />
         </Property>
         <!--
         <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
-          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.ChangePreviousSibling" />
+          <Annotation Term="Core.ImplementsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance"
+            String="Hierarchy.ChangePreviousSibling" />
         </Property>
         -->
         <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants" />
-          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.CopyNode" />
+          <Annotation Term="Core.ImplementsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance"
+            String="Hierarchy.CopyNode" />
         </Property>
       </ComplexType>
 
@@ -282,7 +285,7 @@ including any hierarchy directory.</String>
 
       <Action Name="ChangeNextSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
+        <Annotation Term="Core.IsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance" />
         <Annotation Term="Core.Description" String="Move a node among its siblings" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -300,7 +303,7 @@ including any hierarchy directory.</String>
       <!--
       <Action Name="ChangePreviousSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
+        <Annotation Term="Core.IsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -318,7 +321,7 @@ including any hierarchy directory.</String>
       -->
       <Action Name="CopyNode" IsBound="true" EntitySetPath="Node">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
+        <Annotation Term="Core.IsInterface" Qualifier="com_sap_vocabularies_Hierarchy_v1_Maintenance" />
         <Annotation Term="Core.Description" String="Copy a node and its descendants" />
         <Annotation Term="Core.LongDescription">
           <String>To give the copied sub-hierarchy a parent, the action invocation can be followed
