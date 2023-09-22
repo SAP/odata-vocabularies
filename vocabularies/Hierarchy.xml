@@ -152,23 +152,22 @@ the following collections of hierarchy nodes are distinguished:
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
-These actions MUST have the same signature as the template actions linked below, with
-`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 The resource path of the binding parameter MUST traverse the hierarchy collection,
-including any hierarchy directory.
-
-The template actions themselves cannot be invoked.</String>
+including any hierarchy directory.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
+          <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
+          <Annotation Term="Core.ImplementsInterface" String="Common.ChangeNextSibling" />
         </Property>
         <!--
         <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
+          <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
+          <Annotation Term="Core.ImplementsInterface" String="Common.ChangePreviousSibling" />
         </Property>
         -->
         <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
+          <Annotation Term="Core.Description" String="Action that copies a node and its descendants" />
+          <Annotation Term="Core.ImplementsInterface" String="Common.CopyNode" />
         </Property>
       </ComplexType>
 
@@ -281,9 +280,10 @@ The template actions themselves cannot be invoked.</String>
         </Property>
       </ComplexType>
 
-      <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
+      <Action Name="ChangeNextSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)" />
+        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
+        <Annotation Term="Core.Description" String="Move a node among its siblings" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
@@ -298,8 +298,9 @@ The template actions themselves cannot be invoked.</String>
         </Parameter>
       </Action>
       <!--
-      <Action Name="Template_ChangePreviousSiblingAction" IsBound="true">
+      <Action Name="ChangePreviousSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -315,9 +316,10 @@ The template actions themselves cannot be invoked.</String>
         </Parameter>
       </Action>
       -->
-      <Action Name="Template_CopyAction" IsBound="true" EntitySetPath="Node">
+      <Action Name="CopyNode" IsBound="true" EntitySetPath="Node">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)" />
+        <Annotation Term="Core.IsInterface" Qualifier="HierarchyMaintenance" />
+        <Annotation Term="Core.Description" String="Copy a node and its descendants" />
         <Annotation Term="Core.LongDescription">
           <String>To give the copied sub-hierarchy a parent, the action invocation can be followed
 by a PATCH that binds the parent navigation property (for example, `Superordinate` in the following JSON batch request).
