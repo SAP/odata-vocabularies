@@ -1290,34 +1290,28 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "RecommendationsFunction": {
-      "$Kind": "Term",
-      "$Type": "Common.QualifiedName",
-      "$AppliesTo": ["EntityType"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#Template_RecommendationsFunction))"
-    },
-    "Template_RecommendationsFunction": [
+    "GetRecommendations": [
       {
         "$Kind": "Function",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n\nThe template function itself cannot be invoked.",
+        "@Core.IsInterface": true,
+        "@Core.Description": "Computes AI-based recommendations for the bound entity and its related entities",
+        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
             "$Name": "Targets",
             "$Type": "Common.RecommendationsTargetsType",
             "@Core.Description": "Entities, properties or action/function parameters for which recommendations shall be retrieved",
-            "@Core.LongDescription": "In the absence of this parameter, all recommendations are retrieved.",
+            "@Core.LongDescription": "Implementations of this function MAY omit this parameter.\n            If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.",
             "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": {
           "$Collection": true,
           "$Type": "Common.PropertyRecommendationType",
-          "@Core.Description": "A collection of recommendations that differ in their `target`"
+          "@Core.Description": "A collection of recommendations that differ in their `RecmddFldURL` property"
         }
       }
     ],
@@ -1328,31 +1322,34 @@
         "$Collection": true,
         "@Core.IsURL": true,
         "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-        "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
       }
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "target": {
+      "RecmddFldURL": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the URL of the recommendations function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/ns.RecommendationsFunction?Targets=...`\n            might retrieve a recommendation with `\"target\": \"Items(10)/Product\"`."
+        "@Core.Description": "URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`\n            might retrieve a recommendation with `\"RecmddFldURL\": \"Items(10)/Product\"`."
       },
-      "value": { "@Core.Description": "Recommended value, converted to string" },
-      "text": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
-      "alternatives": {
+      "RecmddFldVal": {
+        "@Core.Description": "Recommended value, converted to string",
+        "@Common.Text": { "$Path": "text" }
+      },
+      "RecmddFldDesc": { "$Nullable": true, "@Core.Description": "Description of the recommended value" },
+      "AltvRecmddFldVals": {
         "$Collection": true,
         "$Type": "Common.AlternativeRecommendationType",
         "@Core.Description": "A list of alternative values, sorted by confidence score in descending order",
-        "@Core.LongDescription": "If a value is recommended via property `value`, it must be the first entry in this list."
+        "@Core.LongDescription": "If a value is recommended via property `RecmddFldVal`, it must be the first entry in this list."
       }
     },
     "AlternativeRecommendationType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "value": { "@Core.Description": "Alternatively recommended value, converted to string" },
-      "score": {
+      "RecmddFldVal": { "@Core.Description": "Alternatively recommended value, converted to string" },
+      "RecmddFldScr": {
         "$Type": "Edm.Decimal",
         "$Nullable": true,
         "@Core.Description": "Confidence score of the alternatively recommended value"
