@@ -103,13 +103,13 @@
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings",
-        "@Core.ImplementsInterface": "Common.ChangeNextSibling"
+        "@Core.ImplementsInterface": "Hierarchy.ChangeNextSibling"
       },
       "CopyAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that copies a node and its descendants",
-        "@Core.ImplementsInterface": "Common.CopyNode"
+        "@Core.ImplementsInterface": "Hierarchy.CopyNode"
       }
     },
     "MatchCount": {

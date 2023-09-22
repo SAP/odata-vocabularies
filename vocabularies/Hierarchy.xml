@@ -157,17 +157,17 @@ including any hierarchy directory.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
-          <Annotation Term="Core.ImplementsInterface" String="Common.ChangeNextSibling" />
+          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.ChangeNextSibling" />
         </Property>
         <!--
         <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings" />
-          <Annotation Term="Core.ImplementsInterface" String="Common.ChangePreviousSibling" />
+          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.ChangePreviousSibling" />
         </Property>
         -->
         <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants" />
-          <Annotation Term="Core.ImplementsInterface" String="Common.CopyNode" />
+          <Annotation Term="Core.ImplementsInterface" String="Hierarchy.CopyNode" />
         </Property>
       </ComplexType>
 
