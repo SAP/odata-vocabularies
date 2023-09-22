@@ -271,11 +271,21 @@ a collection of business object instances, e.g. as a list or table.</String>
       <Term Name="MediaResource" Type="UI.MediaResourceType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Properties that describe a media resource" />
+        <Annotation Term="Core.LongDescription" String="Either `Url` or `Stream` MUST be present, and never both." />
       </Term>
       <ComplexType Name="MediaResourceType">
-        <Property Name="Url" Type="Edm.String" Nullable="false">
+        <Property Name="Url" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="URL of media resource" />
           <Annotation Term="Core.IsURL" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Stream" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Stream of media resource" />
           <Annotation Term="Validation.ApplicableTerms">
             <Collection>
               <String>HTML5.LinkTarget</String>
@@ -303,9 +313,20 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
       </ComplexType>
       <ComplexType Name="ImageType">
+        <Annotation Term="Core.Description" String="Properties that describe an image" />
+        <Annotation Term="Core.LongDescription" String="Either `Url` or `Stream` MUST be present, and never both." />
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="URL of image" />
           <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="Stream" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Stream of image" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Width" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Width of image" />
