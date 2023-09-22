@@ -1467,7 +1467,15 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 The template function itself cannot be invoked.</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Targets" Type="Common.RecommendationsTargetsType" Nullable="false" />
+        <Parameter Name="Targets" Type="Common.RecommendationsTargetsType" Nullable="false">
+          <Annotation Term="Core.Description" String="Entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.LongDescription">
+            <String>In the absence of this parameter, all recommendations are retrieved.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `target`" />
         </ReturnType>

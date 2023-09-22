@@ -1306,7 +1306,13 @@
         "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n\nThe template function itself cannot be invoked.",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
-          { "$Name": "Targets", "$Type": "Common.RecommendationsTargetsType" }
+          {
+            "$Name": "Targets",
+            "$Type": "Common.RecommendationsTargetsType",
+            "@Core.Description": "Entities, properties or action/function parameters for which recommendations shall be retrieved",
+            "@Core.LongDescription": "In the absence of this parameter, all recommendations are retrieved.",
+            "@Core.OptionalParameter": {}
+          }
         ],
         "$ReturnType": {
           "$Collection": true,
