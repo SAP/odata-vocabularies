@@ -1837,6 +1837,34 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />
       </Term>
 
+      <Term Name="RecursiveHierarchy" BaseTerm="Hierarchy.RecursiveHierarchy" Type="UI.RecursiveHierarchyType" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Rules for hierarchy nodes that a UI can guide the user towards" />
+        <Annotation Term="Core.LongDescription">
+          <String>For example, dropping a node on another node can be prevented if the dropped node cannot
+          be a child of the target node.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="RecursiveHierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="ChildRules" Type="Collection(UI.RecursiveHierarchyChildType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Which nodes can be children of this node" />
+          <Annotation Term="Core.LongDescription">
+            <String>If this property is empty or absent, there are no restrictions regarding child nodes.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RecursiveHierarchyChildType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))" />
+        <Property Name="ChildType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Node type of a child, or null if this rule shall apply to all node types" />
+        </Property>
+        <Property Name="Allowed" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether nodes of the specified type can be children of the annotated node" />
+        </Property>
+      </ComplexType>
+
       <TypeDefinition Name="ActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         <Annotation Term="Core.LongDescription">

@@ -75,6 +75,7 @@ Term|Type|Description
 [ExcludeFromNavigationContext](./UI.xml#L1821:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1825:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](./UI.xml#L1835:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[RecursiveHierarchy](./UI.xml#L1840:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType?](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Rules for hierarchy nodes that a UI can guide the user towards<br>For example, dropping a node on another node can be prevented if the dropped node cannot be a child of the target node.
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
@@ -1122,8 +1123,25 @@ Property|Type|Description
 [LocalDataProperty](./UI.xml#L1813:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1816:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
+<a name="RecursiveHierarchyType"></a>
+## [RecursiveHierarchyType](./UI.xml#L1848:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ChildRules](./UI.xml#L1850:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|\[[RecursiveHierarchyChildType](#RecursiveHierarchyChildType)\]|Which nodes can be children of this node<br>If this property is empty or absent, there are no restrictions regarding child nodes.
+
+<a name="RecursiveHierarchyChildType"></a>
+## [RecursiveHierarchyChildType](./UI.xml#L1857:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-") *([Experimental](Common.md#Experimental))*
+Rule for nodes of a given type (specified by the [`Hierarchy.RecursiveHierarchy/NodeTypeProperty`](Hierarchy.md#RecursiveHierarchyType))
+
+Property|Type|Description
+:-------|:---|:----------
+[ChildType](./UI.xml#L1860:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|String?|Node type of a child, or null if this rule shall apply to all node types
+[Allowed](./UI.xml#L1863:~:text=<ComplexType%20Name="-,RecursiveHierarchyChildType,-")|Boolean|Whether nodes of the specified type can be children of the annotated node
+
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1840:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1868:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope
