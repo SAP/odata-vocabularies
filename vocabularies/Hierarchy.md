@@ -39,7 +39,7 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
 {"requests": [{
   "id": "1",
   "method": "post",
-  "url": "HierarchyDirectory(1)/Nodes('A')/CopyAction"
+  "url": "HierarchyDirectory(1)/Nodes('A')/CopyNode"
 }, {
   "id": "2",
   "dependsOn": ["1"],
