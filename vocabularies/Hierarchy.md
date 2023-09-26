@@ -126,7 +126,7 @@ the following collections of hierarchy nodes are distinguished:
 
 When a service contains actions that implement the interface actions [`ChangeNextSiblingAction`](#ChangeNextSiblingAction)
 and [`CopyNode`](#CopyNode), the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)
-in the base term must not have a collection-valued segment prior to its last segment.
+in the base term MUST NOT have a collection-valued segment prior to its last segment.
 These actions MUST be annotated with the term [`Core.ImplementsInterface`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsInterface) and the hierarchy qualifier.
 The resource path of their binding parameter MUST traverse the hierarchy collection,
 including any hierarchy directory.
