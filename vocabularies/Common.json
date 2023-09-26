@@ -1294,6 +1294,13 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "WebSocketChannel": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntityContainer"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Channel for WebSocket connections",
+      "@Core.LongDescription": "This annotation MUST be qualified with\n          <br>- `SideEffects` if the channel is used for side effects."
     }
   }
 }
