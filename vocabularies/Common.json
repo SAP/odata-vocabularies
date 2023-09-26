@@ -1037,7 +1037,13 @@
       "$Kind": "ComplexType",
       "@Core.Description": "Changes to the source properties or source entities may have side-effects on the target properties or entities.",
       "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.\nThis can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.",
-      "SourceEvents": {
+      "SideEffectKeyBinding": {
+        "$Collection": true,
+        "$Type": "Common.SideEffectKeyBindingType",
+        "@Common.Experimental": true,
+        "@Core.Description": "Describes a binding between PCP fields and entity key fields"
+      },
+      "SideEffectEventNames": {
         "$Collection": true,
         "@Common.Experimental": true,
         "@Core.Description": "These events may affect the targets"
@@ -1092,6 +1098,15 @@
         "@Common.Experimental": true,
         "@Core.Description": "Indicates whether the client can decide if a side-effect should be triggered or not",
         "@Core.LongDescription": "The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client."
+      }
+    },
+    "SideEffectKeyBindingType": {
+      "$Kind": "ComplexType",
+      "PCPFieldName": { "@Common.Experimental": true, "@Core.Description": "Describes the name of a pcp field" },
+      "KeyPropertyName": {
+        "$Type": "Edm.PropertyPath",
+        "@Common.Experimental": true,
+        "@Core.Description": "Describes the name of a key property"
       }
     },
     "EffectType": {
