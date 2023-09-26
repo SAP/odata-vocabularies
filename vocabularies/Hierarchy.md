@@ -17,7 +17,6 @@ Term|Type|Description
 <a name="ChangeNextSibling"></a>
 ### [ChangeNextSibling](./Hierarchy.xml#L258:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
 
-**Interface:**
 Move a node among its siblings
 
 Parameter|Type|Description
@@ -29,7 +28,6 @@ Parameter|Type|Description
 <a name="CopyNode"></a>
 ### [CopyNode](./Hierarchy.xml#L294:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
 
-**Interface:**
 Copy a node and its descendants
 
 To give the copied sub-hierarchy a parent, the action invocation can be followed
