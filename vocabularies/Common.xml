@@ -1462,7 +1462,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       -->
       <Function Name="GetRecommendations" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" />
+        <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Computes AI-based recommendations for the bound entity and its related entities" />
         <Annotation Term="Core.LongDescription">
           <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).</String>
@@ -1479,7 +1479,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `RecmddFldURL` property" />
+          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecmddFldURL` property" />
         </ReturnType>
       </Function>
       <ComplexType Name="RecommendationsTargetsType">
@@ -1495,34 +1495,34 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </ComplexType>
       <ComplexType Name="PropertyRecommendationType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="RecmddFldURL" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecmddFldURL" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
-            might retrieve a recommendation with `"RecmddFldURL": "Items(10)/Product"`.</String>
+            might retrieve a recommendation with `"AIRecmddFldURL": "Items(10)/Product"`.</String>
           </Annotation>
         </Property>
-        <Property Name="RecmddFldVal" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecmddFldVal" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value, converted to string" />
           <Annotation Term="Common.Text" Path="text" />
         </Property>
-        <Property Name="RecmddFldDesc" Type="Edm.String" Nullable="true">
+        <Property Name="AIRecmddFldDesc" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
         </Property>
-        <Property Name="AltvRecmddFldVals" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
+        <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
           <Annotation Term="Core.LongDescription">
-            <String>If a value is recommended via property `RecmddFldVal`, it must be the first entry in this list.</String>
+            <String>If a value is recommended via property `AIRecmddFldVal`, it must be the first entry in this list.</String>
           </Annotation>
         </Property>
       </ComplexType>
       <ComplexType Name="AlternativeRecommendationType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="RecmddFldVal" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecmddFldVal" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
         </Property>
-        <Property Name="RecmddFldScr" Type="Edm.Decimal" Scale="variable" Nullable="true">
+        <Property Name="AIRecmddFldScr" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
         </Property>
       </ComplexType>
