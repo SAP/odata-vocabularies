@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="/sap/opu/odata4/sap/example/srvd/sap/example/0001/$metadata">
+    <edmx:Include Namespace="com.sap.gateway.srvd.example.v0001" Alias="service" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/HTML5.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="HTML5.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <Annotations Target="service.DemoType">
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataFieldWithUrl">
+              <PropertyValue Property="Value" Path="url" />
+              <PropertyValue Property="Url" Path="url">
+                <Annotation Term="HTML5.LinkTarget" String="_blank" />
+              </PropertyValue>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

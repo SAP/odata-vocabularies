@@ -34,18 +34,16 @@
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "DataSubjectRoleDescription": {
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.IsLanguageDependent": true,
       "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "EntitySemanticsType": {
       "$Kind": "TypeDefinition",
@@ -74,7 +72,7 @@
       "$Type": "PersonalData.FieldSemanticsType",
       "$AppliesTo": ["Property"],
       "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
-      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
+      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data."
     },
     "FieldSemanticsType": {
       "$Kind": "TypeDefinition",
@@ -115,6 +113,12 @@
           "Value": "UserID",
           "@Core.Description": "The unique identifier of a user",
           "@Core.LongDescription": "A user is an individual who interacts with the services supplied by a system."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "EndOfBusinessDate",
+          "@Core.Description": "Defines the end of active business and the start of residence time and retention period",
+          "@Core.LongDescription": "End of business is the point in time when the processing of a set of personal data is no longer required for the active business,\n                for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated."
         }
       ]
     },

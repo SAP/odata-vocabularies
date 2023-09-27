@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.x, 20.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
           git config user.name ${GITHUB_ACTOR}
           git config user.email ${PUSHER_EMAIL}
           git add vocabularies/*.md vocabularies/*.json examples/*.json
-          git diff-index --quiet HEAD || git commit -m "auto-refreshed"
+          git diff-index --quiet HEAD vocabularies/*.md vocabularies/*.json examples/*.json || git commit -m "auto-refreshed"
           git push
         env:
           CI: true

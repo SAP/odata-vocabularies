@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="/sap/opu/odata4/sap/ui_nte_demo_m_o4/srvd/sap/ui_nte_demo_m/0001/$metadata">
+    <edmx:Include Namespace="com.sap.gateway.srvd.ui_nte_demo_m.v0001" Alias="service" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotations Target="service.C_NTE_DEMO_MType">
+        <Annotation Term="UI.Facets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="_NoteBasic/@UI.Note" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType">
+        <Annotation Term="UI.Note">
+          <Record>
+            <PropertyValue Property="Title" Path="NoteBasicTitle">
+              <Annotation Term="UI.Hidden" Path="_NoteBasicType/NoteBasicHideTitle" />
+            </PropertyValue>
+            <PropertyValue Property="Content" Path="NoteBasicContent" />
+            <PropertyValue Property="Type" Path="NoteBasicType" />
+            <PropertyValue Property="MaximalLength" Path="_NoteBasicType/NoteBasicMaximalLength" />
+            <PropertyValue Property="MultipleNotes" Path="_NoteBasicType/NoteBasicMultipleNotes" />
+          </Record>
+        </Annotation>
+        <Annotation Term="Common.CreatedBy" Path="CreatedByUser" />
+        <Annotation Term="Common.CreatedAt" Path="CreationDateTime" />
+        <Annotation Term="Common.ChangedBy" Path="LastChangedByUser" />
+        <Annotation Term="Common.ChangedAt" Path="LastChangeDateTime" />
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicContent">
+        <Annotation Term="Core.MediaType" Path="NoteBasicMIMEType" />
+        <Annotation Term="Core.IsLanguageDependent" Path="_NoteBasicType/NoteBasicLanguageDependent" />
+        <Annotation Term="Common.SAPObjectNodeTypeReference" Path="_NoteBasicType/NoteBasicObjectNodeType" />
+      </Annotations>
+      <Annotations Target="service.C_NoteBasicTPType/NoteBasicLanguage">
+        <Annotation Term="Common.IsLanguageIdentifier" />
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
