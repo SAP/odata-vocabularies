@@ -68,7 +68,7 @@
         "$Type": "Edm.Int64",
         "$Nullable": true,
         "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
-        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy."
+        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
       "SiblingRank": {
         "$Type": "Edm.Int64",
@@ -100,12 +100,12 @@
       "$Kind": "ComplexType",
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory.\n\nThe template actions themselves cannot be invoked.",
       "ChangeNextSiblingAction": {
-        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
       "CopyAction": {
-        "$Type": "Common.NamespaceQualifiedActionName",
+        "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
       }
@@ -117,7 +117,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-      "@Core.LongDescription": "The service designates a subset of the `$apply` result as \"matching nodes\".\n          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it."
+      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
     },
     "TopLevels": [
       {
@@ -150,6 +150,7 @@
           {
             "$Name": "Expand",
             "$Collection": true,
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
             "@Core.Description": "Identifiers of nodes to be expanded",
             "@Core.OptionalParameter": {}
           },
@@ -162,13 +163,31 @@
           {
             "$Name": "Collapse",
             "$Collection": true,
+            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
             "@Core.Description": "Identifiers of nodes to be collapsed",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ExpandLevels",
+            "$Collection": true,
+            "$Type": "Hierarchy.TopLevelsExpandType",
+            "@Core.Description": "Nodes to be expanded",
             "@Core.OptionalParameter": {}
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
+    "TopLevelsExpandType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "NodeID": { "@Core.Description": "Identifier of a node to be expanded" },
+      "Levels": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
+      }
+    },
     "ApplySupported": {
       "$Kind": "Term",
       "$Type": "Hierarchy.ApplySupportedType",
@@ -197,10 +216,10 @@
           { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
           {
             "$Name": "NextSibling",
-            "$Type": "Edm.EntityType",
+            "$Type": "Edm.ComplexType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
-            "@Core.LongDescription": "Only the key properties in this parameter are relevant.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+            "@Core.LongDescription": "This parameter has properties with the same names as the key properties of the entity type.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }

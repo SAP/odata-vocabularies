@@ -117,7 +117,7 @@ the following collections of hierarchy nodes are distinguished:
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>This equals the number of ancestors in the sub-hierarchy as well as in the unlimited hierarchy.</String>
+            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
@@ -159,15 +159,15 @@ including any hierarchy directory.
 
 The template actions themselves cannot be invoked.</String>
         </Annotation>
-        <Property Name="ChangeNextSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)" />
         </Property>
         <!--
-        <Property Name="ChangePreviousSiblingAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="ChangePreviousSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         -->
-        <Property Name="CopyAction" Type="Common.NamespaceQualifiedActionName" Nullable="true">
+        <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
       </ComplexType>
@@ -177,9 +177,13 @@ The template actions themselves cannot be invoked.</String>
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
-          <String>The service designates a subset of the `$apply` result as "matching nodes".
-          This subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter
-          of the last `ancestors` transformation or occurs nested into it.</String>
+          <String>The service MAY designate a subset of the `$apply` result as "matching nodes".
+          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the
+          `filter` or `search` transformation that occurs as the fourth parameter
+          of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
+          For requests not following this pattern, the subset NEED NOT be defined.&lt;br&gt;
+          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
+          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
         </Annotation>
       </Term>
 
@@ -226,6 +230,14 @@ The template actions themselves cannot be invoked.</String>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -238,13 +250,36 @@ The template actions themselves cannot be invoked.</String>
           </Annotation>
         </Parameter>
         <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
+      <ComplexType Name="TopLevelsExpandType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="NodeID" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Identifier of a node to be expanded" />
+        </Property>
+        <Property Name="Levels" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
+        </Property>
+      </ComplexType>
 
       <Term Name="ApplySupported" Type="Hierarchy.ApplySupportedType" BaseTerm="Aggregation.ApplySupported" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
@@ -268,10 +303,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="NextSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="NextSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new next sibling S (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             next(T) = S after the action.
             If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>
@@ -285,10 +320,10 @@ The template actions themselves cannot be invoked.</String>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
         </Parameter>
-        <Parameter Name="PreviousSibling" Type="Edm.EntityType" Nullable="true">
+        <Parameter Name="PreviousSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new previous sibling S (null if the node shall become the first sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>Only the key properties in this parameter are relevant.
+            <String>This parameter has properties with the same names as the key properties of the entity type.
             prev(T) = S after the action.
             If R is a node with prev(R) = S before the action, then prev(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>

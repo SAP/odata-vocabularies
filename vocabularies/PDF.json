@@ -80,6 +80,16 @@
         "$Nullable": true,
         "@Core.Description": "Maximum result size",
         "@Core.LongDescription": "Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum"
+      },
+      "IANATimezoneFormat": {
+        "$Type": "Edm.Boolean",
+        "@Core.Description": "If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description"
+      },
+      "Treeview": {
+        "$Type": "Edm.Boolean",
+        "@Common.Experimental": true,
+        "@Core.Description": "Treeview output supported",
+        "@Core.LongDescription": "If this is true, treeview output is supported for hierarchical data"
       }
     }
   }
