@@ -90,10 +90,14 @@
         <Annotation Term="Core.Description" String="The annotated property contains a descriptive text for values of the referenced property." />
       </Term>
 
-      <Term Name="ExternalID" Type="Edm.String" Nullable="true" AppliesTo="Property">
+      <Term Name="ExternalID" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
-        <Annotation Term="Core.LongDescription" String="If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id." />
+        <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property or parameter. Value MUST be a dynamic expression when used as metadata annotation." />
+        <Annotation Term="Core.LongDescription">
+          <String>If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource.
+            There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id.
+            The annotation of a parameter refers to a property of the operation binding parameter.</String>
+        </Annotation>
       </Term>
 
       <!--
@@ -692,7 +696,6 @@ The minimum structure is
       </TypeDefinition>
 
       <Term Name="ValueListRelevantQualifiers" Type="Collection(Core.SimpleIdentifier)" Nullable="false">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="List of qualifiers of relevant ValueList annotations" />
         <Annotation Term="Core.LongDescription" String="The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties." />
       </Term>
@@ -702,7 +705,6 @@ The minimum structure is
       </Term>
 
       <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
       </Term>
 
@@ -1099,16 +1101,16 @@ The minimum structure is
       </TypeDefinition>
 
       <TypeDefinition Name="QualifiedName" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="The QualifiedName of an OData construct in scope" />
+        <Annotation Term="Core.Description" String="The namespace-qualified name of an OData construct in scope" />
+        <Annotation Term="Core.LongDescription" String="Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended." />
       </TypeDefinition>
 
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="The qualified name of an action with an optional overload" />
+        <Annotation Term="Core.Description" String="The namespace-qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The qualified name of an action, optionally followed by parentheses 
+          <String>The namespace-qualified name of an action, optionally followed by parentheses 
             containing the binding parameter type of a bound action overload to identify that bound overload, 
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
-
         </Annotation>
       </TypeDefinition>
 
