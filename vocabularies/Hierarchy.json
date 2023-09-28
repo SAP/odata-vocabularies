@@ -202,8 +202,8 @@
       "@Common.Experimental": true,
       "IsRecursiveHierarchy": {
         "$Type": "Edm.Boolean",
-        "$DefaultValue": true,
-        "@Core.Description": "Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type"
+        "$DefaultValue": false,
+        "@Core.Description": "Can be set to `true` to restrict the effect of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type"
       }
     },
     "Template_ChangeNextSiblingAction": [
