@@ -1479,7 +1479,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecmddFldURL` property" />
+          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecommendedFieldPath` property" />
         </ReturnType>
       </Function>
       <ComplexType Name="RecommendationsTargetsType">
@@ -1495,34 +1495,34 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </ComplexType>
       <ComplexType Name="PropertyRecommendationType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="AIRecmddFldURL" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
-            might retrieve a recommendation with `"AIRecmddFldURL": "Items(10)/Product"`.</String>
+            might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
           </Annotation>
         </Property>
-        <Property Name="AIRecmddFldVal" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value, converted to string" />
           <Annotation Term="Common.Text" Path="text" />
         </Property>
-        <Property Name="AIRecmddFldDesc" Type="Edm.String" Nullable="true">
+        <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
         </Property>
         <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
           <Annotation Term="Core.LongDescription">
-            <String>If a value is recommended via property `AIRecmddFldVal`, it must be the first entry in this list.</String>
+            <String>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.</String>
           </Annotation>
         </Property>
       </ComplexType>
       <ComplexType Name="AlternativeRecommendationType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="AIRecmddFldVal" Type="Edm.String" Nullable="false">
+        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
         </Property>
-        <Property Name="AIRecmddFldScr" Type="Edm.Decimal" Scale="variable" Nullable="true">
+        <Property Name="AIRecommendedFieldScore" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
         </Property>
       </ComplexType>
