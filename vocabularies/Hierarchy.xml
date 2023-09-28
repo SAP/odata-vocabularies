@@ -82,7 +82,7 @@ the following collections of hierarchy nodes are distinguished:
 When a service contains actions that implement the interface actions [`ChangeNextSiblingAction`](#ChangeNextSiblingAction)
 and [`CopyNode`](#CopyNode), the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)
 in the base term MUST NOT have a collection-valued segment prior to its last segment.
-These actions MUST be annotated with the term [`Core.ImplementsInterface`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsInterface) and the hierarchy qualifier.
+These actions MUST be annotated with the term [`Core.ImplementsSignature`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsSignature) and the hierarchy qualifier.
 The resource path of their binding parameter MUST traverse the hierarchy collection,
 including any hierarchy directory.</String>
         </Annotation>
@@ -257,7 +257,7 @@ including any hierarchy directory.</String>
 
       <Action Name="ChangeNextSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" />
+        <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Move a node among its siblings" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -275,7 +275,7 @@ including any hierarchy directory.</String>
       <!--
       <Action Name="ChangePreviousSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" />
+        <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -293,7 +293,7 @@ including any hierarchy directory.</String>
       -->
       <Action Name="CopyNode" IsBound="true" EntitySetPath="Node">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsInterface" />
+        <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Copy a node and its descendants" />
         <Annotation Term="Core.LongDescription">
           <String>To give the copied sub-hierarchy a parent, the action invocation can be followed

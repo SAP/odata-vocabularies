@@ -17,6 +17,7 @@ Term|Type|Description
 <a name="ChangeNextSibling"></a>
 ### [ChangeNextSibling](./Hierarchy.xml#L258:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
 
+**Signature only:**
 Move a node among its siblings
 
 Parameter|Type|Description
@@ -28,6 +29,7 @@ Parameter|Type|Description
 <a name="CopyNode"></a>
 ### [CopyNode](./Hierarchy.xml#L294:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
 
+**Signature only:**
 Copy a node and its descendants
 
 To give the copied sub-hierarchy a parent, the action invocation can be followed
@@ -125,7 +127,7 @@ the following collections of hierarchy nodes are distinguished:
 When a service contains actions that implement the interface actions [`ChangeNextSiblingAction`](#ChangeNextSiblingAction)
 and [`CopyNode`](#CopyNode), the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)
 in the base term MUST NOT have a collection-valued segment prior to its last segment.
-These actions MUST be annotated with the term [`Core.ImplementsInterface`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsInterface) and the hierarchy qualifier.
+These actions MUST be annotated with the term [`Core.ImplementsSignature`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsSignature) and the hierarchy qualifier.
 The resource path of their binding parameter MUST traverse the hierarchy collection,
 including any hierarchy directory.
 
