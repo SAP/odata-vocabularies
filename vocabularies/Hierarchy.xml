@@ -293,7 +293,7 @@ The template actions themselves cannot be invoked.</String>
       <ComplexType Name="ApplySupportedType">
         <Annotation Term="Common.Experimental" />
         <Property Name="IsRecursiveHierarchy" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Can be set to `true` to restrict the effect of the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type" />
+          <Annotation Term="Core.Description" String="[`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) are effective only for collections annotated with `Hierarchy.ApplySupported/IsRecursiveHierarchy` and value true" />
         </Property>
       </ComplexType>
 
