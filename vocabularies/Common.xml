@@ -1497,10 +1497,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the service base URL, but preceded by a slash) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
-            might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
+            might retrieve a recommendation with `"AIRecommendedFieldPath": "/SalesOrder('A')/Items(10)/Product"`.</String>
           </Annotation>
         </Property>
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
