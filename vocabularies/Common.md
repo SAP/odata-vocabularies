@@ -118,7 +118,6 @@ Term|Type|Description
 <a name="GetRecommendations"></a>
 ### [GetRecommendations](./Common.xml#L1463:~:text=<Function%20Name="-,GetRecommendations,-") *([Experimental](Common.md#Experimental))*
 
-**Signature only:**
 Computes AI-based recommendations for the bound entity and its related entities
 
 The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).
