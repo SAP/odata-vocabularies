@@ -1,4 +1,4 @@
-Invocation flow for a recommendations function annotated in [`Common.RecommendationsFunction`](../vocabularies/Common.md#RecommendationsFunction)
+Invocation flow for a recommendations function implementing the signature of [`Common.GetRecommendations`](../vocabularies/Common.md#GetRecommendations)
 
 ```mermaid
 sequenceDiagram
