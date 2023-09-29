@@ -1330,8 +1330,8 @@
       "@Common.Experimental": true,
       "AIRecommendedFieldPath": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the service base URL, but preceded by a slash) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"/SalesOrder('A')/Items(10)/Product\"`."
+        "@Core.Description": "URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request and preceded with a slash) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"/Items(10)/Product\"`."
       },
       "AIRecommendedFieldValue": {
         "@Core.Description": "Recommended value, converted to string",
