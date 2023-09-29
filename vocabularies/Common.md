@@ -463,7 +463,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPath](./Common.xml#L1498:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request and preceded with a slash) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "/Items(10)/Product"`.
+[AIRecommendedFieldPath](./Common.xml#L1498:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
 [AIRecommendedFieldValue](./Common.xml#L1506:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
 [AIRecommendedFieldDescription](./Common.xml#L1510:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
 [AIAltvRecmddFldVals](./Common.xml#L1513:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
