@@ -1475,7 +1475,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
             If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
-            <Record/>
+            <Record />
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
