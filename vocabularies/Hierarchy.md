@@ -171,4 +171,4 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[IsRecursiveHierarchy](./Hierarchy.xml#L295:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|Boolean|[`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) are effective only for collections annotated with `Hierarchy.ApplySupported/IsRecursiveHierarchy` and value true
+[RecursiveHierarchyQualifiers](./Hierarchy.xml#L295:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|\[String\]|Qualifiers of [`RecursiveHierarchy`](#RecursiveHierarchy) annotations that are effective for the annotated collection
