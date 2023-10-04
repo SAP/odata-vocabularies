@@ -1,4 +1,4 @@
-Invocation flow for a recommendations function implementing the signature of [`Common.AIRecommendations`](../vocabularies/Common.md#AIRecommendations)
+Invocation flow for a recommendations function implementing the signature of [`AI.GetRecommendations`](../vocabularies/AI.md#GetRecommendations)
 
 ```mermaid
 sequenceDiagram
@@ -15,7 +15,7 @@ sequenceDiagram
   par
     server ->> server: GET SalesOrder('A')?$expand=... for side effects
   and
-    server ->> server: GET SalesOrder('A')/ns.Recommendations?Targets=...<br>Prefer: respond-async
+    server ->> server: GET SalesOrder('A')/ns.GetRecommendations?Targets=...<br>Prefer: respond-async
     server ->>+ task: call function ... starting new task
   end
   server -->> client: $batch response with<br>Location header for recommendations

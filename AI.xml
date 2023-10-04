@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.AI.v1" Alias="AI">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for AI-related functionality at SAP</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2023-10-04 © Copyright 2023 SAP SE. All rights reserved.</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Function Name="GetRecommendations" IsBound="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.IsSignature" />
+        <Annotation Term="Core.Description" String="Computes AI-based recommendations for the bound entity and its related entities" />
+        <Annotation Term="Core.LongDescription">
+          <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).</String>
+        </Annotation>
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="Targets" Type="AI.RecommendationsTargetsType" Nullable="false">
+          <Annotation Term="Core.Description" String="Entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.LongDescription">
+            <String>Implementations of this function MAY omit this parameter.
+            If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record />
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Collection(AI.PropertyRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecommendedFieldPath` property" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="RecommendationsTargetsType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="URLs" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets={"URLs":["","Items(10)"]}`
+            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="PropertyRecommendationType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
+          <Annotation Term="Core.LongDescription">
+            <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
+            might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
+          </Annotation>
+        </Property>
+        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Recommended value, converted to string" />
+          <Annotation Term="Common.Text" Path="text" />
+        </Property>
+        <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the recommended value" />
+        </Property>
+        <Property Name="AIAltvRecmddFldVals" Type="Collection(AI.AlternativeRecommendationType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="AlternativeRecommendationType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
+        </Property>
+        <Property Name="AIRecommendedFieldScore" Type="Edm.Decimal" Scale="variable" Nullable="true">
+          <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
+        </Property>
+      </ComplexType>
+      <Term Name="RecommendationsRole" Type="AI.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
+      </Term>
+      <TypeDefinition Name="RecommendationsRoleType" UnderlyingType="Edm.String">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" Int="Input" />
+              <Annotation Term="Core.Description" String="The property is input for some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="Output" />
+              <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="InputOutput" />
+              <Annotation Term="Core.Description" String="The property is input for and the target of some recommendation" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" Int="RequiredInput" />
+              <Annotation Term="Core.Description" String="The property is required input before any recommendations are requested" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
