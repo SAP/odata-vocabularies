@@ -1290,6 +1290,11 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
+    "GlobalFieldName": {
+      "$Kind": "Term",
+      "$AppliesTo": ["Property", "NavigationProperty", "Parameter"],
+      "@Core.Description": "Global field name with SAP-wide approval, if this deviates from the model element name"
+    },
     "AIRecommendations": [
       {
         "$Kind": "Function",

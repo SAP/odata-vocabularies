@@ -1454,6 +1454,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="GlobalFieldName" Type="Edm.String" Nullable="false" AppliesTo="Property NavigationProperty Parameter">
+        <Annotation Term="Core.Description" String="Global field name with SAP-wide approval, if this deviates from the model element name" />
+      </Term>
+
       <!--
       <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />

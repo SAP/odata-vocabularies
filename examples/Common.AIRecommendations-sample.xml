@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Common.AIRecommendations" Alias="this">
+
+      <Function Name="AIRecommendations" IsBound="true">
+        <Annotation Term="Core.ImplementsSignature" String="Common.AIRecommendations" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <ReturnType Type="Collection(this.PropertyAIRecommendationType)" Nullable="false" />
+      </Function>
+      <ComplexType Name="PropertyAIRecommendationType">
+        <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false" />
+        <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true" />
+        <Property Name="AlternativeAIRecommendedFieldValues" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
+          <Annotation Term="Common.GlobalFieldName" String="AIAltvRecmddFldVals" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

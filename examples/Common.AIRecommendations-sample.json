@@ -1,0 +1,31 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "example.Common.AIRecommendations": {
+    "$Alias": "this",
+    "AIRecommendations": [
+      {
+        "$Kind": "Function",
+        "$IsBound": true,
+        "@Core.ImplementsSignature": "Common.AIRecommendations",
+        "$Parameter": [{ "$Name": "Entity", "$Type": "Edm.EntityType" }],
+        "$ReturnType": { "$Collection": true, "$Type": "this.PropertyAIRecommendationType" }
+      }
+    ],
+    "PropertyAIRecommendationType": {
+      "$Kind": "ComplexType",
+      "AIRecommendedFieldPath": { "@Core.IsURL": true },
+      "AIRecommendedFieldValue": {},
+      "AIRecommendedFieldDescription": { "$Nullable": true },
+      "AlternativeAIRecommendedFieldValues": {
+        "$Collection": true,
+        "$Type": "Common.AlternativeAIRecommendationType",
+        "@Common.GlobalFieldName": "AIAltvRecmddFldVals"
+      }
+    }
+  }
+}

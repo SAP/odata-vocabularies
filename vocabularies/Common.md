@@ -110,13 +110,14 @@ Term|Type|Description
 [mediaUploadLink](./Common.xml#L1431:~:text=<Term%20Name="-,mediaUploadLink,-") *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](./Common.xml#L1446:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1451:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
-[AIRecommendationsRole](./Common.xml#L1529:~:text=<Term%20Name="-,AIRecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[AIRecommendationsRoleType](#AIRecommendationsRoleType)|<a name="AIRecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+[GlobalFieldName](./Common.xml#L1457:~:text=<Term%20Name="-,GlobalFieldName,-")|String|<a name="GlobalFieldName"></a>Global field name with SAP-wide approval, if this deviates from the model element name
+[AIRecommendationsRole](./Common.xml#L1533:~:text=<Term%20Name="-,AIRecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[AIRecommendationsRoleType](#AIRecommendationsRoleType)|<a name="AIRecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
 
 
 ## Functions
 
 <a name="AIRecommendations"></a>
-### [AIRecommendations](./Common.xml#L1463:~:text=<Function%20Name="-,AIRecommendations,-") *([Experimental](Common.md#Experimental))*
+### [AIRecommendations](./Common.xml#L1467:~:text=<Function%20Name="-,AIRecommendations,-") *([Experimental](Common.md#Experimental))*
 
 Computes AI-based recommendations for the bound entity and its related entities
 
@@ -124,9 +125,9 @@ The function SHOULD compute the recommendations asynchronously, see [this diagra
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Common.xml#L1470:~:text=<Function%20Name="-,AIRecommendations,-")**|EntityType|**Binding parameter**
-*[Targets](./Common.xml#L1471:~:text=<Function%20Name="-,AIRecommendations,-")*|[AIRecommendationsTargetsType](#AIRecommendationsTargetsType)|*Optional parameter:* Entities, properties or action/function parameters for which recommendations shall be retrieved<br>Implementations of this function MAY omit this parameter. If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.
-[&rarr;](./Common.xml#L1481:~:text=<Function%20Name="-,AIRecommendations,-")|\[[PropertyAIRecommendationType](#PropertyAIRecommendationType)\]|A collection of recommendations that differ in their `AIRecommendedFieldPath` property
+**[Entity](./Common.xml#L1474:~:text=<Function%20Name="-,AIRecommendations,-")**|EntityType|**Binding parameter**
+*[Targets](./Common.xml#L1475:~:text=<Function%20Name="-,AIRecommendations,-")*|[AIRecommendationsTargetsType](#AIRecommendationsTargetsType)|*Optional parameter:* Entities, properties or action/function parameters for which recommendations shall be retrieved<br>Implementations of this function MAY omit this parameter. If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.
+[&rarr;](./Common.xml#L1485:~:text=<Function%20Name="-,AIRecommendations,-")|\[[PropertyAIRecommendationType](#PropertyAIRecommendationType)\]|A collection of recommendations that differ in their `AIRecommendedFieldPath` property
 
 
 <a name="TextFormatType"></a>
@@ -449,42 +450,42 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 User ID
 
 <a name="AIRecommendationsTargetsType"></a>
-## [AIRecommendationsTargetsType](./Common.xml#L1485:~:text=<ComplexType%20Name="-,AIRecommendationsTargetsType,-") *([Experimental](Common.md#Experimental))*
+## [AIRecommendationsTargetsType](./Common.xml#L1489:~:text=<ComplexType%20Name="-,AIRecommendationsTargetsType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[URLs](./Common.xml#L1487:~:text=<ComplexType%20Name="-,AIRecommendationsTargetsType,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.AIRecommendations?Targets={"URLs":["","Items(10)"]}` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[URLs](./Common.xml#L1491:~:text=<ComplexType%20Name="-,AIRecommendationsTargetsType,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/ns.AIRecommendations?Targets={"URLs":["","Items(10)"]}` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
 
 <a name="PropertyAIRecommendationType"></a>
-## [PropertyAIRecommendationType](./Common.xml#L1496:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [PropertyAIRecommendationType](./Common.xml#L1500:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPath](./Common.xml#L1498:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|URL|URL (relative to the URL of the [`AIRecommendations`](#AIRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.AIRecommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
-[AIRecommendedFieldValue](./Common.xml#L1506:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|String|Recommended value, converted to string
-[AIRecommendedFieldDescription](./Common.xml#L1510:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|String?|Description of the recommended value
-[AIAltvRecmddFldVals](./Common.xml#L1513:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|\[[AlternativeAIRecommendationType](#AlternativeAIRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
+[AIRecommendedFieldPath](./Common.xml#L1502:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|URL|URL (relative to the URL of the [`AIRecommendations`](#AIRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/ns.AIRecommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
+[AIRecommendedFieldValue](./Common.xml#L1510:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|String|Recommended value, converted to string
+[AIRecommendedFieldDescription](./Common.xml#L1514:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|String?|Description of the recommended value
+[AIAltvRecmddFldVals](./Common.xml#L1517:~:text=<ComplexType%20Name="-,PropertyAIRecommendationType,-")|\[[AlternativeAIRecommendationType](#AlternativeAIRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
 
 <a name="AlternativeAIRecommendationType"></a>
-## [AlternativeAIRecommendationType](./Common.xml#L1520:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [AlternativeAIRecommendationType](./Common.xml#L1524:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldValue](./Common.xml#L1522:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-")|String|Alternatively recommended value, converted to string
-[AIRecommendedFieldScore](./Common.xml#L1525:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
+[AIRecommendedFieldValue](./Common.xml#L1526:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-")|String|Alternatively recommended value, converted to string
+[AIRecommendedFieldScore](./Common.xml#L1529:~:text=<ComplexType%20Name="-,AlternativeAIRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
 
 <a name="AIRecommendationsRoleType"></a>
-## [AIRecommendationsRoleType](./Common.xml#L1533:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+## [AIRecommendationsRoleType](./Common.xml#L1537:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[Input](./Common.xml#L1537:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is input for some recommendation
-[Output](./Common.xml#L1541:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property or parameter is the target of some recommendation
-[InputOutput](./Common.xml#L1545:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is input for and the target of some recommendation
-[RequiredInput](./Common.xml#L1549:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is required input before any recommendations are requested
+[Input](./Common.xml#L1541:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is input for some recommendation
+[Output](./Common.xml#L1545:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property or parameter is the target of some recommendation
+[InputOutput](./Common.xml#L1549:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is input for and the target of some recommendation
+[RequiredInput](./Common.xml#L1553:~:text=<TypeDefinition%20Name="-,AIRecommendationsRoleType,-")|The property is required input before any recommendations are requested
