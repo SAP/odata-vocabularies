@@ -1290,7 +1290,7 @@
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
     },
-    "GetRecommendations": [
+    "AIRecommendations": [
       {
         "$Kind": "Function",
         "$IsBound": true,
@@ -1330,7 +1330,7 @@
       "@Common.Experimental": true,
       "AIRecommendedFieldPath": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation",
+        "@Core.Description": "URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
         "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
       },
       "AIRecommendedFieldValue": {

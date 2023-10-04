@@ -1457,10 +1457,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       <!--
       <Term Name="RecommendationsFunction" Type="Common.QualifiedName" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#GetRecommendations))" />
+        <Annotation Term="Core.Description" String="Qualified name of a function that computes AI-based recommendations for entities of the annotated type (see [this template](#AIRecommendations))" />
       </Term>
       -->
-      <Function Name="GetRecommendations" IsBound="true">
+      <Function Name="AIRecommendations" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Computes AI-based recommendations for the bound entity and its related entities" />
@@ -1497,7 +1497,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6] that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
             might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
