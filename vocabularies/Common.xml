@@ -1454,8 +1454,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
-      <Term Name="GlobalFieldName" Type="Edm.String" Nullable="false" AppliesTo="Property NavigationProperty Parameter">
-        <Annotation Term="Core.Description" String="Global field name with SAP-wide approval, if this deviates from the model element name" />
+      <Term Name="GlobalFieldNameFor" Type="Edm.String" Nullable="false" AppliesTo="Property NavigationProperty Parameter">
+        <Annotation Term="Core.Description" String="The annotated model element has a global field name with SAP-wide approval, it stands for a model element with a different name given in this annotation" />
+        <Annotation Term="Core.LongDescription">
+          <String>This annotation is used to map the global field name used by a parameter or property in a
+          [signature implementation](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#ImplementsSignature)
+          to the corresponding parameter or property name in the
+          [signature definition](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsSignature).</String>
+        </Annotation>
       </Term>
 
       <!--

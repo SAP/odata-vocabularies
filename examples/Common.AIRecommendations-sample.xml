@@ -18,8 +18,8 @@
         </Property>
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false" />
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true" />
-        <Property Name="AlternativeAIRecommendedFieldValues" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
-          <Annotation Term="Common.GlobalFieldName" String="AIAltvRecmddFldVals" />
+        <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
+          <Annotation Term="Common.GlobalFieldNameFor" String="AlternativeAIRecommendedFieldValues" />
         </Property>
       </ComplexType>
 

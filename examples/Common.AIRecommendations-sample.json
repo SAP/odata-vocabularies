@@ -21,10 +21,10 @@
       "AIRecommendedFieldPath": { "@Core.IsURL": true },
       "AIRecommendedFieldValue": {},
       "AIRecommendedFieldDescription": { "$Nullable": true },
-      "AlternativeAIRecommendedFieldValues": {
+      "AIAltvRecmddFldVals": {
         "$Collection": true,
         "$Type": "Common.AlternativeAIRecommendationType",
-        "@Common.GlobalFieldName": "AIAltvRecmddFldVals"
+        "@Common.GlobalFieldNameFor": "AlternativeAIRecommendedFieldValues"
       }
     }
   }
