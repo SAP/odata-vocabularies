@@ -116,7 +116,7 @@ Term|Type|Description
 ## Functions
 
 <a name="AIRecommendations"></a>
-### [*AIRecommendations*](./Common.xml#L1463:~:text=<Function%20Name="-,AIRecommendations,-") *([Experimental](Common.md#Experimental))*
+### [AIRecommendations](./Common.xml#L1463:~:text=<Function%20Name="-,AIRecommendations,-") *([Experimental](Common.md#Experimental))*
 
 Computes AI-based recommendations for the bound entity and its related entities
 
