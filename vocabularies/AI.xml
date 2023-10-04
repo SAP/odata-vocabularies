@@ -125,3 +125,7 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
