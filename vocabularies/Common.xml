@@ -1468,7 +1468,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Targets" Type="Common.RecommendationsTargetsType" Nullable="false">
+        <Parameter Name="Targets" Type="Common.AIRecommendationsTargetsType" Nullable="false">
           <Annotation Term="Core.Description" String="Entities, properties or action/function parameters for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
             <String>Implementations of this function MAY omit this parameter.
@@ -1478,28 +1478,28 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
             <Record />
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Common.PropertyRecommendationType)" Nullable="false">
+        <ReturnType Type="Collection(Common.PropertyAIRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecommendedFieldPath` property" />
         </ReturnType>
       </Function>
-      <ComplexType Name="RecommendationsTargetsType">
+      <ComplexType Name="AIRecommendationsTargetsType">
         <Annotation Term="Common.Experimental" />
         <Property Name="URLs" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets={"URLs":["","Items(10)"]}`
+            <String>The request `SalesOrder('A')/ns.AIRecommendations?Targets={"URLs":["","Items(10)"]}`
             retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
           </Annotation>
         </Property>
       </ComplexType>
-      <ComplexType Name="PropertyRecommendationType">
+      <ComplexType Name="PropertyAIRecommendationType">
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`AIRecommendations`](#AIRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`
+            <String>The request `SalesOrder('A')/ns.AIRecommendations?Targets=...`
             might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
           </Annotation>
         </Property>
@@ -1510,14 +1510,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
         </Property>
-        <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeRecommendationType)" Nullable="false">
+        <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
           <Annotation Term="Core.LongDescription">
             <String>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.</String>
           </Annotation>
         </Property>
       </ComplexType>
-      <ComplexType Name="AlternativeRecommendationType">
+      <ComplexType Name="AlternativeAIRecommendationType">
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
@@ -1526,11 +1526,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
         </Property>
       </ComplexType>
-      <Term Name="RecommendationsRole" Type="Common.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
+      <Term Name="AIRecommendationsRole" Type="Common.AIRecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
       </Term>
-      <TypeDefinition Name="RecommendationsRoleType" UnderlyingType="Edm.String">
+      <TypeDefinition Name="AIRecommendationsRoleType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>
