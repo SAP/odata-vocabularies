@@ -1346,7 +1346,7 @@
         "$Nullable": true,
         "@Core.Description": "Description of the recommended value"
       },
-      "AIAltvRecmddFldVals": {
+      "AlternativeAIRecommendedFieldValues": {
         "$Collection": true,
         "$Type": "Common.AlternativeAIRecommendationType",
         "@Core.Description": "A list of alternative values, sorted by confidence score in descending order",

@@ -1514,7 +1514,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
         </Property>
-        <Property Name="AIAltvRecmddFldVals" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
+        <Property Name="AlternativeAIRecommendedFieldValues" Type="Collection(Common.AlternativeAIRecommendationType)" Nullable="false">
           <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
           <Annotation Term="Core.LongDescription">
             <String>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.</String>
