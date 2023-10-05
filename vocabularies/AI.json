@@ -21,14 +21,14 @@
       { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
       { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
     ],
-    "GetRecommendations": [
+    "Recommendations": [
       {
         "$Kind": "Function",
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.IsSignature": true,
         "@Core.Description": "Computes AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).",
+        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendatioAI.md).",
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
@@ -53,7 +53,7 @@
         "$Collection": true,
         "@Core.IsURL": true,
         "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
       }
     },
     "PropertyRecommendationType": {
@@ -61,8 +61,8 @@
       "@Common.Experimental": true,
       "AIRecommendedFieldPath": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the URL of the [`GetRecommendations`](#GetRecommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/ns.GetRecommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
+        "@Core.Description": "URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventioAI.html#sec_AddressingaProperty) that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
       },
       "AIRecommendedFieldValue": {
         "@Core.Description": "Recommended value, converted to string",
