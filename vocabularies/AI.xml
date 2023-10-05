@@ -40,7 +40,7 @@
         <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Computes AI-based recommendations for the bound entity and its related entities" />
         <Annotation Term="Core.LongDescription">
-          <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendatioAI.md).</String>
+          <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Targets" Type="AI.RecommendationsTargetsType" Nullable="false">
@@ -72,7 +72,7 @@
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventioAI.html#sec_AddressingaProperty) that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/AI.Recommendations?Targets=...`
             might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>

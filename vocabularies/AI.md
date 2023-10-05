@@ -18,7 +18,7 @@ Term|Type|Description
 
 Computes AI-based recommendations for the bound entity and its related entities
 
-The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendatioAI.md).
+The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -41,7 +41,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventioAI.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
+[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
 [AIRecommendedFieldValue](./AI.xml#L81:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
 [AIRecommendedFieldDescription](./AI.xml#L85:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
 [AIAltvRecmddFldVals](./AI.xml#L88:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
