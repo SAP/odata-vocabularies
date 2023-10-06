@@ -188,22 +188,14 @@
         "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
       }
     },
-    "ApplySupported": {
+    "RecursiveHierarchySupported": {
       "$Kind": "Term",
-      "$Type": "Hierarchy.ApplySupportedType",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
       "$AppliesTo": ["Collection"],
-      "$BaseTerm": "Aggregation.ApplySupported",
       "@Core.AppliesViaContainer": true,
       "@Common.Experimental": true,
-      "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#ApplySupported)\n          governs whether a collection supports the `$apply` system query option specified in the OData specification,\n          whereas this annotation describes implementation-specific restrictions."
-    },
-    "ApplySupportedType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "RecursiveHierarchyQualifiers": {
-        "$Collection": true,
-        "@Core.Description": "Qualifiers of [`RecursiveHierarchy`](#RecursiveHierarchy) annotations that are effective for the annotated collection"
-      }
+      "@Core.Description": "Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier"
     },
     "Template_ChangeNextSiblingAction": [
       {
