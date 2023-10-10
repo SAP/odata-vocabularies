@@ -165,6 +165,15 @@
         "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
       }
     },
+    "RecursiveHierarchySupported": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Collection"],
+      "@Core.AppliesViaContainer": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier"
+    },
     "ChangeNextSibling": [
       {
         "$Kind": "Action",

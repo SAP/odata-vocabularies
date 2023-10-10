@@ -255,6 +255,12 @@ including any hierarchy directory.</String>
         </Property>
       </ComplexType>
 
+      <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier" />
+      </Term>
+
       <Action Name="ChangeNextSibling" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsSignature" />
