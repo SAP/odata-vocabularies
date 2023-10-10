@@ -32,8 +32,8 @@
         "$Parameter": [
           { "$Name": "Entity", "$Type": "Edm.EntityType" },
           {
-            "$Name": "Targets",
-            "$Type": "AI.RecommendationsTargetsType",
+            "$Name": "AIRecommendationTargets",
+            "$Type": "AI.RecommendationTargetsType",
             "@Core.Description": "Entities, properties or action/function parameters for which recommendations shall be retrieved",
             "@Core.LongDescription": "Implementations of this function MAY omit this parameter.\n            If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.",
             "@Core.OptionalParameter": {}
@@ -46,14 +46,14 @@
         }
       }
     ],
-    "RecommendationsTargetsType": {
+    "RecommendationTargetsType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "URLs": {
         "$Collection": true,
         "@Core.IsURL": true,
         "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?Targets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
       }
     },
     "PropertyRecommendationType": {
@@ -62,7 +62,7 @@
       "AIRecommendedFieldPath": {
         "@Core.IsURL": true,
         "@Core.Description": "URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?Targets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
       },
       "AIRecommendedFieldValue": {
         "@Core.Description": "Recommended value, converted to string",

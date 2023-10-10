@@ -23,17 +23,17 @@ The function SHOULD compute the recommendations asynchronously, see [this diagra
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./AI.xml#L45:~:text=<Function%20Name="-,Recommendations,-")**|EntityType|**Binding parameter**
-*[Targets](./AI.xml#L46:~:text=<Function%20Name="-,Recommendations,-")*|[RecommendationsTargetsType](#RecommendationsTargetsType)|*Optional parameter:* Entities, properties or action/function parameters for which recommendations shall be retrieved<br>Implementations of this function MAY omit this parameter. If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.
+*[AIRecommendationTargets](./AI.xml#L46:~:text=<Function%20Name="-,Recommendations,-")*|[RecommendationTargetsType](#RecommendationTargetsType)|*Optional parameter:* Entities, properties or action/function parameters for which recommendations shall be retrieved<br>Implementations of this function MAY omit this parameter. If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.
 [&rarr;](./AI.xml#L56:~:text=<Function%20Name="-,Recommendations,-")|\[[PropertyRecommendationType](#PropertyRecommendationType)\]|A collection of recommendations that differ in their `AIRecommendedFieldPath` property
 
 
-<a name="RecommendationsTargetsType"></a>
-## [RecommendationsTargetsType](./AI.xml#L60:~:text=<ComplexType%20Name="-,RecommendationsTargetsType,-") *([Experimental](Common.md#Experimental))*
+<a name="RecommendationTargetsType"></a>
+## [RecommendationTargetsType](./AI.xml#L60:~:text=<ComplexType%20Name="-,RecommendationTargetsType,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[URLs](./AI.xml#L62:~:text=<ComplexType%20Name="-,RecommendationsTargetsType,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/AI.Recommendations?Targets={"URLs":["","Items(10)"]}` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[URLs](./AI.xml#L62:~:text=<ComplexType%20Name="-,RecommendationTargetsType,-")|\[URL\]|URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={"URLs":["","Items(10)"]}` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
 
 <a name="PropertyRecommendationType"></a>
 ## [PropertyRecommendationType](./AI.xml#L71:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
@@ -41,7 +41,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations?Targets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
+[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.
 [AIRecommendedFieldValue](./AI.xml#L81:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
 [AIRecommendedFieldDescription](./AI.xml#L85:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
 [AIAltvRecmddFldVals](./AI.xml#L88:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
