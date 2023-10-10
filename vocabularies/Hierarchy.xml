@@ -281,6 +281,12 @@ The template actions themselves cannot be invoked.</String>
         </Property>
       </ComplexType>
 
+      <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier" />
+      </Term>
+
       <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)" />
