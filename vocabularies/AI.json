@@ -49,11 +49,11 @@
     "RecommendationTargetsType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "URLs": {
+      "AIRecommendedFieldPaths": {
         "$Collection": true,
         "@Core.IsURL": true,
-        "@Core.Description": "URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={\"URLs\":[\"\",\"Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
+        "@Core.Description": "URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={\"AIRecommendedFieldPaths\":[\"SalesOrder('A')\",\"SalesOrder('A')/Items(10)\"]}`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
       }
     },
     "PropertyRecommendationType": {
@@ -61,8 +61,8 @@
       "@Common.Experimental": true,
       "AIRecommendedFieldPath": {
         "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"Items(10)/Product\"`."
+        "@Core.Description": "URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
+        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"SalesOrder('A')/Items(10)/Product\"`."
       },
       "AIRecommendedFieldValue": {
         "@Core.Description": "Recommended value, converted to string",

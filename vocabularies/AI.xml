@@ -59,11 +59,11 @@
       </Function>
       <ComplexType Name="RecommendationTargetsType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="URLs" Type="Collection(Edm.String)" Nullable="false">
+        <Property Name="AIRecommendedFieldPaths" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URLs (relative to the request URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+          <Annotation Term="Core.Description" String="URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
           <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={"URLs":["","Items(10)"]}`
+            <String>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={"AIRecommendedFieldPaths":["SalesOrder('A')","SalesOrder('A')/Items(10)"]}`
             retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
           </Annotation>
         </Property>
@@ -72,10 +72,10 @@
         <Annotation Term="Common.Experimental" />
         <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the URL of the [`Recommendations`](#Recommendations) function request) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
+          <Annotation Term="Core.Description" String="URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
           <Annotation Term="Core.LongDescription">
             <String>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...`
-            might retrieve a recommendation with `"AIRecommendedFieldPath": "Items(10)/Product"`.</String>
+            might retrieve a recommendation with `"AIRecommendedFieldPath": "SalesOrder('A')/Items(10)/Product"`.</String>
           </Annotation>
         </Property>
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
