@@ -8,27 +8,27 @@ Terms for Hierarchies
 
 Term|Type|Description
 :---|:---|:----------
-[RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Hierarchy-specific information in the result set of a hierarchical request<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information.
-[RecursiveHierarchyActions](./Hierarchy.xml#L143:~:text=<Term%20Name="-,RecursiveHierarchyActions,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyActionsType](#RecursiveHierarchyActionsType)|<a name="RecursiveHierarchyActions"></a>Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)<br>When this annotation is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType) in the base term must not have a collection-valued segment prior to its last segment.
-[MatchCount](./Hierarchy.xml#L175:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service MAY designate a subset of the `$apply` result as "matching nodes". For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.<br> For requests not following this pattern, the subset NEED NOT be defined.<br> This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType) and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.
-[RecursiveHierarchySupported](./Hierarchy.xml#L284:~:text=<Term%20Name="-,RecursiveHierarchySupported,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="RecursiveHierarchySupported"></a>Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier
+[RecursiveHierarchy](./Hierarchy.xml#L38:~:text=<Term%20Name="-,RecursiveHierarchy,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Hierarchy-specific information in the result set of a hierarchical request<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this term defines derived information.
+[RecursiveHierarchyActions](./Hierarchy.xml#L143:~:text=<Term%20Name="-,RecursiveHierarchyActions,-") *([Experimental](Common.md#Experimental))*|[RecursiveHierarchyActionsType](#RecursiveHierarchyActionsType)|<a name="RecursiveHierarchyActions"></a>Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)<br>When an annotation with this term is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType) in the base term must not have a collection-valued segment prior to its last segment.
+[MatchCount](./Hierarchy.xml#L175:~:text=<Term%20Name="-,MatchCount,-") *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service MAY designate a subset of the `$apply` result as "matching nodes". For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.<br> For requests not following this pattern, the subset NEED NOT be defined.<br> This instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType) and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available.
+[RecursiveHierarchySupported](./Hierarchy.xml#L285:~:text=<Term%20Name="-,RecursiveHierarchySupported,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="RecursiveHierarchySupported"></a>Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier<br>This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type. The recursive hierarchy can then only be addressed through a collection where this tag is true.
 
 
 ## Actions
 
 <a name="Template_ChangeNextSiblingAction"></a>
-### [Template_ChangeNextSiblingAction](./Hierarchy.xml#L290:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_ChangeNextSiblingAction](./Hierarchy.xml#L295:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L293:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")**|EntityType|**Binding parameter:** The node T to be moved
-[NextSibling](./Hierarchy.xml#L296:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")|ComplexType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>This parameter has properties with the same names as the key properties of the entity type. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
+**[Node](./Hierarchy.xml#L298:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")**|EntityType|**Binding parameter:** The node T to be moved
+[NextSibling](./Hierarchy.xml#L301:~:text=<Action%20Name="-,Template_ChangeNextSiblingAction,-")|ComplexType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>This parameter has properties with the same names as the key properties of the entity type. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
 
 
 <a name="Template_CopyAction"></a>
-### [Template_CopyAction](./Hierarchy.xml#L324:~:text=<Action%20Name="-,Template_CopyAction,-") *([Experimental](Common.md#Experimental))*
+### [Template_CopyAction](./Hierarchy.xml#L329:~:text=<Action%20Name="-,Template_CopyAction,-") *([Experimental](Common.md#Experimental))*
 
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)
 
@@ -52,8 +52,8 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](./Hierarchy.xml#L346:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
-[&rarr;](./Hierarchy.xml#L349:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
+**[Node](./Hierarchy.xml#L351:~:text=<Action%20Name="-,Template_CopyAction,-")**|EntityType|**Binding parameter:** The node to be copied
+[&rarr;](./Hierarchy.xml#L354:~:text=<Action%20Name="-,Template_CopyAction,-")|EntityType|The copied node
 
 
 
@@ -158,9 +158,9 @@ Property|Type|Description
 
 <a name="TopLevelsExpandType"></a>
 ## [TopLevelsExpandType](./Hierarchy.xml#L274:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-") *([Experimental](Common.md#Experimental))*
-
+Information about nodes to be expanded
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeID](./Hierarchy.xml#L276:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|String|Identifier of a node to be expanded
-[Levels](./Hierarchy.xml#L279:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[NodeID](./Hierarchy.xml#L277:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|String|Identifier of a node to be expanded
+[Levels](./Hierarchy.xml#L280:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
