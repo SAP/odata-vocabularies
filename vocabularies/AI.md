@@ -33,7 +33,7 @@ Parameter|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPaths](./AI.xml#L62:~:text=<ComplexType%20Name="-,RecommendationTargetsType,-")|\[URL\]|URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets={"AIRecommendedFieldPaths":["SalesOrder('A')","SalesOrder('A')/Items(10)"]}` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
+[AIRecommendedFieldPaths](./AI.xml#L62:~:text=<ComplexType%20Name="-,RecommendationTargetsType,-")|\[URL\]|URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved<br>The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets={"AIRecommendedFieldPaths":["SalesOrder('A')","SalesOrder('A')/Items(10)"]})` retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.
 
 <a name="PropertyRecommendationType"></a>
 ## [PropertyRecommendationType](./AI.xml#L71:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
@@ -41,7 +41,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...` might retrieve a recommendation with `"AIRecommendedFieldPath": "SalesOrder('A')/Items(10)/Product"`.
+[AIRecommendedFieldPath](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|URL|URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation<br>The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets=...)` might retrieve a recommendation with `"AIRecommendedFieldPath": "SalesOrder('A')/Items(10)/Product"`.
 [AIRecommendedFieldValue](./AI.xml#L81:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String|Recommended value, converted to string
 [AIRecommendedFieldDescription](./AI.xml#L85:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value
 [AIAltvRecmddFldVals](./AI.xml#L88:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|\[[AlternativeRecommendationType](#AlternativeRecommendationType)\]|A list of alternative values, sorted by confidence score in descending order<br>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.
