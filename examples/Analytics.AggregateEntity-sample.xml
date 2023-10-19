@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="example.Analytics.AggregateEntity" Alias="SalesModel">
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Color" Type="Edm.String" />
+        <Property Name="TaxRate" Type="Edm.Decimal" Scale="2"/>
+      </EntityType>
+      <EntityType Name="Sale">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2" />
+        <NavigationProperty Name="Product" Type="SalesModel.Product" />
+        <NavigationProperty Name="Customer" Type="SalesModel.Customer"/>
+      </EntityType>
+      <Action Name="UpdateAggregateSales">
+        <Annotation Term="Core.Description" String="Updates an aggregate entity in the `Sales` entity set" />
+        <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="String identifying the aggregate entity to be updated" />
+        </Parameter>
+        <Parameter Name="Updates" Type="SalesModel.Sale" Nullable="false">
+          <Annotation Term="Core.Description" String="Aggregate entity with nested properties that are to be updated, like the body of a PATCH request" />
+        </Parameter>
+        <ReturnType Type="SalesModel.Sale" Nullable="false">
+          <Annotation Term="Core.Description" String="Aggregate entity with updates applied" />
+        </ReturnType>
+      </Action>
+      <Function Name="RetrieveAggregateSales">
+        <Annotation Term="Core.Description" String="Retrieves an aggregate entity in the `Sales` entity set" />
+        <Parameter Name="Aggregate" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="String identifying the aggregate entity to be retrieved" />
+        </Parameter>
+        <ReturnType Type="SalesModel.Sale" Nullable="false" />
+      </Function>
+      <EntityContainer Name="container">
+        <EntitySet Name="Sales" EntityType="SalesModel.Sale">
+          <Annotation Term="Aggregation.CustomAggregate" Qualifier="Amount" String="Edm.Decimal" />
+        </EntitySet>
+        <ActionImport Name="UpdateAggregateSales" Action="SalesModel.UpdateAggregateSales" EntitySet="Sales" />
+        <FunctionImport Name="RetrieveAggregateSales" Function="SalesModel.RetrieveAggregateSales" EntitySet="Sales" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

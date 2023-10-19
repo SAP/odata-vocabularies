@@ -167,6 +167,63 @@
         </Property>
       </ComplexType>
 
+      <Term Name="AggregateEntity" Type="Analytics.AggregateEntityType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Function and action for retrieving and updating an aggregate entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Transient entities that result from the application of a transformation sequence represent an
+          aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Data-Agg-v4.0], first example in simple grouping section).
+          Such a transient entity may be annotated with this term to describe&lt;br&gt;
+          - a service-defined function import that can be used to retrieve the transient entity in order to `$expand` additional properties&lt;br&gt;
+          - a service-defined action import that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate
+          the transient entity represents, how this dis-aggregation happens is defined by the service.</String>
+        </Annotation>
+        <Annotation Term="Core.Example">
+          <Record Type="Core.ExternalExampleValue">
+            <PropertyValue Property="Description">
+              <String>Based on the [example model](../examples/Analytics.AggregateEntity-sample.xml).
+              The format of the `Aggregate` parameter allows the server to re-create the transient entity
+              without storing an identifier, based solely on the parameter value.</String>
+            </PropertyValue>
+            <PropertyValue Property="ExternalValue" String="../examples/Analytics.AggregateEntity-result.json" />
+          </Record>
+        </Annotation>
+      </Term>
+      <ComplexType Name="AggregateEntityType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Aggregate" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Value that the first parameter of the function or action invocation must have" />
+          <Annotation Term="Core.LongDescription">
+            <String>This string value identifies the aggregate that the transient entity represents.
+            This value MUST be treated as opaque by the client.</String>
+          </Annotation>
+        </Property>
+        <Property Name="RetrieveFunctionImport" Type="Core.SimpleIdentifier" Nullable="true">
+          <Annotation Term="Core.Description" String="Name of a function import" />
+          <Annotation Term="Core.LongDescription">
+            <String>The function has only one parameter.</String>
+          </Annotation>
+        </Property>
+        <Property Name="UpdateActionImport" Type="Core.SimpleIdentifier" Nullable="true">
+          <Annotation Term="Core.Description" String="Name of an action import" />
+          <Annotation Term="Core.LongDescription">
+            <String>Action parameters after the first define how the identified aggregate entity is updated,
+            they are explained in the action definition in the service metadata.</String>
+          </Annotation>
+        </Property>
+        <Property Name="ExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Declared navigation properties of the aggregate entity that can be expanded" />
+        </Property>
+        <Property Name="UpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Declared properties of the aggregate entity that can be updated with the action" />
+          <Annotation Term="Core.LongDescription">
+            <String>If a declared property whose name equals a custom aggregate can be updated, this means updating the
+            aggregate value.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />

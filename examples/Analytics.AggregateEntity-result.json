@@ -1,0 +1,80 @@
+{
+  "@odata.context": "$metadata#Sales",
+  "value": [
+    {
+      "Customer": {
+        "Country": "Netherlands"
+      },
+      "Product": {
+        "Name": "Paper"
+      },
+      "Amount": 3,
+      "@Analytics.AggregateEntity": {
+        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1BhcGVyJyk=",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "Netherlands"
+      },
+      "Product": {
+        "Name": "Sugar"
+      },
+      "Amount": 2,
+      "@Analytics.AggregateEntity": {
+        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnTmV0aGVybGFuZHMnIGFuZCBQcm9kdWN0L05hbWUgZXEgJ1N1Z2FyJyk=",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Coffee"
+      },
+      "Amount": 12,
+      "@Analytics.AggregateEntity": {
+        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdDb2ZmZWUnKQ==",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Paper"
+      },
+      "Amount": 5,
+      "@Analytics.AggregateEntity": {
+        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdQYXBlcicp",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
+        "UpdatableProperties": ["Amount"]
+      }
+    },
+    {
+      "Customer": {
+        "Country": "USA"
+      },
+      "Product": {
+        "Name": "Sugar"
+      },
+      "Amount": 2,
+      "@Analytics.AggregateEntity": {
+        "Aggregate": "Z3JvdXBieSgoQ3VzdG9tZXIvQ291bnRyeSxQcm9kdWN0L05hbWUpLGFnZ3JlZ2F0ZShBbW91bnQpKS9maWx0ZXIoQ3VzdG9tZXIvQ291bnRyeSBlcSAnVVNBJyBhbmQgUHJvZHVjdC9OYW1lIGVxICdTdWdhcicp",
+        "RetrieveFunctionImport": "RetrieveAggregateSales",
+        "UpdateActionImport": "UpdateAggregateSales",
+        "UpdatableProperties": ["Amount"]
+      }
+    }
+  ]
+}

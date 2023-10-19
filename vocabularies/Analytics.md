@@ -17,6 +17,7 @@ Term|Type|Description
 [AggregatedProperties](./Analytics.xml#L103:~:text=<Term%20Name="-,AggregatedProperties,-") *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](./Analytics.xml#L121:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
+[AggregateEntity](./Analytics.xml#L170:~:text=<Term%20Name="-,AggregateEntity,-") *([Experimental](Common.md#Experimental))*|[AggregateEntityType](#AggregateEntityType)|<a name="AggregateEntity"></a>Function and action for retrieving and updating an aggregate entity ([Example](./Analytics.xml#L182))<br>Transient entities that result from the application of a transformation sequence represent an aggregate of persistent entities (for example, aggregate sales per country and product, as in [OData-Data-Agg-v4.0], first example in simple grouping section). Such a transient entity may be annotated with this term to describe<br> - a service-defined function import that can be used to retrieve the transient entity in order to `$expand` additional properties<br> - a service-defined action import that can be used to update the transient entity. This effectively means updating the persistent entities whose aggregate the transient entity represents, how this dis-aggregation happens is defined by the service.
 
 <a name="AggregatedPropertyType"></a>
 ## [AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
@@ -43,3 +44,15 @@ Property|Type|Description
 [Dimension](./Analytics.xml#L159:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+
+<a name="AggregateEntityType"></a>
+## [AggregateEntityType](./Analytics.xml#L193:~:text=<ComplexType%20Name="-,AggregateEntityType,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Aggregate](./Analytics.xml#L195:~:text=<ComplexType%20Name="-,AggregateEntityType,-")|String|Value that the first parameter of the function or action invocation must have<br>This string value identifies the aggregate that the transient entity represents. This value MUST be treated as opaque by the client.
+[RetrieveFunctionImport](./Analytics.xml#L202:~:text=<ComplexType%20Name="-,AggregateEntityType,-")|[SimpleIdentifier?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Name of a function import<br>The function has only one parameter.
+[UpdateActionImport](./Analytics.xml#L208:~:text=<ComplexType%20Name="-,AggregateEntityType,-")|[SimpleIdentifier?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|Name of an action import<br>Action parameters after the first define how the identified aggregate entity is updated, they are explained in the action definition in the service metadata.
+[ExpandableProperties](./Analytics.xml#L215:~:text=<ComplexType%20Name="-,AggregateEntityType,-")|\[NavigationPropertyPath\]|Declared navigation properties of the aggregate entity that can be expanded
+[UpdatableProperties](./Analytics.xml#L218:~:text=<ComplexType%20Name="-,AggregateEntityType,-")|\[PropertyPath\]|Declared properties of the aggregate entity that can be updated with the action<br>If a declared property whose name equals a custom aggregate can be updated, this means updating the aggregate value.
