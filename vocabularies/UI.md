@@ -909,7 +909,7 @@ Triggers intent-based UI navigation
 
 The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
-It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."
+It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).
 
 Property|Type|Description
 :-------|:---|:----------
