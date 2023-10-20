@@ -14,9 +14,8 @@ Term|Type|Description
 ## Functions
 
 <a name="Recommendations"></a>
-### [*Recommendations*](./AI.xml#L38:~:text=<Function%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*
+### [Recommendations](./AI.xml#L38:~:text=<Function%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*
 
-**Signature only:**
 Computes AI-based recommendations for the bound entity and its related entities
 
 The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).
