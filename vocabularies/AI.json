@@ -83,7 +83,7 @@
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "AIRecommendedFieldValue": { "@Core.Description": "Alternatively recommended value, converted to string" },
-      "AIRecommendedFieldScore": {
+      "AIRecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
         "$Nullable": true,
         "@Core.Description": "Confidence score of the alternatively recommended value"

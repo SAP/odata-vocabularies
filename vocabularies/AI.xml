@@ -97,7 +97,7 @@
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
         </Property>
-        <Property Name="AIRecommendedFieldScore" Type="Edm.Decimal" Scale="variable" Nullable="true">
+        <Property Name="AIRecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
         </Property>
       </ComplexType>

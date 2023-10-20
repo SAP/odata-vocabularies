@@ -14,8 +14,9 @@ Term|Type|Description
 ## Functions
 
 <a name="Recommendations"></a>
-### [Recommendations](./AI.xml#L38:~:text=<Function%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*
+### [*Recommendations*](./AI.xml#L38:~:text=<Function%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*
 
+**Signature only:**
 Computes AI-based recommendations for the bound entity and its related entities
 
 The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).
@@ -53,7 +54,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [AIRecommendedFieldValue](./AI.xml#L97:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|String|Alternatively recommended value, converted to string
-[AIRecommendedFieldScore](./AI.xml#L100:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
+[AIRecommendedFieldScoreValue](./AI.xml#L100:~:text=<ComplexType%20Name="-,AlternativeRecommendationType,-")|Decimal?|Confidence score of the alternatively recommended value
 
 <a name="RecommendationsRoleType"></a>
 ## [RecommendationsRoleType](./AI.xml#L108:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
