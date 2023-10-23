@@ -60,6 +60,19 @@ An entity may have other IDs, i.e. a local ID and other alternative IDs. </Strin
         </Annotation>
       </Term>
 
+      <Term Name="oidReference" Type="ODM.oidReferenceType" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Specification of an referenced entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>Annotating the property with this term helps consumers to determine the referenced entity and find APIs that process or expose the same entity.</String>
+        </Annotation>
+      </Term>
+
+      <ComplexType Name="oidReferenceType">
+        <Property Name="entityName" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of a referenced ODM entity" />
+        </Property>
+      </ComplexType> 
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

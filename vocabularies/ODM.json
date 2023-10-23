@@ -46,6 +46,17 @@
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "Name of an ODM entity as a general concept, not a concrete version thereof",
       "@Core.LongDescription": "The annotated OData entity is one of many representations of the ODM entity. Annotating the OData entity with this term helps consumers find APIs that process or expose the same entity."
+    },
+    "oidReference": {
+      "$Kind": "Term",
+      "$Type": "ODM.oidReferenceType",
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Specification of an referenced entity",
+      "@Core.LongDescription": "Annotating the property with this term helps consumers to determine the referenced entity and find APIs that process or expose the same entity."
+    },
+    "oidReferenceType": {
+      "$Kind": "ComplexType",
+      "entityName": { "@Core.Description": "Name of a referenced ODM entity" }
     }
   }
 }
