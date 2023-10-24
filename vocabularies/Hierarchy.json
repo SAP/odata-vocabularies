@@ -70,11 +70,11 @@
         "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
         "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
-      "PreorderRank": {
+      "LimitedPreorderRank": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
-        "@Core.Description": "Preorder rank of a node",
-        "@Core.LongDescription": "The preorder rank of a node is the index of the node in the sequence of nodes\n            created from preorder traversal of the unlimited hierarchy. The first node in preorder traversal has rank 0."
+        "@Core.Description": "Preorder rank of a node in the limited hierarchy",
+        "@Core.LongDescription": "The preorder rank of a node is the index of the node in the sequence of nodes\n            created from preorder traversal of the limited hierarchy. The first node in preorder traversal has rank 0."
       },
       "SiblingRank": {
         "$Type": "Edm.Int64",
