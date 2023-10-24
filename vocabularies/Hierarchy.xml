@@ -120,6 +120,13 @@ the following collections of hierarchy nodes are distinguished:
             <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
+        <Property Name="PreorderRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Preorder rank of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>The preorder rank of a node is the index of the node in the sequence of nodes
+            created from preorder traversal of the unlimited hierarchy. The first node in preorder traversal has rank 0.</String>
+          </Annotation>
+        </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
