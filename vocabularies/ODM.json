@@ -51,12 +51,13 @@
       "$Kind": "Term",
       "$Type": "ODM.oidReferenceType",
       "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
       "@Core.Description": "Specification of an referenced entity",
       "@Core.LongDescription": "Annotating the property with this term helps consumers to determine the referenced entity and find APIs that process or expose the same entity."
     },
     "oidReferenceType": {
       "$Kind": "ComplexType",
-      "entityName": { "@Core.Description": "Name of a referenced ODM entity" }
+      "entityName": { "@Common.Experimental": true, "@Core.Description": "Name of a referenced ODM entity" }
     }
   }
 }
