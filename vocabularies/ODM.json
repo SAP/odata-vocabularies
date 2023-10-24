@@ -52,7 +52,7 @@
       "$Type": "ODM.oidReferenceType",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": true,
-      "@Core.Description": "Specification of an referenced entity",
+      "@Core.Description": "Specification of a referenced entity",
       "@Core.LongDescription": "Annotating the property with this term helps consumers to determine the referenced entity and find APIs that process or expose the same entity."
     },
     "oidReferenceType": {
