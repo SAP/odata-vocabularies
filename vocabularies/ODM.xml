@@ -70,6 +70,7 @@ An entity may have other IDs, i.e. a local ID and other alternative IDs. </Strin
 
       <ComplexType Name="oidReferenceType">
         <Property Name="entityName" Type="Edm.String" Nullable="false">
+          <Annotation Term="Common.Experimental" />        
           <Annotation Term="Core.Description" String="Name of a referenced ODM entity" />
         </Property>
       </ComplexType> 
