@@ -80,7 +80,7 @@
         </Property>
         <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value, converted to string" />
-          <Annotation Term="Common.Text" Path="text" />
+          <Annotation Term="Common.Text" Path="AIRecommendedFieldDescription" />
         </Property>
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
