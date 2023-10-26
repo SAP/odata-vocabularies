@@ -47,29 +47,30 @@
           <Annotation Term="Core.Description" String="Nested structure containing recommendations" />
           <Annotation Term="Core.LongDescription">
             <String>The nested structure contains complex types that correspond to the entity type of the binding parameter
-            or one of its related entity types. Each complex type has
+            or one of its related entity types. Each complex type contains
             &lt;br&gt;- the same properties as the key of the corresponding entity type
             &lt;br&gt;- structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-            available. The type of these properties is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
+            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
             &lt;br&gt;- structural properties corresponding to navigation properties of the entity type.
-            The type of these properties is (a collection of) a nested complex type.</String>
+            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property.</String>
           </Annotation>
         </ReturnType>
       </Function>
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="AI-based recommendations for an entity type property" />
-        <Annotation Term="Core.LongDescription">
-          <String>In the specializations of this base type,
-          the `AIRecommendedFieldValue` is specialized to the primitive type of the entity type property and
-          the `AIRecommendedFieldDescription` is specialized to the string type of the corresponding text property.</String>
-        </Annotation>
+        <Annotation Term="Core.Description" String="Base type containing AI-based recommendations for an entity type property" />
         <Property Name="AIRecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value" />
+          <Annotation Term="Core.LongDescription">
+            <String>In the specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
+          </Annotation>
           <Annotation Term="Common.Text" Path="AIRecommendedFieldDescription" />
         </Property>
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
+          <Annotation Term="Core.LongDescription">
+            <String>In the specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.</String>
+          </Annotation>
         </Property>
         <Property Name="AIRecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
           <Annotation Term="Core.Description" String="Confidence score of the recommended value" />

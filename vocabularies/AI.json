@@ -33,7 +33,7 @@
         "$ReturnType": {
           "$Type": "Edm.ComplexType",
           "@Core.Description": "Nested structure containing recommendations",
-          "@Core.LongDescription": "The nested structure contains complex types that correspond to the entity type of the binding parameter\n            or one of its related entity types. Each complex type has\n            <br>- the same properties as the key of the corresponding entity type\n            <br>- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n            available. The type of these properties is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n            <br>- structural properties corresponding to navigation properties of the entity type.\n            The type of these properties is (a collection of) a nested complex type."
+          "@Core.LongDescription": "The nested structure contains complex types that correspond to the entity type of the binding parameter\n            or one of its related entity types. Each complex type contains\n            <br>- the same properties as the key of the corresponding entity type\n            <br>- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n            <br>- structural properties corresponding to navigation properties of the entity type.\n            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property."
         }
       }
     ],
@@ -41,16 +41,17 @@
       "$Kind": "ComplexType",
       "$Abstract": true,
       "@Common.Experimental": true,
-      "@Core.Description": "AI-based recommendations for an entity type property",
-      "@Core.LongDescription": "In the specializations of this base type,\n          the `AIRecommendedFieldValue` is specialized to the primitive type of the entity type property and\n          the `AIRecommendedFieldDescription` is specialized to the string type of the corresponding text property.",
+      "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
       "AIRecommendedFieldValue": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In the specializations of this base type, this property is specialized to the primitive type of the entity type property.",
         "@Common.Text": { "$Path": "AIRecommendedFieldDescription" }
       },
       "AIRecommendedFieldDescription": {
         "$Nullable": true,
-        "@Core.Description": "Description of the recommended value"
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In the specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
       },
       "AIRecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
