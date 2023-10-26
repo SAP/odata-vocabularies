@@ -50,16 +50,20 @@
             or one of its related entity types. Each complex type has
             &lt;br&gt;- the same properties as the key of the corresponding entity type
             &lt;br&gt;- structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-            available. The type of these properties is a collection of [`PropertyRecommendationType`](#PropertyRecommendationType)
-            with the `AIRecommendedFieldValue` specialized to the primitive type of the corresponding entity type property
-            and the `AIRecommendedFieldDescription` specialized to the string type of the corresponding text property
+            available. The type of these properties is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
             &lt;br&gt;- structural properties corresponding to navigation properties of the entity type.
             The type of these properties is (a collection of) a nested complex type.</String>
           </Annotation>
         </ReturnType>
       </Function>
-      <ComplexType Name="PropertyRecommendationType">
+      <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="AI-based recommendations for an entity type property" />
+        <Annotation Term="Core.LongDescription">
+          <String>In the specializations of this base type,
+          the `AIRecommendedFieldValue` is specialized to the primitive type of the entity type property and
+          the `AIRecommendedFieldDescription` is specialized to the string type of the corresponding text property.</String>
+        </Annotation>
         <Property Name="AIRecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value" />
           <Annotation Term="Common.Text" Path="AIRecommendedFieldDescription" />
