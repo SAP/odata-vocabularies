@@ -59,17 +59,23 @@
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Base type containing AI-based recommendations for an entity type property" />
+        <Annotation Term="Core.LongDescription">
+          <String>Specializations of this base type have three properties:
+- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`
+- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`
+- a property named `AIRecommendedFieldScoreValue`.</String>
+        </Annotation>
         <Property Name="AIRecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In the specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
+            <String>In specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
           </Annotation>
           <Annotation Term="Common.Text" Path="AIRecommendedFieldDescription" />
         </Property>
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In the specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.</String>
+            <String>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.</String>
           </Annotation>
         </Property>
         <Property Name="AIRecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">

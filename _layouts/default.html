@@ -44,8 +44,8 @@
 
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-      mermaid.initialize({startOnLoad: true});
-      mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+      mermaid.initialize({startOnLoad: false});
+      mermaid.run({nodes: document.querySelectorAll('.language-mermaid')});
     </script>
 
   </body>

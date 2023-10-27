@@ -42,16 +42,17 @@
       "$Abstract": true,
       "@Common.Experimental": true,
       "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
+      "@Core.LongDescription": "Specializations of this base type have three properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`.",
       "AIRecommendedFieldValue": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Recommended value",
-        "@Core.LongDescription": "In the specializations of this base type, this property is specialized to the primitive type of the entity type property.",
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the primitive type of the entity type property.",
         "@Common.Text": { "$Path": "AIRecommendedFieldDescription" }
       },
       "AIRecommendedFieldDescription": {
         "$Nullable": true,
         "@Core.Description": "Description of the recommended value",
-        "@Core.LongDescription": "In the specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
       },
       "AIRecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
