@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy">
@@ -72,6 +75,7 @@ SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
 ```
 (where `...,` stands for hierarchy nodes and hierarchy qualifier)
 the following collections of hierarchy nodes are distinguished:
+
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
 |sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|
@@ -120,11 +124,11 @@ the following collections of hierarchy nodes are distinguished:
             <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
-        <Property Name="LimitedPreorderRank" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Preorder rank of a node in the limited hierarchy" />
+        <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Rank of a node in the limited hierarchy in preorder or postorder" />
           <Annotation Term="Core.LongDescription">
-            <String>The preorder rank of a node is the index of the node in the sequence of nodes
-            created from preorder traversal of the limited hierarchy. The first node in preorder traversal has rank 0.</String>
+            <String>The rank of a node is the index of the node in the sequence of nodes
+            created from a preorder or postorder traversal of the limited hierarchy. The first node in the traversal has rank 0.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
@@ -218,7 +222,7 @@ The template actions themselves cannot be invoked.</String>
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific
+          Finally the output is sorted in preorder or postorder as with the `traverse` transformation with the hierarchy-specific
           definition of start nodes.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
@@ -248,6 +252,14 @@ The template actions themselves cannot be invoked.</String>
             <Record/>
           </Annotation>
         </Parameter>
+        <Parameter Name="Traversal" Type="Hierarchy.TraversalType" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether to traverse the hierarchy in preorder (default) or in postorder" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="preorder" />
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
       <ComplexType Name="TopLevelsExpandType">
@@ -260,6 +272,21 @@ The template actions themselves cannot be invoked.</String>
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
         </Property>
       </ComplexType>
+      <TypeDefinition Name="TraversalType" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Order in which a hierarchy is traversed" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="preorder" />
+              <Annotation Term="Core.Description" String="A node is visited before its children" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="postorder" />
+              <Annotation Term="Core.Description" String="A node is visited after its children" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
       <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
