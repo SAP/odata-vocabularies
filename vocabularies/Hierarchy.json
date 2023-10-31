@@ -135,7 +135,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
-        "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder or postorder as with the `traverse` transformation with the hierarchy-specific\n          definition of start nodes.",
+        "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific\n          definition of start nodes.",
         "$Parameter": [
           { "$Name": "InputSet", "$Collection": true, "$Type": "Edm.EntityType" },
           {
@@ -168,12 +168,6 @@
             "$Type": "Hierarchy.TopLevelsExpandType",
             "@Core.Description": "Nodes to be expanded",
             "@Core.OptionalParameter": {}
-          },
-          {
-            "$Name": "Traversal",
-            "$Type": "Hierarchy.TraversalType",
-            "@Core.Description": "Whether to traverse the hierarchy in preorder (default) or in postorder",
-            "@Core.OptionalParameter": { "DefaultValue": "preorder" }
           }
         ],
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
@@ -189,15 +183,6 @@
         "$Nullable": true,
         "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
       }
-    },
-    "TraversalType": {
-      "$Kind": "TypeDefinition",
-      "$UnderlyingType": "Edm.String",
-      "@Core.Description": "Order in which a hierarchy is traversed",
-      "@Validation.AllowedValues": [
-        { "Value": "preorder", "@Core.Description": "A node is visited before its children" },
-        { "Value": "postorder", "@Core.Description": "A node is visited after its children" }
-      ]
     },
     "RecursiveHierarchySupported": {
       "$Kind": "Term",

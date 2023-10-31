@@ -222,7 +222,7 @@ The template actions themselves cannot be invoked.</String>
           its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
           in the hierarchical collection given in the binding parameter.
           Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder or postorder as with the `traverse` transformation with the hierarchy-specific
+          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific
           definition of start nodes.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
@@ -252,14 +252,6 @@ The template actions themselves cannot be invoked.</String>
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="Traversal" Type="Hierarchy.TraversalType" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to traverse the hierarchy in preorder (default) or in postorder" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue" String="preorder" />
-            </Record>
-          </Annotation>
-        </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
       <ComplexType Name="TopLevelsExpandType">
@@ -272,21 +264,6 @@ The template actions themselves cannot be invoked.</String>
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
         </Property>
       </ComplexType>
-      <TypeDefinition Name="TraversalType" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Order in which a hierarchy is traversed" />
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="preorder" />
-              <Annotation Term="Core.Description" String="A node is visited before its children" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="postorder" />
-              <Annotation Term="Core.Description" String="A node is visited after its children" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
 
       <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
