@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy">
@@ -72,6 +75,7 @@ SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
 ```
 (where `...,` stands for hierarchy nodes and hierarchy qualifier)
 the following collections of hierarchy nodes are distinguished:
+
 |Collection|Definition|Value|Where in request|
 |----------|----------|-----|----------------|
 |sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|
@@ -118,6 +122,13 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
+          </Annotation>
+        </Property>
+        <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Rank of a node in the limited hierarchy in preorder or postorder" />
+          <Annotation Term="Core.LongDescription">
+            <String>The rank of a node is the index of the node in the sequence of nodes
+            created from a preorder or postorder traversal of the limited hierarchy. The first node in the traversal has rank 0.</String>
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
