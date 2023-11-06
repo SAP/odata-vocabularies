@@ -596,7 +596,8 @@
     "ValueListForValidation": {
       "$Kind": "Term",
       "$AppliesTo": ["Property", "Parameter"],
-      "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
+      "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation",
+      "@Core.LongDescription": "An empty string identifies the ValueList or ValueListMapping without a qualifier."
     },
     "ValueListReferences": {
       "$Kind": "Term",
