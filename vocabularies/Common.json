@@ -1308,14 +1308,16 @@
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.IsURL": true,
-      "@Core.Description": "Base URL for WebSocket connections"
+      "@Core.Description": "Base URL for WebSocket connections",
+      "@Core.LongDescription": "This annotation MUST be unqualified."
     },
     "WebSocketChannel": {
       "$Kind": "Term",
+      "$Nullable": true,
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "Channel for WebSocket connections",
-      "@Core.LongDescription": "This annotation MUST be qualified with\n          <br>- `SideEffects` if the channel is used for side effects."
+      "@Core.LongDescription": "Messages sent over the channel follow a protocol whose documentation is listed below per qualifier of this annotation.\n          To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\n          followed by a URL parameter `«annotation qualifier»=«annotation value»`.\n          If the annotation value is null, the parameter value is follows from the protocol documentation.\n          <dl>Supported qualifiers and protocols:\n          <dt>`sideEffects` <dd>notifications about side effects to be triggered by the client (documentation)\n          <dt>`draft` <dd>collaborative draft; the parameter value is explained in the documentation\n          </dl>"
     }
   }
 }
