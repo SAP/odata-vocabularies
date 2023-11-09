@@ -1482,7 +1482,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
           <String>Messages sent over the channel follow a protocol whose documentation is listed below per qualifier of this annotation.
           To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
           followed by a URL parameter `«annotation qualifier»=«annotation value»`.
-          If the annotation value is null, the parameter value is follows from the protocol documentation.
+          If the annotation value is null, the parameter value follows from the protocol documentation.
           &lt;dl&gt;Supported qualifiers and protocols:
           &lt;dt&gt;`sideEffects` &lt;dd&gt;notifications about side effects to be triggered by the client (documentation)
           &lt;dt&gt;`draft` &lt;dd&gt;collaborative draft; the parameter value is explained in the documentation
