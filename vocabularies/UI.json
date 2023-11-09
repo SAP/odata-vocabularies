@@ -226,13 +226,22 @@
       "$Type": "UI.MediaResourceType",
       "$AppliesTo": ["EntityType"],
       "@UI.ThingPerspective": true,
-      "@Core.Description": "Properties that describe a media resource"
+      "@Core.Description": "Properties that describe a media resource",
+      "@Core.LongDescription": "Either `Url` or `Stream` MUST be present, and never both."
     },
     "MediaResourceType": {
       "$Kind": "ComplexType",
       "Url": {
+        "$Nullable": true,
         "@Core.Description": "URL of media resource",
         "@Core.IsURL": true,
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
+      "Stream": {
+        "$Type": "Edm.Stream",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Stream of media resource",
         "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
       },
       "ContentType": {
@@ -253,7 +262,16 @@
     },
     "ImageType": {
       "$Kind": "ComplexType",
+      "@Core.Description": "Properties that describe an image",
+      "@Core.LongDescription": "Either `Url` or `Stream` MUST be present, and never both.",
       "Url": { "@Core.Description": "URL of image", "@Core.IsURL": true },
+      "Stream": {
+        "$Type": "Edm.Stream",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Stream of image",
+        "@Validation.ApplicableTerms": ["HTML5.LinkTarget"]
+      },
       "Width": { "$Nullable": true, "@Core.Description": "Width of image" },
       "Height": { "$Nullable": true, "@Core.Description": "Height of image" }
     },
@@ -1457,7 +1475,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataFieldForActionAbstract",
       "@Core.Description": "Triggers intent-based UI navigation",
-      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).\"",
+      "@Core.LongDescription": "The navigation intent is expressed as a Semantic Object and optionally an Action on that object.\n\nIt is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).",
       "SemanticObject": { "@Core.Description": "Name of the Semantic Object" },
       "Action": {
         "$Nullable": true,

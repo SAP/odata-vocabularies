@@ -706,6 +706,7 @@ The minimum structure is
 
       <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
+        <Annotation Term="Core.LongDescription" String="An empty string identifies the ValueList or ValueListMapping without a qualifier." />
       </Term>
 
       <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
