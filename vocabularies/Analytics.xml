@@ -186,11 +186,11 @@
         <Parameter Name="Levels" Type="Collection(Analytics.AutoExpandLevel)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>Each element in the collection defines a non-empty set of property names constituting a level.
+            <String>Each element in the collection defines the property names for one level.
             A property must not referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
-            All referenced properties in this collection must be groupable.</String>
+            All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
         <Parameter Name="ExpandLevel" Type="Edm.Int64" Nullable="false">
@@ -229,7 +229,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="Top" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of entries to return from the result set after any skipping" />
+          <Annotation Term="Core.Description" String="Number of entries to return from the result set after any skipping (absent means all)" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -244,9 +244,11 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
-      <ComplexType Name="AutoExpandLevels">
+      <ComplexType Name="AutoExpandLevel">
         <Annotation Term="Common.Experimental" />
-        <Property Name="P" Type="Collection(Edm.String)" Nullable="false" />
+        <Property Name="P" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A non-empty set of property names constituting a level" />
+        </Property>
       </ComplexType>
       <ComplexType Name="AutoExpandSiblingOrder">
         <Annotation Term="Common.Experimental" />
@@ -257,15 +259,21 @@
           <Annotation Term="Core.Description" String="Sorting direction" />
         </Property>
       </ComplexType>
-      <EnumType Name="SortOrder">
+      <TypeDefinition Name="SortOrder" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
-        <Member Name="Asc">
-          <Annotation Term="Core.Description" String="Sort in ascending order" />
-        </Member>
-        <Member Name="Desc">
-          <Annotation Term="Core.Description" String="Sort in descending order" />
-        </Member>
-      </EnumType>
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="asc" />
+              <Annotation Term="Core.Description" String="Sort in ascending order" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="desc" />
+              <Annotation Term="Core.Description" String="Sort in descending order" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>

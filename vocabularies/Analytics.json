@@ -182,7 +182,7 @@
             "$Collection": true,
             "$Type": "Analytics.AutoExpandLevel",
             "@Core.Description": "Collection of aggregation levels forming a leveled hierarchy",
-            "@Core.LongDescription": "Each element in the collection defines a non-empty set of property names constituting a level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            All referenced properties in this collection must be groupable."
+            "@Core.LongDescription": "Each element in the collection defines the property names for one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            All referenced properties must be groupable."
           },
           {
             "$Name": "ExpandLevel",
@@ -221,7 +221,7 @@
           {
             "$Name": "Top",
             "$Type": "Edm.Int64",
-            "@Core.Description": "Number of entries to return from the result set after any skipping",
+            "@Core.Description": "Number of entries to return from the result set after any skipping (absent means all)",
             "@Core.OptionalParameter": {}
           },
           {
@@ -234,7 +234,11 @@
         "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
       }
     ],
-    "AutoExpandLevels": { "$Kind": "ComplexType", "@Common.Experimental": true, "P": { "$Collection": true } },
+    "AutoExpandLevel": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "P": { "$Collection": true, "@Core.Description": "A non-empty set of property names constituting a level" }
+    },
     "AutoExpandSiblingOrder": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
@@ -246,12 +250,13 @@
       }
     },
     "SortOrder": {
-      "$Kind": "EnumType",
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
       "@Common.Experimental": true,
-      "Asc": 0,
-      "Asc@Core.Description": "Sort in ascending order",
-      "Desc": 1,
-      "Desc@Core.Description": "Sort in descending order"
+      "@Validation.AllowedValues": [
+        { "Value": "asc", "@Core.Description": "Sort in ascending order" },
+        { "Value": "desc", "@Core.Description": "Sort in descending order" }
+      ]
     }
   }
 }
