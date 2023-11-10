@@ -161,6 +161,97 @@
         "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
         "@Validation.ApplicableTerms": ["Common.Label"]
       }
+    },
+    "AutoExpand": [
+      {
+        "$Kind": "Function",
+        "$EntitySetPath": "InputSet",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.IsSignature": true,
+        "@Core.Description": "`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties",
+        "$Parameter": [
+          {
+            "$Name": "InputSet",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "Entity set to be processed"
+          },
+          {
+            "$Name": "Levels",
+            "$Collection": true,
+            "$Type": "Analytics.AutoExpandLevel",
+            "@Core.Description": "Collection of aggregation levels forming a leveled hierarchy",
+            "@Core.LongDescription": "Each element in the collection defines a non-empty set of property names constituting a level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            All referenced properties in this collection must be groupable."
+          },
+          {
+            "$Name": "ExpandLevel",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of levels to be expanded, counting from left",
+            "@Core.LongDescription": "The function result comprises the leveled hierarchy with the expanded levels and the following level as leaves in preorder."
+          },
+          {
+            "$Name": "Aggregation",
+            "$Collection": true,
+            "@Core.Description": "Properties to aggregate for all result entries on all levels",
+            "@Core.LongDescription": "All properties in this collection must be custom aggregates."
+          },
+          {
+            "$Name": "SiblingOrder",
+            "$Collection": true,
+            "$Type": "Analytics.AutoExpandSiblingOrder",
+            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy"
+          },
+          {
+            "$Name": "BeforeAggregationFilter",
+            "@Core.Description": "Expression valid for `filter` transformation to restrict the input set before any further procressing",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "AggregatedValuesLeafFilter",
+            "@Core.Description": "Expression valid for `filter` transformation to restrict the input set at the most detailed grouping level with conditions on aggregated values",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "Skip",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of entries to skip from the top of the fully ordered result",
+            "@Core.OptionalParameter": { "DefaultValue": "0" }
+          },
+          {
+            "$Name": "Top",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of entries to return from the result set after any skipping",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ResultEntriesCount",
+            "$Type": "Edm.Bool",
+            "@Core.Description": "Whether to return the total number of entries in the result independent of Skip/Top",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ],
+        "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
+      }
+    ],
+    "AutoExpandLevels": { "$Kind": "ComplexType", "@Common.Experimental": true, "P": { "$Collection": true } },
+    "AutoExpandSiblingOrder": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Property": { "@Core.Description": "Property by which to sort" },
+      "Order": {
+        "$Type": "Analytics.SortOrder",
+        "$DefaultValue": "Analytics.SortOrder/Asc",
+        "@Core.Description": "Sorting direction"
+      }
+    },
+    "SortOrder": {
+      "$Kind": "EnumType",
+      "@Common.Experimental": true,
+      "Asc": 0,
+      "Asc@Core.Description": "Sort in ascending order",
+      "Desc": 1,
+      "Desc@Core.Description": "Sort in descending order"
     }
   }
 }

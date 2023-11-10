@@ -18,6 +18,29 @@ Term|Type|Description
 [AggregatedProperty](./Analytics.xml#L121:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L141:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
 
+
+## Functions
+
+<a name="AutoExpand"></a>
+### [AutoExpand](./Analytics.xml#L179:~:text=<Function%20Name="-,AutoExpand,-") *([Experimental](Common.md#Experimental))*
+
+`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[InputSet](./Analytics.xml#L183:~:text=<Function%20Name="-,AutoExpand,-")**|\[EntityType\]|**Binding parameter:** Entity set to be processed
+[Levels](./Analytics.xml#L186:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandLevel](#AutoExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines a non-empty set of property names constituting a level. A property must not referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. All referenced properties in this collection must be groupable.
+[ExpandLevel](./Analytics.xml#L196:~:text=<Function%20Name="-,AutoExpand,-")|Int64|Number of levels to be expanded, counting from left<br>The function result comprises the leveled hierarchy with the expanded levels and the following level as leaves in preorder.
+[Aggregation](./Analytics.xml#L202:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
+[SiblingOrder](./Analytics.xml#L208:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
+*[BeforeAggregationFilter](./Analytics.xml#L211:~:text=<Function%20Name="-,AutoExpand,-")*|String|*Optional parameter:* Expression valid for `filter` transformation to restrict the input set before any further procressing
+*[AggregatedValuesLeafFilter](./Analytics.xml#L217:~:text=<Function%20Name="-,AutoExpand,-")*|String|*Optional parameter:* Expression valid for `filter` transformation to restrict the input set at the most detailed grouping level with conditions on aggregated values
+*[Skip](./Analytics.xml#L223:~:text=<Function%20Name="-,AutoExpand,-")*|Int64|*Optional parameter:* Number of entries to skip from the top of the fully ordered result
+*[Top](./Analytics.xml#L231:~:text=<Function%20Name="-,AutoExpand,-")*|Int64|*Optional parameter:* Number of entries to return from the result set after any skipping
+*[ResultEntriesCount](./Analytics.xml#L237:~:text=<Function%20Name="-,AutoExpand,-")*|Bool|*Optional parameter:* Whether to return the total number of entries in the result independent of Skip/Top
+[&rarr;](./Analytics.xml#L245:~:text=<Function%20Name="-,AutoExpand,-")|\[EntityType\]|
+
+
 <a name="AggregatedPropertyType"></a>
 ## [AggregatedPropertyType](./Analytics.xml#L124:~:text=<ComplexType%20Name="-,AggregatedPropertyType,-")
 
@@ -43,3 +66,29 @@ Property|Type|Description
 [Dimension](./Analytics.xml#L159:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
 [Measure](./Analytics.xml#L162:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](./Analytics.xml#L165:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+
+<a name="AutoExpandLevels"></a>
+## [AutoExpandLevels](./Analytics.xml#L247:~:text=<ComplexType%20Name="-,AutoExpandLevels,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[P](./Analytics.xml#L249:~:text=<ComplexType%20Name="-,AutoExpandLevels,-")|\[String\]|
+
+<a name="AutoExpandSiblingOrder"></a>
+## [AutoExpandSiblingOrder](./Analytics.xml#L251:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-") *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Property](./Analytics.xml#L253:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|String|Property by which to sort
+[Order](./Analytics.xml#L256:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|[SortOrder](#SortOrder)|Sorting direction
+
+<a name="SortOrder"></a>
+## [SortOrder](./Analytics.xml#L260:~:text=<EnumType%20Name="-,SortOrder,-") *([Experimental](Common.md#Experimental))*
+
+
+Member|Value|Description
+:-----|----:|:----------
+[Asc](./Analytics.xml#L262:~:text=<EnumType%20Name="-,SortOrder,-")|0|Sort in ascending order
+[Desc](./Analytics.xml#L265:~:text=<EnumType%20Name="-,SortOrder,-")|1|Sort in descending order
