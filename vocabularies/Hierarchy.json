@@ -36,22 +36,21 @@
     "HierarchyType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.LongDescription": "The properties in this complex type contain information about\n          an entry in the result set of a request with multiple grouping levels.",
+      "@Core.LongDescription": "The properties in this complex type contain information about\n          an entry in the result set of a request with multiple aggregation levels, some which are expanded.\n          These properties also serve in the derived [`RecursiveHierarchyType`](#RecursiveHierarchyType)\n          with their definitions rephrased in the concept of recursive hierarchies.",
       "LimitedDescendantCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
-        "@Core.Description": "Number of descendants a node has in the limited hierarchy"
+        "@Core.Description": "Number of entries from deeper aggregation levels that are expanded"
       },
       "DrillState": {
         "$Nullable": true,
-        "@Core.Description": "Drill state of an occurrence of a node",
-        "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
+        "@Core.Description": "Drill state of an entry",
+        "@Core.LongDescription": "Possible drill states are:\n            <dt>`expanded` <dd>if an entry precedes entries from deeper aggregation levels\n            <dt>`collapsed` <dd>if an entry belongs to the highest non-expanded aggregation level, but not the deepest\n            <dt>`leaf` <dd>if an entry belongs to the deepest aggregation level"
       },
       "DistanceFromRoot": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
-        "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
-        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
+        "@Core.Description": "Position of the current aggregation level in the list of all aggregation levels"
       }
     },
     "RecursiveHierarchyType": {
@@ -68,6 +67,22 @@
         "$Nullable": true,
         "@Core.Description": "Type of a node",
         "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a common entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
+      },
+      "LimitedDescendantCount": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of descendants a node has in the limited hierarchy"
+      },
+      "DrillState": {
+        "$Nullable": true,
+        "@Core.Description": "Drill state of an occurrence of a node",
+        "@Core.LongDescription": "Possible drill states are:\n            <dt>`expanded` <dd>if a node has children in the limited hierarchy\n            <dt>`collapsed` <dd>if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <dt>`leaf` <dd>if a node has no children in the unlimited hierarchy"
+      },
+      "DistanceFromRoot": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
+        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
       "ChildCount": {
         "$Type": "Edm.Int64",

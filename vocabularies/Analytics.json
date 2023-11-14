@@ -271,7 +271,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
-      "@Core.Description": "Information about grouping levels in the result set of an analytical request"
+      "@Core.Description": "Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation"
     }
   }
 }
