@@ -260,11 +260,11 @@
         <Property Name="Property" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property by which to sort" />
         </Property>
-        <Property Name="Order" Type="Analytics.SortOrder" Nullable="false" DefaultValue="Analytics.SortOrder/Asc">
+        <Property Name="Order" Type="Analytics.SortOrderType" Nullable="false" DefaultValue="Analytics.SortOrderType/Asc">
           <Annotation Term="Core.Description" String="Sorting direction" />
         </Property>
       </ComplexType>
-      <TypeDefinition Name="SortOrder" UnderlyingType="Edm.String">
+      <TypeDefinition Name="SortOrderType" UnderlyingType="Edm.String">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Validation.AllowedValues">
           <Collection>

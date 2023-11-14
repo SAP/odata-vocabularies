@@ -83,15 +83,15 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Property](./Analytics.xml#L260:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|String|Property by which to sort
-[Order](./Analytics.xml#L263:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|[SortOrder](#SortOrder)|Sorting direction
+[Order](./Analytics.xml#L263:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|[SortOrderType](#SortOrderType)|Sorting direction
 
-<a name="SortOrder"></a>
-## [SortOrder](./Analytics.xml#L267:~:text=<TypeDefinition%20Name="-,SortOrder,-") *([Experimental](Common.md#Experimental))*
+<a name="SortOrderType"></a>
+## [SortOrderType](./Analytics.xml#L267:~:text=<TypeDefinition%20Name="-,SortOrderType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[asc](./Analytics.xml#L271:~:text=<TypeDefinition%20Name="-,SortOrder,-")|Sort in ascending order
-[desc](./Analytics.xml#L275:~:text=<TypeDefinition%20Name="-,SortOrder,-")|Sort in descending order
+[asc](./Analytics.xml#L271:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in ascending order
+[desc](./Analytics.xml#L275:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in descending order

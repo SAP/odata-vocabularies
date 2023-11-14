@@ -251,12 +251,12 @@
       "@Common.Experimental": true,
       "Property": { "@Core.Description": "Property by which to sort" },
       "Order": {
-        "$Type": "Analytics.SortOrder",
-        "$DefaultValue": "Analytics.SortOrder/Asc",
+        "$Type": "Analytics.SortOrderType",
+        "$DefaultValue": "Analytics.SortOrderType/Asc",
         "@Core.Description": "Sorting direction"
       }
     },
-    "SortOrder": {
+    "SortOrderType": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
       "@Common.Experimental": true,
