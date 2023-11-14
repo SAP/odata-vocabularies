@@ -62,9 +62,9 @@
           <Annotation Term="Core.Description" String="Drill state of an entry" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            &lt;dt&gt;`expanded` &lt;dd&gt;if an entry precedes entries from deeper aggregation levels
-            &lt;dt&gt;`collapsed` &lt;dd&gt;if an entry belongs to the highest non-expanded aggregation level, but not the deepest
-            &lt;dt&gt;`leaf` &lt;dd&gt;if an entry belongs to the deepest aggregation level</String>
+            &lt;br&gt;- `expanded` if an entry precedes entries from deeper aggregation levels
+            &lt;br&gt;- `collapsed` if an entry belongs to the highest non-expanded aggregation level, but not the deepest
+            &lt;br&gt;- `leaf` if an entry belongs to the deepest aggregation level</String>
           </Annotation>
         </Property>
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
@@ -131,9 +131,9 @@ the following collections of hierarchy nodes are distinguished:
           <Annotation Term="Core.Description" String="Drill state of an occurrence of a node" />
           <Annotation Term="Core.LongDescription">
             <String>Possible drill states are:
-            &lt;dt&gt;`expanded` &lt;dd&gt;if a node has children in the limited hierarchy
-            &lt;dt&gt;`collapsed` &lt;dd&gt;if a node has children in the unlimited hierarchy but not in the limited hierarchy
-            &lt;dt&gt;`leaf` &lt;dd&gt;if a node has no children in the unlimited hierarchy</String>
+            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
+            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
+            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
           </Annotation>
         </Property>
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
