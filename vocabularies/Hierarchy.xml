@@ -47,7 +47,32 @@
           governs what are the nodes and parents in the hierarchy, whereas this term defines derived information.</String>
         </Annotation>
       </Term>
-      <ComplexType Name="RecursiveHierarchyType">
+      <ComplexType Name="HierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>The properties in this complex type contain information about
+          an entry in the result set of a request with multiple grouping levels.</String>
+        </Annotation>
+        <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of descendants a node has in the limited hierarchy" />
+        </Property>
+        <Property Name="DrillState" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Drill state of an occurrence of a node" />
+          <Annotation Term="Core.LongDescription">
+            <String>Possible drill states are:
+            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
+            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
+            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
+          </Annotation>
+        </Property>
+        <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RecursiveHierarchyType" BaseType="Hierarchy.HierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
@@ -105,24 +130,6 @@ the following collections of hierarchy nodes are distinguished:
         </Property>
         <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of descendants a node has in the unlimited hierarchy" />
-        </Property>
-        <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Number of descendants a node has in the limited hierarchy" />
-        </Property>
-        <Property Name="DrillState" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Drill state of an occurrence of a node" />
-          <Annotation Term="Core.LongDescription">
-            <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
-            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
-            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
-          </Annotation>
-        </Property>
-        <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Number of ancestors an occurrence of a node has in the limited hierarchy" />
-          <Annotation Term="Core.LongDescription">
-            <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
-          </Annotation>
         </Property>
         <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Rank of a node in the limited hierarchy in preorder or postorder" />

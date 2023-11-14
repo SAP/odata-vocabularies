@@ -12,6 +12,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Hierarchy.v1", "$Alias": "Hierarchy" }]
     }
   },
   "com.sap.vocabularies.Analytics.v1": {
@@ -231,7 +234,11 @@
             "@Core.OptionalParameter": { "DefaultValue": "false" }
           }
         ],
-        "$ReturnType": { "$Collection": true, "$Type": "Edm.EntityType" }
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Edm.EntityType",
+          "@Core.Description": "Output set including the instance annotation [`LevelInformation`](#LevelInformation)"
+        }
       }
     ],
     "AutoExpandLevel": {
@@ -257,6 +264,14 @@
         { "Value": "asc", "@Core.Description": "Sort in ascending order" },
         { "Value": "desc", "@Core.Description": "Sort in descending order" }
       ]
+    },
+    "LevelInformation": {
+      "$Kind": "Term",
+      "$Type": "Hierarchy.HierarchyType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "Information about grouping levels in the result set of an analytical request"
     }
   }
 }

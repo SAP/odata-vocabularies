@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics">
@@ -242,7 +245,9 @@
             </Record>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" />
+        <ReturnType Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="Output set including the instance annotation [`LevelInformation`](#LevelInformation)" />
+        </ReturnType>
       </Function>
       <ComplexType Name="AutoExpandLevel">
         <Annotation Term="Common.Experimental" />
@@ -274,6 +279,12 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+      <Term Name="LevelInformation" Type="Hierarchy.HierarchyType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Information about grouping levels in the result set of an analytical request" />
+      </Term>
 
     </Schema>
   </edmx:DataServices>
