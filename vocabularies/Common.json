@@ -451,6 +451,12 @@
     },
     "IntervalType": {
       "$Kind": "ComplexType",
+      "Label": {
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
+        "@Core.IsLanguageDependent": true
+      },
       "LowerBoundary": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "Property holding the lower interval boundary"
