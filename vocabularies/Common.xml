@@ -560,6 +560,10 @@ The minimum structure is
         <Annotation Term="Core.Description" String="An interval with lower and upper boundaries described by two properties" />
       </Term>
       <ComplexType Name="IntervalType">
+        <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
         <Property Name="LowerBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the lower interval boundary" />
         </Property>
