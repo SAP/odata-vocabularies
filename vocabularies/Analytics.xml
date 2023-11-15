@@ -197,6 +197,13 @@
             All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
+        <Parameter Name="LeafLevel" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>Property names that occur in `Levels` must not be repeated here.
+            All referenced properties must be groupable.</String>
+          </Annotation>
+        </Parameter>
         <Parameter Name="Aggregation" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties to aggregate for all result entries on all levels" />
           <Annotation Term="Core.LongDescription">
@@ -205,17 +212,6 @@
         </Parameter>
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
-        </Parameter>
-        <Parameter Name="LeafLevel" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy" />
-          <Annotation Term="Core.LongDescription">
-            <String>This parameter is mandatory if `AggregatedValuesLeafFilter` is specified,
-            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated here.
-            All referenced properties must be groupable.</String>
-          </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
         </Parameter>
         <Parameter Name="BeforeAggregationFilter" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Expression valid for `filter` transformation to restrict the input set before any further procressing" />
