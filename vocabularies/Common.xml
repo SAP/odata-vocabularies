@@ -561,10 +561,7 @@ The minimum structure is
       </Term>
       <ComplexType Name="IntervalType">
         <Property Name="Label" Type="Edm.String" Nullable="true">
-<<<<<<< HEAD
-=======
           <Annotation Term="Common.Experimental" />
->>>>>>> 85c954e (Label for Intervals)
           <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
