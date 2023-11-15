@@ -209,8 +209,8 @@
         <Parameter Name="LeafLevel" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>This parameter is only relevant if `AggregatedValuesLeafFilter` is specified,
-            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated.
+            <String>This parameter is mandatory if `AggregatedValuesLeafFilter` is specified,
+            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated here.
             All referenced properties must be groupable.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">

@@ -203,7 +203,7 @@
             "$Name": "LeafLevel",
             "$Collection": true,
             "@Core.Description": "A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy",
-            "@Core.LongDescription": "This parameter is only relevant if `AggregatedValuesLeafFilter` is specified,\n            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated.\n            All referenced properties must be groupable.",
+            "@Core.LongDescription": "This parameter is mandatory if `AggregatedValuesLeafFilter` is specified,\n            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated here.\n            All referenced properties must be groupable.",
             "@Core.OptionalParameter": {}
           },
           {
