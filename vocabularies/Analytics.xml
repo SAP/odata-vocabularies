@@ -187,19 +187,14 @@
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
         <Parameter Name="Levels" Type="Collection(Analytics.AutoExpandLevel)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
+          <Annotation Term="Core.Description" String="Collection of aggregation levels forming the visible part of a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the property names for one level.
             A property must not referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
+            The function result comprises the leveled hierarchy with these levels in preorder.
             All referenced properties must be groupable.</String>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="ExpandLevel" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of levels to be expanded, counting from left" />
-          <Annotation Term="Core.LongDescription">
-            <String>The function result comprises the leveled hierarchy with the expanded levels and the following level as leaves in preorder.</String>
           </Annotation>
         </Parameter>
         <Parameter Name="Aggregation" Type="Collection(Edm.String)" Nullable="false">
@@ -210,6 +205,17 @@
         </Parameter>
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
+        </Parameter>
+        <Parameter Name="LeafLevel" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>This parameter is only relevant if `AggregatedValuesLeafFilter` is specified,
+            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated.
+            All referenced properties must be groupable.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
         </Parameter>
         <Parameter Name="BeforeAggregationFilter" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Expression valid for `filter` transformation to restrict the input set before any further procressing" />

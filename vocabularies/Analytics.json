@@ -184,14 +184,8 @@
             "$Name": "Levels",
             "$Collection": true,
             "$Type": "Analytics.AutoExpandLevel",
-            "@Core.Description": "Collection of aggregation levels forming a leveled hierarchy",
-            "@Core.LongDescription": "Each element in the collection defines the property names for one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            All referenced properties must be groupable."
-          },
-          {
-            "$Name": "ExpandLevel",
-            "$Type": "Edm.Int64",
-            "@Core.Description": "Number of levels to be expanded, counting from left",
-            "@Core.LongDescription": "The function result comprises the leveled hierarchy with the expanded levels and the following level as leaves in preorder."
+            "@Core.Description": "Collection of aggregation levels forming the visible part of a leveled hierarchy",
+            "@Core.LongDescription": "Each element in the collection defines the property names for one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            The function result comprises the leveled hierarchy with these levels in preorder.\n            All referenced properties must be groupable."
           },
           {
             "$Name": "Aggregation",
@@ -204,6 +198,13 @@
             "$Collection": true,
             "$Type": "Analytics.AutoExpandSiblingOrder",
             "@Core.Description": "Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy"
+          },
+          {
+            "$Name": "LeafLevel",
+            "$Collection": true,
+            "@Core.Description": "A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy",
+            "@Core.LongDescription": "This parameter is only relevant if `AggregatedValuesLeafFilter` is specified,\n            it can be omitted otherwise. Property names that occur in `Levels` must not be repeated.\n            All referenced properties must be groupable.",
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "BeforeAggregationFilter",
