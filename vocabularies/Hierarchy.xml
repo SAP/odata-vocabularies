@@ -265,6 +265,42 @@ The template actions themselves cannot be invoked.</String>
         </Property>
       </ComplexType>
 
+      <Function Name="EvaluateHierarchy" IsBound="true" EntitySetPath="Node">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Evaluates a node in a recursive hierarchy and adds the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
+        <Annotation Term="Core.LongDescription">
+          <String>Can be used to determine, for example, the `LimitedRank` of a newly created or copied node
+in the JSON batch request:
+```json
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "HierarchyDirectory(1)/Nodes('A')/CopyAction"
+}, {
+  "id": "2",
+  "dependsOn": ["1"],
+  "method": "get",
+  "url": "$1/Hierarchy.EvaluateHierarchy(
+    HierarchyNodes=$root/HierarchyDirectory(1)/Nodes,
+    HierarchyQualifier='Q', NodeProperty='ID')"
+}]}
+```</String>
+        </Annotation>
+        <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node to be annotated" />
+        </Parameter>
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="The node with annotations" />
+        </ReturnType>
+      </Function>
+
       <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Common.Experimental" />

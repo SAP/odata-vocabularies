@@ -184,6 +184,31 @@
         "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
       }
     },
+    "EvaluateHierarchy": [
+      {
+        "$Kind": "Function",
+        "$EntitySetPath": "Node",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Evaluates a node in a recursive hierarchy and adds the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
+        "@Core.LongDescription": "Can be used to determine, for example, the `LimitedRank` of a newly created or copied node\nin the JSON batch request:\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes('A')/CopyAction\"\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"get\",\n  \"url\": \"$1/Hierarchy.EvaluateHierarchy(\n    HierarchyNodes=$root/HierarchyDirectory(1)/Nodes,\n    HierarchyQualifier='Q', NodeProperty='ID')\"\n}]}\n```",
+        "$Parameter": [
+          { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be annotated" },
+          {
+            "$Name": "HierarchyNodes",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "A collection, given through a `$root` expression"
+          },
+          { "$Name": "HierarchyQualifier", "$Type": "Aggregation.HierarchyQualifier" },
+          {
+            "$Name": "NodeProperty",
+            "@Core.Description": "Property path to the node identifier, evaluated relative to the binding parameter"
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType", "@Core.Description": "The node with annotations" }
+      }
+    ],
     "RecursiveHierarchySupported": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
