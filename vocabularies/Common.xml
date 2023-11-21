@@ -387,9 +387,14 @@
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription">
-            <String>A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.
+            <String>A request that sets the property to null or an empty value fails entirely if this annotation is `Mandatory` in the after-image of the request.
+            So does a request that creates a non-[draft](#DraftRoot) entity and omits the property.
+            The empty string is an empty value, the number 0 and the Boolean `false` are not.
+            Service-specific rules may consider other values empty.
+            Values in draft entities are never considered empty.
 
-            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
+            Mandatory properties SHOULD be decorated in the UI with an asterisk.
+            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
           </Annotation>
         </Member>
         <Member Name="Optional" Value="3">
