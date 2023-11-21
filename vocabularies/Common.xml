@@ -389,8 +389,8 @@
           <Annotation Term="Core.LongDescription">
             <String>A request that sets the property to null or an empty value fails entirely if this annotation is `Mandatory` in the after-image of the request.
             So does a request that creates a non-[draft](#DraftRoot) entity and omits the property.
-            The empty string is an empty value, the number 0 and the Boolean `false` are not.
-            Service-specific rules may consider other values empty.
+            The empty string is an empty value. Service-specific rules may consider other values, also
+            of non-string type, empty.
             Values in draft entities are never considered empty.
 
             Mandatory properties SHOULD be decorated in the UI with an asterisk.
