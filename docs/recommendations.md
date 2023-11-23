@@ -15,7 +15,7 @@ sequenceDiagram
   par
     server ->> server: GET SalesOrder('A')?$expand=... for side effects
   and
-    server ->> server: GET SalesOrder('A')/AI.Recommendations?AIRecommendationTargets=...<br>Prefer: respond-async
+    server ->> server: GET SalesOrder('A')/AI.Recommendations<br>Prefer: respond-async
     server ->>+ task: call function ... starting new task
   end
   server -->> client: $batch response with<br>Location header for recommendations

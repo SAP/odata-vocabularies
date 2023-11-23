@@ -43,62 +43,43 @@
           <String>The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="AIRecommendationTargets" Type="AI.RecommendationTargetsType" Nullable="false">
-          <Annotation Term="Core.Description" String="Entities, properties or action/function parameters for which recommendations shall be retrieved" />
+        <ReturnType Type="Edm.ComplexType" Nullable="false">
+          <Annotation Term="Core.Description" String="Nested structure containing recommendations" />
           <Annotation Term="Core.LongDescription">
-            <String>Implementations of this function MAY omit this parameter.
-            If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.</String>
+            <String>The nested structure contains complex types that correspond to the entity type of the binding parameter
+            or one of its related entity types. Each complex type contains
+            &lt;br&gt;- the same properties as the key of the corresponding entity type
+            &lt;br&gt;- structural properties corresponding to non-key structural properties of the entity type for which recommendations are
+            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
+            &lt;br&gt;- structural properties corresponding to navigation properties of the entity type.
+            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property.</String>
           </Annotation>
-          <Annotation Term="Core.OptionalParameter">
-            <Record />
-          </Annotation>
-        </Parameter>
-        <ReturnType Type="Collection(AI.PropertyRecommendationType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection of recommendations that differ in their `AIRecommendedFieldPath` property" />
         </ReturnType>
       </Function>
-      <ComplexType Name="RecommendationTargetsType">
+      <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
-        <Property Name="AIRecommendedFieldPaths" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved" />
+        <Annotation Term="Core.Description" String="Base type containing AI-based recommendations for an entity type property" />
+        <Annotation Term="Core.LongDescription">
+          <String>Specializations of this base type have three properties:
+- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`
+- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`
+- a property named `AIRecommendedFieldScoreValue`.</String>
+        </Annotation>
+        <Property Name="AIRecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets={"AIRecommendedFieldPaths":["SalesOrder('A')","SalesOrder('A')/Items(10)"]})`
-            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`.</String>
+            <String>In specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
           </Annotation>
-        </Property>
-      </ComplexType>
-      <ComplexType Name="PropertyRecommendationType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="AIRecommendedFieldPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation" />
-          <Annotation Term="Core.LongDescription">
-            <String>The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets=...)`
-            might retrieve a recommendation with `"AIRecommendedFieldPath": "SalesOrder('A')/Items(10)/Product"`.</String>
-          </Annotation>
-        </Property>
-        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Recommended value, converted to string" />
           <Annotation Term="Common.Text" Path="AIRecommendedFieldDescription" />
         </Property>
         <Property Name="AIRecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
-        </Property>
-        <Property Name="AIAltvRecmddFldVals" Type="Collection(AI.AlternativeRecommendationType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A list of alternative values, sorted by confidence score in descending order" />
           <Annotation Term="Core.LongDescription">
-            <String>If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list.</String>
+            <String>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.</String>
           </Annotation>
         </Property>
-      </ComplexType>
-      <ComplexType Name="AlternativeRecommendationType">
-        <Annotation Term="Common.Experimental" />
-        <Property Name="AIRecommendedFieldValue" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Alternatively recommended value, converted to string" />
-        </Property>
         <Property Name="AIRecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
-          <Annotation Term="Core.Description" String="Confidence score of the alternatively recommended value" />
+          <Annotation Term="Core.Description" String="Confidence score of the recommended value" />
         </Property>
       </ComplexType>
       <Term Name="RecommendationsRole" Type="AI.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">

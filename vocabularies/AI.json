@@ -29,64 +29,35 @@
         "@Core.IsSignature": true,
         "@Core.Description": "Computes AI-based recommendations for the bound entity and its related entities",
         "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).",
-        "$Parameter": [
-          { "$Name": "Entity", "$Type": "Edm.EntityType" },
-          {
-            "$Name": "AIRecommendationTargets",
-            "$Type": "AI.RecommendationTargetsType",
-            "@Core.Description": "Entities, properties or action/function parameters for which recommendations shall be retrieved",
-            "@Core.LongDescription": "Implementations of this function MAY omit this parameter.\n            If this parameter is omitted (by the implementation or in the invocation), all recommendations are retrieved.",
-            "@Core.OptionalParameter": {}
-          }
-        ],
+        "$Parameter": [{ "$Name": "Entity", "$Type": "Edm.EntityType" }],
         "$ReturnType": {
-          "$Collection": true,
-          "$Type": "AI.PropertyRecommendationType",
-          "@Core.Description": "A collection of recommendations that differ in their `AIRecommendedFieldPath` property"
+          "$Type": "Edm.ComplexType",
+          "@Core.Description": "Nested structure containing recommendations",
+          "@Core.LongDescription": "The nested structure contains complex types that correspond to the entity type of the binding parameter\n            or one of its related entity types. Each complex type contains\n            <br>- the same properties as the key of the corresponding entity type\n            <br>- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n            <br>- structural properties corresponding to navigation properties of the entity type.\n            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property."
         }
       }
     ],
-    "RecommendationTargetsType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "AIRecommendedFieldPaths": {
-        "$Collection": true,
-        "@Core.IsURL": true,
-        "@Core.Description": "URLs (relative to the OData base URL) that address entities, properties or action/function parameters for which recommendations shall be retrieved",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets={\"AIRecommendedFieldPaths\":[\"SalesOrder('A')\",\"SalesOrder('A')/Items(10)\"]})`\n            retrieves recommendations for the entities `SalesOrder('A')` and `SalesOrder('A')/Items(10)`."
-      }
-    },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
+      "$Abstract": true,
       "@Common.Experimental": true,
-      "AIRecommendedFieldPath": {
-        "@Core.IsURL": true,
-        "@Core.Description": "URL (relative to the OData base URL) addressing a property [OData-URL, section 4.6](https://docs.oasis-open.org/odata/odata/v4.01/os/part2-url-conventions/odata-v4.01-os-part2-url-conventions.html#sec_AddressingaProperty) that is targeted by this recommendation",
-        "@Core.LongDescription": "The request `SalesOrder('A')/AI.Recommendations(AIRecommendationTargets=...)`\n            might retrieve a recommendation with `\"AIRecommendedFieldPath\": \"SalesOrder('A')/Items(10)/Product\"`."
-      },
+      "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
+      "@Core.LongDescription": "Specializations of this base type have three properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`.",
       "AIRecommendedFieldValue": {
-        "@Core.Description": "Recommended value, converted to string",
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the primitive type of the entity type property.",
         "@Common.Text": { "$Path": "AIRecommendedFieldDescription" }
       },
       "AIRecommendedFieldDescription": {
         "$Nullable": true,
-        "@Core.Description": "Description of the recommended value"
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
       },
-      "AIAltvRecmddFldVals": {
-        "$Collection": true,
-        "$Type": "AI.AlternativeRecommendationType",
-        "@Core.Description": "A list of alternative values, sorted by confidence score in descending order",
-        "@Core.LongDescription": "If a value is recommended via property `AIRecommendedFieldValue`, it must be the first entry in this list."
-      }
-    },
-    "AlternativeRecommendationType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "AIRecommendedFieldValue": { "@Core.Description": "Alternatively recommended value, converted to string" },
       "AIRecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
         "$Nullable": true,
-        "@Core.Description": "Confidence score of the alternatively recommended value"
+        "@Core.Description": "Confidence score of the recommended value"
       }
     },
     "RecommendationsRole": {
