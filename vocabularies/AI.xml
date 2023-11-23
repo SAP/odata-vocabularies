@@ -91,19 +91,19 @@
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
-              <PropertyValue Property="Value" Int="Input" />
+              <PropertyValue Property="Value" String="Input" />
               <Annotation Term="Core.Description" String="The property is input for some recommendation" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" Int="Output" />
+              <PropertyValue Property="Value" String="Output" />
               <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" Int="InputOutput" />
+              <PropertyValue Property="Value" String="InputOutput" />
               <Annotation Term="Core.Description" String="The property is input for and the target of some recommendation" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" Int="RequiredInput" />
+              <PropertyValue Property="Value" String="RequiredInput" />
               <Annotation Term="Core.Description" String="The property is required input before any recommendations are requested" />
             </Record>
           </Collection>
