@@ -715,6 +715,7 @@ The minimum structure is
       </Term>
 
       <Term Name="ValueListShowValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Annotation">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A value list with a very small number of fixed values, can decide to show all values immediately" />
       </Term>
 
