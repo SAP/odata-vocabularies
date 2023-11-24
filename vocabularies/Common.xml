@@ -709,7 +709,7 @@ The minimum structure is
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>ValueListShowValues"</String>
+            <String>Common.ValueListShowValues</String>
           </Collection>
         </Annotation>
       </Term>
