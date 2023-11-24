@@ -605,6 +605,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Annotation"],
+      "@Common.Experimental": true,
       "@Core.Description": "A value list with a very small number of fixed values, can decide to show all values immediately"
     },
     "ValueListForValidation": {
