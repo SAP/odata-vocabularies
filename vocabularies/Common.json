@@ -598,9 +598,9 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values",
-      "@Validation.ApplicableTerms": ["Common.ValueListShowValues"]
+      "@Validation.ApplicableTerms": ["Common.ValueListShowValuesImmediately"]
     },
-    "ValueListShowValues": {
+    "ValueListShowValuesImmediately": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
