@@ -709,12 +709,12 @@ The minimum structure is
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>Common.ValueListShowValues</String>
+            <String>Common.ValueListShowValuesImmediately</String>
           </Collection>
         </Annotation>
       </Term>
 
-      <Term Name="ValueListShowValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Annotation">
+      <Term Name="ValueListShowValuesImmediately" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Annotation">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A value list with a very small number of fixed values, can decide to show all values immediately" />
       </Term>
