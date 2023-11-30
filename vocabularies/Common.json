@@ -597,7 +597,16 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property", "Parameter"],
-      "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"
+      "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values",
+      "@Validation.ApplicableTerms": ["Common.ValueListShowValuesImmediately"]
+    },
+    "ValueListShowValuesImmediately": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Annotation"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A value list with a very small number of fixed values, can decide to show all values immediately"
     },
     "ValueListForValidation": {
       "$Kind": "Term",
