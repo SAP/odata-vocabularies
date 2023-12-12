@@ -81,10 +81,10 @@
     "ExternalID": {
       "$Kind": "Term",
       "$Nullable": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
-      "@Core.Description": "A human readable identifier for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation.",
-      "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource. There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id."
+      "@Core.Description": "A human readable identifier for values of the annotated property or parameter. Value MUST be a dynamic expression when used as metadata annotation.",
+      "@Core.LongDescription": "If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource.\n            There is a one-to-one relationship between each possible value of the annotated property and the corresponding external id.\n            The annotation of a parameter refers to a property of the operation binding parameter."
     },
     "IsLanguageIdentifier": {
       "$Kind": "Term",
@@ -311,7 +311,7 @@
       "@Core.LongDescription": "When changes are requested, the value of this annotation in the before-image or after-image\n          of the request plays a role. These may differ if the value is given dynamically in the metadata.",
       "Mandatory": 7,
       "Mandatory@Core.Description": "Property is mandatory from a business perspective",
-      "Mandatory@Core.LongDescription": "A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.\n\n            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
+      "Mandatory@Core.LongDescription": "A request that\n            <br>- sets the property to null or an empty value or\n            <br>- creates a non-[draft](#DraftRoot) entity and omits the property or\n            <br>- activates a draft entity while the property is null or empty\n            <br>fails entirely if this annotation is `Mandatory` in the after-image of the request.\n            The empty string is an empty value. Service-specific rules may consider other values, also\n            of non-string type, empty.\n            Values in draft entities are never considered empty.\n            Mandatory properties SHOULD be decorated in the UI with an asterisk.\n            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
       "Optional": 3,
       "Optional@Core.Description": "Property may have a value",
       "Optional@Core.LongDescription": "This value does not make sense as a static annotation value.",
@@ -454,6 +454,12 @@
     },
     "IntervalType": {
       "$Kind": "ComplexType",
+      "Label": {
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
+        "@Core.IsLanguageDependent": true
+      },
       "LowerBoundary": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "Property holding the lower interval boundary"
@@ -586,7 +592,6 @@
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "Core.SimpleIdentifier",
-      "@Common.Experimental": true,
       "@Core.Description": "List of qualifiers of relevant ValueList annotations",
       "@Core.LongDescription": "The value of this annotation is a dynamic expression for calculating the qualifiers of relevant value lists depending on the values of one or more other properties."
     },
@@ -595,13 +600,22 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property", "Parameter"],
-      "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values"
+      "@Core.Description": "If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values",
+      "@Validation.ApplicableTerms": ["Common.ValueListShowValuesImmediately"]
+    },
+    "ValueListShowValuesImmediately": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Annotation"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A value list with a very small number of fixed values, can decide to show all values immediately"
     },
     "ValueListForValidation": {
       "$Kind": "Term",
       "$AppliesTo": ["Property", "Parameter"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation"
+      "@Core.Description": "Contains the qualifier of the ValueList or ValueListMapping that should be used for validation",
+      "@Core.LongDescription": "An empty string identifies the ValueList or ValueListMapping without a qualifier."
     },
     "ValueListReferences": {
       "$Kind": "Term",
@@ -1016,13 +1030,14 @@
     "QualifiedName": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
-      "@Core.Description": "The QualifiedName of an OData construct in scope"
+      "@Core.Description": "The namespace-qualified name of an OData construct in scope",
+      "@Core.LongDescription": "Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended."
     },
     "ActionOverload": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
-      "@Core.Description": "The qualified name of an action with an optional overload",
-      "@Core.LongDescription": "The qualified name of an action, optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
+      "@Core.Description": "The namespace-qualified name of an action with an optional overload",
+      "@Core.LongDescription": "The namespace-qualified name of an action, optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
     },
     "SemanticKey": {
       "$Kind": "Term",

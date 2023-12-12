@@ -271,11 +271,26 @@ a collection of business object instances, e.g. as a list or table.</String>
       <Term Name="MediaResource" Type="UI.MediaResourceType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Properties that describe a media resource" />
+        <Annotation Term="Core.LongDescription" String="Either `Url` or `Stream` MUST be present, and never both." />
       </Term>
       <ComplexType Name="MediaResourceType">
-        <Property Name="Url" Type="Edm.String" Nullable="false">
+        <Property Name="Url" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="URL of media resource" />
           <Annotation Term="Core.IsURL" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Stream" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Stream of media resource" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="ContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Content type, such as application/pdf, video/x-flv, image/jpeg" />
@@ -298,9 +313,20 @@ a collection of business object instances, e.g. as a list or table.</String>
         </Property>
       </ComplexType>
       <ComplexType Name="ImageType">
+        <Annotation Term="Core.Description" String="Properties that describe an image" />
+        <Annotation Term="Core.LongDescription" String="Either `Url` or `Stream` MUST be present, and never both." />
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="URL of image" />
           <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="Stream" Type="Edm.Stream" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Stream of image" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Width" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Width of image" />
@@ -1018,6 +1044,11 @@ The trend is
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of referenced information" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsMediaType" />
@@ -1366,7 +1397,6 @@ The trend is
       </Term>
 
       <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
@@ -1611,7 +1641,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
         <Annotation Term="Core.LongDescription">
           <String>The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
 
-It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation))."</String>
+It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation)).</String>
         </Annotation>
         <Property Name="SemanticObject" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the Semantic Object" />
@@ -1669,7 +1699,7 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
 
       <ComplexType Name="DataFieldWithAction" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering an OData action" />
-        <Annotation Term="Core.LongDescription" String="The action is tied to a data value which should be rendered as a hyperlink. This is in contrast to [DataFieldForAction](#DataFieldForAction)) which is not tied to a specific data value." />
+        <Annotation Term="Core.LongDescription" String="The action is tied to a data value. This is in contrast to [DataFieldForAction](#DataFieldForAction) which is not tied to a specific data value." />
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
         <Property Name="Action" Type="UI.ActionName" Nullable="false">
           <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
@@ -1714,6 +1744,11 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Target of the hyperlink" />
           <Annotation Term="Core.IsURL" />
+          <Annotation Term="Validation.ApplicableTerms">
+            <Collection>
+              <String>HTML5.LinkTarget</String>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="UrlContentType" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Media type of the hyperlink target, e.g. `video/mp4`" />
@@ -1887,10 +1922,10 @@ This switches off the validation of user input with respect to decimals.</String
         </Property>
       </ComplexType>
       <ComplexType Name="UserInteractionChooseSingle" BaseType="UI.UserInteractionType">
-        <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and the chosen key shall be inserted into the repeated request"/>
+        <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and its properties shall be inserted into the repeated request"/>
       </ComplexType>
       <ComplexType Name="UserInteractionChooseMultiple" BaseType="UI.UserInteractionType">
-        <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of the chosen keys shall be inserted into the repeated request"/>
+        <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request"/>
         <Annotation Term="Core.LongDescription">
           <String>The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
           that contains one instance per chosen entry.</String>
@@ -1898,6 +1933,14 @@ This switches off the validation of user input with respect to decimals.</String
       </ComplexType>
       <ComplexType Name="UserInteractionConfirm" BaseType="UI.UserInteractionType">
         <Annotation Term="Core.Description" String="The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in &quot;effective&quot; mode"/>
+      </ComplexType>
+      <ComplexType Name="UserInteractionActionSingle" BaseType="UI.UserInteractionChooseSingle">
+        <Annotation Term="Core.Description" String="Instead of repeating the request, an action shall be invoked whose parameters are filled from the user's choice"/>
+        <Property Name="Action" Type="Core.QualifiedActionName" Nullable="false"/>
+      </ComplexType>
+      <ComplexType Name="UserInteractionActionMultiple" BaseType="UI.UserInteractionChooseMultiple">
+        <Annotation Term="Core.Description" String="Instead of repeating the request, an action shall be invoked whose parameters are filled from the user's choice"/>
+        <Property Name="Action" Type="Core.QualifiedActionName" Nullable="false"/>
       </ComplexType>
 
       <Term Name="LeadingEntitySet" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
@@ -1910,10 +1953,10 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.LongDescription">
           <String>Possible values are
         
-- Qualified name of an action or function (`foo.bar`)
-- Qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
+- Namespace-qualified name of an action or function (`foo.bar`)
+- Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
 - Simple name of an action import or function import of the annotated service (`quux`)
-- Qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)</String>
+- Namespace-qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)</String>
         </Annotation>
       </TypeDefinition>
 

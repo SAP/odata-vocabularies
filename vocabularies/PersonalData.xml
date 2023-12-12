@@ -59,19 +59,17 @@ Terms for contact and address information are defined in the [Communication voca
         <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
       </Term>
       <Term Name="DataSubjectRole" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
       <Term Name="DataSubjectRoleDescription" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsLanguageDependent" />
         <Annotation Term="Core.Description" String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
@@ -112,7 +110,7 @@ Terms for contact and address information are defined in the [Communication voca
 
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
-        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
+        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data." />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Primary meaning of a data field" />
@@ -181,14 +179,13 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="EndOfPurposeDate" />
-              <Annotation Term="Core.Description" String="The end of purpose date of a record" />
+              <PropertyValue Property="Value" String="EndOfBusinessDate" />
+              <Annotation Term="Core.Description" String="Defines the end of active business and the start of residence time and retention period" />
               <Annotation Term="Core.LongDescription">
-                <String>The point in time when the processing of a set of personal data is no longer required for the primary business purpose
-                ([GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e1807-1-1)),
-                for example, when a contract is fulfilled. After this has been reached, the data is blocked and can only be accessed
+                <String>End of business is the point in time when the processing of a set of personal data is no longer required for the active business,
+                for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed
                 by users with special authorizations (for example, tax auditors).
-                Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated.</String>
+                All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated.</String>
               </Annotation>
             </Record>
           </Collection>
