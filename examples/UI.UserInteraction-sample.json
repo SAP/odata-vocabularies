@@ -33,7 +33,7 @@
         "@UI.UserInteraction@Core.Description": "Please choose a product",
         "@UI.UserInteraction": {
           "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionChooseSingle",
-          "Parameters": [{ "ValueListProperty": "Product", "LocalDataProperty": "ExchangeProduct/NewProduct" }]
+          "Parameters": [{ "ValueListProperty": "Product", "LocalDataProperty": "self.ExchangeProduct/NewProduct" }]
         }
       },
       "_UpgradeProduct": {
@@ -43,7 +43,7 @@
         "@UI.UserInteraction@Core.Description": "Do you want to upgrade the product?",
         "@UI.UserInteraction": {
           "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.UserInteractionConfirm",
-          "Parameters": [{ "ValueListProperty": "Product", "LocalDataProperty": "ExchangeProduct/NewProduct" }]
+          "Parameters": [{ "ValueListProperty": "Product", "LocalDataProperty": "self.ExchangeProduct/NewProduct" }]
         }
       }
     },

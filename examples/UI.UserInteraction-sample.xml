@@ -30,7 +30,7 @@
                 <Collection>
                   <Record>
                     <PropertyValue Property="ValueListProperty" String="Product"/>
-                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="self.ExchangeProduct/NewProduct"/>
                   </Record>
                 </Collection>
               </PropertyValue>
@@ -45,7 +45,7 @@
                 <Collection>
                   <Record>
                     <PropertyValue Property="ValueListProperty" String="Product"/>
-                    <PropertyValue Property="LocalDataProperty" PropertyPath="ExchangeProduct/NewProduct"/>
+                    <PropertyValue Property="LocalDataProperty" PropertyPath="self.ExchangeProduct/NewProduct"/>
                   </Record>
                 </Collection>
               </PropertyValue>

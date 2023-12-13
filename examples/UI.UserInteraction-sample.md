@@ -8,8 +8,9 @@ In the "upgrade case", the server returns only one alternative product and lets 
 
 The "exchange product" action is triggered by the user on a sales order item without specifying a parameter.
 
-```jsonc
+```
 POST SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
+Content-Type: application/json
 
 {}
 ```
@@ -18,37 +19,41 @@ POST SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
 
 The server returns the item with an inlined collection of alternative products, from which the user must then choose.
 
-```jsonc
+```
 HTTP/1.1 409 Conflict
+Content-Type: application/json
 
 {"Order": "A",
- "Item": "010",
- "Product": "Wheat flour",
- "_AlternativeProducts": [
-  {"Product": "Rice", "UpsellNote": "Healthier"},
-  {"Product": "Noodles", "UpsellNote": "Tastes better"}
- ]}
+  "Item": "010",
+  "Product": "Wheat flour",
+  "_AlternativeProducts": [
+    {"Product": "Rice", "UpsellNote": "Healthier"},
+    {"Product": "Noodles", "UpsellNote": "Tastes better"}
+  ]
+}
 ```
 
 Servers that cannot send a structured payload in a 4xx response may instead return an error message with a [`Common.callback`](../vocabularies/Common.md#callback) instance annotation.
 
-```jsonc
+```
 HTTP/1.1 400 Bad Request
+Content-Type: application/json
 
 {"error": {
   "code": "UF0",
   "message": {
-   "lang": "en",
-   "value": "Missing parameter 'NewProduct'"
+    "lang": "en",
+    "value": "Missing parameter 'NewProduct'"
   },
   "@Common.callback": {
-   "Order": "A",
-   "Item": "010",
-   "Product": "Wheat flour",
-   "_AlternativeProducts": [
-    {"Product": "Rice", "UpsellNote": "Healthier"},
-    {"Product": "Noodles", "UpsellNote": "Tastes better"}
-   ]}
+    "Order": "A",
+    "Item": "010",
+    "Product": "Wheat flour",
+    "_AlternativeProducts": [
+      {"Product": "Rice", "UpsellNote": "Healthier"},
+      {"Product": "Noodles", "UpsellNote": "Tastes better"}
+    ]
+  }
 }}
 ```
 
@@ -67,8 +72,9 @@ Upon receiving either of these payloads, the client constructs a user dialog bas
 
 After the user has chosen, the client repeats the request with the chosen key inserted according to the `UI.UserInteraction/Parameters`.
 
-```jsonc
+```
 POST SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
+Content-Type: application/json
 
 {"NewProduct": "Rice"}
 ```
