@@ -8,8 +8,8 @@ In the "upgrade case", the server returns only one alternative product and lets 
 
 The "exchange product" action is triggered by the user on a sales order item without specifying a parameter.
 
-```
-POST ~/SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
+```jsonc
+POST SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
 
 {}
 ```
@@ -18,7 +18,7 @@ POST ~/SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
 
 The server returns the item with an inlined collection of alternative products, from which the user must then choose.
 
-```
+```jsonc
 HTTP/1.1 409 Conflict
 
 {"Order": "A",
@@ -32,7 +32,7 @@ HTTP/1.1 409 Conflict
 
 Servers that cannot send a structured payload in a 4xx response may instead return an error message with a [`Common.callback`](../vocabularies/Common.md#callback) instance annotation.
 
-```
+```jsonc
 HTTP/1.1 400 Bad Request
 
 {"error": {
@@ -67,8 +67,8 @@ Upon receiving either of these payloads, the client constructs a user dialog bas
 
 After the user has chosen, the client repeats the request with the chosen key inserted according to the `UI.UserInteraction/Parameters`.
 
-```
-POST ~/SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
+```jsonc
+POST SalesOrderItems(...)/userinteraction.sample.ExchangeProduct HTTP/1.1
 
 {"NewProduct": "Rice"}
 ```
