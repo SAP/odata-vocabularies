@@ -1917,7 +1917,9 @@ This switches off the validation of user input with respect to decimals.</String
           <Annotation Term="Core.Description" String="Instructions how to fill properties with the additional information obtained from the user"/>
           <Annotation Term="Core.LongDescription">
             <String>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,
-            but one that was sent by the server rather than requested by the user.</String>
+            but one that was sent by the server rather than requested by the user.
+            If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request,
+            the UI shall invoke that action instead of repeating the request.</String>
           </Annotation>
         </Property>
       </ComplexType>
@@ -1933,14 +1935,6 @@ This switches off the validation of user input with respect to decimals.</String
       </ComplexType>
       <ComplexType Name="UserInteractionConfirm" BaseType="UI.UserInteractionType">
         <Annotation Term="Core.Description" String="The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in &quot;effective&quot; mode"/>
-      </ComplexType>
-      <ComplexType Name="UserInteractionActionSingle" BaseType="UI.UserInteractionChooseSingle">
-        <Annotation Term="Core.Description" String="Instead of repeating the request, an action shall be invoked whose parameters are filled from the user's choice"/>
-        <Property Name="Action" Type="Core.QualifiedActionName" Nullable="false"/>
-      </ComplexType>
-      <ComplexType Name="UserInteractionActionMultiple" BaseType="UI.UserInteractionChooseMultiple">
-        <Annotation Term="Core.Description" String="Instead of repeating the request, an action shall be invoked whose parameters are filled from the user's choice"/>
-        <Property Name="Action" Type="Core.QualifiedActionName" Nullable="false"/>
       </ComplexType>
 
       <Term Name="LeadingEntitySet" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
