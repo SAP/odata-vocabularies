@@ -74,7 +74,9 @@ Term|Type|Description
 [RecommendationList](./UI.xml#L1824:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
 [ExcludeFromNavigationContext](./UI.xml#L1856:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1860:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
-[LeadingEntitySet](./UI.xml#L1870:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[UserInteraction](./UI.xml#L1870:~:text=<Term%20Name="-,UserInteraction,-")|[UserInteractionType](#UserInteractionType)|<a name="UserInteraction"></a>When the annotated navigation property or its `odata.navigationLink` occurs in a response, the UI shall use the addressed entity or collection to interact with the user and then repeat the corresponding request with the additional information obtained from the user<br>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse), the annotated navigation property MAY occur in a [`Common.callback`](Common.md#callback) instance annotation. A navigation property thus annotated may be interpreted as not belonging to the object model but containing auxiliary information that is not always needed. See also [this example](../examples/UI.UserInteraction-sample.md).
+[UserInteractionSimple](./UI.xml#L1883:~:text=<Term%20Name="-,UserInteractionSimple,-")|\[Untyped\]|<a name="UserInteractionSimple"></a>When this instance annotation occurs in a response, the UI shall let the user choose from the collection and then repeat the corresponding request with the annotated property set to the chosen value<br>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse), the instance annotation MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.
+[LeadingEntitySet](./UI.xml#L1943:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
@@ -1126,8 +1128,60 @@ Property|Type|Description
 [LocalDataProperty](./UI.xml#L1848:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1851:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
+<a name="UserInteractionType"></a>
+## [*UserInteractionType*](./UI.xml#L1914:~:text=<ComplexType%20Name="-,UserInteractionType,-")
+Derived types can add more properties that govern the user interaction and the repeating of the request
+
+**Derived Types:**
+- [UserInteractionChooseSingle](#UserInteractionChooseSingle)
+- [UserInteractionChooseMultiple](#UserInteractionChooseMultiple)
+  - [UserInteractionResolveConflict](#UserInteractionResolveConflict)
+- [UserInteractionConfirm](#UserInteractionConfirm)
+
+Property|Type|Description
+:-------|:---|:----------
+[Parameters](./UI.xml#L1916:~:text=<ComplexType%20Name="-,UserInteractionType,-")|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user. If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request, the UI shall invoke that action instead of repeating the request.
+
+<a name="UserInteractionChooseSingle"></a>
+## [UserInteractionChooseSingle](./UI.xml#L1926:~:text=<ComplexType%20Name="-,UserInteractionChooseSingle,-"): [UserInteractionType](#UserInteractionType)
+The user shall choose a single entry from the collection and its properties shall be inserted into the repeated request
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](./UI.xml#L1916:~:text=<ComplexType%20Name="-,UserInteractionType,-")|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user. If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request, the UI shall invoke that action instead of repeating the request.
+
+<a name="UserInteractionChooseMultiple"></a>
+## [UserInteractionChooseMultiple](./UI.xml#L1929:~:text=<ComplexType%20Name="-,UserInteractionChooseMultiple,-"): [UserInteractionType](#UserInteractionType)
+The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request
+
+The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
+          that contains one instance per chosen entry.
+
+**Derived Types:**
+- [UserInteractionResolveConflict](#UserInteractionResolveConflict)
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](./UI.xml#L1916:~:text=<ComplexType%20Name="-,UserInteractionType,-")|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user. If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request, the UI shall invoke that action instead of repeating the request.
+
+<a name="UserInteractionResolveConflict"></a>
+## [UserInteractionResolveConflict](./UI.xml#L1936:~:text=<ComplexType%20Name="-,UserInteractionResolveConflict,-"): [UserInteractionChooseMultiple](#UserInteractionChooseMultiple)
+The user shall resolve a conflict between the entries in the collection and the entire collection shall be inserted into the repeated request
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](./UI.xml#L1916:~:text=<ComplexType%20Name="-,UserInteractionType,-")|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user. If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request, the UI shall invoke that action instead of repeating the request.
+
+<a name="UserInteractionConfirm"></a>
+## [UserInteractionConfirm](./UI.xml#L1939:~:text=<ComplexType%20Name="-,UserInteractionConfirm,-"): [UserInteractionType](#UserInteractionType)
+The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in "effective" mode
+
+Property|Type|Description
+:-------|:---|:----------
+[*Parameters*](./UI.xml#L1916:~:text=<ComplexType%20Name="-,UserInteractionType,-")|\[[ValueListParameterOut](Common.md#ValueListParameterOut)\]|Instructions how to fill properties with the additional information obtained from the user<br>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list, but one that was sent by the server rather than requested by the user. If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request, the UI shall invoke that action instead of repeating the request.
+
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1875:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1948:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope
