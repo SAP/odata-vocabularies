@@ -1761,6 +1761,11 @@
       "@Core.Description": "The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request",
       "@Core.LongDescription": "The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection\n          that contains one instance per chosen entry."
     },
+    "UserInteractionResolveConflict": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.UserInteractionChooseMultiple",
+      "@Core.Description": "The user shall resolve a conflict between the entries in the collection and the entire collection shall be inserted into the repeated request"
+    },
     "UserInteractionConfirm": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.UserInteractionType",
