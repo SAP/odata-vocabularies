@@ -1162,6 +1162,10 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
         </Property>
+        <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
+        </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
           <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
@@ -1475,6 +1479,23 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
+        <Annotation Term="Core.LongDescription">
+          <String>This annotation MUST be unqualified.</String>
+        </Annotation>
+      </Term>
+      <Term Name="WebSocketChannel" Type="Edm.String" Nullable="true" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Channel for WebSocket connections" />
+        <Annotation Term="Core.LongDescription">
+          <String>Messages sent over the channel follow a protocol whose documentation is listed below per qualifier of this annotation.
+          To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
+          followed by a URL parameter `«annotation qualifier»=«annotation value»`.
+          If the annotation value is null, the parameter value follows from the protocol documentation.
+          &lt;dl&gt;Supported qualifiers and protocols:
+          &lt;dt&gt;`sideEffects` &lt;dd&gt;notifications about side effects to be triggered by the client (documentation)
+          &lt;dt&gt;`draft` &lt;dd&gt;collaborative draft; the parameter value is explained in the documentation
+          &lt;/dl&gt;</String>
+        </Annotation>
       </Term>
 
     </Schema>
