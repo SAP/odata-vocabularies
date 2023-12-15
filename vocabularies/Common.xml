@@ -1137,7 +1137,7 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Property Name="SideEffectKeyBinding" Type="Collection(Common.SideEffectKeyBindingType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Describes a binding between PCP fields and entity key fields" />
-        </Property>  
+        </Property>
         <Property Name="SideEffectEventNames" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="These events may affect the targets" />
@@ -1147,6 +1147,9 @@ This can also be used with OData V2 services: the annotation target is a functio
         </Property>
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
+        </Property>
+        <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />

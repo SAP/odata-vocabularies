@@ -1059,6 +1059,10 @@
         "$Type": "Edm.NavigationPropertyPath",
         "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
       },
+      "SourceEvents": {
+        "$Collection": true,
+        "@Core.Description": "When the service raises one or more of these \"events for side effects\", the targets may be affected"
+      },
       "TargetProperties": {
         "$Collection": true,
         "@Core.Description": "These structural properties may be affected if the value of one of the sources changes",
