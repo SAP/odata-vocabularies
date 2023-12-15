@@ -1488,6 +1488,10 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="If present, invalidate the cache only for the given entity and its related entities" />
+          <Annotation Term="Core.LongDescription">
+            <String>An action implementing this signature MAY have several such optional and mutually exclusive
+            parameters of different entity types if the cache contains entities of several types.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record />
           </Annotation>

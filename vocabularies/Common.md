@@ -126,7 +126,7 @@ A service that reads data from another service and transforms it upon request ma
 
 Parameter|Type|Description
 :--------|:---|:----------
-*[Entity](./Common.xml#L1489:~:text=<Action%20Name="-,InvalidateCache,-")*|EntityType|*Optional parameter:* If present, invalidate the cache only for the given entity and its related entities
+*[Entity](./Common.xml#L1489:~:text=<Action%20Name="-,InvalidateCache,-")*|EntityType|*Optional parameter:* If present, invalidate the cache only for the given entity and its related entities<br>An action implementing this signature MAY have several such optional and mutually exclusive parameters of different entity types if the cache contains entities of several types.
 
 
 <a name="TextFormatType"></a>

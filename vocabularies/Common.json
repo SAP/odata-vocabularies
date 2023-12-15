@@ -1318,6 +1318,7 @@
             "$Name": "Entity",
             "$Type": "Edm.EntityType",
             "@Core.Description": "If present, invalidate the cache only for the given entity and its related entities",
+            "@Core.LongDescription": "An action implementing this signature MAY have several such optional and mutually exclusive\n            parameters of different entity types if the cache contains entities of several types.",
             "@Core.OptionalParameter": {}
           }
         ]
