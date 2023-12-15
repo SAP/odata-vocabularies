@@ -112,6 +112,23 @@ Term|Type|Description
 [PrimitivePropertyPath](./Common.xml#L1469:~:text=<Term%20Name="-,PrimitivePropertyPath,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](./Common.xml#L1474:~:text=<Term%20Name="-,WebSocketBaseURL,-") *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
 
+
+## Actions
+
+<a name="InvalidateCache"></a>
+### [InvalidateCache](./Common.xml#L1480:~:text=<Action%20Name="-,InvalidateCache,-") *([Experimental](Common.md#Experimental))*
+
+Invalidate cached data in an intermediate service
+
+A service that reads data from another service and transforms it upon request may keep a cache
+          of the data it has read and serve multiple requests from it. This action then invalidates the cache, forcing
+          the service to freshly read the data from the other service for the next request.
+
+Parameter|Type|Description
+:--------|:---|:----------
+*[Entity](./Common.xml#L1489:~:text=<Action%20Name="-,InvalidateCache,-")*|EntityType|*Optional parameter:* If present, invalidate the cache only for the given entity and its related entities
+
+
 <a name="TextFormatType"></a>
 ## [TextFormatType](./Common.xml#L120:~:text=<EnumType%20Name="-,TextFormatType,-")
 

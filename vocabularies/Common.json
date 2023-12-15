@@ -1305,6 +1305,23 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
-    }
+    },
+    "InvalidateCache": [
+      {
+        "$Kind": "Action",
+        "@Common.Experimental": true,
+        "@Core.IsSignature": true,
+        "@Core.Description": "Invalidate cached data in an intermediate service",
+        "@Core.LongDescription": "A service that reads data from another service and transforms it upon request may keep a cache\n          of the data it has read and serve multiple requests from it. This action then invalidates the cache, forcing\n          the service to freshly read the data from the other service for the next request.",
+        "$Parameter": [
+          {
+            "$Name": "Entity",
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "If present, invalidate the cache only for the given entity and its related entities",
+            "@Core.OptionalParameter": {}
+          }
+        ]
+      }
+    ]
   }
 }
