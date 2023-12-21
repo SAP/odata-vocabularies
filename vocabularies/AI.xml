@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.AI.v1" Alias="AI">
+      <Annotation Term="Common.Experimental" />
+      <Annotation Term="Core.Description">
+        <String>Terms for AI-related functionality at SAP</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2023-10-04 © Copyright 2023 SAP SE. All rights reserved.</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="Recommendation" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property ReturnType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A recommended value for this property or in this returned value" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Text</String>
+            <String>Common.RecommendationScore</String>
+          </Collection>
+        </Annotation>
+      </Term>
+      <Term Name="RecommendationScore" Type="Edm.Decimal" Scale="variable" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Confidence score of a recommendation" />
+      </Term>
+      <Term Name="RecommendationAlternatives" Type="Collection(Edm.Untyped)" Nullable="false" AppliesTo="Property ReturnType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Alternative recommended values for this property or in this returned value" />
+        <Annotation Term="Validation.DerivedTypeConstraint">
+          <Collection>
+            <String>Edm.Binary</String>
+            <String>Edm.Boolean</String>
+            <String>Edm.Byte</String>
+            <String>Edm.Date</String>
+            <String>Edm.DateTimeOffset</String>
+            <String>Edm.Decimal</String>
+            <String>Edm.Double</String>
+            <String>Edm.Duration</String>
+            <String>Edm.Guid</String>
+            <String>Edm.Int16</String>
+            <String>Edm.Int32</String>
+            <String>Edm.Int64</String>
+            <String>Edm.SByte</String>
+            <String>Edm.Single</String>
+            <String>Edm.String</String>
+            <String>Edm.TimeOfDay</String>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Text</String>
+            <String>Common.RecommendationScore</String>
+          </Collection>
+        </Annotation>
+      </Term>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

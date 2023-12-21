@@ -1,6 +1,9 @@
 {
   "$Version": "4.0",
   "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/AI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.AI.v1", "$Alias": "AI" }]
+    },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
@@ -20,9 +23,9 @@
     },
     "$Annotations": {
       "recommendation.sample.WorkerTimeSheet/ClockInTimezone": {
-        "@Common.Recommendation@Common.Text": { "$Path": "ClickInTimezone_Recommendation/text" },
-        "@Common.Recommendation": { "$Path": "ClickInTimezone_Recommendation/value" },
-        "@Common.RecommendationAlternatives": { "$Path": "ClickInTimezone_Recommendation/alternatives" }
+        "@AI.Recommendation@Common.Text": { "$Path": "ClickInTimezone_Recommendation/text" },
+        "@AI.Recommendation": { "$Path": "ClickInTimezone_Recommendation/value" },
+        "@AI.RecommendationAlternatives": { "$Path": "ClickInTimezone_Recommendation/alternatives" }
       }
     }
   }

@@ -1,5 +1,5 @@
 {
-  "$Version": "4.01",
+  "$Version": "4.0",
   "$Reference": {
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
@@ -1288,48 +1288,6 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
-    },
-    "Recommendation": {
-      "$Kind": "Term",
-      "$Type": "Edm.PrimitiveType",
-      "$AppliesTo": ["Property", "ReturnType"],
-      "@Common.Experimental": true,
-      "@Core.Description": "A recommended value for this property or in this returned value",
-      "@Validation.ApplicableTerms": ["Common.Text", "Common.RecommendationScore"]
-    },
-    "RecommendationScore": {
-      "$Kind": "Term",
-      "$Type": "Edm.Decimal",
-      "$AppliesTo": ["Property"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Confidence score of a recommendation"
-    },
-    "RecommendationAlternatives": {
-      "$Kind": "Term",
-      "$Collection": true,
-      "$Type": "Edm.Untyped",
-      "$AppliesTo": ["Property", "ReturnType"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Alternative recommended values for this property or in this returned value",
-      "@Validation.DerivedTypeConstraint": [
-        "Edm.Binary",
-        "Edm.Boolean",
-        "Edm.Byte",
-        "Edm.Date",
-        "Edm.DateTimeOffset",
-        "Edm.Decimal",
-        "Edm.Double",
-        "Edm.Duration",
-        "Edm.Guid",
-        "Edm.Int16",
-        "Edm.Int32",
-        "Edm.Int64",
-        "Edm.SByte",
-        "Edm.Single",
-        "Edm.String",
-        "Edm.TimeOfDay"
-      ],
-      "@Validation.ApplicableTerms": ["Common.Text", "Common.RecommendationScore"]
     }
   }
 }

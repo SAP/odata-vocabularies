@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/AI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.AI.v1" Alias="AI" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
@@ -16,10 +19,10 @@
         <Property Name="alternatives" Type="Collection(Edm.String)" Nullable="false" />
       </ComplexType>
       <Annotations Target="recommendation.sample.WorkerTimeSheet/ClockInTimezone">
-        <Annotation Term="Common.Recommendation" Path="ClickInTimezone_Recommendation/value">
+        <Annotation Term="AI.Recommendation" Path="ClickInTimezone_Recommendation/value">
           <Annotation Term="Common.Text" Path="ClickInTimezone_Recommendation/text" />
         </Annotation>
-        <Annotation Term="Common.RecommendationAlternatives" Path="ClickInTimezone_Recommendation/alternatives" />
+        <Annotation Term="AI.RecommendationAlternatives" Path="ClickInTimezone_Recommendation/alternatives" />
       </Annotations>
     </Schema>
   </edmx:DataServices>
