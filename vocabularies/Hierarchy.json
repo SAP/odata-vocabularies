@@ -9,6 +9,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
     }
   },
   "com.sap.vocabularies.Hierarchy.v1": {
@@ -28,7 +31,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Hierarchy-specific information in the result set of a hierarchical request",
-      "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information."
+      "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this term defines derived information."
     },
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
@@ -70,6 +73,12 @@
         "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
         "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
+      "LimitedRank": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Rank of a node in the limited hierarchy in preorder or postorder",
+        "@Core.LongDescription": "The rank of a node is the index of the node in the sequence of nodes\n            created from a preorder or postorder traversal of the limited hierarchy. The first node in the traversal has rank 0."
+      },
       "SiblingRank": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
@@ -98,7 +107,8 @@
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
-      "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory.",
+      "@Common.Experimental": true,
+      "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\n          which are specific for the given annotation qualifier.\n          These binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.\n          The resource path of the binding parameter MUST traverse the hierarchy collection,\n          including any hierarchy directory.",
       "ChangeNextSiblingAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
@@ -117,7 +127,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)\n          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available."
+      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType)\n          and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available."
     },
     "TopLevels": [
       {
@@ -148,23 +158,9 @@
             "@Validation.Minimum": 1
           },
           {
-            "$Name": "Expand",
-            "$Collection": true,
-            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
-            "@Core.Description": "Identifiers of nodes to be expanded",
-            "@Core.OptionalParameter": {}
-          },
-          {
             "$Name": "Show",
             "$Collection": true,
             "@Core.Description": "Identifiers of nodes to be shown",
-            "@Core.OptionalParameter": {}
-          },
-          {
-            "$Name": "Collapse",
-            "$Collection": true,
-            "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Deprecated in favor of `ExpandLevels`" }],
-            "@Core.Description": "Identifiers of nodes to be collapsed",
             "@Core.OptionalParameter": {}
           },
           {
@@ -181,6 +177,7 @@
     "TopLevelsExpandType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
+      "@Core.Description": "Information about nodes to be expanded",
       "NodeID": { "@Core.Description": "Identifier of a node to be expanded" },
       "Levels": {
         "$Type": "Edm.Int64",
@@ -195,7 +192,8 @@
       "$AppliesTo": ["Collection"],
       "@Core.AppliesViaContainer": true,
       "@Common.Experimental": true,
-      "@Core.Description": "Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier"
+      "@Core.Description": "Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier",
+      "@Core.LongDescription": "This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type.\n          The recursive hierarchy can then only be addressed through a collection where this tag is true."
     },
     "ChangeNextSibling": [
       {

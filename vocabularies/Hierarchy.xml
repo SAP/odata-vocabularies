@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy">
@@ -41,7 +44,7 @@
         <Annotation Term="Core.Description" String="Hierarchy-specific information in the result set of a hierarchical request" />
         <Annotation Term="Core.LongDescription">
           <String>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          governs what are the nodes and parents in the hierarchy, whereas this annotation contains derived information.</String>
+          governs what are the nodes and parents in the hierarchy, whereas this term defines derived information.</String>
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyType">
@@ -121,6 +124,13 @@ the following collections of hierarchy nodes are distinguished:
             <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
         </Property>
+        <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Rank of a node in the limited hierarchy in preorder or postorder" />
+          <Annotation Term="Core.LongDescription">
+            <String>The rank of a node is the index of the node in the sequence of nodes
+            created from a preorder or postorder traversal of the limited hierarchy. The first node in the traversal has rank 0.</String>
+          </Annotation>
+        </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
@@ -150,12 +160,13 @@ the following collections of hierarchy nodes are distinguished:
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
-which are specific for the given annotation qualifier.
-These binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
-The resource path of the binding parameter MUST traverse the hierarchy collection,
-including any hierarchy directory.</String>
+          which are specific for the given annotation qualifier.
+          These binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
+          The resource path of the binding parameter MUST traverse the hierarchy collection,
+          including any hierarchy directory.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.ImplementsSignature" String="Hierarchy.ChangeNextSibling" />
@@ -180,8 +191,8 @@ including any hierarchy directory.</String>
           `filter` or `search` transformation that occurs as the fourth parameter
           of the last `ancestors` transformation or occurs nested into it.&lt;br&gt;
           For requests not following this pattern, the subset NEED NOT be defined.&lt;br&gt;
-          This instance annotation is available if [`RecursiveHierarchy/MatchedProperty`](#RecursiveHierarchyType)
-          and `RecursiveHierarchy/MatchedDescendantCountProperty` are also available.</String>
+          This instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType)
+          and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available.</String>
         </Annotation>
       </Term>
 
@@ -227,36 +238,8 @@ including any hierarchy directory.</String>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Expand" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be expanded" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
         <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Collapse" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of `ExpandLevels`" />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be collapsed" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -271,6 +254,7 @@ including any hierarchy directory.</String>
       </Function>
       <ComplexType Name="TopLevelsExpandType">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Information about nodes to be expanded" />
         <Property Name="NodeID" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Identifier of a node to be expanded" />
         </Property>
@@ -283,6 +267,10 @@ including any hierarchy directory.</String>
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier" />
+        <Annotation Term="Core.LongDescription">
+          <String>This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type.
+          The recursive hierarchy can then only be addressed through a collection where this tag is true.</String>
+        </Annotation>
       </Term>
 
       <Action Name="ChangeNextSibling" IsBound="true">
