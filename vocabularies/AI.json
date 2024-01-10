@@ -26,9 +26,8 @@
         "$Kind": "Function",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.IsSignature": true,
-        "@Core.Description": "Computes AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "The function SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).",
+        "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
+        "@Core.LongDescription": "Functions following this template SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n          The template itself cannot be invoked.",
         "$Parameter": [{ "$Name": "Entity", "$Type": "Edm.EntityType" }],
         "$ReturnType": {
           "$Type": "Edm.ComplexType",
@@ -63,8 +62,16 @@
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
         "@Core.Description": "Whether the recommended value shall be suggested in the input field",
-        "@Core.LongDescription": "For any collection of `PropertyRecommendationType` in the return type of the [`Recommendations`](#Recommendations) function,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in the return type of the [`Recommendations`](#Recommendations) function,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
       }
+    },
+    "RecommendationsFunction": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified name of a function that determines AI-based recommendations for the annotated entity type",
+      "@Core.LongDescription": "The signature of the function is described [here](#Recommendations)."
     },
     "RecommendationsRole": {
       "$Kind": "Term",
