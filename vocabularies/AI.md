@@ -5,9 +5,8 @@ Terms for AI-related functionality at SAP
 
 Entity types for which AI-based recommendations are available have an additional
 property `SAP__Recommendations` of complex type that contains
-- the same properties as the key of the entity type
-- structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-  available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
+structural properties corresponding to non-key structural properties of the entity type for which recommendations are
+available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
 
 Clients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.
 The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
@@ -17,10 +16,10 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
 
 Term|Type|Description
 :---|:---|:----------
-[RecommendationsRole](./AI.xml#L84:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+[RecommendationsRole](./AI.xml#L83:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
 
 <a name="PropertyRecommendationType"></a>
-## [*PropertyRecommendationType*](./AI.xml#L48:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [*PropertyRecommendationType*](./AI.xml#L47:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 Base type containing AI-based recommendations for an entity type property
 
 Specializations of this base type have four properties:
@@ -31,20 +30,20 @@ Specializations of this base type have four properties:
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldValue](./AI.xml#L58:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
-[AIRecommendedFieldDescription](./AI.xml#L65:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
-[AIRecommendedFieldScoreValue](./AI.xml#L71:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
-[AIRecommendedFieldIsSuggestion](./AI.xml#L74:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in the return type of the [`Recommendations`](#Recommendations) function, this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.
+[AIRecommendedFieldValue](./AI.xml#L57:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
+[AIRecommendedFieldDescription](./AI.xml#L64:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+[AIRecommendedFieldScoreValue](./AI.xml#L70:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
+[AIRecommendedFieldIsSuggestion](./AI.xml#L73:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in the return type of the [`Recommendations`](#Recommendations) function, this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.
 
 <a name="RecommendationsRoleType"></a>
-## [RecommendationsRoleType](./AI.xml#L88:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
+## [RecommendationsRoleType](./AI.xml#L87:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[Input](./AI.xml#L92:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
-[Output](./AI.xml#L96:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
-[InputOutput](./AI.xml#L100:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
-[RequiredInput](./AI.xml#L104:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested
+[Input](./AI.xml#L91:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
+[Output](./AI.xml#L95:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
+[InputOutput](./AI.xml#L99:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
+[RequiredInput](./AI.xml#L103:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested

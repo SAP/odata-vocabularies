@@ -18,9 +18,8 @@
       <Annotation Term="Core.LongDescription">
         <String>Entity types for which AI-based recommendations are available have an additional
 property `SAP__Recommendations` of complex type that contains
-- the same properties as the key of the entity type
-- structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-  available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
+structural properties corresponding to non-key structural properties of the entity type for which recommendations are
+available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
 
 Clients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.
 The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>

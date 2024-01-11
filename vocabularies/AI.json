@@ -15,7 +15,7 @@
     "$Alias": "AI",
     "@Common.Experimental": true,
     "@Core.Description": "Terms for AI-related functionality at SAP",
-    "@Core.LongDescription": "Entity types for which AI-based recommendations are available have an additional\nproperty `SAP__Recommendations` of complex type that contains\n- the same properties as the key of the entity type\n- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n  available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n\nClients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).",
+    "@Core.LongDescription": "Entity types for which AI-based recommendations are available have an additional\nproperty `SAP__Recommendations` of complex type that contains\nstructural properties corresponding to non-key structural properties of the entity type for which recommendations are\navailable. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n\nClients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).",
     "@Core.Description#Published": "2023-10-04 © Copyright 2023 SAP SE. All rights reserved.",
     "@Core.Links": [
       { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
