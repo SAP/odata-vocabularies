@@ -166,8 +166,26 @@ which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 The resource path of the binding parameter MUST traverse the hierarchy collection,
-including any hierarchy directory.
-
+including any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,
+the hierarchy directory MUST be determined from the resource path of that request.
+```json
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "HierarchyDirectory(1)/Nodes('A')/Children",
+  "body": {
+    "Name": "child of A"
+  }
+}, {
+  "id": "2",
+  "dependsOn": ["1"],
+  "method": "post",
+  "url": "$1/Hierarchy.ChangeNextSibling",
+  "body": {
+    "NextSibling": null
+  }
+}]}
+```
 The template actions themselves cannot be invoked.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
