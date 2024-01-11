@@ -17,9 +17,8 @@ Term|Type|Description
 ## Actions
 
 <a name="ChangeNextSibling"></a>
-### [*ChangeNextSibling*](./Hierarchy.xml#L295:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
+### [ChangeNextSibling](./Hierarchy.xml#L295:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
 
-**Signature only:**
 Move a node among its siblings
 
 Parameter|Type|Description
@@ -29,9 +28,8 @@ Parameter|Type|Description
 
 
 <a name="CopyNode"></a>
-### [*CopyNode*](./Hierarchy.xml#L331:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
+### [CopyNode](./Hierarchy.xml#L331:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
 
-**Signature only:**
 Copy a node and its descendants
 
 To give the copied sub-hierarchy a parent, the action invocation can be followed
@@ -171,8 +169,8 @@ the hierarchy directory MUST be determined from the resource path of that reques
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeNextSiblingAction](./Hierarchy.xml#L190:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|**Implements [ChangeNextSibling](#ChangeNextSibling)**
-[CopyAction](./Hierarchy.xml#L198:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|**Implements [CopyNode](#CopyNode)**
+[ChangeNextSiblingAction](./Hierarchy.xml#L190:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|
+[CopyAction](./Hierarchy.xml#L198:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|
 
 <a name="TopLevelsExpandType"></a>
 ## [TopLevelsExpandType](./Hierarchy.xml#L274:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-") *([Experimental](Common.md#Experimental))*
