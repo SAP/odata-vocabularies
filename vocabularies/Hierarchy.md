@@ -161,7 +161,7 @@ the hierarchy directory MUST be determined from the resource path of that reques
   "id": "2",
   "dependsOn": ["1"],
   "method": "post",
-  "url": "$1/Hierarchy.ChangeNextSibling",
+  "url": "$1/Hierarchy.ChangeNextSiblingAction",
   "body": {
     "NextSibling": null
   }
