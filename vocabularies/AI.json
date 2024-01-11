@@ -15,26 +15,12 @@
     "$Alias": "AI",
     "@Common.Experimental": true,
     "@Core.Description": "Terms for AI-related functionality at SAP",
+    "@Core.LongDescription": "Entity types for which AI-based recommendations are available have an additional\nproperty `SAP__Recommendations` of complex type that contains\n- the same properties as the key of the entity type\n- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n  available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n\nClients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).",
     "@Core.Description#Published": "2023-10-04 © Copyright 2023 SAP SE. All rights reserved.",
     "@Core.Links": [
       { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
       { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
       { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
-    ],
-    "Recommendations": [
-      {
-        "$Kind": "Function",
-        "$IsBound": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
-        "@Core.LongDescription": "Functions following this template SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n          The template itself cannot be invoked.",
-        "$Parameter": [{ "$Name": "Entity", "$Type": "Edm.EntityType" }],
-        "$ReturnType": {
-          "$Type": "Edm.ComplexType",
-          "@Core.Description": "Nested structure containing recommendations",
-          "@Core.LongDescription": "The nested structure contains complex types that correspond to the entity type of the binding parameter\n            or one of its related entity types. Each complex type contains\n            <br>- the same properties as the key of the corresponding entity type\n            <br>- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n            <br>- structural properties corresponding to navigation properties of the entity type.\n            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property."
-        }
-      }
     ],
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
@@ -64,14 +50,6 @@
         "@Core.Description": "Whether the recommended value shall be suggested in the input field",
         "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in the return type of the [`Recommendations`](#Recommendations) function,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
       }
-    },
-    "RecommendationsFunction": {
-      "$Kind": "Term",
-      "$Type": "Common.QualifiedName",
-      "$AppliesTo": ["EntityType"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Qualified name of a function that determines AI-based recommendations for the annotated entity type",
-      "@Core.LongDescription": "The signature of the function is described [here](#Recommendations)."
     },
     "RecommendationsRole": {
       "$Kind": "Term",
