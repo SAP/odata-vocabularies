@@ -17,8 +17,9 @@ Term|Type|Description
 ## Actions
 
 <a name="ChangeNextSibling"></a>
-### [ChangeNextSibling](./Hierarchy.xml#L295:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
+### [*ChangeNextSibling*](./Hierarchy.xml#L295:~:text=<Action%20Name="-,ChangeNextSibling,-") *([Experimental](Common.md#Experimental))*
 
+**Signature only:**
 Move a node among its siblings
 
 Parameter|Type|Description
@@ -28,8 +29,9 @@ Parameter|Type|Description
 
 
 <a name="CopyNode"></a>
-### [CopyNode](./Hierarchy.xml#L331:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
+### [*CopyNode*](./Hierarchy.xml#L331:~:text=<Action%20Name="-,CopyNode,-") *([Experimental](Common.md#Experimental))*
 
+**Signature only:**
 Copy a node and its descendants
 
 To give the copied sub-hierarchy a parent, the action invocation can be followed
@@ -144,7 +146,7 @@ Property|Type|Description
 
 The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
-These binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
+The binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
 The resource path of the binding parameter MUST traverse the hierarchy collection,
 including any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,
 the hierarchy directory MUST be determined from the resource path of that request.
@@ -169,8 +171,8 @@ the hierarchy directory MUST be determined from the resource path of that reques
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeNextSiblingAction](./Hierarchy.xml#L190:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|
-[CopyAction](./Hierarchy.xml#L198:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|
+[ChangeNextSiblingAction](./Hierarchy.xml#L190:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|**Implements [ChangeNextSibling](#ChangeNextSibling)**
+[CopyAction](./Hierarchy.xml#L198:~:text=<ComplexType%20Name="-,RecursiveHierarchyActionsType,-")|[QualifiedName?](Common.md#QualifiedName)|**Implements [CopyNode](#CopyNode)**
 
 <a name="TopLevelsExpandType"></a>
 ## [TopLevelsExpandType](./Hierarchy.xml#L274:~:text=<ComplexType%20Name="-,TopLevelsExpandType,-") *([Experimental](Common.md#Experimental))*

@@ -164,7 +164,7 @@ the following collections of hierarchy nodes are distinguished:
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
-These binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
+The binding parameter of the actions MUST be the entity type on which the recursive hierarchy is defined.
 The resource path of the binding parameter MUST traverse the hierarchy collection,
 including any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,
 the hierarchy directory MUST be determined from the resource path of that request.
