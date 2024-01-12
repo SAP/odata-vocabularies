@@ -113,6 +113,11 @@
         "$Nullable": true,
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
+      "ChangeSiblingForRootsSupported": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the sibling of a root can be changed"
+      },
       "CopyAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
