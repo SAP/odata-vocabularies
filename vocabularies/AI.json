@@ -15,13 +15,20 @@
     "$Alias": "AI",
     "@Common.Experimental": true,
     "@Core.Description": "Terms for AI-related functionality at SAP",
-    "@Core.LongDescription": "## AI-based recommendations\n\nEntity types for which AI-based recommendations are available have an additional\nproperty `SAP__Recommendations` of a complex type. This complex type contains\nstructural properties corresponding to non-key structural properties of the entity type for which recommendations are\navailable. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n\nClients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).",
     "@Core.Description#Published": "2023-10-04 © Copyright 2023 SAP SE. All rights reserved.",
     "@Core.Links": [
       { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
       { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
       { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
     ],
+    "Recommendations": {
+      "$Kind": "Term",
+      "$Type": "Edm.ComplexType",
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "AI-based recommendations for an entity",
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+    },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "$Abstract": true,
@@ -50,30 +57,6 @@
         "@Core.Description": "Whether the recommended value shall be suggested in the input field",
         "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property of `SAP__Recommendations`,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
       }
-    },
-    "RecommendationsRole": {
-      "$Kind": "Term",
-      "$Type": "AI.RecommendationsRoleType",
-      "$AppliesTo": ["Property", "Parameter"],
-      "@Common.Experimental": true,
-      "@Core.Description": "Role of this property or parameter regarding AI-based recommendations"
-    },
-    "RecommendationsRoleType": {
-      "$Kind": "TypeDefinition",
-      "$UnderlyingType": "Edm.String",
-      "@Common.Experimental": true,
-      "@Validation.AllowedValues": [
-        { "Value": "Input", "@Core.Description": "The property is input for some recommendation" },
-        { "Value": "Output", "@Core.Description": "The property or parameter is the target of some recommendation" },
-        {
-          "Value": "InputOutput",
-          "@Core.Description": "The property is input for and the target of some recommendation"
-        },
-        {
-          "Value": "RequiredInput",
-          "@Core.Description": "The property is required input before any recommendations are requested"
-        }
-      ]
     }
   }
 }

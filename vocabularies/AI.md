@@ -3,25 +3,15 @@
 
 Terms for AI-related functionality at SAP
 
-## AI-based recommendations
-
-Entity types for which AI-based recommendations are available have an additional
-property `SAP__Recommendations` of a complex type. This complex type contains
-structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
-
-Clients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.
-The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
-
 
 ## Terms
 
 Term|Type|Description
 :---|:---|:----------
-[RecommendationsRole](./AI.xml#L85:~:text=<Term%20Name="-,RecommendationsRole,-") *([Experimental](Common.md#Experimental))*|[RecommendationsRoleType](#RecommendationsRoleType)|<a name="RecommendationsRole"></a>Role of this property or parameter regarding AI-based recommendations
+[Recommendations](./AI.xml#L38:~:text=<Term%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>AI-based recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural properties of the entity type for which recommendations are available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
 
 <a name="PropertyRecommendationType"></a>
-## [*PropertyRecommendationType*](./AI.xml#L49:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+## [*PropertyRecommendationType*](./AI.xml#L51:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
 Base type containing AI-based recommendations for an entity type property
 
 Specializations of this base type have four properties:
@@ -32,20 +22,7 @@ Specializations of this base type have four properties:
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldValue](./AI.xml#L59:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
-[AIRecommendedFieldDescription](./AI.xml#L66:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
-[AIRecommendedFieldScoreValue](./AI.xml#L72:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
-[AIRecommendedFieldIsSuggestion](./AI.xml#L75:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property of `SAP__Recommendations`, this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.
-
-<a name="RecommendationsRoleType"></a>
-## [RecommendationsRoleType](./AI.xml#L89:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-") *([Experimental](Common.md#Experimental))*
-**Type:** String
-
-
-
-Allowed Value|Description
-:------------|:----------
-[Input](./AI.xml#L93:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for some recommendation
-[Output](./AI.xml#L97:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property or parameter is the target of some recommendation
-[InputOutput](./AI.xml#L101:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is input for and the target of some recommendation
-[RequiredInput](./AI.xml#L105:~:text=<TypeDefinition%20Name="-,RecommendationsRoleType,-")|The property is required input before any recommendations are requested
+[AIRecommendedFieldValue](./AI.xml#L61:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
+[AIRecommendedFieldDescription](./AI.xml#L68:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+[AIRecommendedFieldScoreValue](./AI.xml#L74:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
+[AIRecommendedFieldIsSuggestion](./AI.xml#L77:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property of `SAP__Recommendations`, this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.

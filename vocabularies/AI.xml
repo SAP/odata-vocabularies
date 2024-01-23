@@ -15,17 +15,6 @@
       <Annotation Term="Core.Description">
         <String>Terms for AI-related functionality at SAP</String>
       </Annotation>
-      <Annotation Term="Core.LongDescription">
-        <String>## AI-based recommendations
-
-Entity types for which AI-based recommendations are available have an additional
-property `SAP__Recommendations` of a complex type. This complex type contains
-structural properties corresponding to non-key structural properties of the entity type for which recommendations are
-available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)
-
-Clients retrieve the recommendations with a GET request that includes `SAP__Recommendations` in a `$select` clause.
-The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
-      </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2023-10-04 © Copyright 2023 SAP SE. All rights reserved.</String>
       </Annotation>
@@ -46,6 +35,19 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
         </Collection>
       </Annotation>
 
+      <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="AI-based recommendations for an entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>This complex-typed annotation contains structural properties corresponding via name equality
+to non-key structural properties of the entity type for which recommendations are available.
+The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
+
+Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.
+The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
+        </Annotation>
+      </Term>
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Base type containing AI-based recommendations for an entity type property" />
@@ -82,33 +84,6 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
           </Annotation>
         </Property>
       </ComplexType>
-      <Term Name="RecommendationsRole" Type="AI.RecommendationsRoleType" Nullable="false" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Role of this property or parameter regarding AI-based recommendations" />
-      </Term>
-      <TypeDefinition Name="RecommendationsRoleType" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="Input" />
-              <Annotation Term="Core.Description" String="The property is input for some recommendation" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="Output" />
-              <Annotation Term="Core.Description" String="The property or parameter is the target of some recommendation" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="InputOutput" />
-              <Annotation Term="Core.Description" String="The property is input for and the target of some recommendation" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="RequiredInput" />
-              <Annotation Term="Core.Description" String="The property is required input before any recommendations are requested" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>
