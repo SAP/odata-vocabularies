@@ -6,7 +6,6 @@ SAP Vocabularies for semantic markup of structured data published via [OData](ht
 
 This repository defines the following SAP vocabularies:
 
-- [AI: AI-related functionality](vocabularies/AI.md) - _experimental_
 - [Analytics: Analytical resources](vocabularies/Analytics.md)
 - [CodeList: Code Lists](vocabularies/CodeList.md)
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
