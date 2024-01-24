@@ -1,4 +1,4 @@
-Entity types for which recommendations are available have an additional property `SAP__Recommendations` and the following annotation:
+Entity types for which recommendations are available have an additional property carrying the recommendations and the following annotation pointing to this property:
 ```xml
 <EntityType Name="...">
   <Annotation Term="UI.Recommendations" Path="SAP__Recommendations" />
