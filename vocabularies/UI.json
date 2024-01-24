@@ -1694,16 +1694,15 @@
       "$Kind": "Term",
       "$Type": "Edm.ComplexType",
       "@Common.Experimental": true,
-      "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "AI-based recommendations for an entity",
-      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "$Abstract": true,
       "@Common.Experimental": true,
       "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
-      "@Core.LongDescription": "Specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`\n- a Boolean property named `AIRecommendedFieldIsSuggestion`.",
+      "@Core.LongDescription": "Informal specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`\n- a Boolean property named `AIRecommendedFieldIsSuggestion`.",
       "AIRecommendedFieldValue": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Recommended value",

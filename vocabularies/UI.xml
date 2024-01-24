@@ -1855,12 +1855,11 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
 
       <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="AI-based recommendations for an entity" />
         <Annotation Term="Core.LongDescription">
           <String>This complex-typed annotation contains structural properties corresponding via name equality
 to non-key structural properties of the entity type for which recommendations are available.
-The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
+The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
 
 Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.
 The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
@@ -1870,7 +1869,7 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Base type containing AI-based recommendations for an entity type property" />
         <Annotation Term="Core.LongDescription">
-          <String>Specializations of this base type have four properties:
+          <String>Informal specializations of this base type have four properties:
 - a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`
 - a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`
 - a property named `AIRecommendedFieldScoreValue`
