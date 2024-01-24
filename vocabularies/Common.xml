@@ -387,9 +387,16 @@
         <Member Name="Mandatory" Value="7">
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription">
-            <String>A request that sets the property to its initial value or null fails entirely if this annotation is `Mandatory` in the after-image of the request.
-
-            This annotation value does not imply any restrictions on the value range of the property. For restricting the value range use e.g. the standard type facet `Nullable` with a value of `false` to exclude the `null` value, or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
+            <String>A request that
+            &lt;br&gt;- sets the property to null or an empty value or
+            &lt;br&gt;- creates a non-[draft](#DraftRoot) entity and omits the property or
+            &lt;br&gt;- activates a draft entity while the property is null or empty
+            &lt;br&gt;fails entirely if this annotation is `Mandatory` in the after-image of the request.
+            The empty string is an empty value. Service-specific rules may consider other values, also
+            of non-string type, empty.
+            Values in draft entities are never considered empty.
+            Mandatory properties SHOULD be decorated in the UI with an asterisk.
+            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
           </Annotation>
         </Member>
         <Member Name="Optional" Value="3">
@@ -560,6 +567,11 @@ The minimum structure is
         <Annotation Term="Core.Description" String="An interval with lower and upper boundaries described by two properties" />
       </Term>
       <ComplexType Name="IntervalType">
+        <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
         <Property Name="LowerBoundary" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the lower interval boundary" />
         </Property>
@@ -702,10 +714,21 @@ The minimum structure is
 
       <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.ValueListShowValuesImmediately</String>
+          </Collection>
+        </Annotation>
+      </Term>
+
+      <Term Name="ValueListShowValuesImmediately" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Annotation">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A value list with a very small number of fixed values, can decide to show all values immediately" />
       </Term>
 
       <Term Name="ValueListForValidation" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Contains the qualifier of the ValueList or ValueListMapping that should be used for validation" />
+        <Annotation Term="Core.LongDescription" String="An empty string identifies the ValueList or ValueListMapping without a qualifier." />
       </Term>
 
       <Term Name="ValueListReferences" Type="Collection(Edm.String)" Nullable="false" AppliesTo="Property Parameter">
