@@ -1,9 +1,19 @@
 Entity types for which recommendations are available have an additional property `SAP__Recommendations` and the following annotation:
 ```xml
 <EntityType Name="...">
-  <Annotation Term="AI.Recommendations" Path="SAP__Recommendations" />
+  <Annotation Term="UI.Recommendations" Path="SAP__Recommendations" />
+  <Key>
+    <PropertyRef Name="ID" />
+  </Key>
+  <Property Name="ID" Type="Edm.String" Nullable="false" />
+  <Property Name="DocumentType" Type="Edm.String" />
   ...
+  <Property Name="SAP__Recommendations" Type="self.RecommendationsType" />
 </EntityType>
+<ComplexType Name="RecommendationsType">
+  <Property Name="DocumentType" Type="Collection(UI.PropertyRecommendationType)" />
+  ...
+</ComplexType>
 ```
 
 Clients request recommendations from the server at their discretion.
