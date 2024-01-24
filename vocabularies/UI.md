@@ -1142,7 +1142,7 @@ Property|Type|Description
 [AIRecommendedFieldValue](./UI.xml#L1878:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
 [AIRecommendedFieldDescription](./UI.xml#L1885:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
 [AIRecommendedFieldScoreValue](./UI.xml#L1891:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
-[AIRecommendedFieldIsSuggestion](./UI.xml#L1894:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property of `SAP__Recommendations`, this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.
+[AIRecommendedFieldIsSuggestion](./UI.xml#L1894:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.
 
 <a name="ActionName"></a>
 ## [ActionName](./UI.xml#L1924:~:text=<TypeDefinition%20Name="-,ActionName,-")

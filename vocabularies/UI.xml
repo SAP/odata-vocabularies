@@ -1895,7 +1895,7 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
           <Annotation Term="Core.Description" String="Whether the recommended value shall be suggested in the input field" />
           <Annotation Term="Core.LongDescription">
             <String>For any collection of a specialization of `PropertyRecommendationType`
-            in a property of `SAP__Recommendations`,
+            in a property containing [`Recommendations`](#Recommendations),
             this flag can be true in at most one instance of the collection,
             and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold.</String>
           </Annotation>

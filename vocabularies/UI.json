@@ -1723,7 +1723,7 @@
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
         "@Core.Description": "Whether the recommended value shall be suggested in the input field",
-        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property of `SAP__Recommendations`,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property containing [`Recommendations`](#Recommendations),\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
       }
     },
     "ExcludeFromNavigationContext": {
