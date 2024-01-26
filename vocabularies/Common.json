@@ -679,7 +679,8 @@
       "$BaseType": "Common.ValueListParameter",
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison",
+        "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators"
       },
       "InitialValueIsSignificant": {
         "$Type": "Edm.Boolean",
