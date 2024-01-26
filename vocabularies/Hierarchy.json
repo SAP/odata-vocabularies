@@ -115,7 +115,7 @@
       },
       "ChangeSiblingForRootsSupported": {
         "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
+        "$DefaultValue": true,
         "@Core.Description": "Whether the sibling of a root can be changed"
       },
       "CopyAction": {
