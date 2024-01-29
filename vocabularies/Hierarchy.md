@@ -45,7 +45,7 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
   "method": "patch",
   "url": "$1",
   "body": {
-    "Superordinate@bind": "Nodes('B')"
+    "Superordinate@odata.bind": "Nodes('B')"
   }
 }]}
 ```
@@ -156,7 +156,7 @@ the hierarchy directory MUST be determined from the resource path of that reques
   "url": "HierarchyDirectory(1)/Nodes",
   "body": {
     "Name": "child of A",
-    "Superordinate@bind": "Nodes('A')"
+    "Superordinate@odata.bind": "Nodes('A')"
   }
 }, {
   "id": "2",
