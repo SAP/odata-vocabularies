@@ -284,7 +284,6 @@
 
       <Term Name="LevelInformation" Type="Hierarchy.HierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation" />
       </Term>
 
