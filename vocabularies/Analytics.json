@@ -12,6 +12,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Hierarchy.v1", "$Alias": "Hierarchy" }]
     }
   },
   "com.sap.vocabularies.Analytics.v1": {
@@ -161,6 +164,113 @@
         "@Validation.ApplicableTerms@Core.Description": "Adding a list of other terms that can be annotated to it.",
         "@Validation.ApplicableTerms": ["Common.Label"]
       }
+    },
+    "AutoExpand": [
+      {
+        "$Kind": "Function",
+        "$EntitySetPath": "InputSet",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.IsSignature": true,
+        "@Core.Description": "`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties",
+        "$Parameter": [
+          {
+            "$Name": "InputSet",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "Entity set to be processed"
+          },
+          {
+            "$Name": "Levels",
+            "$Collection": true,
+            "$Type": "Analytics.AutoExpandLevel",
+            "@Core.Description": "Collection of aggregation levels forming the visible part of a leveled hierarchy",
+            "@Core.LongDescription": "Each element in the collection defines the property names for one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            The function result comprises the leveled hierarchy with these levels in preorder.\n            All referenced properties must be groupable."
+          },
+          {
+            "$Name": "LeafLevel",
+            "$Collection": true,
+            "@Core.Description": "A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy",
+            "@Core.LongDescription": "Property names that occur in `Levels` must not be repeated here.\n            All referenced properties must be groupable."
+          },
+          {
+            "$Name": "Aggregation",
+            "$Collection": true,
+            "@Core.Description": "Properties to aggregate for all result entries on all levels",
+            "@Core.LongDescription": "All properties in this collection must be custom aggregates."
+          },
+          {
+            "$Name": "SiblingOrder",
+            "$Collection": true,
+            "$Type": "Analytics.AutoExpandSiblingOrder",
+            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy"
+          },
+          {
+            "$Name": "BeforeAggregationFilter",
+            "@Core.Description": "Expression valid for `filter` transformation to restrict the input set before any further procressing",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "AggregatedValuesLeafFilter",
+            "@Core.Description": "Expression valid for `filter` transformation to restrict the input set at the most detailed grouping level with conditions on aggregated values",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "Skip",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of entries to skip from the top of the fully ordered result",
+            "@Core.OptionalParameter": { "DefaultValue": "0" }
+          },
+          {
+            "$Name": "Top",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of entries to return from the result set after any skipping (absent means all)",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ResultEntriesCount",
+            "$Type": "Edm.Bool",
+            "@Core.Description": "Whether to return the total number of entries in the result independent of Skip/Top",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ],
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Edm.EntityType",
+          "@Core.Description": "Output set including the instance annotation [`LevelInformation`](#LevelInformation)"
+        }
+      }
+    ],
+    "AutoExpandLevel": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "P": { "$Collection": true, "@Core.Description": "A non-empty set of property names constituting a level" }
+    },
+    "AutoExpandSiblingOrder": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Property": { "@Core.Description": "Property by which to sort" },
+      "Order": {
+        "$Type": "Analytics.SortOrderType",
+        "$DefaultValue": "Analytics.SortOrderType/Asc",
+        "@Core.Description": "Sorting direction"
+      }
+    },
+    "SortOrderType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Common.Experimental": true,
+      "@Validation.AllowedValues": [
+        { "Value": "asc", "@Core.Description": "Sort in ascending order" },
+        { "Value": "desc", "@Core.Description": "Sort in descending order" }
+      ]
+    },
+    "LevelInformation": {
+      "$Kind": "Term",
+      "$Type": "Hierarchy.HierarchyType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation"
     }
   }
 }
