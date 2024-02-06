@@ -74,6 +74,17 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="DocumentationRef" Type="Edm.String" Nullable="false" AppliesTo="EntityType Property Parameter ReturnType">
+        <Annotation Term="Core.IsURL" />
+        <Annotation Term="Core.Description" String="A URI referencing language-dependent documentation for the annotated model element" />
+        <Annotation Term="Core.Example">
+          <Record Type="Core.PrimitiveExampleValue">
+            <PropertyValue Property="Description" String="URN scheme understood by SAP Companion" />
+            <PropertyValue Property="Value" String="urn:sap:companion:DataElement:CURRENCY:G1Y_000" />
+          </Record>
+        </Annotation>
+      </Term>
+
       <Term Name="Text" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.IsLanguageDependent" />

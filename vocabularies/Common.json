@@ -59,6 +59,17 @@
       "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
       "@Core.IsLanguageDependent": true
     },
+    "DocumentationRef": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntityType", "Property", "Parameter", "ReturnType"],
+      "@Core.IsURL": true,
+      "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Description": "URN scheme understood by SAP Companion",
+        "Value": "urn:sap:companion:DataElement:CURRENCY:G1Y_000"
+      }
+    },
     "Text": {
       "$Kind": "Term",
       "$Nullable": true,
