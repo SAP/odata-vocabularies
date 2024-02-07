@@ -80,7 +80,7 @@
         <Annotation Term="Core.Example">
           <Record Type="Core.PrimitiveExampleValue">
             <PropertyValue Property="Description" String="URN scheme understood by SAP Companion" />
-            <PropertyValue Property="Value" String="urn:sap:documentation:key?=type=dateElement&amp;id=%2fiwbep%2faccount&amp;origin=G1Y_000" />
+            <PropertyValue Property="Value" String="urn:sap:documentation:key?=type=dataElement&amp;id=%2fiwbep%2faccount&amp;origin=G1Y_000" />
           </Record>
         </Annotation>
       </Term>
