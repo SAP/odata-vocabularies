@@ -166,8 +166,27 @@ which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
 The resource path of the binding parameter MUST traverse the hierarchy collection,
-including any hierarchy directory.
-
+including any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,
+the hierarchy directory MUST be determined from the resource path of that request.
+```json
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "HierarchyDirectory(1)/Nodes",
+  "body": {
+    "Name": "child of A",
+    "Superordinate@odata.bind": "Nodes('A')"
+  }
+}, {
+  "id": "2",
+  "dependsOn": ["1"],
+  "method": "post",
+  "url": "$1/Hierarchy.ChangeNextSiblingAction",
+  "body": {
+    "NextSibling": null
+  }
+}]}
+```
 The template actions themselves cannot be invoked.</String>
         </Annotation>
         <Property Name="ChangeNextSiblingAction" Type="Common.QualifiedName" Nullable="true">
@@ -178,6 +197,9 @@ The template actions themselves cannot be invoked.</String>
           <Annotation Term="Core.Description" String="Action that moves a node among its siblings, following [this template](#Template_ChangePreviousSiblingAction)" />
         </Property>
         -->
+        <Property Name="ChangeSiblingForRootsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Whether the sibling of a root can be changed" />
+        </Property>
         <Property Name="CopyAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that copies a node and its descendants, following [this template](#Template_CopyAction)" />
         </Property>
@@ -326,7 +348,7 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
   "method": "patch",
   "url": "$1",
   "body": {
-    "Superordinate": {"@id": "Nodes('B')"}
+    "Superordinate@odata.bind": "Nodes('B')"
   }
 }]}
 ```</String>
