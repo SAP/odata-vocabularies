@@ -1388,7 +1388,13 @@
       "$Abstract": true,
       "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
       "@Core.LongDescription": "By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and\n          and the default css settings (as the width) of the data field can be influenced. ",
-      "@Validation.ApplicableTerms": ["UI.Hidden", "UI.Importance", "UI.PartOfPreview", "HTML5.CssDefaults"],
+      "@Validation.ApplicableTerms": [
+        "UI.Hidden",
+        "UI.Importance",
+        "UI.PartOfPreview",
+        "HTML5.CssDefaults",
+        "Common.FieldControl"
+      ],
       "Label": {
         "$Nullable": true,
         "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
