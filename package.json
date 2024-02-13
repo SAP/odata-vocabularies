@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "colors": "^1.4.0",
-    "odata-csdl": "^0.9.4",
+    "odata-csdl": "^0.9.5",
     "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
