@@ -1,7 +1,12 @@
 Entity types for which recommendations are available have an additional property carrying the recommendations and the following annotation pointing to this property:
 ```xml
 <EntityType Name="...">
-  <Annotation Term="UI.Recommendations" Path="SAP__Recommendations" />
+  <Annotation Term="UI.Recommendations">
+    <Record>
+      <PropertyValue Property="RecommendedValues" Path="SAP__Recommendations" />
+      <PropertyValue Property="SuggestionScore" Decimal="0.8" />
+    </Record>
+  </Annotation>
   <Key>
     <PropertyRef Name="ID" />
   </Key>
