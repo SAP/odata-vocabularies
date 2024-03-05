@@ -72,10 +72,10 @@ Term|Type|Description
 [ParameterDefaultValue](./UI.xml#L1789:~:text=<Term%20Name="-,ParameterDefaultValue,-")|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
 [RecommendationState](./UI.xml#L1795:~:text=<Term%20Name="-,RecommendationState,-")|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
 [RecommendationList](./UI.xml#L1825:~:text=<Term%20Name="-,RecommendationList,-")|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[Recommendations](./UI.xml#L1857:~:text=<Term%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*|[RecommendationsType](#RecommendationsType)|<a name="Recommendations"></a>AI-based recommendations for an entity<br>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
-[ExcludeFromNavigationContext](./UI.xml#L1910:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1914:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
-[LeadingEntitySet](./UI.xml#L1924:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[Recommendations](./UI.xml#L1857:~:text=<Term%20Name="-,Recommendations,-") *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural properties of the entity type for which recommendations are available. The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
+[ExcludeFromNavigationContext](./UI.xml#L1906:~:text=<Term%20Name="-,ExcludeFromNavigationContext,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[DoNotCheckScaleOfMeasuredQuantity](./UI.xml#L1910:~:text=<Term%20Name="-,DoNotCheckScaleOfMeasuredQuantity,-") *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[LeadingEntitySet](./UI.xml#L1920:~:text=<Term%20Name="-,LeadingEntitySet,-") *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](./UI.xml#L68:~:text=<ComplexType%20Name="-,HeaderInfoType,-")
@@ -1139,32 +1139,25 @@ Property|Type|Description
 [LocalDataProperty](./UI.xml#L1849:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|PropertyPath|Path to editable property for which recommended values exist
 [ValueListProperty](./UI.xml#L1852:~:text=<ComplexType%20Name="-,RecommendationBinding,-")|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
-<a name="RecommendationsType"></a>
-## [RecommendationsType](./UI.xml#L1865:~:text=<ComplexType%20Name="-,RecommendationsType,-") *([Experimental](Common.md#Experimental))*
-
-
-Property|Type|Description
-:-------|:---|:----------
-[RecommendedValues](./UI.xml#L1867:~:text=<ComplexType%20Name="-,RecommendationsType,-")|ComplexType|Recommended values for an entity<br>This complex-typed property contains structural properties corresponding via name equality to non-key structural properties of the entity type for which recommendations are available. The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
-[SuggestionScore](./UI.xml#L1875:~:text=<ComplexType%20Name="-,RecommendationsType,-")|Decimal?|Minimum confidence score for suggestions<br>The highest-scoring recommended value for a property is suggested in the input field if its confidence score has or exceeds this value.
-
 <a name="PropertyRecommendationType"></a>
-## [*PropertyRecommendationType*](./UI.xml#L1883:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
-Base type containing AI-based recommendations for an entity type property
+## [*PropertyRecommendationType*](./UI.xml#L1869:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-") *([Experimental](Common.md#Experimental))*
+Base type containing recommendations for an entity type property
 
 Informal specializations of this base type have four properties:
-- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`
-- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`
-- a property named `AIRecommendedFieldScoreValue`.
+- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`
+- a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`
+- a property named `RecommendedFieldScoreValue`
+- a Boolean property named `RecommendedFieldIsSuggestion`.
 
 Property|Type|Description
 :-------|:---|:----------
-[AIRecommendedFieldValue](./UI.xml#L1892:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
-[AIRecommendedFieldDescription](./UI.xml#L1899:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
-[AIRecommendedFieldScoreValue](./UI.xml#L1905:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
+[RecommendedFieldValue](./UI.xml#L1879:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|PrimitiveType|Recommended value<br>In specializations of this base type, this property is specialized to the primitive type of the entity type property.
+[RecommendedFieldDescription](./UI.xml#L1886:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|String?|Description of the recommended value<br>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+[RecommendedFieldScoreValue](./UI.xml#L1892:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Decimal?|Confidence score of the recommended value
+[RecommendedFieldIsSuggestion](./UI.xml#L1895:~:text=<ComplexType%20Name="-,PropertyRecommendationType,-")|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.
 
 <a name="ActionName"></a>
-## [ActionName](./UI.xml#L1929:~:text=<TypeDefinition%20Name="-,ActionName,-")
+## [ActionName](./UI.xml#L1925:~:text=<TypeDefinition%20Name="-,ActionName,-")
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope

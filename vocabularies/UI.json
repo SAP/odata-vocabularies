@@ -1698,47 +1698,38 @@
     },
     "Recommendations": {
       "$Kind": "Term",
-      "$Type": "UI.RecommendationsType",
+      "$Type": "Edm.ComplexType",
       "@Common.Experimental": true,
-      "@Core.Description": "AI-based recommendations for an entity",
-      "@Core.LongDescription": "Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\n            The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
-    },
-    "RecommendationsType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "RecommendedValues": {
-        "$Type": "Edm.ComplexType",
-        "@Core.Description": "Recommended values for an entity",
-        "@Core.LongDescription": "This complex-typed property contains structural properties corresponding via name equality\n            to non-key structural properties of the entity type for which recommendations are available.\n            The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)."
-      },
-      "SuggestionScore": {
-        "$Type": "Edm.Decimal",
-        "$Nullable": true,
-        "@Core.Description": "Minimum confidence score for suggestions",
-        "@Core.LongDescription": "The highest-scoring recommended value for a property is suggested in the input field if\n            its confidence score has or exceeds this value."
-      }
+      "@Core.Description": "Recommendations for an entity",
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\n            The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
       "$Abstract": true,
       "@Common.Experimental": true,
-      "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
-      "@Core.LongDescription": "Informal specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`.",
-      "AIRecommendedFieldValue": {
+      "@Core.Description": "Base type containing recommendations for an entity type property",
+      "@Core.LongDescription": "Informal specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`\n- a property named `RecommendedFieldScoreValue`\n- a Boolean property named `RecommendedFieldIsSuggestion`.",
+      "RecommendedFieldValue": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Recommended value",
         "@Core.LongDescription": "In specializations of this base type, this property is specialized to the primitive type of the entity type property.",
-        "@Common.Text": { "$Path": "AIRecommendedFieldDescription" }
+        "@Common.Text": { "$Path": "RecommendedFieldDescription" }
       },
-      "AIRecommendedFieldDescription": {
+      "RecommendedFieldDescription": {
         "$Nullable": true,
         "@Core.Description": "Description of the recommended value",
         "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
       },
-      "AIRecommendedFieldScoreValue": {
+      "RecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
         "$Nullable": true,
         "@Core.Description": "Confidence score of the recommended value"
+      },
+      "RecommendedFieldIsSuggestion": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the recommended value shall be suggested in the input field",
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property containing [`Recommendations`](#Recommendations),\n            this flag can be true in at most one instance of the collection,\n            and only if the `RecommendedFieldScoreValue` exceeds a certain threshold."
       }
     },
     "ExcludeFromNavigationContext": {
