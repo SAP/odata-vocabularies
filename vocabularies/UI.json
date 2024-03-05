@@ -1701,7 +1701,7 @@
       "$Type": "Edm.ComplexType",
       "@Common.Experimental": true,
       "@Core.Description": "Recommendations for an entity",
-      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\n            The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",

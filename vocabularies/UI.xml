@@ -1863,7 +1863,7 @@ to non-key structural properties of the entity type for which recommendations ar
 The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
 
 Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.
-            The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
+The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
           </Annotation>
       </Term>
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
