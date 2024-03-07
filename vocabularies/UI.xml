@@ -1886,7 +1886,8 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
         <Property Name="RecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.</String>
+            <String>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+            This property is omitted from specializations for recommendations without text.</String>
           </Annotation>
         </Property>
         <Property Name="RecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">

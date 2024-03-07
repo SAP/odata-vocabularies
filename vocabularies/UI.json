@@ -1718,7 +1718,7 @@
       "RecommendedFieldDescription": {
         "$Nullable": true,
         "@Core.Description": "Description of the recommended value",
-        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            This property is omitted from specializations for recommendations without text."
       },
       "RecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",
