@@ -300,7 +300,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*ValueListProperty*](./Common.xml#L776:~:text=<ComplexType%20Name="-,ValueListParameter,-")|String|Path to property in the value list . Format is identical to PropertyPath annotations.
-[Constants](./Common.xml#L800:~:text=<ComplexType%20Name="-,ValueListParameterConstants,-")|\[PrimitiveType\]|List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators
+[Constants](./Common.xml#L800:~:text=<ComplexType%20Name="-,ValueListParameterConstants,-")|\[PrimitiveType\]|List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)
 [InitialValueIsSignificant](./Common.xml#L803:~:text=<ComplexType%20Name="-,ValueListParameterConstants,-")|Boolean|Initial value, e.g. empty string, is a valid and significant value
 
 <a name="ValueListParameterInOut"></a>
