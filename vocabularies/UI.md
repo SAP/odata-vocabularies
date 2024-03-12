@@ -138,16 +138,16 @@ Property|Type|Description
 ## [MediaResourceType](./UI.xml#L276:~:text=<ComplexType%20Name="-,MediaResourceType,-")
 
 
-Property| Type                     |Description
-:-------|:-------------------------|:----------
-[Url](./UI.xml#L277:~:text=<ComplexType%20Name="-,MediaResourceType,-")| URL?                     |URL of media resource<br>Can be annotated with:<br>- [LinkTarget](HTML5.md#LinkTarget)
-[Stream](./UI.xml#L286:~:text=<ComplexType%20Name="-,MediaResourceType,-") *([Experimental](Common.md#Experimental))*| Stream?                  |Stream of media resource<br>Can be annotated with:<br>- [LinkTarget](HTML5.md#LinkTarget)
-[ContentType](./UI.xml#L295:~:text=<ComplexType%20Name="-,MediaResourceType,-")| MediaType?               |Content type, such as application/pdf, video/x-flv, image/jpeg
-[ByteSize](./UI.xml#L299:~:text=<ComplexType%20Name="-,MediaResourceType,-")| Int64?                   |Resource size in bytes
-[ChangedAt](./UI.xml#L302:~:text=<ComplexType%20Name="-,MediaResourceType,-")| DateTimeOffset?          |Date of last change
-[Thumbnail](./UI.xml#L305:~:text=<ComplexType%20Name="-,MediaResourceType,-")| [ImageType?](#ImageType) |Thumbnail image
-[Title](./UI.xml#L308:~:text=<ComplexType%20Name="-,MediaResourceType,-")| [DataField?](#DataField) |Resource title
-[Description](./UI.xml#L311:~:text=<ComplexType%20Name="-,MediaResourceType,-")| [DataField?](#DataField) |Resource description
+Property|Type|Description
+:-------|:---|:----------
+[Url](./UI.xml#L277:~:text=<ComplexType%20Name="-,MediaResourceType,-")|URL?|URL of media resource<br>Can be annotated with:<br>- [LinkTarget](HTML5.md#LinkTarget)
+[Stream](./UI.xml#L286:~:text=<ComplexType%20Name="-,MediaResourceType,-") *([Experimental](Common.md#Experimental))*|Stream?|Stream of media resource<br>Can be annotated with:<br>- [LinkTarget](HTML5.md#LinkTarget)
+[ContentType](./UI.xml#L295:~:text=<ComplexType%20Name="-,MediaResourceType,-")|MediaType?|Content type, such as application/pdf, video/x-flv, image/jpeg
+[ByteSize](./UI.xml#L299:~:text=<ComplexType%20Name="-,MediaResourceType,-")|Int64?|Resource size in bytes
+[ChangedAt](./UI.xml#L302:~:text=<ComplexType%20Name="-,MediaResourceType,-")|DateTimeOffset?|Date of last change
+[Thumbnail](./UI.xml#L305:~:text=<ComplexType%20Name="-,MediaResourceType,-")|[ImageType?](#ImageType)|Thumbnail image
+[Title](./UI.xml#L308:~:text=<ComplexType%20Name="-,MediaResourceType,-")|[DataField?](#DataField)|Resource title
+[Description](./UI.xml#L311:~:text=<ComplexType%20Name="-,MediaResourceType,-")|[DataField?](#DataField)|Resource description
 
 <a name="ImageType"></a>
 ## [ImageType](./UI.xml#L315:~:text=<ComplexType%20Name="-,ImageType,-")
@@ -1145,7 +1145,7 @@ Property|Type|Description
 Name of an Action, Function, ActionImport, or FunctionImport in scope
 
 Possible values are
-        
+
 - Namespace-qualified name of an action or function (`foo.bar`)
 - Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
 - Simple name of an action import or function import of the annotated service (`quux`)

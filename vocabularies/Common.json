@@ -709,13 +709,8 @@
       "Constants": {
         "$Collection": true,
         "$Type": "Edm.PrimitiveType",
-        "@Core.Description": "List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)",
+        "@Core.Description": "List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue). Initial values are significant.",
         "@Core.LongDescription": "An empty list means a vacuous filter condition"
-      },
-      "InitialValueIsSignificant": {
-        "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
-        "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       }
     },
     "ValueListParameterInOut": {

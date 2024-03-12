@@ -798,13 +798,10 @@ The minimum structure is
       <ComplexType Name="ValueListParameterConstants" BaseType="Common.ValueListParameter">
         <Annotation Term="Common.Experimental" />
         <Property Name="Constants" Type="Collection(Edm.PrimitiveType)">
-          <Annotation Term="Core.Description" String="List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
+          <Annotation Term="Core.Description" String="List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue). Initial values are significant." />
           <Annotation Term="Core.LongDescription">
             <String>An empty list means a vacuous filter condition</String>
           </Annotation>
-        </Property>
-        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
-          <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
