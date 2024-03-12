@@ -257,7 +257,7 @@
         "@Core.Description": "Date of last change"
       },
       "Thumbnail": { "$Type": "UI.ImageType", "$Nullable": true, "@Core.Description": "Thumbnail image" },
-      "Title": { "$Type": "UI.DataField", "@Core.Description": "Resource title" },
+      "Title": { "$Type": "UI.DataField", "$Nullable": true, "@Core.Description": "Resource title" },
       "Description": { "$Type": "UI.DataField", "$Nullable": true, "@Core.Description": "Resource description" }
     },
     "ImageType": {
