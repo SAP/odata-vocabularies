@@ -795,6 +795,15 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
+      <ComplexType Name="ValueListParameterConstants" BaseType="Common.ValueListParameter">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Constants" Type="Collection(Edm.PrimitiveType)">
+          <Annotation Term="Core.Description" String="List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators" />
+        </Property>
+        <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
+          <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
+        </Property>
+      </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
