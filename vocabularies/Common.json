@@ -702,6 +702,21 @@
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       }
     },
+    "ValueListParameterConstants": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.ValueListParameter",
+      "@Common.Experimental": true,
+      "Constants": {
+        "$Collection": true,
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators"
+      },
+      "InitialValueIsSignificant": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
+      }
+    },
     "ValueListParameterInOut": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
