@@ -1,0 +1,101 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+    }
+  },
+  "com.sap.vocabularies.AI.v1": {
+    "$Alias": "AI",
+    "@Common.Experimental": true,
+    "@Core.Description": "Terms for AI-related functionality at SAP",
+    "@Core.Description#Published": "2023-10-04 © Copyright 2023 SAP SE. All rights reserved.",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
+    ],
+    "Recommendations": [
+      {
+        "$Kind": "Function",
+        "$IsBound": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Template for functions that compute AI-based recommendations for the bound entity and its related entities",
+        "@Core.LongDescription": "Functions following this template SHOULD compute the recommendations asynchronously, see [this diagram](../docs/recommendations.md).\n          The template itself cannot be invoked.",
+        "$Parameter": [{ "$Name": "Entity", "$Type": "Edm.EntityType" }],
+        "$ReturnType": {
+          "$Type": "Edm.ComplexType",
+          "@Core.Description": "Nested structure containing recommendations",
+          "@Core.LongDescription": "The nested structure contains complex types that correspond to the entity type of the binding parameter\n            or one of its related entity types. Each complex type contains\n            <br>- the same properties as the key of the corresponding entity type\n            <br>- structural properties corresponding to non-key structural properties of the entity type for which recommendations are\n            available. The type of such a property is a collection of a specialization of [`PropertyRecommendationType`](#PropertyRecommendationType)\n            <br>- structural properties corresponding to navigation properties of the entity type.\n            The type of such a property is (a collection of) a nested complex type corresponding to the target entity type of the navigation property."
+        }
+      }
+    ],
+    "PropertyRecommendationType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Base type containing AI-based recommendations for an entity type property",
+      "@Core.LongDescription": "Specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `AIRecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `AIRecommendedFieldDescription`\n- a property named `AIRecommendedFieldScoreValue`\n- a Boolean property named `AIRecommendedFieldIsSuggestion`.",
+      "AIRecommendedFieldValue": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the primitive type of the entity type property.",
+        "@Common.Text": { "$Path": "AIRecommendedFieldDescription" }
+      },
+      "AIRecommendedFieldDescription": {
+        "$Nullable": true,
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property."
+      },
+      "AIRecommendedFieldScoreValue": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Confidence score of the recommended value"
+      },
+      "AIRecommendedFieldIsSuggestion": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the recommended value shall be suggested in the input field",
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in the return type of the [`Recommendations`](#Recommendations) function,\n            this flag can be true in at most one instance of the collection,\n            and only if the `AIRecommendedFieldScoreValue` exceeds a certain threshold."
+      }
+    },
+    "RecommendationsFunction": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified name of a function that determines AI-based recommendations for the annotated entity type",
+      "@Core.LongDescription": "The signature of the function is described [here](#Recommendations)."
+    },
+    "RecommendationsRole": {
+      "$Kind": "Term",
+      "$Type": "AI.RecommendationsRoleType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Role of this property or parameter regarding AI-based recommendations"
+    },
+    "RecommendationsRoleType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Common.Experimental": true,
+      "@Validation.AllowedValues": [
+        { "Value": "Input", "@Core.Description": "The property is input for some recommendation" },
+        { "Value": "Output", "@Core.Description": "The property or parameter is the target of some recommendation" },
+        {
+          "Value": "InputOutput",
+          "@Core.Description": "The property is input for and the target of some recommendation"
+        },
+        {
+          "Value": "RequiredInput",
+          "@Core.Description": "The property is required input before any recommendations are requested"
+        }
+      ]
+    }
+  }
+}
