@@ -1,0 +1,67 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+    }
+  },
+  "com.sap.vocabularies.AI.v1": {
+    "$Alias": "AI",
+    "@Common.Experimental": true,
+    "@Core.Description": "Terms for AI-related functionality at SAP",
+    "@Core.Description#Published": "2023-10-04 © Copyright 2023 SAP SE. All rights reserved.",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
+    ],
+    "Recommendation": {
+      "$Kind": "Term",
+      "$Type": "Edm.PrimitiveType",
+      "$AppliesTo": ["Property", "ReturnType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A recommended value for this property or in this returned value",
+      "@Validation.ApplicableTerms": ["Common.Text", "Common.RecommendationScore"]
+    },
+    "RecommendationScore": {
+      "$Kind": "Term",
+      "$Type": "Edm.Decimal",
+      "$AppliesTo": ["Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Confidence score of a recommendation"
+    },
+    "RecommendationAlternatives": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Edm.Untyped",
+      "$AppliesTo": ["Property", "ReturnType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Alternative recommended values for this property or in this returned value",
+      "@Validation.DerivedTypeConstraint": [
+        "Edm.Binary",
+        "Edm.Boolean",
+        "Edm.Byte",
+        "Edm.Date",
+        "Edm.DateTimeOffset",
+        "Edm.Decimal",
+        "Edm.Double",
+        "Edm.Duration",
+        "Edm.Guid",
+        "Edm.Int16",
+        "Edm.Int32",
+        "Edm.Int64",
+        "Edm.SByte",
+        "Edm.Single",
+        "Edm.String",
+        "Edm.TimeOfDay"
+      ],
+      "@Validation.ApplicableTerms": ["Common.Text", "Common.RecommendationScore"]
+    }
+  }
+}
