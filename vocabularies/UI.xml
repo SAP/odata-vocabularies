@@ -305,7 +305,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Property Name="Thumbnail" Type="UI.ImageType" Nullable="true">
           <Annotation Term="Core.Description" String="Thumbnail image" />
         </Property>
-        <Property Name="Title" Type="UI.DataField" Nullable="false">
+        <Property Name="Title" Type="UI.DataField" Nullable="true">
           <Annotation Term="Core.Description" String="Resource title" />
         </Property>
         <Property Name="Description" Type="UI.DataField" Nullable="true">
@@ -1559,6 +1559,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
             <String>UI.Importance</String>
             <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
+            <String>Common.FieldControl</String>
           </Collection>
         </Annotation>
         <Property Name="Label" Type="Edm.String" Nullable="true">
@@ -1876,7 +1877,7 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         <Annotation Term="Core.LongDescription">
           <String>Possible values are
-        
+
 - Namespace-qualified name of an action or function (`foo.bar`)
 - Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)
 - Simple name of an action import or function import of the annotated service (`quux`)
