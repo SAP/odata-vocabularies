@@ -45,7 +45,14 @@
       "DrillState": {
         "$Nullable": true,
         "@Core.Description": "Drill state of an entry",
-        "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if an entry precedes entries from deeper aggregation levels\n            <br>- `collapsed` if an entry belongs to the highest non-expanded aggregation level, but not the deepest\n            <br>- `leaf` if an entry belongs to the deepest aggregation level"
+        "@Validation.AllowedValues": [
+          { "Value": "expanded", "@Core.Description": "The entry precedes entries from deeper aggregation levels" },
+          {
+            "Value": "collapsed",
+            "@Core.Description": "The entry belongs to the highest non-expanded aggregation level, but not the deepest"
+          },
+          { "Value": "leaf", "@Core.Description": "The entry belongs to the deepest aggregation level" }
+        ]
       },
       "DistanceFromRoot": {
         "$Type": "Edm.Int64",
@@ -76,7 +83,14 @@
       "DrillState": {
         "$Nullable": true,
         "@Core.Description": "Drill state of an occurrence of a node",
-        "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
+        "@Validation.AllowedValues": [
+          { "Value": "expanded", "@Core.Description": "The node has children in the limited hierarchy" },
+          {
+            "Value": "collapsed",
+            "@Core.Description": "The node has children in the unlimited hierarchy but not in the limited hierarchy"
+          },
+          { "Value": "leaf", "@Core.Description": "The node has no children in the unlimited hierarchy" }
+        ]
       },
       "DistanceFromRoot": {
         "$Type": "Edm.Int64",
