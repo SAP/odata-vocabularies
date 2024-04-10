@@ -21,7 +21,8 @@
     "prettier": "^3.2.5"
   },
   "scripts": {
-    "build": "node lib/transform.js"
+    "build": "node lib/transform.js",
+    "pages": "node -r odata-vocabularies/pages -e \"\""
   },
   "author": "",
   "license": ""
