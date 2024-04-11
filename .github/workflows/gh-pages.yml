@@ -37,7 +37,7 @@ jobs:
       - name: Build with pandoc
         run: |
           npm ci
-          npm run pages "OData @ SAP"
+          npm run pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
