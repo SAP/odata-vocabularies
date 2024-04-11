@@ -388,15 +388,16 @@
           <Annotation Term="Core.Description" String="Property is mandatory from a business perspective" />
           <Annotation Term="Core.LongDescription">
             <String>A request that
-            &lt;br&gt;- sets the property to null or an empty value or
-            &lt;br&gt;- creates a non-[draft](#DraftRoot) entity and omits the property or
-            &lt;br&gt;- activates a draft entity while the property is null or empty
-            &lt;br&gt;fails entirely if this annotation is `Mandatory` in the after-image of the request.
-            The empty string is an empty value. Service-specific rules may consider other values, also
-            of non-string type, empty.
-            Values in draft entities are never considered empty.
-            Mandatory properties SHOULD be decorated in the UI with an asterisk.
-            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
+- sets the property to null or an empty value or
+- creates a non-[draft](#DraftRoot) entity and omits the property or
+- activates a draft entity while the property is null or empty
+
+fails entirely if this annotation is `Mandatory` in the after-image of the request.
+The empty string is an empty value. Service-specific rules may consider other values, also
+of non-string type, empty.
+Values in draft entities are never considered empty.
+Mandatory properties SHOULD be decorated in the UI with an asterisk.
+Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).</String>
           </Annotation>
         </Member>
         <Member Name="Optional" Value="3">
@@ -488,19 +489,12 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
           <String>The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.
 
 The minimum structure is
-
 - `code: Edm.String`
-
 - `message: Edm.String`
-
 - `target: Edm.String nullable`
-
 - `additionalTargets: Collection(Edm.String)`
-
 - `transition: Edm.Boolean`
-
 - `numericSeverity: Edm.Byte`
-
 - `longtextUrl: Edm.String nullable`
           </String>
         </Annotation>
@@ -942,9 +936,9 @@ The minimum structure is
       </Term>
       <Term Name="IsCalendarYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting 
+          <String>Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting
           of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.
-          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3]) 
+          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -952,13 +946,13 @@ The minimum structure is
       </Term>
       <Term Name="IsCalendarDate" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting 
-          of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent 
+          <String>Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting
+          of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent
           the months January to December (MM) and the day of the month (DD).
           The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])
           The regex pattern does not reflect the additional constraint for "Day-of-month Values":
-          The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, 
-          or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.          
+          The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4,
+          or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.
           </String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -969,7 +963,7 @@ The minimum structure is
       <!-- Section: Fiscal Points in Time -->
       <Term Name="IsFiscalYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. 
+          <String>Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits.
           The string matches the regex pattern [1-9][0-9]{3}
           </String>
         </Annotation>
@@ -978,7 +972,7 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. 
+          <String>Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits.
           The string matches the regex pattern [0-9]{3}
           </String>
         </Annotation>
@@ -987,7 +981,7 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalYearPeriod" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting 
+          <String>Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting
           of seven digits, where the last three digits represent the fiscal period in the year.
           The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})
           </String>
@@ -997,7 +991,7 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. 
+          <String>Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit.
           The string matches the regex pattern [1-4]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -1006,7 +1000,7 @@ The minimum structure is
       <Term Name="IsFiscalYearQuarter" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
           <String>Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of
-          five digits, where the last digit represents the quarter. 
+          five digits, where the last digit represents the quarter.
           The string matches the regex pattern [1-9][0-9]{3}[1-4]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -1014,7 +1008,7 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. 
+          <String>Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits.
           The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -1022,8 +1016,8 @@ The minimum structure is
       </Term>
       <Term Name="IsFiscalYearWeek" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description">
-          <String>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of 
-          six digits, where the last two digits represent the week number in the year. 
+          <String>Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of
+          six digits, where the last two digits represent the week number in the year.
           The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])</String>
         </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
@@ -1141,8 +1135,8 @@ The minimum structure is
       <TypeDefinition Name="ActionOverload" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The namespace-qualified name of an action with an optional overload" />
         <Annotation Term="Core.LongDescription">
-          <String>The namespace-qualified name of an action, optionally followed by parentheses 
-            containing the binding parameter type of a bound action overload to identify that bound overload, 
+          <String>The namespace-qualified name of an action, optionally followed by parentheses
+            containing the binding parameter type of a bound action overload to identify that bound overload,
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.</String>
         </Annotation>
       </TypeDefinition>
@@ -1162,7 +1156,7 @@ An empty NavigationPropertyPath may be used in TargetEntities to specify that an
 
 Side effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.
 
-Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, 
+Special case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning,
 only `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.
 This can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.</String>
         </Annotation>
@@ -1194,11 +1188,6 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
           <Annotation Term="Core.LongDescription" String="Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`." />
         </Property>
-        <Property Name="TriggeredIndicator" Type="Edm.Boolean" Nullable="true">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Indicates whether the side-effect has already happened" />
-          <Annotation Term="Core.LongDescription" String="The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested." />
-        </Property>
         <Property Name="Discretionary" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Indicates whether the client can decide if a side-effect should be triggered or not" />
@@ -1217,22 +1206,22 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Member Name="ValidationMessage" Value="1">
           <Annotation Term="Core.Description" String="Validation messages are assigned to a target" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type indicates that validation messages may result from changes of source properties or entities.  
-Thus, a validation request can be sent either in conjunction with or separately after a modifying request. 
+            <String>This side effect type indicates that validation messages may result from changes of source properties or entities.
+Thus, a validation request can be sent either in conjunction with or separately after a modifying request.
 Validation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.</String>
           </Annotation>
         </Member>
         <Member Name="ValueChange" Value="2">
           <Annotation Term="Core.Description" String="The value of a target changes" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.  
+            <String>This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.
 Upon modification preparation logic is performed that determines additional values to be stored in the draft document.</String>
           </Annotation>
         </Member>
         <Member Name="FieldControlChange" Value="4">
           <Annotation Term="Core.Description" String="The value of the Common.FieldControl annotation of a target changes" />
           <Annotation Term="Core.LongDescription">
-            <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  
+            <String>This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.
 Upon modification field control logic is invoked so that meta-information like hidden or read-only is determined.</String>
           </Annotation>
         </Member>
@@ -1283,7 +1272,7 @@ Upon modification field control logic is invoked so that meta-information like h
 
             The return type must be of the same type as the annotated property.
 
-            Arguments passed to the function import are used as context for deriving the default value. 
+            Arguments passed to the function import are used as context for deriving the default value.
             The function import returns this default value, or null in case such a value could not be determined.
           </String>
         </Annotation>
@@ -1325,8 +1314,8 @@ Upon modification field control logic is invoked so that meta-information like h
       <Term Name="SortOrder" Type="Collection(Common.SortOrderType)" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.Description" String="List of sort criteria" />
         <Annotation Term="Core.LongDescription">
-          <String>The items of the annotated entity set or the items of the 
-          collection of the annotated entity type are sorted by the first entry of the SortOrder collection. 
+          <String>The items of the annotated entity set or the items of the
+          collection of the annotated entity type are sorted by the first entry of the SortOrder collection.
           Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. </String>
         </Annotation>
       </Term>
@@ -1405,18 +1394,18 @@ Upon modification field control logic is invoked so that meta-information like h
         </Property>
         <Property Name="NodeDescendantCountProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description">
-            <String>Property holding the descendant count for a hierarchy node. 
-            The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering 
-            only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer 
+            <String>Property holding the descendant count for a hierarchy node.
+            The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering
+            only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer
             data type.</String>
           </Annotation>
         </Property>
         <Property Name="NodeDrillStateProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description">
-            <String>Property holding the drill state of a hierarchy node. The drill state is indicated 
-            by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its 
-            children are included in the result collection. For a collapsed node, the children are included in the entity set, but 
-            they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request 
+            <String>Property holding the drill state of a hierarchy node. The drill state is indicated
+            by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its
+            children are included in the result collection. For a collapsed node, the children are included in the entity set, but
+            they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request
             filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.
             </String>
           </Annotation>

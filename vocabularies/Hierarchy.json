@@ -73,7 +73,7 @@
       "NodeType": {
         "$Nullable": true,
         "@Core.Description": "Type of a node",
-        "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n            <br>- have a type-specific (navigation) property whose name is the node type or\n            <br>- be represented by entities of different subtypes of a common entity type that is\n            annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
+        "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n- have a type-specific (navigation) property whose name is the node type or\n- be represented by entities of different subtypes of a common entity type that is\n\nannotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
       },
       "LimitedDescendantCount": {
         "$Type": "Edm.Int64",
@@ -166,7 +166,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
-      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\n          For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n          `filter` or `search` transformation that occurs as the fourth parameter\n          of the last `ancestors` transformation or occurs nested into it.<br>\n          For requests not following this pattern, the subset NEED NOT be defined.<br>\n          This instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType)\n          and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available."
+      "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\nFor requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n`filter` or `search` transformation that occurs as the fourth parameter\nof the last `ancestors` transformation or occurs nested into it.\n\nFor requests not following this pattern, the subset NEED NOT be defined.\n\nThis instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType)\nand [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available."
     },
     "TopLevels": [
       {
