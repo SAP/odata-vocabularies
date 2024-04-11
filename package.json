@@ -22,8 +22,7 @@
   },
   "scripts": {
     "build": "node lib/transform.js",
-    "pages": "node -e \"require('odata-vocabularies/pages')\" \"OData @ SAP\"",
-    "serve-pages": "node -e \"require('odata-vocabularies/serve-pages')\""
+    "pages": "node -e \"require('odata-vocabularies/pages')\" \"OData @ SAP\""
   },
   "author": "",
   "license": ""

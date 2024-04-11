@@ -89,14 +89,20 @@ combined as one UI app.
           <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-&lt;ul&gt;&lt;li&gt;Binding parameter is collection of type of annotated entity set&lt;/li&gt;
-&lt;li&gt;No non-binding parameters&lt;/li&gt;
-&lt;li&gt;No return type &lt;/li&gt;&lt;/ul&gt;
+
+- Binding parameter is collection of type of annotated entity set
+
+- No non-binding parameters
+
+- No return type 
+
 If called within a sticky session the sticky session continues. 
 
 Otherwise:
-&lt;ul&gt;&lt;li&gt;On success this action initiates a sticky session.&lt;/li&gt;
-&lt;li&gt;On failure no sticky session is initiated.&lt;/li&gt;&lt;/ul&gt;</String>
+
+- On success this action initiates a sticky session.
+
+- On failure no sticky session is initiated.</String>
           </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
@@ -108,23 +114,33 @@ Otherwise:
           <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-&lt;ul&gt;&lt;li&gt;Binding parameter is type of annotated entity set&lt;/li&gt;
-&lt;li&gt;No non-binding parameters&lt;/li&gt;
-&lt;li&gt;Return type is same as binding parameter type&lt;/li&gt;&lt;/ul&gt;
+
+- Binding parameter is type of annotated entity set
+
+- No non-binding parameters
+
+- Return type is same as binding parameter type 
+
 If called within a sticky session the sticky session continues. 
 
 Otherwise:
-&lt;ul&gt;&lt;li&gt;On success this action returns the targeted entity and initiates a sticky session.&lt;/li&gt;
-&lt;li&gt;On failure no sticky session is initiated.&lt;/li&gt;&lt;/ul&gt;</String>
+
+- On success this action returns the targeted entity and initiates a sticky session.
+
+- On failure no sticky session is initiated.</String>
           </Annotation>
         </Property>
         <Property Name="SaveAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Bound action that saves a new or edited entity" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-&lt;ul&gt;&lt;li&gt;Binding parameter is type of annotated entity set&lt;/li&gt;
-&lt;li&gt;No non-binding parameters&lt;/li&gt;
-&lt;li&gt;Return type is same as binding parameter type&lt;/li&gt;&lt;/ul&gt; 
+
+- Binding parameter is type of annotated entity set
+
+- No non-binding parameters
+
+- Return type is same as binding parameter type 
+
 On success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. 
 
 On failure the sticky session is kept alive.</String>
@@ -134,8 +150,11 @@ On failure the sticky session is kept alive.</String>
           <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-&lt;ul&gt;&lt;li&gt;No parameters&lt;/li&gt;
-&lt;li&gt;No return type&lt;/li&gt;&lt;/ul&gt;
+
+- No parameters
+
+- No return type 
+
 If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. 
 
 If called outside of a sticky session the action fails and does not initiate a session.</String>

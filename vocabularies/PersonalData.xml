@@ -207,10 +207,14 @@ See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
           <String>Sensitive data is a colloquial term usually including the following data:
-&lt;ul&gt;&lt;li&gt;Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation&lt;/li&gt;
-&lt;li&gt;Personal data subject to professional secrecy&lt;/li&gt;
-&lt;li&gt;Personal data relating to criminal or administrative offences&lt;/li&gt;
-&lt;li&gt;Personal data concerning bank or credit card accounts&lt;/li&gt;&lt;/ul&gt;
+
+-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation
+
+-  Personal data subject to professional secrecy
+
+-  Personal data relating to criminal or administrative offences
+
+-  Personal data concerning bank or credit card accounts
 
 See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
         </Annotation>
