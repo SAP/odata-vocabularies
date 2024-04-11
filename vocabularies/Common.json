@@ -308,7 +308,7 @@
       "@Core.LongDescription": "When changes are requested, the value of this annotation in the before-image or after-image\n          of the request plays a role. These may differ if the value is given dynamically in the metadata.",
       "Mandatory": 7,
       "Mandatory@Core.Description": "Property is mandatory from a business perspective",
-      "Mandatory@Core.LongDescription": "A request that\n            <br>- sets the property to null or an empty value or\n            <br>- creates a non-[draft](#DraftRoot) entity and omits the property or\n            <br>- activates a draft entity while the property is null or empty\n            <br>fails entirely if this annotation is `Mandatory` in the after-image of the request.\n            The empty string is an empty value. Service-specific rules may consider other values, also\n            of non-string type, empty.\n            Values in draft entities are never considered empty.\n            Mandatory properties SHOULD be decorated in the UI with an asterisk.\n            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
+      "Mandatory@Core.LongDescription": "A request that\n- sets the property to null or an empty value or\n- creates a non-[draft](#DraftRoot) entity and omits the property or\n- activates a draft entity while the property is null or empty\n\nfails entirely if this annotation is `Mandatory` in the after-image of the request.\nThe empty string is an empty value. Service-specific rules may consider other values, also\nof non-string type, empty.\nValues in draft entities are never considered empty.\nMandatory properties SHOULD be decorated in the UI with an asterisk.\nNull or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
       "Optional": 3,
       "Optional@Core.Description": "Property may have a value",
       "Optional@Core.LongDescription": "This value does not make sense as a static annotation value.",
@@ -376,7 +376,7 @@
       "$Collection": true,
       "$Type": "Edm.ComplexType",
       "@Core.Description": "Collection of end-user messages",
-      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
+      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n- `code: Edm.String`\n- `message: Edm.String`\n- `target: Edm.String nullable`\n- `additionalTargets: Collection(Edm.String)`\n- `transition: Edm.Boolean`\n- `numericSeverity: Edm.Byte`\n- `longtextUrl: Edm.String nullable`\n          "
     },
     "additionalTargets": {
       "$Kind": "Term",
