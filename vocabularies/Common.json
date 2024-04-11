@@ -376,7 +376,7 @@
       "$Collection": true,
       "$Type": "Edm.ComplexType",
       "@Core.Description": "Collection of end-user messages",
-      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
+      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n- `code: Edm.String`\n- `message: Edm.String`\n- `target: Edm.String nullable`\n- `additionalTargets: Collection(Edm.String)`\n- `transition: Edm.Boolean`\n- `numericSeverity: Edm.Byte`\n- `longtextUrl: Edm.String nullable`\n          "
     },
     "additionalTargets": {
       "$Kind": "Term",
