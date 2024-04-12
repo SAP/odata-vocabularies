@@ -47,11 +47,11 @@
         "@Core.Description": "Drill state of an entry",
         "@Validation.AllowedValues": [
           { "Value": "expanded", "@Core.Description": "The entry precedes entries from deeper aggregation levels" },
+          { "Value": "leaf", "@Core.Description": "The entry belongs to the deepest aggregation level" },
           {
             "Value": "collapsed",
-            "@Core.Description": "The entry belongs to the highest non-expanded aggregation level, but not the deepest"
-          },
-          { "Value": "leaf", "@Core.Description": "The entry belongs to the deepest aggregation level" }
+            "@Core.Description": "The entry belongs to the highest non-expanded aggregation level, but is not a leaf"
+          }
         ]
       },
       "DistanceFromRoot": {

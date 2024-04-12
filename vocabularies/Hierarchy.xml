@@ -67,12 +67,12 @@
                 <Annotation Term="Core.Description" String="The entry precedes entries from deeper aggregation levels" />
               </Record>
               <Record>
-                <PropertyValue Property="Value" String="collapsed" />
-                <Annotation Term="Core.Description" String="The entry belongs to the highest non-expanded aggregation level, but not the deepest" />
-              </Record>
-              <Record>
                 <PropertyValue Property="Value" String="leaf" />
                 <Annotation Term="Core.Description" String="The entry belongs to the deepest aggregation level" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="collapsed" />
+                <Annotation Term="Core.Description" String="The entry belongs to the highest non-expanded aggregation level, but is not a leaf" />
               </Record>
             </Collection>
           </Annotation>
