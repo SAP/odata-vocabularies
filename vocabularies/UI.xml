@@ -1854,7 +1854,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Property>
       </ComplexType>
 
-      <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false">
+      <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Recommendations for an entity" />
           <Annotation Term="Core.LongDescription">
