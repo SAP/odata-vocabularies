@@ -224,6 +224,16 @@
         "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
       }
     },
+    "AutoLevelsExpandType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Hierarchy.TopLevelsExpandType",
+      "@Common.Experimental": true,
+      "@Core.Description": "Information about entries in a leveled hierarchy to be expanded",
+      "NodeID": {
+        "$Collection": true,
+        "@Core.Description": "An entry on a given [level](Analytics.md#AutoExpandLevel) is identified by a collection of values for the properties that constitute this level"
+      }
+    },
     "RecursiveHierarchySupported": {
       "$Kind": "Term",
       "$Type": "Core.Tag",

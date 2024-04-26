@@ -181,7 +181,6 @@
 
       <Function Name="AutoExpand" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties" />
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Entity set to be processed" />
@@ -189,7 +188,7 @@
         <Parameter Name="Levels" Type="Collection(Analytics.AutoExpandLevel)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming the visible part of a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
-            <String>Each element in the collection defines the property names for one level.
+            <String>Each element in the collection defines the properties that constitute one level.
             A property must not referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
@@ -213,38 +212,10 @@
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
-        <Parameter Name="BeforeAggregationFilter" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Expression valid for `filter` transformation to restrict the input set before any further procressing" />
+        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.AutoLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Entries to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="AggregatedValuesLeafFilter" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Expression valid for `filter` transformation to restrict the input set at the most detailed grouping level with conditions on aggregated values" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Skip" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of entries to skip from the top of the fully ordered result" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue" String="0" />
-            </Record>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Top" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of entries to return from the result set after any skipping (absent means all)" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="ResultEntriesCount" Type="Edm.Bool" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to return the total number of entries in the result independent of Skip/Top" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record>
-              <PropertyValue Property="DefaultValue" String="false" />
-            </Record>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
