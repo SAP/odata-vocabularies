@@ -333,13 +333,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
         </Property>
       </ComplexType>
-      <ComplexType Name="AutoLevelsExpandType" BaseType="Hierarchy.TopLevelsExpandType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Information about entries in a leveled hierarchy to be expanded" />
-        <Property Name="NodeID" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="An entry on a given [level](Analytics.md#AutoExpandLevel) is identified by a collection of values for the properties that constitute this level" />
-        </Property>
-      </ComplexType>
 
       <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
