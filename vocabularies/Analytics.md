@@ -56,7 +56,7 @@ Parameter|Type|Description
 [LeafLevel](./Analytics.xml#L222:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy<br>Property names that occur in `Levels` must not be repeated here. All referenced properties must be groupable.
 [Aggregation](./Analytics.xml#L229:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
 [SiblingOrder](./Analytics.xml#L235:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
-*[ExpandLevels](./Analytics.xml#L238:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandLevelType](#AutoExpandLevelType)\]|*Optional parameter:* Entries to be expanded
+*[ExpandLevels](./Analytics.xml#L238:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandLevelType](#AutoExpandLevelType)\]|*Optional parameter:* Entries to be specially (not fully) expanded
 [&rarr;](./Analytics.xml#L244:~:text=<Function%20Name="-,AutoExpand,-")|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 

@@ -209,7 +209,7 @@
             "$Name": "ExpandLevels",
             "$Collection": true,
             "$Type": "Analytics.AutoExpandLevelType",
-            "@Core.Description": "Entries to be expanded",
+            "@Core.Description": "Entries to be specially (not fully) expanded",
             "@Core.OptionalParameter": {}
           }
         ],

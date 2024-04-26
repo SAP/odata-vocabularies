@@ -236,7 +236,7 @@ $apply=filter(Industry eq 'IT')
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
         <Parameter Name="ExpandLevels" Type="Collection(Analytics.AutoExpandLevelType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Entries to be expanded" />
+          <Annotation Term="Core.Description" String="Entries to be specially (not fully) expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
