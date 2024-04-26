@@ -51,7 +51,7 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
-          an entry in the result set of a request with multiple aggregation levels, some which are expanded.
+          an entry in the result set of a request with multiple aggregation levels, some of which are expanded.
           These properties also serve in the derived [`RecursiveHierarchyType`](#RecursiveHierarchyType)
           with their definitions rephrased in the concept of recursive hierarchies.</String>
         </Annotation>
@@ -205,6 +205,7 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
