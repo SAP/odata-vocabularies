@@ -201,8 +201,7 @@ $apply=filter(Industry in ['IT','AI'])
             {"P":["Region","RegionName"]},
             {"P":["Segment","Industry"]}],
     Aggregation=["Amount","Currency"],
-    SiblingOrder=[{"Property":"Amount",
-                   "Order":"desc"}],
+    SiblingOrder=[{"Property":"Amount","Order":"desc"}],
     ExpandLevels=2,
     ExpandEntries=[{"Entry":["US","USA"],"Levels":0},
                    {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":1}]
