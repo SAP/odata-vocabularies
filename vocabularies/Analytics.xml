@@ -184,6 +184,9 @@
         <Annotation Term="Core.Description" String="`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties" />
         <Annotation Term="Core.LongDescription">
           <String>Example transformation sequence:
+filter on columns `Industry`, `Amount` and `Currency`,
+order by `Amount` descending,
+manually changed expansion state of two nodes
 ```
 $apply=filter(Industry in ['IT','AI'])
 /groupby((Country,CountryName,Region,RegionName,Segment,Industry),
