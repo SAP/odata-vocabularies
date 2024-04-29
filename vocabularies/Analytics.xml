@@ -185,23 +185,25 @@
         <Annotation Term="Core.LongDescription">
           <String>Example transformation sequence:
 ```
-$apply=filter(Industry eq 'IT')
-/groupby((Country,CountryName,Region,RegionName),
+$apply=filter(Industry in ['IT','AI'])
+/groupby((Country,CountryName,Region,RegionName,Segment,Industry),
          filter($these/aggregate(Amount) gt 0 and
                 $these/aggregate(Currency) ne null))
 /concat(
+  groupby((Country,CountryName,Region,RegionName,Segment,Industry),
+          aggregate($count) as LeavesCount),
+  aggregate(Amount,Currency),
   Analytics.AutoExpand(
     Levels=[{"P":["Country","CountryName"]},
-            {"P":["Region","RegionName"]}],
-    LeafLevel=["Segment","Industry"],
+            {"P":["Region","RegionName"]},
+            {"P":["Segment","Industry"]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount",
                    "Order":"desc"}],
     ExpandLevels=[{"Entry":["US","USA"],"Levels":0},
                   {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":2}])
     /concat(aggregate($count) as ResultEntriesCount,
-            skip(20)/top(10)),
-  aggregate(Amount,Currency))
+            skip(20)/top(10)))
 ```
 </String>
         </Annotation>
@@ -216,13 +218,6 @@ $apply=filter(Industry eq 'IT')
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result comprises the leveled hierarchy with these levels in preorder.
-            All referenced properties must be groupable.</String>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="LeafLevel" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A possibly empty set of property names that constitute, together with the property names from `Levels`, the leaf level of the leveled hierarchy" />
-          <Annotation Term="Core.LongDescription">
-            <String>Property names that occur in `Levels` must not be repeated here.
             All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
