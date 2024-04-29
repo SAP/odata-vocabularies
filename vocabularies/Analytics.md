@@ -33,11 +33,11 @@ order by `Amount` descending,
 expand 2 levels, with two exceptions
 ```
 $apply=filter(Industry in ('IT','AI'))
-/groupby((Country,CountryName,Region,RegionName,Segment,Industry),
+/groupby((Country,Region,Segment,Industry),
          filter($these/aggregate(Amount) gt 0 and
                 $these/aggregate(Currency) ne null))
 /concat(
-  groupby((Country,CountryName,Region,RegionName,Segment,Industry))
+  groupby((Country,Region,Segment,Industry))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.AutoExpand(
