@@ -253,11 +253,12 @@ $apply=filter(Industry in ['IT','AI'])
       <ComplexType Name="AutoExpandLevel">
         <Annotation Term="Common.Experimental" />
         <Property Name="P" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty set of property names constituting a level" />
+          <Annotation Term="Core.Description" String="A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)" />
         </Property>
       </ComplexType>
       <ComplexType Name="AutoExpandSiblingOrder">
         <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Sibling order in an [unnamed leveled hierarchy](#AutoExpand)" />
         <Property Name="Property" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property by which to sort" />
         </Property>
@@ -282,7 +283,7 @@ $apply=filter(Industry in ['IT','AI'])
       </TypeDefinition>
       <ComplexType Name="AutoExpandEntry">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Expansion state of an entry in a leveled hierarchy" />
+        <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one" />
         </Property>

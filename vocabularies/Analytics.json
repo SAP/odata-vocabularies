@@ -223,11 +223,15 @@
     "AutoExpandLevel": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "P": { "$Collection": true, "@Core.Description": "A non-empty set of property names constituting a level" }
+      "P": {
+        "$Collection": true,
+        "@Core.Description": "A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)"
+      }
     },
     "AutoExpandSiblingOrder": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
+      "@Core.Description": "Sibling order in an [unnamed leveled hierarchy](#AutoExpand)",
       "Property": { "@Core.Description": "Property by which to sort" },
       "Order": {
         "$Type": "Analytics.SortOrderType",
@@ -247,7 +251,7 @@
     "AutoExpandEntry": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.Description": "Expansion state of an entry in a leveled hierarchy",
+      "@Core.Description": "Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)",
       "Entry": {
         "$Collection": true,
         "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one"
