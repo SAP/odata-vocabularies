@@ -240,7 +240,7 @@ $apply=filter(Industry in ['IT','AI'])
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ExpandEntries" Type="Collection(Analytics.AutoExpandLevelType)" Nullable="false">
+        <Parameter Name="ExpandEntries" Type="Collection(Analytics.AutoExpandEntryType)" Nullable="false">
           <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -280,7 +280,7 @@ $apply=filter(Industry in ['IT','AI'])
           </Collection>
         </Annotation>
       </TypeDefinition>
-      <ComplexType Name="AutoExpandLevelType">
+      <ComplexType Name="AutoExpandEntryType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Information about entries in a leveled hierarchy that are not completely expanded" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">

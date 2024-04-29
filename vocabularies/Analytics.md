@@ -62,7 +62,7 @@ Parameter|Type|Description
 [Aggregation](./Analytics.xml#L228:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
 [SiblingOrder](./Analytics.xml#L234:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
 *[ExpandLevels](./Analytics.xml#L237:~:text=<Function%20Name="-,AutoExpand,-")*|Int64|*Optional parameter:* Number of levels to be expanded (absent means all levels)
-*[ExpandEntries](./Analytics.xml#L243:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandLevelType](#AutoExpandLevelType)\]|*Optional parameter:* Entries with exceptional expansion
+*[ExpandEntries](./Analytics.xml#L243:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandEntryType](#AutoExpandEntryType)\]|*Optional parameter:* Entries with exceptional expansion
 [&rarr;](./Analytics.xml#L249:~:text=<Function%20Name="-,AutoExpand,-")|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
@@ -120,11 +120,11 @@ Allowed Value|Description
 [asc](./Analytics.xml#L272:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in ascending order
 [desc](./Analytics.xml#L276:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in descending order
 
-<a name="AutoExpandLevelType"></a>
-## [AutoExpandLevelType](./Analytics.xml#L283:~:text=<ComplexType%20Name="-,AutoExpandLevelType,-") *([Experimental](Common.md#Experimental))*
+<a name="AutoExpandEntryType"></a>
+## [AutoExpandEntryType](./Analytics.xml#L283:~:text=<ComplexType%20Name="-,AutoExpandEntryType,-") *([Experimental](Common.md#Experimental))*
 Information about entries in a leveled hierarchy that are not completely expanded
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](./Analytics.xml#L286:~:text=<ComplexType%20Name="-,AutoExpandLevelType,-")|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one
-[Levels](./Analytics.xml#L289:~:text=<ComplexType%20Name="-,AutoExpandLevelType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[Entry](./Analytics.xml#L286:~:text=<ComplexType%20Name="-,AutoExpandEntryType,-")|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one
+[Levels](./Analytics.xml#L289:~:text=<ComplexType%20Name="-,AutoExpandEntryType,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
