@@ -172,7 +172,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties",
-        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nmanually changed expansion state of two nodes\n```\n$apply=filter(Industry in ['IT','AI'])\n/groupby((Country,CountryName,Region,RegionName,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,CountryName,Region,RegionName,Segment,Industry),\n          aggregate($count) as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"P\":[\"Country\",\"CountryName\"]},\n            {\"P\":[\"Region\",\"RegionName\"]},\n            {\"P\":[\"Segment\",\"Industry\"]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\n                   \"Order\":\"desc\"}],\n    ExpandLevels=[{\"Entry\":[\"US\",\"USA\"],\"Levels\":0},\n                  {\"Entry\":[\"DE\",\"Germany\",\"BW\",\"Baden-Württemberg\"],\"Levels\":2}])\n    /concat(aggregate($count) as ResultEntriesCount,\n            skip(20)/top(10)))\n```\n",
+        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nexpand 2 levels, with two exceptions\n```\n$apply=filter(Industry in ['IT','AI'])\n/groupby((Country,CountryName,Region,RegionName,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,CountryName,Region,RegionName,Segment,Industry),\n          aggregate($count) as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"P\":[\"Country\",\"CountryName\"]},\n            {\"P\":[\"Region\",\"RegionName\"]},\n            {\"P\":[\"Segment\",\"Industry\"]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\n                   \"Order\":\"desc\"}],\n    ExpandLevels=2,\n    ExpandEntries=[{\"Entry\":[\"US\",\"USA\"],\"Levels\":0},\n                   {\"Entry\":[\"DE\",\"Germany\",\"BW\",\"Baden-Württemberg\"],\"Levels\":1}])\n    /concat(aggregate($count) as ResultEntriesCount,\n            skip(20)/top(10)))\n```\n",
         "$Parameter": [
           {
             "$Name": "InputSet",
@@ -201,9 +201,15 @@
           },
           {
             "$Name": "ExpandLevels",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of levels to be expanded (absent means all levels)",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "ExpandEntries",
             "$Collection": true,
             "$Type": "Analytics.AutoExpandLevelType",
-            "@Core.Description": "Entries to be specially (not fully) expanded",
+            "@Core.Description": "Entries with exceptional expansion",
             "@Core.OptionalParameter": {}
           }
         ],
@@ -246,7 +252,11 @@
         "$Collection": true,
         "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one"
       },
-      "Levels": { "$Type": "Edm.Int64", "@Core.Description": "Number of levels to be expanded, 0 means collapsed" }
+      "Levels": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of levels to be expanded, null means all levels, 0 means collapsed"
+      }
     },
     "LevelInformation": {
       "$Kind": "Term",

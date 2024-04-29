@@ -186,7 +186,7 @@
           <String>Example transformation sequence:
 filter on columns `Industry`, `Amount` and `Currency`,
 order by `Amount` descending,
-manually changed expansion state of two nodes
+expand 2 levels, with two exceptions
 ```
 $apply=filter(Industry in ['IT','AI'])
 /groupby((Country,CountryName,Region,RegionName,Segment,Industry),
@@ -203,8 +203,9 @@ $apply=filter(Industry in ['IT','AI'])
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount",
                    "Order":"desc"}],
-    ExpandLevels=[{"Entry":["US","USA"],"Levels":0},
-                  {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":2}])
+    ExpandLevels=2,
+    ExpandEntries=[{"Entry":["US","USA"],"Levels":0},
+                   {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":1}])
     /concat(aggregate($count) as ResultEntriesCount,
             skip(20)/top(10)))
 ```
@@ -233,8 +234,14 @@ $apply=filter(Industry in ['IT','AI'])
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
-        <Parameter Name="ExpandLevels" Type="Collection(Analytics.AutoExpandLevelType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Entries to be specially (not fully) expanded" />
+        <Parameter Name="ExpandLevels" Type="Edm.Int64" Nullable="false">
+          <Annotation Term="Core.Description" String="Number of levels to be expanded (absent means all levels)" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="ExpandEntries" Type="Collection(Analytics.AutoExpandLevelType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -279,8 +286,8 @@ $apply=filter(Industry in ['IT','AI'])
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one" />
         </Property>
-        <Property Name="Levels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of levels to be expanded, 0 means collapsed" />
+        <Property Name="Levels" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
         </Property>
       </ComplexType>
 
