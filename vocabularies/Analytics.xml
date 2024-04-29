@@ -188,7 +188,7 @@ filter on columns `Industry`, `Amount` and `Currency`,
 order by `Amount` descending,
 expand 2 levels, with two exceptions
 ```
-$apply=filter(Industry in ['IT','AI'])
+$apply=filter(Industry in ('IT','AI'))
 /groupby((Country,CountryName,Region,RegionName,Segment,Industry),
          filter($these/aggregate(Amount) gt 0 and
                 $these/aggregate(Currency) ne null))
