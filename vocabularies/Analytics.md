@@ -37,8 +37,8 @@ $apply=filter(Industry in ['IT','AI'])
          filter($these/aggregate(Amount) gt 0 and
                 $these/aggregate(Currency) ne null))
 /concat(
-  groupby((Country,CountryName,Region,RegionName,Segment,Industry),
-          aggregate($count) as LeavesCount),
+  groupby((Country,CountryName,Region,RegionName,Segment,Industry))
+    /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.AutoExpand(
     Levels=[{"P":["Country","CountryName"]},
@@ -50,7 +50,7 @@ $apply=filter(Industry in ['IT','AI'])
     ExpandLevels=2,
     ExpandEntries=[{"Entry":["US","USA"],"Levels":0},
                    {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":1}])
-    /concat(aggregate($count) as ResultEntriesCount,
+    /concat(aggregate($count as ResultEntriesCount),
             skip(20)/top(10)))
 ```
 
