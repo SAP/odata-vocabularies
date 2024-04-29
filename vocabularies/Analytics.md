@@ -17,7 +17,7 @@ Term|Type|Description
 [AggregatedProperties](./Analytics.xml#L106:~:text=<Term%20Name="-,AggregatedProperties,-") *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](./Analytics.xml#L124:~:text=<Term%20Name="-,AggregatedProperty,-")|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](./Analytics.xml#L144:~:text=<Term%20Name="-,AnalyticalContext,-")|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[LevelInformation](./Analytics.xml#L294:~:text=<Term%20Name="-,LevelInformation,-") *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation
+[LevelInformation](./Analytics.xml#L295:~:text=<Term%20Name="-,LevelInformation,-") *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation
 
 
 ## Functions
@@ -57,12 +57,12 @@ $apply=filter(Industry in ('IT','AI'))
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](./Analytics.xml#L213:~:text=<Function%20Name="-,AutoExpand,-")**|\[EntityType\]|**Binding parameter:** Entity set to be processed
-[Levels](./Analytics.xml#L216:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandLevel](#AutoExpandLevel)\]|Collection of aggregation levels forming the visible part of a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result comprises the leveled hierarchy with these levels in preorder. All referenced properties must be groupable.
-[Aggregation](./Analytics.xml#L227:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
-[SiblingOrder](./Analytics.xml#L233:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
-*[ExpandLevels](./Analytics.xml#L236:~:text=<Function%20Name="-,AutoExpand,-")*|Int64|*Optional parameter:* Number of levels to be expanded (absent means all levels)
-*[ExpandEntries](./Analytics.xml#L242:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandEntry](#AutoExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
-[&rarr;](./Analytics.xml#L248:~:text=<Function%20Name="-,AutoExpand,-")|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
+[Levels](./Analytics.xml#L216:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandLevel](#AutoExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result is the leveled hierarchy with these levels in preorder, entries on the finest-grained level cannot be expanded further. All referenced properties must be groupable.
+[Aggregation](./Analytics.xml#L228:~:text=<Function%20Name="-,AutoExpand,-")|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
+[SiblingOrder](./Analytics.xml#L234:~:text=<Function%20Name="-,AutoExpand,-")|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
+*[ExpandLevels](./Analytics.xml#L237:~:text=<Function%20Name="-,AutoExpand,-")*|Int64|*Optional parameter:* Number of levels to be expanded (absent means all levels)
+*[ExpandEntries](./Analytics.xml#L243:~:text=<Function%20Name="-,AutoExpand,-")*|\[[AutoExpandEntry](#AutoExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
+[&rarr;](./Analytics.xml#L249:~:text=<Function%20Name="-,AutoExpand,-")|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
 <a name="AggregatedPropertyType"></a>
@@ -92,38 +92,38 @@ Property|Type|Description
 [AccumulativeMeasure](./Analytics.xml#L168:~:text=<ComplexType%20Name="-,AnalyticalContextType,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
 <a name="AutoExpandLevel"></a>
-## [AutoExpandLevel](./Analytics.xml#L252:~:text=<ComplexType%20Name="-,AutoExpandLevel,-") *([Experimental](Common.md#Experimental))*
+## [AutoExpandLevel](./Analytics.xml#L253:~:text=<ComplexType%20Name="-,AutoExpandLevel,-") *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[P](./Analytics.xml#L254:~:text=<ComplexType%20Name="-,AutoExpandLevel,-")|\[String\]|A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)
+[P](./Analytics.xml#L255:~:text=<ComplexType%20Name="-,AutoExpandLevel,-")|\[String\]|A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)
 
 <a name="AutoExpandSiblingOrder"></a>
-## [AutoExpandSiblingOrder](./Analytics.xml#L258:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-") *([Experimental](Common.md#Experimental))*
+## [AutoExpandSiblingOrder](./Analytics.xml#L259:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-") *([Experimental](Common.md#Experimental))*
 Sibling order in an [unnamed leveled hierarchy](#AutoExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](./Analytics.xml#L261:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|String|Property by which to sort
-[Order](./Analytics.xml#L264:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|[SortOrderType](#SortOrderType)|Sorting direction
+[Property](./Analytics.xml#L262:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|String|Property by which to sort
+[Order](./Analytics.xml#L265:~:text=<ComplexType%20Name="-,AutoExpandSiblingOrder,-")|[SortOrderType](#SortOrderType)|Sorting direction
 
 <a name="SortOrderType"></a>
-## [SortOrderType](./Analytics.xml#L268:~:text=<TypeDefinition%20Name="-,SortOrderType,-") *([Experimental](Common.md#Experimental))*
+## [SortOrderType](./Analytics.xml#L269:~:text=<TypeDefinition%20Name="-,SortOrderType,-") *([Experimental](Common.md#Experimental))*
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[asc](./Analytics.xml#L272:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in ascending order
-[desc](./Analytics.xml#L276:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in descending order
+[asc](./Analytics.xml#L273:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in ascending order
+[desc](./Analytics.xml#L277:~:text=<TypeDefinition%20Name="-,SortOrderType,-")|Sort in descending order
 
 <a name="AutoExpandEntry"></a>
-## [AutoExpandEntry](./Analytics.xml#L283:~:text=<ComplexType%20Name="-,AutoExpandEntry,-") *([Experimental](Common.md#Experimental))*
+## [AutoExpandEntry](./Analytics.xml#L284:~:text=<ComplexType%20Name="-,AutoExpandEntry,-") *([Experimental](Common.md#Experimental))*
 Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](./Analytics.xml#L286:~:text=<ComplexType%20Name="-,AutoExpandEntry,-")|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one
-[Levels](./Analytics.xml#L289:~:text=<ComplexType%20Name="-,AutoExpandEntry,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[Entry](./Analytics.xml#L287:~:text=<ComplexType%20Name="-,AutoExpandEntry,-")|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to and including the given one
+[Levels](./Analytics.xml#L290:~:text=<ComplexType%20Name="-,AutoExpandEntry,-")|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed

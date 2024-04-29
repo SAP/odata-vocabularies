@@ -56,7 +56,7 @@
           with their definitions rephrased in the concept of recursive hierarchies.</String>
         </Annotation>
         <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Number of entries from deeper aggregation levels that are expanded" />
+          <Annotation Term="Core.Description" String="Number of entries from finer-grained aggregation levels that are expanded" />
         </Property>
         <Property Name="DrillState" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Drill state of an entry" />
@@ -64,15 +64,15 @@
             <Collection>
               <Record>
                 <PropertyValue Property="Value" String="expanded" />
-                <Annotation Term="Core.Description" String="The entry precedes entries from deeper aggregation levels" />
+                <Annotation Term="Core.Description" String="The entry precedes entries from finer-grained aggregation levels" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="leaf" />
-                <Annotation Term="Core.Description" String="The entry belongs to the deepest aggregation level" />
+                <Annotation Term="Core.Description" String="The entry belongs to the finest-grained aggregation level" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="collapsed" />
-                <Annotation Term="Core.Description" String="The entry belongs to the highest non-expanded aggregation level, but is not a leaf" />
+                <Annotation Term="Core.Description" String="The entry belongs to the coarsest-grained non-expanded aggregation level, but is not a leaf" />
               </Record>
             </Collection>
           </Annotation>

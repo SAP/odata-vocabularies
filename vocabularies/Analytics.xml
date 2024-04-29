@@ -214,13 +214,14 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
         <Parameter Name="Levels" Type="Collection(Analytics.AutoExpandLevel)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of aggregation levels forming the visible part of a leveled hierarchy" />
+          <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
             A property must not referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
-            The function result comprises the leveled hierarchy with these levels in preorder.
+            The function result is the leveled hierarchy with these levels in preorder,
+            entries on the finest-grained level cannot be expanded further.
             All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
@@ -284,7 +285,7 @@ $apply=filter(Industry in ('IT','AI'))
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one" />
+          <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to and including the given one" />
         </Property>
         <Property Name="Levels" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />

@@ -100,8 +100,8 @@ The properties in this complex type contain information about
 
 Property|Type|Description
 :-------|:---|:----------
-[LimitedDescendantCount](./Hierarchy.xml#L58:~:text=<ComplexType%20Name="-,HierarchyType,-")|Int64?|Number of entries from deeper aggregation levels that are expanded
-[DrillState](./Hierarchy.xml#L61:~:text=<ComplexType%20Name="-,HierarchyType,-")|String?|Drill state of an entry<dl>Allowed values:<dt>[expanded](./Hierarchy.xml#L65)<dd>The entry precedes entries from deeper aggregation levels<dt>[leaf](./Hierarchy.xml#L69)<dd>The entry belongs to the deepest aggregation level<dt>[collapsed](./Hierarchy.xml#L73)<dd>The entry belongs to the highest non-expanded aggregation level, but is not a leaf</dl>
+[LimitedDescendantCount](./Hierarchy.xml#L58:~:text=<ComplexType%20Name="-,HierarchyType,-")|Int64?|Number of entries from finer-grained aggregation levels that are expanded
+[DrillState](./Hierarchy.xml#L61:~:text=<ComplexType%20Name="-,HierarchyType,-")|String?|Drill state of an entry<dl>Allowed values:<dt>[expanded](./Hierarchy.xml#L65)<dd>The entry precedes entries from finer-grained aggregation levels<dt>[leaf](./Hierarchy.xml#L69)<dd>The entry belongs to the finest-grained aggregation level<dt>[collapsed](./Hierarchy.xml#L73)<dd>The entry belongs to the coarsest-grained non-expanded aggregation level, but is not a leaf</dl>
 [DistanceFromRoot](./Hierarchy.xml#L80:~:text=<ComplexType%20Name="-,HierarchyType,-")|Int64?|Position of the current aggregation level in the list of all aggregation levels
 
 <a name="RecursiveHierarchyType"></a>

@@ -40,17 +40,20 @@
       "LimitedDescendantCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
-        "@Core.Description": "Number of entries from deeper aggregation levels that are expanded"
+        "@Core.Description": "Number of entries from finer-grained aggregation levels that are expanded"
       },
       "DrillState": {
         "$Nullable": true,
         "@Core.Description": "Drill state of an entry",
         "@Validation.AllowedValues": [
-          { "Value": "expanded", "@Core.Description": "The entry precedes entries from deeper aggregation levels" },
-          { "Value": "leaf", "@Core.Description": "The entry belongs to the deepest aggregation level" },
+          {
+            "Value": "expanded",
+            "@Core.Description": "The entry precedes entries from finer-grained aggregation levels"
+          },
+          { "Value": "leaf", "@Core.Description": "The entry belongs to the finest-grained aggregation level" },
           {
             "Value": "collapsed",
-            "@Core.Description": "The entry belongs to the highest non-expanded aggregation level, but is not a leaf"
+            "@Core.Description": "The entry belongs to the coarsest-grained non-expanded aggregation level, but is not a leaf"
           }
         ]
       },

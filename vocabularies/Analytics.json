@@ -184,8 +184,8 @@
             "$Name": "Levels",
             "$Collection": true,
             "$Type": "Analytics.AutoExpandLevel",
-            "@Core.Description": "Collection of aggregation levels forming the visible part of a leveled hierarchy",
-            "@Core.LongDescription": "Each element in the collection defines the properties that constitute one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            The function result comprises the leveled hierarchy with these levels in preorder.\n            All referenced properties must be groupable."
+            "@Core.Description": "Collection of aggregation levels forming a leveled hierarchy",
+            "@Core.LongDescription": "Each element in the collection defines the properties that constitute one level.\n            A property must not referenced by more than one level.\n            The first element in the collection defines the property names of the coarsest level,\n            the following elements define the property names of consecutively finer-grained aggregation levels.\n            The function result is the leveled hierarchy with these levels in preorder,\n            entries on the finest-grained level cannot be expanded further.\n            All referenced properties must be groupable."
           },
           {
             "$Name": "Aggregation",
@@ -254,7 +254,7 @@
       "@Core.Description": "Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)",
       "Entry": {
         "$Collection": true,
-        "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one"
+        "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to and including the given one"
       },
       "Levels": {
         "$Type": "Edm.Int64",
