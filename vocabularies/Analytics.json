@@ -208,7 +208,7 @@
           {
             "$Name": "ExpandEntries",
             "$Collection": true,
-            "$Type": "Analytics.AutoExpandEntryType",
+            "$Type": "Analytics.AutoExpandEntry",
             "@Core.Description": "Entries with exceptional expansion",
             "@Core.OptionalParameter": {}
           }
@@ -244,10 +244,10 @@
         { "Value": "desc", "@Core.Description": "Sort in descending order" }
       ]
     },
-    "AutoExpandEntryType": {
+    "AutoExpandEntry": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.Description": "Information about entries in a leveled hierarchy that are not completely expanded",
+      "@Core.Description": "Expansion state of an entry in a leveled hierarchy",
       "Entry": {
         "$Collection": true,
         "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to the given one"
