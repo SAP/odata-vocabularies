@@ -201,7 +201,7 @@ $apply=filter(Industry in ('IT','AI'))
             {"P":["Region","RegionName"]},
             {"P":["Segment","Industry"]}],
     Aggregation=["Amount","Currency"],
-    SiblingOrder=[{"Property":"Amount","Order":"desc"}],
+    SiblingOrder=[{"Property":"Amount","Descending":true}],
     ExpandLevels=2,
     ExpandEntries=[{"Entry":["US","USA"],"Levels":0},
                    {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":1}]
@@ -262,25 +262,10 @@ $apply=filter(Industry in ('IT','AI'))
         <Property Name="Property" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property by which to sort" />
         </Property>
-        <Property Name="Order" Type="Analytics.SortOrderType" Nullable="false" DefaultValue="Analytics.SortOrderType/Asc">
-          <Annotation Term="Core.Description" String="Sorting direction" />
+        <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
         </Property>
       </ComplexType>
-      <TypeDefinition Name="SortOrderType" UnderlyingType="Edm.String">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="asc" />
-              <Annotation Term="Core.Description" String="Sort in ascending order" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="desc" />
-              <Annotation Term="Core.Description" String="Sort in descending order" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
       <ComplexType Name="AutoExpandEntry">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)" />

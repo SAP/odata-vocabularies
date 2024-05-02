@@ -172,7 +172,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties",
-        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nexpand 2 levels, with two exceptions\n```\n$apply=filter(Industry in ('IT','AI'))\n/groupby((Country,Region,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,Region,Segment,Industry))\n    /aggregate($count as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"P\":[\"Country\",\"CountryName\"]},\n            {\"P\":[\"Region\",\"RegionName\"]},\n            {\"P\":[\"Segment\",\"Industry\"]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\"Order\":\"desc\"}],\n    ExpandLevels=2,\n    ExpandEntries=[{\"Entry\":[\"US\",\"USA\"],\"Levels\":0},\n                   {\"Entry\":[\"DE\",\"Germany\",\"BW\",\"Baden-Württemberg\"],\"Levels\":1}]\n  )/concat(aggregate($count as ResultEntriesCount),\n           skip(20)/top(10)))\n```\n",
+        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nexpand 2 levels, with two exceptions\n```\n$apply=filter(Industry in ('IT','AI'))\n/groupby((Country,Region,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,Region,Segment,Industry))\n    /aggregate($count as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"P\":[\"Country\",\"CountryName\"]},\n            {\"P\":[\"Region\",\"RegionName\"]},\n            {\"P\":[\"Segment\",\"Industry\"]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\"Descending\":true}],\n    ExpandLevels=2,\n    ExpandEntries=[{\"Entry\":[\"US\",\"USA\"],\"Levels\":0},\n                   {\"Entry\":[\"DE\",\"Germany\",\"BW\",\"Baden-Württemberg\"],\"Levels\":1}]\n  )/concat(aggregate($count as ResultEntriesCount),\n           skip(20)/top(10)))\n```\n",
         "$Parameter": [
           {
             "$Name": "InputSet",
@@ -233,20 +233,11 @@
       "@Common.Experimental": true,
       "@Core.Description": "Sibling order in an [unnamed leveled hierarchy](#AutoExpand)",
       "Property": { "@Core.Description": "Property by which to sort" },
-      "Order": {
-        "$Type": "Analytics.SortOrderType",
-        "$DefaultValue": "Analytics.SortOrderType/Asc",
-        "@Core.Description": "Sorting direction"
+      "Descending": {
+        "$Type": "Edm.Boolean",
+        "$Nullable": true,
+        "@Core.Description": "Sort direction, ascending if not specified otherwise"
       }
-    },
-    "SortOrderType": {
-      "$Kind": "TypeDefinition",
-      "$UnderlyingType": "Edm.String",
-      "@Common.Experimental": true,
-      "@Validation.AllowedValues": [
-        { "Value": "asc", "@Core.Description": "Sort in ascending order" },
-        { "Value": "desc", "@Core.Description": "Sort in descending order" }
-      ]
     },
     "AutoExpandEntry": {
       "$Kind": "ComplexType",
