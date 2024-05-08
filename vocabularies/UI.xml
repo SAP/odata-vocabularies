@@ -1417,7 +1417,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="A single character symbol to be shown where the user can type a character" />
         </Property>
         <Property Name="InputMaskRules" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask." />
+          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask" />
           <Annotation Term="Core.LongDescription">
             <String>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]</String>
           </Annotation>
