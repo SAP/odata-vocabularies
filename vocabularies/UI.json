@@ -1264,7 +1264,7 @@
         "$DefaultValue": "_",
         "@Core.Description": "A single character symbol to be shown where the user can type a character"
       },
-      "InputMaskRules": {
+      "Rules": {
         "$Collection": true,
         "$Type": "UI.InputMaskRuleType",
         "@Core.Description": "Rules that define valid values for one symbol in the mask",
