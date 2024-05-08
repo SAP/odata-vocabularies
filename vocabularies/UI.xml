@@ -1401,6 +1401,40 @@ The trend is
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode" />
+        <Annotation Term="Core.LongDescription">
+          <String>Input masks improve readability and help to enter data correctly. 
+So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. 
+[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="InputMaskType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Mask" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The mask to be applied to the property or the parameter" />
+        </Property>
+        <Property Name="Placeholder" Type="Edm.String" MaxLength="1" Nullable="false" DefaultValue="_">
+          <Annotation Term="Core.Description" String="A single character symbol to be shown where the user can type a character" />
+        </Property>
+        <Property Name="Rules" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask" />
+          <Annotation Term="Core.LongDescription">
+            <String>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="InputMaskRuleType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="MaskSymbol" Type="Edm.String" MaxLength="1" Nullable="false">
+          <Annotation Term="Core.Description" String="A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs" />
+        </Property>
+        <Property Name="RegExp" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Regular expression that defines the valid values for the mask symbol" />
+        </Property>
+      </ComplexType>
+
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription">
