@@ -758,7 +758,7 @@ Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [Mask](./UI.xml#L1413:~:text=<ComplexType%20Name="-,InputMaskType,-")|String|The mask to be applied to the property
-[Placeholder](./UI.xml#L1416:~:text=<ComplexType%20Name="-,InputMaskType,-")|String?|A single character symbol that is used as a substitute.
+[Placeholder](./UI.xml#L1416:~:text=<ComplexType%20Name="-,InputMaskType,-")|String?|A single character symbol to be shown where the user can type a character
 [InputMaskRule](./UI.xml#L1419:~:text=<ComplexType%20Name="-,InputMaskType,-")|\[[InputMaskRuleType](#InputMaskRuleType)\]|Rules that define valid values for one symbol in the mask.<br>The following rules are defined as default and don't need to be listed here: * = [.], C = [a-zA-Z], 9 = [0-9]
 
 <a name="InputMaskRuleType"></a>

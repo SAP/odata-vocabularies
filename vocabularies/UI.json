@@ -1262,7 +1262,7 @@
       "Placeholder": {
         "$Nullable": true,
         "$DefaultValue": "_",
-        "@Core.Description": "A single character symbol that is used as a substitute."
+        "@Core.Description": "A single character symbol to be shown where the user can type a character"
       },
       "InputMaskRule": {
         "$Collection": true,
