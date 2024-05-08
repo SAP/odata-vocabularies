@@ -1414,7 +1414,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="The mask to be applied to the property" />
         </Property>
         <Property Name="Placeholder" Type="Edm.String" DefaultValue="_">
-          <Annotation Term="Core.Description" String="A single character symbol that is used as a substitute." />
+          <Annotation Term="Core.Description" String="A single character symbol to be shown where the user can type a character" />
         </Property>
         <Property Name="InputMaskRule" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
           <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask." />
