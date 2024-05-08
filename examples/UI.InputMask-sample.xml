@@ -19,15 +19,27 @@
           <PropertyRef Name="CustomerID" />
         </Key>
         <Property Name="CustomerID" Type="Edm.Guid" Nullable="false"/>
-        <Property Name="DUNS" Type="Edm.String" Nullable="true" MaxLength="9"/>
+        <Property Name="SwiftCode" Type="Edm.String" Nullable="true" MaxLength="11"/>
         <!-- ... and a lot more -->
       </EntityType>
 
-      <Annotations Target="Examples.Customer_Type/DUNS">
+      <Annotations Target="Examples.Customer_Type/SwiftCode">
         <Annotation Term="UI.InputMask">
           <Record>
-            <PropertyValue Property="Mask" String="99-999-9999" />
-            <!-- Data Universal Numbering System number issued by Dun & Bradstreet - might also be used without dashes "999999999"-->
+            <PropertyValue Property="Mask" String="CCCCCCAAAAA" />
+            <PropertyValue Property="Placeholder" String="." />
+            <PropertyValue Property="Rules">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="MaskSymbol" String="C" />
+                  <PropertyValue Property="RegExp" String="[A-Z]" />
+                </Record>
+                <Record>
+                  <PropertyValue Property="MaskSymbol" String="A" />
+                  <PropertyValue Property="RegExp" String="[A-Z0-9]" />
+                </Record>
+              </Collection>
+            </PropertyValue>
           </Record>
         </Annotation>
       </Annotations>
