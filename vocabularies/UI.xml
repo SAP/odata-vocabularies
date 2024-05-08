@@ -1402,6 +1402,7 @@ The trend is
       </Term>
 
       <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode" />
         <Annotation Term="Core.LongDescription">
           <String>Input masks improve readability and help to enter data correctly. 
@@ -1410,6 +1411,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         </Annotation>
       </Term>
       <ComplexType Name="InputMaskType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Mask" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="The mask to be applied to the property or the parameter" />
         </Property>
@@ -1424,6 +1426,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         </Property>
       </ComplexType>
       <ComplexType Name="InputMaskRuleType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="MaskSymbol" Type="Edm.String" MaxLength="1" Nullable="false">
           <Annotation Term="Core.Description" String="A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs" />
         </Property>
