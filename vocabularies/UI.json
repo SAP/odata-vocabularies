@@ -1260,7 +1260,7 @@
       "$Kind": "ComplexType",
       "Mask": { "@Core.Description": "The mask to be applied to the property or the parameter" },
       "Placeholder": {
-        "$Nullable": true,
+        "$MaxLength": 1,
         "$DefaultValue": "_",
         "@Core.Description": "A single character symbol to be shown where the user can type a character"
       },
