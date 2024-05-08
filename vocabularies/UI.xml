@@ -1402,7 +1402,7 @@ The trend is
       </Term>
 
       <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode." />
+        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode" />
         <Annotation Term="Core.LongDescription">
           <String>Input masks improve readability and help to enter data correctly. 
 So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. 
