@@ -1249,6 +1249,35 @@
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
     },
+    "InputMask": {
+      "$Kind": "Term",
+      "$Type": "UI.InputMaskType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode.",
+      "@Core.LongDescription": "Input masks not only improve readability, but also help to enter data correctly. \nSo, masks can be especially useful for input fields that have a fixed pattern, e.g. international bank account numbers or social security numbers. \n[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation"
+    },
+    "InputMaskType": {
+      "$Kind": "ComplexType",
+      "Mask": { "@Core.Description": "The mask to be applied to the property" },
+      "Placeholder": {
+        "$Nullable": true,
+        "$DefaultValue": "_",
+        "@Core.Description": "A single character symbol that is used as a substitute."
+      },
+      "InputMaskRule": {
+        "$Collection": true,
+        "$Type": "UI.InputMaskRuleType",
+        "@Core.Description": "Rules that define valid values for one symbol in the mask.",
+        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = [.], C = [a-zA-Z], 9 = [0-9]"
+      }
+    },
+    "InputMaskRuleType": {
+      "$Kind": "ComplexType",
+      "MaskSymbol": { "@Core.Description": "The character in the mask that should be validated." },
+      "Rule": {
+        "@Core.Description": "The rule that defines the valid values for the mask symbol as regular expression."
+      }
+    },
     "TextArrangement": {
       "$Kind": "Term",
       "$Type": "UI.TextArrangementType",

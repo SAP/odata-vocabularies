@@ -1,0 +1,23 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    }
+  },
+  "Examples": {
+    "$Alias": "this",
+    "container": { "$Kind": "EntityContainer", "Customers": { "$Collection": true, "$Type": "this.Customer_Type" } },
+    "Customer_Type": {
+      "$Kind": "EntityType",
+      "$Key": ["CustomerID"],
+      "CustomerID": { "$Type": "Edm.Guid" },
+      "DUNS": { "$Nullable": true, "$MaxLength": 9 }
+    },
+    "$Annotations": { "this.Customer_Type/DUNS": { "@UI.InputMask": { "Mask": "999999999" } } }
+  },
+  "$EntityContainer": "Examples.container"
+}
