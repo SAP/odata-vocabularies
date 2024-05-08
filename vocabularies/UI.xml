@@ -1424,8 +1424,8 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         </Property>
       </ComplexType>
       <ComplexType Name="InputMaskRuleType">
-        <Property Name="MaskSymbol" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="The character in the mask that should be validated." />
+        <Property Name="MaskSymbol" Type="Edm.String" MaxLength="1" Nullable="false">
+          <Annotation Term="Core.Description" String="A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs" />
         </Property>
         <Property Name="Rule" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="The rule that defines the valid values for the mask symbol as regular expression." />
