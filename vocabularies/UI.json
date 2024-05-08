@@ -1253,7 +1253,7 @@
       "$Kind": "Term",
       "$Type": "UI.InputMaskType",
       "$AppliesTo": ["Property", "Parameter"],
-      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode.",
+      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode",
       "@Core.LongDescription": "Input masks improve readability and help to enter data correctly. \nSo, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. \n[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation"
     },
     "InputMaskType": {
@@ -1267,7 +1267,7 @@
       "InputMaskRules": {
         "$Collection": true,
         "$Type": "UI.InputMaskRuleType",
-        "@Core.Description": "Rules that define valid values for one symbol in the mask.",
+        "@Core.Description": "Rules that define valid values for one symbol in the mask",
         "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]"
       }
     },
@@ -1277,7 +1277,7 @@
         "$MaxLength": 1,
         "@Core.Description": "A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs"
       },
-      "RegExp": { "@Core.Description": "Regular expression that defines the valid values for the mask symbol." }
+      "RegExp": { "@Core.Description": "Regular expression that defines the valid values for the mask symbol" }
     },
     "TextArrangement": {
       "$Kind": "Term",
