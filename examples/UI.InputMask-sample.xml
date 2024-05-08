@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="Examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="container">
+        <EntitySet Name="Customers" EntityType="this.Customer_Type" />
+      </EntityContainer>
+
+      <EntityType Name="Customer_Type">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DUNS" Type="Edm.String" Nullable="true" MaxLength="9"/>
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <Annotations Target="Examples.Customer_Type/DUNS">
+        <Annotation Term="UI.InputMask">
+          <Record>
+            <PropertyValue Property="Mask" String="999999999" />
+            <!-- Data Universal Numbering System number issued by Dun & Bradstreet - nine-digit number might also be used with dashes for better readability "99-999-9999"-->
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -1401,6 +1401,37 @@ The trend is
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode." />
+        <Annotation Term="Core.LongDescription">
+          <String>Input masks not only improve readability, but also help to enter data correctly. 
+So, masks can be especially useful for input fields that have a fixed pattern, e.g. international bank account numbers or social security numbers. 
+[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="InputMaskType">
+        <Property Name="Mask" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The mask to be applied to the property" />
+        </Property>
+        <Property Name="Placeholder" Type="Edm.String" DefaultValue="_">
+          <Annotation Term="Core.Description" String="A single character symbol that is used as a substitute." />
+        </Property>
+        <Property Name="InputMaskRule" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask." />
+          <Annotation Term="Core.LongDescription">
+            <String>The following rules are defined as default and don't need to be listed here: * = [.], C = [a-zA-Z], 9 = [0-9]</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="InputMaskRuleType">
+        <Property Name="MaskSymbol" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The character in the mask that should be validated." />
+        </Property>
+        <Property Name="Rule" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The rule that defines the valid values for the mask symbol as regular expression." />
+        </Property>
+      </ComplexType>
+
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription">
