@@ -1268,7 +1268,7 @@
         "$Collection": true,
         "$Type": "UI.InputMaskRuleType",
         "@Core.Description": "Rules that define valid values for one symbol in the mask.",
-        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = [.], C = [a-zA-Z], 9 = [0-9]"
+        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]"
       }
     },
     "InputMaskRuleType": {
