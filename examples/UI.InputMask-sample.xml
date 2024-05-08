@@ -26,8 +26,8 @@
       <Annotations Target="Examples.Customer_Type/DUNS">
         <Annotation Term="UI.InputMask">
           <Record>
-            <PropertyValue Property="Mask" String="999999999" />
-            <!-- Data Universal Numbering System number issued by Dun & Bradstreet - nine-digit number might also be used with dashes for better readability "99-999-9999"-->
+            <PropertyValue Property="Mask" String="99-999-9999" />
+            <!-- Data Universal Numbering System number issued by Dun & Bradstreet - might also be used without dashes "999999999"-->
           </Record>
         </Annotation>
       </Annotations>
