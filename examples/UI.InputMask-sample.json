@@ -15,9 +15,11 @@
       "$Kind": "EntityType",
       "$Key": ["CustomerID"],
       "CustomerID": { "$Type": "Edm.Guid" },
+      "DUNS": { "$Nullable": true, "$MaxLength": 9 },
       "SwiftCode": { "$Nullable": true, "$MaxLength": 11 }
     },
     "$Annotations": {
+      "this.Customer_Type/DUNS": { "@UI.InputMask": { "Mask": "99-999-9999" } },
       "this.Customer_Type/SwiftCode": {
         "@UI.InputMask": {
           "Mask": "CCCCCCAAAAA",
