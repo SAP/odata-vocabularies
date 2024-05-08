@@ -17,7 +17,7 @@
       "CustomerID": { "$Type": "Edm.Guid" },
       "DUNS": { "$Nullable": true, "$MaxLength": 9 }
     },
-    "$Annotations": { "this.Customer_Type/DUNS": { "@UI.InputMask": { "Mask": "999999999" } } }
+    "$Annotations": { "this.Customer_Type/DUNS": { "@UI.InputMask": { "Mask": "99-999-9999" } } }
   },
   "$EntityContainer": "Examples.container"
 }

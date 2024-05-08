@@ -54,7 +54,7 @@ Term|Type|Description
 [IsImage](./UI.xml#L1383:~:text=<Term%20Name="-,IsImage,-") *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Can be annotated with:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
 [MultiLineText](./UI.xml#L1394:~:text=<Term%20Name="-,MultiLineText,-")|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)
 [Placeholder](./UI.xml#L1399:~:text=<Term%20Name="-,Placeholder,-")|String|<a name="Placeholder"></a>A short, human-readable text that gives a hint or an example to help the user with data entry
-[InputMask](./UI.xml#L1404:~:text=<Term%20Name="-,InputMask,-")|[InputMaskType](#InputMaskType)|<a name="InputMask"></a>Properties or parameters annotated with this term will get a mask in edit mode.<br>Input masks not only improve readability, but also help to enter data correctly. So, masks can be especially useful for input fields that have a fixed pattern, e.g. international bank account numbers or social security numbers. [Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation
+[InputMask](./UI.xml#L1404:~:text=<Term%20Name="-,InputMask,-")|[InputMaskType](#InputMaskType)|<a name="InputMask"></a>Properties or parameters annotated with this term will get a mask in edit mode.<br>Input masks improve readability and help to enter data correctly. So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. [Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation
 [TextArrangement](./UI.xml#L1435:~:text=<Term%20Name="-,TextArrangement,-")|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br><p>This term annotates one of the following:</p> <ol type="1"> <li>a <a href="Common.md#Text"><code>Common.Text</code></a> annotation of the code or ID property where the annotation value is the text</li> <li>an entity type, this has the same effect as annotating all <code>Common.Text</code> annotations of properties of that entity type.</li> </ol> 
 [Note](./UI.xml#L1458:~:text=<Term%20Name="-,Note,-") *([Experimental](Common.md#Experimental))*|[NoteType](#NoteType)|<a name="Note"></a>Visualization of a note attached to an entity<br>Administrative data is given by the annotations [`Common.CreatedBy`](Common.md#CreatedBy), [`Common.CreatedAt`](Common.md#CreatedAt), [`Common.ChangedBy`](Common.md#ChangedBy), [`Common.ChangedAt`](Common.md#ChangedAt) on the same entity type.
 [Importance](./UI.xml#L1511:~:text=<Term%20Name="-,Importance,-")|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
@@ -757,9 +757,9 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Mask](./UI.xml#L1413:~:text=<ComplexType%20Name="-,InputMaskType,-")|String|The mask to be applied to the property
+[Mask](./UI.xml#L1413:~:text=<ComplexType%20Name="-,InputMaskType,-")|String|The mask to be applied to the property or the parameter
 [Placeholder](./UI.xml#L1416:~:text=<ComplexType%20Name="-,InputMaskType,-")|String?|A single character symbol to be shown where the user can type a character
-[InputMaskRule](./UI.xml#L1419:~:text=<ComplexType%20Name="-,InputMaskType,-")|\[[InputMaskRuleType](#InputMaskRuleType)\]|Rules that define valid values for one symbol in the mask.<br>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]
+[InputMaskRules](./UI.xml#L1419:~:text=<ComplexType%20Name="-,InputMaskType,-")|\[[InputMaskRuleType](#InputMaskRuleType)\]|Rules that define valid values for one symbol in the mask.<br>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]
 
 <a name="InputMaskRuleType"></a>
 ## [InputMaskRuleType](./UI.xml#L1426:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")
@@ -768,7 +768,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [MaskSymbol](./UI.xml#L1427:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs
-[Rule](./UI.xml#L1430:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|The rule that defines the valid values for the mask symbol as regular expression.
+[RegExp](./UI.xml#L1430:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|Regular expression that defines the valid values for the mask symbol.
 
 <a name="TextArrangementType"></a>
 ## [TextArrangementType](./UI.xml#L1443:~:text=<EnumType%20Name="-,TextArrangementType,-")
