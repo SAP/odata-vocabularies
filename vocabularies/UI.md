@@ -767,7 +767,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[MaskSymbol](./UI.xml#L1427:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|The character in the mask that should be validated.
+[MaskSymbol](./UI.xml#L1427:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs
 [Rule](./UI.xml#L1430:~:text=<ComplexType%20Name="-,InputMaskRuleType,-")|String|The rule that defines the valid values for the mask symbol as regular expression.
 
 <a name="TextArrangementType"></a>
