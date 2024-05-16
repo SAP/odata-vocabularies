@@ -1396,7 +1396,7 @@ The trend is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
