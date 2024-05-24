@@ -253,8 +253,12 @@ $apply=filter(Industry in ('IT','AI'))
       <ComplexType Name="AutoExpandLevel">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Annotation Term="Core.LongDescription">
+          <String>Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#AutoExpandEntry),
+          otherwise they have the same effect as properties in `A`.</String>
+        </Annotation>
         <Property Name="D" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty set of property names defining a combination of dimension values" />
+          <Annotation Term="Core.Description" String="A non-empty set of property names that define a combination of dimension values" />
         </Property>
         <Property Name="A" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="A possibly empty set of names of additional properties of the dimensions that occur in `D`" />

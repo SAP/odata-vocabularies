@@ -224,9 +224,10 @@
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
       "@Core.Description": "Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)",
+      "@Core.LongDescription": "Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#AutoExpandEntry),\n          otherwise they have the same effect as properties in `A`.",
       "D": {
         "$Collection": true,
-        "@Core.Description": "A non-empty set of property names defining a combination of dimension values"
+        "@Core.Description": "A non-empty set of property names that define a combination of dimension values"
       },
       "A": {
         "$Collection": true,
