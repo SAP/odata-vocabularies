@@ -172,7 +172,7 @@
         "$IsBound": true,
         "@Common.Experimental": true,
         "@Core.Description": "`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties",
-        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nexpand 2 levels, with two exceptions\n```\n$apply=filter(Industry in ('IT','AI'))\n/groupby((Country,Region,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,Region,Segment,Industry))\n    /aggregate($count as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"P\":[\"Country\",\"CountryName\"]},\n            {\"P\":[\"Region\",\"RegionName\"]},\n            {\"P\":[\"Segment\",\"Industry\"]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\"Descending\":true}],\n    ExpandLevels=2,\n    ExpandEntries=[{\"Entry\":[\"US\",\"USA\"],\"Levels\":0},\n                   {\"Entry\":[\"DE\",\"Germany\",\"BW\",\"Baden-Württemberg\"],\"Levels\":1}]\n  )/concat(aggregate($count as ResultEntriesCount),\n           skip(20)/top(10)))\n```\n",
+        "@Core.LongDescription": "Example transformation sequence:\nfilter on columns `Industry`, `Amount` and `Currency`,\norder by `Amount` descending,\nshow 2 levels, with two exceptions\n```\n$apply=filter(Industry in ('IT','AI'))\n/groupby((Country,Region,Segment,Industry),\n         filter($these/aggregate(Amount) gt 0 and\n                $these/aggregate(Currency) ne null))\n/concat(\n  groupby((Country,Region,Segment,Industry))\n    /aggregate($count as LeavesCount),\n  aggregate(Amount,Currency),\n  Analytics.AutoExpand(\n    Levels=[{\"D\":[\"Country\"],\"A\":[\"CountryName\"]},\n            {\"D\":[\"Region\"],\"A\":[\"RegionName\"]},\n            {\"D\":[\"Segment\",\"Industry\"],\"A\":[]}],\n    Aggregation=[\"Amount\",\"Currency\"],\n    SiblingOrder=[{\"Property\":\"Amount\",\"Descending\":true}],\n    ShowLevels=2,\n    ExpandEntries=[{\"Entry\":[\"US\"],\"Levels\":0},\n                   {\"Entry\":[\"DE\",\"BW\"],\"Levels\":1}]\n  )/concat(aggregate($count as ResultEntriesCount),\n           skip(20)/top(10)))\n```\n",
         "$Parameter": [
           {
             "$Name": "InputSet",
@@ -200,9 +200,9 @@
             "@Core.Description": "Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy"
           },
           {
-            "$Name": "ExpandLevels",
+            "$Name": "ShowLevels",
             "$Type": "Edm.Int64",
-            "@Core.Description": "Number of levels to be expanded (absent means all levels)",
+            "@Core.Description": "Number of levels to be shown in the initial expansion (absent means all levels)",
             "@Core.OptionalParameter": {}
           },
           {
@@ -223,9 +223,14 @@
     "AutoExpandLevel": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "P": {
+      "@Core.Description": "Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)",
+      "D": {
         "$Collection": true,
-        "@Core.Description": "A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)"
+        "@Core.Description": "A non-empty set of property names defining a combination of dimension values"
+      },
+      "A": {
+        "$Collection": true,
+        "@Core.Description": "A possibly empty set of names of additional properties of the dimensions that occur in `D`"
       }
     },
     "AutoExpandSiblingOrder": {
@@ -245,7 +250,7 @@
       "@Core.Description": "Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)",
       "Entry": {
         "$Collection": true,
-        "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to and including the given one"
+        "@Core.Description": "An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one"
       },
       "Levels": {
         "$Type": "Edm.Int64",

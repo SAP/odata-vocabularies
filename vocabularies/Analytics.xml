@@ -186,7 +186,7 @@
           <String>Example transformation sequence:
 filter on columns `Industry`, `Amount` and `Currency`,
 order by `Amount` descending,
-expand 2 levels, with two exceptions
+show 2 levels, with two exceptions
 ```
 $apply=filter(Industry in ('IT','AI'))
 /groupby((Country,Region,Segment,Industry),
@@ -197,14 +197,14 @@ $apply=filter(Industry in ('IT','AI'))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.AutoExpand(
-    Levels=[{"P":["Country","CountryName"]},
-            {"P":["Region","RegionName"]},
-            {"P":["Segment","Industry"]}],
+    Levels=[{"D":["Country"],"A":["CountryName"]},
+            {"D":["Region"],"A":["RegionName"]},
+            {"D":["Segment","Industry"],"A":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
-    ExpandLevels=2,
-    ExpandEntries=[{"Entry":["US","USA"],"Levels":0},
-                   {"Entry":["DE","Germany","BW","Baden-Württemberg"],"Levels":1}]
+    ShowLevels=2,
+    ExpandEntries=[{"Entry":["US"],"Levels":0},
+                   {"Entry":["DE","BW"],"Levels":1}]
   )/concat(aggregate($count as ResultEntriesCount),
            skip(20)/top(10)))
 ```
@@ -234,8 +234,8 @@ $apply=filter(Industry in ('IT','AI'))
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
-        <Parameter Name="ExpandLevels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of levels to be expanded (absent means all levels)" />
+        <Parameter Name="ShowLevels" Type="Edm.Int64" Nullable="false">
+          <Annotation Term="Core.Description" String="Number of levels to be shown in the initial expansion (absent means all levels)" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -252,8 +252,12 @@ $apply=filter(Industry in ('IT','AI'))
       </Function>
       <ComplexType Name="AutoExpandLevel">
         <Annotation Term="Common.Experimental" />
-        <Property Name="P" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty set of property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Annotation Term="Core.Description" String="Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Property Name="D" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A non-empty set of property names defining a combination of dimension values" />
+        </Property>
+        <Property Name="A" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A possibly empty set of names of additional properties of the dimensions that occur in `D`" />
         </Property>
       </ComplexType>
       <ComplexType Name="AutoExpandSiblingOrder">
@@ -270,7 +274,7 @@ $apply=filter(Industry in ('IT','AI'))
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the properties that constitute all levels up to and including the given one" />
+          <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one" />
         </Property>
         <Property Name="Levels" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
