@@ -109,7 +109,7 @@
             <String>If this is true, treeview output is supported for hierarchical data</String>
           </Annotation>
         </Property>
-       <Property Name="TextDirectionLayout" Type="Edm.Boolean">
+       <Property Name="TextDirectionLayout" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Setting the text direction-layout is supported" />
           <Annotation Term="Core.LongDescription">
             <String>PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description</String>
