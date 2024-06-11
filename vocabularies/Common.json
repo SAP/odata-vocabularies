@@ -1317,9 +1317,8 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property", "NavigationProperty"],
       "@Common.Experimental": true,
-      "@Common.IsInstanceAnnotation": true,
-      "@Core.Description": "The annotated property has been omitted from the response because the service cannot compute this property for multiple instances at once",
-      "@Core.LongDescription": "To select this property, the client can make a request that reads only one instance with this property."
+      "@Core.Description": "The annotated property MUST NOT be selected in a collection",
+      "@Core.LongDescription": "To select this property, the client can make a request that reads a single instance with this property."
     }
   }
 }

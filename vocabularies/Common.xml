@@ -1478,10 +1478,9 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
 
       <Term Name="NonSelectableInCollection" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Common.IsInstanceAnnotation" />
-        <Annotation Term="Core.Description" String="The annotated property has been omitted from the response because the service cannot compute this property for multiple instances at once" />
+        <Annotation Term="Core.Description" String="The annotated property MUST NOT be selected in a collection" />
         <Annotation Term="Core.LongDescription">
-          <String>To select this property, the client can make a request that reads only one instance with this property.</String>
+          <String>To select this property, the client can make a request that reads a single instance with this property.</String>
         </Annotation>
       </Term>
 
