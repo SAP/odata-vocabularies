@@ -1481,7 +1481,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="The annotated property has been omitted from the response because the service cannot compute this property for multiple instances at once" />
         <Annotation Term="Core.LongDescription">
-          <String>The client can obtain this property in a request that reads only one instance with this property.</String>
+          <String>To select this property, the client can make a request that reads only one instance with this property.</String>
         </Annotation>
       </Term>
 

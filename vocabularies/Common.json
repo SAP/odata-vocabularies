@@ -1319,7 +1319,7 @@
       "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "The annotated property has been omitted from the response because the service cannot compute this property for multiple instances at once",
-      "@Core.LongDescription": "The client can obtain this property in a request that reads only one instance with this property."
+      "@Core.LongDescription": "To select this property, the client can make a request that reads only one instance with this property."
     }
   }
 }
