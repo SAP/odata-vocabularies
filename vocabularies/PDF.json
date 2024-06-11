@@ -90,6 +90,12 @@
         "@Common.Experimental": true,
         "@Core.Description": "Treeview output supported",
         "@Core.LongDescription": "If this is true, treeview output is supported for hierarchical data"
+      },
+      "TextDirectionLayout": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Setting the text direction-layout is supported",
+        "@Core.LongDescription": "PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description"
       }
     }
   }
