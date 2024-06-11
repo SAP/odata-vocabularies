@@ -1310,6 +1310,16 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "NonSelectableInCollection": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Property", "NavigationProperty"],
+      "@Common.Experimental": true,
+      "@Common.IsInstanceAnnotation": true,
+      "@Core.Description": "The annotated property has been omitted from the response because the service cannot compute this property for multiple instances at once",
+      "@Core.LongDescription": "The client can obtain this property in a request that reads only one instance with this property."
     }
   }
 }
