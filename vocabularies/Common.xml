@@ -1476,6 +1476,14 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="NonSelectableInCollection" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated property MUST NOT be selected in a collection" />
+        <Annotation Term="Core.LongDescription">
+          <String>To select this property, the client can make a request that reads a single instance with this property.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

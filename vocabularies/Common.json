@@ -1310,6 +1310,15 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "NonSelectableInCollection": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Property", "NavigationProperty"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated property MUST NOT be selected in a collection",
+      "@Core.LongDescription": "To select this property, the client can make a request that reads a single instance with this property."
     }
   }
 }
