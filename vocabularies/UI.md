@@ -758,7 +758,7 @@ Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [Mask](UI.xml#L1415)|String|The mask to be applied to the property or the parameter
-[Placeholder](UI.xml#L1418)|String|A single character symbol to be shown where the user can type a character
+[PlaceholderSymbol](UI.xml#L1418)|String|A single character symbol to be shown where the user can type a character
 [Rules](UI.xml#L1421)|\[[InputMaskRuleType](#InputMaskRuleType)\]|Rules that define valid values for one symbol in the mask<br>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]
 
 <a name="InputMaskRuleType"></a>
