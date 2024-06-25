@@ -88,11 +88,13 @@
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="MergeDuplicateValuesInColumns" Type="Collection(Edm.PropertyPath)" Nullable="false">
+      <Term Name="RowSpanForDuplicateValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="For these properties adjacent column cells will be merged if the values are the same." />
+        <Annotation Term="Core.Description" String="The annotated UI.DataField might use a rowSpan for adjacent duplicate values if used in a table." />
         <Annotation Term="Core.LongDescription">
-          <String>In order to achieve a good user experience the respective columns should be sorted.</String>
+          <String>In order to achieve a good user experience the respective columns should be sorted.
+            Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.
+          </String>
         </Annotation>
       </Term>
 
