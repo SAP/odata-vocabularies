@@ -121,8 +121,7 @@
       "$Type": "UI.DataFieldAbstract",
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "Collection of data fields for representation in a table or list",
-      "@UI.ThingPerspective": true,
-      "@Validation.ApplicableTerms": ["HTML5.MergeDuplicateValuesInColumns"]
+      "@UI.ThingPerspective": true
     },
     "StatusInfo": {
       "$Kind": "Term",
@@ -1427,6 +1426,7 @@
         "UI.Importance",
         "UI.PartOfPreview",
         "HTML5.CssDefaults",
+        "HTML5.RowSpanForDuplicateValues",
         "Common.FieldControl"
       ],
       "Label": {
