@@ -54,6 +54,14 @@
         { "Value": "_parent", "@Core.Description": "Open link in the parent browsing context" },
         { "Value": "_top", "@Core.Description": "Open link in the top browsing context" }
       ]
+    },
+    "MergeDuplicateValuesInColumns": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Edm.PropertyPath",
+      "@Common.Experimental": true,
+      "@Core.Description": "For these properties adjacent column cells will be merged if the values are the same.",
+      "@Core.LongDescription": "In order to achieve a good user experience the respective columns should be sorted."
     }
   }
 }

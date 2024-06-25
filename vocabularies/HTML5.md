@@ -12,6 +12,7 @@ Term|Type|Description
 :---|:---|:----------
 [CssDefaults](HTML5.xml#L41)|[CssDefaultsType](#CssDefaultsType)|<a name="CssDefaults"></a>CSS definitions that may be used as defaults<br>This term can applied to e.g. UI.DataFieldAbstract records
 [LinkTarget](HTML5.xml#L58) *([Experimental](Common.md#Experimental))*|[LinkTargetType](#LinkTargetType)|<a name="LinkTarget"></a>Where to open a link for the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)<br>When the UI contains a link to the URL, it shall open as specified by this annotation. This can be achieved, for example, by giving the UI5 `sap.m.Link` element a corresponding `target` property. Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.
+[MergeDuplicateValuesInColumns](HTML5.xml#L91) *([Experimental](Common.md#Experimental))*|\[PropertyPath\]|<a name="MergeDuplicateValuesInColumns"></a>For these properties adjacent column cells will be merged if the values are the same.<br>In order to achieve a good user experience the respective columns should be sorted.
 
 <a name="CssDefaultsType"></a>
 ## [CssDefaultsType](HTML5.xml#L46)
