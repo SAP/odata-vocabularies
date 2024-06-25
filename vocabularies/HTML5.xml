@@ -88,6 +88,14 @@
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="MergeDuplicateValuesInColumns" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="For these properties adjacent column cells will be merged if the values are the same." />
+        <Annotation Term="Core.LongDescription">
+          <String>In order to achieve a good user experience the respective columns should be sorted.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

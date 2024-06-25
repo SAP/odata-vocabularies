@@ -147,6 +147,11 @@ a collection of business object instances, e.g. as a list or table.</String>
       <Term Name="LineItem" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of data fields for representation in a table or list" />
         <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>HTML5.MergeDuplicateValuesInColumns</String>
+          </Collection>
+        </Annotation>
       </Term>
 
       <Term Name="StatusInfo" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
