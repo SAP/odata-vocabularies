@@ -1593,6 +1593,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
             <String>UI.Importance</String>
             <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
+            <String>HTML5.RowSpanForDuplicateValues</String>
             <String>Common.FieldControl</String>
           </Collection>
         </Annotation>

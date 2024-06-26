@@ -9,6 +9,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
     }
   },
   "com.sap.vocabularies.HTML5.v1": {
@@ -54,6 +57,16 @@
         { "Value": "_parent", "@Core.Description": "Open link in the parent browsing context" },
         { "Value": "_top", "@Core.Description": "Open link in the top browsing context" }
       ]
+    },
+    "RowSpanForDuplicateValues": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Record"],
+      "@Common.Experimental": true,
+      "@Core.RequiresType": "UI.DataFieldAbstract",
+      "@Core.Description": "The annotated data field might use a rowSpan for adjacent duplicate values if used in a table.",
+      "@Core.LongDescription": "In order to achieve a good user experience the respective columns should be sorted.\n            Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.\n          "
     }
   }
 }

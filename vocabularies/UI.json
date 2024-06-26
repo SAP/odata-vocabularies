@@ -1426,6 +1426,7 @@
         "UI.Importance",
         "UI.PartOfPreview",
         "HTML5.CssDefaults",
+        "HTML5.RowSpanForDuplicateValues",
         "Common.FieldControl"
       ],
       "Label": {
