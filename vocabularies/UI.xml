@@ -1396,10 +1396,44 @@ The trend is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
+
+      <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode" />
+        <Annotation Term="Core.LongDescription">
+          <String>Input masks improve readability and help to enter data correctly. 
+So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. 
+[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="InputMaskType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Mask" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The mask to be applied to the property or the parameter" />
+        </Property>
+        <Property Name="PlaceholderSymbol" Type="Edm.String" MaxLength="1" Nullable="false" DefaultValue="_">
+          <Annotation Term="Core.Description" String="A single character symbol to be shown where the user can type a character" />
+        </Property>
+        <Property Name="Rules" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask" />
+          <Annotation Term="Core.LongDescription">
+            <String>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="InputMaskRuleType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="MaskSymbol" Type="Edm.String" MaxLength="1" Nullable="false">
+          <Annotation Term="Core.Description" String="A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs" />
+        </Property>
+        <Property Name="RegExp" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Regular expression that defines the valid values for the mask symbol" />
+        </Property>
+      </ComplexType>
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
@@ -1559,6 +1593,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
             <String>UI.Importance</String>
             <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
+            <String>HTML5.RowSpanForDuplicateValues</String>
             <String>Common.FieldControl</String>
           </Collection>
         </Annotation>
@@ -1870,24 +1905,29 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Base type containing recommendations for an entity type property" />
         <Annotation Term="Core.LongDescription">
-          <String>Informal specializations of this base type have four properties:
+          <String>Informal specializations of this base type have three or four properties:
 - a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`
 - a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`
 - a property named `RecommendedFieldScoreValue`
-- a Boolean property named `RecommendedFieldIsSuggestion`.</String>
+- a Boolean property named `RecommendedFieldIsSuggestion`.
+
+In informal specializations of this base type, the last two properties are identified by their names,
+the other properties by their role in the `Common.Text` annotation.</String>
         </Annotation>
         <Property Name="RecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
+            <String>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
           </Annotation>
           <Annotation Term="Common.Text" Path="RecommendedFieldDescription" />
         </Property>
         <Property Name="RecommendedFieldDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Description of the recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
-            This property is omitted from specializations for recommendations without text.</String>
+            <String>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+            This property is omitted together with the `Common.Text` annotation from specializations for recommendations without text.
+            In this case the recommended value is contained in the property whose name is neither
+            `RecommendedFieldScoreValue` nor `RecommendedFieldIsSuggestion`.</String>
           </Annotation>
         </Property>
         <Property Name="RecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">

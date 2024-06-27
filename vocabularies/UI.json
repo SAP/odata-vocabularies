@@ -1245,9 +1245,42 @@
     },
     "Placeholder": {
       "$Kind": "Term",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
+    },
+    "InputMask": {
+      "$Kind": "Term",
+      "$Type": "UI.InputMaskType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode",
+      "@Core.LongDescription": "Input masks improve readability and help to enter data correctly. \nSo, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. \n[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation"
+    },
+    "InputMaskType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Mask": { "@Core.Description": "The mask to be applied to the property or the parameter" },
+      "PlaceholderSymbol": {
+        "$MaxLength": 1,
+        "$DefaultValue": "_",
+        "@Core.Description": "A single character symbol to be shown where the user can type a character"
+      },
+      "Rules": {
+        "$Collection": true,
+        "$Type": "UI.InputMaskRuleType",
+        "@Core.Description": "Rules that define valid values for one symbol in the mask",
+        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]"
+      }
+    },
+    "InputMaskRuleType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "MaskSymbol": {
+        "$MaxLength": 1,
+        "@Core.Description": "A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs"
+      },
+      "RegExp": { "@Core.Description": "Regular expression that defines the valid values for the mask symbol" }
     },
     "TextArrangement": {
       "$Kind": "Term",
@@ -1393,6 +1426,7 @@
         "UI.Importance",
         "UI.PartOfPreview",
         "HTML5.CssDefaults",
+        "HTML5.RowSpanForDuplicateValues",
         "Common.FieldControl"
       ],
       "Label": {
@@ -1709,17 +1743,17 @@
       "$Abstract": true,
       "@Common.Experimental": true,
       "@Core.Description": "Base type containing recommendations for an entity type property",
-      "@Core.LongDescription": "Informal specializations of this base type have four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`\n- a property named `RecommendedFieldScoreValue`\n- a Boolean property named `RecommendedFieldIsSuggestion`.",
+      "@Core.LongDescription": "Informal specializations of this base type have three or four properties:\n- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`\n- a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`\n- a property named `RecommendedFieldScoreValue`\n- a Boolean property named `RecommendedFieldIsSuggestion`.\n\nIn informal specializations of this base type, the last two properties are identified by their names,\nthe other properties by their role in the `Common.Text` annotation.",
       "RecommendedFieldValue": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Recommended value",
-        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the primitive type of the entity type property.",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.",
         "@Common.Text": { "$Path": "RecommendedFieldDescription" }
       },
       "RecommendedFieldDescription": {
         "$Nullable": true,
         "@Core.Description": "Description of the recommended value",
-        "@Core.LongDescription": "In specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            This property is omitted from specializations for recommendations without text."
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            This property is omitted together with the `Common.Text` annotation from specializations for recommendations without text.\n            In this case the recommended value is contained in the property whose name is neither\n            `RecommendedFieldScoreValue` nor `RecommendedFieldIsSuggestion`."
       },
       "RecommendedFieldScoreValue": {
         "$Type": "Edm.Decimal",

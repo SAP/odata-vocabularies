@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.HTML5.v1" Alias="HTML5">
@@ -87,6 +90,17 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
+
+      <Term Name="RowSpanForDuplicateValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.RequiresType" String="UI.DataFieldAbstract" />
+        <Annotation Term="Core.Description" String="The annotated data field might use a rowSpan for adjacent duplicate values if used in a table." />
+        <Annotation Term="Core.LongDescription">
+          <String>In order to achieve a good user experience the respective columns should be sorted.
+            Applicability of this term is governed by [`Validation.ApplicableTerms`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.html#ApplicableTerms) annotations.
+          </String>
+        </Annotation>
+      </Term>
 
     </Schema>
   </edmx:DataServices>
