@@ -1904,20 +1904,12 @@ The recommendations SHOULD be computed asynchronously, see [this diagram](../doc
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Base type containing recommendations for an entity type property" />
-        <Annotation Term="Core.LongDescription">
-          <String>Informal specializations of this base type have three or four properties:
-- a property that is the target of a [`Common.Text`](Common.md#Text) annotation, its name may differ from `RecommendedFieldValue`
-- a property to which the `Common.Text` annotation evaluates, its name may differ from `RecommendedFieldDescription`
-- a property named `RecommendedFieldScoreValue`
-- a Boolean property named `RecommendedFieldIsSuggestion`.
-
-In informal specializations of this base type, the last two properties are identified by their names,
-the other properties by their role in the `Common.Text` annotation.</String>
-        </Annotation>
         <Property Name="RecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Recommended value" />
           <Annotation Term="Core.LongDescription">
-            <String>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.</String>
+            <String>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.
+            If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation
+            that evaluates to the `RecommendedFieldDescription` property.</String>
           </Annotation>
           <Annotation Term="Common.Text" Path="RecommendedFieldDescription" />
         </Property>
@@ -1925,9 +1917,7 @@ the other properties by their role in the `Common.Text` annotation.</String>
           <Annotation Term="Core.Description" String="Description of the recommended value" />
           <Annotation Term="Core.LongDescription">
             <String>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
-            This property is omitted together with the `Common.Text` annotation from specializations for recommendations without text.
-            In this case the recommended value is contained in the property whose name is neither
-            `RecommendedFieldScoreValue` nor `RecommendedFieldIsSuggestion`.</String>
+            It is omitted from informal specializations for recommendations without description.</String>
           </Annotation>
         </Property>
         <Property Name="RecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
