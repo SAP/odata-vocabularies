@@ -123,6 +123,26 @@
       "@Core.Description": "Collection of data fields for representation in a table or list",
       "@UI.ThingPerspective": true
     },
+    "ApplyRecursiveHierarchy": {
+      "$Kind": "Term",
+      "$Type": "Aggregation.HierarchyQualifier",
+      "$Nullable": true,
+      "$AppliesTo": ["Annotation"],
+      "@Common.Experimental": true,
+      "@Core.RequiresType": "UI.LineItem",
+      "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to a UI.LineItem",
+      "@Core.LongDescription": "Variant 2 for hierarchical LineItems"
+    },
+    "HierarchicalLineItem": {
+      "$Kind": "Term",
+      "$Type": "Aggregation.HierarchyQualifier",
+      "$Nullable": true,
+      "$AppliesTo": ["EntityType"],
+      "$BaseTerm": "UI.LineItem",
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the UI.LineItem having the same qualifier",
+      "@Core.LongDescription": "Variant 3 for hierarchical LineItems"
+    },
     "StatusInfo": {
       "$Kind": "Term",
       "$Collection": true,
@@ -1042,6 +1062,13 @@
         "$Type": "Edm.AnnotationPath",
         "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants.\n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            ",
         "@Validation.AllowedTerms": ["UI.Chart", "UI.DataPoint", "UI.LineItem"]
+      },
+      "RecursiveHierarchyQualifier": {
+        "$Type": "Aggregation.HierarchyQualifier",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the Visualization",
+        "@Core.LongDescription": "Variant 1 for hierarchical LineItems"
       },
       "RequestAtLeast": {
         "$Collection": true,
