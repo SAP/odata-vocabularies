@@ -1730,6 +1730,42 @@
         "@Core.Description": "Path to property in the collection of recommended values. Format is identical to PropertyPath annotations."
       }
     },
+    "Recommendations": {
+      "$Kind": "Term",
+      "$Type": "Edm.ComplexType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Recommendations for an entity",
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit the property `RecommendedFieldDescription`.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+    },
+    "PropertyRecommendationType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Base type containing recommendations for an entity type property",
+      "RecommendedFieldValue": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.\n            If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation\n            that evaluates to the `RecommendedFieldDescription` property.",
+        "@Common.Text": { "$Path": "RecommendedFieldDescription" }
+      },
+      "RecommendedFieldDescription": {
+        "$Nullable": true,
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            It is omitted from informal specializations for recommendations without description."
+      },
+      "RecommendedFieldScoreValue": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Confidence score of the recommended value"
+      },
+      "RecommendedFieldIsSuggestion": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the recommended value shall be suggested in the input field",
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property containing [`Recommendations`](#Recommendations),\n            this flag can be true in at most one instance of the collection,\n            and only if the `RecommendedFieldScoreValue` exceeds a certain threshold."
+      }
+    },
     "ExcludeFromNavigationContext": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
