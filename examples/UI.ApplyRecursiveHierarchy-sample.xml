@@ -37,7 +37,6 @@
           </Record>
         </Annotation>
 
-        <!-- Variant 1 - PresentationVariant -->
         <Annotation Term="UI.LineItem" Qualifier="useHierarchy">
           <Collection>
             <Record Type="UI.DataField">
@@ -58,32 +57,6 @@
             <PropertyValue Property="RecursiveHierarchyQualifier" String="myHierarchyQualifier" />
           </Record>
         </Annotation>
-
-        <!-- Variant 2 - Term UI.ApplyRecursiveHierarchy that can be applied to UI.LineItem -->
-        <Annotation Term="UI.LineItem" Qualifier="useHierarchy">
-          <Annotation Term="UI.ApplyRecursiveHierarchy" String="myHierarchyQualifier" />
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="ID" />
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="StatusText" />
-            </Record>
-          </Collection>
-        </Annotation>
-
-        <!-- Variant 3 - Term UI.HierarchicalLineItem that has UI.LineItem as a BaseTerm -->  
-        <Annotation Term="UI.LineItem" Qualifier="useHierarchy">
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="ID" />
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="StatusText" />
-            </Record>
-          </Collection>
-        </Annotation>
-        <Annotation Term="UI.HierarchicalLineItem" Qualifier="useHierarchy" String="myHierarchicalQualifier" />  
 
       </Annotations>
 

@@ -149,23 +149,6 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
-      <Term Name="ApplyRecursiveHierarchy" Type="Aggregation.HierarchyQualifier" AppliesTo="Annotation">
-        <Annotation Term="Common.Experimental" />       
-        <Annotation Term="Core.RequiresType" String="UI.LineItem"/>
-        <Annotation Term="Core.Description" String="Qualifier of the recursive hierarchy that should be applied to a UI.LineItem" />
-        <Annotation Term="Core.LongDescription">
-          <String>Variant 2 for hierarchical LineItems</String>
-        </Annotation>
-      </Term>
-
-      <Term Name="HierarchicalLineItem" BaseTerm="UI.LineItem" Type="Aggregation.HierarchyQualifier" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Qualifier of the recursive hierarchy that should be applied to the UI.LineItem having the same qualifier" />
-        <Annotation Term="Core.LongDescription">
-          <String>Variant 3 for hierarchical LineItems</String>
-        </Annotation>
-      </Term>
-
       <Term Name="StatusInfo" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of data fields describing the status of an entity" />
         <Annotation Term="UI.ThingPerspective" />
@@ -1181,9 +1164,6 @@ The trend is
         <Property Name="RecursiveHierarchyQualifier" Type="Aggregation.HierarchyQualifier">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Qualifier of the recursive hierarchy that should be applied to the Visualization" />
-          <Annotation Term="Core.LongDescription">
-            <String>Variant 1 for hierarchical LineItems</String>
-          </Annotation>
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
