@@ -965,7 +965,6 @@ The trend is
         <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type" />
       </Term>
 
-
       <!-- Segmentation of content according to facets of the Object -->
 
       <Term Name="Facets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
@@ -1161,6 +1160,10 @@ The trend is
               <String>UI.LineItem</String>
             </Collection>
           </Annotation>
+        </Property>
+        <Property Name="RecursiveHierarchyQualifier" Type="Aggregation.HierarchyQualifier">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Qualifier of the recursive hierarchy that should be applied to the Visualization" />
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
