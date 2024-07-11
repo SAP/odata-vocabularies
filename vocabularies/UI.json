@@ -1736,7 +1736,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Recommendations for an entity",
-      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit one of the properties.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md)."
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",

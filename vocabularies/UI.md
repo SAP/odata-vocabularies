@@ -73,10 +73,10 @@ Term|Type|Description
 [ParameterDefaultValue](UI.xml#L1824)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
 [RecommendationState](UI.xml#L1830)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
 [RecommendationList](UI.xml#L1860)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[Recommendations](UI.xml#L1892) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural properties of the entity type for which recommendations are available. The type of such a property is a collection of an informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations SHOULD be computed asynchronously, see [this diagram](../docs/recommendations.md).
-[ExcludeFromNavigationContext](UI.xml#L1937)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1941) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
-[LeadingEntitySet](UI.xml#L1951) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[Recommendations](UI.xml#L1892) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit one of the properties.)<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
+[ExcludeFromNavigationContext](UI.xml#L1938)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1942) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[LeadingEntitySet](UI.xml#L1952) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](UI.xml#L68)
@@ -1172,18 +1172,18 @@ Property|Type|Description
 [ValueListProperty](UI.xml#L1887)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
 <a name="PropertyRecommendationType"></a>
-## [*PropertyRecommendationType*](UI.xml#L1904) *([Experimental](Common.md#Experimental))*
+## [*PropertyRecommendationType*](UI.xml#L1905) *([Experimental](Common.md#Experimental))*
 Base type containing recommendations for an entity type property
 
 Property|Type|Description
 :-------|:---|:----------
-[RecommendedFieldValue](UI.xml#L1907)|PrimitiveType|Recommended value<br>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property. If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation that evaluates to the `RecommendedFieldDescription` property.
-[RecommendedFieldDescription](UI.xml#L1916)|String?|Description of the recommended value<br>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property. It is omitted from informal specializations for recommendations without description.
-[RecommendedFieldScoreValue](UI.xml#L1923)|Decimal?|Confidence score of the recommended value
-[RecommendedFieldIsSuggestion](UI.xml#L1926)|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.
+[RecommendedFieldValue](UI.xml#L1908)|PrimitiveType|Recommended value<br>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property. If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation that evaluates to the `RecommendedFieldDescription` property.
+[RecommendedFieldDescription](UI.xml#L1917)|String?|Description of the recommended value<br>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property. It is omitted from informal specializations for recommendations without description.
+[RecommendedFieldScoreValue](UI.xml#L1924)|Decimal?|Confidence score of the recommended value
+[RecommendedFieldIsSuggestion](UI.xml#L1927)|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.
 
 <a name="ActionName"></a>
-## [ActionName](UI.xml#L1956)
+## [ActionName](UI.xml#L1957)
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope
