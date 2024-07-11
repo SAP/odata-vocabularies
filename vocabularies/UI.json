@@ -123,26 +123,6 @@
       "@Core.Description": "Collection of data fields for representation in a table or list",
       "@UI.ThingPerspective": true
     },
-    "ApplyRecursiveHierarchy": {
-      "$Kind": "Term",
-      "$Type": "Aggregation.HierarchyQualifier",
-      "$Nullable": true,
-      "$AppliesTo": ["Annotation"],
-      "@Common.Experimental": true,
-      "@Core.RequiresType": "UI.LineItem",
-      "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to a UI.LineItem",
-      "@Core.LongDescription": "Variant 2 for hierarchical LineItems"
-    },
-    "HierarchicalLineItem": {
-      "$Kind": "Term",
-      "$Type": "Aggregation.HierarchyQualifier",
-      "$Nullable": true,
-      "$AppliesTo": ["EntityType"],
-      "$BaseTerm": "UI.LineItem",
-      "@Common.Experimental": true,
-      "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the UI.LineItem having the same qualifier",
-      "@Core.LongDescription": "Variant 3 for hierarchical LineItems"
-    },
     "StatusInfo": {
       "$Kind": "Term",
       "$Collection": true,
@@ -1067,8 +1047,7 @@
         "$Type": "Aggregation.HierarchyQualifier",
         "$Nullable": true,
         "@Common.Experimental": true,
-        "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the Visualization",
-        "@Core.LongDescription": "Variant 1 for hierarchical LineItems"
+        "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the Visualization"
       },
       "RequestAtLeast": {
         "$Collection": true,

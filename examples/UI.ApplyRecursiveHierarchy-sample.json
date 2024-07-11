@@ -43,9 +43,7 @@
         "@UI.PresentationVariant": {
           "Visualizations": ["UI.LineItem#useHierarchy"],
           "RecursiveHierarchyQualifier": "myHierarchyQualifier"
-        },
-        "@UI.LineItem#useHierarchy@UI.ApplyRecursiveHierarchy": "myHierarchyQualifier",
-        "@UI.HierarchicalLineItem#useHierarchy": "myHierarchicalQualifier"
+        }
       }
     }
   },
