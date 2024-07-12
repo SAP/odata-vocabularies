@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="Examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      
+      <EntityContainer Name="container">
+        <EntitySet Name="HierarchySet" EntityType="Examples.Hierarchy_Type" />
+      </EntityContainer>
+
+      <EntityType Name="Hierarchy_Type">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="10" />
+        <Property Name="StatusText" Type="Edm.String" MaxLength="30" />
+        <Property Name="Node" Type="Edm.Guid" Nullable="false" />
+        <NavigationProperty Name="to_Parent" Type="Hierarchy_Type" />
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <Annotations Target="Examples.Hierarchy_Type">
+
+        <Annotation Term="Aggregation.RecursiveHierarchy" Qualifier="myHierarchyQualifier">
+          <Record>
+            <PropertyValue Property="Node" PropertyPath="Node" />
+            <PropertyValue Property="ParentNavigationProperty" NavigationPropertyPath="to_Parent" />
+          </Record>
+        </Annotation>
+
+        <Annotation Term="UI.LineItem" Qualifier="useHierarchy">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="ID" />
+            </Record>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="StatusText" />
+            </Record>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.PresentationVariant">
+          <Record>
+            <PropertyValue Property="Visualizations">
+              <Collection>
+                <AnnotationPath>UI.LineItem#useHierarchy</AnnotationPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="RecursiveHierarchyQualifier" String="myHierarchyQualifier" />
+          </Record>
+        </Annotation>
+
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

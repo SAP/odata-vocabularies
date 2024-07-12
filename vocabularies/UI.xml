@@ -965,7 +965,6 @@ The trend is
         <Annotation Term="Core.Description" String="Properties that might be relevant for filtering a collection of entities of this type" />
       </Term>
 
-
       <!-- Segmentation of content according to facets of the Object -->
 
       <Term Name="Facets" Type="Collection(UI.Facet)" Nullable="false" AppliesTo="EntityType">
@@ -1161,6 +1160,10 @@ The trend is
               <String>UI.LineItem</String>
             </Collection>
           </Annotation>
+        </Property>
+        <Property Name="RecursiveHierarchyQualifier" Type="Aggregation.HierarchyQualifier">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Qualifier of the recursive hierarchy that should be applied to the Visualization" />
         </Property>
         <Property Name="RequestAtLeast" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties that should always be included in the result of the queried collection" />
@@ -1396,10 +1399,44 @@ The trend is
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property">
+      <Term Name="Placeholder" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
+
+      <Term Name="InputMask" Type="UI.InputMaskType" Nullable="false" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Properties or parameters annotated with this term will get a mask in edit mode" />
+        <Annotation Term="Core.LongDescription">
+          <String>Input masks improve readability and help to enter data correctly. 
+So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. 
+[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="InputMaskType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Mask" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The mask to be applied to the property or the parameter" />
+        </Property>
+        <Property Name="PlaceholderSymbol" Type="Edm.String" MaxLength="1" Nullable="false" DefaultValue="_">
+          <Annotation Term="Core.Description" String="A single character symbol to be shown where the user can type a character" />
+        </Property>
+        <Property Name="Rules" Type="Collection(UI.InputMaskRuleType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rules that define valid values for one symbol in the mask" />
+          <Annotation Term="Core.LongDescription">
+            <String>The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="InputMaskRuleType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="MaskSymbol" Type="Edm.String" MaxLength="1" Nullable="false">
+          <Annotation Term="Core.Description" String="A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs" />
+        </Property>
+        <Property Name="RegExp" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Regular expression that defines the valid values for the mask symbol" />
+        </Property>
+      </ComplexType>
 
       <Term Name="TextArrangement" Type="UI.TextArrangementType" Nullable="false" AppliesTo="Annotation EntityType">
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
@@ -1559,6 +1596,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
             <String>UI.Importance</String>
             <String>UI.PartOfPreview</String>
             <String>HTML5.CssDefaults</String>
+            <String>HTML5.RowSpanForDuplicateValues</String>
             <String>Common.FieldControl</String>
           </Collection>
         </Annotation>
@@ -1851,6 +1889,52 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Property>
         <Property Name="ValueListProperty" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property in the collection of recommended values. Format is identical to PropertyPath annotations." />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Recommendations for an entity" />
+          <Annotation Term="Core.LongDescription">
+          <String>This complex-typed annotation contains structural properties corresponding via name equality
+to non-key structural primitive properties of the entity type for which recommendations are available.
+The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
+(The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)
+
+Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.
+The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
+          </Annotation>
+      </Term>
+      <ComplexType Name="PropertyRecommendationType" Abstract="true">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Base type containing recommendations for an entity type property" />
+        <Property Name="RecommendedFieldValue" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Recommended value" />
+          <Annotation Term="Core.LongDescription">
+            <String>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.
+            If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation
+            that evaluates to the `RecommendedFieldDescription` property.</String>
+          </Annotation>
+          <Annotation Term="Common.Text" Path="RecommendedFieldDescription" />
+        </Property>
+        <Property Name="RecommendedFieldDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the recommended value" />
+          <Annotation Term="Core.LongDescription">
+            <String>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.
+            It is omitted from informal specializations for recommendations without description.</String>
+          </Annotation>
+        </Property>
+        <Property Name="RecommendedFieldScoreValue" Type="Edm.Decimal" Scale="variable" Nullable="true">
+          <Annotation Term="Core.Description" String="Confidence score of the recommended value" />
+        </Property>
+        <Property Name="RecommendedFieldIsSuggestion" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether the recommended value shall be suggested in the input field" />
+          <Annotation Term="Core.LongDescription">
+            <String>For any collection of a specialization of `PropertyRecommendationType`
+            in a property containing [`Recommendations`](#Recommendations),
+            this flag can be true in at most one instance of the collection,
+            and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 

@@ -1043,6 +1043,12 @@
         "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants.\n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            ",
         "@Validation.AllowedTerms": ["UI.Chart", "UI.DataPoint", "UI.LineItem"]
       },
+      "RecursiveHierarchyQualifier": {
+        "$Type": "Aggregation.HierarchyQualifier",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the Visualization"
+      },
       "RequestAtLeast": {
         "$Collection": true,
         "$Type": "Edm.PropertyPath",
@@ -1245,9 +1251,42 @@
     },
     "Placeholder": {
       "$Kind": "Term",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
+    },
+    "InputMask": {
+      "$Kind": "Term",
+      "$Type": "UI.InputMaskType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode",
+      "@Core.LongDescription": "Input masks improve readability and help to enter data correctly. \nSo, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. \n[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation"
+    },
+    "InputMaskType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Mask": { "@Core.Description": "The mask to be applied to the property or the parameter" },
+      "PlaceholderSymbol": {
+        "$MaxLength": 1,
+        "$DefaultValue": "_",
+        "@Core.Description": "A single character symbol to be shown where the user can type a character"
+      },
+      "Rules": {
+        "$Collection": true,
+        "$Type": "UI.InputMaskRuleType",
+        "@Core.Description": "Rules that define valid values for one symbol in the mask",
+        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]"
+      }
+    },
+    "InputMaskRuleType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "MaskSymbol": {
+        "$MaxLength": 1,
+        "@Core.Description": "A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs"
+      },
+      "RegExp": { "@Core.Description": "Regular expression that defines the valid values for the mask symbol" }
     },
     "TextArrangement": {
       "$Kind": "Term",
@@ -1393,6 +1432,7 @@
         "UI.Importance",
         "UI.PartOfPreview",
         "HTML5.CssDefaults",
+        "HTML5.RowSpanForDuplicateValues",
         "Common.FieldControl"
       ],
       "Label": {
@@ -1694,6 +1734,42 @@
       },
       "ValueListProperty": {
         "@Core.Description": "Path to property in the collection of recommended values. Format is identical to PropertyPath annotations."
+      }
+    },
+    "Recommendations": {
+      "$Kind": "Term",
+      "$Type": "Edm.ComplexType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Recommendations for an entity",
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit the property `RecommendedFieldDescription`.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+    },
+    "PropertyRecommendationType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Base type containing recommendations for an entity type property",
+      "RecommendedFieldValue": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.\n            If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation\n            that evaluates to the `RecommendedFieldDescription` property.",
+        "@Common.Text": { "$Path": "RecommendedFieldDescription" }
+      },
+      "RecommendedFieldDescription": {
+        "$Nullable": true,
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            It is omitted from informal specializations for recommendations without description."
+      },
+      "RecommendedFieldScoreValue": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Confidence score of the recommended value"
+      },
+      "RecommendedFieldIsSuggestion": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the recommended value shall be suggested in the input field",
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property containing [`Recommendations`](#Recommendations),\n            this flag can be true in at most one instance of the collection,\n            and only if the `RecommendedFieldScoreValue` exceeds a certain threshold."
       }
     },
     "ExcludeFromNavigationContext": {

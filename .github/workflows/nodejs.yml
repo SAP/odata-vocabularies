@@ -1,6 +1,6 @@
-name: Node CI
+name: Rebuild JSON and MarkDown files
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   build:
