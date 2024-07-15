@@ -1384,7 +1384,7 @@
       "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated operation leverages AI capabilities.",
-      "@Core.LongDescription": "This term should end-users make aware that the annotated operation uses AI functionality to process the selected application data."
+      "@Core.LongDescription": "This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data."
     },
     "CreateHidden": {
       "$Kind": "Term",
