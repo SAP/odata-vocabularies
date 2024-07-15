@@ -1377,6 +1377,15 @@
       "@Core.Description": "The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type",
       "@Core.LongDescription": "The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
     },
+    "IsAIOperation": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated operation is powered by AI",
+      "@Core.LongDescription": "This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data."
+    },
     "CreateHidden": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
