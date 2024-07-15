@@ -1551,7 +1551,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
 
       <Term Name="IsAIOperation" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The annotated operation leverages AI capabilities." />
+        <Annotation Term="Core.Description" String="The annotated operation is powered by AI" />
         <Annotation Term="Core.LongDescription">
           <String>This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data.</String>
         </Annotation>
