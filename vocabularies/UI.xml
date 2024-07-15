@@ -1536,7 +1536,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.</String>
         </Annotation>
       </Term>
-
+ 
       <Term Name="IsCopyAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.RequiresType" String="UI.DataFieldForAction" />
@@ -1546,6 +1546,14 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
 Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,
 and the response MUST be either `201 Created` and a representation of the created entity,
 or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="IsAIOperation" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated operation leverages AI capabilities." />
+        <Annotation Term="Core.LongDescription">
+          <String>This term should end-users make aware that the annotated operation uses AI functionality to process the selected application data.</String>
         </Annotation>
       </Term>
 
