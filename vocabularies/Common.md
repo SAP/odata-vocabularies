@@ -101,16 +101,16 @@ Term|Type|Description
 [FilterDefaultValueHigh](Common.xml#L1285) *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
 [DerivedFilterDefaultValue](Common.xml#L1290) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br>Function import has two parameters of complex types:<br/> - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property<br/> - `properties`, a structure resembling the type of the entity set of the annotated property<br/> The return type must be of the same type as the annotated property.<br/> Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.
 [SortOrder](Common.xml#L1314)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
-[RecursiveHierarchy](Common.xml#L1370) *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
-[CreatedAt](Common.xml#L1418)|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L1422)|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L1426)|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L1430)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](Common.xml#L1442)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1447) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
-[mediaUploadLink](Common.xml#L1453) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
-[PrimitivePropertyPath](Common.xml#L1468) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
-[WebSocketBaseURL](Common.xml#L1473) *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
+[RecursiveHierarchy](Common.xml#L1373) *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
+[CreatedAt](Common.xml#L1421)|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L1425)|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L1429)|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L1433)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
+[OriginalProtocolVersion](Common.xml#L1445)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1450) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
+[mediaUploadLink](Common.xml#L1456) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
+[PrimitivePropertyPath](Common.xml#L1471) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
+[WebSocketBaseURL](Common.xml#L1476) *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](Common.xml#L120)
@@ -423,20 +423,21 @@ All side effects are essentially value changes, differentiation not needed.
 
 <a name="SortOrderType"></a>
 ## [SortOrderType](Common.xml#L1322)
-Exactly one of `Property` and `DynamicProperty` must be present
+Exactly one of `Property`, `DynamicProperty` and `Expression` must be present
 
 Property|Type|Description
 :-------|:---|:----------
 [Property](Common.xml#L1324)|PropertyPath?|Sort property
 [DynamicProperty](Common.xml#L1336)|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
-[Descending](Common.xml#L1350)|Boolean?|Sort direction, ascending if not specified otherwise
+[Expression](Common.xml#L1350)|String?|Common expression whose primitive result values is used to sort the instances
+[Descending](Common.xml#L1353)|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="RecursiveHierarchyType"></a>
-## [RecursiveHierarchyType](Common.xml#L1383) *(Deprecated)*
+## [RecursiveHierarchyType](Common.xml#L1386) *(Deprecated)*
 Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
 
 <a name="UserID"></a>
-## [UserID](Common.xml#L1434)
+## [UserID](Common.xml#L1437)
 **Type:** String
 
 User ID
