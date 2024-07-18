@@ -1193,7 +1193,8 @@
       "Expression": {
         "$Type": "Edm.PrimitiveType",
         "$Nullable": true,
-        "@Core.Description": "Common expression whose primitive result values is used to sort the instances"
+        "@Common.Experimental": true,
+        "@Core.Description": "Dynamic expression whose primitive result value is used to sort the instances"
       },
       "Descending": {
         "$Type": "Edm.Boolean",
