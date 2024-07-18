@@ -429,7 +429,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Property](Common.xml#L1324)|PropertyPath?|Sort property
 [DynamicProperty](Common.xml#L1336)|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
-[Expression](Common.xml#L1350)|String?|Common expression whose primitive result values is used to sort the instances
+[Expression](Common.xml#L1350)|PrimitiveType?|Common expression whose primitive result values is used to sort the instances
 [Descending](Common.xml#L1353)|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="RecursiveHierarchyType"></a>

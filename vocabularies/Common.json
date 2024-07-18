@@ -1191,6 +1191,7 @@
         "@Validation.AllowedTerms": ["Analytics.AggregatedProperty", "Aggregation.CustomAggregate"]
       },
       "Expression": {
+        "$Type": "Edm.PrimitiveType",
         "$Nullable": true,
         "@Core.Description": "Common expression whose primitive result values is used to sort the instances"
       },
