@@ -1347,7 +1347,7 @@ Upon modification field control logic is invoked so that meta-information like h
             </Collection>
           </Annotation>
         </Property>
-        <Property Name="Expression" Type="Edm.String">
+        <Property Name="Expression" Type="Edm.PrimitiveType">
           <Annotation Term="Core.Description" String="Common expression whose primitive result values is used to sort the instances" />
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
