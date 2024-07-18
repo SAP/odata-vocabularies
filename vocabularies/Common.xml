@@ -1348,7 +1348,8 @@ Upon modification field control logic is invoked so that meta-information like h
           </Annotation>
         </Property>
         <Property Name="Expression" Type="Edm.PrimitiveType">
-          <Annotation Term="Core.Description" String="Common expression whose primitive result values is used to sort the instances" />
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Dynamic expression whose primitive result value is used to sort the instances" />
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
