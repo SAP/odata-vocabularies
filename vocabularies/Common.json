@@ -262,7 +262,7 @@
       "$Kind": "ComplexType",
       "$BaseType": "Common.SemanticObjectMappingAbstract",
       "@Common.Experimental": true,
-      "LocalProperty": {
+      "Constant": {
         "$Type": "Edm.PrimitiveType",
         "@Core.Description": "Constant value for the Semantic Object property"
       }

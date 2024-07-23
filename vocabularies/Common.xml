@@ -300,7 +300,7 @@
       </ComplexType>
       <ComplexType Name="SemanticObjectMappingConstant" BaseType="Common.SemanticObjectMappingAbstract">
         <Annotation Term="Common.Experimental" />
-        <Property Name="LocalProperty" Type="Edm.PrimitiveType" Nullable="false">
+        <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Constant value for the Semantic Object property" />
         </Property>
       </ComplexType>

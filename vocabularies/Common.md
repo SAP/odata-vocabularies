@@ -149,7 +149,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*SemanticObjectProperty*](Common.xml#L292)|String|Name of the Semantic Object property
-[LocalProperty](Common.xml#L303)|PrimitiveType|Constant value for the Semantic Object property
+[Constant](Common.xml#L303)|PrimitiveType|Constant value for the Semantic Object property
 
 <a name="FilterExpressionRestrictionType"></a>
 ## [FilterExpressionRestrictionType](Common.xml#L352) *(Deprecated)*
