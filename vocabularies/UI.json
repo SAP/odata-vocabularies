@@ -1306,14 +1306,27 @@
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
     },
-    "DateTimePattern": {
+    "DateTimeFormat": {
       "$Kind": "Term",
-      "$Nullable": true,
+      "$Type": "UI.DateTimeFormatType",
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
-      "@Core.Description": "The point in time represented by the annotated property or parameter shall be shown on the UI in the given pattern",
-      "@Core.LongDescription": "Date/time patterns are defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table.\n          If this annotation is absent or null or an empty string, points in time are shown in a default pattern.",
+      "@Core.Description": "The point in time represented by the annotated property or parameter shall be shown on the UI in the given format",
+      "@Core.LongDescription": "If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format.",
       "@Core.RequiresType": "Edm.DateTimeOffset"
+    },
+    "DateTimeFormatType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Pattern": {
+        "$Nullable": true,
+        "@Core.Description": "A date/time pattern as defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table"
+      },
+      "Style": {
+        "$Nullable": true,
+        "@Core.Description": "Show the point in time in short, medium or long style",
+        "@Validation.AllowedValues": [{ "Value": "short" }, { "Value": "medium" }, { "Value": "long" }]
+      }
     },
     "Note": {
       "$Kind": "Term",
