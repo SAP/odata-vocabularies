@@ -1463,10 +1463,10 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
 
       <Term Name="DateTimeFormat" Type="UI.DateTimeFormatType" Nullable="false" AppliesTo="Property Parameter">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be shown on the UI in the given format" />
+        <Annotation Term="Core.Description" String="The temporal value represented by the annotated property or parameter shall be shown on the UI in the given format" />
         <Annotation Term="Core.LongDescription">
           <String>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.
-          If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format.</String>
+          If this annotation is absent or all its properties null or an empty string, temporal values are shown in a default format.</String>
         </Annotation>
       </Term>
       <ComplexType Name="DateTimeFormatType">
@@ -1475,7 +1475,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="A date/time pattern as defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table" />
         </Property>
         <Property Name="Style" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Show the point in time in shorter or longer style" />
+          <Annotation Term="Core.Description" String="Show the temporal value in shorter or longer style" />
           <Annotation Term="Validation.AllowedValues">
             <Collection>
               <Record>
