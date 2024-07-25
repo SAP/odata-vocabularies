@@ -1461,6 +1461,17 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         </Member>
       </EnumType>
 
+      <Term Name="DateTimePattern" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be shown on the UI in the given pattern" />
+        <Annotation Term="Core.LongDescription">
+          <String>Date/time patterns are defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+          If this annotation is absent or null or an empty string, points in time are shown in a default pattern.</String>
+        </Annotation>
+        <Annotation Term="Core.RequiresType" String="Edm.Date" />
+        <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
+      </Term>
+
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Visualization of a note attached to an entity" />
