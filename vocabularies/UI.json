@@ -1312,8 +1312,7 @@
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
       "@Core.Description": "The point in time represented by the annotated property or parameter shall be shown on the UI in the given format",
-      "@Core.LongDescription": "If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format.",
-      "@Core.RequiresType": "Edm.DateTimeOffset"
+      "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format."
     },
     "DateTimeFormatType": {
       "$Kind": "ComplexType",

@@ -1465,10 +1465,9 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The point in time represented by the annotated property or parameter shall be shown on the UI in the given format" />
         <Annotation Term="Core.LongDescription">
-          <String>If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format.</String>
+          <String>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.
+          If this annotation is absent or all its properties null or an empty string, points in time are shown in a default format.</String>
         </Annotation>
-        <Annotation Term="Core.RequiresType" String="Edm.Date" />
-        <Annotation Term="Core.RequiresType" String="Edm.DateTimeOffset" />
       </Term>
       <ComplexType Name="DateTimeFormatType">
         <Annotation Term="Common.Experimental" />
