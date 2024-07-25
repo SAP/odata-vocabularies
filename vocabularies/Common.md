@@ -111,6 +111,7 @@ Term|Type|Description
 [mediaUploadLink](Common.xml#L1457) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](Common.xml#L1472) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](Common.xml#L1477) *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
+[Meta](Common.xml#L1483) *([Experimental](Common.md#Experimental))*|[MetaType](#MetaType)|<a name="Meta"></a>Meta attributes of the Schema
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](Common.xml#L120)
@@ -441,3 +442,11 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 **Type:** String
 
 User ID
+
+<a name="MetaType"></a>
+## [MetaType](Common.xml#L1487) *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Creator](Common.xml#L1489)|String|Constant and version independent identification of the schema creator

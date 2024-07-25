@@ -1316,6 +1316,18 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "Meta": {
+      "$Kind": "Term",
+      "$Type": "Common.MetaType",
+      "$AppliesTo": ["Schema"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Meta attributes of the Schema"
+    },
+    "MetaType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Creator": { "@Core.Description": "Constant and version independent identification of the schema creator" }
     }
   }
 }
