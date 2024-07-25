@@ -1312,7 +1312,7 @@
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
       "@Core.Description": "The point in time represented by the annotated property or parameter shall be shown on the UI in the given pattern",
-      "@Core.LongDescription": "Date/time patterns are defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table\n          If this annotation is absent or null or an empty string, points in time are shown in a default pattern.",
+      "@Core.LongDescription": "Date/time patterns are defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table.\n          If this annotation is absent or null or an empty string, points in time are shown in a default pattern.",
       "@Core.RequiresType": "Edm.DateTimeOffset"
     },
     "Note": {
