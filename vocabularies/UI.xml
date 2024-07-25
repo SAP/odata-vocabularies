@@ -1476,17 +1476,24 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="A date/time pattern as defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table" />
         </Property>
         <Property Name="Style" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Show the point in time in short, medium or long style" />
+          <Annotation Term="Core.Description" String="Show the point in time in shorter or longer style" />
           <Annotation Term="Validation.AllowedValues">
             <Collection>
               <Record>
                 <PropertyValue Property="Value" Int="short" />
+                <Annotation Term="Core.Description" String="7/25/24, 1:11 PM" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" Int="medium" />
+                <Annotation Term="Core.Description" String="Jul 25, 2024, 1:11:51 PM" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" Int="long" />
+                <Annotation Term="Core.Description" String="July 25, 2024 at 1:11:51 PM GMT+2" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" Int="full" />
+                <Annotation Term="Core.Description" String="Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" />
               </Record>
             </Collection>
           </Annotation>

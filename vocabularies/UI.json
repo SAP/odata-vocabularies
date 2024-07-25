@@ -1324,8 +1324,13 @@
       },
       "Style": {
         "$Nullable": true,
-        "@Core.Description": "Show the point in time in short, medium or long style",
-        "@Validation.AllowedValues": [{ "Value": "short" }, { "Value": "medium" }, { "Value": "long" }]
+        "@Core.Description": "Show the point in time in shorter or longer style",
+        "@Validation.AllowedValues": [
+          { "Value": "short", "@Core.Description": "7/25/24, 1:11 PM" },
+          { "Value": "medium", "@Core.Description": "Jul 25, 2024, 1:11:51 PM" },
+          { "Value": "long", "@Core.Description": "July 25, 2024 at 1:11:51 PM GMT+2" },
+          { "Value": "full", "@Core.Description": "Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" }
+        ]
       }
     },
     "Note": {
