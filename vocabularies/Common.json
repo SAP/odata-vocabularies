@@ -1327,7 +1327,7 @@
     "MetaType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "Creator": { "@Core.Description": "Constant and version independent identification of the schema creator" }
+      "Creator": { "@Core.Description": "Constant and version-independent identification of the schema creator" }
     }
   }
 }

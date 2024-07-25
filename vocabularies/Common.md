@@ -449,4 +449,4 @@ User ID
 
 Property|Type|Description
 :-------|:---|:----------
-[Creator](Common.xml#L1489)|String|Constant and version independent identification of the schema creator
+[Creator](Common.xml#L1489)|String|Constant and version-independent identification of the schema creator
