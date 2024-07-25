@@ -1481,9 +1481,11 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
 
       <Term Name="Meta" Type="Common.MetaType" Nullable="false" AppliesTo="Schema">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Meta attributes of the Schema" />
       </Term>
       <ComplexType Name="MetaType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Creator" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Constant and version independent identification of the schema creator" />
         </Property>
