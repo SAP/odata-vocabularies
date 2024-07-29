@@ -99,14 +99,20 @@
             <String>Max result size for PDF documents. Used if $top has been provided and $top > ResultSizeMaximum</String>
           </Annotation>
         </Property>
-        <Property Name="IANATimezoneFormat" Type="Edm.Boolean" Nullable="false">
+        <Property Name="IANATimezoneFormat" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description" />
         </Property>
-        <Property Name="Treeview" Type="Edm.Boolean" Nullable="false">
+        <Property Name="Treeview" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Treeview output supported" />
           <Annotation Term="Core.LongDescription">
             <String>If this is true, treeview output is supported for hierarchical data</String>
+          </Annotation>
+        </Property>
+       <Property Name="TextDirectionLayout" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Setting the text direction-layout is supported" />
+          <Annotation Term="Core.LongDescription">
+            <String>PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description</String>
           </Annotation>
         </Property>
       </ComplexType>
