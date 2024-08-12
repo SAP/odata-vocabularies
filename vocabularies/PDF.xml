@@ -118,7 +118,10 @@
         <Property Name="UploadToFileShare" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Support of PDF document upload"/>
           <Annotation Term="Core.LongDescription">
-            <String>Is the upload of a PDF document to a file share server supported?</String>
+            <String>Is the upload of a PDF document to a file share server supported?
+A file share connection needs to be configured on the server. 
+And the response of a corresponding request is then a "301 Moved Permanently" with the link to the document on the file share server. 
+            </String>
           </Annotation>
         </Property>
       </ComplexType>
