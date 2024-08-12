@@ -116,6 +116,7 @@
           </Annotation>
         </Property>
         <Property Name="UploadToFileShare" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Support of PDF document upload"/>
           <Annotation Term="Core.LongDescription">
             <String>A file share connection needs to be configured on the server. 
