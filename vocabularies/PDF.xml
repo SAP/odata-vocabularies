@@ -115,6 +115,12 @@
             <String>PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description</String>
           </Annotation>
         </Property>
+        <Property Name="UploadToFileShare" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Support of PDF document upload"/>
+          <Annotation Term="Core.LongDescription">
+            <String>Is the upload of a PDF document to a file share server supported?</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
     </Schema>

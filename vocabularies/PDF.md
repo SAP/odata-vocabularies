@@ -35,3 +35,4 @@ Property|Type|Description
 [IANATimezoneFormat](PDF.xml#L102)|Boolean|If this is true, the PDF format supports formatting columns of type `Edm.DateTimeOffset` in a IANA time zone given in the document description
 [Treeview](PDF.xml#L105) *([Experimental](Common.md#Experimental))*|Boolean|Treeview output supported<br>If this is true, treeview output is supported for hierarchical data
 [TextDirectionLayout](PDF.xml#L112)|Boolean|Setting the text direction-layout is supported<br>PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description
+[UploadToFileShare](PDF.xml#L118)|Boolean|Support of PDF document upload<br>Is the upload of a PDF document to a file share server supported?
