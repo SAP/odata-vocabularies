@@ -103,7 +103,7 @@
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
         "@Core.Description": "Support of PDF document upload",
-        "@Core.LongDescription": "A file share connection needs to be configured on the server. \nThe response of a corresponding request is then `301 Moved Permanently` with a `Location` header containing the link to the document on the file share server. \n            "
+        "@Core.LongDescription": "A file share connection needs to be configured on the server. \nThe response of a corresponding request is then `301 Moved Permanently` with a `Location` header containing the link to the document on the file share server."
       }
     }
   }
