@@ -4,8 +4,8 @@
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
-      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    "https://sap.github.io/odata-vocabularies/vocabularies/Batch.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Batch.v1", "$Alias": "Batch" }]
     }
   },
   "corresponding.sample": {
@@ -33,11 +33,11 @@
           { "$Name": "items", "$Collection": true, "$Type": "self.SalesQuotationItemToBeCopied" }
         ],
         "$ReturnType": { "$Type": "self.SalesOrder" },
-        "@Common.CorrespondingContentIDs": [
+        "@Batch.CorrespondingContentIDs": [
           {
             "@Core.Description": "Correspondence between sales quotation item and sales order item",
             "ParameterValue": "items",
-            "ReturnedEntity": "$ReturnType/Items"
+            "ReturnedValue": "$ReturnType/Items"
           }
         ]
       }

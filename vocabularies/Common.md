@@ -111,7 +111,6 @@ Term|Type|Description
 [mediaUploadLink](Common.xml#L1457) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
 [PrimitivePropertyPath](Common.xml#L1472) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
 [WebSocketBaseURL](Common.xml#L1477) *([Experimental](Common.md#Experimental))*|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections
-[CorrespondingContentIDs](Common.xml#L1483) *([Experimental](Common.md#Experimental))*|\[[CorrespondingContentID](#CorrespondingContentID)\]|<a name="CorrespondingContentIDs"></a>Correspondence between `Core.ContentID` in a parameter and in the return type of an action<br>If values in the action invocation are annotated with `Core.ContentID`, the corresponding values returned by the action are annotated with the same `Core.ContentID` and can thus be referenced in subsequent requests within the same batch request.
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](Common.xml#L120)
@@ -442,45 +441,3 @@ Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vo
 **Type:** String
 
 User ID
-
-<a name="CorrespondingContentID"></a>
-## [CorrespondingContentID](Common.xml#L1492) *([Experimental](Common.md#Experimental))*
-Establishes a correspondence between a value or entity in a parameter and in the return type
-
-Given a sales quotation with items for coffee, sugar and paper,
-the following batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
-invokes an action to create a sales order for sugar and paper
-and adds a 10% discount for the sugar.
-```json
-{"requests": [{
-  "id": "1",
-  "method": "post",
-  "url": "SalesQuotation(68)/self.CreateSalesOrder",
-  "body": {
-    "items": [
-      {"product": "Sugar", "@Core.ContentID": "I1"},
-      {"product": "Paper"}
-    ]
-  }
-}, {
-  "id": "2",
-  "dependsOn": [ "1" ],
-  "method": "post",
-  "url": "$I1/Discounts",
-  "body": {
-    "percent": 10
-  }
-}]}
-```
-In the response to the action invocation the sales order item for the sugar is annotated
-with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
-
-Exactly one of `ParameterValue` and `ParameterEntity` and
-exactly one of `ReturnedValue` and `ReturnedEntity` must be given.
-
-Property|Type|Description
-:-------|:---|:----------
-[ParameterValue](Common.xml#L1527)|PropertyPath?|Path to a value in a parameter that may be annotated with `Core.ContentID`
-[ParameterEntity](Common.xml#L1530)|NavigationPropertyPath?|Path to an entity in a parameter that may be annotated with `Core.ContentID`
-[ReturnedValue](Common.xml#L1533)|PropertyPath?|Path to a value in the return type that will be annotated with the same `Core.ContentID`
-[ReturnedEntity](Common.xml#L1536)|NavigationPropertyPath?|Path to an entity in the return type that will be annotated with the same `Core.ContentID`

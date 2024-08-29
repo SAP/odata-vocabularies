@@ -3,8 +3,8 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Batch.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Batch.v1" Alias="Batch" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="corresponding.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -27,12 +27,12 @@
         <Parameter Name="_it" Type="self.SalesQuotation" Nullable="false" />
         <Parameter Name="items" Type="Collection(self.SalesQuotationItemToBeCopied)" />
         <ReturnType Type="self.SalesOrder" Nullable="false" />
-        <Annotation Term="Common.CorrespondingContentIDs">
+        <Annotation Term="Batch.CorrespondingContentIDs">
           <Collection>
             <Record>
               <Annotation Term="Core.Description" String="Correspondence between sales quotation item and sales order item" />
               <PropertyValue Property="ParameterValue" PropertyPath="items" />
-              <PropertyValue Property="ReturnedEntity" NavigationPropertyPath="$ReturnType/Items" />
+              <PropertyValue Property="ReturnedValue" NavigationPropertyPath="$ReturnType/Items" />
             </Record>
           </Collection>
         </Annotation>
