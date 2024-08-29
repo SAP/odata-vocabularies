@@ -22,7 +22,7 @@
       </EntityType>
       <Action Name="CreateSalesOrder" IsBound="true">
         <Parameter Name="_it" Type="self.SalesQuotation" Nullable="false" />
-        <Parameter Name="items" Type="Collection(self.SalesQuotationItemToBeCopied)"/>
+        <Parameter Name="items" Type="Collection(self.SalesQuotationItemToBeCopied)" />
         <ReturnType Type="self.SalesOrder" Nullable="false" />
         <Annotation Term="Common.CorrespondingContentIDs">
           <Collection>
