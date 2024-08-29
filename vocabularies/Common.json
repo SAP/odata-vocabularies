@@ -1324,7 +1324,7 @@
       "$AppliesTo": ["Action"],
       "@Common.Experimental": true,
       "@Core.Description": "Correspondence between `Core.ContentID` in a parameter and in the return type of an action",
-      "@Core.LongDescription": "If values in the action invocation are annotated with `Core.ContentID`,\n          the corresponding entities returned by the action are annotated with the same `Core.ContentID`\n          and can thus be referenced in subsequent requests within the same batch request."
+      "@Core.LongDescription": "If values in the action invocation are annotated with `Core.ContentID`,\n          the corresponding values returned by the action are annotated with the same `Core.ContentID`\n          and can thus be referenced in subsequent requests within the same batch request."
     },
     "CorrespondingContentID": {
       "$Kind": "ComplexType",
