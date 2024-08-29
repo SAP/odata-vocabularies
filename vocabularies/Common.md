@@ -452,30 +452,25 @@ the following batch request to [this service](../examples/Common.CorrespondingCo
 invokes an action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json
-{
-  "requests": [
-    {
-      "id": "1",
-      "method": "post",
-      "url": "/service/SalesQuotation(68)/self.CreateSalesOrder",
-      "body": {
-        "items": [
-          {"product": "Sugar", "@Core.ContentID": "I1"},
-          {"product": "Paper"}
-        ]
-      }
-    },
-    {
-      "id": "2",
-      "dependsOn": [ "1" ],
-      "method": "post",
-      "url": "$I1/Discounts",
-      "body": {
-        "percent": 10
-      }
-    }
-  ]
-}
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "SalesQuotation(68)/self.CreateSalesOrder",
+  "body": {
+    "items": [
+      {"product": "Sugar", "@Core.ContentID": "I1"},
+      {"product": "Paper"}
+    ]
+  }
+}, {
+  "id": "2",
+  "dependsOn": [ "1" ],
+  "method": "post",
+  "url": "$I1/Discounts",
+  "body": {
+    "percent": 10
+  }
+}]}
 ```
 In the response to the action invocation the sales order item for the sugar is annotated
 with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
@@ -485,7 +480,7 @@ exactly one of `ReturnedValue` and `ReturnedEntity` must be given.
 
 Property|Type|Description
 :-------|:---|:----------
-[ParameterValue](Common.xml#L1532)|PropertyPath?|Path to a value in a parameter that may be annotated with `Core.ContentID`
-[ParameterEntity](Common.xml#L1535)|NavigationPropertyPath?|Path to an entity in a parameter that may be annotated with `Core.ContentID`
-[ReturnedValue](Common.xml#L1538)|PropertyPath?|Path to a value in the return type that will be annotated with the same `Core.ContentID`
-[ReturnedEntity](Common.xml#L1541)|NavigationPropertyPath?|Path to an entity in the return type that will be annotated with the same `Core.ContentID`
+[ParameterValue](Common.xml#L1527)|PropertyPath?|Path to a value in a parameter that may be annotated with `Core.ContentID`
+[ParameterEntity](Common.xml#L1530)|NavigationPropertyPath?|Path to an entity in a parameter that may be annotated with `Core.ContentID`
+[ReturnedValue](Common.xml#L1533)|PropertyPath?|Path to a value in the return type that will be annotated with the same `Core.ContentID`
+[ReturnedEntity](Common.xml#L1536)|NavigationPropertyPath?|Path to an entity in the return type that will be annotated with the same `Core.ContentID`

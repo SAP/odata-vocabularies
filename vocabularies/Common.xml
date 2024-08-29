@@ -1498,30 +1498,25 @@ the following batch request to [this service](../examples/Common.CorrespondingCo
 invokes an action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json
-{
-  "requests": [
-    {
-      "id": "1",
-      "method": "post",
-      "url": "/service/SalesQuotation(68)/self.CreateSalesOrder",
-      "body": {
-        "items": [
-          {"product": "Sugar", "@Core.ContentID": "I1"},
-          {"product": "Paper"}
-        ]
-      }
-    },
-    {
-      "id": "2",
-      "dependsOn": [ "1" ],
-      "method": "post",
-      "url": "$I1/Discounts",
-      "body": {
-        "percent": 10
-      }
-    }
-  ]
-}
+{"requests": [{
+  "id": "1",
+  "method": "post",
+  "url": "SalesQuotation(68)/self.CreateSalesOrder",
+  "body": {
+    "items": [
+      {"product": "Sugar", "@Core.ContentID": "I1"},
+      {"product": "Paper"}
+    ]
+  }
+}, {
+  "id": "2",
+  "dependsOn": [ "1" ],
+  "method": "post",
+  "url": "$I1/Discounts",
+  "body": {
+    "percent": 10
+  }
+}]}
 ```
 In the response to the action invocation the sales order item for the sugar is annotated
 with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
