@@ -448,7 +448,7 @@ User ID
 Establishes a correspondence between a value or entity in a parameter and in the return type
 
 Given a sales quotation with items for coffee, sugar and paper,
-the following $batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
+the following batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
 invokes an action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json

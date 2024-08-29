@@ -1494,7 +1494,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Establishes a correspondence between a value or entity in a parameter and in the return type" />
         <Annotation Term="Core.LongDescription">
           <String>Given a sales quotation with items for coffee, sugar and paper,
-the following $batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
+the following batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
 invokes an action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json
