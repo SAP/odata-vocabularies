@@ -1527,7 +1527,7 @@ In the response to the action invocation the sales order item for the sugar is a
 with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
 
 Exactly one of `ParameterValue` and `ParameterEntity` and
-exactly one of `ReturnedValue` and `ReturnedEntity` and must be given.</String>
+exactly one of `ReturnedValue` and `ReturnedEntity` must be given.</String>
         </Annotation>
         <Property Name="ParameterValue" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Path to a value in a parameter that may be annotated with `Core.ContentID`" />

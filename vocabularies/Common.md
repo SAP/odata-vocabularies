@@ -481,7 +481,7 @@ In the response to the action invocation the sales order item for the sugar is a
 with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
 
 Exactly one of `ParameterValue` and `ParameterEntity` and
-exactly one of `ReturnedValue` and `ReturnedEntity` and must be given.
+exactly one of `ReturnedValue` and `ReturnedEntity` must be given.
 
 Property|Type|Description
 :-------|:---|:----------
