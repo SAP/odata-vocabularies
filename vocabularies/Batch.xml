@@ -45,9 +45,16 @@
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Establishes a correspondence between a value in a parameter and a value in the return type" />
         <Annotation Term="Core.LongDescription">
-          <String>Given a sales quotation with items for coffee, sugar and paper,
-the following batch request to [this service](../examples/Batch.CorrespondingContentIDs-sample.xml)
-invokes an action to create a sales order for sugar and paper
+          <String>[This service](../examples/Batch.CorrespondingContentIDs-sample.xml)
+contains an action annotated with
+```json
+"@Batch.CorrespondingContentIDs": [{
+  "ParameterValue": "items",
+  "ReturnedValue": "$ReturnType/Items"
+}]
+```
+Given a sales quotation with items for coffee, sugar and paper,
+the following batch request invokes the action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json
 {"requests": [{

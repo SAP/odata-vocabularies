@@ -14,9 +14,16 @@ Term|Type|Description
 ## [CorrespondingContentID](Batch.xml#L44) *([Experimental](Common.md#Experimental))*
 Establishes a correspondence between a value in a parameter and a value in the return type
 
+[This service](../examples/Batch.CorrespondingContentIDs-sample.xml)
+contains an action annotated with
+```json
+"@Batch.CorrespondingContentIDs": [{
+  "ParameterValue": "items",
+  "ReturnedValue": "$ReturnType/Items"
+}]
+```
 Given a sales quotation with items for coffee, sugar and paper,
-the following batch request to [this service](../examples/Batch.CorrespondingContentIDs-sample.xml)
-invokes an action to create a sales order for sugar and paper
+the following batch request invokes the action to create a sales order for sugar and paper
 and adds a 10% discount for the sugar.
 ```json
 {"requests": [{
@@ -44,5 +51,5 @@ with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this i
 
 Property|Type|Description
 :-------|:---|:----------
-[ParameterValue](Batch.xml#L76)|AnyPropertyPath|Path to a value in a parameter that may be annotated with `Core.ContentID`
-[ReturnedValue](Batch.xml#L79)|AnyPropertyPath|Path to a value in the return type that will be annotated with the same `Core.ContentID`
+[ParameterValue](Batch.xml#L83)|AnyPropertyPath|Path to a value in a parameter that may be annotated with `Core.ContentID`
+[ReturnedValue](Batch.xml#L86)|AnyPropertyPath|Path to a value in the return type that will be annotated with the same `Core.ContentID`
