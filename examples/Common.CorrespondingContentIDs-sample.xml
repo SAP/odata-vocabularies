@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="corresponding.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="SalesQuotation">
+        <Property Name="id" Type="Edm.String" />
+      </EntityType>
+      <ComplexType Name="SalesQuotationItemToBeCopied">
+        <Property Name="product" Type="Edm.String" />
+      </ComplexType>
+      <EntityType Name="SalesOrder">
+        <NavigationProperty Name="Items" Type="Collection(self.SalesOrderItem)" />
+      </EntityType>
+      <EntityType Name="SalesOrderItem">
+        <NavigationProperty Name="Discounts" Type="Collection(self.SalesOrderItemDiscount)" />
+      </EntityType>
+      <EntityType Name="SalesOrderItemDiscount">
+        <Property Name="percent" Type="Edm.Decimal" />
+      </EntityType>
+      <Action Name="CreateSalesOrder" IsBound="true">
+        <Parameter Name="_it" Type="self.SalesQuotation" Nullable="false" />
+        <Parameter Name="items" Type="Collection(self.SalesQuotationItemToBeCopied)"/>
+        <ReturnType Type="self.SalesOrder" Nullable="false" />
+        <Annotation Term="Common.CorrespondingContentIDs">
+          <Collection>
+            <Record>
+              <PropertyValue Property="ParameterValue" PropertyPath="items" />
+              <PropertyValue Property="ReturnedEntity" NavigationPropertyPath="$ReturnType/Items" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Action>
+      <EntityContainer Name="default">
+        <EntitySet Name="SalesQuotations" EntityType="self.SalesQuotation" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

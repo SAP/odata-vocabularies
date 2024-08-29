@@ -1480,6 +1480,68 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="CorrespondingContentIDs" Type="Collection(Common.CorrespondingContentID)" Nullable="false" AppliesTo="Action">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Correspondence between `Core.ContentID` in a parameter and in the return type of an action" />
+        <Annotation Term="Core.LongDescription">
+          <String>If values in the action invocation are annotated with `Core.ContentID`,
+          the corresponding values returned by the action are annotated with the same `Core.ContentID`
+          and can thus be referenced in subsequent requests within the same batch request.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="CorrespondingContentID">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Establishes a correspondence between a value or entity in a parameter and in the return type" />
+        <Annotation Term="Core.LongDescription">
+          <String>Given a sales quotation with items for coffee, sugar and paper,
+the following $batch request to [this service](../examples/Common.CorrespondingContentIDs-sample.xml)
+invokes an action to create a sales order for sugar and paper
+and adds a 10% discount for the sugar.
+```json
+{
+  "requests": [
+    {
+      "id": "1",
+      "method": "post",
+      "url": "/service/SalesQuotation(68)/self.CreateSalesOrder",
+      "body": {
+        "items": [
+          {"product": "Sugar", "@Core.ContentID": "I1"},
+          {"product": "Paper"}
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "dependsOn": [ "1" ],
+      "method": "post",
+      "url": "$I1/Discounts",
+      "body": {
+        "percent": 10
+      }
+    }
+  ]
+}
+```
+In the response to the action invocation the sales order item for the sugar is annotated
+with `"@Core.ContentID": "I1"`. The subsequent POST request can reference this item without knowing its key.
+
+Exactly one of `ParameterValue` and `ParameterEntity` and
+exactly one of `ReturnedValue` and `ReturnedEntity` and must be given.</String>
+        </Annotation>
+        <Property Name="ParameterValue" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to a value in a parameter that may be annotated with `Core.ContentID`" />
+        </Property>
+        <Property Name="ParameterEntity" Type="Edm.NavigationPropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to an entity in a parameter that may be annotated with `Core.ContentID`" />
+        </Property>
+        <Property Name="ReturnedValue" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to a value in the return type that will be annotated with the same `Core.ContentID`" />
+        </Property>
+        <Property Name="ReturnedEntity" Type="Edm.NavigationPropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to an entity in the return type that will be annotated with the same `Core.ContentID`" />
+        </Property>
+      </ComplexType>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
