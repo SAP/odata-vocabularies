@@ -10,7 +10,7 @@
   },
   "corresponding.sample": {
     "$Alias": "self",
-    "SalesQuotation": { "$Kind": "EntityType", "id": { "$Nullable": true } },
+    "SalesQuotation": { "$Kind": "EntityType", "id": { "$Type": "Edm.Int16", "$Nullable": true } },
     "SalesQuotationItemToBeCopied": { "$Kind": "ComplexType", "product": { "$Nullable": true } },
     "SalesOrder": {
       "$Kind": "EntityType",

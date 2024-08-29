@@ -9,7 +9,7 @@
   <edmx:DataServices>
     <Schema Namespace="corresponding.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="SalesQuotation">
-        <Property Name="id" Type="Edm.String" />
+        <Property Name="id" Type="Edm.Int16" />
       </EntityType>
       <ComplexType Name="SalesQuotationItemToBeCopied">
         <Property Name="product" Type="Edm.String" />
