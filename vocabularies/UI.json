@@ -1306,31 +1306,18 @@
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
     },
-    "DateTimeFormat": {
+    "DateTimeStyle": {
       "$Kind": "Term",
-      "$Type": "UI.DateTimeFormatType",
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
-      "@Core.Description": "The temporal value represented by the annotated property or parameter shall be shown on the UI in the given format",
-      "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or all its properties null or an empty string, temporal values are shown in a default format."
-    },
-    "DateTimeFormatType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "Pattern": {
-        "$Nullable": true,
-        "@Core.Description": "A date/time pattern as defined in https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table"
-      },
-      "Style": {
-        "$Nullable": true,
-        "@Core.Description": "Show the temporal value in shorter or longer style",
-        "@Validation.AllowedValues": [
-          { "Value": "short", "@Core.Description": "7/25/24, 1:11 PM" },
-          { "Value": "medium", "@Core.Description": "Jul 25, 2024, 1:11:51 PM" },
-          { "Value": "long", "@Core.Description": "July 25, 2024 at 1:11:51 PM GMT+2" },
-          { "Value": "full", "@Core.Description": "Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" }
-        ]
-      }
+      "@Core.Description": "The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style",
+      "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or null or an empty string, temporal values are shown in a default style.",
+      "@Validation.AllowedValues": [
+        { "Value": "short", "@Core.Description": "7/25/24, 1:11 PM" },
+        { "Value": "medium", "@Core.Description": "Jul 25, 2024, 1:11:51 PM" },
+        { "Value": "long", "@Core.Description": "July 25, 2024 at 1:11:51 PM GMT+2" },
+        { "Value": "full", "@Core.Description": "Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" }
+      ]
     },
     "Note": {
       "$Kind": "Term",
