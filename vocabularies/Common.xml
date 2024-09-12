@@ -218,15 +218,12 @@
       </Term>
 
       <Term Name="SecondaryKey" AppliesTo="EntityType" Type="Collection(Edm.PropertyPath)" Nullable="false">
-        <Annotation Term="Core.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="Use term `AlternateKeys` from the OASIS Core vocabulary instead" />
-            </Record>
-          </Collection>
+        <Annotation Term="Core.Description" String="The listed properties form a secondary key" />
+        <Annotation Term="Core.LongDescription">
+          <String>Multiple secondary keys are possible using different qualifiers.
+          Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),
+          secondary keys cannot be used to address an entity in a resource path.</String>
         </Annotation>
-        <Annotation Term="Core.Description" String="The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers." />
       </Term>
 
       <Term Name="MinOccurs" AppliesTo="NavigationProperty Property EntitySet Term Parameter" Type="Edm.Int64" Nullable="false">
