@@ -29,7 +29,7 @@ and adds a 10% discount for the sugar.
 {"requests": [{
   "id": "1",
   "method": "post",
-  "url": "SalesQuotation(68)/self.CreateSalesOrder",
+  "url": "SalesQuotations(68)/self.CreateSalesOrder",
   "body": {
     "items": [
       {"product": "Sugar", "@Core.ContentID": "I1"},
@@ -38,7 +38,7 @@ and adds a 10% discount for the sugar.
   }
 }, {
   "id": "2",
-  "dependsOn": [ "1" ],
+  "dependsOn": ["1"],
   "method": "post",
   "url": "$I1/Discounts",
   "body": {
