@@ -33,7 +33,7 @@ Term|Type|Description
 [MediaResource](UI.xml#L271)|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource<br>Either `Url` or `Stream` MUST be present, and never both.
 [DataPoint](UI.xml#L351)|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
 [KPI](UI.xml#L659)|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
-[Grid](UI.xml#L705)|[GridDefinitionType](#GridDefinitionType)|<a name="Grid"></a>Visualization of a data grid
+[DataGrid](UI.xml#L705)|[DataGridType](#DataGridType)|<a name="DataGrid"></a>Visualization of a data grid
 [Chart](UI.xml#L739)|[ChartDefinitionType](#ChartDefinitionType)|<a name="Chart"></a>Visualization of multiple data points
 [ValueCriticality](UI.xml#L963) *([Experimental](Common.md#Experimental))*|\[[ValueCriticalityType](#ValueCriticalityType)\]|<a name="ValueCriticality"></a>Assign criticalities to primitive values. This information can be used for semantic coloring.
 [CriticalityLabels](UI.xml#L976) *([Experimental](Common.md#Experimental))*|\[[CriticalityLabelType](#CriticalityLabelType)\]|<a name="CriticalityLabels"></a>Assign labels to criticalities. This information can be used for semantic coloring. When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality. There must be no more than one label per criticality.
@@ -389,8 +389,8 @@ Property|Type|Description
 [SemanticObject](UI.xml#L697)|String?|Name of the Semantic Object. If not specified, use Semantic Object annotated at the property referenced in KPI/DataPoint/Value
 [Action](UI.xml#L700)|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
 
-<a name="GridDefinitionType"></a>
-## [GridDefinitionType](UI.xml#L709)
+<a name="DataGridType"></a>
+## [DataGridType](UI.xml#L709)
 
 
 Property|Type|Description

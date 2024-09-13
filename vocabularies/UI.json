@@ -601,14 +601,14 @@
         "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
       }
     },
-    "Grid": {
+    "DataGrid": {
       "$Kind": "Term",
-      "$Type": "UI.GridDefinitionType",
+      "$Type": "UI.DataGridType",
       "$AppliesTo": ["EntityType"],
       "@UI.ThingPerspective": true,
       "@Core.Description": "Visualization of a data grid"
     },
-    "GridDefinitionType": {
+    "DataGridType": {
       "$Kind": "ComplexType",
       "Title": { "$Nullable": true, "@Core.Description": "Title of the grid", "@Core.IsLanguageDependent": true },
       "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
