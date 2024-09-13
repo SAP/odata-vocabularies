@@ -702,7 +702,7 @@ The trend is
         </Property>
       </ComplexType>
 
-      <Term Name="Grid" Type="UI.GridDefinitionType" Nullable="false" AppliesTo="EntityType">
+      <Term Name="DataGrid" Type="UI.DataGridType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of a data grid" />
       </Term>
