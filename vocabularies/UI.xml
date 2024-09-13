@@ -706,7 +706,7 @@ The trend is
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of a data grid" />
       </Term>
-      <ComplexType Name="GridDefinitionType">
+      <ComplexType Name="DataGridType">
         <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the grid" />
           <Annotation Term="Core.IsLanguageDependent" />
