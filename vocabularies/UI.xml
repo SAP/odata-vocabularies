@@ -715,25 +715,32 @@ The trend is
           <Annotation Term="Core.Description" String="Short description" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="Columns" Type="Collection(UI.DataFieldGridAbstract)" Nullable="false">
+        <Property Name="Columns" Type="Collection(UI.ReferenceFacet)" Nullable="false">
           <Annotation Term="Core.Description" String="Columns of the grid" />
+          <Annotation Term="Core.LongDescription">
+            <String>Each facet must reference one of
+- [`FieldGroupDimensions`](#FieldGroupDimensions)
+- [`FieldGroupMeasures`](#FieldGroupMeasures)  
+  Exactly one such facet must occur in `Columns` and `Rows` together.
+- a [`CollectionFacet`](#CollectionFacet) of `ReferenceFacet`s whose `Target`s are [`Analytics.StructureElement`](Analytics.md#StructureElement)s  
+  At most one such facet may occur in `Columns` and `Rows` together.</String>
+          </Annotation>
         </Property>
-        <Property Name="Rows" Type="Collection(UI.DataFieldGridAbstract)" Nullable="false">
+        <Property Name="Rows" Type="Collection(UI.ReferenceFacet)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rows of the grid" />
+          <Annotation Term="Core.LongDescription">
+            <String>The same conditions as for `Columns` apply to the facets.</String>
+          </Annotation>
         </Property>
         <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
           <Annotation Term="Core.Description" String="Available actions" />
         </Property>
       </ComplexType>
-      <ComplexType Name="DataFieldGridAbstract" BaseType="UI.DataFieldAbstract" Abstract="true">
-        <Annotation Term="Core.Description" String="Abstract type to restrict usage in Grid" />
+      <ComplexType Name="FieldGroupDimensions" BaseType="UI.FieldGroupType">
+        <Annotation Term="Core.Description" String="Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)" />
       </ComplexType>
-      <ComplexType Name="DataFieldMeasures" BaseType="UI.DataFieldGridAbstract">
-        <Annotation Term="Core.Description" String="A structured piece of data described by an annotation" />
-        <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false" />
-      </ComplexType>
-      <ComplexType Name="DataFieldDimension" BaseType="UI.DataFieldGridAbstract">
-        <Annotation Term="Core.Description" String="A structured piece of data described by an annotation" />
-        <Property Name="Dimensions" Type="Edm.PropertyPath" Nullable="false" />
+      <ComplexType Name="FieldGroupMeasures" BaseType="UI.FieldGroupType">
+        <Annotation Term="Core.Description" String="Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)" />
       </ComplexType>
 
       <Term Name="Chart" Type="UI.ChartDefinitionType" Nullable="false" AppliesTo="EntityType">

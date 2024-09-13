@@ -614,33 +614,31 @@
       "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
       "Columns": {
         "$Collection": true,
-        "$Type": "UI.DataFieldGridAbstract",
-        "@Core.Description": "Columns of the grid"
+        "$Type": "UI.ReferenceFacet",
+        "@Core.Description": "Columns of the grid",
+        "@Core.LongDescription": "Each facet must reference one of\n- [`FieldGroupDimensions`](#FieldGroupDimensions)\n- [`FieldGroupMeasures`](#FieldGroupMeasures)  \n  Exactly one such facet must occur in `Columns` and `Rows` together.\n- a [`CollectionFacet`](#CollectionFacet) of `ReferenceFacet`s whose `Target`s are [`Analytics.StructureElement`](Analytics.md#StructureElement)s  \n  At most one such facet may occur in `Columns` and `Rows` together."
       },
-      "Rows": { "$Collection": true, "$Type": "UI.DataFieldGridAbstract" },
+      "Rows": {
+        "$Collection": true,
+        "$Type": "UI.ReferenceFacet",
+        "@Core.Description": "Rows of the grid",
+        "@Core.LongDescription": "The same conditions as for `Columns` apply to the facets."
+      },
       "Actions": {
         "$Collection": true,
         "$Type": "UI.DataFieldForActionAbstract",
         "@Core.Description": "Available actions"
       }
     },
-    "DataFieldGridAbstract": {
+    "FieldGroupDimensions": {
       "$Kind": "ComplexType",
-      "$Abstract": true,
-      "$BaseType": "UI.DataFieldAbstract",
-      "@Core.Description": "Abstract type to restrict usage in Grid"
+      "$BaseType": "UI.FieldGroupType",
+      "@Core.Description": "Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)"
     },
-    "DataFieldMeasures": {
+    "FieldGroupMeasures": {
       "$Kind": "ComplexType",
-      "$BaseType": "UI.DataFieldGridAbstract",
-      "@Core.Description": "A structured piece of data described by an annotation",
-      "Measures": { "$Collection": true, "$Type": "Edm.PropertyPath" }
-    },
-    "DataFieldDimension": {
-      "$Kind": "ComplexType",
-      "$BaseType": "UI.DataFieldGridAbstract",
-      "@Core.Description": "A structured piece of data described by an annotation",
-      "Dimensions": { "$Type": "Edm.PropertyPath" }
+      "$BaseType": "UI.FieldGroupType",
+      "@Core.Description": "Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)"
     },
     "Chart": {
       "$Kind": "Term",
