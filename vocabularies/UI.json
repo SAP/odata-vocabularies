@@ -616,13 +616,14 @@
         "$Collection": true,
         "$Type": "UI.ReferenceFacet",
         "@Core.Description": "Columns of the grid",
-        "@Core.LongDescription": "Each facet must reference one of\n- [`FieldGroupDimensions`](#FieldGroupDimensions)\n- [`FieldGroupMeasures`](#FieldGroupMeasures)  \n  Exactly one such facet must occur in `Columns` and `Rows` together.\n- a [`CollectionFacet`](#CollectionFacet) of `ReferenceFacet`s whose `Target`s are [`Analytics.StructureElement`](Analytics.md#StructureElement)s  \n  At most one such facet may occur in `Columns` and `Rows` together."
+        "@Core.LongDescription": "Each facet must reference one of\nExactly one facet targeting `FieldGroupMeasures` must occur in `Columns` and `Rows` together.\nAt most one facet targeting `Structure` may occur in `Columns` and `Rows` together.",
+        "@Validation.AllowedTerms": ["UI.FieldGroupDimensions", "UI.FieldGroupMeasures", "Analytics.Structure"]
       },
       "Rows": {
         "$Collection": true,
         "$Type": "UI.ReferenceFacet",
         "@Core.Description": "Rows of the grid",
-        "@Core.LongDescription": "The same conditions as for `Columns` apply to the facets."
+        "@Validation.AllowedTerms": ["UI.FieldGroupDimensions", "UI.FieldGroupMeasures", "Analytics.Structure"]
       },
       "Actions": {
         "$Collection": true,
@@ -969,7 +970,8 @@
           "UI.PresentationVariant",
           "UI.SelectionFields",
           "UI.SelectionPresentationVariant",
-          "UI.StatusInfo"
+          "UI.StatusInfo",
+          "Analytics.Structure"
         ]
       }
     },

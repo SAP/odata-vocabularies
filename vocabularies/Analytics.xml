@@ -167,6 +167,34 @@
         </Property>
       </ComplexType>
 
+      <Term Name="StructureElement" Type="Analytics.StructureElementType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="A collection of entities is structured into several subsets, each `StructureElement` describes one subset" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Label</String>
+          </Collection>
+        </Annotation>
+      </Term>
+      <ComplexType Name="StructureElementType">
+        <Property Name="Filter" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="Whether an entity belongs to one subset of the structure" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Validation.AllowedTerms">
+          <Collection>
+            <String>Analytics.StructureElement</String>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Label</String>
+          </Collection>
+        </Annotation>
+      </Term>
+
       <Annotations Target="Aggregation.CustomAggregate">
         <Annotation Term="Validation.ApplicableTerms">
           <Annotation Term="Core.Description" String="Adding a list of other terms that can be annotated to it." />

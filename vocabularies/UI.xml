@@ -719,17 +719,25 @@ The trend is
           <Annotation Term="Core.Description" String="Columns of the grid" />
           <Annotation Term="Core.LongDescription">
             <String>Each facet must reference one of
-- [`FieldGroupDimensions`](#FieldGroupDimensions)
-- [`FieldGroupMeasures`](#FieldGroupMeasures)  
-  Exactly one such facet must occur in `Columns` and `Rows` together.
-- a [`CollectionFacet`](#CollectionFacet) of `ReferenceFacet`s whose `Target`s are [`Analytics.StructureElement`](Analytics.md#StructureElement)s  
-  At most one such facet may occur in `Columns` and `Rows` together.</String>
+Exactly one facet targeting `FieldGroupMeasures` must occur in `Columns` and `Rows` together.
+At most one facet targeting `Structure` may occur in `Columns` and `Rows` together.</String>
+          </Annotation>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.FieldGroupDimensions</String>
+              <String>UI.FieldGroupMeasures</String>
+              <String>Analytics.Structure</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Rows" Type="Collection(UI.ReferenceFacet)" Nullable="false">
           <Annotation Term="Core.Description" String="Rows of the grid" />
-          <Annotation Term="Core.LongDescription">
-            <String>The same conditions as for `Columns` apply to the facets.</String>
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.FieldGroupDimensions</String>
+              <String>UI.FieldGroupMeasures</String>
+              <String>Analytics.Structure</String>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
@@ -1075,6 +1083,7 @@ The trend is
               <String>UI.SelectionFields</String>
               <String>UI.SelectionPresentationVariant</String>
               <String>UI.StatusInfo</String>
+              <String>Analytics.Structure</String>
             </Collection>
           </Annotation>
         </Property>
