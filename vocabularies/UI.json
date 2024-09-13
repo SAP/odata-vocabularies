@@ -601,6 +601,47 @@
         "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
       }
     },
+    "Grid": {
+      "$Kind": "Term",
+      "$Type": "UI.GridDefinitionType",
+      "$AppliesTo": ["EntityType"],
+      "@UI.ThingPerspective": true,
+      "@Core.Description": "Visualization of a data grid"
+    },
+    "GridDefinitionType": {
+      "$Kind": "ComplexType",
+      "Title": { "$Nullable": true, "@Core.Description": "Title of the grid", "@Core.IsLanguageDependent": true },
+      "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
+      "Columns": {
+        "$Collection": true,
+        "$Type": "UI.DataFieldGridAbstract",
+        "@Core.Description": "Columns of the grid"
+      },
+      "Rows": { "$Collection": true, "$Type": "UI.DataFieldGridAbstract" },
+      "Actions": {
+        "$Collection": true,
+        "$Type": "UI.DataFieldForActionAbstract",
+        "@Core.Description": "Available actions"
+      }
+    },
+    "DataFieldGridAbstract": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "$BaseType": "UI.DataFieldAbstract",
+      "@Core.Description": "Abstract type to restrict usage in Grid"
+    },
+    "DataFieldMeasures": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DataFieldGridAbstract",
+      "@Core.Description": "A structured piece of data described by an annotation",
+      "Measures": { "$Collection": true, "$Type": "Edm.PropertyPath" }
+    },
+    "DataFieldDimension": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DataFieldGridAbstract",
+      "@Core.Description": "A structured piece of data described by an annotation",
+      "Dimensions": { "$Type": "Edm.PropertyPath" }
+    },
     "Chart": {
       "$Kind": "Term",
       "$Type": "UI.ChartDefinitionType",
