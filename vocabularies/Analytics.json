@@ -156,11 +156,22 @@
         "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
       }
     },
+    "Structure": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Edm.AnnotationPath",
+      "$AppliesTo": ["EntityType"],
+      "@UI.ThingPerspective": true,
+      "@Core.Description": "A collection of entities is structured into several subsets, each described by one [`StructureElement`](#StructureElement)",
+      "@Core.LongDescription": "For example, financial posting items can be structured into \"current period\", \"previous period\", \"current period last year\".\n          See also [this example](../examples/UI.DataGrid-sample.xml).",
+      "@Validation.AllowedTerms": ["Analytics.StructureElement"],
+      "@Validation.ApplicableTerms": ["Common.Label"]
+    },
     "StructureElement": {
       "$Kind": "Term",
       "$Type": "Analytics.StructureElementType",
       "$AppliesTo": ["EntityType"],
-      "@Core.Description": "A collection of entities is structured into several subsets, each `StructureElement` describes one subset",
+      "@Core.Description": "A subset of entities that is part of a [`Structure`](#Structure)",
       "@Validation.ApplicableTerms": ["Common.Label"]
     },
     "StructureElementType": {
@@ -170,15 +181,6 @@
         "$Nullable": true,
         "@Core.Description": "Whether an entity belongs to one subset of the structure"
       }
-    },
-    "Structure": {
-      "$Kind": "Term",
-      "$Collection": true,
-      "$Type": "Edm.AnnotationPath",
-      "$AppliesTo": ["EntityType"],
-      "@UI.ThingPerspective": true,
-      "@Validation.AllowedTerms": ["Analytics.StructureElement"],
-      "@Validation.ApplicableTerms": ["Common.Label"]
     },
     "$Annotations": {
       "Aggregation.CustomAggregate": {

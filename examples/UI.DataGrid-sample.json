@@ -1,0 +1,61 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
+    },
+    "/sap/opu/odata/sap/C_CNSLDTNBALANCESHEETQ_CDS/$metadata": {
+      "$Include": [{ "$Namespace": "C_CNSLDTNBALANCESHEETQ_CDS", "$Alias": "BalanceSheet" }]
+    }
+  },
+  "UI.examples": {
+    "$Alias": "self",
+    "$Annotations": {
+      "BalanceSheet.C_CNSLDTNBALANCESHEETQResult": {
+        "@Analytics.StructureElement#ClsgFiscalYearAmount@Common.Label": {
+          "$Function": "odata.concat",
+          "$Apply": ["Current Year ", { "$Path": "Parameters/P_FiscalYear" }]
+        },
+        "@Analytics.StructureElement#ClsgFiscalYearAmount": {
+          "Filter": {
+            "$And": [
+              { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_FiscalYear" }] },
+              { "$Eq": [{ "$Path": "ConsolidationVersion" }, { "$Path": "Parameters/P_ConsolidationVersion" }] }
+            ]
+          }
+        },
+        "@Analytics.StructureElement#PrevFiscalYearAmount@Common.Label": {
+          "$Function": "odata.concat",
+          "$Apply": ["Previous Year ", { "$Path": "Parameters/P_PreviousFiscalYear" }]
+        },
+        "@Analytics.StructureElement#PrevFiscalYearAmount": {
+          "Filter": {
+            "$And": [
+              { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_PreviousFiscalYear" }] },
+              { "$Eq": [{ "$Path": "ConsolidationVersion" }, { "$Path": "Parameters/P_ConsolidationVersion" }] }
+            ]
+          }
+        },
+        "@Analytics.Structure#YearComp@Common.Label": "Year Comparison",
+        "@Analytics.Structure#YearComp": [
+          "@Analytics.StructureElement#ClsgFiscalYearAmount",
+          "@Analytics.StructureElement#PrevFiscalYearAmount"
+        ],
+        "@UI.Grid": {
+          "Columns": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Target": "@Analytics.Structure#YearComp"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
