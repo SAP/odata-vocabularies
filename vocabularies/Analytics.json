@@ -171,15 +171,16 @@
       "$Kind": "Term",
       "$Type": "Analytics.StructureElementType",
       "$AppliesTo": ["EntityType"],
-      "@Core.Description": "A subset of entities that is part of a [`Structure`](#Structure)",
-      "@Validation.ApplicableTerms": ["Common.Label"]
+      "@Core.Description": "A subset of entities that is part of a [`Structure`](#Structure)"
     },
     "StructureElementType": {
       "$Kind": "ComplexType",
+      "@Validation.ApplicableTerms": ["Common.Label"],
       "Filter": {
         "$Type": "Edm.Boolean",
         "$Nullable": true,
-        "@Core.Description": "Whether an entity belongs to one subset of the structure"
+        "@Core.Description": "Whether an entity belongs to the subset",
+        "@Core.LongDescription": "The values is given as a dynamic expression that is evaluated relative to the entity."
       }
     },
     "$Annotations": {

@@ -11,18 +11,18 @@
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
     },
     "/sap/opu/odata/sap/C_CNSLDTNBALANCESHEETQ_CDS/$metadata": {
-      "$Include": [{ "$Namespace": "C_CNSLDTNBALANCESHEETQ_CDS", "$Alias": "BalanceSheet" }]
+      "$Include": [{ "$Namespace": "C_CNSLDTNBALANCESHEETQ_CDS" }]
     }
   },
   "UI.examples": {
     "$Alias": "self",
     "$Annotations": {
-      "BalanceSheet.C_CNSLDTNBALANCESHEETQResult": {
-        "@Analytics.StructureElement#ClsgFiscalYearAmount@Common.Label": {
-          "$Function": "odata.concat",
-          "$Apply": ["Current Year ", { "$Path": "Parameters/P_FiscalYear" }]
-        },
+      "C_CNSLDTNBALANCESHEETQ_CDS.C_CNSLDTNBALANCESHEETQResult": {
         "@Analytics.StructureElement#ClsgFiscalYearAmount": {
+          "@Common.Label": {
+            "$Function": "odata.concat",
+            "$Apply": ["Current Year ", { "$Path": "Parameters/P_FiscalYear" }]
+          },
           "Filter": {
             "$And": [
               { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_FiscalYear" }] },
@@ -47,8 +47,66 @@
           "@Analytics.StructureElement#ClsgFiscalYearAmount",
           "@Analytics.StructureElement#PrevFiscalYearAmount"
         ],
-        "@UI.Grid": {
+        "@UI.FieldGroup#Rows": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.FieldGroupDimensions",
+          "Data": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+              "Value": { "$Path": "FinancialStatementItem" }
+            }
+          ]
+        },
+        "@UI.FieldGroup#Columns1": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.FieldGroupDimensions",
+          "Data": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+              "Value": { "$Path": "ConsolidationGroup" }
+            }
+          ]
+        },
+        "@UI.FieldGroup#Columns2": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.FieldGroupDimensions",
+          "Data": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+              "Value": { "$Path": "ConsolidationUnit" }
+            }
+          ]
+        },
+        "@UI.FieldGroup#Measures": {
+          "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.FieldGroupMeasures",
+          "Data": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+              "Value": { "$Path": "AmountInGroupCurrency" }
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+              "Value": { "$Path": "CnsldtnAdjustmentsAmount" }
+            }
+          ]
+        },
+        "@UI.DataGrid": {
+          "Rows": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Target": "@UI.FieldGroup#Rows"
+            }
+          ],
           "Columns": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Target": "@UI.FieldGroup#Columns1"
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Target": "@UI.FieldGroup#Measures"
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Target": "@UI.FieldGroup#Columns2"
+            },
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
               "Target": "@Analytics.Structure#YearComp"

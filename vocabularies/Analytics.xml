@@ -188,15 +188,18 @@
 
       <Term Name="StructureElement" Type="Analytics.StructureElementType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="A subset of entities that is part of a [`Structure`](#Structure)" />
+      </Term>
+      <ComplexType Name="StructureElementType">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Common.Label</String>
           </Collection>
         </Annotation>
-      </Term>
-      <ComplexType Name="StructureElementType">
-        <Property Name="Filter" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether an entity belongs to one subset of the structure" />
+        <Property Name="Filter" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Whether an entity belongs to the subset" />
+          <Annotation Term="Core.LongDescription">
+            <String>The values is given as a dynamic expression that is evaluated relative to the entity.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 

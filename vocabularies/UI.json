@@ -610,20 +610,20 @@
     },
     "DataGridType": {
       "$Kind": "ComplexType",
+      "@Core.LongDescription": "FieldGroups referenced by `Columns` or `Rows` must have type [FieldGroupDimensions](#FieldGroupDimensions) or [FieldGroupMeasures](#FieldGroupMeasures).\n- Exactly one facet targeting FieldGroupMeasures must be referenced by `Columns` and `Rows` together.\n- At most one facet targeting Structure may be referenced by `Columns` and `Rows` together.",
       "Title": { "$Nullable": true, "@Core.Description": "Title of the grid", "@Core.IsLanguageDependent": true },
       "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
       "Columns": {
         "$Collection": true,
         "$Type": "UI.ReferenceFacet",
         "@Core.Description": "Columns of the grid",
-        "@Core.LongDescription": "Each facet must reference one of\nExactly one facet targeting `FieldGroupMeasures` must occur in `Columns` and `Rows` together.\nAt most one facet targeting `Structure` may occur in `Columns` and `Rows` together.",
-        "@Validation.AllowedTerms": ["UI.FieldGroupDimensions", "UI.FieldGroupMeasures", "Analytics.Structure"]
+        "@Validation.AllowedTerms": ["UI.FieldGroup", "Analytics.Structure"]
       },
       "Rows": {
         "$Collection": true,
         "$Type": "UI.ReferenceFacet",
         "@Core.Description": "Rows of the grid",
-        "@Validation.AllowedTerms": ["UI.FieldGroupDimensions", "UI.FieldGroupMeasures", "Analytics.Structure"]
+        "@Validation.AllowedTerms": ["UI.FieldGroup", "Analytics.Structure"]
       },
       "Actions": {
         "$Collection": true,
@@ -634,12 +634,22 @@
     "FieldGroupDimensions": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.FieldGroupType",
-      "@Core.Description": "Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)"
+      "Data": {
+        "$Collection": true,
+        "$Type": "UI.DataField",
+        "$Nullable": true,
+        "@Core.Description": "Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)"
+      }
     },
     "FieldGroupMeasures": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.FieldGroupType",
-      "@Core.Description": "Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)"
+      "Data": {
+        "$Collection": true,
+        "$Type": "UI.DataField",
+        "$Nullable": true,
+        "@Core.Description": "Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)"
+      }
     },
     "Chart": {
       "$Kind": "Term",

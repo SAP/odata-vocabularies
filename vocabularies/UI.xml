@@ -707,6 +707,11 @@ The trend is
         <Annotation Term="Core.Description" String="Visualization of a data grid" />
       </Term>
       <ComplexType Name="DataGridType">
+        <Annotation Term="Core.LongDescription">
+          <String>FieldGroups referenced by `Columns` or `Rows` must have type [FieldGroupDimensions](#FieldGroupDimensions) or [FieldGroupMeasures](#FieldGroupMeasures).
+- Exactly one facet targeting FieldGroupMeasures must be referenced by `Columns` and `Rows` together.
+- At most one facet targeting Structure may be referenced by `Columns` and `Rows` together.</String>
+        </Annotation>
         <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the grid" />
           <Annotation Term="Core.IsLanguageDependent" />
@@ -717,15 +722,9 @@ The trend is
         </Property>
         <Property Name="Columns" Type="Collection(UI.ReferenceFacet)" Nullable="false">
           <Annotation Term="Core.Description" String="Columns of the grid" />
-          <Annotation Term="Core.LongDescription">
-            <String>Each facet must reference one of
-Exactly one facet targeting `FieldGroupMeasures` must occur in `Columns` and `Rows` together.
-At most one facet targeting `Structure` may occur in `Columns` and `Rows` together.</String>
-          </Annotation>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>UI.FieldGroupDimensions</String>
-              <String>UI.FieldGroupMeasures</String>
+              <String>UI.FieldGroup</String>
               <String>Analytics.Structure</String>
             </Collection>
           </Annotation>
@@ -734,8 +733,7 @@ At most one facet targeting `Structure` may occur in `Columns` and `Rows` togeth
           <Annotation Term="Core.Description" String="Rows of the grid" />
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>UI.FieldGroupDimensions</String>
-              <String>UI.FieldGroupMeasures</String>
+              <String>UI.FieldGroup</String>
               <String>Analytics.Structure</String>
             </Collection>
           </Annotation>
@@ -745,10 +743,14 @@ At most one facet targeting `Structure` may occur in `Columns` and `Rows` togeth
         </Property>
       </ComplexType>
       <ComplexType Name="FieldGroupDimensions" BaseType="UI.FieldGroupType">
-        <Annotation Term="Core.Description" String="Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)" />
+        <Property Name="Data" Type="Collection(UI.DataField)" Nullable="true">
+          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)" />
+        </Property>
       </ComplexType>
       <ComplexType Name="FieldGroupMeasures" BaseType="UI.FieldGroupType">
-        <Annotation Term="Core.Description" String="Field group whose `Data` consists of [`DataField`](#DataField)s whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)" />
+        <Property Name="Data" Type="Collection(UI.DataField)" Nullable="true">
+          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)" />
+        </Property>
       </ComplexType>
 
       <Term Name="Chart" Type="UI.ChartDefinitionType" Nullable="false" AppliesTo="EntityType">

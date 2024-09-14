@@ -10,7 +10,7 @@
     <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
   </edmx:Reference>
   <edmx:Reference Uri="/sap/opu/odata/sap/C_CNSLDTNBALANCESHEETQ_CDS/$metadata">
-    <edmx:Include Namespace="C_CNSLDTNBALANCESHEETQ_CDS" Alias="BalanceSheet" />
+    <edmx:Include Namespace="C_CNSLDTNBALANCESHEETQ_CDS" />
   </edmx:Reference>
 
   <edmx:DataServices>
@@ -18,13 +18,13 @@
 
       <Annotations Target="C_CNSLDTNBALANCESHEETQ_CDS.C_CNSLDTNBALANCESHEETQResult">
         <Annotation Term="Analytics.StructureElement" Qualifier="ClsgFiscalYearAmount">
-          <Annotation Term="Common.Label">
-            <Apply Function="odata.concat">
-              <String>Current Year </String>
-              <Path>Parameters/P_FiscalYear</Path>
-            </Apply>
-          </Annotation>
           <Record>
+            <Annotation Term="Common.Label">
+              <Apply Function="odata.concat">
+                <String>Current Year </String>
+                <Path>Parameters/P_FiscalYear</Path>
+              </Apply>
+            </Annotation>
             <PropertyValue Property="Filter">
               <And>
                 <Eq>
@@ -68,10 +68,73 @@
             <AnnotationPath>@Analytics.StructureElement#PrevFiscalYearAmount</AnnotationPath>
           </Collection>
         </Annotation>
-        <Annotation Term="UI.Grid">
+        <Annotation Term="UI.FieldGroup" Qualifier="Rows">
+          <Record Type="UI.FieldGroupDimensions">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="FinancialStatementItem" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Columns1">
+          <Record Type="UI.FieldGroupDimensions">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="ConsolidationGroup" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Columns2">
+          <Record Type="UI.FieldGroupDimensions">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="ConsolidationUnit" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Measures">
+          <Record Type="UI.FieldGroupMeasures">
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="AmountInGroupCurrency" />
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="CnsldtnAdjustmentsAmount" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.DataGrid">
           <Record>
+            <PropertyValue Property="Rows">
+              <Collection>
+                <Record Type="UI.ReferenceFacet">
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Rows"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
             <PropertyValue Property="Columns">
               <Collection>
+                <Record Type="UI.ReferenceFacet">
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns1"/>
+                </Record>
+                <Record Type="UI.ReferenceFacet">
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Measures"/>
+                </Record>
+                <Record Type="UI.ReferenceFacet">
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns2"/>
+                </Record>
                 <Record Type="UI.ReferenceFacet">
                   <PropertyValue Property="Target" AnnotationPath="@Analytics.Structure#YearComp"/>
                 </Record>
