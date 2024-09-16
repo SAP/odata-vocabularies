@@ -169,9 +169,10 @@
 
       <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
-        <Annotation Term="Core.Description" String="A collection of entities is structured into several subsets, each described by one [`StructureElement`](#StructureElement)" />
+        <Annotation Term="Core.Description" String="In analytical reports, a collection of entities is structured into several subsets, each described by one [`StructureElement`](#StructureElement)" />
         <Annotation Term="Core.LongDescription">
-          <String>For example, financial posting items can be structured into "current period", "previous period", "current period last year".
+          <String>An analytical report with such a structure evaluates its measures once for each subset.
+          For example, financial posting items can be structured into "current period", "previous period", "current period last year".
           See also [this example](../examples/UI.DataGrid-sample.xml).</String>
         </Annotation>
         <Annotation Term="Validation.AllowedTerms">
