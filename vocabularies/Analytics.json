@@ -161,8 +161,9 @@
       "$Collection": true,
       "$Type": "Edm.AnnotationPath",
       "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
       "@UI.ThingPerspective": true,
-      "@Core.Description": "In analytical reports, a collection of entities is structured into several subsets, each described by one [`StructureElement`](#StructureElement)",
+      "@Core.Description": "In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one [`StructureElement`](#StructureElement)",
       "@Core.LongDescription": "An analytical report with such a structure evaluates its measures once for each subset.\n          For example, financial posting items can be structured into \"current period\", \"previous period\", \"current period last year\".\n          See also [this example](../examples/UI.DataGrid-sample.xml).",
       "@Validation.AllowedTerms": ["Analytics.StructureElement"],
       "@Validation.ApplicableTerms": ["Common.Label"]
@@ -171,16 +172,18 @@
       "$Kind": "Term",
       "$Type": "Analytics.StructureElementType",
       "$AppliesTo": ["EntityType"],
-      "@Core.Description": "A subset of entities that is part of a [`Structure`](#Structure)"
+      "@Common.Experimental": true,
+      "@Core.Description": "A subset of entities that is part of one or more [Structures](#Structure)"
     },
     "StructureElementType": {
       "$Kind": "ComplexType",
+      "@Common.Experimental": true,
       "@Validation.ApplicableTerms": ["Common.Label"],
       "Filter": {
         "$Type": "Edm.Boolean",
         "$Nullable": true,
         "@Core.Description": "Whether an entity belongs to the subset",
-        "@Core.LongDescription": "The values is given as a dynamic expression that is evaluated relative to the entity."
+        "@Core.LongDescription": "The value is given as a dynamic expression that is evaluated relative to the entity."
       }
     },
     "$Annotations": {

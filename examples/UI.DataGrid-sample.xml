@@ -40,13 +40,13 @@
           </Record>
         </Annotation>
         <Annotation Term="Analytics.StructureElement" Qualifier="PrevFiscalYearAmount">
-          <Annotation Term="Common.Label">
-            <Apply Function="odata.concat">
-              <String>Previous Year </String>
-              <Path>Parameters/P_PreviousFiscalYear</Path>
-            </Apply>
-          </Annotation>
           <Record>
+            <Annotation Term="Common.Label">
+              <Apply Function="odata.concat">
+                <String>Previous Year </String>
+                <Path>Parameters/P_PreviousFiscalYear</Path>
+              </Apply>
+            </Annotation>
             <PropertyValue Property="Filter">
               <And>
                 <Eq>

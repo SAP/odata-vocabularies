@@ -30,11 +30,11 @@
             ]
           }
         },
-        "@Analytics.StructureElement#PrevFiscalYearAmount@Common.Label": {
-          "$Function": "odata.concat",
-          "$Apply": ["Previous Year ", { "$Path": "Parameters/P_PreviousFiscalYear" }]
-        },
         "@Analytics.StructureElement#PrevFiscalYearAmount": {
+          "@Common.Label": {
+            "$Function": "odata.concat",
+            "$Apply": ["Previous Year ", { "$Path": "Parameters/P_PreviousFiscalYear" }]
+          },
           "Filter": {
             "$And": [
               { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_PreviousFiscalYear" }] },

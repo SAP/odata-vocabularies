@@ -703,14 +703,16 @@ The trend is
       </ComplexType>
 
       <Term Name="DataGrid" Type="UI.DataGridType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of a data grid" />
       </Term>
       <ComplexType Name="DataGridType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
-          <String>FieldGroups referenced by `Columns` or `Rows` must have type [FieldGroupDimensions](#FieldGroupDimensions) or [FieldGroupMeasures](#FieldGroupMeasures).
-- Exactly one facet targeting FieldGroupMeasures must be referenced by `Columns` and `Rows` together.
-- At most one facet targeting Structure may be referenced by `Columns` and `Rows` together.</String>
+          <String>- FieldGroups referenced by `Columns` or `Rows` must have type [FieldGroupDimensions](#FieldGroupDimensions) or [FieldGroupMeasures](#FieldGroupMeasures).
+- Exactly one facet targeting a FieldGroupMeasures must be referenced by `Columns` and `Rows` together.
+- At most one facet targeting a Structure may be referenced by `Columns` and `Rows` together.</String>
         </Annotation>
         <Property Name="Title" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Title of the grid" />
@@ -743,13 +745,15 @@ The trend is
         </Property>
       </ComplexType>
       <ComplexType Name="FieldGroupDimensions" BaseType="UI.FieldGroupType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Data" Type="Collection(UI.DataField)" Nullable="true">
-          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)" />
+          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` properties occur in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)" />
         </Property>
       </ComplexType>
       <ComplexType Name="FieldGroupMeasures" BaseType="UI.FieldGroupType">
+        <Annotation Term="Common.Experimental" />
         <Property Name="Data" Type="Collection(UI.DataField)" Nullable="true">
-          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` occurs in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)" />
+          <Annotation Term="Core.Description" String="Collection of data fields whose `Value` properties occur in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)" />
         </Property>
       </ComplexType>
 
