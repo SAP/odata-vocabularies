@@ -163,10 +163,9 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@UI.ThingPerspective": true,
-      "@Core.Description": "In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one [`StructureElement`](#StructureElement)",
+      "@Core.Description": "In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement",
       "@Core.LongDescription": "An analytical report with such a structure evaluates its measures once for each subset.\n          For example, financial posting items can be structured into \"current period\", \"previous period\", \"current period last year\".\n          See also [this example](../examples/UI.DataGrid-sample.xml).",
-      "@Validation.AllowedTerms": ["Analytics.StructureElement"],
-      "@Validation.ApplicableTerms": ["Common.Label"]
+      "@Validation.AllowedTerms": ["Analytics.StructureElement"]
     },
     "StructureElement": {
       "$Kind": "Term",

@@ -17,8 +17,8 @@ Term|Type|Description
 [AggregatedProperties](Analytics.xml#L103) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](Analytics.xml#L121)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L141)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[Structure](Analytics.xml#L170) *([Experimental](Common.md#Experimental))*|\[AnnotationPath\]|<a name="Structure"></a>In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one [`StructureElement`](#StructureElement)<br>An analytical report with such a structure evaluates its measures once for each subset. For example, financial posting items can be structured into "current period", "previous period", "current period last year". See also [this example](../examples/UI.DataGrid-sample.xml).<br>Can be annotated with:<ul><li>[Label](Common.md#Label)</li></ul><br>Allowed terms:<ul><li>[StructureElement](#StructureElement)</li></ul>
-[StructureElement](Analytics.xml#L191) *([Experimental](Common.md#Experimental))*|[StructureElementType](#StructureElementType)|<a name="StructureElement"></a>A subset of entities that is part of one or more [Structures](#Structure)
+[Structure](Analytics.xml#L170) *([Experimental](Common.md#Experimental))*|\[AnnotationPath\]|<a name="Structure"></a>In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement<br>An analytical report with such a structure evaluates its measures once for each subset. For example, financial posting items can be structured into "current period", "previous period", "current period last year". See also [this example](../examples/UI.DataGrid-sample.xml).<br>Allowed terms:<ul><li>[StructureElement](#StructureElement)</li></ul>
+[StructureElement](Analytics.xml#L186) *([Experimental](Common.md#Experimental))*|[StructureElementType](#StructureElementType)|<a name="StructureElement"></a>A subset of entities that is part of one or more [Structures](#Structure)
 
 <a name="AggregatedPropertyType"></a>
 ## [AggregatedPropertyType](Analytics.xml#L124)
@@ -47,12 +47,12 @@ Property|Type|Description
 [AccumulativeMeasure](Analytics.xml#L165)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
 <a name="StructureElementType"></a>
-## [StructureElementType](Analytics.xml#L195) *([Experimental](Common.md#Experimental))*
+## [StructureElementType](Analytics.xml#L190) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filter](Analytics.xml#L202)|Boolean?|Whether an entity belongs to the subset<br>The value is given as a dynamic expression that is evaluated relative to the entity.
+[Filter](Analytics.xml#L197)|Boolean?|Whether an entity belongs to the subset<br>The value is given as a dynamic expression that is evaluated relative to the entity.
 
 **Applicable Annotation Terms:**
 

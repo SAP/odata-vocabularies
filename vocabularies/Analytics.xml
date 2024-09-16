@@ -170,7 +170,7 @@
       <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="UI.ThingPerspective" />
-        <Annotation Term="Core.Description" String="In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one [`StructureElement`](#StructureElement)" />
+        <Annotation Term="Core.Description" String="In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement" />
         <Annotation Term="Core.LongDescription">
           <String>An analytical report with such a structure evaluates its measures once for each subset.
           For example, financial posting items can be structured into "current period", "previous period", "current period last year".
@@ -179,11 +179,6 @@
         <Annotation Term="Validation.AllowedTerms">
           <Collection>
             <String>Analytics.StructureElement</String>
-          </Collection>
-        </Annotation>
-        <Annotation Term="Validation.ApplicableTerms">
-          <Collection>
-            <String>Common.Label</String>
           </Collection>
         </Annotation>
       </Term>

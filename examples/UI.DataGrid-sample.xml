@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
-    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
@@ -62,7 +62,6 @@
           </Record>
         </Annotation>
         <Annotation Term="Analytics.Structure" Qualifier="YearComp">
-          <Annotation Term="Common.Label" String="Year Comparison"/>
           <Collection>
             <AnnotationPath>@Analytics.StructureElement#ClsgFiscalYearAmount</AnnotationPath>
             <AnnotationPath>@Analytics.StructureElement#PrevFiscalYearAmount</AnnotationPath>
@@ -120,23 +119,24 @@
             <PropertyValue Property="Rows">
               <Collection>
                 <Record Type="UI.ReferenceFacet">
-                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Rows"/>
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Rows" />
                 </Record>
               </Collection>
             </PropertyValue>
             <PropertyValue Property="Columns">
               <Collection>
                 <Record Type="UI.ReferenceFacet">
-                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns1"/>
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns1" />
                 </Record>
                 <Record Type="UI.ReferenceFacet">
-                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Measures"/>
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Measures" />
                 </Record>
                 <Record Type="UI.ReferenceFacet">
-                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns2"/>
+                  <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Columns2" />
                 </Record>
                 <Record Type="UI.ReferenceFacet">
-                  <PropertyValue Property="Target" AnnotationPath="@Analytics.Structure#YearComp"/>
+                  <PropertyValue Property="Label" String="Year Comparison" />
+                  <PropertyValue Property="Target" AnnotationPath="@Analytics.Structure#YearComp" />
                 </Record>
               </Collection>
             </PropertyValue>

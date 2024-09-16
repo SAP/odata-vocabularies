@@ -1,8 +1,8 @@
 {
   "$Version": "4.0",
   "$Reference": {
-    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
@@ -42,7 +42,6 @@
             ]
           }
         },
-        "@Analytics.Structure#YearComp@Common.Label": "Year Comparison",
         "@Analytics.Structure#YearComp": [
           "@Analytics.StructureElement#ClsgFiscalYearAmount",
           "@Analytics.StructureElement#PrevFiscalYearAmount"
@@ -109,6 +108,7 @@
             },
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+              "Label": "Year Comparison",
               "Target": "@Analytics.Structure#YearComp"
             }
           ]
