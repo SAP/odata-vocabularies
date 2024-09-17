@@ -69,25 +69,25 @@
             <PropertyValue Property="Rows">
               <Collection>
                 <Record Type="Analytics.GridElementDimension">
-                  <PropertyValue Property="Value" Path="FinancialStatementItem" />
+                  <PropertyValue Property="Value" PropertyPath="FinancialStatementItem" />
                 </Record>
               </Collection>
             </PropertyValue>
             <PropertyValue Property="Columns">
               <Collection>
                 <Record Type="Analytics.GridElementDimension">
-                  <PropertyValue Property="Value" Path="ConsolidationGroup" />
+                  <PropertyValue Property="Value" PropertyPath="ConsolidationGroup" />
                 </Record>
                 <Record Type="Analytics.GridElementMeasures">
                   <PropertyValue Property="Values">
                     <Collection>
-                      <Path>AmountInGroupCurrency</Path>
-                      <Path>CnsldtnAdjustmentsAmount</Path>
+                      <PropertyPath>AmountInGroupCurrency</PropertyPath>
+                      <PropertyPath>CnsldtnAdjustmentsAmount</PropertyPath>
                     </Collection>
                   </PropertyValue>
                 </Record>
                 <Record Type="Analytics.GridElementDimension">
-                  <PropertyValue Property="Value" Path="ConsolidationUnit" />
+                  <PropertyValue Property="Value" PropertyPath="ConsolidationUnit" />
                 </Record>
                 <Record Type="Analytics.GridElementReference">
                   <PropertyValue Property="Label" String="Year Comparison" />

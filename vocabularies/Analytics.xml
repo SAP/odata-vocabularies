@@ -207,14 +207,14 @@
         </Property>
       </ComplexType>
       <ComplexType Name="GridElementDimension" BaseType="Analytics.GridElementAbstract">
-        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="The property providing the value must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)" />
+        <Property Name="Value" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="The property must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)" />
         </Property>
       </ComplexType>
       <ComplexType Name="GridElementMeasures" BaseType="Analytics.GridElementAbstract">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Values" Type="Collection(Edm.PrimitiveType)" Nullable="true">
-          <Annotation Term="Core.Description" String="The properties providing the values must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)" />
+        <Property Name="Values" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="The properties must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)" />
         </Property>
       </ComplexType>
       <ComplexType Name="GridElementReference" BaseType="Analytics.GridElementAbstract">

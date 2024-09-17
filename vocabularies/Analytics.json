@@ -195,9 +195,8 @@
       "$Kind": "ComplexType",
       "$BaseType": "Analytics.GridElementAbstract",
       "Value": {
-        "$Type": "Edm.PrimitiveType",
-        "$Nullable": true,
-        "@Core.Description": "The property providing the value must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)"
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The property must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)"
       }
     },
     "GridElementMeasures": {
@@ -206,9 +205,8 @@
       "@Common.Experimental": true,
       "Values": {
         "$Collection": true,
-        "$Type": "Edm.PrimitiveType",
-        "$Nullable": true,
-        "@Core.Description": "The properties providing the values must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)"
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The properties must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)"
       }
     },
     "GridElementReference": {

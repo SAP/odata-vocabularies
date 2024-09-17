@@ -1034,7 +1034,6 @@ The trend is
               <String>UI.SelectionFields</String>
               <String>UI.SelectionPresentationVariant</String>
               <String>UI.StatusInfo</String>
-              <String>Analytics.Structure</String>
             </Collection>
           </Annotation>
         </Property>

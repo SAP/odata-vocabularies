@@ -930,8 +930,7 @@
           "UI.PresentationVariant",
           "UI.SelectionFields",
           "UI.SelectionPresentationVariant",
-          "UI.StatusInfo",
-          "Analytics.Structure"
+          "UI.StatusInfo"
         ]
       }
     },

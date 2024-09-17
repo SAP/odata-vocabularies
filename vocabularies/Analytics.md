@@ -82,7 +82,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Label*](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
-[Value](Analytics.xml#L210)|PrimitiveType?|The property providing the value must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)
+[Value](Analytics.xml#L210)|PropertyPath|The property must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)
 
 <a name="GridElementMeasures"></a>
 ## [GridElementMeasures](Analytics.xml#L214): [GridElementAbstract](#GridElementAbstract) *([Experimental](Common.md#Experimental))*
@@ -91,7 +91,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Label*](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
-[Values](Analytics.xml#L216)|\[PrimitiveType?\]|The properties providing the values must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)
+[Values](Analytics.xml#L216)|\[PropertyPath\]|The properties must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)
 
 <a name="GridElementReference"></a>
 ## [GridElementReference](Analytics.xml#L220): [GridElementAbstract](#GridElementAbstract) *([Experimental](Common.md#Experimental))*

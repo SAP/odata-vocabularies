@@ -46,21 +46,21 @@
           "Rows": [
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
-              "Value": { "$Path": "FinancialStatementItem" }
+              "Value": "FinancialStatementItem"
             }
           ],
           "Columns": [
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
-              "Value": { "$Path": "ConsolidationGroup" }
+              "Value": "ConsolidationGroup"
             },
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementMeasures",
-              "Values": [{ "$Path": "AmountInGroupCurrency" }, { "$Path": "CnsldtnAdjustmentsAmount" }]
+              "Values": ["AmountInGroupCurrency", "CnsldtnAdjustmentsAmount"]
             },
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
-              "Value": { "$Path": "ConsolidationUnit" }
+              "Value": "ConsolidationUnit"
             },
             {
               "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementReference",
