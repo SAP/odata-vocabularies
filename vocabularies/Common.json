@@ -62,6 +62,7 @@
     "DocumentationRef": {
       "$Kind": "Term",
       "$AppliesTo": ["EntityType", "Property", "Parameter", "ReturnType"],
+      "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
       "@Core.Example": {
