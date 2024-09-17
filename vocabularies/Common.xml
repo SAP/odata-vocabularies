@@ -1331,7 +1331,7 @@ Upon modification field control logic is invoked so that meta-information like h
         </Annotation>
       </Term>
       <ComplexType Name="SortOrderType">
-        <Annotation Term="Core.Description" String="Exactly one of `Property` and `DynamicProperty` must be present" />
+        <Annotation Term="Core.Description" String="Exactly one of `Property`, `DynamicProperty` and `Expression` must be present" />
         <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Common.PrimitivePropertyPath" />
           <Annotation Term="Core.Description" String="Sort property" />
@@ -1357,6 +1357,10 @@ Upon modification field control logic is invoked so that meta-information like h
               <String>Aggregation.CustomAggregate</String>
             </Collection>
           </Annotation>
+        </Property>
+        <Property Name="Expression" Type="Edm.PrimitiveType">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Dynamic expression whose primitive result value is used to sort the instances" />
         </Property>
         <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
