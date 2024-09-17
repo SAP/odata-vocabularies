@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics">
@@ -164,6 +167,98 @@
         </Property>
         <Property Name="AccumulativeMeasure" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="DataGrid" Type="Analytics.DataGridType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Core.Description" String="Visualization of a data grid" />
+      </Term>
+      <ComplexType Name="DataGridType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>- Exactly one [GridElementMeasures](#GridElementMeasures) must be contained in `Columns` and `Rows` together.
+- At most one [GridElementReference](#GridElementReference) targeting a [Structure](#Structure) may be contained in `Columns` and `Rows` together.</String>
+        </Annotation>
+        <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the grid" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Columns" Type="Collection(Analytics.GridElement)" Nullable="false">
+          <Annotation Term="Core.Description" String="Columns of the grid" />
+        </Property>
+        <Property Name="Rows" Type="Collection(Analytics.GridElement)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rows of the grid" />
+        </Property>
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementAbstract" Abstract="true">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementDimension" BaseType="Analytics.GridElementAbstract">
+        <Property Name="Value" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="The property must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementMeasures" BaseType="Analytics.GridElementAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Values" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="The properties must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementReference" BaseType="Analytics.GridElementAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.Structure</String>
+            </Collection>
+          </Annotation>
+        </Property>
+      </ComplexType>
+
+      <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement" />
+        <Annotation Term="Core.LongDescription">
+          <String>An analytical report with such a structure evaluates its measures once for each subset.
+          For example, financial posting items can be structured into "current period", "previous period", "current period last year".
+          See also [this example](../examples/Analytics.DataGrid-sample.xml).</String>
+        </Annotation>
+        <Annotation Term="Validation.AllowedTerms">
+          <Collection>
+            <String>Analytics.StructureElement</String>
+          </Collection>
+        </Annotation>
+      </Term>
+
+      <Term Name="StructureElement" Type="Analytics.StructureElementType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A subset of entities that is part of one or more [Structures](#Structure)" />
+      </Term>
+      <ComplexType Name="StructureElementType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Common.Label</String>
+          </Collection>
+        </Annotation>
+        <Property Name="Filter" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Whether an entity belongs to the subset" />
+          <Annotation Term="Core.LongDescription">
+            <String>The value is given as a dynamic expression that is evaluated relative to the entity.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 

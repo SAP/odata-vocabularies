@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics" />
+  </edmx:Reference>
+  <edmx:Reference Uri="/sap/opu/odata/sap/C_CNSLDTNBALANCESHEETQ_CDS/$metadata">
+    <edmx:Include Namespace="C_CNSLDTNBALANCESHEETQ_CDS" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="Analytics.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <Annotations Target="C_CNSLDTNBALANCESHEETQ_CDS.C_CNSLDTNBALANCESHEETQResult">
+        <Annotation Term="Analytics.StructureElement" Qualifier="ClsgFiscalYearAmount">
+          <Record>
+            <Annotation Term="Common.Label">
+              <Apply Function="odata.concat">
+                <String>Current Year </String>
+                <Path>Parameters/P_FiscalYear</Path>
+              </Apply>
+            </Annotation>
+            <PropertyValue Property="Filter">
+              <And>
+                <Eq>
+                  <Path>FiscalYear</Path>
+                  <Path>Parameters/P_FiscalYear</Path>
+                </Eq>
+                <Eq>
+                  <Path>ConsolidationVersion</Path>
+                  <Path>Parameters/P_ConsolidationVersion</Path>
+                </Eq>
+              </And>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="Analytics.StructureElement" Qualifier="PrevFiscalYearAmount">
+          <Record>
+            <Annotation Term="Common.Label">
+              <Apply Function="odata.concat">
+                <String>Previous Year </String>
+                <Path>Parameters/P_PreviousFiscalYear</Path>
+              </Apply>
+            </Annotation>
+            <PropertyValue Property="Filter">
+              <And>
+                <Eq>
+                  <Path>FiscalYear</Path>
+                  <Path>Parameters/P_PreviousFiscalYear</Path>
+                </Eq>
+                <Eq>
+                  <Path>ConsolidationVersion</Path>
+                  <Path>Parameters/P_ConsolidationVersion</Path>
+                </Eq>
+              </And>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="Analytics.Structure" Qualifier="YearComp">
+          <Collection>
+            <AnnotationPath>@Analytics.StructureElement#ClsgFiscalYearAmount</AnnotationPath>
+            <AnnotationPath>@Analytics.StructureElement#PrevFiscalYearAmount</AnnotationPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Analytics.DataGrid">
+          <Record>
+            <PropertyValue Property="Rows">
+              <Collection>
+                <Record Type="Analytics.GridElementDimension">
+                  <PropertyValue Property="Value" PropertyPath="FinancialStatementItem" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="Columns">
+              <Collection>
+                <Record Type="Analytics.GridElementDimension">
+                  <PropertyValue Property="Value" PropertyPath="ConsolidationGroup" />
+                </Record>
+                <Record Type="Analytics.GridElementMeasures">
+                  <PropertyValue Property="Values">
+                    <Collection>
+                      <PropertyPath>AmountInGroupCurrency</PropertyPath>
+                      <PropertyPath>CnsldtnAdjustmentsAmount</PropertyPath>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record Type="Analytics.GridElementDimension">
+                  <PropertyValue Property="Value" PropertyPath="ConsolidationUnit" />
+                </Record>
+                <Record Type="Analytics.GridElementReference">
+                  <PropertyValue Property="Label" String="Year Comparison" />
+                  <PropertyValue Property="Target" AnnotationPath="@Analytics.Structure#YearComp" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

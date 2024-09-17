@@ -12,6 +12,9 @@
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
     }
   },
   "com.sap.vocabularies.Analytics.v1": {
@@ -154,6 +157,90 @@
         "$Type": "Core.Tag",
         "$DefaultValue": true,
         "@Core.Description": "The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut"
+      }
+    },
+    "DataGrid": {
+      "$Kind": "Term",
+      "$Type": "Analytics.DataGridType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@UI.ThingPerspective": true,
+      "@Core.Description": "Visualization of a data grid"
+    },
+    "DataGridType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.LongDescription": "- Exactly one [GridElementMeasures](#GridElementMeasures) must be contained in `Columns` and `Rows` together.\n- At most one [GridElementReference](#GridElementReference) targeting a [Structure](#Structure) may be contained in `Columns` and `Rows` together.",
+      "Title": { "$Nullable": true, "@Core.Description": "Title of the grid", "@Core.IsLanguageDependent": true },
+      "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
+      "Columns": { "$Collection": true, "$Type": "Analytics.GridElement", "@Core.Description": "Columns of the grid" },
+      "Rows": { "$Collection": true, "$Type": "Analytics.GridElement", "@Core.Description": "Rows of the grid" },
+      "Actions": {
+        "$Collection": true,
+        "$Type": "UI.DataFieldForActionAbstract",
+        "@Core.Description": "Available actions"
+      }
+    },
+    "GridElementAbstract": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "Label": {
+        "$Nullable": true,
+        "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
+        "@Core.IsLanguageDependent": true
+      }
+    },
+    "GridElementDimension": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Analytics.GridElementAbstract",
+      "Value": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The property must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)"
+      }
+    },
+    "GridElementMeasures": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Analytics.GridElementAbstract",
+      "@Common.Experimental": true,
+      "Values": {
+        "$Collection": true,
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The properties must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)"
+      }
+    },
+    "GridElementReference": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Analytics.GridElementAbstract",
+      "@Common.Experimental": true,
+      "Target": { "$Type": "Edm.AnnotationPath", "@Validation.AllowedTerms": ["Analytics.Structure"] }
+    },
+    "Structure": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Edm.AnnotationPath",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement",
+      "@Core.LongDescription": "An analytical report with such a structure evaluates its measures once for each subset.\n          For example, financial posting items can be structured into \"current period\", \"previous period\", \"current period last year\".\n          See also [this example](../examples/Analytics.DataGrid-sample.xml).",
+      "@Validation.AllowedTerms": ["Analytics.StructureElement"]
+    },
+    "StructureElement": {
+      "$Kind": "Term",
+      "$Type": "Analytics.StructureElementType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A subset of entities that is part of one or more [Structures](#Structure)"
+    },
+    "StructureElementType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Validation.ApplicableTerms": ["Common.Label"],
+      "Filter": {
+        "$Type": "Edm.Boolean",
+        "$Nullable": true,
+        "@Core.Description": "Whether an entity belongs to the subset",
+        "@Core.LongDescription": "The value is given as a dynamic expression that is evaluated relative to the entity."
       }
     },
     "$Annotations": {

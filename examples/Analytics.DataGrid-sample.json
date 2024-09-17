@@ -1,0 +1,75 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
+    },
+    "/sap/opu/odata/sap/C_CNSLDTNBALANCESHEETQ_CDS/$metadata": {
+      "$Include": [{ "$Namespace": "C_CNSLDTNBALANCESHEETQ_CDS" }]
+    }
+  },
+  "Analytics.examples": {
+    "$Annotations": {
+      "C_CNSLDTNBALANCESHEETQ_CDS.C_CNSLDTNBALANCESHEETQResult": {
+        "@Analytics.StructureElement#ClsgFiscalYearAmount": {
+          "@Common.Label": {
+            "$Function": "odata.concat",
+            "$Apply": ["Current Year ", { "$Path": "Parameters/P_FiscalYear" }]
+          },
+          "Filter": {
+            "$And": [
+              { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_FiscalYear" }] },
+              { "$Eq": [{ "$Path": "ConsolidationVersion" }, { "$Path": "Parameters/P_ConsolidationVersion" }] }
+            ]
+          }
+        },
+        "@Analytics.StructureElement#PrevFiscalYearAmount": {
+          "@Common.Label": {
+            "$Function": "odata.concat",
+            "$Apply": ["Previous Year ", { "$Path": "Parameters/P_PreviousFiscalYear" }]
+          },
+          "Filter": {
+            "$And": [
+              { "$Eq": [{ "$Path": "FiscalYear" }, { "$Path": "Parameters/P_PreviousFiscalYear" }] },
+              { "$Eq": [{ "$Path": "ConsolidationVersion" }, { "$Path": "Parameters/P_ConsolidationVersion" }] }
+            ]
+          }
+        },
+        "@Analytics.Structure#YearComp": [
+          "@Analytics.StructureElement#ClsgFiscalYearAmount",
+          "@Analytics.StructureElement#PrevFiscalYearAmount"
+        ],
+        "@Analytics.DataGrid": {
+          "Rows": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
+              "Value": "FinancialStatementItem"
+            }
+          ],
+          "Columns": [
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
+              "Value": "ConsolidationGroup"
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementMeasures",
+              "Values": ["AmountInGroupCurrency", "CnsldtnAdjustmentsAmount"]
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementDimension",
+              "Value": "ConsolidationUnit"
+            },
+            {
+              "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.xml#Analytics.GridElementReference",
+              "Label": "Year Comparison",
+              "Target": "@Analytics.Structure#YearComp"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
