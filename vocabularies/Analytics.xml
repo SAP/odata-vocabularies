@@ -170,14 +170,71 @@
         </Property>
       </ComplexType>
 
-      <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
+      <Term Name="DataGrid" Type="Analytics.DataGridType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Core.Description" String="Visualization of a data grid" />
+      </Term>
+      <ComplexType Name="DataGridType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>- Exactly one [GridElementMeasures](#GridElementMeasures) must be contained in `Columns` and `Rows` together.
+- At most one [GridElementReference](#GridElementReference) targeting a [Structure](#Structure) may be contained in `Columns` and `Rows` together.</String>
+        </Annotation>
+        <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the grid" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Columns" Type="Collection(Analytics.GridElement)" Nullable="false">
+          <Annotation Term="Core.Description" String="Columns of the grid" />
+        </Property>
+        <Property Name="Rows" Type="Collection(Analytics.GridElement)" Nullable="false">
+          <Annotation Term="Core.Description" String="Rows of the grid" />
+        </Property>
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementAbstract" Abstract="true">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Label" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementDimension" BaseType="Analytics.GridElementAbstract">
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="The property providing the value must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementMeasures" BaseType="Analytics.GridElementAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Values" Type="Collection(Edm.PrimitiveType)" Nullable="true">
+          <Annotation Term="Core.Description" String="The properties providing the values must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="GridElementReference" BaseType="Analytics.GridElementAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Target" Type="Edm.AnnotationPath" Nullable="false">
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Analytics.Structure</String>
+            </Collection>
+          </Annotation>
+        </Property>
+      </ComplexType>
+
+      <Term Name="Structure" Type="Collection(Edm.AnnotationPath)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement" />
         <Annotation Term="Core.LongDescription">
           <String>An analytical report with such a structure evaluates its measures once for each subset.
           For example, financial posting items can be structured into "current period", "previous period", "current period last year".
-          See also [this example](../examples/UI.DataGrid-sample.xml).</String>
+          See also [this example](../examples/Analytics.DataGrid-sample.xml).</String>
         </Annotation>
         <Annotation Term="Validation.AllowedTerms">
           <Collection>

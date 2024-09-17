@@ -601,60 +601,6 @@
         "@Core.Description": "Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger."
       }
     },
-    "DataGrid": {
-      "$Kind": "Term",
-      "$Type": "UI.DataGridType",
-      "$AppliesTo": ["EntityType"],
-      "@Common.Experimental": true,
-      "@UI.ThingPerspective": true,
-      "@Core.Description": "Visualization of a data grid"
-    },
-    "DataGridType": {
-      "$Kind": "ComplexType",
-      "@Common.Experimental": true,
-      "@Core.LongDescription": "- FieldGroups referenced by `Columns` or `Rows` must have type [FieldGroupDimensions](#FieldGroupDimensions) or [FieldGroupMeasures](#FieldGroupMeasures).\n- Exactly one facet targeting a FieldGroupMeasures must be referenced by `Columns` and `Rows` together.\n- At most one facet targeting a Structure may be referenced by `Columns` and `Rows` together.",
-      "Title": { "$Nullable": true, "@Core.Description": "Title of the grid", "@Core.IsLanguageDependent": true },
-      "Description": { "$Nullable": true, "@Core.Description": "Short description", "@Core.IsLanguageDependent": true },
-      "Columns": {
-        "$Collection": true,
-        "$Type": "UI.ReferenceFacet",
-        "@Core.Description": "Columns of the grid",
-        "@Validation.AllowedTerms": ["UI.FieldGroup", "Analytics.Structure"]
-      },
-      "Rows": {
-        "$Collection": true,
-        "$Type": "UI.ReferenceFacet",
-        "@Core.Description": "Rows of the grid",
-        "@Validation.AllowedTerms": ["UI.FieldGroup", "Analytics.Structure"]
-      },
-      "Actions": {
-        "$Collection": true,
-        "$Type": "UI.DataFieldForActionAbstract",
-        "@Core.Description": "Available actions"
-      }
-    },
-    "FieldGroupDimensions": {
-      "$Kind": "ComplexType",
-      "$BaseType": "UI.FieldGroupType",
-      "@Common.Experimental": true,
-      "Data": {
-        "$Collection": true,
-        "$Type": "UI.DataField",
-        "$Nullable": true,
-        "@Core.Description": "Collection of data fields whose `Value` properties occur in [`Analytics.AnalyticalContext/Dimensions`](Analytics.md#AnalyticalContextType)"
-      }
-    },
-    "FieldGroupMeasures": {
-      "$Kind": "ComplexType",
-      "$BaseType": "UI.FieldGroupType",
-      "@Common.Experimental": true,
-      "Data": {
-        "$Collection": true,
-        "$Type": "UI.DataField",
-        "$Nullable": true,
-        "@Core.Description": "Collection of data fields whose `Value` properties occur in [`Analytics.AnalyticalContext/Measures`](Analytics.md#AnalyticalContextType)"
-      }
-    },
     "Chart": {
       "$Kind": "Term",
       "$Type": "UI.ChartDefinitionType",

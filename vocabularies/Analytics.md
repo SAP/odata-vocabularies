@@ -17,8 +17,9 @@ Term|Type|Description
 [AggregatedProperties](Analytics.xml#L106) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](Analytics.xml#L124)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L144)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[Structure](Analytics.xml#L173) *([Experimental](Common.md#Experimental))*|\[AnnotationPath\]|<a name="Structure"></a>In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement<br>An analytical report with such a structure evaluates its measures once for each subset. For example, financial posting items can be structured into "current period", "previous period", "current period last year". See also [this example](../examples/UI.DataGrid-sample.xml).<br>Allowed terms:<ul><li>[StructureElement](#StructureElement)</li></ul>
-[StructureElement](Analytics.xml#L189) *([Experimental](Common.md#Experimental))*|[StructureElementType](#StructureElementType)|<a name="StructureElement"></a>A subset of entities that is part of one or more [Structures](#Structure)
+[DataGrid](Analytics.xml#L173) *([Experimental](Common.md#Experimental))*|[DataGridType](#DataGridType)|<a name="DataGrid"></a>Visualization of a data grid
+[Structure](Analytics.xml#L231) *([Experimental](Common.md#Experimental))*|\[AnnotationPath\]|<a name="Structure"></a>In analytical reports based on the InA protocol, a collection of entities may be structured into several subsets, each described by one StructureElement<br>An analytical report with such a structure evaluates its measures once for each subset. For example, financial posting items can be structured into "current period", "previous period", "current period last year". See also [this example](../examples/Analytics.DataGrid-sample.xml).<br>Allowed terms:<ul><li>[StructureElement](#StructureElement)</li></ul>
+[StructureElement](Analytics.xml#L246) *([Experimental](Common.md#Experimental))*|[StructureElementType](#StructureElementType)|<a name="StructureElement"></a>A subset of entities that is part of one or more [Structures](#Structure)
 
 <a name="AggregatedPropertyType"></a>
 ## [AggregatedPropertyType](Analytics.xml#L127)
@@ -46,13 +47,68 @@ Property|Type|Description
 [Measure](Analytics.xml#L165)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
 [AccumulativeMeasure](Analytics.xml#L168)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
-<a name="StructureElementType"></a>
-## [StructureElementType](Analytics.xml#L193) *([Experimental](Common.md#Experimental))*
+<a name="DataGridType"></a>
+## [DataGridType](Analytics.xml#L178) *([Experimental](Common.md#Experimental))*
+
+
+- Exactly one [GridElementMeasures](#GridElementMeasures) must be contained in `Columns` and `Rows` together.
+- At most one [GridElementReference](#GridElementReference) targeting a [Structure](#Structure) may be contained in `Columns` and `Rows` together.
+
+Property|Type|Description
+:-------|:---|:----------
+[Title](Analytics.xml#L184)|String?|Title of the grid
+[Description](Analytics.xml#L188)|String?|Short description
+[Columns](Analytics.xml#L192)|\[[GridElement](#GridElement)\]|Columns of the grid
+[Rows](Analytics.xml#L195)|\[[GridElement](#GridElement)\]|Rows of the grid
+[Actions](Analytics.xml#L198)|\[[DataFieldForActionAbstract](UI.md#DataFieldForActionAbstract)\]|Available actions
+
+<a name="GridElementAbstract"></a>
+## [*GridElementAbstract*](Analytics.xml#L202) *([Experimental](Common.md#Experimental))*
+
+
+**Derived Types:**
+- [GridElementDimension](#GridElementDimension)
+- [GridElementMeasures](#GridElementMeasures)
+- [GridElementReference](#GridElementReference)
+
+Property|Type|Description
+:-------|:---|:----------
+[Label](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
+
+<a name="GridElementDimension"></a>
+## [GridElementDimension](Analytics.xml#L209): [GridElementAbstract](#GridElementAbstract)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filter](Analytics.xml#L200)|Boolean?|Whether an entity belongs to the subset<br>The value is given as a dynamic expression that is evaluated relative to the entity.
+[*Label*](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
+[Value](Analytics.xml#L210)|PrimitiveType?|The property providing the value must occur in [`AnalyticalContext/Dimensions`](#AnalyticalContextType)
+
+<a name="GridElementMeasures"></a>
+## [GridElementMeasures](Analytics.xml#L214): [GridElementAbstract](#GridElementAbstract) *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
+[Values](Analytics.xml#L216)|\[PrimitiveType?\]|The properties providing the values must occur in [`AnalyticalContext/Measures`](#AnalyticalContextType)
+
+<a name="GridElementReference"></a>
+## [GridElementReference](Analytics.xml#L220): [GridElementAbstract](#GridElementAbstract) *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](Analytics.xml#L204)|String?|A short, human-readable text suitable for labels and captions in UIs
+[Target](Analytics.xml#L222)|AnnotationPath|<br>Allowed terms:<ul><li>[Structure](#Structure)</li></ul>
+
+<a name="StructureElementType"></a>
+## [StructureElementType](Analytics.xml#L250) *([Experimental](Common.md#Experimental))*
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Filter](Analytics.xml#L257)|Boolean?|Whether an entity belongs to the subset<br>The value is given as a dynamic expression that is evaluated relative to the entity.
 
 **Applicable Annotation Terms:**
 
