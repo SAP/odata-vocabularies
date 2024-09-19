@@ -59,6 +59,16 @@
       "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
       "@Core.IsLanguageDependent": true
     },
+    "DocumentationRef": {
+      "$Kind": "Term",
+      "@Common.Experimental": true,
+      "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Description": "URN scheme to look up the documentation for an object with given type and id in a given system.\n              This example looks up the documentation for data element /iwbep/account in system G1Y_000.",
+        "Value": "urn:sap-com:documentation:key?=type=DTEL&id=%2fiwbep%2faccount&origin=G1Y_000"
+      }
+    },
     "Text": {
       "$Kind": "Term",
       "$Nullable": true,

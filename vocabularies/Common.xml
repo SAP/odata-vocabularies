@@ -74,6 +74,20 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="DocumentationRef" Type="Edm.String" Nullable="false">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A URI referencing language-dependent documentation for the annotated model element" />
+        <Annotation Term="Core.Example">
+          <Record Type="Core.PrimitiveExampleValue">
+            <PropertyValue Property="Description">
+              <String>URN scheme to look up the documentation for an object with given type and id in a given system.
+              This example looks up the documentation for data element /iwbep/account in system G1Y_000.</String>
+            </PropertyValue>
+            <PropertyValue Property="Value" String="urn:sap-com:documentation:key?=type=DTEL&amp;id=%2fiwbep%2faccount&amp;origin=G1Y_000" />
+          </Record>
+        </Annotation>
+      </Term>
+
       <Term Name="Text" Type="Edm.String" Nullable="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A descriptive text for values of the annotated property. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.IsLanguageDependent" />
