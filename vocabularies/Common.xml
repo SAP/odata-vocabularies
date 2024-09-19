@@ -74,7 +74,7 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="DocumentationRef" Type="Edm.String" Nullable="false" AppliesTo="EntityType Property Parameter ReturnType">
+      <Term Name="DocumentationRef" Type="Edm.String" Nullable="false">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="A URI referencing language-dependent documentation for the annotated model element" />
