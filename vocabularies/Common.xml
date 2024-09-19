@@ -76,7 +76,6 @@
 
       <Term Name="DocumentationRef" Type="Edm.String" Nullable="false">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="A URI referencing language-dependent documentation for the annotated model element" />
         <Annotation Term="Core.Example">
           <Record Type="Core.PrimitiveExampleValue">

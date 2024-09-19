@@ -62,7 +62,6 @@
     "DocumentationRef": {
       "$Kind": "Term",
       "@Common.Experimental": true,
-      "@Core.IsURL": true,
       "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
       "@Core.Example": {
         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
