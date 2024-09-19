@@ -80,7 +80,10 @@
         <Annotation Term="Core.Description" String="A URI referencing language-dependent documentation for the annotated model element" />
         <Annotation Term="Core.Example">
           <Record Type="Core.PrimitiveExampleValue">
-            <PropertyValue Property="Description" String="URN scheme understood by SAP Companion" />
+            <PropertyValue Property="Description">
+              <String>URN scheme to look up the documentation for an object with given type and id in a given system.
+              This example looks up the documentation for data element /iwbep/account in system G1Y_000.</String>
+            </PropertyValue>
             <PropertyValue Property="Value" String="urn:sap-com:documentation:key?=type=DTEL&amp;id=%2fiwbep%2faccount&amp;origin=G1Y_000" />
           </Record>
         </Annotation>
