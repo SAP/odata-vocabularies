@@ -238,20 +238,34 @@
     "SemanticObjectMapping": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "Common.SemanticObjectMappingType",
+      "$Type": "Common.SemanticObjectMappingAbstract",
       "$AppliesTo": ["EntitySet", "EntityType", "Property"],
       "$BaseTerm": "Common.SemanticObject",
       "@Core.Description": "Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object",
       "@Core.LongDescription": "This allows \"renaming\" of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their \"local\" name."
     },
+    "SemanticObjectMappingAbstract": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Core.Description": "Maps a property of the Semantic Object to a property of the annotated entity type or a sibling property of the annotated property or a constant value",
+      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+    },
     "SemanticObjectMappingType": {
       "$Kind": "ComplexType",
-      "@Core.Description": "Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
       "LocalProperty": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "Path to a local property that provides the value for the Semantic Object property"
-      },
-      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+      }
+    },
+    "SemanticObjectMappingConstant": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
+      "@Common.Experimental": true,
+      "Constant": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Constant value for the Semantic Object property"
+      }
     },
     "SemanticObjectUnavailableActions": {
       "$Kind": "Term",

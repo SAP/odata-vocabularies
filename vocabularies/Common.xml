@@ -283,17 +283,25 @@
       <Term Name="SemanticObject" Type="Edm.String" Nullable="true" AppliesTo="EntitySet EntityType Property NavigationProperty">
         <Annotation Term="Core.Description" String="Name of the Semantic Object represented as this entity type or identified by this property" />
       </Term>
-      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingType)" Nullable="false" AppliesTo="EntitySet EntityType Property">
+      <Term Name="SemanticObjectMapping" BaseTerm="Common.SemanticObject" Type="Collection(Common.SemanticObjectMappingAbstract)" Nullable="false" AppliesTo="EntitySet EntityType Property">
         <Annotation Term="Core.Description" String="Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object" />
         <Annotation Term="Core.LongDescription" String="This allows &quot;renaming&quot; of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their &quot;local&quot; name." />
       </Term>
-      <ComplexType Name="SemanticObjectMappingType">
-        <Annotation Term="Core.Description" String="Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object" />
+      <ComplexType Name="SemanticObjectMappingAbstract" Abstract="true">
+        <Annotation Term="Core.Description" String="Maps a property of the Semantic Object to a property of the annotated entity type or a sibling property of the annotated property or a constant value" />
+        <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the Semantic Object property" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="SemanticObjectMappingType" BaseType="Common.SemanticObjectMappingAbstract">
         <Property Name="LocalProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to a local property that provides the value for the Semantic Object property" />
         </Property>
-        <Property Name="SemanticObjectProperty" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the Semantic Object property" />
+      </ComplexType>
+      <ComplexType Name="SemanticObjectMappingConstant" BaseType="Common.SemanticObjectMappingAbstract">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Constant value for the Semantic Object property" />
         </Property>
       </ComplexType>
       <Term Name="SemanticObjectUnavailableActions" BaseTerm="Common.SemanticObject" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntitySet EntityType Property">
