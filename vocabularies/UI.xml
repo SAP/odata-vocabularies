@@ -702,6 +702,40 @@ The trend is
         </Property>
       </ComplexType>
 
+      <Term Name="DataGrid" Type="UI.DataGridType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="UI.ThingPerspective" />
+        <Annotation Term="Core.Description" String="Visualization of a data grid" />
+      </Term>
+      <ComplexType Name="DataGridType">
+        <Property Name="Title" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Title of the grid" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Short description" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="Columns" Type="Collection(UI.DataFieldGridAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Columns of the grid" />
+        </Property>
+        <Property Name="Rows" Type="Collection(UI.DataFieldGridAbstract)" Nullable="false">
+        </Property>
+        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="DataFieldGridAbstract" BaseType="UI.DataFieldAbstract" Abstract="true">
+        <Annotation Term="Core.Description" String="Abstract type to restrict usage in Grid" />
+      </ComplexType>
+      <ComplexType Name="DataFieldMeasures" BaseType="UI.DataFieldGridAbstract">
+        <Annotation Term="Core.Description" String="A structured piece of data described by an annotation" />
+        <Property Name="Measures" Type="Collection(Edm.PropertyPath)" Nullable="false" />
+      </ComplexType>
+      <ComplexType Name="DataFieldDimension" BaseType="UI.DataFieldGridAbstract">
+        <Annotation Term="Core.Description" String="A structured piece of data described by an annotation" />
+        <Property Name="Dimensions" Type="Edm.PropertyPath" Nullable="false" />
+      </ComplexType>
+
       <Term Name="Chart" Type="UI.ChartDefinitionType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="UI.ThingPerspective" />
         <Annotation Term="Core.Description" String="Visualization of multiple data points" />
