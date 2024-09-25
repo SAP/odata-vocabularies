@@ -173,7 +173,7 @@
       "$Type": "Edm.PropertyPath",
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "The listed properties form a secondary key",
-      "@Core.LongDescription": "Multiple secondary keys are possible using different qualifiers.\n          Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),\n          secondary keys cannot be used to address an entity in a resource path."
+      "@Core.LongDescription": "Multiple secondary keys are possible using different qualifiers.\n          Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),\n          secondary keys need not support addressing an entity in a resource path."
     },
     "MinOccurs": {
       "$Kind": "Term",
