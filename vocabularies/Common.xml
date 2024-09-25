@@ -222,7 +222,7 @@
         <Annotation Term="Core.LongDescription">
           <String>Multiple secondary keys are possible using different qualifiers.
           Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),
-          secondary keys cannot be used to address an entity in a resource path.</String>
+          secondary keys need not support addressing an entity in a resource path.</String>
         </Annotation>
       </Term>
 
