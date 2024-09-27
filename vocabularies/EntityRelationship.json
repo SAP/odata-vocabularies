@@ -8,14 +8,20 @@
       "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
   },
-  "com.sap.vocabularies.ER.v1": {
-    "$Alias": "ER",
-    "@Core.Description": "Terms to better document the ER (Entity Relationship) model outside of the current API / data model context",
+  "com.sap.vocabularies.EntityRelationship.v1": {
+    "$Alias": "EntityRelationship",
+    "@Core.Description": "Terms to better document the Entity Relationship model outside of the current API / data model context",
     "@Core.Description#Published": "2020-03-03 © Copyright 2020 SAP SE. All rights reserved",
     "@Core.Links": [
-      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ER.xml" },
-      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ER.json" },
-      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/ER.md" }
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/EntityRelationship.xml" },
+      {
+        "rel": "latest-version",
+        "href": "https://sap.github.io/odata-vocabularies/vocabularies/EntityRelationship.json"
+      },
+      {
+        "rel": "describedby",
+        "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/EntityRelationship.md"
+      }
     ],
     "entityType": {
       "$Kind": "Term",
@@ -33,7 +39,7 @@
     "entityIds": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "ER.entityId",
+      "$Type": "EntityRelationship.entityId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type represents an ODM root entity",
@@ -41,7 +47,7 @@
     },
     "reference": {
       "$Kind": "Term",
-      "$Type": "ER.singleReference",
+      "$Type": "EntityRelationship.singleReference",
       "$AppliesTo": ["Property"],
       "@Core.Description": "      Defines references to other Entity Types based on a single ID.",
       "@Core.LongDescription": "      Defines references to other Entity Types based on a single ID.\n          "
@@ -49,7 +55,7 @@
     "compositeReferences": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "ER.compositeReference",
+      "$Type": "EntityRelationship.compositeReference",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": " Defines one or many references to other Entity Types based on a composite IDs.",
@@ -58,7 +64,7 @@
     "temporalIds": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "ER.temporalId",
+      "$Type": "EntityRelationship.temporalId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Defines a list of temporal IDs",
@@ -67,7 +73,7 @@
     "temporalReferences": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "ER.temporalReference",
+      "$Type": "EntityRelationship.temporalReference",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Defines a list of temporal references",
@@ -76,7 +82,7 @@
     "referencesWithConstantIds": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "ER.referencesWithConstantId",
+      "$Type": "EntityRelationship.referencesWithConstantId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values.",
@@ -90,8 +96,8 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "ER.entityTypeID", "@Common.Experimental": true },
-      "referencedPropertyType": { "$Type": "ER.propertyTypeID", "@Common.Experimental": true }
+      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
+      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true }
     },
     "entityId": {
       "$Kind": "ComplexType",
@@ -108,7 +114,7 @@
       },
       "propertyTypes": {
         "$Collection": true,
-        "$Type": "ER.propertyTypeID",
+        "$Type": "EntityRelationship.propertyTypeID",
         "@Common.Experimental": true,
         "@Core.Description": "List of property type IDs."
       }
@@ -121,10 +127,10 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "ER.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
       "referencedPropertyType": {
         "$Collection": true,
-        "$Type": "ER.referencedPropertyType",
+        "$Type": "EntityRelationship.referencedPropertyType",
         "@Common.Experimental": true,
         "@Core.Description": "List of properties, the composite ID consists of."
       }
@@ -132,7 +138,7 @@
     "referencedPropertyType": {
       "$Kind": "ComplexType",
       "@Core.Description": "Grouping of the ID in the referenced entity, by its property type ID and the local name in this entity.",
-      "referencedPropertyType": { "$Type": "ER.propertyTypeID", "@Common.Experimental": true },
+      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true },
       "localPropertyName": { "$Type": "Edm.PropertyPath", "@Common.Experimental": true }
     },
     "temporalId": {
@@ -150,17 +156,17 @@
       },
       "propertyTypes": {
         "$Collection": true,
-        "$Type": "ER.propertyTypeID",
+        "$Type": "EntityRelationship.propertyTypeID",
         "@Common.Experimental": true,
         "@Core.Description": "List of property type IDs that are non-temporal."
       },
       "temporalIntervalType": {
-        "$Type": "ER.temporalIntervalTypeEnum",
+        "$Type": "EntityRelationship.temporalIntervalTypeEnum",
         "@Common.Experimental": true,
         "@Core.Description": "Interval which includes the boundaries."
       },
       "temporalType": {
-        "$Type": "ER.temporalTypeEnum",
+        "$Type": "EntityRelationship.temporalTypeEnum",
         "@Common.Experimental": true,
         "@Core.Description": "Temporal Type"
       },
@@ -191,15 +197,15 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "ER.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
       "referencedPropertyType": {
         "$Collection": true,
-        "$Type": "ER.referencedPropertyType",
+        "$Type": "EntityRelationship.referencedPropertyType",
         "@Common.Experimental": true,
         "@Core.Description": "List of properties, the composite ID consists of."
       },
       "category": {
-        "$Type": "ER.temporalCategoryEnum",
+        "$Type": "EntityRelationship.temporalCategoryEnum",
         "@Common.Experimental": true,
         "@Core.Description": "Category of the temporal reference."
       },
@@ -218,10 +224,10 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "ER.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
       "referencedPropertyType": {
         "$Collection": true,
-        "$Type": "ER.referencedPropertyTypeWithConstantId",
+        "$Type": "EntityRelationship.referencedPropertyTypeWithConstantId",
         "@Common.Experimental": true,
         "@Core.Description": "List of properties, the composite ID consists of."
       }
@@ -229,7 +235,7 @@
     "referencedPropertyTypeWithConstantId": {
       "$Kind": "ComplexType",
       "@Core.Description": "Grouping  of the ID in the referenced entity, by its property type ID and either the local name in this entity or a constant value.",
-      "referencedPropertyType": { "$Type": "ER.propertyTypeID", "@Common.Experimental": true },
+      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true },
       "localPropertyName": { "$Type": "Edm.PropertyPath", "$Nullable": true, "@Common.Experimental": true },
       "constantValue": {
         "$Nullable": true,
