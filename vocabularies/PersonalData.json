@@ -138,7 +138,13 @@
           "@Common.Experimental": true,
           "Value": "LegalEntityID",
           "@Core.Description": "The unique identifier of a legal entity",
-          "@Core.LongDescription": "(To be deprecated) A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
+          "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.",
+          "@Core.Revisions": [
+            {
+              "Kind": "Deprecated",
+              "Description": "Deprecated in favor of [`DataControllerID`](#DataControllerID)"
+            }
+          ]
         },
         {
           "@Common.Experimental": true,

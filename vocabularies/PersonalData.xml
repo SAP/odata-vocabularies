@@ -166,7 +166,15 @@ Terms for contact and address information are defined in the [Communication voca
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
-                <String>(To be deprecated) A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+                <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+              </Annotation>
+              <Annotation Term="Core.Revisions">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                    <PropertyValue Property="Description" String="Deprecated in favor of [`DataControllerID`](#DataControllerID)" />
+                  </Record>
+                </Collection>
               </Annotation>
             </Record>
             <Record>
