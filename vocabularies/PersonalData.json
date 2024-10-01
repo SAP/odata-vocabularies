@@ -2,13 +2,28 @@
   "$Version": "4.0",
   "$Reference": {
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+      "$Include": [
+        {
+          "$Namespace": "Org.OData.Core.V1",
+          "$Alias": "Core"
+        }
+      ]
     },
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+      "$Include": [
+        {
+          "$Namespace": "Org.OData.Validation.V1",
+          "$Alias": "Validation"
+        }
+      ]
     },
     "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
-      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+      "$Include": [
+        {
+          "$Namespace": "com.sap.vocabularies.Common.v1",
+          "$Alias": "Common"
+        }
+      ]
     }
   },
   "com.sap.vocabularies.PersonalData.v1": {
@@ -16,8 +31,14 @@
     "@Core.Description": "Terms for annotating Personal Data",
     "@Core.Description#Published": "2018-01-24 © Copyright 2018 SAP SE. All rights reserved",
     "@Core.Links": [
-      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.xml" },
-      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.json" },
+      {
+        "rel": "alternate",
+        "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.xml"
+      },
+      {
+        "rel": "latest-version",
+        "href": "https://sap.github.io/odata-vocabularies/vocabularies/PersonalData.json"
+      },
       {
         "rel": "describedby",
         "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/PersonalData.md"
@@ -27,20 +48,26 @@
     "EntitySemantics": {
       "$Kind": "Term",
       "$Type": "PersonalData.EntitySemanticsType",
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": [
+        "EntitySet"
+      ],
       "@Core.Description": "Primary meaning of the entities in the annotated entity set"
     },
     "DataSubjectRole": {
       "$Kind": "Term",
       "$Nullable": true,
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": [
+        "EntitySet"
+      ],
       "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
       "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "DataSubjectRoleDescription": {
       "$Kind": "Term",
       "$Nullable": true,
-      "$AppliesTo": ["EntitySet"],
+      "$AppliesTo": [
+        "EntitySet"
+      ],
       "@Core.IsLanguageDependent": true,
       "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
       "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
@@ -70,7 +97,9 @@
     "FieldSemantics": {
       "$Kind": "Term",
       "$Type": "PersonalData.FieldSemanticsType",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": [
+        "Property"
+      ],
       "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
       "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data."
     },
@@ -79,7 +108,10 @@
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "Primary meaning of a data field",
       "@Validation.AllowedValues": [
-        { "Value": "DataSubjectID", "@Core.Description": "The unique identifier for a data subject" },
+        {
+          "Value": "DataSubjectID",
+          "@Core.Description": "The unique identifier for a data subject"
+        },
         {
           "@Common.Experimental": true,
           "Value": "DataSubjectIDType",
@@ -106,7 +138,7 @@
           "@Common.Experimental": true,
           "Value": "LegalEntityID",
           "@Core.Description": "The unique identifier of a legal entity",
-          "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
+          "@Core.LongDescription": "(To be deprecated) A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
         },
         {
           "@Common.Experimental": true,
@@ -119,6 +151,24 @@
           "Value": "EndOfBusinessDate",
           "@Core.Description": "Defines the end of active business and the start of residence time and retention period",
           "@Core.LongDescription": "End of business is the point in time when the processing of a set of personal data is no longer required for the active business,\n                for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "DataControllerID",
+          "@Core.Description": "The unique identifier of a data controller",
+          "@Core.LongDescription": "The unique identifier of a legal entity which alone or jointly with others determines the purposes and means of the processing of personal data. The Data Controller is fully responsible (and accountable) that data protection and privacy principles (such as purpose limitation or data minimization), defined in the European General Data Protection Regulation (GDPR) or any other data protection legislation, are adhered to when processing personal data. The DataControllerID succeeds the LegalEntityID."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "BlockingDate",
+          "@Core.Description": "Defines a date that marks when the provider of the data will block these",
+          "@Core.LongDescription": "Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "EndOfRetentionDate",
+          "@Core.Description": "Defines the date when the provider destroys the data.",
+          "@Core.LongDescription": "Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date."
         }
       ]
     },
@@ -126,7 +176,9 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": [
+        "Property"
+      ],
       "@Core.Description": "Property contains potentially personal data",
       "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
     },
@@ -134,7 +186,9 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": [
+        "Property"
+      ],
       "@Core.Description": "Property contains potentially sensitive personal data",
       "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n-  Personal data subject to professional secrecy\n-  Personal data relating to criminal or administrative offences\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
     }

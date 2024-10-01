@@ -166,7 +166,7 @@ Terms for contact and address information are defined in the [Communication voca
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
-                <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+                <String>(To be deprecated) A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
               </Annotation>
             </Record>
             <Record>
@@ -186,6 +186,31 @@ Terms for contact and address information are defined in the [Communication voca
                 for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed
                 by users with special authorizations (for example, tax auditors).
                 All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataControllerID" />
+              <Annotation Term="Core.Description" String="The unique identifier of a data controller" />
+              <Annotation Term="Core.LongDescription">
+                <String>The unique identifier of a legal entity which alone or jointly with others determines the purposes and means of the processing of personal data. 
+                The Data Controller is fully responsible (and accountable) that data protection and privacy principles (such as purpose limitation or data minimization), defined in the European General Data Protection Regulation (GDPR) or any other data protection legislation, are adhered to when processing personal data. The DataControllerID succeeds the LegalEntityID.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="BlockingDate" />
+              <Annotation Term="Core.Description" String="Defines a date that marks when the provider of the data will block these" />
+              <Annotation Term="Core.LongDescription">
+                <String>Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="EndOfRetentionDate" />
+              <Annotation Term="Core.Description" String="Defines the date when the provider destroys the data" />
+              <Annotation Term="Core.LongDescription">
+                <String>Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date.</String>
               </Annotation>
             </Record>
           </Collection>
