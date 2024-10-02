@@ -162,7 +162,6 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
-              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">

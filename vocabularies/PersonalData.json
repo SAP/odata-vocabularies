@@ -103,7 +103,6 @@
           "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
         },
         {
-          "@Common.Experimental": true,
           "Value": "LegalEntityID",
           "@Core.Description": "The unique identifier of a legal entity",
           "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.",
