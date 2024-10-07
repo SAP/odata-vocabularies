@@ -50,13 +50,13 @@ Term|Type|Description
 [PartOfPreview](UI.xml#L1363)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This record and all included structural elements are part of the Thing preview<br>This term can be applied e.g. to UI.Facet and UI.DataField
 [Map](UI.xml#L1367)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
 [Gallery](UI.xml#L1371)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Gallery"></a>Target MUST reference a UI.MediaResource
-[IsImageURL](UI.xml#L1376)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image<br>Can be annotated with:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
-[IsImage](UI.xml#L1386) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Can be annotated with:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
+[IsImageURL](UI.xml#L1376)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image<br>Applicable Annotation Terms:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
+[IsImage](UI.xml#L1386) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Applicable Annotation Terms:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
 [MultiLineText](UI.xml#L1397)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)
 [Placeholder](UI.xml#L1402)|String|<a name="Placeholder"></a>A short, human-readable text that gives a hint or an example to help the user with data entry
 [InputMask](UI.xml#L1407) *([Experimental](Common.md#Experimental))*|[InputMaskType](#InputMaskType)|<a name="InputMask"></a>Properties or parameters annotated with this term will get a mask in edit mode<br>Input masks improve readability and help to enter data correctly. So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. [Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation
 [TextArrangement](UI.xml#L1441)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br><p>This term annotates one of the following:</p> <ol type="1"> <li>a <a href="Common.md#Text"><code>Common.Text</code></a> annotation of the code or ID property where the annotation value is the text</li> <li>an entity type, this has the same effect as annotating all <code>Common.Text</code> annotations of properties of that entity type.</li> </ol> 
-[DateTimeStyle](UI.xml#L1464) *([Experimental](Common.md#Experimental))*|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<dl>Allowed values:<dt>[short](UI.xml#L1473)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1477)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1481)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1485)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
+[DateTimeStyle](UI.xml#L1464) *([Experimental](Common.md#Experimental))*|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<dl>Allowed Values:<dt>[short](UI.xml#L1473)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1477)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1481)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1485)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
 [Note](UI.xml#L1493) *([Experimental](Common.md#Experimental))*|[NoteType](#NoteType)|<a name="Note"></a>Visualization of a note attached to an entity<br>Administrative data is given by the annotations [`Common.CreatedBy`](Common.md#CreatedBy), [`Common.CreatedAt`](Common.md#CreatedAt), [`Common.ChangedBy`](Common.md#ChangedBy), [`Common.ChangedAt`](Common.md#ChangedAt) on the same entity type.
 [Importance](UI.xml#L1546)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
 [Hidden](UI.xml#L1561)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<br>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.
@@ -75,9 +75,9 @@ Term|Type|Description
 [ParameterDefaultValue](UI.xml#L1864)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
 [RecommendationState](UI.xml#L1870)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
 [RecommendationList](UI.xml#L1900)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[Recommendations](UI.xml#L1932) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
+[Recommendations](UI.xml#L1932) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
 [ExcludeFromNavigationContext](UI.xml#L1978)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1982) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
+[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1982) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](UI.xml#L1992) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
@@ -144,8 +144,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Url](UI.xml#L277)|URL?|URL of media resource<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
-[Stream](UI.xml#L286) *([Experimental](Common.md#Experimental))*|Stream?|Stream of media resource<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L277)|URL?|URL of media resource<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Stream](UI.xml#L286) *([Experimental](Common.md#Experimental))*|Stream?|Stream of media resource<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [ContentType](UI.xml#L295)|MediaType?|Content type, such as application/pdf, video/x-flv, image/jpeg
 [ByteSize](UI.xml#L299)|Int64?|Resource size in bytes
 [ChangedAt](UI.xml#L302)|DateTimeOffset?|Date of last change
@@ -162,7 +162,7 @@ Either `Url` or `Stream` MUST be present, and never both.
 Property|Type|Description
 :-------|:---|:----------
 [Url](UI.xml#L318)|URL|URL of image
-[Stream](UI.xml#L322) *([Experimental](Common.md#Experimental))*|Stream?|Stream of image<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Stream](UI.xml#L322) *([Experimental](Common.md#Experimental))*|Stream?|Stream of image<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [Width](UI.xml#L331)|String?|Width of image
 [Height](UI.xml#L334)|String?|Height of image
 
@@ -175,7 +175,7 @@ Property|Type|Description
 [Title](UI.xml#L356)|String?|Title of the data point
 [Description](UI.xml#L360)|String?|Short description
 [LongDescription](UI.xml#L364)|String?|Full description
-[Value](UI.xml#L368)|PrimitiveType|Numeric value<br>The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.
+[Value](UI.xml#L368)|PrimitiveType|Numeric value<br>The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.
 [TargetValue](UI.xml#L380)|PrimitiveType?|Target value
 [ForecastValue](UI.xml#L383)|PrimitiveType?|Forecast value
 [MinimumValue](UI.xml#L386)|Decimal?|Minimum value (for output rendering)
@@ -626,7 +626,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*Label*](UI.xml#L998)|String?|Facet label
 [*ID*](UI.xml#L1002)|String?|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Url](UI.xml#L1043)|URL|URL of referenced information<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L1043)|URL|URL of referenced information<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [UrlContentType](UI.xml#L1052)|MediaType?|Media type of referenced information
 
 **Applicable Annotation Terms:**
@@ -791,8 +791,8 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Title](UI.xml#L1507)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Can be annotated with:<ul><li>[Hidden](#Hidden)</li></ul>
-[Content](UI.xml#L1519)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Can be annotated with:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
+[Title](UI.xml#L1507)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Applicable Annotation Terms:<ul><li>[Hidden](#Hidden)</li></ul>
+[Content](UI.xml#L1519)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Applicable Annotation Terms:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
 [Type](UI.xml#L1535)|String|A type used for grouping notes
 [MaximalLength](UI.xml#L1538)|Int32?|Type-specific maximal length of the content of the note
 [MultipleNotes](UI.xml#L1541)|Boolean|Whether the type allows multiple notes for one object
@@ -1105,7 +1105,7 @@ Property|Type|Description
 [*CriticalityRepresentation*](UI.xml#L1647)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1650)|URL?|Optional icon
 [Value](UI.xml#L1819)|PrimitiveType|The data field's value
-[Url](UI.xml#L1820)|URL|Target of the hyperlink<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L1820)|URL|Target of the hyperlink<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [UrlContentType](UI.xml#L1829)|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
 
 **Applicable Annotation Terms:**
