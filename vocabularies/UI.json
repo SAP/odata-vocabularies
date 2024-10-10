@@ -650,7 +650,7 @@
         "$Collection": true,
         "$Type": "UI.DataFieldAbstract",
         "@Core.Description": "Available actions and action groups",
-        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup>"]
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
       }
     },
     "ChartType": {

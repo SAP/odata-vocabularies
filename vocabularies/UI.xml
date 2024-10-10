@@ -756,7 +756,7 @@ The trend is
           <Annotation Term="Validation.DerivedTypeConstraint">
             <Collection>
               <String>UI.DataFieldForActionAbstract</String>
-              <String>UI.DataFieldForActionGroup></String>
+              <String>UI.DataFieldForActionGroup</String>
             </Collection>
           </Annotation>
         </Property>
