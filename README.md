@@ -7,6 +7,7 @@ SAP Vocabularies for semantic markup of structured data published via [OData](ht
 This repository defines the following SAP vocabularies:
 
 - [Analytics: Analytical resources](vocabularies/Analytics.md)
+- [Batch: Advanced batch requests](vocabularies/Batch.md) - _experimental_
 - [CodeList: Code Lists](vocabularies/CodeList.md)
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
