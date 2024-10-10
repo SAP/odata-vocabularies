@@ -751,8 +751,14 @@ The trend is
             <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
         </Property>
-        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
-          <Annotation Term="Core.Description" String="Available actions" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions and action groups" />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldForActionAbstract</String>
+              <String>UI.DataFieldForActionGroup></String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 
