@@ -648,8 +648,9 @@
       },
       "Actions": {
         "$Collection": true,
-        "$Type": "UI.DataFieldForActionAbstract",
-        "@Core.Description": "Available actions"
+        "$Type": "UI.DataFieldAbstract",
+        "@Core.Description": "Available actions and action groups",
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
       }
     },
     "ChartType": {
