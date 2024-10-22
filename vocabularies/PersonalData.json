@@ -94,8 +94,8 @@
         {
           "@Common.Experimental": true,
           "Value": "PurposeID",
-          "@Core.Description": "The unique identifier for the purpose of a consent",
-          "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
+          "@Core.Description": "The unique identifier for the purpose of processing of personal data.",
+          "@Core.LongDescription": "The unique identifier for the purpose of processing of personal data. Any processing of personal data is based on a specified, explicit, and legitimate purposes and not further processed in a manner that is incompatible with those purposes. The purpose is defined by the data controller or joint data controllers."
         },
         {
           "Value": "ContractRelatedID",
@@ -148,7 +148,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially personal data",
-      "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
+      "@Core.LongDescription": "Property contains potentially personal data. Personal data is information relating to an identified or identifiable natural person (data subject). Personal data describes information which is related to any information relating to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. \n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\n"
     },
     "IsPotentiallySensitive": {
       "$Kind": "Term",
@@ -156,7 +156,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially sensitive personal data",
-      "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n-  Personal data subject to professional secrecy\n-  Personal data relating to criminal or administrative offences\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
+      "@Core.LongDescription": "Property contains potentially sensitive personal data. Sensitive personal data is a category of personal data that needs special handling. The determination which personal data that is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n-  Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n-  Personal data subject to professional secrecy.\n-  Personal data relating to criminal or administrative offences.\n-  Personal data concerning insurances and bank or credit card accounts.\n\n"
     }
   }
 }

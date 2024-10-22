@@ -142,9 +142,8 @@ Terms for contact and address information are defined in the [Communication voca
               <PropertyValue Property="Value" String="PurposeID" />
               <Annotation Term="Core.Description" String="The unique identifier for the purpose of a consent" />
               <Annotation Term="Core.LongDescription">
-                <String>The purpose of a consent is the information that specifies the reason and the goal for
-                the processing of a specific set of personal data. As a rule, the purpose
-                references the relevant legal basis for the processing of personal data.</String>
+                <String>The unique identifier for the purpose of processing of personal data. Any processing of personal data is based on a specified, explicit, and legitimate purposes and not further processed in a manner that is incompatible with those purposes. The purpose is defined by the data controller or joint data controllers.
+                </String>
               </Annotation>
             </Record>
             <Record>
@@ -227,24 +226,20 @@ Terms for contact and address information are defined in the [Communication voca
       <Term Name="IsPotentiallyPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Personal data is information relating to an identified or identifiable natural person (data subject).
-
-Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
-
-See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)</String>
+          <String>Property contains potentially personal data. Personal data is information relating to an identified or identifiable natural person (data subject). Personal data describes information which is related to any information relating to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
+          </String>
         </Annotation>
       </Term>
 
       <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Sensitive data is a colloquial term usually including the following data:
--  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation
--  Personal data subject to professional secrecy
--  Personal data relating to criminal or administrative offences
--  Personal data concerning bank or credit card accounts
-
-See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
+          <String>Property contains potentially sensitive personal data. Sensitive personal data is a category of personal data that needs special handling. The determination which personal data that is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
+                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.
+                      - Personal data subject to professional secrecy. 
+                      - Personal data relating to criminal or administrative offences.
+                      - Personal data concerning insurances and bank or credit card accounts.
+          </String>
         </Annotation>
       </Term>
     </Schema>
