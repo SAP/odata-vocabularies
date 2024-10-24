@@ -142,7 +142,7 @@ Terms for contact and address information are defined in the [Communication voca
               <PropertyValue Property="Value" String="PurposeID" />
               <Annotation Term="Core.Description" String="The unique identifier for the purpose of a processing of personal data" />
               <Annotation Term="Core.LongDescription">
-                <String>The unique identifier for the purpose of processing of personal data. Any processing of personal data is based on specified, explicit, and legitimate purposes and not further processed in a manner that is incompatible with those purposes. The purposes are defined by the data controller or joint data controllers.
+                <String>Any processing of personal data is based on specified, explicit, and legitimate purposes, and data are not further processed in a manner that is incompatible with those purposes. The purposes are defined by the data controller or joint data controllers.
                 </String>
               </Annotation>
             </Record>
