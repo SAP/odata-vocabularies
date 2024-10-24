@@ -226,7 +226,7 @@ Terms for contact and address information are defined in the [Communication voca
       <Term Name="IsPotentiallyPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Property contains potentially personal data. Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
+          <String>Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
           </String>
         </Annotation>
       </Term>
