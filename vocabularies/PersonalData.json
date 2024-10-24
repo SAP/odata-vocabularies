@@ -94,8 +94,8 @@
         {
           "@Common.Experimental": true,
           "Value": "PurposeID",
-          "@Core.Description": "The unique identifier for the purpose of processing of personal data.",
-          "@Core.LongDescription": "The unique identifier for the purpose of processing of personal data. Any processing of personal data is based on specified, explicit, and legitimate purposes and not further processed in a manner that is incompatible with those purposes. The purpose is defined by the data controller or joint data controllers."
+          "@Core.Description": "The unique identifier for the purpose of a processing of personal data",
+          "@Core.LongDescription": "Any processing of personal data is based on specified, explicit, and legitimate purposes, and data are not further processed in a manner that is incompatible with those purposes. The purposes are defined by the data controller or joint data controllers.\n                "
         },
         {
           "Value": "ContractRelatedID",
@@ -148,7 +148,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially personal data",
-      "@Core.LongDescription": "Property contains potentially personal data. Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. \n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\n"
+      "@Core.LongDescription": "Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n          "
     },
     "IsPotentiallySensitive": {
       "$Kind": "Term",
@@ -156,7 +156,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially sensitive personal data",
-      "@Core.LongDescription": "Property contains potentially sensitive personal data. Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n-  Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n-  Personal data subject to professional secrecy.\n-  Personal data relating to criminal or administrative offences.\n-  Personal data concerning insurances and bank or credit card accounts.\n\n"
+      "@Core.LongDescription": "Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n                      - Personal data subject to professional secrecy. \n                      - Personal data relating to criminal or administrative offences.\n                      - Personal data concerning insurances and bank or credit card accounts.\n          "
     }
   }
 }
