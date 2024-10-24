@@ -234,7 +234,7 @@ Terms for contact and address information are defined in the [Communication voca
       <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Property contains potentially sensitive personal data. Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
+          <String>Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
                       - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.
                       - Personal data subject to professional secrecy. 
                       - Personal data relating to criminal or administrative offences.
