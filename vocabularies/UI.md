@@ -29,7 +29,7 @@ Term|Type|Description
 [ConnectedFields](UI.xml#L171)|[ConnectedFieldsType](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](UI.xml#L173))
 [GeoLocations](UI.xml#L236)|\[[GeoLocationType](#GeoLocationType)\]|<a name="GeoLocations"></a>Collection of geographic locations
 [GeoLocation](UI.xml#L240)|[GeoLocationType](#GeoLocationType)|<a name="GeoLocation"></a>Geographic location
-[Contacts](UI.xml#L260)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact<br>Allowed Terms:<ul><li>[Contact](Communication.md#Contact)</li></ul>
+[Contacts](UI.xml#L260)|\[AnnotationPath\]|<a name="Contacts"></a>Collection of contacts<br>Each collection item MUST reference an annotation of a Communication.Contact<br>Allowed terms:<ul><li>[Contact](Communication.md#Contact)</li></ul>
 [MediaResource](UI.xml#L271)|[MediaResourceType](#MediaResourceType)|<a name="MediaResource"></a>Properties that describe a media resource<br>Either `Url` or `Stream` MUST be present, and never both.
 [DataPoint](UI.xml#L351)|[DataPointType](#DataPointType)|<a name="DataPoint"></a>Visualization of a single point of data, typically a number; may also be textual, e.g. a status value
 [KPI](UI.xml#L659)|[KPIType](#KPIType)|<a name="KPI"></a>A Key Performance Indicator (KPI) bundles a SelectionVariant and a DataPoint, and provides details for progressive disclosure
@@ -50,13 +50,13 @@ Term|Type|Description
 [PartOfPreview](UI.xml#L1369)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PartOfPreview"></a>This record and all included structural elements are part of the Thing preview<br>This term can be applied e.g. to UI.Facet and UI.DataField
 [Map](UI.xml#L1373)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Map"></a>Target MUST reference a UI.GeoLocation, Communication.Address or a collection of these
 [Gallery](UI.xml#L1377)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Gallery"></a>Target MUST reference a UI.MediaResource
-[IsImageURL](UI.xml#L1382)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image<br>Applicable Annotation Terms:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
-[IsImage](UI.xml#L1392) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Applicable Annotation Terms:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
+[IsImageURL](UI.xml#L1382)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImageURL"></a>Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image<br>Can be annotated with:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
+[IsImage](UI.xml#L1392) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsImage"></a>Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.<br>Can be annotated with:<ul><li>[IsNaturalPerson](Common.md#IsNaturalPerson)</li></ul>
 [MultiLineText](UI.xml#L1403)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MultiLineText"></a>Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)
 [Placeholder](UI.xml#L1408)|String|<a name="Placeholder"></a>A short, human-readable text that gives a hint or an example to help the user with data entry
 [InputMask](UI.xml#L1413) *([Experimental](Common.md#Experimental))*|[InputMaskType](#InputMaskType)|<a name="InputMask"></a>Properties or parameters annotated with this term will get a mask in edit mode<br>Input masks improve readability and help to enter data correctly. So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. [Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation
 [TextArrangement](UI.xml#L1447)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br><p>This term annotates one of the following:</p> <ol type="1"> <li>a <a href="Common.md#Text"><code>Common.Text</code></a> annotation of the code or ID property where the annotation value is the text</li> <li>an entity type, this has the same effect as annotating all <code>Common.Text</code> annotations of properties of that entity type.</li> </ol> 
-[DateTimeStyle](UI.xml#L1470) *([Experimental](Common.md#Experimental))*|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<dl>Allowed Values:<dt>[short](UI.xml#L1479)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1483)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1487)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1491)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
+[DateTimeStyle](UI.xml#L1470) *([Experimental](Common.md#Experimental))*|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<dl>Allowed values:<dt>[short](UI.xml#L1479)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1483)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1487)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1491)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
 [Note](UI.xml#L1499) *([Experimental](Common.md#Experimental))*|[NoteType](#NoteType)|<a name="Note"></a>Visualization of a note attached to an entity<br>Administrative data is given by the annotations [`Common.CreatedBy`](Common.md#CreatedBy), [`Common.CreatedAt`](Common.md#CreatedAt), [`Common.ChangedBy`](Common.md#ChangedBy), [`Common.ChangedAt`](Common.md#ChangedAt) on the same entity type.
 [Importance](UI.xml#L1552)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
 [Hidden](UI.xml#L1567)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<br>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.
@@ -75,9 +75,9 @@ Term|Type|Description
 [ParameterDefaultValue](UI.xml#L1870)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
 [RecommendationState](UI.xml#L1876)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
 [RecommendationList](UI.xml#L1906)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[Recommendations](UI.xml#L1938) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
+[Recommendations](UI.xml#L1938) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br/>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
 [ExcludeFromNavigationContext](UI.xml#L1984)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1988) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
+[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L1988) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br/>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](UI.xml#L1998) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
@@ -88,8 +88,8 @@ Property|Type|Description
 :-------|:---|:----------
 [TypeName](UI.xml#L69)|String|Name of the main entity type
 [TypeNamePlural](UI.xml#L73)|String|Plural form of the name of the main entity type
-[Title](UI.xml#L77)|[DataFieldAbstract?](#DataFieldAbstract)<br>Allowed Derived Types:<ul><li>[DataField](#DataField)</li><li>[DataFieldForAnnotation](#DataFieldForAnnotation)</li></ul>|Title, e.g. for overview pages<br>This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).
-[Description](UI.xml#L87)|[DataFieldAbstract?](#DataFieldAbstract)<br>Allowed Derived Types:<ul><li>[DataField](#DataField)</li><li>[DataFieldForAnnotation](#DataFieldForAnnotation)</li></ul>|Description, e.g. for overview pages<br>This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).
+[Title](UI.xml#L77)|[DataFieldAbstract?](#DataFieldAbstract)|Title, e.g. for overview pages<br>This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).
+[Description](UI.xml#L87)|[DataFieldAbstract?](#DataFieldAbstract)|Description, e.g. for overview pages<br>This can be a [DataField](#DataField) and any of its children, or a [DataFieldForAnnotation](#DataFieldForAnnotation) targeting [ConnectedFields](#ConnectedFields).
 [Image](UI.xml#L97) *([Experimental](Common.md#Experimental))*|Stream?|Image for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `ImageUrl` can be used instead.
 [ImageUrl](UI.xml#L101)|URL?|Image URL for an instance of the entity type. If the property has a valid value, it can be used for the visualization of the instance. If it is not available or not valid the value of the property `TypeImageUrl` can be used instead.
 [TypeImageUrl](UI.xml#L105)|URL?|Image URL for the entity type
@@ -144,8 +144,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Url](UI.xml#L277)|URL?|URL of media resource<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
-[Stream](UI.xml#L286) *([Experimental](Common.md#Experimental))*|Stream?|Stream of media resource<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L277)|URL?|URL of media resource<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Stream](UI.xml#L286) *([Experimental](Common.md#Experimental))*|Stream?|Stream of media resource<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [ContentType](UI.xml#L295)|MediaType?|Content type, such as application/pdf, video/x-flv, image/jpeg
 [ByteSize](UI.xml#L299)|Int64?|Resource size in bytes
 [ChangedAt](UI.xml#L302)|DateTimeOffset?|Date of last change
@@ -162,7 +162,7 @@ Either `Url` or `Stream` MUST be present, and never both.
 Property|Type|Description
 :-------|:---|:----------
 [Url](UI.xml#L318)|URL|URL of image
-[Stream](UI.xml#L322) *([Experimental](Common.md#Experimental))*|Stream?|Stream of image<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Stream](UI.xml#L322) *([Experimental](Common.md#Experimental))*|Stream?|Stream of image<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [Width](UI.xml#L331)|String?|Width of image
 [Height](UI.xml#L334)|String?|Height of image
 
@@ -175,7 +175,7 @@ Property|Type|Description
 [Title](UI.xml#L356)|String?|Title of the data point
 [Description](UI.xml#L360)|String?|Short description
 [LongDescription](UI.xml#L364)|String?|Full description
-[Value](UI.xml#L368)|PrimitiveType|Numeric value<br>The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.
+[Value](UI.xml#L368)|PrimitiveType|Numeric value<br>The value is typically provided via a `Path` construct. The path MUST lead to a direct property of the same entity type or a property of a complex property (recursively) of that entity type, navigation segments are not allowed.<br/>It could be annotated with either `UoM.ISOCurrency` or `UoM.Unit`. Percentage values are annotated with `UoM.Unit = '%'`. A renderer should take an optional `Common.Text` annotation into consideration.
 [TargetValue](UI.xml#L380)|PrimitiveType?|Target value
 [ForecastValue](UI.xml#L383)|PrimitiveType?|Forecast value
 [MinimumValue](UI.xml#L386)|Decimal?|Minimum value (for output rendering)
@@ -185,7 +185,7 @@ Property|Type|Description
 [SampleSize](UI.xml#L398)|PrimitiveType?|Sample size used for the determination of the data point; should contain just integer value as Edm.Byte, Edm.SByte, Edm.Intxx, and Edm.Decimal with scale 0.
 [ReferencePeriod](UI.xml#L405)|[ReferencePeriod?](#ReferencePeriod)|Reference period
 [Criticality](UI.xml#L408)|[CriticalityType?](#CriticalityType)|Service-calculated criticality, alternative to CriticalityCalculation
-[CriticalityLabels](UI.xml#L411)|AnnotationPath?|Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels<br>Allowed Terms:<ul><li>[CriticalityLabels](#CriticalityLabels)</li></ul>
+[CriticalityLabels](UI.xml#L411)|AnnotationPath?|Custom labels for the criticality legend. Annotation path MUST end in UI.CriticalityLabels<br>Allowed terms:<ul><li>[CriticalityLabels](#CriticalityLabels)</li></ul>
 [CriticalityRepresentation](UI.xml#L419) *([Experimental](Common.md#Experimental))*|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [CriticalityCalculation](UI.xml#L423)|[CriticalityCalculationType?](#CriticalityCalculationType)|Parameters for client-calculated criticality, alternative to Criticality
 [Trend](UI.xml#L426)|[TrendType?](#TrendType)|Service-calculated trend, alternative to TrendCalculation
@@ -399,11 +399,11 @@ Property|Type|Description
 [ChartType](UI.xml#L718)|[ChartType](#ChartType)|Chart type
 [AxisScaling](UI.xml#L721)|[ChartAxisScalingType?](#ChartAxisScalingType)|Describes the scale of the chart value axes
 [Measures](UI.xml#L724)|\[PropertyPath\]|Measures of the chart, e.g. size and color in a bubble chart
-[DynamicMeasures](UI.xml#L728)|\[AnnotationPath\]|Dynamic properties introduced by annotations and used as measures of the chart<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
+[DynamicMeasures](UI.xml#L728)|\[AnnotationPath\]|Dynamic properties introduced by annotations and used as measures of the chart<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
 [MeasureAttributes](UI.xml#L741)|\[[ChartMeasureAttributeType](#ChartMeasureAttributeType)\]|Describes Attributes for Measures. All Measures used in this collection must also be part of the Measures Property.
 [Dimensions](UI.xml#L746)|\[PropertyPath\]|Dimensions of the chart, e.g. x- and y-axis of a bubble chart
 [DimensionAttributes](UI.xml#L749)|\[[ChartDimensionAttributeType](#ChartDimensionAttributeType)\]|Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.
-[Actions](UI.xml#L754)|\[[DataFieldAbstract](#DataFieldAbstract)\]<br>Allowed Derived Types:<ul><li>[DataFieldForActionAbstract](#DataFieldForActionAbstract)</li><li>[DataFieldForActionGroup](#DataFieldForActionGroup)</li></ul>|Available actions and action groups
+[Actions](UI.xml#L754)|\[[DataFieldAbstract](#DataFieldAbstract)\]|Available actions and action groups
 
 <a name="ChartType"></a>
 ## [ChartType](UI.xml#L765)
@@ -517,9 +517,9 @@ Exactly one of `Measure` and `DynamicMeasure` must be present
 Property|Type|Description
 :-------|:---|:----------
 [Measure](UI.xml#L885)|PropertyPath?|
-[DynamicMeasure](UI.xml#L888)|AnnotationPath?|Dynamic property introduced by an annotation and used as a measure in a chart<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
+[DynamicMeasure](UI.xml#L888)|AnnotationPath?|Dynamic property introduced by an annotation and used as a measure in a chart<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being visualized according to the `UI.Chart` annotation, the annotation path MUST be silently ignored.<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
 [Role](UI.xml#L901)|[ChartMeasureRoleType?](#ChartMeasureRoleType)|
-[DataPoint](UI.xml#L902)|AnnotationPath?|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure<br>Allowed Terms:<ul><li>[DataPoint](#DataPoint)</li></ul>
+[DataPoint](UI.xml#L902)|AnnotationPath?|Annotation path MUST end in @UI.DataPoint and the data point's Value MUST be the same property as in Measure<br>Allowed terms:<ul><li>[DataPoint](#DataPoint)</li></ul>
 [UseSequentialColorLevels](UI.xml#L910) *([Experimental](Common.md#Experimental))*|Boolean|All measures for which this setting is true should be assigned to levels of the same color.
 
 <a name="ChartDimensionRoleType"></a>
@@ -611,7 +611,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*Label*](UI.xml#L1004)|String?|Facet label
 [*ID*](UI.xml#L1008)|String?|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Target](UI.xml#L1020)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge<br>Allowed Terms:<ul><li>[Address](Communication.md#Address)</li><li>[Contact](Communication.md#Contact)</li><li>[Badge](#Badge)</li><li>[Chart](#Chart)</li><li>[Contacts](#Contacts)</li><li>[DataPoint](#DataPoint)</li><li>[FieldGroup](#FieldGroup)</li><li>[GeoLocation](#GeoLocation)</li><li>[GeoLocations](#GeoLocations)</li><li>[HeaderInfo](#HeaderInfo)</li><li>[Identification](#Identification)</li><li>[KPI](#KPI)</li><li>[LineItem](#LineItem)</li><li>[MediaResource](#MediaResource)</li><li>[Note](#Note)</li><li>[PresentationVariant](#PresentationVariant)</li><li>[SelectionFields](#SelectionFields)</li><li>[SelectionPresentationVariant](#SelectionPresentationVariant)</li><li>[StatusInfo](#StatusInfo)</li></ul>
+[Target](UI.xml#L1020)|AnnotationPath|Referenced information: Communication.Contact, Communication.Address, or a term that is tagged with UI.ThingPerspective, e.g. UI.StatusInfo, UI.LineItem, UI.Identification, UI.FieldGroup, UI.Badge<br>Allowed terms:<ul><li>[Address](Communication.md#Address)</li><li>[Contact](Communication.md#Contact)</li><li>[Badge](#Badge)</li><li>[Chart](#Chart)</li><li>[Contacts](#Contacts)</li><li>[DataPoint](#DataPoint)</li><li>[FieldGroup](#FieldGroup)</li><li>[GeoLocation](#GeoLocation)</li><li>[GeoLocations](#GeoLocations)</li><li>[HeaderInfo](#HeaderInfo)</li><li>[Identification](#Identification)</li><li>[KPI](#KPI)</li><li>[LineItem](#LineItem)</li><li>[MediaResource](#MediaResource)</li><li>[Note](#Note)</li><li>[PresentationVariant](#PresentationVariant)</li><li>[SelectionFields](#SelectionFields)</li><li>[SelectionPresentationVariant](#SelectionPresentationVariant)</li><li>[StatusInfo](#StatusInfo)</li></ul>
 
 **Applicable Annotation Terms:**
 
@@ -626,7 +626,7 @@ Property|Type|Description
 :-------|:---|:----------
 [*Label*](UI.xml#L1004)|String?|Facet label
 [*ID*](UI.xml#L1008)|String?|Unique identifier of a facet. ID should be stable, as long as the perceived semantics of the facet is unchanged.
-[Url](UI.xml#L1049)|URL|URL of referenced information<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L1049)|URL|URL of referenced information<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [UrlContentType](UI.xml#L1058)|MediaType?|Media type of referenced information
 
 **Applicable Annotation Terms:**
@@ -658,10 +658,10 @@ Property|Type|Description
 [GroupBy](UI.xml#L1109)|\[PropertyPath\]|Sequence of groupable properties p1, p2, ... defining how the result is composed of instances representing groups, one for each combination of value properties in the queried collection. The sequence specifies a certain level of aggregation for the queried collection, and every group instance will provide aggregated values for properties that are aggregatable. Moreover, the series of sub-sequences (p1), (p1, p2), ... forms a leveled hierarchy, which may become relevant in combination with `InitialExpansionLevel`.
 [TotalBy](UI.xml#L1118)|\[PropertyPath\]|Sub-sequence q1, q2, ... of properties p1, p2, ... specified in GroupBy. With this, additional levels of aggregation are requested in addition to the most granular level defined by GroupBy: Every element in the series of sub-sequences (q1), (q1, q2), ... introduces an additional aggregation level included in the result.
 [Total](UI.xml#L1125)|\[PropertyPath\]|Aggregatable properties for which aggregated values should be provided for the additional aggregation levels specified in TotalBy.
-[DynamicTotal](UI.xml#L1131)|\[AnnotationPath\]|Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
+[DynamicTotal](UI.xml#L1131)|\[AnnotationPath\]|Dynamic properties introduced by annotations for which aggregated values should be provided for the additional aggregation levels specified in TotalBy<br>If the annotation referenced by an annotation path does not apply to the same collection of entities as the one being presented according to the `UI.PresentationVariant` annotation, the annotation path MUST be silently ignored.<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
 [IncludeGrandTotal](UI.xml#L1144)|Boolean|Result should include a grand total for the properties specified in Total
 [InitialExpansionLevel](UI.xml#L1147)|Int32|Level up to which the hierarchy defined for the queried collection should be expanded initially. The hierarchy may be implicitly imposed by the sequence of the GroupBy, or by an explicit hierarchy annotation.
-[Visualizations](UI.xml#L1153)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers). The first entry of the collection is the default visualization.<br>Allowed Terms:<ul><li>[Chart](#Chart)</li><li>[DataPoint](#DataPoint)</li><li>[LineItem](#LineItem)</li></ul>
+[Visualizations](UI.xml#L1153)|\[AnnotationPath\]|Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`. For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type shall be modeled with different presentation variants. A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers). The first entry of the collection is the default visualization.<br>Allowed terms:<ul><li>[Chart](#Chart)</li><li>[DataPoint](#DataPoint)</li><li>[LineItem](#LineItem)</li></ul>
 [RecursiveHierarchyQualifier](UI.xml#L1170) *([Experimental](Common.md#Experimental))*|[HierarchyQualifier?](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#HierarchyQualifier)|Qualifier of the recursive hierarchy that should be applied to the Visualization
 [RequestAtLeast](UI.xml#L1174)|\[PropertyPath\]|Properties that should always be included in the result of the queried collection<br>Properties in `RequestAtLeast` must occur either in the `$select` clause of an OData request or among the grouping properties in an `$apply=groupby((grouping properties),...)` clause of an aggregating OData request.
 [SelectionFields](UI.xml#L1197) *([Experimental](Common.md#Experimental))*|\[PropertyPath\]|Properties that should be presented for filtering a collection of entities. Can be provided inline or as a reference to a `UI.SelectionFields` annotation via Path.
@@ -715,7 +715,7 @@ Exactly one of `PropertyName` and `DynamicPropertyName` must be present
 Property|Type|Description
 :-------|:---|:----------
 [PropertyName](UI.xml#L1267)|PropertyPath?|Path to the property
-[DynamicPropertyName](UI.xml#L1279)|AnnotationPath?|Dynamic property introduced by annotations for which value ranges are specified<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored. For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
+[DynamicPropertyName](UI.xml#L1279)|AnnotationPath?|Dynamic property introduced by annotations for which value ranges are specified<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being filtered according to the `UI.SelectionVariant` annotation, this instance of `UI.SelectionVariant/SelectOptions` MUST be silently ignored. For an example, see the `UI.SelectionVariant` annotation in the [example](../examples/DynamicProperties-sample.xml).<br>Allowed terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
 [Ranges](UI.xml#L1293)|\[[SelectionRangeType](#SelectionRangeType)\]|List of value ranges
 
 <a name="SelectionRangeType"></a>
@@ -791,8 +791,8 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Title](UI.xml#L1513)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Applicable Annotation Terms:<ul><li>[Hidden](#Hidden)</li></ul>
-[Content](UI.xml#L1525)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Applicable Annotation Terms:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
+[Title](UI.xml#L1513)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Can be annotated with:<ul><li>[Hidden](#Hidden)</li></ul>
+[Content](UI.xml#L1525)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Can be annotated with:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
 [Type](UI.xml#L1541)|String|A type used for grouping notes
 [MaximalLength](UI.xml#L1544)|Int32?|Type-specific maximal length of the content of the note
 [MultipleNotes](UI.xml#L1547)|Boolean|Whether the type allows multiple notes for one object
@@ -863,7 +863,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1650)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1653)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1656)|URL?|Optional icon
-[Target](UI.xml#L1677)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields<br>Allowed Terms:<ul><li>[Address](Communication.md#Address)</li><li>[Contact](Communication.md#Contact)</li><li>[Chart](#Chart)</li><li>[ConnectedFields](#ConnectedFields)</li><li>[DataPoint](#DataPoint)</li><li>[FieldGroup](#FieldGroup)</li></ul>
+[Target](UI.xml#L1677)|AnnotationPath|Target MUST reference an annotation of terms Communication.Contact, Communication.Address, UI.DataPoint, UI.Chart, UI.FieldGroup, or UI.ConnectedFields<br>Allowed terms:<ul><li>[Address](Communication.md#Address)</li><li>[Contact](Communication.md#Contact)</li><li>[Chart](#Chart)</li><li>[ConnectedFields](#ConnectedFields)</li><li>[DataPoint](#DataPoint)</li><li>[FieldGroup](#FieldGroup)</li></ul>
 
 **Applicable Annotation Terms:**
 
@@ -1004,7 +1004,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1650)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1653)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1656)|URL?|Optional icon
-[Value](UI.xml#L1755)|Untyped<br>Allowed Derived Types:<ul><li>PrimitiveType</li><li>[Binary]</li><li>[Boolean]</li><li>[Byte]</li><li>[Date]</li><li>[DateTimeOffset]</li><li>[Decimal]</li><li>[Double]</li><li>[Duration]</li><li>[Guid]</li><li>[Int16]</li><li>[Int32]</li><li>[Int64]</li><li>[SByte]</li><li>[Single]</li><li>[String]</li><li>[TimeOfDay]</li></ul>|The data field's value
+[Value](UI.xml#L1755)|Untyped|The data field's value
 
 **Applicable Annotation Terms:**
 
@@ -1105,7 +1105,7 @@ Property|Type|Description
 [*CriticalityRepresentation*](UI.xml#L1653)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1656)|URL?|Optional icon
 [Value](UI.xml#L1825)|PrimitiveType|The data field's value
-[Url](UI.xml#L1826)|URL|Target of the hyperlink<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[Url](UI.xml#L1826)|URL|Target of the hyperlink<br>Can be annotated with:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
 [UrlContentType](UI.xml#L1835)|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
 
 **Applicable Annotation Terms:**
