@@ -1310,7 +1310,6 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["EntityContainer"],
-      "@Common.Experimental": true,
       "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
       "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
     },
