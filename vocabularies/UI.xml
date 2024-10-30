@@ -751,8 +751,14 @@ The trend is
             <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
         </Property>
-        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
-          <Annotation Term="Core.Description" String="Available actions" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions and action groups" />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldForActionAbstract</String>
+              <String>UI.DataFieldForActionGroup</String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 
@@ -1460,6 +1466,35 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
+
+      <Term Name="DateTimeStyle" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style" />
+        <Annotation Term="Core.LongDescription">
+          <String>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.
+          If this annotation is absent or null or an empty string, temporal values are shown in a default style.</String>
+        </Annotation>
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="short" />
+              <Annotation Term="Core.Description" String="7/25/24, 1:11 PM" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="medium" />
+              <Annotation Term="Core.Description" String="Jul 25, 2024, 1:11:51 PM" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="long" />
+              <Annotation Term="Core.Description" String="July 25, 2024 at 1:11:51 PM GMT+2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="full" />
+              <Annotation Term="Core.Description" String="Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Term>
 
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />

@@ -59,6 +59,16 @@
       "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
       "@Core.IsLanguageDependent": true
     },
+    "DocumentationRef": {
+      "$Kind": "Term",
+      "@Common.Experimental": true,
+      "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Description": "URN scheme to look up the documentation for an object with given type and id in a given system.\n              This example looks up the documentation for data element /iwbep/account in system G1Y_000.",
+        "Value": "urn:sap-com:documentation:key?=type=DTEL&id=%2fiwbep%2faccount&origin=G1Y_000"
+      }
+    },
     "Text": {
       "$Kind": "Term",
       "$Nullable": true,
@@ -172,10 +182,8 @@
       "$Collection": true,
       "$Type": "Edm.PropertyPath",
       "$AppliesTo": ["EntityType"],
-      "@Core.Revisions": [
-        { "Kind": "Deprecated", "Description": "Use term `AlternateKeys` from the OASIS Core vocabulary instead" }
-      ],
-      "@Core.Description": "The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers."
+      "@Core.Description": "The listed properties form a secondary key",
+      "@Core.LongDescription": "Multiple secondary keys are possible using different qualifiers.\n          Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),\n          secondary keys need not support addressing an entity in a resource path."
     },
     "MinOccurs": {
       "$Kind": "Term",
@@ -238,20 +246,34 @@
     "SemanticObjectMapping": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "Common.SemanticObjectMappingType",
+      "$Type": "Common.SemanticObjectMappingAbstract",
       "$AppliesTo": ["EntitySet", "EntityType", "Property"],
       "$BaseTerm": "Common.SemanticObject",
       "@Core.Description": "Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object",
       "@Core.LongDescription": "This allows \"renaming\" of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their \"local\" name."
     },
+    "SemanticObjectMappingAbstract": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Core.Description": "Maps a property of the Semantic Object to a property of the annotated entity type or a sibling property of the annotated property or a constant value",
+      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+    },
     "SemanticObjectMappingType": {
       "$Kind": "ComplexType",
-      "@Core.Description": "Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
       "LocalProperty": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "Path to a local property that provides the value for the Semantic Object property"
-      },
-      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+      }
+    },
+    "SemanticObjectMappingConstant": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
+      "@Common.Experimental": true,
+      "Constant": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Constant value for the Semantic Object property"
+      }
     },
     "SemanticObjectUnavailableActions": {
       "$Kind": "Term",
