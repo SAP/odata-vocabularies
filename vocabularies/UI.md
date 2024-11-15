@@ -976,7 +976,7 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1650)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1653)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1656)|URL?|Optional icon
-[ID](UI.xml#L1748)|String?|Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged.<br>The ID should be unique for all action groups used in all terms of one entity type / set.
+[ID](UI.xml#L1748)|String?|Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged.<br>The ID should be unique among all action groups used in all data fields of one entity type / set.
 [Actions](UI.xml#L1754)|\[[DataFieldForActionAbstract](#DataFieldForActionAbstract)\]|Collection of data fields that refer to actions or intent based navigations
 
 **Applicable Annotation Terms:**
