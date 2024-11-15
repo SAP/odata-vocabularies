@@ -1572,6 +1572,10 @@
       "$BaseType": "UI.DataFieldAbstract",
       "@Common.Experimental": true,
       "@Core.Description": "Collection of OData actions and intent based navigations",
+      "ID": {
+        "$Nullable": true,
+        "@Core.Description": "Unique identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged."
+      },
       "Actions": {
         "$Collection": true,
         "$Type": "UI.DataFieldForActionAbstract",
