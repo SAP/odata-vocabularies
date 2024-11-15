@@ -1448,8 +1448,9 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
         <Annotation Term="Core.Description" String="Describes the arrangement of a code or ID value and its text" />
         <Annotation Term="Core.LongDescription">
           <String>This term annotates one of the following:
-1. a ([`Common.Text`](Common.md#Text) annotation of the) code or ID property where the annotation value is the text
-2. an entity type, this has the same effect as annotating all (`Common.Text` annotations of) code or ID properties of that entity type.</String>
+1. a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text
+2. an entity type, this has the same effect as annotating all `Common.Text` annotations of code or ID properties of that entity type
+3. a code or ID property that also carries a `Common.Text` annotation (has the same effect as variant 1).</String>
         </Annotation>
       </Term>
       <EnumType Name="TextArrangementType">
