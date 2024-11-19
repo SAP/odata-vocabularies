@@ -1745,6 +1745,12 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataFieldForActionGroup" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="ID" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged." />
+          <Annotation Term="Core.LongDescription">
+            <String>The ID should be unique among all action groups used in all data fields of one entity type / set.</String>
+          </Annotation> 
+        </Property>
         <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of data fields that refer to actions or intent based navigations" />
         </Property>
