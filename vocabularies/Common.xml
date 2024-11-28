@@ -1498,6 +1498,15 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
       </Term>
 
+      <Term Name="StrictnessConstraint" Type="Validation.ConstraintType" Nullable="false" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Constraint on the payload of a request with `Prefer: handling=strict` header" />
+        <Annotation Term="Core.LongDescription">
+          <String>In the absence of the `handling=strict` preference, the unmet constraint leads to a warning message but does
+          not prevent successful execution of the request.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
