@@ -830,7 +830,7 @@
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "UI.CriticalityLabelType",
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "\n              Assign labels to criticalities. This information can be used for semantic coloring.\n              When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality.\n              There must be no more than one label per criticality.\n          "
     },
@@ -1227,7 +1227,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "Term"],
+      "$AppliesTo": ["Property", "Term", "TypeDefinition"],
       "@Core.Description": "Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image",
       "@Core.RequiresType": "Edm.String",
       "@Validation.ApplicableTerms": ["Common.IsNaturalPerson"]
@@ -1236,7 +1236,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.",
       "@Core.RequiresType": "Edm.Stream",
@@ -1246,7 +1246,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "PropertyValue", "Parameter"],
+      "$AppliesTo": ["Property", "PropertyValue", "Parameter", "TypeDefinition"],
       "@Core.Description": "Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)",
       "@Core.RequiresType": "Edm.String"
     },
@@ -1737,7 +1737,7 @@
     "RecommendationList": {
       "$Kind": "Term",
       "$Type": "UI.RecommendationListType",
-      "$AppliesTo": ["Property", "Parameter"],
+      "$AppliesTo": ["Property", "Parameter", "TypeDefinition"],
       "@Core.Description": "Specifies how to get a list of recommended values for a property or parameter",
       "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
     },
@@ -1811,7 +1811,7 @@
     "DoNotCheckScaleOfMeasuredQuantity": {
       "$Kind": "Term",
       "$Type": "Edm.Boolean",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
       "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
