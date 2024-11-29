@@ -1252,7 +1252,7 @@
     },
     "Placeholder": {
       "$Kind": "Term",
-      "$AppliesTo": ["Property", "Parameter", "TypeDefinition"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
     },
