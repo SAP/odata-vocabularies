@@ -1009,7 +1009,7 @@
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that shares a draft document with other users",
-        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              - `UserID` of type `String` and\n\n              - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            It restricts access to the listed users in their specified roles."
+        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String` and\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
       }
     },
     "DraftNode": {
@@ -1350,7 +1350,7 @@
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "Channel for WebSocket connections",
-      "@Core.LongDescription": "Messages sent over the channel follow a protocol whose documentation is listed below per qualifier of this annotation.\n          To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\n          followed by a URL parameter `«annotation qualifier»=«annotation value»`.\n          If the annotation value is null, the parameter value follows from the protocol documentation.\n          <dl>Supported qualifiers and protocols:\n          <dt>`sideEffects` <dd>notifications about side effects to be triggered by the client (documentation)\n          <dt>`draft` <dd>collaborative draft; the parameter value is explained in the documentation\n          </dl>"
+      "@Core.LongDescription": "Messages sent over the channel follow the ABAP Push Channel protocol.\nTo consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- parameter name = annotation qualifier, parameter value = channel ID (see below)\n- parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app\n\n<dl>Supported qualifiers and channel IDs:\n<dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)\n</dl>"
     }
   }
 }
