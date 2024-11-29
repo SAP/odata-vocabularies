@@ -1,0 +1,49 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "/sap/opu/odata4/sap/ui_nte_demo_m_o4/srvd/sap/ui_nte_demo_m/0001/$metadata": {
+      "$Include": [{ "$Namespace": "com.sap.gateway.srvd.ui_nte_demo_m.v0001", "$Alias": "service" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "UI.examples": {
+    "$Annotations": {
+      "service.C_NTE_DEMO_MType": {
+        "@UI.Facets": [
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.ReferenceFacet",
+            "Target": "_NoteBasic/@UI.Note"
+          }
+        ]
+      },
+      "service.C_NoteBasicTPType": {
+        "@UI.Note": {
+          "Title@UI.Hidden": { "$Path": "_NoteBasicType/NoteBasicHideTitle" },
+          "Title": { "$Path": "NoteBasicTitle" },
+          "Content": { "$Path": "NoteBasicContent" },
+          "Type": { "$Path": "NoteBasicType" },
+          "MaximalLength": { "$Path": "_NoteBasicType/NoteBasicMaximalLength" },
+          "MultipleNotes": { "$Path": "_NoteBasicType/NoteBasicMultipleNotes" }
+        },
+        "@Common.CreatedBy": { "$Path": "CreatedByUser" },
+        "@Common.CreatedAt": { "$Path": "CreationDateTime" },
+        "@Common.ChangedBy": { "$Path": "LastChangedByUser" },
+        "@Common.ChangedAt": { "$Path": "LastChangeDateTime" }
+      },
+      "service.C_NoteBasicTPType/NoteBasicContent": {
+        "@Core.MediaType": { "$Path": "NoteBasicMIMEType" },
+        "@Core.IsLanguageDependent": { "$Path": "_NoteBasicType/NoteBasicLanguageDependent" },
+        "@Common.SAPObjectNodeTypeReference": { "$Path": "_NoteBasicType/NoteBasicObjectNodeType" }
+      },
+      "service.C_NoteBasicTPType/NoteBasicLanguage": { "@Common.IsLanguageIdentifier": true }
+    }
+  }
+}

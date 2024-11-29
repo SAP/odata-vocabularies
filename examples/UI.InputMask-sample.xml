@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="Examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this">
+
+      <EntityContainer Name="container">
+        <EntitySet Name="Customers" EntityType="this.Customer_Type" />
+      </EntityContainer>
+
+      <EntityType Name="Customer_Type">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DUNS" Type="Edm.String" Nullable="true" MaxLength="9"/>
+        <Property Name="SwiftCode" Type="Edm.String" Nullable="true" MaxLength="11"/>
+        <!-- ... and a lot more -->
+      </EntityType>
+
+      <Annotations Target="Examples.Customer_Type/DUNS">
+        <Annotation Term="UI.InputMask">
+          <Record>
+            <PropertyValue Property="Mask" String="99-999-9999" />
+            <!-- Data Universal Numbering System number issued by Dun & Bradstreet - might also be used without dashes "999999999"-->
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="Examples.Customer_Type/SwiftCode">
+        <Annotation Term="UI.InputMask">
+          <Record>
+            <PropertyValue Property="Mask" String="CCCCCCAAAAA" />
+            <PropertyValue Property="Placeholder" String="." />
+            <PropertyValue Property="Rules">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="MaskSymbol" String="C" />
+                  <PropertyValue Property="RegExp" String="[A-Z]" />
+                </Record>
+                <Record>
+                  <PropertyValue Property="MaskSymbol" String="A" />
+                  <PropertyValue Property="RegExp" String="[A-Z0-9]" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -59,19 +59,17 @@ Terms for contact and address information are defined in the [Communication voca
         <Annotation Term="Core.Description" String="Primary meaning of the entities in the annotated entity set" />
       </Term>
       <Term Name="DataSubjectRole" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
       <Term Name="DataSubjectRoleDescription" Type="Edm.String" Nullable="true" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsLanguageDependent" />
         <Annotation Term="Core.Description" String="Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)" />
         <Annotation Term="Core.LongDescription">
-          <String>Values are application-specific.         
+          <String>Values are application-specific.
           Can be a static value or a `Path` expression If the role varies per entity</String>
         </Annotation>
       </Term>
@@ -112,7 +110,7 @@ Terms for contact and address information are defined in the [Communication voca
 
       <Term Name="FieldSemantics" Type="PersonalData.FieldSemanticsType" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Primary meaning of the personal data contained in the annotated property" />
-        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log.&#xA;&#xA;*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*" />
+        <Annotation Term="Core.LongDescription" String="Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data." />
       </Term>
       <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Primary meaning of a data field" />
@@ -142,11 +140,10 @@ Terms for contact and address information are defined in the [Communication voca
             <Record>
               <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="PurposeID" />
-              <Annotation Term="Core.Description" String="The unique identifier for the purpose of a consent" />
+              <Annotation Term="Core.Description" String="The unique identifier for the purpose of a processing of personal data" />
               <Annotation Term="Core.LongDescription">
-                <String>The purpose of a consent is the information that specifies the reason and the goal for
-                the processing of a specific set of personal data. As a rule, the purpose
-                references the relevant legal basis for the processing of personal data.</String>
+                <String>Any processing of personal data is based on specified, explicit, and legitimate purposes, and data are not further processed in a manner that is incompatible with those purposes. The purposes are defined by the data controller or joint data controllers.
+                </String>
               </Annotation>
             </Record>
             <Record>
@@ -164,11 +161,18 @@ Terms for contact and address information are defined in the [Communication voca
               </Annotation>
             </Record>
             <Record>
-              <Annotation Term="Common.Experimental" />
               <PropertyValue Property="Value" String="LegalEntityID" />
               <Annotation Term="Core.Description" String="The unique identifier of a legal entity" />
               <Annotation Term="Core.LongDescription">
                 <String>A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.</String>
+              </Annotation>
+              <Annotation Term="Core.Revisions">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                    <PropertyValue Property="Description" String="Deprecated in favor of [`DataControllerID`](#DataControllerID)" />
+                  </Record>
+                </Collection>
               </Annotation>
             </Record>
             <Record>
@@ -181,11 +185,38 @@ Terms for contact and address information are defined in the [Communication voca
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="EndOfPurposeDate" />
-              <Annotation Term="Core.Description" String="The end of business date of a record." />
+              <PropertyValue Property="Value" String="EndOfBusinessDate" />
+              <Annotation Term="Core.Description" String="Defines the end of active business and the start of residence time and retention period" />
               <Annotation Term="Core.LongDescription">
-                <String>The end of purpose date for a legal ground or data subject record in the sense of [GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&amp;from=EN#d1e1807-1-1)
-                  Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated.</String>
+                <String>End of business is the point in time when the processing of a set of personal data is no longer required for the active business,
+                for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed
+                by users with special authorizations (for example, tax auditors).
+                All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataControllerID" />
+              <Annotation Term="Core.Description" String="The unique identifier of a data controller" />
+              <Annotation Term="Core.LongDescription">
+                <String>The unique identifier of a legal entity which alone or jointly with others determines the purposes and means of the processing of personal data. 
+                The Data Controller is fully responsible (and accountable) that data protection and privacy principles (such as purpose limitation or data minimization), defined in the European General Data Protection Regulation (GDPR) or any other data protection legislation, are adhered to when processing personal data. The DataControllerID succeeds the LegalEntityID.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="BlockingDate" />
+              <Annotation Term="Core.Description" String="Defines a date that marks when the provider of the data will block these" />
+              <Annotation Term="Core.LongDescription">
+                <String>Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="EndOfRetentionDate" />
+              <Annotation Term="Core.Description" String="Defines the date when the provider destroys the data" />
+              <Annotation Term="Core.LongDescription">
+                <String>Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date.</String>
               </Annotation>
             </Record>
           </Collection>
@@ -195,28 +226,20 @@ Terms for contact and address information are defined in the [Communication voca
       <Term Name="IsPotentiallyPersonal" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Personal data is information relating to an identified or identifiable natural person (data subject).
-
-Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
-
-See also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)</String>
+          <String>Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.
+          </String>
         </Annotation>
       </Term>
 
       <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
-          <String>Sensitive data is a colloquial term usually including the following data:
-
--  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation
-
--  Personal data subject to professional secrecy
-
--  Personal data relating to criminal or administrative offences
-
--  Personal data concerning bank or credit card accounts
-
-See also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)</String>
+          <String>Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
+                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.
+                      - Personal data subject to professional secrecy. 
+                      - Personal data relating to criminal or administrative offences.
+                      - Personal data concerning insurances and bank or credit card accounts.
+          </String>
         </Annotation>
       </Term>
     </Schema>
