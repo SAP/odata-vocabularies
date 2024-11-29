@@ -59,6 +59,16 @@
       "@Core.Description": "A short, human-readable text suitable for tool tips in UIs",
       "@Core.IsLanguageDependent": true
     },
+    "DocumentationRef": {
+      "$Kind": "Term",
+      "@Common.Experimental": true,
+      "@Core.Description": "A URI referencing language-dependent documentation for the annotated model element",
+      "@Core.Example": {
+        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml#Core.PrimitiveExampleValue",
+        "Description": "URN scheme to look up the documentation for an object with given type and id in a given system.\n              This example looks up the documentation for data element /iwbep/account in system G1Y_000.",
+        "Value": "urn:sap-com:documentation:key?=type=DTEL&id=%2fiwbep%2faccount&origin=G1Y_000"
+      }
+    },
     "Text": {
       "$Kind": "Term",
       "$Nullable": true,
@@ -172,10 +182,8 @@
       "$Collection": true,
       "$Type": "Edm.PropertyPath",
       "$AppliesTo": ["EntityType"],
-      "@Core.Revisions": [
-        { "Kind": "Deprecated", "Description": "Use term `AlternateKeys` from the OASIS Core vocabulary instead" }
-      ],
-      "@Core.Description": "The listed properties form a secondary key. Multiple secondary keys are possible using different qualifiers."
+      "@Core.Description": "The listed properties form a secondary key",
+      "@Core.LongDescription": "Multiple secondary keys are possible using different qualifiers.\n          Unlike [`Core.AlternateKeys`](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#AlternateKeys),\n          secondary keys need not support addressing an entity in a resource path."
     },
     "MinOccurs": {
       "$Kind": "Term",
@@ -238,20 +246,34 @@
     "SemanticObjectMapping": {
       "$Kind": "Term",
       "$Collection": true,
-      "$Type": "Common.SemanticObjectMappingType",
+      "$Type": "Common.SemanticObjectMappingAbstract",
       "$AppliesTo": ["EntitySet", "EntityType", "Property"],
       "$BaseTerm": "Common.SemanticObject",
       "@Core.Description": "Maps properties of the annotated entity type or sibling properties of the annotated property to properties of the Semantic Object",
       "@Core.LongDescription": "This allows \"renaming\" of properties in the current context to match property names of the Semantic Object, e.g. `SenderPartyID` to `PartyID`. Only properties explicitly listed in the mapping are renamed, all other properties are available for intent-based navigation with their \"local\" name."
     },
+    "SemanticObjectMappingAbstract": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Core.Description": "Maps a property of the Semantic Object to a property of the annotated entity type or a sibling property of the annotated property or a constant value",
+      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+    },
     "SemanticObjectMappingType": {
       "$Kind": "ComplexType",
-      "@Core.Description": "Maps a property of the annotated entity type or a sibling property of the annotated property to a property of the Semantic Object",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
       "LocalProperty": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "Path to a local property that provides the value for the Semantic Object property"
-      },
-      "SemanticObjectProperty": { "@Core.Description": "Name of the Semantic Object property" }
+      }
+    },
+    "SemanticObjectMappingConstant": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.SemanticObjectMappingAbstract",
+      "@Common.Experimental": true,
+      "Constant": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Constant value for the Semantic Object property"
+      }
     },
     "SemanticObjectUnavailableActions": {
       "$Kind": "Term",
@@ -308,7 +330,7 @@
       "@Core.LongDescription": "When changes are requested, the value of this annotation in the before-image or after-image\n          of the request plays a role. These may differ if the value is given dynamically in the metadata.",
       "Mandatory": 7,
       "Mandatory@Core.Description": "Property is mandatory from a business perspective",
-      "Mandatory@Core.LongDescription": "A request that\n            <br>- sets the property to null or an empty value or\n            <br>- creates a non-[draft](#DraftRoot) entity and omits the property or\n            <br>- activates a draft entity while the property is null or empty\n            <br>fails entirely if this annotation is `Mandatory` in the after-image of the request.\n            The empty string is an empty value. Service-specific rules may consider other values, also\n            of non-string type, empty.\n            Values in draft entities are never considered empty.\n            Mandatory properties SHOULD be decorated in the UI with an asterisk.\n            Null or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
+      "Mandatory@Core.LongDescription": "A request that\n- sets the property to null or an empty value or\n- creates a non-[draft](#DraftRoot) entity and omits the property or\n- activates a draft entity while the property is null or empty\n\nfails entirely if this annotation is `Mandatory` in the after-image of the request.\nThe empty string is an empty value. Service-specific rules may consider other values, also\nof non-string type, empty.\nValues in draft entities are never considered empty.\nMandatory properties SHOULD be decorated in the UI with an asterisk.\nNull or empty values can also be disallowed by restricting the property value range with the standard type facet `Nullable` or terms from the [Validation vocabulary](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Validation.V1.md).",
       "Optional": 3,
       "Optional@Core.Description": "Property may have a value",
       "Optional@Core.LongDescription": "This value does not make sense as a static annotation value.",
@@ -376,7 +398,7 @@
       "$Collection": true,
       "$Type": "Edm.ComplexType",
       "@Core.Description": "Collection of end-user messages",
-      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n\n- `code: Edm.String`\n\n- `message: Edm.String`\n\n- `target: Edm.String nullable`\n\n- `additionalTargets: Collection(Edm.String)`\n\n- `transition: Edm.Boolean`\n\n- `numericSeverity: Edm.Byte`\n\n- `longtextUrl: Edm.String nullable`\n          "
+      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n- `code: Edm.String`\n- `message: Edm.String`\n- `target: Edm.String nullable`\n- `additionalTargets: Collection(Edm.String)`\n- `transition: Edm.Boolean`\n- `numericSeverity: Edm.Byte`\n- `longtextUrl: Edm.String nullable`\n          "
     },
     "additionalTargets": {
       "$Kind": "Term",
@@ -679,7 +701,8 @@
       "$BaseType": "Common.ValueListParameter",
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison"
+        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison",
+        "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators"
       },
       "InitialValueIsSignificant": {
         "$Type": "Edm.Boolean",
@@ -699,6 +722,17 @@
         "$DefaultValue": false,
         "@Common.Experimental": true,
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
+      }
+    },
+    "ValueListParameterConstants": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.ValueListParameter",
+      "@Common.Experimental": true,
+      "Constants": {
+        "$Collection": true,
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "List of constant values that are used to filter the value list with `eq` comparisons connected by `or` operators, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue). Initial values are significant.",
+        "@Core.LongDescription": "An empty list means a vacuous filter condition"
       }
     },
     "ValueListParameterInOut": {
@@ -833,7 +867,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting \n          of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.\n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3]) \n          ",
+      "@Core.Description": "Property encodes a calendar year and week as string following the logical pattern (-?)YYYY(Y*)WW consisting\n          of an optional minus sign for years B.C. followed by at least six digits, where the last two digits represent week number in the year.\n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|[1-4][0-9]|5[0-3])\n          ",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -842,7 +876,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting \n          of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent \n          the months January to December (MM) and the day of the month (DD).\n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\n          The regex pattern does not reflect the additional constraint for \"Day-of-month Values\":\n          The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4, \n          or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.          \n          ",
+      "@Core.Description": "Property encodes a calendar date: year, month and day as string following the logical pattern (-?)YYYY(Y*)MMDD consisting\n          of an optional minus sign for years B.C. followed by at least eight digits, where the last four digits represent\n          the months January to December (MM) and the day of the month (DD).\n          The string matches the regex pattern -?([1-9][0-9]{3,}|0[0-9]{3})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\n          The regex pattern does not reflect the additional constraint for \"Day-of-month Values\":\n          The day value must be no more than 30 if month is one of 04, 06, 09, or 11, no more than 28 if month is 02 and year is not divisible by 4,\n          or is divisible by 100 but not by 400, and no more than 29 if month is 02 and year is divisible by 400, or by 4 but not by 100.\n          ",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -851,7 +885,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits. \n          The string matches the regex pattern [1-9][0-9]{3}\n          ",
+      "@Core.Description": "Property encodes a fiscal year number as string following the logical pattern YYYY consisting of four digits.\n          The string matches the regex pattern [1-9][0-9]{3}\n          ",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -860,7 +894,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits. \n          The string matches the regex pattern [0-9]{3}\n          ",
+      "@Core.Description": "Property encodes a fiscal period as string following the logical pattern PPP consisting of three digits.\n          The string matches the regex pattern [0-9]{3}\n          ",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -869,7 +903,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting \n          of seven digits, where the last three digits represent the fiscal period in the year.\n          The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})\n          ",
+      "@Core.Description": "Property encodes a fiscal year and period as string following the logical pattern YYYYPPP consisting\n          of seven digits, where the last three digits represent the fiscal period in the year.\n          The string matches the regex pattern ([1-9][0-9]{3})([0-9]{3})\n          ",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -878,7 +912,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit. \n          The string matches the regex pattern [1-4]",
+      "@Core.Description": "Property encodes a fiscal quarter number as string following the logical pattern Q consisting of a single digit.\n          The string matches the regex pattern [1-4]",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -887,7 +921,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of\n          five digits, where the last digit represents the quarter. \n          The string matches the regex pattern [1-9][0-9]{3}[1-4]",
+      "@Core.Description": "Property encodes a fiscal year and quarter as string following the logical pattern YYYYQ consisting of\n          five digits, where the last digit represents the quarter.\n          The string matches the regex pattern [1-9][0-9]{3}[1-4]",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -896,7 +930,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits. \n          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]",
+      "@Core.Description": "Property encodes a fiscal week number as string following the logical pattern WW consisting of two digits.\n          The string matches the regex pattern 0[1-9]|[1-4][0-9]|5[0-3]",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -905,7 +939,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Description": "Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of \n          six digits, where the last two digits represent the week number in the year. \n          The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])",
+      "@Core.Description": "Property encodes a fiscal year and week as string following the logical pattern YYYYWW consisting of\n          six digits, where the last two digits represent the week number in the year.\n          The string matches the regex pattern [1-9][0-9]{3}(0[1-9]|[1-4][0-9]|5[0-3])",
       "@Core.RequiresType": "Edm.String",
       "@Common.MutuallyExclusiveTerm#DatePart": true
     },
@@ -1034,7 +1068,7 @@
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "The namespace-qualified name of an action with an optional overload",
-      "@Core.LongDescription": "The namespace-qualified name of an action, optionally followed by parentheses \n            containing the binding parameter type of a bound action overload to identify that bound overload, \n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
+      "@Core.LongDescription": "The namespace-qualified name of an action, optionally followed by parentheses\n            containing the binding parameter type of a bound action overload to identify that bound overload,\n            or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`."
     },
     "SemanticKey": {
       "$Kind": "Term",
@@ -1052,7 +1086,7 @@
     "SideEffectsType": {
       "$Kind": "ComplexType",
       "@Core.Description": "Changes to the source properties or source entities may have side-effects on the target properties or entities.",
-      "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning, \nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.\nThis can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.",
+      "@Core.LongDescription": "If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.\nAn empty NavigationPropertyPath may be used in TargetEntities to specify that any property of the annotated entity type may be affected.\n\nSide effects without a `TriggerAction` happen immediately when modifying one of the source properties or source entities. Side effects with a `TriggerAction` are deferred until explicitly triggered via the `TriggerAction`.\n\nSpecial case where the side effect is annotated on an action: here the change trigger is the action invocation, so `SourceProperties` and `SourceEntities` have no meaning,\nonly `TargetProperties` and `TargetEntities` are relevant. They are addressed via the binding parameter of the action, e.g. if the binding parameter is named `_it`, all paths have to start with `_it/`.\nThis can also be used with OData V2 services: the annotation target is a function import that is marked with [`sap:action-for`](https://wiki.scn.sap.com/wiki/display/EmTech/SAP+Annotations+for+OData+Version+2.0#SAPAnnotationsforODataVersion2.0-Elementedm:FunctionImport), and all paths have to start with `_it/`.",
       "SourceProperties": {
         "$Collection": true,
         "$Type": "Edm.PropertyPath",
@@ -1095,13 +1129,6 @@
         "@Core.Description": "Bound action to trigger side-effects after modifying an entity",
         "@Core.LongDescription": "Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`."
       },
-      "TriggeredIndicator": {
-        "$Type": "Edm.Boolean",
-        "$Nullable": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Indicates whether the side-effect has already happened",
-        "@Core.LongDescription": "The value of this property typically is a Path expression pointing to a boolean property. It can be used by clients to defer expensive refresh calls until they are actually needed and instead just request the referenced indicator property. Servers can choose to return indicator properties even if not explicitly requested."
-      },
       "Discretionary": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
@@ -1121,13 +1148,13 @@
       ],
       "ValidationMessage": 1,
       "ValidationMessage@Core.Description": "Validation messages are assigned to a target",
-      "ValidationMessage@Core.LongDescription": "This side effect type indicates that validation messages may result from changes of source properties or entities.  \nThus, a validation request can be sent either in conjunction with or separately after a modifying request. \nValidation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.",
+      "ValidationMessage@Core.LongDescription": "This side effect type indicates that validation messages may result from changes of source properties or entities.\nThus, a validation request can be sent either in conjunction with or separately after a modifying request.\nValidation messages shall be persisted with the draft and immediately available in a subsequent request without repeating the validation logic.",
       "ValueChange": 2,
       "ValueChange@Core.Description": "The value of a target changes",
-      "ValueChange@Core.LongDescription": "This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.  \nUpon modification preparation logic is performed that determines additional values to be stored in the draft document.",
+      "ValueChange@Core.LongDescription": "This side effect type declares that changes to source properties or entities may impact the values of any, one or multiple target properties or entities.\nUpon modification preparation logic is performed that determines additional values to be stored in the draft document.",
       "FieldControlChange": 4,
       "FieldControlChange@Core.Description": "The value of the Common.FieldControl annotation of a target changes",
-      "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.  \nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined."
+      "FieldControlChange@Core.LongDescription": "This side effect type specifies that source properties or entities may impact the dynamic field control state of any, one or multiple target properties or entities.\nUpon modification field control logic is invoked so that meta-information like hidden or read-only is determined."
     },
     "DefaultValuesFunction": {
       "$Kind": "Term",
@@ -1141,7 +1168,7 @@
       "$AppliesTo": ["Property"],
       "@Common.Experimental": "This has been experimental for three years, consider to delete it",
       "@Core.Description": "Function import to derive a default value for the property from a given context.",
-      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated property.\n\n            Arguments passed to the function import are used as context for deriving the default value. \n            The function import returns this default value, or null in case such a value could not be determined.\n          "
+      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
     },
     "FilterDefaultValue": {
       "$Kind": "Term",
@@ -1171,11 +1198,11 @@
       "$Type": "Common.SortOrderType",
       "$AppliesTo": ["EntitySet", "EntityType"],
       "@Core.Description": "List of sort criteria",
-      "@Core.LongDescription": "The items of the annotated entity set or the items of the \n          collection of the annotated entity type are sorted by the first entry of the SortOrder collection. \n          Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. "
+      "@Core.LongDescription": "The items of the annotated entity set or the items of the\n          collection of the annotated entity type are sorted by the first entry of the SortOrder collection.\n          Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on. "
     },
     "SortOrderType": {
       "$Kind": "ComplexType",
-      "@Core.Description": "Exactly one of `Property` and `DynamicProperty` must be present",
+      "@Core.Description": "Exactly one of `Property`, `DynamicProperty` and `Expression` must be present",
       "Property": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
@@ -1189,6 +1216,12 @@
         "@Core.Description": "Dynamic property introduced by an annotation and used as sort property",
         "@Core.LongDescription": "If the annotation referenced by the annotation path does not apply to the same collection of entities\n            as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation,\n            this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.",
         "@Validation.AllowedTerms": ["Analytics.AggregatedProperty", "Aggregation.CustomAggregate"]
+      },
+      "Expression": {
+        "$Type": "Edm.PrimitiveType",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Dynamic expression whose primitive result value is used to sort the instances"
       },
       "Descending": {
         "$Type": "Edm.Boolean",
@@ -1224,12 +1257,12 @@
       "NodeDescendantCountProperty": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
-        "@Core.Description": "Property holding the descendant count for a hierarchy node. \n            The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering \n            only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer \n            data type."
+        "@Core.Description": "Property holding the descendant count for a hierarchy node.\n            The descendant count of a node is the number of its descendants in the hierarchy structure of the result considering\n            only those nodes matching any specified $filter and $search. A property holding descendant counts has an integer\n            data type."
       },
       "NodeDrillStateProperty": {
         "$Type": "Edm.PropertyPath",
         "$Nullable": true,
-        "@Core.Description": "Property holding the drill state of a hierarchy node. The drill state is indicated \n            by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its \n            children are included in the result collection. For a collapsed node, the children are included in the entity set, but \n            they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request \n            filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.\n            "
+        "@Core.Description": "Property holding the drill state of a hierarchy node. The drill state is indicated\n            by one of the following string values: collapsed, expanded, or leaf. For an expanded node, its\n            children are included in the result collection. For a collapsed node, the children are included in the entity set, but\n            they are not part of the result collection. Retrieving them requires a relaxed filter expression or a separate request\n            filtering on the parent node ID with the ID of the collapsed node. A leaf does not have any child in the entity set.\n            "
       }
     },
     "CreatedAt": {
@@ -1282,7 +1315,6 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["EntityContainer"],
-      "@Common.Experimental": true,
       "@Core.Description": "Sorting and filtering of amounts in multiple currencies needs special consideration",
       "@Core.LongDescription": "TODO: add link to UX documentation on https://experience.sap.com/fiori-design/"
     },

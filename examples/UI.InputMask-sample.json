@@ -1,0 +1,36 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    }
+  },
+  "Examples": {
+    "$Alias": "this",
+    "container": { "$Kind": "EntityContainer", "Customers": { "$Collection": true, "$Type": "this.Customer_Type" } },
+    "Customer_Type": {
+      "$Kind": "EntityType",
+      "$Key": ["CustomerID"],
+      "CustomerID": { "$Type": "Edm.Guid" },
+      "DUNS": { "$Nullable": true, "$MaxLength": 9 },
+      "SwiftCode": { "$Nullable": true, "$MaxLength": 11 }
+    },
+    "$Annotations": {
+      "this.Customer_Type/DUNS": { "@UI.InputMask": { "Mask": "99-999-9999" } },
+      "this.Customer_Type/SwiftCode": {
+        "@UI.InputMask": {
+          "Mask": "CCCCCCAAAAA",
+          "Placeholder": ".",
+          "Rules": [
+            { "MaskSymbol": "C", "RegExp": "[A-Z]" },
+            { "MaskSymbol": "A", "RegExp": "[A-Z0-9]" }
+          ]
+        }
+      }
+    }
+  },
+  "$EntityContainer": "Examples.container"
+}

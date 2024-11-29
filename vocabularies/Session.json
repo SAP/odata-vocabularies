@@ -38,7 +38,7 @@
       "NewAction": {
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection",
-        "@Core.LongDescription": "Signature:\n\n- Binding parameter is collection of type of annotated entity set\n\n- No non-binding parameters\n\n- No return type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n\n- On success this action initiates a sticky session.\n\n- On failure no sticky session is initiated."
+        "@Core.LongDescription": "Signature:\n- Binding parameter is collection of type of annotated entity set\n- No non-binding parameters\n- No return type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n- On success this action initiates a sticky session.\n- On failure no sticky session is initiated."
       },
       "AdditionalNewActions": {
         "$Collection": true,
@@ -50,17 +50,17 @@
       "EditAction": {
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Bound action that initiates a sticky session for editing the targeted entity",
-        "@Core.LongDescription": "Signature:\n\n- Binding parameter is type of annotated entity set\n\n- No non-binding parameters\n\n- Return type is same as binding parameter type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n\n- On success this action returns the targeted entity and initiates a sticky session.\n\n- On failure no sticky session is initiated."
+        "@Core.LongDescription": "Signature:\n- Binding parameter is type of annotated entity set\n- No non-binding parameters\n- Return type is same as binding parameter type \n\nIf called within a sticky session the sticky session continues. \n\nOtherwise:\n- On success this action returns the targeted entity and initiates a sticky session.\n- On failure no sticky session is initiated."
       },
       "SaveAction": {
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Bound action that saves a new or edited entity",
-        "@Core.LongDescription": "Signature:\n\n- Binding parameter is type of annotated entity set\n\n- No non-binding parameters\n\n- Return type is same as binding parameter type \n\nOn success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. \n\nOn failure the sticky session is kept alive."
+        "@Core.LongDescription": "Signature:\n- Binding parameter is type of annotated entity set\n- No non-binding parameters\n- Return type is same as binding parameter type \n\nOn success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. \n\nOn failure the sticky session is kept alive."
       },
       "DiscardAction": {
         "$Type": "Core.SimpleIdentifier",
         "@Core.Description": "Action import for an unbound action that discards all changes and terminates the sticky session",
-        "@Core.LongDescription": "Signature:\n\n- No parameters\n\n- No return type \n\nIf called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. \n\nIf called outside of a sticky session the action fails and does not initiate a session."
+        "@Core.LongDescription": "Signature:\n- No parameters\n- No return type \n\nIf called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. \n\nIf called outside of a sticky session the action fails and does not initiate a session."
       }
     }
   }

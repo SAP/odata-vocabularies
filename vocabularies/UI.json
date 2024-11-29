@@ -257,7 +257,7 @@
         "@Core.Description": "Date of last change"
       },
       "Thumbnail": { "$Type": "UI.ImageType", "$Nullable": true, "@Core.Description": "Thumbnail image" },
-      "Title": { "$Type": "UI.DataField", "@Core.Description": "Resource title" },
+      "Title": { "$Type": "UI.DataField", "$Nullable": true, "@Core.Description": "Resource title" },
       "Description": { "$Type": "UI.DataField", "$Nullable": true, "@Core.Description": "Resource description" }
     },
     "ImageType": {
@@ -648,8 +648,9 @@
       },
       "Actions": {
         "$Collection": true,
-        "$Type": "UI.DataFieldForActionAbstract",
-        "@Core.Description": "Available actions"
+        "$Type": "UI.DataFieldAbstract",
+        "@Core.Description": "Available actions and action groups",
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
       }
     },
     "ChartType": {
@@ -829,7 +830,7 @@
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "UI.CriticalityLabelType",
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "\n              Assign labels to criticalities. This information can be used for semantic coloring.\n              When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality.\n              There must be no more than one label per criticality.\n          "
     },
@@ -1043,6 +1044,12 @@
         "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants.\n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            ",
         "@Validation.AllowedTerms": ["UI.Chart", "UI.DataPoint", "UI.LineItem"]
       },
+      "RecursiveHierarchyQualifier": {
+        "$Type": "Aggregation.HierarchyQualifier",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Qualifier of the recursive hierarchy that should be applied to the Visualization"
+      },
       "RequestAtLeast": {
         "$Collection": true,
         "$Type": "Edm.PropertyPath",
@@ -1220,7 +1227,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "Term"],
+      "$AppliesTo": ["Property", "Term", "TypeDefinition"],
       "@Core.Description": "Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image",
       "@Core.RequiresType": "Edm.String",
       "@Validation.ApplicableTerms": ["Common.IsNaturalPerson"]
@@ -1229,7 +1236,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.",
       "@Core.RequiresType": "Edm.Stream",
@@ -1239,22 +1246,55 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "PropertyValue", "Parameter"],
+      "$AppliesTo": ["Property", "PropertyValue", "Parameter", "TypeDefinition"],
       "@Core.Description": "Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)",
       "@Core.RequiresType": "Edm.String"
     },
     "Placeholder": {
       "$Kind": "Term",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
+    },
+    "InputMask": {
+      "$Kind": "Term",
+      "$Type": "UI.InputMaskType",
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Properties or parameters annotated with this term will get a mask in edit mode",
+      "@Core.LongDescription": "Input masks improve readability and help to enter data correctly. \nSo, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. \n[Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation"
+    },
+    "InputMaskType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Mask": { "@Core.Description": "The mask to be applied to the property or the parameter" },
+      "PlaceholderSymbol": {
+        "$MaxLength": 1,
+        "$DefaultValue": "_",
+        "@Core.Description": "A single character symbol to be shown where the user can type a character"
+      },
+      "Rules": {
+        "$Collection": true,
+        "$Type": "UI.InputMaskRuleType",
+        "@Core.Description": "Rules that define valid values for one symbol in the mask",
+        "@Core.LongDescription": "The following rules are defined as default and don't need to be listed here: * = ., C = [a-zA-Z], 9 = [0-9]"
+      }
+    },
+    "InputMaskRuleType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "MaskSymbol": {
+        "$MaxLength": 1,
+        "@Core.Description": "A symbol in the mask that stands for a regular expression which must be matched by the user input in every position where this symbol occurs"
+      },
+      "RegExp": { "@Core.Description": "Regular expression that defines the valid values for the mask symbol" }
     },
     "TextArrangement": {
       "$Kind": "Term",
       "$Type": "UI.TextArrangementType",
       "$AppliesTo": ["Annotation", "EntityType"],
       "@Core.Description": "Describes the arrangement of a code or ID value and its text",
-      "@Core.LongDescription": "This term annotates one of the following:<br>\n          (1) a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text<br>\n          (2) an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type."
+      "@Core.LongDescription": "This term annotates one of the following:\n1. a [`Common.Text`](Common.md#Text) annotation of the code or ID property where the annotation value is the text\n2. an entity type, this has the same effect as annotating all `Common.Text` annotations of properties of that entity type."
     },
     "TextArrangementType": {
       "$Kind": "EnumType",
@@ -1266,6 +1306,20 @@
       "TextSeparate@Core.Description": "Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)",
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
+    },
+    "DateTimeStyle": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style",
+      "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or null or an empty string, temporal values are shown in a default style.",
+      "@Validation.AllowedValues": [
+        { "Value": "short", "@Core.Description": "7/25/24, 1:11 PM" },
+        { "Value": "medium", "@Core.Description": "Jul 25, 2024, 1:11:51 PM" },
+        { "Value": "long", "@Core.Description": "July 25, 2024 at 1:11:51 PM GMT+2" },
+        { "Value": "full", "@Core.Description": "Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" }
+      ]
     },
     "Note": {
       "$Kind": "Term",
@@ -1338,6 +1392,15 @@
       "@Core.Description": "The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type",
       "@Core.LongDescription": "The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
     },
+    "IsAIOperation": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated operation is powered by AI",
+      "@Core.LongDescription": "This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data."
+    },
     "CreateHidden": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
@@ -1388,7 +1451,14 @@
       "$Abstract": true,
       "@Core.Description": "Elementary building block that represents a piece of data and/or allows triggering an action",
       "@Core.LongDescription": "By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and\n          and the default css settings (as the width) of the data field can be influenced. ",
-      "@Validation.ApplicableTerms": ["UI.Hidden", "UI.Importance", "UI.PartOfPreview", "HTML5.CssDefaults"],
+      "@Validation.ApplicableTerms": [
+        "UI.Hidden",
+        "UI.Importance",
+        "UI.PartOfPreview",
+        "HTML5.CssDefaults",
+        "HTML5.RowSpanForDuplicateValues",
+        "Common.FieldControl"
+      ],
       "Label": {
         "$Nullable": true,
         "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
@@ -1502,6 +1572,11 @@
       "$BaseType": "UI.DataFieldAbstract",
       "@Common.Experimental": true,
       "@Core.Description": "Collection of OData actions and intent based navigations",
+      "ID": {
+        "$Nullable": true,
+        "@Core.Description": "Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged.",
+        "@Core.LongDescription": "The ID should be unique among all action groups used in all data fields of one entity type / set."
+      },
       "Actions": {
         "$Collection": true,
         "$Type": "UI.DataFieldForActionAbstract",
@@ -1662,7 +1737,7 @@
     "RecommendationList": {
       "$Kind": "Term",
       "$Type": "UI.RecommendationListType",
-      "$AppliesTo": ["Property", "Parameter"],
+      "$AppliesTo": ["Property", "Parameter", "TypeDefinition"],
       "@Core.Description": "Specifies how to get a list of recommended values for a property or parameter",
       "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
     },
@@ -1690,6 +1765,42 @@
         "@Core.Description": "Path to property in the collection of recommended values. Format is identical to PropertyPath annotations."
       }
     },
+    "Recommendations": {
+      "$Kind": "Term",
+      "$Type": "Edm.ComplexType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Recommendations for an entity",
+      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit the property `RecommendedFieldDescription`.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+    },
+    "PropertyRecommendationType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Common.Experimental": true,
+      "@Core.Description": "Base type containing recommendations for an entity type property",
+      "RecommendedFieldValue": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the primitive type of the entity type property.\n            If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation\n            that evaluates to the `RecommendedFieldDescription` property.",
+        "@Common.Text": { "$Path": "RecommendedFieldDescription" }
+      },
+      "RecommendedFieldDescription": {
+        "$Nullable": true,
+        "@Core.Description": "Description of the recommended value",
+        "@Core.LongDescription": "In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property.\n            It is omitted from informal specializations for recommendations without description."
+      },
+      "RecommendedFieldScoreValue": {
+        "$Type": "Edm.Decimal",
+        "$Nullable": true,
+        "@Core.Description": "Confidence score of the recommended value"
+      },
+      "RecommendedFieldIsSuggestion": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Core.Description": "Whether the recommended value shall be suggested in the input field",
+        "@Core.LongDescription": "For any collection of a specialization of `PropertyRecommendationType`\n            in a property containing [`Recommendations`](#Recommendations),\n            this flag can be true in at most one instance of the collection,\n            and only if the `RecommendedFieldScoreValue` exceeds a certain threshold."
+      }
+    },
     "ExcludeFromNavigationContext": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
@@ -1700,7 +1811,7 @@
     "DoNotCheckScaleOfMeasuredQuantity": {
       "$Kind": "Term",
       "$Type": "Edm.Boolean",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
       "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
@@ -1715,7 +1826,7 @@
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "Name of an Action, Function, ActionImport, or FunctionImport in scope",
-      "@Core.LongDescription": "Possible values are\n        \n- Namespace-qualified name of an action or function (`foo.bar`)\n- Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)\n- Simple name of an action import or function import of the annotated service (`quux`)\n- Namespace-qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)"
+      "@Core.LongDescription": "Possible values are\n\n- Namespace-qualified name of an action or function (`foo.bar`)\n- Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)\n- Simple name of an action import or function import of the annotated service (`quux`)\n- Namespace-qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)"
     }
   }
 }
