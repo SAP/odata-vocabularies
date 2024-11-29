@@ -995,25 +995,25 @@
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that creates an edit draft",
-        "@Core.LongDescription": "The action is bound to the active document root node and has the following signature:\n\n            - `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten"
+        "@Core.LongDescription": "The action is bound to the active document root node and has the following signature:\n- `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten"
       },
       "NewAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that creates a new draft",
-        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\n            New drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set."
+        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\nNew drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set."
       },
       "AdditionalNewActions": {
         "$Collection": true,
         "$Type": "Common.QualifiedName",
         "@Core.Description": "Additional actions beside the default POST or standard `NewAction`that create a new draft",
-        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the following signature:\n\n            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created"
+        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created"
       },
       "ShareAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
-        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n\n            - `Users`: collection of structure with properties\n\n              ◦ `UserID` of type `String`\n\n              ◦ `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n            - `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts;\n            the `Users` parameter is optional in this case, provide it to actively notify the listed users"
+        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String`\n\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\n- `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users"
       }
     },
     "DraftNode": {
