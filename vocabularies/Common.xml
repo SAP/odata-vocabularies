@@ -1082,8 +1082,7 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the active document root node and has the following signature:
-
-            - `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten</String>
+- `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten</String>
           </Annotation>
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
@@ -1091,33 +1090,28 @@ The minimum structure is
           <Annotation Term="Core.LongDescription" String="" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root entity set and has the following signature:
+- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
 
-            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
-
-            New drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set.</String>
+New drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set.</String>
           </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
           <Annotation Term="Core.Description" String="Additional actions beside the default POST or standard `NewAction`that create a new draft" />
           <Annotation Term="Core.LongDescription">
             <String>The actions are bound to the draft document root entity set and have the following signature:
-
-            - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created</String>
+- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created</String>
           </Annotation>
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that shares a draft document with other users and restricts access to the listed users in their specified roles" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
+- `Users`: collection of structure with properties
+  - `UserID` of type `String`
 
-            - `Users`: collection of structure with properties
+  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
 
-            &#xA0;&#xA0;&#x25E6; `UserID` of type `String`
-
-            &#xA0;&#xA0;&#x25E6; `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
-
-            - `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts;
-            the `Users` parameter is optional in this case, provide it to actively notify the listed users</String>
+- `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users</String>
           </Annotation>
         </Property>
       </ComplexType>
