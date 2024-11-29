@@ -1,23 +1,23 @@
-name: Node CI
+name: Rebuild JSON and MarkDown files
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Setup pandoc
+        uses: nikeee/setup-pandoc@v1
+        with:
+          pandoc-version: 3.1.12.2
       - name: npm install, build, and test
         run: |
           npm ci
@@ -25,7 +25,7 @@ jobs:
           git config user.name ${GITHUB_ACTOR}
           git config user.email ${PUSHER_EMAIL}
           git add vocabularies/*.md vocabularies/*.json examples/*.json
-          git diff-index --quiet HEAD || git commit -m "auto-refreshed"
+          git diff-index --quiet HEAD vocabularies/*.md vocabularies/*.json examples/*.json || git commit -m "auto-refreshed"
           git push
         env:
           CI: true

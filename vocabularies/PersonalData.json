@@ -34,18 +34,16 @@
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.Description": "Role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "DataSubjectRoleDescription": {
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["EntitySet"],
-      "@Common.Experimental": true,
       "@Core.IsLanguageDependent": true,
       "@Core.Description": "Language-dependent description of the role of the data subjects in this set (e.g. employee, customer)",
-      "@Core.LongDescription": "Values are application-specific.         \n          Can be a static value or a `Path` expression If the role varies per entity"
+      "@Core.LongDescription": "Values are application-specific.\n          Can be a static value or a `Path` expression If the role varies per entity"
     },
     "EntitySemanticsType": {
       "$Kind": "TypeDefinition",
@@ -74,7 +72,7 @@
       "$Type": "PersonalData.FieldSemanticsType",
       "$AppliesTo": ["Property"],
       "@Core.Description": "Primary meaning of the personal data contained in the annotated property",
-      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log.\n\n*TODO: cross-check with Wolfgang Koch: this annotation SHOULD NOT be necessary on fields that are already marked as being contact data (name, phone number, email address, birthday, ...) or address data (street, city, ...)*"
+      "@Core.LongDescription": "Changes to values of annotated properties are tracked in the audit log. Use this annotation also on fields that are already marked as contact or address data."
     },
     "FieldSemanticsType": {
       "$Kind": "TypeDefinition",
@@ -96,8 +94,8 @@
         {
           "@Common.Experimental": true,
           "Value": "PurposeID",
-          "@Core.Description": "The unique identifier for the purpose of a consent",
-          "@Core.LongDescription": "The purpose of a consent is the information that specifies the reason and the goal for\n                the processing of a specific set of personal data. As a rule, the purpose\n                references the relevant legal basis for the processing of personal data."
+          "@Core.Description": "The unique identifier for the purpose of a processing of personal data",
+          "@Core.LongDescription": "Any processing of personal data is based on specified, explicit, and legitimate purposes, and data are not further processed in a manner that is incompatible with those purposes. The purposes are defined by the data controller or joint data controllers.\n                "
         },
         {
           "Value": "ContractRelatedID",
@@ -105,10 +103,12 @@
           "@Core.LongDescription": "Examples:\n\n                - Sales Contract ID\n\n                - Purchase Contract ID\n\n                - Service Contract ID\n                "
         },
         {
-          "@Common.Experimental": true,
           "Value": "LegalEntityID",
           "@Core.Description": "The unique identifier of a legal entity",
-          "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities."
+          "@Core.LongDescription": "A legal entity is a corporation, an association, or any other organization of legal capacity, which has statutory rights and responsibilities.",
+          "@Core.Revisions": [
+            { "Kind": "Deprecated", "Description": "Deprecated in favor of [`DataControllerID`](#DataControllerID)" }
+          ]
         },
         {
           "@Common.Experimental": true,
@@ -118,9 +118,27 @@
         },
         {
           "@Common.Experimental": true,
-          "Value": "EndOfPurposeDate",
-          "@Core.Description": "The end of purpose date of a record",
-          "@Core.LongDescription": "The point in time when the processing of a set of personal data is no longer required for the primary business purpose\n                ([GDPR article 5 (1b)](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN#d1e1807-1-1)),\n                for example, when a contract is fulfilled. After this has been reached, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                Only fields of type `Edm.Date` or `Edm.DateTimeOffset` should be annotated."
+          "Value": "EndOfBusinessDate",
+          "@Core.Description": "Defines the end of active business and the start of residence time and retention period",
+          "@Core.LongDescription": "End of business is the point in time when the processing of a set of personal data is no longer required for the active business,\n                for example, when a contract is fulfilled. After this has been reached and a customer-defined residence period has passed, the data is blocked and can only be accessed\n                by users with special authorizations (for example, tax auditors).\n                All fields of type `Edm.Date` or `Edm.DateTimeOffset` on which the end of business determination depends should be annotated."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "DataControllerID",
+          "@Core.Description": "The unique identifier of a data controller",
+          "@Core.LongDescription": "The unique identifier of a legal entity which alone or jointly with others determines the purposes and means of the processing of personal data. \n                The Data Controller is fully responsible (and accountable) that data protection and privacy principles (such as purpose limitation or data minimization), defined in the European General Data Protection Regulation (GDPR) or any other data protection legislation, are adhered to when processing personal data. The DataControllerID succeeds the LegalEntityID."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "BlockingDate",
+          "@Core.Description": "Defines a date that marks when the provider of the data will block these",
+          "@Core.LongDescription": "Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "EndOfRetentionDate",
+          "@Core.Description": "Defines the date when the provider destroys the data",
+          "@Core.LongDescription": "Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date."
         }
       ]
     },
@@ -130,7 +148,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially personal data",
-      "@Core.LongDescription": "Personal data is information relating to an identified or identifiable natural person (data subject).\n\nNote: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n\nSee also: [What is personal data?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/what-personal-data_en)"
+      "@Core.LongDescription": "Personal data describes any information which is related to an identified or identifiable natural person (data subject). An identifiable person is one who can be identified, directly or indirectly, in particular by a reference to an identifier such as a name, an identification number, location data, an online identifier, or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural, or social identity of that natural person. Note: properties annotated with [`FieldSemantics`](#FieldSemantics) need not be additionally annotated with this term.\n          "
     },
     "IsPotentiallySensitive": {
       "$Kind": "Term",
@@ -138,7 +156,7 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
       "@Core.Description": "Property contains potentially sensitive personal data",
-      "@Core.LongDescription": "Sensitive data is a colloquial term usually including the following data:\n\n-  Special categories of personal data such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data, data concerning health or sex life or sexual orientation\n\n-  Personal data subject to professional secrecy\n\n-  Personal data relating to criminal or administrative offences\n\n-  Personal data concerning bank or credit card accounts\n\nSee also: [What personal data is considered sensitive?](https://ec.europa.eu/info/law/law-topic/data-protection/reform/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en)"
+      "@Core.LongDescription": "Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n                      - Personal data subject to professional secrecy. \n                      - Personal data relating to criminal or administrative offences.\n                      - Personal data concerning insurances and bank or credit card accounts.\n          "
     }
   }
 }

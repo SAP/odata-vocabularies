@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="sortorder.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="WorkerTimeSheet">
+        <Property Name="ClockInDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="ClockOutDateTime" Type="Edm.DateTimeOffset" />
+      </EntityType>
+      <Annotations Target="timezone.sample.WorkerTimeSheet">
+        <Annotation Term="Common.SortOrder" Qualifier="HeroesOfLabor">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Expression">
+                <Sub>
+                  <Path>ClockOutDateTime</Path>
+                  <Path>ClockInDateTime</Path>
+                </Sub>
+              </PropertyValue>
+              <PropertyValue Property="Descending" Bool="true"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

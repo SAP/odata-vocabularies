@@ -89,19 +89,14 @@ combined as one UI app.
           <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for creating new entities in the targeted entity set or collection" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-
 - Binding parameter is collection of type of annotated entity set
-
 - No non-binding parameters
-
 - No return type 
 
 If called within a sticky session the sticky session continues. 
 
 Otherwise:
-
 - On success this action initiates a sticky session.
-
 - On failure no sticky session is initiated.</String>
           </Annotation>
         </Property>
@@ -114,19 +109,14 @@ Otherwise:
           <Annotation Term="Core.Description" String="Bound action that initiates a sticky session for editing the targeted entity" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-
 - Binding parameter is type of annotated entity set
-
 - No non-binding parameters
-
 - Return type is same as binding parameter type 
 
 If called within a sticky session the sticky session continues. 
 
 Otherwise:
-
 - On success this action returns the targeted entity and initiates a sticky session.
-
 - On failure no sticky session is initiated.</String>
           </Annotation>
         </Property>
@@ -134,11 +124,8 @@ Otherwise:
           <Annotation Term="Core.Description" String="Bound action that saves a new or edited entity" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-
 - Binding parameter is type of annotated entity set
-
 - No non-binding parameters
-
 - Return type is same as binding parameter type 
 
 On success this action returns the newly created or edited entity. The sticky session is terminated after all entities that were newly created or edited in it have been saved. 
@@ -150,9 +137,7 @@ On failure the sticky session is kept alive.</String>
           <Annotation Term="Core.Description" String="Action import for an unbound action that discards all changes and terminates the sticky session" />
           <Annotation Term="Core.LongDescription">
             <String>Signature:
-
 - No parameters
-
 - No return type 
 
 If called within a sticky session the sticky session is terminated, irrespective of whether the action succeeds or fails. 

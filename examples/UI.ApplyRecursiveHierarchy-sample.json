@@ -1,0 +1,51 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    }
+  },
+  "Examples": {
+    "container": {
+      "$Kind": "EntityContainer",
+      "HierarchySet": { "$Collection": true, "$Type": "Examples.Hierarchy_Type" }
+    },
+    "Hierarchy_Type": {
+      "$Kind": "EntityType",
+      "$Key": ["ID"],
+      "ID": { "$MaxLength": 10 },
+      "StatusText": { "$Nullable": true, "$MaxLength": 30 },
+      "Node": { "$Type": "Edm.Guid" },
+      "to_Parent": { "$Kind": "NavigationProperty", "$Type": "Hierarchy_Type", "$Nullable": true }
+    },
+    "$Annotations": {
+      "Examples.Hierarchy_Type": {
+        "@Aggregation.RecursiveHierarchy#myHierarchyQualifier": {
+          "Node": "Node",
+          "ParentNavigationProperty": "to_Parent"
+        },
+        "@UI.LineItem#useHierarchy": [
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+            "Value": { "$Path": "ID" }
+          },
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataField",
+            "Value": { "$Path": "StatusText" }
+          }
+        ],
+        "@UI.PresentationVariant": {
+          "Visualizations": ["UI.LineItem#useHierarchy"],
+          "RecursiveHierarchyQualifier": "myHierarchyQualifier"
+        }
+      }
+    }
+  },
+  "$EntityContainer": "Examples.container"
+}

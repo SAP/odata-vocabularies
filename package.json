@@ -13,15 +13,18 @@
   ],
   "dependencies": {
     "colors": "^1.4.0",
-    "odata-csdl": "^0.7.0",
+    "odata-csdl": "^0.9.5",
     "odata-vocabularies": "github:oasis-tcs/odata-vocabularies"
   },
   "devDependencies": {
-    "eslint": "^8.23.0",
-    "prettier": "^2.8.1"
+    "eslint": "^8.56.0",
+    "express": "^4.21.1",
+    "prettier": "^3.2.5"
   },
   "scripts": {
-    "build": "node lib/transform.js"
+    "build": "node lib/transform.js",
+    "pages": "node -e \"require('odata-vocabularies/pages')\" \"OData @ SAP\"",
+    "serve-pages": "node -e \"require('odata-vocabularies/serve-pages')\""
   },
   "author": "",
   "license": ""

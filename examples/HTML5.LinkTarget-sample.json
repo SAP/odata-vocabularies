@@ -1,0 +1,31 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "/sap/opu/odata4/sap/example/srvd/sap/example/0001/$metadata": {
+      "$Include": [{ "$Namespace": "com.sap.gateway.srvd.example.v0001", "$Alias": "service" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/HTML5.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.HTML5.v1", "$Alias": "HTML5" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    }
+  },
+  "HTML5.examples": {
+    "$Annotations": {
+      "service.DemoType": {
+        "@UI.LineItem": [
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithUrl",
+            "Value": { "$Path": "url" },
+            "Url@HTML5.LinkTarget": "_blank",
+            "Url": { "$Path": "url" }
+          }
+        ]
+      }
+    }
+  }
+}
