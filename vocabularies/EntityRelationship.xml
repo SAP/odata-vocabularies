@@ -193,16 +193,16 @@ An Entity Type can have multiple IDs:
 
       <EnumType Name="temporalIntervalTypeEnum">
         <Member Name="CLOSED_CLOSED">
-          <Annotation Term="Core.Description" String="Closed, Closed interval including the start and end property." />
+          <Annotation Term="Core.Description" String="Closed, Closed interval including the start and end value." />
         </Member>
         <Member Name="OPEN_OPEN">
-          <Annotation Term="Core.Description" String="Open, Open interval excluding the start and end property." />
+          <Annotation Term="Core.Description" String="Open, Open interval excluding the start and end value." />
         </Member>
         <Member Name="OPEN_CLOSED">
-          <Annotation Term="Core.Description" String="Open, Closed interval excluding the start and including the end property." />
+          <Annotation Term="Core.Description" String="Open, Closed interval excluding the start and including the end value." />
         </Member>
         <Member Name="CLOSED_OPEN">
-          <Annotation Term="Core.Description" String="Closed, Open interval including the start and excluding the end property." />
+          <Annotation Term="Core.Description" String="Closed, Open interval including the start and excluding the end value." />
         </Member>
       </EnumType>
 
