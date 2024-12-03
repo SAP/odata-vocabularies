@@ -12,6 +12,7 @@ This repository defines the following SAP vocabularies:
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
 - [DataIntegration: Data Integration](vocabularies/DataIntegration.md)
 - [DirectEdit: Terms for Direct-Edit User Interfaces](vocabularies/DirectEdit.md) - _experimental_
+- [EntityRelationship: Terms to document relationships outside of the current API context](vocabularies/EntityRelationship.md) - _experimental_
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
 - [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
