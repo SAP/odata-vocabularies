@@ -27,14 +27,14 @@
       "$Kind": "Term",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "\n            Defines which Entity Type the current JSON Schema object represents. \n            There could be several JSON Schema objects that are assigned to the same Entity Type. \n            One JSON Schema object can only have one Entity Type assigned, which corresponds to the \n            applications own Entity Type definition. The ID scheme for an Entity Type ID is as following: \n            entityTypeId := namespace:entityTypeLocalId[:v\"majorVersion\"]\n          "
+      "@Core.Description": "Defines which [ORD Entity Type](https://sap.github.io/open-resource-discovery/details/articles/grouping-and-bundling#entity-type) the current JSON Schema object represents.\nThere could be several JSON Schema objects that are assigned to the same Entity Type.\nOne JSON Schema object can only have one ORD Entity Type assigned, which corresponds to the\napplications own Entity Type definition. The ID scheme for an Entity Type ID is as following:\n\n`entityTypeId := namespace:entityTypeLocalId[:v\"majorVersion\"]`\n          "
     },
     "propertyType": {
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": true,
-      "@Core.Description": "logical property type of a property",
-      "@Core.LongDescription": "Defines the logical Property Type of a property.\n            The reason is to have an ID to relate to the property type independently of the property name and shared \n            across every usage of the same property across APIs where names might be different. \n            Especially to state that it can be used as an ID or is part of a composite ID.\n        "
+      "@Core.Description": "Logical property type of a property",
+      "@Core.LongDescription": "Defines the logical Property Type of a property.\nThe reason is to have an ID to relate to the property type independently of the property name and shared\nacross every usage of the same property across APIs where names might be different.\n\nEspecially to state that it can be used as an ID or is part of a composite ID.\n\nA Property Type ID follows the same format and considerations as the Entity Type ID explained above:\n            `PropertyTypeId := namespace:propertyTypeLocalId[:v\"majorVersion\"]`\n        "
     },
     "entityIds": {
       "$Kind": "Term",
@@ -43,14 +43,13 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type represents an ODM root entity",
-      "@Core.LongDescription": "\n            Defines a list of IDs, which are available to look up the Entity Type or create a reference to it.\n            An Entity Type can have multiple IDs:\n            * There can be **alternative IDs** that can also be used to create a reference to the Entity Type\n            * Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references\n            * This is indicated by a propertyTypes array with more than one Property Type ID entry.          \n          "
+      "@Core.LongDescription": "\nDefines a list of IDs, which are available to look up the Entity Type or create a reference to it.\nAn Entity Type can have multiple IDs:\n\n* There can be **alternative IDs** that can also be used to create a reference to the Entity Type\n* Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references\n* This is indicated by a propertyTypes array with more than one Property Type ID entry.\n          "
     },
     "reference": {
       "$Kind": "Term",
       "$Type": "EntityRelationship.singleReference",
       "$AppliesTo": ["Property"],
-      "@Core.Description": "      Defines references to other Entity Types based on a single ID.",
-      "@Core.LongDescription": "      Defines references to other Entity Types based on a single ID.\n          "
+      "@Core.Description": "Defines references to other Entity Types based on a single ID."
     },
     "compositeReferences": {
       "$Kind": "Term",
@@ -58,8 +57,7 @@
       "$Type": "EntityRelationship.compositeReference",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": " Defines one or many references to other Entity Types based on a composite IDs.",
-      "@Core.LongDescription": "\n            Defines one or many references to other Entity Types based on a composite IDs.        \n          "
+      "@Core.Description": " Defines one or many references to other Entity Types based on a composite IDs."
     },
     "temporalIds": {
       "$Kind": "Term",
@@ -67,8 +65,7 @@
       "$Type": "EntityRelationship.temporalId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines a list of temporal IDs",
-      "@Core.LongDescription": "\n            Defines a list of temporal IDs       \n          "
+      "@Core.Description": "Defines a list of temporal IDs"
     },
     "temporalReferences": {
       "$Kind": "Term",
@@ -76,8 +73,7 @@
       "$Type": "EntityRelationship.temporalReference",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines a list of temporal references",
-      "@Core.LongDescription": "\n            Defines a list of temporal references    \n          "
+      "@Core.Description": "Defines a list of temporal references"
     },
     "referencesWithConstantIds": {
       "$Kind": "Term",
@@ -85,8 +81,7 @@
       "$Type": "EntityRelationship.referencesWithConstantId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values.",
-      "@Core.LongDescription": "\n            Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values.\n          "
+      "@Core.Description": "Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values."
     },
     "singleReference": {
       "$Kind": "ComplexType",
@@ -96,8 +91,16 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
-      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true }
+      "referencedEntityType": {
+        "$Type": "EntityRelationship.entityTypeID",
+        "@Core.Description": "ID of the referenced entity type",
+        "@Common.Experimental": true
+      },
+      "referencedPropertyType": {
+        "$Type": "EntityRelationship.propertyTypeID",
+        "@Core.Description": "ID of the property type used in the references entity to identify the instance.",
+        "@Common.Experimental": true
+      }
     },
     "entityId": {
       "$Kind": "ComplexType",
@@ -127,19 +130,31 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": {
+        "$Type": "EntityRelationship.entityTypeID",
+        "@Core.Description": "ID of the referenced entity type",
+        "@Common.Experimental": true
+      },
       "referencedPropertyType": {
         "$Collection": true,
         "$Type": "EntityRelationship.referencedPropertyType",
         "@Common.Experimental": true,
-        "@Core.Description": "List of properties, the composite ID consists of."
+        "@Core.Description": "List of property types the composite ID in the references entity consists of."
       }
     },
     "referencedPropertyType": {
       "$Kind": "ComplexType",
       "@Core.Description": "Grouping of the ID in the referenced entity, by its property type ID and the local name in this entity.",
-      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true },
-      "localPropertyName": { "$Type": "Edm.PropertyPath", "@Common.Experimental": true }
+      "referencedPropertyType": {
+        "$Type": "EntityRelationship.propertyTypeID",
+        "@Common.Experimental": true,
+        "@Core.Description": "ID of the property type used in the references entity to identify the instance."
+      },
+      "localPropertyName": {
+        "$Type": "Edm.PropertyPath",
+        "@Common.Experimental": true,
+        "@Core.Description": "Name of the property in the local Entity Type"
+      }
     },
     "temporalId": {
       "$Kind": "ComplexType",
@@ -246,12 +261,12 @@
     "propertyTypeID": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
-      "@Core.Description": "ID of the property type. The reason is to have an ID to relate to the property, especially to state that it can be used as an ID or is part of a composite ID."
+      "@Core.Description": "ID of the property type. The reason is to have an ID to relate to the property, especially to state that it can be used as an ID or is part of a composite ID.\n\nA Property Type ID follows the same format and considerations as the Entity Type ID explained above:\n`PropertyTypeId := namespace:propertyTypeLocalId[:v\"majorVersion\"]`\n          "
     },
     "entityTypeID": {
       "$Kind": "TypeDefinition",
       "$UnderlyingType": "Edm.String",
-      "@Core.Description": "ID of the entity type."
+      "@Core.Description": " ID of the entity type.\nThe ID scheme for an Entity Type ID is as following:\n\n`entityTypeId := namespace:entityTypeLocalId[:v\"majorVersion\"]`\n          "
     }
   }
 }
