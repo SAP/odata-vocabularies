@@ -71,7 +71,7 @@ An Entity Type can have multiple IDs:
 
 * There can be **alternative IDs** that can also be used to create a reference to the Entity Type
 * Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references
-* This is indicated by a propertyTypes array with more than one Property Type ID entry.
+* This is indicated by a `propertyTypes` array with more than one Property Type ID entry.
           </String>
         </Annotation>
       </Term>
@@ -87,12 +87,12 @@ An Entity Type can have multiple IDs:
 
       <Term Name="temporalIds" Type="Collection(EntityRelationship.temporalId)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a list of temporal IDs" />
+        <Annotation Term="Core.Description" String="Defines a list of temporal IDs." />
       </Term>
 
       <Term Name="temporalReferences" Type="Collection(EntityRelationship.temporalReference)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines a list of temporal references" />
+        <Annotation Term="Core.Description" String="Defines a list of temporal references." />
       </Term>
       <Term Name="referencesWithConstantIds" Type="Collection(EntityRelationship.referencesWithConstantId)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
@@ -106,7 +106,7 @@ An Entity Type can have multiple IDs:
           <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
         </Property>
         <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
-          <Annotation Term="Core.Description" String="ID of the referenced entity type" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
           <Annotation Term="Common.Experimental" />
         </Property>
         <Property Name="referencedPropertyType" Type="EntityRelationship.propertyTypeID" Nullable="false">
@@ -138,7 +138,7 @@ An Entity Type can have multiple IDs:
           <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
         </Property>
         <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
-          <Annotation Term="Core.Description" String="ID of the referenced entity type" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
           <Annotation Term="Common.Experimental" />
         </Property>
         <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyType)" Nullable="false">
@@ -155,7 +155,7 @@ An Entity Type can have multiple IDs:
         </Property>
         <Property Name="localPropertyName" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Name of the property in the local Entity Type" />
+          <Annotation Term="Core.Description" String="Name of the property in the local Entity Type." />
         </Property>
       </ComplexType>
 
@@ -179,7 +179,7 @@ An Entity Type can have multiple IDs:
         </Property>
         <Property Name="temporalType" Type="EntityRelationship.temporalTypeEnum" Nullable="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Temporal Type" />
+          <Annotation Term="Core.Description" String="The temporal ID type, of this temporal ID." />
         </Property>
         <Property Name="temporalIntervalStartProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -193,19 +193,25 @@ An Entity Type can have multiple IDs:
 
       <EnumType Name="temporalIntervalTypeEnum">
         <Member Name="CLOSED_CLOSED">
+          <Annotation Term="Core.Description" String="Closed, Closed interval including the start and end property." />
         </Member>
         <Member Name="OPEN_OPEN">
+          <Annotation Term="Core.Description" String="Open, Open interval excluding the start and end property." />
         </Member>
         <Member Name="OPEN_CLOSED">
+          <Annotation Term="Core.Description" String="Open, Closed interval excluding the start and including the end property." />
         </Member>
         <Member Name="CLOSED_OPEN">
+          <Annotation Term="Core.Description" String="Closed, Open interval including the start and excluding the end property." />
         </Member>
       </EnumType>
 
       <EnumType Name="temporalTypeEnum">
         <Member Name="DATE">
+          <Annotation Term="Core.Description" String="Date based interval." />
         </Member>
         <Member Name="DATETIME">
+          <Annotation Term="Core.Description" String="Date and Time based interval." />
         </Member>
       </EnumType>
 
@@ -217,6 +223,7 @@ An Entity Type can have multiple IDs:
         </Property>
         <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
         </Property>
         <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -234,6 +241,7 @@ An Entity Type can have multiple IDs:
 
       <EnumType Name="temporalCategoryEnum">
         <Member Name="TEMPORAL_DATE">
+          <Annotation Term="Core.Description" String="Date based temporal reference." />
         </Member>
       </EnumType>
 
@@ -245,6 +253,7 @@ An Entity Type can have multiple IDs:
         </Property>
         <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
         </Property>
         <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyTypeWithConstantId)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -256,9 +265,11 @@ An Entity Type can have multiple IDs:
         <Annotation Term="Core.Description" String="Grouping  of the ID in the referenced entity, by its property type ID and either the local name in this entity or a constant value." />
         <Property Name="referencedPropertyType" Type="EntityRelationship.propertyTypeID" Nullable="false">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the property type used in the references entity to identify the instance." />
         </Property>
         <Property Name="localPropertyName" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Name of the property in the local Entity Type." />
         </Property>
         <Property Name="constantValue" Type="Edm.String" Nullable="true">
           <Annotation Term="Common.Experimental" />

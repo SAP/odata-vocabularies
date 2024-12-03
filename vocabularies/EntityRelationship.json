@@ -43,7 +43,7 @@
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "The annotated entity type represents an ODM root entity",
-      "@Core.LongDescription": "\nDefines a list of IDs, which are available to look up the Entity Type or create a reference to it.\nAn Entity Type can have multiple IDs:\n\n* There can be **alternative IDs** that can also be used to create a reference to the Entity Type\n* Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references\n* This is indicated by a propertyTypes array with more than one Property Type ID entry.\n          "
+      "@Core.LongDescription": "\nDefines a list of IDs, which are available to look up the Entity Type or create a reference to it.\nAn Entity Type can have multiple IDs:\n\n* There can be **alternative IDs** that can also be used to create a reference to the Entity Type\n* Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references\n* This is indicated by a `propertyTypes` array with more than one Property Type ID entry.\n          "
     },
     "reference": {
       "$Kind": "Term",
@@ -65,7 +65,7 @@
       "$Type": "EntityRelationship.temporalId",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines a list of temporal IDs"
+      "@Core.Description": "Defines a list of temporal IDs."
     },
     "temporalReferences": {
       "$Kind": "Term",
@@ -73,7 +73,7 @@
       "$Type": "EntityRelationship.temporalReference",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines a list of temporal references"
+      "@Core.Description": "Defines a list of temporal references."
     },
     "referencesWithConstantIds": {
       "$Kind": "Term",
@@ -93,7 +93,7 @@
       },
       "referencedEntityType": {
         "$Type": "EntityRelationship.entityTypeID",
-        "@Core.Description": "ID of the referenced entity type",
+        "@Core.Description": "ID of the referenced entity type.",
         "@Common.Experimental": true
       },
       "referencedPropertyType": {
@@ -132,7 +132,7 @@
       },
       "referencedEntityType": {
         "$Type": "EntityRelationship.entityTypeID",
-        "@Core.Description": "ID of the referenced entity type",
+        "@Core.Description": "ID of the referenced entity type.",
         "@Common.Experimental": true
       },
       "referencedPropertyType": {
@@ -153,7 +153,7 @@
       "localPropertyName": {
         "$Type": "Edm.PropertyPath",
         "@Common.Experimental": true,
-        "@Core.Description": "Name of the property in the local Entity Type"
+        "@Core.Description": "Name of the property in the local Entity Type."
       }
     },
     "temporalId": {
@@ -183,7 +183,7 @@
       "temporalType": {
         "$Type": "EntityRelationship.temporalTypeEnum",
         "@Common.Experimental": true,
-        "@Core.Description": "Temporal Type"
+        "@Core.Description": "The temporal ID type, of this temporal ID."
       },
       "temporalIntervalStartProperty": {
         "$Type": "Edm.PropertyPath",
@@ -199,11 +199,21 @@
     "temporalIntervalTypeEnum": {
       "$Kind": "EnumType",
       "CLOSED_CLOSED": 0,
+      "CLOSED_CLOSED@Core.Description": "Closed, Closed interval including the start and end property.",
       "OPEN_OPEN": 1,
+      "OPEN_OPEN@Core.Description": "Open, Open interval excluding the start and end property.",
       "OPEN_CLOSED": 2,
-      "CLOSED_OPEN": 3
+      "OPEN_CLOSED@Core.Description": "Open, Closed interval excluding the start and including the end property.",
+      "CLOSED_OPEN": 3,
+      "CLOSED_OPEN@Core.Description": "Closed, Open interval including the start and excluding the end property."
     },
-    "temporalTypeEnum": { "$Kind": "EnumType", "DATE": 0, "DATETIME": 1 },
+    "temporalTypeEnum": {
+      "$Kind": "EnumType",
+      "DATE": 0,
+      "DATE@Core.Description": "Date based interval.",
+      "DATETIME": 1,
+      "DATETIME@Core.Description": "Date and Time based interval."
+    },
     "temporalReference": {
       "$Kind": "ComplexType",
       "@Core.Description": "Defines single temporal reference to another Entity Type.",
@@ -212,7 +222,11 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": {
+        "$Type": "EntityRelationship.entityTypeID",
+        "@Common.Experimental": true,
+        "@Core.Description": "ID of the referenced entity type."
+      },
       "referencedPropertyType": {
         "$Collection": true,
         "$Type": "EntityRelationship.referencedPropertyType",
@@ -230,7 +244,11 @@
         "@Core.Description": "Property in the local entity that is used to select the right date interval."
       }
     },
-    "temporalCategoryEnum": { "$Kind": "EnumType", "TEMPORAL_DATE": 0 },
+    "temporalCategoryEnum": {
+      "$Kind": "EnumType",
+      "TEMPORAL_DATE": 0,
+      "TEMPORAL_DATE@Core.Description": "Date based temporal reference."
+    },
     "referenceWithConstantId": {
       "$Kind": "ComplexType",
       "@Core.Description": "Defines single a reference to another Entity Type based on a composite ID.",
@@ -239,7 +257,11 @@
         "@Common.Experimental": true,
         "@Core.Description": "Optional name to describe the semantics of the reference."
       },
-      "referencedEntityType": { "$Type": "EntityRelationship.entityTypeID", "@Common.Experimental": true },
+      "referencedEntityType": {
+        "$Type": "EntityRelationship.entityTypeID",
+        "@Common.Experimental": true,
+        "@Core.Description": "ID of the referenced entity type."
+      },
       "referencedPropertyType": {
         "$Collection": true,
         "$Type": "EntityRelationship.referencedPropertyTypeWithConstantId",
@@ -250,8 +272,17 @@
     "referencedPropertyTypeWithConstantId": {
       "$Kind": "ComplexType",
       "@Core.Description": "Grouping  of the ID in the referenced entity, by its property type ID and either the local name in this entity or a constant value.",
-      "referencedPropertyType": { "$Type": "EntityRelationship.propertyTypeID", "@Common.Experimental": true },
-      "localPropertyName": { "$Type": "Edm.PropertyPath", "$Nullable": true, "@Common.Experimental": true },
+      "referencedPropertyType": {
+        "$Type": "EntityRelationship.propertyTypeID",
+        "@Common.Experimental": true,
+        "@Core.Description": "ID of the property type used in the references entity to identify the instance."
+      },
+      "localPropertyName": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Name of the property in the local Entity Type."
+      },
       "constantValue": {
         "$Nullable": true,
         "@Common.Experimental": true,
