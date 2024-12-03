@@ -199,13 +199,13 @@
     "temporalIntervalTypeEnum": {
       "$Kind": "EnumType",
       "CLOSED_CLOSED": 0,
-      "CLOSED_CLOSED@Core.Description": "Closed, Closed interval including the start and end property.",
+      "CLOSED_CLOSED@Core.Description": "Closed, Closed interval including the start and end value.",
       "OPEN_OPEN": 1,
-      "OPEN_OPEN@Core.Description": "Open, Open interval excluding the start and end property.",
+      "OPEN_OPEN@Core.Description": "Open, Open interval excluding the start and end value.",
       "OPEN_CLOSED": 2,
-      "OPEN_CLOSED@Core.Description": "Open, Closed interval excluding the start and including the end property.",
+      "OPEN_CLOSED@Core.Description": "Open, Closed interval excluding the start and including the end value.",
       "CLOSED_OPEN": 3,
-      "CLOSED_OPEN@Core.Description": "Closed, Open interval including the start and excluding the end property."
+      "CLOSED_OPEN@Core.Description": "Closed, Open interval including the start and excluding the end value."
     },
     "temporalTypeEnum": {
       "$Kind": "EnumType",

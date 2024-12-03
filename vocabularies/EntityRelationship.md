@@ -76,10 +76,10 @@ Property|Type|Description
 
 Member|Value|Description
 :-----|----:|:----------
-[CLOSED_CLOSED](EntityRelationship.xml#L195)|0|Closed, Closed interval including the start and end property.
-[OPEN_OPEN](EntityRelationship.xml#L198)|1|Open, Open interval excluding the start and end property.
-[OPEN_CLOSED](EntityRelationship.xml#L201)|2|Open, Closed interval excluding the start and including the end property.
-[CLOSED_OPEN](EntityRelationship.xml#L204)|3|Closed, Open interval including the start and excluding the end property.
+[CLOSED_CLOSED](EntityRelationship.xml#L195)|0|Closed, Closed interval including the start and end value.
+[OPEN_OPEN](EntityRelationship.xml#L198)|1|Open, Open interval excluding the start and end value.
+[OPEN_CLOSED](EntityRelationship.xml#L201)|2|Open, Closed interval excluding the start and including the end value.
+[CLOSED_OPEN](EntityRelationship.xml#L204)|3|Closed, Open interval including the start and excluding the end value.
 
 <a name="temporalTypeEnum"></a>
 ## [temporalTypeEnum](EntityRelationship.xml#L209)
