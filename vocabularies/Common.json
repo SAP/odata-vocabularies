@@ -1020,6 +1020,12 @@
       "$Kind": "Term",
       "$Type": "Common.DraftNodeType",
       "$AppliesTo": ["EntitySet"],
+      "@Core.Revisions": [
+        {
+          "Kind": "Deprecated",
+          "Description": "Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)"
+        }
+      ],
       "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
     },
     "DraftNodeType": {

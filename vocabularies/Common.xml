@@ -1117,10 +1117,19 @@ New drafts may also be created by POSTing an entity with property IsActiveEntity
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
+
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
