@@ -994,6 +994,7 @@ The trend is
       </Term>
 
       <Term Name="OperationParameterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group action or function parameters" />
       </Term>
 
