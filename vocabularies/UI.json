@@ -889,6 +889,7 @@
       "$Collection": true,
       "$Type": "UI.ReferenceFacet",
       "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
       "@Core.Description": "Facets that reference UI.FieldGroup annotations to group action or function parameters"
     },
     "Facet": {
