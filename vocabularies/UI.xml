@@ -154,7 +154,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
-      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function FunctionImport">
+      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Group of fields with an optional label" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
