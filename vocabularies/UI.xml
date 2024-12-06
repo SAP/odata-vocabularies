@@ -993,6 +993,10 @@ The trend is
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
       </Term>
 
+      <Term Name="OperationParameterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group action or function parameters" />
+      </Term>
+
       <ComplexType Name="Facet" Abstract="true">
         <Annotation Term="Core.Description" String="Abstract base type for facets" />
         <Annotation Term="Validation.ApplicableTerms">
