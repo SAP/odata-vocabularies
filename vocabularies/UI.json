@@ -134,7 +134,7 @@
     "FieldGroup": {
       "$Kind": "Term",
       "$Type": "UI.FieldGroupType",
-      "$AppliesTo": ["EntityType", "Action", "Function", "FunctionImport"],
+      "$AppliesTo": ["EntityType", "Action", "Function", "ActionImport", "FunctionImport"],
       "@Core.Description": "Group of fields with an optional label",
       "@UI.ThingPerspective": true
     },
