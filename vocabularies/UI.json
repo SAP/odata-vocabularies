@@ -134,7 +134,7 @@
     "FieldGroup": {
       "$Kind": "Term",
       "$Type": "UI.FieldGroupType",
-      "$AppliesTo": ["EntityType", "Action", "Function", "FunctionImport"],
+      "$AppliesTo": ["EntityType", "Action", "Function", "ActionImport", "FunctionImport"],
       "@Core.Description": "Group of fields with an optional label",
       "@UI.ThingPerspective": true
     },
@@ -883,6 +883,14 @@
       "$Type": "UI.ReferenceFacet",
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "Facets that reference UI.FieldGroup annotations to group filterable fields"
+    },
+    "OperationParameterFacets": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "UI.ReferenceFacet",
+      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Facets that reference UI.FieldGroup annotations to group action or function parameters"
     },
     "Facet": {
       "$Kind": "ComplexType",

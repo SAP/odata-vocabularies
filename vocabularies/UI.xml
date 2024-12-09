@@ -154,7 +154,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
-      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function FunctionImport">
+      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Group of fields with an optional label" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
@@ -991,6 +991,11 @@ The trend is
 
       <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
+      </Term>
+
+      <Term Name="OperationParameterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group action or function parameters" />
       </Term>
 
       <ComplexType Name="Facet" Abstract="true">
