@@ -1337,6 +1337,14 @@
       "@Common.Experimental": true,
       "@Core.IsURL": true,
       "@Core.Description": "Base URL for WebSocket connections"
+    },
+    "StrictnessConstraint": {
+      "$Kind": "Term",
+      "$Type": "Validation.ConstraintType",
+      "$AppliesTo": ["Property", "NavigationProperty", "Parameter", "EntityType", "ComplexType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Constraint on the payload of a request with `Prefer: handling=strict` header",
+      "@Core.LongDescription": "In the absence of the `handling=strict` preference, the unmet constraint leads to a warning message but does\n          not prevent successful execution of the request."
     }
   }
 }
