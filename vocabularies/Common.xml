@@ -1511,7 +1511,7 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Channel for WebSocket connections" />
         <Annotation Term="Core.LongDescription">
-          <String>Messages sent over the channel follow the ABAP Push Channel protocol.
+          <String>Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).
 To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
 followed by URL parameters
 - parameter name = annotation qualifier, parameter value = channel ID (see below)
