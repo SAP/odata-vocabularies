@@ -391,7 +391,12 @@
       "@Common.Experimental": true,
       "Analysis": { "$Nullable": true, "@Core.Description": "Short hint on how to analyze this error" },
       "Note": { "$Nullable": true, "@Core.Description": "Note for error resolution" },
-      "AdditionalNote": { "$Nullable": true, "@Core.Description": "Additional note for error resolution" }
+      "AdditionalNote": { "$Nullable": true, "@Core.Description": "Additional note for error resolution" },
+      "ErrorLogUrl": {
+        "$Nullable": true,
+        "@Core.IsURL": true,
+        "@Core.Description": "URL of this error in the error log"
+      }
     },
     "Messages": {
       "$Kind": "Term",
