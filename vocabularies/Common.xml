@@ -500,6 +500,10 @@ Example for dynamic use: in a travel expense report the property `DestinationCou
         <Property Name="AdditionalNote" Type="Edm.String">
           <Annotation Term="Core.Description" String="Additional note for error resolution" />
         </Property>
+        <Property Name="ErrorLogUrl" Type="Edm.String">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL of this error in the error log" />
+        </Property>
       </ComplexType>
 
       <Term Name="Messages" Type="Collection(Edm.ComplexType)" Nullable="false">
