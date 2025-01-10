@@ -62,7 +62,7 @@ Parameter|Type|Description
 [SiblingOrder](Analytics.xml#L234)|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
 *[ShowLevels](Analytics.xml#L237)*|Int64|*Optional parameter:* Number of levels to be shown in the initial expansion (absent means all levels)
 *[ExpandEntries](Analytics.xml#L243)*|\[[AutoExpandEntry](#AutoExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
-*[SubtotalsAtBottom](Analytics.xml#L249)*|Bool|*Optional parameter:* Whether to have expanded subtotal rows duplicated: before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
+*[SubtotalsAtBottom](Analytics.xml#L249)*|Bool|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
 [&rarr;](Analytics.xml#L261)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
