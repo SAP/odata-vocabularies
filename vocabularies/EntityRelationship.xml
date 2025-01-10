@@ -94,7 +94,7 @@ An Entity Type can have multiple IDs:
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Defines a list of temporal references." />
       </Term>
-      <Term Name="referencesWithConstantIds" Type="Collection(EntityRelationship.referencesWithConstantId)" Nullable="false" AppliesTo="EntityType">
+      <Term Name="referencesWithConstantIds" Type="Collection(EntityRelationship.referenceWithConstantId)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values." />
       </Term>
