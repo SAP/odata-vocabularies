@@ -134,7 +134,7 @@
     "FieldGroup": {
       "$Kind": "Term",
       "$Type": "UI.FieldGroupType",
-      "$AppliesTo": ["EntityType", "Action", "Function", "FunctionImport"],
+      "$AppliesTo": ["EntityType", "Action", "Function", "ActionImport", "FunctionImport"],
       "@Core.Description": "Group of fields with an optional label",
       "@UI.ThingPerspective": true
     },
@@ -648,8 +648,9 @@
       },
       "Actions": {
         "$Collection": true,
-        "$Type": "UI.DataFieldForActionAbstract",
-        "@Core.Description": "Available actions"
+        "$Type": "UI.DataFieldAbstract",
+        "@Core.Description": "Available actions and action groups",
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
       }
     },
     "ChartType": {
@@ -829,7 +830,7 @@
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "UI.CriticalityLabelType",
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "\n              Assign labels to criticalities. This information can be used for semantic coloring.\n              When applied to a property, a label for a criticality must be provided, if more than one value of the annotated property has been assigned to the same criticality.\n              There must be no more than one label per criticality.\n          "
     },
@@ -882,6 +883,14 @@
       "$Type": "UI.ReferenceFacet",
       "$AppliesTo": ["EntityType"],
       "@Core.Description": "Facets that reference UI.FieldGroup annotations to group filterable fields"
+    },
+    "OperationParameterFacets": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "UI.ReferenceFacet",
+      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Facets that reference UI.FieldGroup annotations to group action or function parameters"
     },
     "Facet": {
       "$Kind": "ComplexType",
@@ -1226,7 +1235,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "Term"],
+      "$AppliesTo": ["Property", "Term", "TypeDefinition"],
       "@Core.Description": "Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image",
       "@Core.RequiresType": "Edm.String",
       "@Validation.ApplicableTerms": ["Common.IsNaturalPerson"]
@@ -1235,7 +1244,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "EntityType"],
+      "$AppliesTo": ["Property", "EntityType", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image.",
       "@Core.RequiresType": "Edm.Stream",
@@ -1245,7 +1254,7 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "PropertyValue", "Parameter"],
+      "$AppliesTo": ["Property", "PropertyValue", "Parameter", "TypeDefinition"],
       "@Core.Description": "Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)",
       "@Core.RequiresType": "Edm.String"
     },
@@ -1305,6 +1314,20 @@
       "TextSeparate@Core.Description": "Code/ID and text are represented separately (code/ID will be shown and text can be visualized in a separate place)",
       "TextOnly": 3,
       "TextOnly@Core.Description": "Only text is represented, code/ID is hidden (e.g. for UUIDs)"
+    },
+    "DateTimeStyle": {
+      "$Kind": "Term",
+      "$Nullable": true,
+      "$AppliesTo": ["Property", "Parameter"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style",
+      "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or null or an empty string, temporal values are shown in a default style.",
+      "@Validation.AllowedValues": [
+        { "Value": "short", "@Core.Description": "7/25/24, 1:11 PM" },
+        { "Value": "medium", "@Core.Description": "Jul 25, 2024, 1:11:51 PM" },
+        { "Value": "long", "@Core.Description": "July 25, 2024 at 1:11:51 PM GMT+2" },
+        { "Value": "full", "@Core.Description": "Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" }
+      ]
     },
     "Note": {
       "$Kind": "Term",
@@ -1376,6 +1399,15 @@
       "@Core.RequiresType": "UI.DataFieldForAction",
       "@Core.Description": "The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type",
       "@Core.LongDescription": "The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance.\nUpon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity,\nand the response MUST be either `201 Created` and a representation of the created entity,\nor `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`."
+    },
+    "IsAIOperation": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated operation is powered by AI",
+      "@Core.LongDescription": "This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data."
     },
     "CreateHidden": {
       "$Kind": "Term",
@@ -1548,6 +1580,11 @@
       "$BaseType": "UI.DataFieldAbstract",
       "@Common.Experimental": true,
       "@Core.Description": "Collection of OData actions and intent based navigations",
+      "ID": {
+        "$Nullable": true,
+        "@Core.Description": "Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged.",
+        "@Core.LongDescription": "The ID should be unique among all action groups used in all data fields of one entity type / set."
+      },
       "Actions": {
         "$Collection": true,
         "$Type": "UI.DataFieldForActionAbstract",
@@ -1708,7 +1745,7 @@
     "RecommendationList": {
       "$Kind": "Term",
       "$Type": "UI.RecommendationListType",
-      "$AppliesTo": ["Property", "Parameter"],
+      "$AppliesTo": ["Property", "Parameter", "TypeDefinition"],
       "@Core.Description": "Specifies how to get a list of recommended values for a property or parameter",
       "@Core.LongDescription": "Intelligent systems can help users by recommending input the user may \"prefer\"."
     },
@@ -1782,7 +1819,7 @@
     "DoNotCheckScaleOfMeasuredQuantity": {
       "$Kind": "Term",
       "$Type": "Edm.Boolean",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "TypeDefinition"],
       "@Common.Experimental": true,
       "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
       "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
