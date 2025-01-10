@@ -17,7 +17,7 @@ Term|Type|Description
 [AggregatedProperties](Analytics.xml#L106) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](Analytics.xml#L124)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L144)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[LevelInformation](Analytics.xml#L288) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation
+[LevelInformation](Analytics.xml#L300) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation
 
 
 ## Functions
@@ -62,7 +62,8 @@ Parameter|Type|Description
 [SiblingOrder](Analytics.xml#L234)|\[[AutoExpandSiblingOrder](#AutoExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy
 *[ShowLevels](Analytics.xml#L237)*|Int64|*Optional parameter:* Number of levels to be shown in the initial expansion (absent means all levels)
 *[ExpandEntries](Analytics.xml#L243)*|\[[AutoExpandEntry](#AutoExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
-[&rarr;](Analytics.xml#L249)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
+*[SubtotalsAtBottom](Analytics.xml#L249)*|Bool|*Optional parameter:* Whether to have expanded subtotal rows duplicated: before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
+[&rarr;](Analytics.xml#L261)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
 <a name="AggregatedPropertyType"></a>
@@ -92,7 +93,7 @@ Property|Type|Description
 [AccumulativeMeasure](Analytics.xml#L168)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
 <a name="AutoExpandLevel"></a>
-## [AutoExpandLevel](Analytics.xml#L253) *([Experimental](Common.md#Experimental))*
+## [AutoExpandLevel](Analytics.xml#L265) *([Experimental](Common.md#Experimental))*
 Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)
 
 Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#AutoExpandEntry),
@@ -100,23 +101,23 @@ Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#A
 
 Property|Type|Description
 :-------|:---|:----------
-[D](Analytics.xml#L260)|\[String\]|A non-empty set of property names that define a combination of dimension values
-[A](Analytics.xml#L263)|\[String\]|A possibly empty set of names of additional properties of the dimensions that occur in `D`
+[D](Analytics.xml#L272)|\[String\]|A non-empty set of property names that define a combination of dimension values
+[A](Analytics.xml#L275)|\[String\]|A possibly empty set of names of additional properties of the dimensions that occur in `D`
 
 <a name="AutoExpandSiblingOrder"></a>
-## [AutoExpandSiblingOrder](Analytics.xml#L267) *([Experimental](Common.md#Experimental))*
+## [AutoExpandSiblingOrder](Analytics.xml#L279) *([Experimental](Common.md#Experimental))*
 Sibling order in an [unnamed leveled hierarchy](#AutoExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Analytics.xml#L270)|String|Property by which to sort
-[Descending](Analytics.xml#L273)|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](Analytics.xml#L282)|String|Property by which to sort
+[Descending](Analytics.xml#L285)|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="AutoExpandEntry"></a>
-## [AutoExpandEntry](Analytics.xml#L277) *([Experimental](Common.md#Experimental))*
+## [AutoExpandEntry](Analytics.xml#L289) *([Experimental](Common.md#Experimental))*
 Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](Analytics.xml#L280)|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one
-[Levels](Analytics.xml#L283)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[Entry](Analytics.xml#L292)|\[String\]|An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one
+[Levels](Analytics.xml#L295)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed

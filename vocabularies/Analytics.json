@@ -211,6 +211,13 @@
             "$Type": "Analytics.AutoExpandEntry",
             "@Core.Description": "Entries with exceptional expansion",
             "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "SubtotalsAtBottom",
+            "$Type": "Edm.Bool",
+            "@Core.Description": "Whether to have expanded subtotal rows duplicated: before and after their descendants",
+            "@Core.LongDescription": "The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`,\n            the entry after has DrillState `subtotal`.",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
           }
         ],
         "$ReturnType": {

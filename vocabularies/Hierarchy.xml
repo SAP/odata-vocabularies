@@ -67,6 +67,10 @@
                 <Annotation Term="Core.Description" String="The entry precedes entries from finer-grained aggregation levels" />
               </Record>
               <Record>
+                <PropertyValue Property="Value" String="subtotal" />
+                <Annotation Term="Core.Description" String="The entry follows entries from finer-grained aggregation levels and contains subtotals" />
+              </Record>
+              <Record>
                 <PropertyValue Property="Value" String="leaf" />
                 <Annotation Term="Core.Description" String="The entry belongs to the finest-grained aggregation level" />
               </Record>

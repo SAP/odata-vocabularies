@@ -246,6 +246,18 @@ $apply=filter(Industry in ('IT','AI'))
             <Record/>
           </Annotation>
         </Parameter>
+        <Parameter Name="SubtotalsAtBottom" Type="Edm.Bool" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether to have expanded subtotal rows duplicated: before and after their descendants" />
+          <Annotation Term="Core.LongDescription">
+            <String>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`,
+            the entry after has DrillState `subtotal`.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Output set including the instance annotation [`LevelInformation`](#LevelInformation)" />
         </ReturnType>
