@@ -154,7 +154,7 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
-      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function FunctionImport">
+      <Term Name="FieldGroup" Type="UI.FieldGroupType" Nullable="false" AppliesTo="EntityType Action Function ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Group of fields with an optional label" />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
@@ -751,8 +751,14 @@ The trend is
             <String>Describes Attributes for Dimensions. All Dimensions used in this collection must also be part of the Dimensions Property.</String>
           </Annotation>
         </Property>
-        <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
-          <Annotation Term="Core.Description" String="Available actions" />
+        <Property Name="Actions" Type="Collection(UI.DataFieldAbstract)" Nullable="false">
+          <Annotation Term="Core.Description" String="Available actions and action groups" />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldForActionAbstract</String>
+              <String>UI.DataFieldForActionGroup</String>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 
@@ -939,7 +945,7 @@ The trend is
         <Property Name="Criticality" Type="UI.CriticalityType" />
       </ComplexType>
 
-      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property EntityType">
+      <Term Name="CriticalityLabels" Type="Collection(UI.CriticalityLabelType)" Nullable="false" AppliesTo="Property EntityType TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
           <String>
@@ -985,6 +991,11 @@ The trend is
 
       <Term Name="FilterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group filterable fields" />
+      </Term>
+
+      <Term Name="OperationParameterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="Action Function ActionImport FunctionImport">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group action or function parameters" />
       </Term>
 
       <ComplexType Name="Facet" Abstract="true">
@@ -1373,7 +1384,7 @@ The trend is
         <Annotation Term="Core.RequiresType" String="UI.ReferenceFacet" />
       </Term>
 
-      <Term Name="IsImageURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
+      <Term Name="IsImageURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term TypeDefinition">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid URL referencing an resource with a MIME type image" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
         <Annotation Term="Validation.ApplicableTerms">
@@ -1383,7 +1394,7 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
+      <Term Name="IsImage" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Properties annotated with this term MUST be a stream property annotated with a MIME type image. Entity types annotated with this term MUST be a media entity type annotated with a MIME type image." />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
@@ -1394,7 +1405,7 @@ The trend is
         </Annotation>
       </Term>
 
-      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter">
+      <Term Name="MultiLineText" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property PropertyValue Parameter TypeDefinition">
         <Annotation Term="Core.Description" String="Properties and parameters annotated with this annotation should be rendered as multi-line text (e.g. text area)" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
@@ -1460,6 +1471,35 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           <Annotation Term="Core.Description" String="Only text is represented, code/ID is hidden (e.g. for UUIDs)" />
         </Member>
       </EnumType>
+
+      <Term Name="DateTimeStyle" Type="Edm.String" Nullable="true" AppliesTo="Property Parameter">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style" />
+        <Annotation Term="Core.LongDescription">
+          <String>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.
+          If this annotation is absent or null or an empty string, temporal values are shown in a default style.</String>
+        </Annotation>
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="short" />
+              <Annotation Term="Core.Description" String="7/25/24, 1:11 PM" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="medium" />
+              <Annotation Term="Core.Description" String="Jul 25, 2024, 1:11:51 PM" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="long" />
+              <Annotation Term="Core.Description" String="July 25, 2024 at 1:11:51 PM GMT+2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="full" />
+              <Annotation Term="Core.Description" String="Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Term>
 
       <Term Name="Note" Type="UI.NoteType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
@@ -1536,7 +1576,7 @@ So, masks can be especially useful for input fields that have a fixed pattern, e
           The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.</String>
         </Annotation>
       </Term>
- 
+
       <Term Name="IsCopyAction" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Record">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.RequiresType" String="UI.DataFieldForAction" />
@@ -1710,6 +1750,12 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
       <ComplexType Name="DataFieldForActionGroup" BaseType="UI.DataFieldAbstract">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Collection of OData actions and intent based navigations" />
+        <Property Name="ID" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Identifier of an action group. ID should be stable, as long as the perceived semantics of the action group is unchanged." />
+          <Annotation Term="Core.LongDescription">
+            <String>The ID should be unique among all action groups used in all data fields of one entity type / set.</String>
+          </Annotation>
+        </Property>
         <Property Name="Actions" Type="Collection(UI.DataFieldForActionAbstract)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of data fields that refer to actions or intent based navigations" />
         </Property>
@@ -1868,7 +1914,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="RecommendationList" Type="UI.RecommendationListType" Nullable="false" AppliesTo="Property Parameter">
+      <Term Name="RecommendationList" Type="UI.RecommendationListType" Nullable="false" AppliesTo="Property Parameter TypeDefinition">
         <Annotation Term="Core.Description" String="Specifies how to get a list of recommended values for a property or parameter" />
         <Annotation Term="Core.LongDescription">
           <String>Intelligent systems can help users by recommending input the user may "prefer".</String>
@@ -1903,7 +1949,7 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       <Term Name="Recommendations" Type="Edm.ComplexType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Recommendations for an entity" />
-          <Annotation Term="Core.LongDescription">
+        <Annotation Term="Core.LongDescription">
           <String>This complex-typed annotation contains structural properties corresponding via name equality
 to non-key structural primitive properties of the entity type for which recommendations are available.
 The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).
@@ -1911,7 +1957,7 @@ The type of such a property is a collection of a informal specialization of [`Pr
 
 Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.
 The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).</String>
-          </Annotation>
+        </Annotation>
       </Term>
       <ComplexType Name="PropertyRecommendationType" Abstract="true">
         <Annotation Term="Common.Experimental" />
@@ -1950,7 +1996,7 @@ The recommendations MAY be computed asynchronously, see [this diagram](../docs/r
         <Annotation Term="Core.Description" String="The contents of this property must not be propagated to the app-to-app navigation context" />
       </Term>
 
-      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property">
+      <Term Name="DoNotCheckScaleOfMeasuredQuantity" Type="Edm.Boolean" Nullable="false" AppliesTo="Property TypeDefinition">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Do not check the number of fractional digits of the annotated measured quantity" />
         <Annotation Term="Core.LongDescription">

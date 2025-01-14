@@ -98,6 +98,13 @@
         "$DefaultValue": false,
         "@Core.Description": "Setting the text direction-layout is supported",
         "@Core.LongDescription": "PDF supports setting the text direction-layout (e.g. left-to-right or right-to-left) in the document description"
+      },
+      "UploadToFileShare": {
+        "$Type": "Edm.Boolean",
+        "$DefaultValue": false,
+        "@Common.Experimental": true,
+        "@Core.Description": "Support of PDF document upload",
+        "@Core.LongDescription": "A file share connection needs to be configured on the server. \nThe response of a corresponding request is then `301 Moved Permanently` with a `Location` header containing the link to the document on the file share server."
       }
     }
   }
