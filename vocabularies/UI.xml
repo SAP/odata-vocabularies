@@ -1964,7 +1964,7 @@ This switches off the validation of user input with respect to decimals.</String
         <Annotation Term="Core.Description">
           <String>When the annotated navigation property or its `odata.navigationLink` occurs in a response,
           the UI shall use the addressed entity or collection to interact with the user
-          and then repeat the corresponding request with the additional information obtained from the user</String>
+          and optionally repeat the corresponding request with the additional information obtained from the user</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
           <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),
@@ -2016,17 +2016,24 @@ This switches off the validation of user input with respect to decimals.</String
           </Annotation>
         </Property>
       </ComplexType>
-      <ComplexType Name="UserInteractionChooseSingle" BaseType="UI.UserInteractionType">
+      <ComplexType Name="UserInteractionMandatory" BaseType="UI.UserInteractionType" Abstract="true">
+        <Annotation Term="Core.Description" String="The user interaction is mandatory for the corresponding request to be executed" />
+        <Annotation Term="Core.LongDescription">
+          <String>After the user action, the request is repeated with the additional information obtained from the user.
+          If the user action is aborted, the request has had no effect.</String>
+        </Annotation>
+      </ComplexType>
+      <ComplexType Name="UserInteractionChooseSingle" BaseType="UI.UserInteractionMandatory">
         <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and its properties shall be inserted into the repeated request"/>
       </ComplexType>
-      <ComplexType Name="UserInteractionChooseMultiple" BaseType="UI.UserInteractionType">
+      <ComplexType Name="UserInteractionChooseMultiple" BaseType="UI.UserInteractionMandatory">
         <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request"/>
         <Annotation Term="Core.LongDescription">
           <String>The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
           that contains one instance per chosen entry.</String>
         </Annotation>
       </ComplexType>
-      <ComplexType Name="UserInteractionResolveConflict" BaseType="UI.UserInteractionChooseMultiple">
+      <ComplexType Name="UserInteractionResolveConflict" BaseType="UI.UserInteractionMandatory">
         <Annotation Term="Core.Description" String="The user shall resolve a conflict between the entries in the collection and the entire collection shall be inserted into the repeated request"/>
       </ComplexType>
       <ComplexType Name="UserInteractionConfirm" BaseType="UI.UserInteractionType">
