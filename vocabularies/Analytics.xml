@@ -179,7 +179,7 @@
         </Annotation>
       </Annotations>
 
-      <Function Name="AutoExpand" IsBound="true" EntitySetPath="InputSet">
+      <Function Name="MultiLevelExpand" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties" />
         <Annotation Term="Core.LongDescription">
@@ -196,7 +196,7 @@ $apply=filter(Industry in ('IT','AI'))
   groupby((Country,Region,Segment,Industry))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
-  Analytics.AutoExpand(
+  Analytics.MultiLevelExpand(
     Levels=[{"D":["Country"],"A":["CountryName"]},
             {"D":["Region"],"A":["RegionName"]},
             {"D":["Segment","Industry"],"A":[]}],
@@ -213,7 +213,7 @@ $apply=filter(Industry in ('IT','AI'))
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
-        <Parameter Name="Levels" Type="Collection(Analytics.AutoExpandLevel)" Nullable="false">
+        <Parameter Name="Levels" Type="Collection(Analytics.MultiLevelExpandLevel)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
@@ -231,7 +231,7 @@ $apply=filter(Industry in ('IT','AI'))
             <String>All properties in this collection must be custom aggregates.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="SiblingOrder" Type="Collection(Analytics.AutoExpandSiblingOrder)" Nullable="false">
+        <Parameter Name="SiblingOrder" Type="Collection(Analytics.MultiLevelExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
         <Parameter Name="ShowLevels" Type="Edm.Int64" Nullable="false">
@@ -240,7 +240,7 @@ $apply=filter(Industry in ('IT','AI'))
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ExpandEntries" Type="Collection(Analytics.AutoExpandEntry)" Nullable="false">
+        <Parameter Name="ExpandEntries" Type="Collection(Analytics.MultiLevelExpandEntry)" Nullable="false">
           <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
@@ -262,11 +262,11 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Output set including the instance annotation [`LevelInformation`](#LevelInformation)" />
         </ReturnType>
       </Function>
-      <ComplexType Name="AutoExpandLevel">
+      <ComplexType Name="MultiLevelExpandLevel">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Property names constituting a level in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Annotation Term="Core.Description" String="Property names constituting a level in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
         <Annotation Term="Core.LongDescription">
-          <String>Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#AutoExpandEntry),
+          <String>Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#MultiLevelExpandEntry),
           otherwise they have the same effect as properties in `A`.</String>
         </Annotation>
         <Property Name="D" Type="Collection(Edm.String)" Nullable="false">
@@ -276,9 +276,9 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="A possibly empty set of names of additional properties of the dimensions that occur in `D`" />
         </Property>
       </ComplexType>
-      <ComplexType Name="AutoExpandSiblingOrder">
+      <ComplexType Name="MultiLevelExpandSiblingOrder">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Sibling order in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Annotation Term="Core.Description" String="Sibling order in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
         <Property Name="Property" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property by which to sort" />
         </Property>
@@ -286,11 +286,11 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
         </Property>
       </ComplexType>
-      <ComplexType Name="AutoExpandEntry">
+      <ComplexType Name="MultiLevelExpandEntry">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#AutoExpand)" />
+        <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="An entry on a given [level](#AutoExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one" />
+          <Annotation Term="Core.Description" String="An entry on a given [level](#MultiLevelExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one" />
         </Property>
         <Property Name="Levels" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
@@ -299,7 +299,7 @@ $apply=filter(Industry in ('IT','AI'))
 
       <Term Name="LevelInformation" Type="Hierarchy.HierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Information about grouping levels in the result set of a request including the [`AutoExpand`](#AutoExpand) transformation" />
+        <Annotation Term="Core.Description" String="Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation" />
       </Term>
 
     </Schema>
