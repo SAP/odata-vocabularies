@@ -41,9 +41,9 @@ $apply=filter(Industry in ('IT','AI'))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.MultiLevelExpand(
-    Levels=[{"D":["Country"],"A":["CountryName"]},
-            {"D":["Region"],"A":["RegionName"]},
-            {"D":["Segment","Industry"],"A":[]}],
+    Levels=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
+            {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
+            {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
     ShowLevels=2,
@@ -96,13 +96,13 @@ Property|Type|Description
 ## [MultiLevelExpandLevel](Analytics.xml#L265) *([Experimental](Common.md#Experimental))*
 Property names constituting a level in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
-Properties in `D` must be used to identify entries in [`ExpandEntries/Entry`](#MultiLevelExpandEntry),
-          otherwise they have the same effect as properties in `A`.
+`DimensionProperties` must be used to identify entries in [`ExpandEntries/Entry`](#MultiLevelExpandEntry),
+          otherwise they have the same effect as `AdditionalProperties`.
 
 Property|Type|Description
 :-------|:---|:----------
-[D](Analytics.xml#L272)|\[String\]|A non-empty set of property names that define a combination of dimension values
-[A](Analytics.xml#L275)|\[String\]|A possibly empty set of names of additional properties of the dimensions that occur in `D`
+[DimensionProperties](Analytics.xml#L272)|\[String\]|A non-empty set of property names that define a combination of dimension values
+[AdditionalProperties](Analytics.xml#L275)|\[String\]|A possibly empty set of names of additional properties of the dimensions that occur in `DimensionProperties`
 
 <a name="MultiLevelExpandSiblingOrder"></a>
 ## [MultiLevelExpandSiblingOrder](Analytics.xml#L279) *([Experimental](Common.md#Experimental))*
@@ -119,5 +119,5 @@ Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](Analytics.xml#L292)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a collection of values for the `D` properties that constitute all levels up to and including the given one
+[Entry](Analytics.xml#L292)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a collection of values for the `DimensionProperties` that constitute all levels up to and including the given one
 [Levels](Analytics.xml#L295)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
