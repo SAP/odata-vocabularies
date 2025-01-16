@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.EntityRelationship.v1" Alias="EntityRelationship">
+      <Annotation Term="Core.Description">
+        <String>Terms to better document the Entity Relationship model outside of the current API / data model context</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-03-03 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/EntityRelationship.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/EntityRelationship.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/EntityRelationship.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="entityType" Type="Edm.String" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" >
+          <String>Defines which [ORD Entity Type](https://sap.github.io/open-resource-discovery/details/articles/grouping-and-bundling#entity-type) the current JSON Schema object represents.
+There could be several JSON Schema objects that are assigned to the same Entity Type.
+One JSON Schema object can only have one ORD Entity Type assigned, which corresponds to the
+applications own Entity Type definition. The ID scheme for an Entity Type ID is as following:
+
+`entityTypeId := namespace:entityTypeLocalId[:v"majorVersion"]`
+          </String>
+        </Annotation>
+      </Term>
+
+      <Term Name="propertyType" Type="Edm.String" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Logical property type of a property" />
+        <Annotation Term="Core.LongDescription">
+          <String>Defines the logical Property Type of a property.
+The reason is to have an ID to relate to the property type independently of the property name and shared
+across every usage of the same property across APIs where names might be different.
+
+Especially to state that it can be used as an ID or is part of a composite ID.
+
+A Property Type ID follows the same format and considerations as the Entity Type ID explained above:
+            `PropertyTypeId := namespace:propertyTypeLocalId[:v"majorVersion"]`
+        </String>
+        </Annotation>
+      </Term>
+
+      <Term Name="entityIds" Type="Collection(EntityRelationship.entityId)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="The annotated entity type represents an ODM root entity" />
+        <Annotation Term="Core.LongDescription">
+          <String>
+Defines a list of IDs, which are available to look up the Entity Type or create a reference to it.
+An Entity Type can have multiple IDs:
+
+* There can be **alternative IDs** that can also be used to create a reference to the Entity Type
+* Some ID properties form a **composite ID** together and need to be combined to function as a unique ID for references
+* This is indicated by a `propertyTypes` array with more than one Property Type ID entry.
+          </String>
+        </Annotation>
+      </Term>
+
+      <Term Name="reference" Type="EntityRelationship.singleReference" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Defines references to other Entity Types based on a single ID." />
+      </Term>
+
+      <Term Name="compositeReferences" Type="Collection(EntityRelationship.compositeReference)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String=" Defines one or many references to other Entity Types based on a composite IDs." />
+      </Term>
+
+      <Term Name="temporalIds" Type="Collection(EntityRelationship.temporalId)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines a list of temporal IDs." />
+      </Term>
+
+      <Term Name="temporalReferences" Type="Collection(EntityRelationship.temporalReference)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines a list of temporal references." />
+      </Term>
+      <Term Name="referencesWithConstantIds" Type="Collection(EntityRelationship.referenceWithConstantId)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values." />
+      </Term>
+
+      <ComplexType Name="singleReference">
+        <Annotation Term="Core.Description" String="Defines a reference to another Entity Type based on a single ID." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
+        </Property>
+        <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
+          <Annotation Term="Common.Experimental" />
+        </Property>
+        <Property Name="referencedPropertyType" Type="EntityRelationship.propertyTypeID" Nullable="false">
+          <Annotation Term="Core.Description" String="ID of the property type used in the references entity to identify the instance." />
+          <Annotation Term="Common.Experimental" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="entityId">
+        <Annotation Term="Core.Description" String="Defines an ID that can be used to look up the Entity Type or create a reference to it." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the ID." />
+        </Property>
+        <Property Name="description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional description to describe the semantics of the ID." />
+        </Property>
+        <Property Name="propertyTypes" Type="Collection(EntityRelationship.propertyTypeID)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of property type IDs." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="compositeReference">
+        <Annotation Term="Core.Description" String="Defines a single reference to another Entity Type based on a composite ID." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
+        </Property>
+        <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
+          <Annotation Term="Common.Experimental" />
+        </Property>
+        <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyType)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of property types the composite ID in the references entity consists of." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="referencedPropertyType">
+        <Annotation Term="Core.Description" String="Grouping of the ID in the referenced entity, by its property type ID and the local name in this entity." />
+        <Property Name="referencedPropertyType" Type="EntityRelationship.propertyTypeID" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the property type used in the references entity to identify the instance." />
+        </Property>
+        <Property Name="localPropertyName" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Name of the property in the local Entity Type." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="temporalId">
+        <Annotation Term="Core.Description" String="Defines an ID that includes a temporal interval." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the ID." />
+        </Property>
+        <Property Name="description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional description to describe the semantics of the ID." />
+        </Property>
+        <Property Name="propertyTypes" Type="Collection(EntityRelationship.propertyTypeID)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of property type IDs that are non-temporal." />
+        </Property>
+        <Property Name="temporalIntervalType" Type="EntityRelationship.temporalIntervalTypeEnum" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Interval which includes the boundaries." />
+        </Property>
+        <Property Name="temporalType" Type="EntityRelationship.temporalTypeEnum" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="The temporal ID type, of this temporal ID." />
+        </Property>
+        <Property Name="temporalIntervalStartProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Property in the local entity that is used to define the start of the interval." />
+        </Property>
+        <Property Name="temporalIntervalEndProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Property in the local entity that is used to define the end of the interval." />
+        </Property>
+      </ComplexType>
+
+      <EnumType Name="temporalIntervalTypeEnum">
+        <Member Name="CLOSED_CLOSED">
+          <Annotation Term="Core.Description" String="Closed, Closed interval including the start and end value." />
+        </Member>
+        <Member Name="OPEN_OPEN">
+          <Annotation Term="Core.Description" String="Open, Open interval excluding the start and end value." />
+        </Member>
+        <Member Name="OPEN_CLOSED">
+          <Annotation Term="Core.Description" String="Open, Closed interval excluding the start and including the end value." />
+        </Member>
+        <Member Name="CLOSED_OPEN">
+          <Annotation Term="Core.Description" String="Closed, Open interval including the start and excluding the end value." />
+        </Member>
+      </EnumType>
+
+      <EnumType Name="temporalTypeEnum">
+        <Member Name="DATE">
+          <Annotation Term="Core.Description" String="Date based interval." />
+        </Member>
+        <Member Name="DATETIME">
+          <Annotation Term="Core.Description" String="Date and Time based interval." />
+        </Member>
+      </EnumType>
+
+      <ComplexType Name="temporalReference">
+        <Annotation Term="Core.Description" String="Defines single temporal reference to another Entity Type." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
+        </Property>
+        <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
+        </Property>
+        <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyType)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of properties, the composite ID consists of." />
+        </Property>
+        <Property Name="category" Type="EntityRelationship.temporalCategoryEnum" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Category of the temporal reference." />
+        </Property>
+        <Property Name="selectionDateProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Property in the local entity that is used to select the right date interval." />
+        </Property>
+      </ComplexType>
+
+      <EnumType Name="temporalCategoryEnum">
+        <Member Name="TEMPORAL_DATE">
+          <Annotation Term="Core.Description" String="Date based temporal reference." />
+        </Member>
+      </EnumType>
+
+      <ComplexType Name="referenceWithConstantId">
+        <Annotation Term="Core.Description" String="Defines single a reference to another Entity Type based on a composite ID." />
+        <Property Name="name" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Optional name to describe the semantics of the reference." />
+        </Property>
+        <Property Name="referencedEntityType" Type="EntityRelationship.entityTypeID" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the referenced entity type." />
+        </Property>
+        <Property Name="referencedPropertyType" Type="Collection(EntityRelationship.referencedPropertyTypeWithConstantId)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="List of properties, the composite ID consists of." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="referencedPropertyTypeWithConstantId">
+        <Annotation Term="Core.Description" String="Grouping  of the ID in the referenced entity, by its property type ID and either the local name in this entity or a constant value." />
+        <Property Name="referencedPropertyType" Type="EntityRelationship.propertyTypeID" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="ID of the property type used in the references entity to identify the instance." />
+        </Property>
+        <Property Name="localPropertyName" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Name of the property in the local Entity Type." />
+        </Property>
+        <Property Name="constantValue" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="String serialization of the constant value of the property in the referenced entity." />
+        </Property>
+      </ComplexType>
+
+      <TypeDefinition Name="propertyTypeID" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description">
+          <String>ID of the property type. The reason is to have an ID to relate to the property, especially to state that it can be used as an ID or is part of a composite ID.
+
+A Property Type ID follows the same format and considerations as the Entity Type ID explained above:
+`PropertyTypeId := namespace:propertyTypeLocalId[:v"majorVersion"]`
+          </String>
+        </Annotation>
+      </TypeDefinition>
+
+      <TypeDefinition Name="entityTypeID" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description">
+          <String> ID of the entity type.
+The ID scheme for an Entity Type ID is as following:
+
+`entityTypeId := namespace:entityTypeLocalId[:v"majorVersion"]`
+          </String>
+        </Annotation>
+      </TypeDefinition>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

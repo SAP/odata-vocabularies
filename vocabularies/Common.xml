@@ -1071,12 +1071,21 @@ The minimum structure is
       <ComplexType Name="DraftRootType" BaseType="Common.DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that discards a draft document" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
@@ -1087,10 +1096,12 @@ The minimum structure is
         </Property>
         <Property Name="ResumeAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that resumes a draft document. The action reacquires the exclusive lock if needed and checks if the related active document was not changed concurrently" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
-          <Annotation Term="Core.LongDescription" String="" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root entity set and has the following signature:
 - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
@@ -1110,11 +1121,17 @@ New drafts may also be created by POSTing an entity with property IsActiveEntity
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
 - `Users`: collection of structure with properties
-  - `UserID` of type `String`
-
+  - `UserID` of type `String` and
   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+- `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users
 
-- `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users</String>
+It restricts access to the listed users in their specified roles.
+
+If this action is present, the client can receive notifications about changes to the
+collaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
+followed by URL parameters
+- `relatedService` = base URL (relative to server root) of the OData service of the app
+- `draft` = draft UUID.</String>
           </Annotation>
         </Property>
       </ComplexType>
@@ -1216,6 +1233,10 @@ This can also be used with OData V2 services: the annotation target is a functio
         </Property>
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
+        </Property>
+        <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
@@ -1528,6 +1549,24 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
+        <Annotation Term="Core.LongDescription">
+          <String>This annotation MUST be unqualified.</String>
+        </Annotation>
+      </Term>
+      <Term Name="WebSocketChannel" Type="Edm.String" Nullable="true" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Channel for WebSocket connections" />
+        <Annotation Term="Core.LongDescription">
+          <String>Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).
+To consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
+followed by URL parameters
+- parameter name = annotation qualifier, parameter value = channel ID (see below)
+- parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app
+
+&lt;dl&gt;Supported qualifiers and channel IDs:
+&lt;dt&gt;`sideEffects` &lt;dd&gt;Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)
+&lt;/dl&gt;</String>
+        </Annotation>
       </Term>
 
     </Schema>
