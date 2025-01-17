@@ -1095,7 +1095,8 @@ The minimum structure is
           </Annotation>
         </Property>
         <Property Name="ResumeAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that resumes a draft document. The action reacquires the exclusive lock if needed and checks if the related active document was not changed concurrently" />
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Action that resumes a draft document. The action re-acquires the exclusive lock if needed and checks if the related active document was not changed concurrently" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root and has no parameters.</String>
           </Annotation>

@@ -1003,7 +1003,8 @@
       "ResumeAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Action that resumes a draft document. The action reacquires the exclusive lock if needed and checks if the related active document was not changed concurrently",
+        "@Common.Experimental": true,
+        "@Core.Description": "Action that resumes a draft document. The action re-acquires the exclusive lock if needed and checks if the related active document was not changed concurrently",
         "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "NewAction": {
