@@ -1351,6 +1351,15 @@
       "@Common.Experimental": true,
       "@Core.Description": "Channel for WebSocket connections",
       "@Core.LongDescription": "Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).\nTo consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- parameter name = annotation qualifier, parameter value = channel ID (see below)\n- parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app\n\n<dl>Supported qualifiers and channel IDs:\n<dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)\n</dl>"
+    },
+    "ChangeViaNavigationPath": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["EntityContainer"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Service prefers change requests to use a resource path with navigation properties",
+      "@Core.LongDescription": "Use this tag on services that do not restrict update and delete operations to certain resource paths\n          via `Capabilities` annotations, but that prefer update and delete operations on a resource path that\n          contains the navigation properties expressing the object composition."
     }
   }
 }
