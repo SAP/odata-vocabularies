@@ -2006,6 +2006,79 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </Term>
 
+      <Term Name="UserInteraction" Type="UI.UserInteractionType" Nullable="false" AppliesTo="NavigationProperty">
+        <Annotation Term="Core.Description">
+          <String>When the annotated navigation property or its `odata.navigationLink` occurs in a response,
+          the UI shall use the addressed entity or collection to interact with the user
+          and then repeat the corresponding request with the additional information obtained from the user</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),
+          the annotated navigation property MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.
+          A navigation property thus annotated may be interpreted as not belonging to the object model
+          but containing auxiliary information that is not always needed. See also [this example](../examples/UI.UserInteraction-sample.md).</String>
+        </Annotation>
+      </Term>
+      <Term Name="UserInteractionSimple" Type="Collection(Edm.Untyped)" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Validation.DerivedTypeConstraint">
+          <Collection>
+            <String>Edm.Binary</String>
+            <String>Edm.Boolean</String>
+            <String>Edm.Byte</String>
+            <String>Edm.Date</String>
+            <String>Edm.DateTimeOffset</String>
+            <String>Edm.Decimal</String>
+            <String>Edm.Double</String>
+            <String>Edm.Duration</String>
+            <String>Edm.Guid</String>
+            <String>Edm.Int16</String>
+            <String>Edm.Int32</String>
+            <String>Edm.Int64</String>
+            <String>Edm.SByte</String>
+            <String>Edm.Single</String>
+            <String>Edm.String</String>
+            <String>Edm.TimeOfDay</String>
+          </Collection>
+        </Annotation>
+        <Annotation Term="Core.Description">
+          <String>When this instance annotation occurs in a response, the UI shall let the user choose from the collection
+          and then repeat the corresponding request with the annotated property set to the chosen value</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),
+          the instance annotation MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="UserInteractionType" Abstract="true">
+        <Annotation Term="Core.Description" String="Derived types can add more properties that govern the user interaction and the repeating of the request"/>
+        <Property Name="Parameters" Type="Collection(Common.ValueListParameterOut)" Nullable="false">
+          <Annotation Term="Core.Description" String="Instructions how to fill properties with the additional information obtained from the user"/>
+          <Annotation Term="Core.LongDescription">
+            <String>This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,
+            but one that was sent by the server rather than requested by the user.
+            If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request,
+            the UI shall invoke that action instead of repeating the request.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <ComplexType Name="UserInteractionChooseSingle" BaseType="UI.UserInteractionType">
+        <Annotation Term="Core.Description" String="The user shall choose a single entry from the collection and its properties shall be inserted into the repeated request"/>
+      </ComplexType>
+      <ComplexType Name="UserInteractionChooseMultiple" BaseType="UI.UserInteractionType">
+        <Annotation Term="Core.Description" String="The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection
+          that contains one instance per chosen entry.</String>
+        </Annotation>
+      </ComplexType>
+      <ComplexType Name="UserInteractionResolveConflict" BaseType="UI.UserInteractionChooseMultiple">
+        <Annotation Term="Core.Description" String="The user shall resolve a conflict between the entries in the collection and the entire collection shall be inserted into the repeated request"/>
+      </ComplexType>
+      <ComplexType Name="UserInteractionConfirm" BaseType="UI.UserInteractionType">
+        <Annotation Term="Core.Description" String="The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in &quot;effective&quot; mode"/>
+      </ComplexType>
+
       <Term Name="LeadingEntitySet" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="The referenced entity set is the preferred starting point for UIs using this service" />

@@ -9,6 +9,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
+    <edmx:Include Alias="JSON" Namespace="Org.OData.JSON.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
   </edmx:Reference>
@@ -1523,6 +1526,18 @@ followed by URL parameters
         </Annotation>
       </Term>
 
+      <Term Name="callback" Type="JSON.JSON" Nullable="false" AppliesTo="Record">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Common.IsInstanceAnnotation" />
+        <Annotation Term="Core.Description" String="Data that the server has embedded within an error response to make a callback to the client" />
+        <Annotation Term="Core.LongDescription">
+          <String>This instance annotation has the format of a [message body](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_MessageBody)
+          that could be a valid response to the given request.
+          The callback allows the client to adjust the request so that it can be successfully repeated.
+          An example for such a callback is a user interaction to resolve a conflict that was detected by the server,
+          see [`UI.UserInteraction`](UI.md#UserInteraction).</String>
+        </Annotation>
+      </Term>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -1824,6 +1824,72 @@
       "@Core.Description": "Do not check the number of fractional digits of the annotated measured quantity",
       "@Core.LongDescription": "The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.\n\nThis switches off the validation of user input with respect to decimals."
     },
+    "UserInteraction": {
+      "$Kind": "Term",
+      "$Type": "UI.UserInteractionType",
+      "$AppliesTo": ["NavigationProperty"],
+      "@Core.Description": "When the annotated navigation property or its `odata.navigationLink` occurs in a response,\n          the UI shall use the addressed entity or collection to interact with the user\n          and then repeat the corresponding request with the additional information obtained from the user",
+      "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the annotated navigation property MAY occur in a [`Common.callback`](Common.md#callback) instance annotation.\n          A navigation property thus annotated may be interpreted as not belonging to the object model\n          but containing auxiliary information that is not always needed. See also [this example](../examples/UI.UserInteraction-sample.md)."
+    },
+    "UserInteractionSimple": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Edm.Untyped",
+      "$AppliesTo": ["Property"],
+      "@Common.IsInstanceAnnotation": true,
+      "@Validation.DerivedTypeConstraint": [
+        "Edm.Binary",
+        "Edm.Boolean",
+        "Edm.Byte",
+        "Edm.Date",
+        "Edm.DateTimeOffset",
+        "Edm.Decimal",
+        "Edm.Double",
+        "Edm.Duration",
+        "Edm.Guid",
+        "Edm.Int16",
+        "Edm.Int32",
+        "Edm.Int64",
+        "Edm.SByte",
+        "Edm.Single",
+        "Edm.String",
+        "Edm.TimeOfDay"
+      ],
+      "@Core.Description": "When this instance annotation occurs in a response, the UI shall let the user choose from the collection\n          and then repeat the corresponding request with the annotated property set to the chosen value",
+      "@Core.LongDescription": "If the response is an [error response](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_ErrorResponse),\n          the instance annotation MAY occur in a [`Common.callback`](Common.md#callback) instance annotation."
+    },
+    "UserInteractionType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Core.Description": "Derived types can add more properties that govern the user interaction and the repeating of the request",
+      "Parameters": {
+        "$Collection": true,
+        "$Type": "Common.ValueListParameterOut",
+        "@Core.Description": "Instructions how to fill properties with the additional information obtained from the user",
+        "@Core.LongDescription": "This property is handled like [`Common.ValueListType/Parameters`](Common.md#ValueListType), as if the target of the annotated navigation property was a value list,\n            but one that was sent by the server rather than requested by the user.\n            If `UI.UserInteraction/Parameters/LocalDataProperty` points to a parameter of an action that was not invoked by the request,\n            the UI shall invoke that action instead of repeating the request."
+      }
+    },
+    "UserInteractionChooseSingle": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.UserInteractionType",
+      "@Core.Description": "The user shall choose a single entry from the collection and its properties shall be inserted into the repeated request"
+    },
+    "UserInteractionChooseMultiple": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.UserInteractionType",
+      "@Core.Description": "The user shall choose zero or more entries from the collection and a collection of their properties shall be inserted into the repeated request",
+      "@Core.LongDescription": "The properties referenced by `UI.UserInteraction/Parameters/LocalDataProperty` belong to a collection\n          that contains one instance per chosen entry."
+    },
+    "UserInteractionResolveConflict": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.UserInteractionChooseMultiple",
+      "@Core.Description": "The user shall resolve a conflict between the entries in the collection and the entire collection shall be inserted into the repeated request"
+    },
+    "UserInteractionConfirm": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.UserInteractionType",
+      "@Core.Description": "The entity or collection is a preview of the effects of the request and the user shall confirm whether to repeat the request in \"effective\" mode"
+    },
     "LeadingEntitySet": {
       "$Kind": "Term",
       "$AppliesTo": ["EntityContainer"],
