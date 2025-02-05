@@ -1529,7 +1529,7 @@ followed by URL parameters
         <Annotation Term="Core.LongDescription">
           <String>Use this tag on services that do not restrict update and delete operations to certain resource paths
           via `Capabilities` annotations, but that prefer update and delete operations on a resource path that
-          contains the navigation properties expressing the object composition.</String>
+          contains the navigation properties reflecting the object composition.</String>
         </Annotation>
       </Term>
 

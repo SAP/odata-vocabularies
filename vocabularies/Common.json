@@ -1359,7 +1359,7 @@
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "Service prefers change requests to use a resource path with navigation properties",
-      "@Core.LongDescription": "Use this tag on services that do not restrict update and delete operations to certain resource paths\n          via `Capabilities` annotations, but that prefer update and delete operations on a resource path that\n          contains the navigation properties expressing the object composition."
+      "@Core.LongDescription": "Use this tag on services that do not restrict update and delete operations to certain resource paths\n          via `Capabilities` annotations, but that prefer update and delete operations on a resource path that\n          contains the navigation properties reflecting the object composition."
     }
   }
 }
