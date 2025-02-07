@@ -1507,7 +1507,9 @@
           "UI.Chart",
           "UI.ConnectedFields",
           "UI.DataPoint",
-          "UI.FieldGroup"
+          "UI.FieldGroup",
+          "UI.PresentationVariant",
+          "UI.SelectionPresentationVariant"
         ]
       }
     },
