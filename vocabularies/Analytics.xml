@@ -159,6 +159,9 @@
         <Property Name="Dimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The property holds the key of a dimension" />
         </Property>
+        <Property Name="DerivedDimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="The property is a `Dimension` whose value is determined by the value of other `Dimension`s" />
+        </Property>
         <Property Name="Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The property holds the numeric value of a measure" />
         </Property>

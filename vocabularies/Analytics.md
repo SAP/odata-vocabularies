@@ -41,5 +41,6 @@ Property|Type|Description
 [Property](Analytics.xml#L147)|PropertyPath?|Property that is part of the analytical context
 [DynamicProperty](Analytics.xml#L150)|AnnotationPath?|Dynamic property introduced by annotations that is part of the analytical context<br>Allowed Terms:<ul><li>[AggregatedProperty](#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
 [Dimension](Analytics.xml#L159)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the key of a dimension
-[Measure](Analytics.xml#L162)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
-[AccumulativeMeasure](Analytics.xml#L165)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
+[DerivedDimension](Analytics.xml#L162)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property is a `Dimension` whose value is determined by the value of other `Dimension`s
+[Measure](Analytics.xml#L165)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The property holds the numeric value of a measure
+[AccumulativeMeasure](Analytics.xml#L168)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
