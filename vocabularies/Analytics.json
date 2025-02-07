@@ -148,7 +148,7 @@
       "DerivedDimension": {
         "$Type": "Core.Tag",
         "$DefaultValue": true,
-        "@Core.Description": "The property is a `Dimension` whose value is determined by the value of other `Dimension`s"
+        "@Core.Description": "The value of the dimension is determined by the values of other dimensions"
       },
       "Measure": {
         "$Type": "Core.Tag",
