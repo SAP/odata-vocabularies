@@ -452,13 +452,6 @@
       "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
       "@Core.Description": "Criticality of the function or action to enforce a warning or similar before it's executed"
     },
-    "IsOperationLongRunning": {
-      "$Kind": "Term",
-      "$Type": "Edm.Boolean",
-      "$DefaultValue": true,
-      "$AppliesTo": ["Action", "Function", "ActionImport", "FunctionImport"],
-      "@Core.Description": "The execution of the function or action can take a long time"
-    },
     "Attributes": {
       "$Kind": "Term",
       "$Collection": true,

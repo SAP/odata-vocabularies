@@ -568,10 +568,6 @@ The minimum structure is
         <Annotation Term="Core.Description" String="Criticality of the function or action to enforce a warning or similar before it's executed" />
       </Term>
 
-      <Term Name="IsOperationLongRunning" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="Action Function ActionImport FunctionImport">
-        <Annotation Term="Core.Description" String="The execution of the function or action can take a long time" />
-      </Term>
-
       <Term Name="Attributes" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.Description" String="Attributes related to this property, which may occur in denormalized entity types" />
       </Term>
