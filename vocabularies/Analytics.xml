@@ -217,7 +217,7 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
-            A property must not referenced by more than one level.
+            A property must not be referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result is the leveled hierarchy with these levels in preorder,
@@ -235,7 +235,11 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
         </Parameter>
         <Parameter Name="ShowLevels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of levels to be shown in the initial expansion (absent means all levels)" />
+          <Annotation Term="Core.Description" String="Number N of levels to be shown in the initial expansion" />
+          <Annotation Term="Core.LongDescription">
+            <String>The initial expansion shows the first N levels as defined in `Levels` (0 ≤ N ≤ length of `Levels`).
+            If this parameter is omitted, all levels are shown.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -270,10 +274,10 @@ $apply=filter(Industry in ('IT','AI'))
           otherwise they have the same effect as `AdditionalProperties`.</String>
         </Annotation>
         <Property Name="DimensionProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty set of property names that define a combination of dimension values" />
+          <Annotation Term="Core.Description" String="A non-empty list of property names that define a combination of dimension values" />
         </Property>
         <Property Name="AdditionalProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A possibly empty set of names of additional properties of the dimensions that occur in `DimensionProperties`" />
+          <Annotation Term="Core.Description" String="A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`" />
         </Property>
       </ComplexType>
       <ComplexType Name="MultiLevelExpandSiblingOrder">
@@ -290,7 +294,7 @@ $apply=filter(Industry in ('IT','AI'))
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="An entry on a given [level](#MultiLevelExpandLevel) is identified by a collection of values for the `DimensionProperties` that constitute all levels up to and including the given one" />
+          <Annotation Term="Core.Description" String="An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one" />
         </Property>
         <Property Name="Levels" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
