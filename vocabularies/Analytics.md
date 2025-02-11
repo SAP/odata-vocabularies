@@ -17,7 +17,7 @@ Term|Type|Description
 [AggregatedProperties](Analytics.xml#L106) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](Analytics.xml#L124)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L144)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[LevelInformation](Analytics.xml#L304) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation
+[LevelInformation](Analytics.xml#L307) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation
 
 
 ## Functions
@@ -119,5 +119,5 @@ Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](Analytics.xml#L296)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one
-[Levels](Analytics.xml#L299)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[Entry](Analytics.xml#L296)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one<br>The values are cast to strings as in the OData `cast` function.
+[Levels](Analytics.xml#L302)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed

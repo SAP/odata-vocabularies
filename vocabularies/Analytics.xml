@@ -295,6 +295,9 @@ $apply=filter(Industry in ('IT','AI'))
         <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
         <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one" />
+          <Annotation Term="Core.LongDescription">
+            <String>The values are cast to strings as in the OData `cast` function.</String>
+          </Annotation>
         </Property>
         <Property Name="Levels" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />

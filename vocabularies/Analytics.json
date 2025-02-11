@@ -259,7 +259,8 @@
       "@Core.Description": "Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)",
       "Entry": {
         "$Collection": true,
-        "@Core.Description": "An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one"
+        "@Core.Description": "An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one",
+        "@Core.LongDescription": "The values are cast to strings as in the OData `cast` function."
       },
       "Levels": {
         "$Type": "Edm.Int64",
