@@ -1518,9 +1518,10 @@ followed by URL parameters
 - parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app
 
 &lt;dl&gt;Supported qualifiers and channel IDs:
-&lt;dt&gt;`sideEffects` &lt;dd&gt;Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)
+&lt;dt&gt;`sideEffects` &lt;dd&gt;Notifications about side effects to be triggered by the client.
+The annotation value is the channel ID = service definition name.
 &lt;dt&gt;`progressIndicator` &lt;dd&gt;Progress notifications for long-running operations.
-The annotation value is a space-separated list of the channel ID followed by qualified names of operations.
+The annotation value is a space-separated list of the channel ID = service definition name followed by qualified names of operations.
 &lt;/dl&gt;</String>
         </Annotation>
       </Term>
