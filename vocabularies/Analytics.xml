@@ -161,6 +161,10 @@
         </Property>
         <Property Name="DerivedDimension" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The value of the dimension is completely determined by the values of other dimensions" />
+          <Annotation Term="Core.LongDescription">
+            <String>The other dimensions are the [`Aggregation.ContextDefiningProperties`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.md#ContextDefiningProperties)
+            of the derived dimension.</String>
+          </Annotation>
         </Property>
         <Property Name="Measure" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="The property holds the numeric value of a measure" />

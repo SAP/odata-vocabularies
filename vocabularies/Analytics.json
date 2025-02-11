@@ -148,7 +148,8 @@
       "DerivedDimension": {
         "$Type": "Core.Tag",
         "$DefaultValue": true,
-        "@Core.Description": "The value of the dimension is completely determined by the values of other dimensions"
+        "@Core.Description": "The value of the dimension is completely determined by the values of other dimensions",
+        "@Core.LongDescription": "The other dimensions are the [`Aggregation.ContextDefiningProperties`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.md#ContextDefiningProperties)\n            of the derived dimension."
       },
       "Measure": {
         "$Type": "Core.Tag",
