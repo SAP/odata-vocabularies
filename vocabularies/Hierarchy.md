@@ -33,7 +33,7 @@ Parameter|Type|Description
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)
 
 The action copies a node A and its descendants and the parent navigation properties between them
-so that the copied nodes form a sub-hierarchy. No assumption is made about the parent of the copy of A.
+so that the copied nodes form a sub-hierarchy. It returns the copy of A. No assumption is made about the parent of the copy of A.
 
 To specify the parent of the copy of A, the action invocation MUST be followed
 by a PATCH that binds its parent navigation property (for example, `Superordinate` in the following JSON batch request)
