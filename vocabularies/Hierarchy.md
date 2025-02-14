@@ -53,8 +53,8 @@ to the desired parent B or to `null`.
   }
 }]}
 ```
-To position the copy of A among its new siblings, additionally include an invocation of
-[`ChangeNextSiblingAction`](#Template_ChangeNextSiblingAction) in the batch request.
+If a certain position of the copy of A among its new siblings is desired, an additional invocation of
+[`ChangeNextSiblingAction`](#Template_ChangeNextSiblingAction) can be included in the batch request.
 
 Parameter|Type|Description
 :--------|:---|:----------
