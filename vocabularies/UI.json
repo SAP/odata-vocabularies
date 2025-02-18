@@ -1836,6 +1836,15 @@
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "Name of an Action, Function, ActionImport, or FunctionImport in scope",
       "@Core.LongDescription": "Possible values are\n\n- Namespace-qualified name of an action or function (`foo.bar`)\n- Namespace-qualified name of an action or function followed by parentheses with the parameter signature to identify a specific overload, like in an [annotation target](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Target) (`foo.bar(baz.qux)`)\n- Simple name of an action import or function import of the annotated service (`quux`)\n- Namespace-qualified name of an entity container, followed by a slash and the simple name of an action import or function import in any referenced schema (`foo.corge/quux`)"
+    },
+    "IsOperationReportingProgress": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["Action", "Function"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Progress is reported during the execution of this operation",
+      "@Core.LongDescription": "Requires a [`Common.WebSocketChannel#progressIndicator`](Common.md#WebSocketChannel) annotation on the entity container."
     }
   }
 }

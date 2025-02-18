@@ -2024,6 +2024,14 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="IsOperationReportingProgress" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Progress is reported during the execution of this operation" />
+        <Annotation Term="Core.LongDescription">
+          <String>Requires a [`Common.WebSocketChannel#progressIndicator`](Common.md#WebSocketChannel) annotation on the entity container.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

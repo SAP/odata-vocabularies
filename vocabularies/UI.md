@@ -80,6 +80,7 @@ Term|Type|Description
 [ExcludeFromNavigationContext](UI.xml#L1996)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](UI.xml#L2000) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](UI.xml#L2010) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[IsOperationReportingProgress](UI.xml#L2027) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsOperationReportingProgress"></a>Progress is reported during the execution of this operation<br>Requires a [`Common.WebSocketChannel#progressIndicator`](Common.md#WebSocketChannel) annotation on the entity container.
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](UI.xml#L68)
