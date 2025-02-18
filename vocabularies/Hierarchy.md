@@ -32,8 +32,12 @@ Parameter|Type|Description
 
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)
 
-To give the copied sub-hierarchy a parent, the action invocation can be followed
-by a PATCH that binds the parent navigation property (for example, `Superordinate` in the following JSON batch request).
+The action copies a node A and its descendants and the parent navigation properties between them
+so that the copied nodes form a sub-hierarchy. It returns the copy of A. No assumption is made about the parent of the copy of A.
+
+To specify the parent of the copy of A, the action invocation MUST be followed
+by a PATCH that binds its parent navigation property (for example, `Superordinate` in the following JSON batch request)
+to the desired parent B or to `null`.
 ```json
 {"requests": [{
   "id": "1",
@@ -49,11 +53,13 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
   }
 }]}
 ```
+If a certain position of the copy of A among its new siblings is desired, an additional invocation of
+[`ChangeNextSiblingAction`](#Template_ChangeNextSiblingAction) can be included in the batch request.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](Hierarchy.xml#L359)**|EntityType|**Binding parameter:** The node to be copied
-[&rarr;](Hierarchy.xml#L362)|EntityType|The copied node
+**[Node](Hierarchy.xml#L365)**|EntityType|**Binding parameter:** The node to be copied
+[&rarr;](Hierarchy.xml#L368)|EntityType|The copied node
 
 
 
