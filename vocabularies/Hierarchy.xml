@@ -387,8 +387,12 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)" />
         <Annotation Term="Core.LongDescription">
-          <String>To give the copied sub-hierarchy a parent, the action invocation can be followed
-by a PATCH that binds the parent navigation property (for example, `Superordinate` in the following JSON batch request).
+          <String>The action copies a node A and its descendants and the parent navigation properties between them
+so that the copied nodes form a sub-hierarchy. It returns the copy of A. No assumption is made about the parent of the copy of A.
+
+To specify the parent of the copy of A, the action invocation MUST be followed
+by a PATCH that binds its parent navigation property (for example, `Superordinate` in the following JSON batch request)
+to the desired parent B or to `null`.
 ```json
 {"requests": [{
   "id": "1",
@@ -403,7 +407,9 @@ by a PATCH that binds the parent navigation property (for example, `Superordinat
     "Superordinate@odata.bind": "Nodes('B')"
   }
 }]}
-```</String>
+```
+If a certain position of the copy of A among its new siblings is desired, an additional invocation of
+[`ChangeNextSiblingAction`](#Template_ChangeNextSiblingAction) can be included in the batch request.</String>
         </Annotation>
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node to be copied" />
