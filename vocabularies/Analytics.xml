@@ -187,6 +187,7 @@
 filter on columns `Industry`, `Amount` and `Currency`,
 order by `Amount` descending,
 show 2 levels, with two exceptions
+preceded by one row with a leaves count and one row with the grand total
 ```
 $apply=filter(Industry in ('IT','AI'))
 /groupby((Country,Region,Segment,Industry),
@@ -222,6 +223,7 @@ $apply=filter(Industry in ('IT','AI'))
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result is the leveled hierarchy with these levels in preorder,
             entries on the finest-grained level cannot be expanded further.
+            The result of this function does not contain a level representing a root or grand total.
             All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
