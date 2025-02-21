@@ -197,7 +197,7 @@
             "$Name": "SiblingOrder",
             "$Collection": true,
             "$Type": "Analytics.MultiLevelExpandSiblingOrder",
-            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy"
+            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy"
           },
           {
             "$Name": "ShowLevels",

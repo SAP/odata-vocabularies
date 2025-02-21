@@ -232,7 +232,7 @@ $apply=filter(Industry in ('IT','AI'))
           </Annotation>
         </Parameter>
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.MultiLevelExpandSiblingOrder)" Nullable="false">
-          <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry in the resulting leveled hierarchy" />
+          <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy" />
         </Parameter>
         <Parameter Name="ShowLevels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="Number N of levels to be shown in the initial expansion" />
