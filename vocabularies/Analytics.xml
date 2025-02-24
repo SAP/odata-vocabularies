@@ -198,14 +198,14 @@ $apply=filter(Industry in ('IT','AI'))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.MultiLevelExpand(
-    Levels=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
-            {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
-            {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
+    LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
+                     {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
+                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
-    ShowLevels=2,
-    ExpandEntries=[{"Entry":["US"],"Levels":0},
-                   {"Entry":["DE","BW"],"Levels":1}]
+    Levels=2,
+    ExpandLevels=[{"Entry":["US"],"Levels":0},
+                  {"Entry":["DE","BW"],"Levels":1}]
   )/concat(aggregate($count as ResultEntriesCount),
            skip(20)/top(10)))
 ```
@@ -214,7 +214,7 @@ $apply=filter(Industry in ('IT','AI'))
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
-        <Parameter Name="Levels" Type="Collection(Analytics.MultiLevelExpandLevel)" Nullable="false">
+        <Parameter Name="LevelProperties" Type="Collection(Analytics.MultiLevelExpandLevel)" Nullable="false">
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
@@ -223,7 +223,7 @@ $apply=filter(Industry in ('IT','AI'))
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result is the leveled hierarchy with these levels in preorder,
             entries on the finest-grained level cannot be expanded further.
-            The result of this function does not contain a level representing a root or grand total.
+            The result does not contain a level representing a root or grand total.
             All referenced properties must be groupable.</String>
           </Annotation>
         </Parameter>
@@ -236,17 +236,17 @@ $apply=filter(Industry in ('IT','AI'))
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.MultiLevelExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy" />
         </Parameter>
-        <Parameter Name="ShowLevels" Type="Edm.Int64" Nullable="false">
+        <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="Number N of levels to be shown in the initial expansion" />
           <Annotation Term="Core.LongDescription">
-            <String>The initial expansion shows the first N levels as defined in `Levels` (0 ≤ N ≤ length of `Levels`).
+            <String>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`).
             If this parameter is omitted, all levels are shown.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ExpandEntries" Type="Collection(Analytics.MultiLevelExpandEntry)" Nullable="false">
+        <Parameter Name="ExpandLevels" Type="Collection(Analytics.MultiLevelExpandEntry)" Nullable="false">
           <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>

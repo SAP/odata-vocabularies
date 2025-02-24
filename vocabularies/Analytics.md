@@ -42,14 +42,14 @@ $apply=filter(Industry in ('IT','AI'))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.MultiLevelExpand(
-    Levels=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
-            {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
-            {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
+    LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
+                     {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
+                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
-    ShowLevels=2,
-    ExpandEntries=[{"Entry":["US"],"Levels":0},
-                   {"Entry":["DE","BW"],"Levels":1}]
+    Levels=2,
+    ExpandLevels=[{"Entry":["US"],"Levels":0},
+                  {"Entry":["DE","BW"],"Levels":1}]
   )/concat(aggregate($count as ResultEntriesCount),
            skip(20)/top(10)))
 ```
@@ -58,11 +58,11 @@ $apply=filter(Industry in ('IT','AI'))
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](Analytics.xml#L214)**|\[EntityType\]|**Binding parameter:** Entity set to be processed
-[Levels](Analytics.xml#L217)|\[[MultiLevelExpandLevel](#MultiLevelExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not be referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result is the leveled hierarchy with these levels in preorder, entries on the finest-grained level cannot be expanded further. The result of this function does not contain a level representing a root or grand total. All referenced properties must be groupable.
+[LevelProperties](Analytics.xml#L217)|\[[MultiLevelExpandLevel](#MultiLevelExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not be referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result is the leveled hierarchy with these levels in preorder, entries on the finest-grained level cannot be expanded further. The result does not contain a level representing a root or grand total. All referenced properties must be groupable.
 [Aggregation](Analytics.xml#L230)|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
 [SiblingOrder](Analytics.xml#L236)|\[[MultiLevelExpandSiblingOrder](#MultiLevelExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy
-*[ShowLevels](Analytics.xml#L239)*|Int64|*Optional parameter:* Number N of levels to be shown in the initial expansion<br>The initial expansion shows the first N levels as defined in `Levels` (0 ≤ N ≤ length of `Levels`). If this parameter is omitted, all levels are shown.
-*[ExpandEntries](Analytics.xml#L249)*|\[[MultiLevelExpandEntry](#MultiLevelExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
+*[Levels](Analytics.xml#L239)*|Int64|*Optional parameter:* Number N of levels to be shown in the initial expansion<br>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`). If this parameter is omitted, all levels are shown.
+*[ExpandLevels](Analytics.xml#L249)*|\[[MultiLevelExpandEntry](#MultiLevelExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
 *[SubtotalsAtBottom](Analytics.xml#L255)*|Bool|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
 [&rarr;](Analytics.xml#L267)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
