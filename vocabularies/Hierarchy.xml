@@ -76,7 +76,7 @@
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="collapsed" />
-                <Annotation Term="Core.Description" String="The entry belongs to the coarsest-grained non-expanded aggregation level, but is not a leaf" />
+                <Annotation Term="Core.Description" String="The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal" />
               </Record>
             </Collection>
           </Annotation>

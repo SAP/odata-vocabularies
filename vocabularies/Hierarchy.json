@@ -57,7 +57,7 @@
           { "Value": "leaf", "@Core.Description": "The entry belongs to the finest-grained aggregation level" },
           {
             "Value": "collapsed",
-            "@Core.Description": "The entry belongs to the coarsest-grained non-expanded aggregation level, but is not a leaf"
+            "@Core.Description": "The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal"
           }
         ]
       },
