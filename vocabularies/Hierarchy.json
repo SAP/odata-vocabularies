@@ -33,8 +33,43 @@
       "@Core.Description": "Hierarchy-specific information in the result set of a hierarchical request",
       "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this term defines derived information."
     },
+    "HierarchyType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.LongDescription": "The properties in this complex type contain information about\n          an entry in the result set of a request with multiple aggregation levels, some of which are expanded.\n          These properties also serve in the derived [`RecursiveHierarchyType`](#RecursiveHierarchyType)\n          with their definitions rephrased in the concept of recursive hierarchies.",
+      "LimitedDescendantCount": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of entries from finer-grained aggregation levels that are expanded"
+      },
+      "DrillState": {
+        "$Nullable": true,
+        "@Core.Description": "Drill state of an entry",
+        "@Validation.AllowedValues": [
+          {
+            "Value": "expanded",
+            "@Core.Description": "The entry precedes entries from finer-grained aggregation levels"
+          },
+          {
+            "Value": "subtotal",
+            "@Core.Description": "The entry follows entries from finer-grained aggregation levels and contains subtotals"
+          },
+          { "Value": "leaf", "@Core.Description": "The entry belongs to the finest-grained aggregation level" },
+          {
+            "Value": "collapsed",
+            "@Core.Description": "The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal"
+          }
+        ]
+      },
+      "DistanceFromRoot": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Position of the current aggregation level in the list of all aggregation levels"
+      }
+    },
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
+      "$BaseType": "Hierarchy.HierarchyType",
       "@Common.Experimental": true,
       "@Core.LongDescription": "The properties in this complex type contain information about\na node in the result set of a hierarchical request. If the same node occurs multiple times\nwith different parents, certain properties may differ between the occurrences.\nThe properties are derived when hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York')), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n",
       "ExternalKey": {
@@ -47,6 +82,29 @@
         "@Core.Description": "Type of a node",
         "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n- have a type-specific (navigation) property whose name is the node type or\n- be represented by entities of different subtypes of a common entity type that is\n\nannotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
       },
+      "LimitedDescendantCount": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of descendants a node has in the limited hierarchy"
+      },
+      "DrillState": {
+        "$Nullable": true,
+        "@Core.Description": "Drill state of an occurrence of a node",
+        "@Validation.AllowedValues": [
+          { "Value": "expanded", "@Core.Description": "The node has children in the limited hierarchy" },
+          {
+            "Value": "collapsed",
+            "@Core.Description": "The node has children in the unlimited hierarchy but not in the limited hierarchy"
+          },
+          { "Value": "leaf", "@Core.Description": "The node has no children in the unlimited hierarchy" }
+        ]
+      },
+      "DistanceFromRoot": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
+        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
+      },
       "ChildCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
@@ -56,22 +114,6 @@
         "$Type": "Edm.Int64",
         "$Nullable": true,
         "@Core.Description": "Number of descendants a node has in the unlimited hierarchy"
-      },
-      "LimitedDescendantCount": {
-        "$Type": "Edm.Int64",
-        "$Nullable": true,
-        "@Core.Description": "Number of descendants a node has in the limited hierarchy"
-      },
-      "DrillState": {
-        "$Nullable": true,
-        "@Core.Description": "Drill state of an occurrence of a node",
-        "@Core.LongDescription": "Possible drill states are:\n            <br>- `expanded` if a node has children in the limited hierarchy\n            <br>- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy\n            <br>- `leaf` if a node has no children in the unlimited hierarchy"
-      },
-      "DistanceFromRoot": {
-        "$Type": "Edm.Int64",
-        "$Nullable": true,
-        "@Core.Description": "Number of ancestors an occurrence of a node has in the limited hierarchy",
-        "@Core.LongDescription": "This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy."
       },
       "LimitedRank": {
         "$Type": "Edm.Int64",
@@ -107,6 +149,7 @@
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
+      "@Common.Experimental": true,
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,\nthe hierarchy directory MUST be determined from the resource path of that request.\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes\",\n  \"body\": {\n    \"Name\": \"child of A\",\n    \"Superordinate@odata.bind\": \"Nodes('A')\"\n  }\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"post\",\n  \"url\": \"$1/Hierarchy.ChangeNextSiblingAction\",\n  \"body\": {\n    \"NextSibling\": null\n  }\n}]}\n```\nThe template actions themselves cannot be invoked.",
       "ChangeNextSiblingAction": {
         "$Type": "Common.QualifiedName",
@@ -212,7 +255,7 @@
             "$Type": "Edm.ComplexType",
             "$Nullable": true,
             "@Core.Description": "Key of the node's new next sibling S (null if the node shall become the last sibling)",
-            "@Core.LongDescription": "This parameter has properties with the same names as the key properties of the entity type.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
+            "@Core.LongDescription": "This parameter has properties with the same names, types, and type facets as the key properties of the entity type.\n            next(T) = S after the action.\n            If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.\n            It is an error if S has a different parent than T."
           }
         ]
       }

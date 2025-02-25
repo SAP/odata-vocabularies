@@ -47,7 +47,45 @@
           governs what are the nodes and parents in the hierarchy, whereas this term defines derived information.</String>
         </Annotation>
       </Term>
-      <ComplexType Name="RecursiveHierarchyType">
+      <ComplexType Name="HierarchyType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.LongDescription">
+          <String>The properties in this complex type contain information about
+          an entry in the result set of a request with multiple aggregation levels, some of which are expanded.
+          These properties also serve in the derived [`RecursiveHierarchyType`](#RecursiveHierarchyType)
+          with their definitions rephrased in the concept of recursive hierarchies.</String>
+        </Annotation>
+        <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of entries from finer-grained aggregation levels that are expanded" />
+        </Property>
+        <Property Name="DrillState" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Drill state of an entry" />
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" String="expanded" />
+                <Annotation Term="Core.Description" String="The entry precedes entries from finer-grained aggregation levels" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="subtotal" />
+                <Annotation Term="Core.Description" String="The entry follows entries from finer-grained aggregation levels and contains subtotals" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="leaf" />
+                <Annotation Term="Core.Description" String="The entry belongs to the finest-grained aggregation level" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="collapsed" />
+                <Annotation Term="Core.Description" String="The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal" />
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Position of the current aggregation level in the list of all aggregation levels" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RecursiveHierarchyType" BaseType="Hierarchy.HierarchyType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
@@ -101,22 +139,26 @@ the following collections of hierarchy nodes are distinguished:
 annotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type.</String>
           </Annotation>
         </Property>
-        <Property Name="ChildCount" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Number of children a node has in the unlimited hierarchy" />
-        </Property>
-        <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
-          <Annotation Term="Core.Description" String="Number of descendants a node has in the unlimited hierarchy" />
-        </Property>
         <Property Name="LimitedDescendantCount" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Number of descendants a node has in the limited hierarchy" />
         </Property>
         <Property Name="DrillState" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Drill state of an occurrence of a node" />
-          <Annotation Term="Core.LongDescription">
-            <String>Possible drill states are:
-            &lt;br&gt;- `expanded` if a node has children in the limited hierarchy
-            &lt;br&gt;- `collapsed` if a node has children in the unlimited hierarchy but not in the limited hierarchy
-            &lt;br&gt;- `leaf` if a node has no children in the unlimited hierarchy</String>
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" String="expanded" />
+                <Annotation Term="Core.Description" String="The node has children in the limited hierarchy" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="collapsed" />
+                <Annotation Term="Core.Description" String="The node has children in the unlimited hierarchy but not in the limited hierarchy" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="leaf" />
+                <Annotation Term="Core.Description" String="The node has no children in the unlimited hierarchy" />
+              </Record>
+            </Collection>
           </Annotation>
         </Property>
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
@@ -124,6 +166,12 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           <Annotation Term="Core.LongDescription">
             <String>This equals the number of ancestors in the sub-hierarchy, if the request involves a sub-hierarchy.</String>
           </Annotation>
+        </Property>
+        <Property Name="ChildCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of children a node has in the unlimited hierarchy" />
+        </Property>
+        <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of descendants a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Rank of a node in the limited hierarchy in preorder or postorder" />
@@ -161,6 +209,7 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
+        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
@@ -309,7 +358,7 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         <Parameter Name="NextSibling" Type="Edm.ComplexType" Nullable="true">
           <Annotation Term="Core.Description" String="Key of the node's new next sibling S (null if the node shall become the last sibling)" />
           <Annotation Term="Core.LongDescription">
-            <String>This parameter has properties with the same names as the key properties of the entity type.
+            <String>This parameter has properties with the same names, types, and type facets as the key properties of the entity type.
             next(T) = S after the action.
             If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null.
             It is an error if S has a different parent than T.</String>

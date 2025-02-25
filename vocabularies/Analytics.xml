@@ -12,6 +12,9 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
     <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Hierarchy.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="Hierarchy" />
+  </edmx:Reference>
 
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics">
@@ -175,6 +178,138 @@
           </Collection>
         </Annotation>
       </Annotations>
+
+      <Function Name="MultiLevelExpand" IsBound="true" EntitySetPath="InputSet">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="`$apply` transformation that expands an unnamed leveled hierarchy with custom aggregation of certain properties" />
+        <Annotation Term="Core.LongDescription">
+          <String>Example transformation sequence:
+filter on columns `Industry`, `Amount` and `Currency`,
+order by `Amount` descending,
+show 2 levels, with two exceptions
+preceded by one row with a leaves count and one row with the grand total
+```
+$apply=filter(Industry in ('IT','AI'))
+/groupby((Country,Region,Segment,Industry),
+         filter($these/aggregate(Amount) gt 0 and
+                $these/aggregate(Currency) ne null))
+/concat(
+  groupby((Country,Region,Segment,Industry))
+    /aggregate($count as LeavesCount),
+  aggregate(Amount,Currency),
+  Analytics.MultiLevelExpand(
+    LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
+                     {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
+                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
+    Aggregation=["Amount","Currency"],
+    SiblingOrder=[{"Property":"Amount","Descending":true}],
+    Levels=2,
+    ExpandLevels=[{"Entry":["US"],"Levels":0},
+                  {"Entry":["DE","BW"],"Levels":1}]
+  )/concat(aggregate($count as ResultEntriesCount),
+           skip(20)/top(10)))
+```
+</String>
+        </Annotation>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Entity set to be processed" />
+        </Parameter>
+        <Parameter Name="LevelProperties" Type="Collection(Analytics.MultiLevelExpandLevel)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>Each element in the collection defines the properties that constitute one level.
+            A property must not be referenced by more than one level.
+            The first element in the collection defines the property names of the coarsest level,
+            the following elements define the property names of consecutively finer-grained aggregation levels.
+            The function result is the leveled hierarchy with these levels in preorder,
+            entries on the finest-grained level cannot be expanded further.
+            The result does not contain a level representing a root or grand total.
+            All referenced properties must be groupable.</String>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="Aggregation" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties to aggregate for all result entries on all levels" />
+          <Annotation Term="Core.LongDescription">
+            <String>All properties in this collection must be custom aggregates.</String>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="SiblingOrder" Type="Collection(Analytics.MultiLevelExpandSiblingOrder)" Nullable="false">
+          <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy" />
+        </Parameter>
+        <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
+          <Annotation Term="Core.Description" String="Number N of levels to be shown in the initial expansion" />
+          <Annotation Term="Core.LongDescription">
+            <String>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`).
+            If this parameter is omitted, all levels are shown.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="ExpandLevels" Type="Collection(Analytics.MultiLevelExpandEntry)" Nullable="false">
+          <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="SubtotalsAtBottom" Type="Edm.Bool" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether to duplicate the group headers so that they appear before and after their descendants" />
+          <Annotation Term="Core.LongDescription">
+            <String>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`,
+            the entry after has DrillState `subtotal`.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="Output set including the instance annotation [`LevelInformation`](#LevelInformation)" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="MultiLevelExpandLevel">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Property names constituting a level in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
+        <Annotation Term="Core.LongDescription">
+          <String>`DimensionProperties` must be used to identify entries in [`ExpandEntries/Entry`](#MultiLevelExpandEntry),
+          otherwise they have the same effect as `AdditionalProperties`.</String>
+        </Annotation>
+        <Property Name="DimensionProperties" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A non-empty list of property names that define a combination of dimension values" />
+        </Property>
+        <Property Name="AdditionalProperties" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="MultiLevelExpandSiblingOrder">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Sibling order in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
+        <Property Name="Property" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Property by which to sort" />
+        </Property>
+        <Property Name="Descending" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Sort direction, ascending if not specified otherwise" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="MultiLevelExpandEntry">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)" />
+        <Property Name="Entry" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one" />
+          <Annotation Term="Core.LongDescription">
+            <String>The values are cast to strings as in the OData `cast` function.</String>
+          </Annotation>
+        </Property>
+        <Property Name="Levels" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="Number of levels to be expanded, null means all levels, 0 means collapsed" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="LevelInformation" Type="Hierarchy.HierarchyType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation" />
+      </Term>
 
     </Schema>
   </edmx:DataServices>
