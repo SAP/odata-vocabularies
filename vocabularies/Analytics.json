@@ -215,7 +215,7 @@
           },
           {
             "$Name": "SubtotalsAtBottom",
-            "$Type": "Edm.Bool",
+            "$Type": "Edm.Boolean",
             "@Core.Description": "Whether to duplicate the group headers so that they appear before and after their descendants",
             "@Core.LongDescription": "The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`,\n            the entry after has DrillState `subtotal`.",
             "@Core.OptionalParameter": { "DefaultValue": "false" }

@@ -63,7 +63,7 @@ Parameter|Type|Description
 [SiblingOrder](Analytics.xml#L236)|\[[MultiLevelExpandSiblingOrder](#MultiLevelExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy
 *[Levels](Analytics.xml#L239)*|Int64|*Optional parameter:* Number N of levels to be shown in the initial expansion<br>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`). If this parameter is omitted, all levels are shown.
 *[ExpandLevels](Analytics.xml#L249)*|\[[MultiLevelExpandEntry](#MultiLevelExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
-*[SubtotalsAtBottom](Analytics.xml#L255)*|Bool|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
+*[SubtotalsAtBottom](Analytics.xml#L255)*|Boolean|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
 [&rarr;](Analytics.xml#L267)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 

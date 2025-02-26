@@ -252,7 +252,7 @@ $apply=filter(Industry in ('IT','AI'))
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="SubtotalsAtBottom" Type="Edm.Bool" Nullable="false">
+        <Parameter Name="SubtotalsAtBottom" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether to duplicate the group headers so that they appear before and after their descendants" />
           <Annotation Term="Core.LongDescription">
             <String>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`,
