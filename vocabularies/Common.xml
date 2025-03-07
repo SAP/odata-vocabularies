@@ -262,7 +262,7 @@
       </Term>
 
       <Term Name="Masked" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Revisions">
+        <!-- Annotation Term="Core.Revisions">
           <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
@@ -270,9 +270,13 @@
               <PropertyValue Property="Description" String="Use terms `MaskedValue` instead" />
             </Record>
           </Collection>
-        </Annotation>
+        </Annotation -->
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>This tag affects only the presentation to the user.
+          The data are still transmitted in the response and can hence be observed using browser tools.</String>
         </Annotation>
       </Term>
 

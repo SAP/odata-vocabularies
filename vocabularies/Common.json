@@ -216,9 +216,8 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property"],
-      "@Core.Revisions@Common.Experimental": true,
-      "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Use terms `MaskedValue` instead" }],
-      "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction"
+      "@Core.Description": "Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction",
+      "@Core.LongDescription": "This tag affects only the presentation to the user.\n          The data are still transmitted in the response and can hence be observed using browser tools."
     },
     "MaskedValue": {
       "$Kind": "Term",
