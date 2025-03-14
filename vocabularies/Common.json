@@ -698,19 +698,9 @@
     "ValueListParameterIn": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
-      "Operator": {
-        "$Type": "UI.SelectionRangeOptionType",
-        "$DefaultValue": 0,
-        "@Core.Description": "Operator applied to the property. Defaults to `EQ`."
-      },
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list by applying the operator (Single value or lower interval boundary)",
-        "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators"
-      },
-      "LocalDataPropertyHigh": {
-        "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list by applying the operator (Upper interval boundary)",
+        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison",
         "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators"
       },
       "InitialValueIsSignificant": {
@@ -747,18 +737,9 @@
     "ValueListParameterInOut": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
-      "Operator": {
-        "$Type": "UI.SelectionRangeOptionType",
-        "$DefaultValue": 0,
-        "@Core.Description": "Operator applied to the property. Defaults to `EQ`."
-      },
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list by applying the operator, and filled from the picked value list item  (Single value or lower interval boundary)"
-      },
-      "LocalDataPropertyHigh": {
-        "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to the property that is used to filter the value list by applying the operator, and filled from the picked value list item (Upper interval boundary)"
+        "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
       },
       "InitialValueIsSignificant": {
         "$Type": "Edm.Boolean",

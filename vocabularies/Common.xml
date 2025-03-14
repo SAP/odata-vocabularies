@@ -795,16 +795,16 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterIn" BaseType="Common.ValueListParameter">
-        <Property Name="Operator" Type="UI.SelectionRangeOptionType" DefaultValue="0" Nullable="false">
+        <Property Name="Operator" Type="Edm.PrimitiveType" DefaultValue="EQ" Nullable="true">
           <Annotation Term="Core.Description" String="Operator applied to the property. Defaults to `EQ`." />
         </Property>
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator (Single value or lower interval boundary)" />
           <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators" />
         </Property>
-        <Property Name="LocalDataPropertyHigh" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator (Upper interval boundary)" />
-          <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators" />
+        <Property Name="LocalDataPropertyBT" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator BT (Between)" />
+          <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
@@ -829,14 +829,15 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
-        <Property Name="Operator" Type="UI.SelectionRangeOptionType" DefaultValue="0" Nullable="false">
+        <Property Name="Operator" Type="Edm.PrimitiveType" DefaultValue="EQ" Nullable="true">
           <Annotation Term="Core.Description" String="Operator applied to the property. Defaults to `EQ`." />
         </Property>
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator, and filled from the picked value list item  (Single value or lower interval boundary)" />
         </Property>
-        <Property Name="LocalDataPropertyHigh" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to the property that is used to filter the value list by applying the operator, and filled from the picked value list item (Upper interval boundary)" />
+        <Property Name="LocalDataPropertyBT" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator BT (Between)" />
+          <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
