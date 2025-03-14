@@ -107,7 +107,7 @@ The properties in this complex type contain information about
 Property|Type|Description
 :-------|:---|:----------
 [LimitedDescendantCount](Hierarchy.xml#L56)|Int64?|Number of entries from finer-grained aggregation levels that are expanded
-[DrillState](Hierarchy.xml#L59)|String?|Drill state of an entry<dl>Allowed Values:<dt>[expanded](Hierarchy.xml#L63)<dd>The entry precedes entries from finer-grained aggregation levels<dt>[subtotal](Hierarchy.xml#L67)<dd>The entry follows entries from finer-grained aggregation levels and contains subtotals<dt>[leaf](Hierarchy.xml#L72)<dd>The entry belongs to the finest-grained aggregation level<dt>[collapsed](Hierarchy.xml#L76)<dd>The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal</dl>
+[DrillState](Hierarchy.xml#L59)|String?|Drill state of an entry<dl>Allowed Values:<dt>[expanded](Hierarchy.xml#L63)<dd>The entry precedes entries from finer-grained aggregation levels<dt>[subtotal](Hierarchy.xml#L67) *([Experimental](Common.md#Experimental))*<dd>The entry follows entries from finer-grained aggregation levels and contains subtotals<dt>[leaf](Hierarchy.xml#L72)<dd>The entry belongs to the finest-grained aggregation level<dt>[collapsed](Hierarchy.xml#L76)<dd>The entry belongs to an aggregation level coarser than the finest-grained but is neither expanded nor subtotal</dl>
 [DistanceFromRoot](Hierarchy.xml#L83)|Int64?|Position of the current aggregation level in the list of all aggregation levels
 
 <a name="RecursiveHierarchyType"></a>

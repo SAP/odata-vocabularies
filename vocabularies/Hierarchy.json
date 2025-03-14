@@ -50,7 +50,7 @@
           },
           {
             "Value": "subtotal",
-            "@Core.Experimental": true,
+            "@Common.Experimental": true,
             "@Core.Description": "The entry follows entries from finer-grained aggregation levels and contains subtotals"
           },
           { "Value": "leaf", "@Core.Description": "The entry belongs to the finest-grained aggregation level" },
