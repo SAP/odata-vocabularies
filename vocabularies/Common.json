@@ -698,10 +698,22 @@
     "ValueListParameterIn": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
+      "Operator": {
+        "$Type": "Edm.PrimitiveType",
+        "$Nullable": true,
+        "$DefaultValue": "EQ",
+        "@Core.Description": "Operator applied to the property. Defaults to `EQ`."
+      },
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list with `eq` comparison",
+        "@Core.Description": "Path to property that is used to filter the value list by applying the operator (Single value or lower interval boundary)",
         "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators"
+      },
+      "LocalDataPropertyBT": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Path to property that is used to filter the value list by applying the operator BT (Between)",
+        "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators"
       },
       "InitialValueIsSignificant": {
         "$Type": "Edm.Boolean",
@@ -737,9 +749,21 @@
     "ValueListParameterInOut": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
+      "Operator": {
+        "$Type": "Edm.PrimitiveType",
+        "$Nullable": true,
+        "$DefaultValue": "EQ",
+        "@Core.Description": "Operator applied to the property. Defaults to `EQ`."
+      },
       "LocalDataProperty": {
         "$Type": "Edm.PropertyPath",
-        "@Core.Description": "Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item"
+        "@Core.Description": "Path to property that is used to filter the value list by applying the operator, and filled from the picked value list item  (Single value or lower interval boundary)"
+      },
+      "LocalDataPropertyBT": {
+        "$Type": "Edm.PropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Path to property that is used to filter the value list by applying the operator BT (Between)",
+        "@Core.LongDescription": "In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators"
       },
       "InitialValueIsSignificant": {
         "$Type": "Edm.Boolean",
