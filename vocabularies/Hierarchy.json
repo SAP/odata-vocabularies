@@ -28,14 +28,12 @@
       "$Type": "Hierarchy.RecursiveHierarchyType",
       "$AppliesTo": ["EntityType"],
       "$BaseTerm": "Aggregation.RecursiveHierarchy",
-      "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Hierarchy-specific information in the result set of a hierarchical request",
       "@Core.LongDescription": "The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          governs what are the nodes and parents in the hierarchy, whereas this term defines derived information."
     },
     "HierarchyType": {
       "$Kind": "ComplexType",
-      "@Common.Experimental": true,
       "@Core.LongDescription": "The properties in this complex type contain information about\n          an entry in the result set of a request with multiple aggregation levels, some of which are expanded.\n          These properties also serve in the derived [`RecursiveHierarchyType`](#RecursiveHierarchyType)\n          with their definitions rephrased in the concept of recursive hierarchies.",
       "LimitedDescendantCount": {
         "$Type": "Edm.Int64",
@@ -52,6 +50,7 @@
           },
           {
             "Value": "subtotal",
+            "@Core.Experimental": true,
             "@Core.Description": "The entry follows entries from finer-grained aggregation levels and contains subtotals"
           },
           { "Value": "leaf", "@Core.Description": "The entry belongs to the finest-grained aggregation level" },
@@ -70,15 +69,16 @@
     "RecursiveHierarchyType": {
       "$Kind": "ComplexType",
       "$BaseType": "Hierarchy.HierarchyType",
-      "@Common.Experimental": true,
       "@Core.LongDescription": "The properties in this complex type contain information about\na node in the result set of a hierarchical request. If the same node occurs multiple times\nwith different parents, certain properties may differ between the occurrences.\nThe properties are derived when hierarchical transformations\nare applied whose first parameter has the annotated entity type\nand whose second parameter is the annotation qualifier.\n\nFor requests like\n```\nSalesOrganizations?$apply=\ndescendants(..., ID, filter(ID eq 'US'), keep start)\n/ancestors(..., ID, filter(contains(Name, 'New York')), keep start)\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\nor\n```\nSalesOrganizations?$apply=groupby((rolluprecursive(..., ID,\n  descendants(..., ID, filter(ID eq 'US')),\n  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))\n/Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)\n&$top=10\n```\n(where `...,` stands for hierarchy nodes and hierarchy qualifier)\nthe following collections of hierarchy nodes are distinguished:\n\n|Collection|Definition|Value|Where in request|\n|----------|----------|-----|----------------|\n|sub-hierarchy|output set of a `descendants` transformation, possibly embedded in a `rolluprecursive` transformation, that is not preceded by an `ancestors` or `descendants` transformation|US sales organizations|rows 1–2|\n|matching nodes|see [`MatchCount`](#MatchCount)|US sales organizations with \"New York\" in their name|output set of `filter` transformation in row 3|\n|unlimited hierarchy|output set of the last `ancestors`, `descendants` or `traverse` transformation, possibly embedded in a `rolluprecursive` transformation, disregarding numeric fifth parameters|US sales organizations with leaves containing \"New York\"|rows 1–3|\n|limited hierarchy|output set of the last `ancestors`, `descendants`, `traverse` or [`Hierarchy.TopLevels`](#TopLevels) transformation, possibly embedded in a `rolluprecursive` transformation|2 levels of US sales organizations with leaves containing \"New York\"|rows 1–4|\n",
       "ExternalKey": {
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Human-readable key value for a node",
         "@Core.LongDescription": "If a `NodeType` exists, the external key is unique only in combination with it.\n            Or the external key can coincide with the [`Aggregation.RecursiveHierarchy/NodeProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)."
       },
       "NodeType": {
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Type of a node",
         "@Core.LongDescription": "In a recursive hierarchy with mixed types, nodes can\n- have a type-specific (navigation) property whose name is the node type or\n- be represented by entities of different subtypes of a common entity type that is\n\nannotated with the `RecursiveHierarchy` annotation. The qualified name of the subtype is the node type."
       },
@@ -108,11 +108,13 @@
       "ChildCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Number of children a node has in the unlimited hierarchy"
       },
       "DescendantCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Number of descendants a node has in the unlimited hierarchy"
       },
       "LimitedRank": {
@@ -124,17 +126,20 @@
       "SiblingRank": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Sibling rank of a node",
         "@Core.LongDescription": "The sibling rank of a node is the index of the node in the sequence of all nodes\n            in the unlimited hierarchy with the same parent. The first sibling has rank 0."
       },
       "Matched": {
         "$Type": "Edm.Boolean",
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Flag indicating [matching](#MatchCount) nodes"
       },
       "MatchedDescendantCount": {
         "$Type": "Edm.Int64",
         "$Nullable": true,
+        "@Common.Experimental": true,
         "@Core.Description": "Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy"
       }
     },
@@ -143,13 +148,11 @@
       "$Type": "Hierarchy.RecursiveHierarchyActionsType",
       "$AppliesTo": ["EntityType"],
       "$BaseTerm": "Aggregation.RecursiveHierarchy",
-      "@Common.Experimental": true,
       "@Core.Description": "Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)",
       "@Core.LongDescription": "When an annotation with this term is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)\n          in the base term must not have a collection-valued segment prior to its last segment."
     },
     "RecursiveHierarchyActionsType": {
       "$Kind": "ComplexType",
-      "@Common.Experimental": true,
       "@Core.LongDescription": "The qualified action names identify actions for maintaining nodes in the recursive hierarchy,\nwhich are specific for the given annotation qualifier.\nThese actions MUST have the same signature as the template actions linked below, with\n`Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.\nThe resource path of the binding parameter MUST traverse the hierarchy collection,\nincluding any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,\nthe hierarchy directory MUST be determined from the resource path of that request.\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes\",\n  \"body\": {\n    \"Name\": \"child of A\",\n    \"Superordinate@odata.bind\": \"Nodes('A')\"\n  }\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"post\",\n  \"url\": \"$1/Hierarchy.ChangeNextSiblingAction\",\n  \"body\": {\n    \"NextSibling\": null\n  }\n}]}\n```\nThe template actions themselves cannot be invoked.",
       "ChangeNextSiblingAction": {
         "$Type": "Common.QualifiedName",
@@ -181,7 +184,6 @@
         "$Kind": "Function",
         "$EntitySetPath": "InputSet",
         "$IsBound": true,
-        "@Common.Experimental": true,
         "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
         "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific\n          definition of start nodes.",
         "$Parameter": [
@@ -223,7 +225,6 @@
     ],
     "TopLevelsExpandType": {
       "$Kind": "ComplexType",
-      "@Common.Experimental": true,
       "@Core.Description": "Information about nodes to be expanded",
       "NodeID": { "@Core.Description": "Identifier of a node to be expanded" },
       "Levels": {
@@ -246,7 +247,6 @@
       {
         "$Kind": "Action",
         "$IsBound": true,
-        "@Common.Experimental": true,
         "@Core.Description": "Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)",
         "$Parameter": [
           { "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node T to be moved" },
@@ -265,7 +265,6 @@
         "$Kind": "Action",
         "$EntitySetPath": "Node",
         "$IsBound": true,
-        "@Common.Experimental": true,
         "@Core.Description": "Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)",
         "@Core.LongDescription": "The action copies a node A and its descendants and the parent navigation properties between them\nso that the copied nodes form a sub-hierarchy. It returns the copy of A. No assumption is made about the parent of the copy of A.\n\nTo specify the parent of the copy of A, the action invocation MUST be followed\nby a PATCH that binds its parent navigation property (for example, `Superordinate` in the following JSON batch request)\nto the desired parent B or to `null`.\n```json\n{\"requests\": [{\n  \"id\": \"1\",\n  \"method\": \"post\",\n  \"url\": \"HierarchyDirectory(1)/Nodes('A')/CopyAction\"\n}, {\n  \"id\": \"2\",\n  \"dependsOn\": [\"1\"],\n  \"method\": \"patch\",\n  \"url\": \"$1\",\n  \"body\": {\n    \"Superordinate@odata.bind\": \"Nodes('B')\"\n  }\n}]}\n```\nIf a certain position of the copy of A among its new siblings is desired, an additional invocation of\n[`ChangeNextSiblingAction`](#Template_ChangeNextSiblingAction) can be included in the batch request.",
         "$Parameter": [{ "$Name": "Node", "$Type": "Edm.EntityType", "@Core.Description": "The node to be copied" }],

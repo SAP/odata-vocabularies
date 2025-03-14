@@ -39,7 +39,6 @@
       </Annotation>
 
       <Term Name="RecursiveHierarchy" Type="Hierarchy.RecursiveHierarchyType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Hierarchy-specific information in the result set of a hierarchical request" />
         <Annotation Term="Core.LongDescription">
@@ -48,7 +47,6 @@
         </Annotation>
       </Term>
       <ComplexType Name="HierarchyType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
           an entry in the result set of a request with multiple aggregation levels, some of which are expanded.
@@ -68,6 +66,7 @@
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="subtotal" />
+                <Annotation Term="Core.Experimental" />
                 <Annotation Term="Core.Description" String="The entry follows entries from finer-grained aggregation levels and contains subtotals" />
               </Record>
               <Record>
@@ -86,7 +85,6 @@
         </Property>
       </ComplexType>
       <ComplexType Name="RecursiveHierarchyType" BaseType="Hierarchy.HierarchyType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The properties in this complex type contain information about
 a node in the result set of a hierarchical request. If the same node occurs multiple times
@@ -123,6 +121,7 @@ the following collections of hierarchy nodes are distinguished:
 </String>
         </Annotation>
         <Property Name="ExternalKey" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Human-readable key value for a node" />
           <Annotation Term="Core.LongDescription">
             <String>If a `NodeType` exists, the external key is unique only in combination with it.
@@ -130,6 +129,7 @@ the following collections of hierarchy nodes are distinguished:
           </Annotation>
         </Property>
         <Property Name="NodeType" Type="Edm.String" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Type of a node" />
           <Annotation Term="Core.LongDescription">
             <String>In a recursive hierarchy with mixed types, nodes can
@@ -168,9 +168,11 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           </Annotation>
         </Property>
         <Property Name="ChildCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Number of children a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="DescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Number of descendants a node has in the unlimited hierarchy" />
         </Property>
         <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
@@ -181,6 +183,7 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           </Annotation>
         </Property>
         <Property Name="SiblingRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Sibling rank of a node" />
           <Annotation Term="Core.LongDescription">
             <String>The sibling rank of a node is the index of the node in the sequence of all nodes
@@ -188,9 +191,11 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           </Annotation>
         </Property>
         <Property Name="Matched" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Flag indicating [matching](#MatchCount) nodes" />
         </Property>
         <Property Name="MatchedDescendantCount" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
         <!--
@@ -201,7 +206,6 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
       </ComplexType>
 
       <Term Name="RecursiveHierarchyActions" Type="Hierarchy.RecursiveHierarchyActionsType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)" />
         <Annotation Term="Core.LongDescription">
           <String>When an annotation with this term is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType)
@@ -209,7 +213,6 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
         </Annotation>
       </Term>
       <ComplexType Name="RecursiveHierarchyActionsType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.LongDescription">
           <String>The qualified action names identify actions for maintaining nodes in the recursive hierarchy,
 which are specific for the given annotation qualifier.
@@ -286,7 +289,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       -->
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
         <Annotation Term="Core.LongDescription">
           <String>This function can be used as a transformation whose input set has a recursive hierarchy
@@ -329,7 +331,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
       <ComplexType Name="TopLevelsExpandType">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Information about nodes to be expanded" />
         <Property Name="NodeID" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Identifier of a node to be expanded" />
@@ -350,7 +351,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       </Term>
 
       <Action Name="Template_ChangeNextSiblingAction" IsBound="true">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -367,7 +367,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       </Action>
       <!--
       <Action Name="Template_ChangePreviousSiblingAction" IsBound="true">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangePreviousSiblingAction`](#RecursiveHierarchyActionsType)" />
         <Parameter Name="Node" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="The node T to be moved" />
@@ -384,7 +383,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       </Action>
       -->
       <Action Name="Template_CopyAction" IsBound="true" EntitySetPath="Node">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)" />
         <Annotation Term="Core.LongDescription">
           <String>The action copies a node A and its descendants and the parent navigation properties between them
