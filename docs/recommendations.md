@@ -20,6 +20,17 @@ Clients request recommendations from the server at their discretion.
 
 ```mermaid
 sequenceDiagram
+  accDescr {
+    The Fiori client makes a batch request to the OData service that consists of a
+    PATCH followed by a GET. After returning the response the service checks
+    whether the input for recommendations has changed and, if so, calls a
+    function in a new task that asynchronously computes recommendations. This task invokes
+    the recommendation computation on the BTP recommendations service and
+    updates the draft with the returned recommendations.
+    When the Fiori client later makes a GET request that selects the SAP__Recommendations
+    property, the recommendations are read from the draft. Another Fiori client of
+    the same collaborative draft can also read these recommendations.
+  }
   actor client as Fiori client
   actor otherclient as Other Fiori client<br>of same collaborative draft
   box ABAP
@@ -55,6 +66,10 @@ Alternatively, clients can be notified via web socket if recommendations have be
 
 ```mermaid
 sequenceDiagram
+  accDescr {
+    In this alternative the asynchronous task notifies each Fiori client when recommendations
+    have been updated in the draft.
+  }
   actor client as Fiori client
   actor otherclient as Other Fiori client<br>of same collaborative draft
   box ABAP
