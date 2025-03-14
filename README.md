@@ -45,6 +45,8 @@ Contributors to this repository will need to run the generators, which require [
 
 The tools in this repository are only needed by contributors to refresh the `*.json` and `*.md` files after changing the `*.xml` source files. These tools require [Node.js](https://nodejs.org/) to be installed.
 
+To run the tools, you will need to [install](https://pandoc.org/installing.html) [Pandoc](https://pandoc.org).
+
 ### Installation
 
 Clone or download this repository, go to its root folder, and type
