@@ -1360,6 +1360,18 @@ The trend is
         </Member>
       </EnumType>
 
+      <EnumType Name="ValueListRangeOperator">
+        <Annotation Term="Core.Description" String="Comparison operator" />
+        <Member Name="EQ">
+          <Annotation Term="Core.Description" String="Equal to" />
+        </Member>
+        <Member Name="LE">
+          <Annotation Term="Core.Description" String="Less than or equal to" />
+        </Member>
+        <Member Name="GE">
+          <Annotation Term="Core.Description" String="Greater than or equal to" />
+        </Member>
+      </EnumType>
 
       <!-- basic type definitions for reuse -->
 

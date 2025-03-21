@@ -795,21 +795,19 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterIn" BaseType="Common.ValueListParameter">
-        <Property Name="Operator" Type="Edm.PrimitiveType" DefaultValue="EQ" Nullable="true">
-          <Annotation Term="Core.Description" String="Operator applied to the property. Defaults to `EQ`." />
-        </Property>
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator (Single value or lower interval boundary)" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `eq` comparison" />
           <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `eq` comparisons connected by `or` operators" />
-        </Property>
-        <Property Name="LocalDataPropertyBT" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator BT (Between)" />
-          <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
       </ComplexType>
+      <ComplexType Name="ValueListRangeIn" BaseType="Common.ValueListParameterIn">
+        <Property Name="Operator" Type="UI.ValueListRangeOperator" DefaultValue="EQ" Nullable="false">
+          <Annotation Term="Core.Description" String="Operator applied to the property." />
+        </Property>
+      </ComplexType>      
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
         <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Constant value that is used to filter the value list with `eq` comparison, using the same representation as property default values, see [CSDL XML, 7.2.7 Default Value](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_DefaultValue)" />
@@ -829,15 +827,8 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterInOut" BaseType="Common.ValueListParameter">
-        <Property Name="Operator" Type="Edm.PrimitiveType" DefaultValue="EQ" Nullable="true">
-          <Annotation Term="Core.Description" String="Operator applied to the property. Defaults to `EQ`." />
-        </Property>
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator, and filled from the picked value list item  (Single value or lower interval boundary)" />
-        </Property>
-        <Property Name="LocalDataPropertyBT" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list by applying the operator BT (Between)" />
-          <Annotation Term="Core.LongDescription" String="In case the property path contains a collection-based navigation or structural property, the filter is a set of `bt` comparisons connected by `or` operators" />
+          <Annotation Term="Core.Description" String="Path to property that is used to filter the value list with `startswith` comparison and filled from the picked value list item" />
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
@@ -848,6 +839,11 @@ The minimum structure is
           </Collection>
         </Annotation>
       </ComplexType>
+      <ComplexType Name="ValueListRangeInOut" BaseType="Common.ValueListParameterInOut">
+        <Property Name="Operator" Type="UI.ValueListRangeOperator" DefaultValue="EQ" Nullable="false">
+          <Annotation Term="Core.Description" String="Operator applied to the property." />
+        </Property>
+      </ComplexType>    
       <ComplexType Name="ValueListParameterOut" BaseType="Common.ValueListParameter">
         <Property Name="LocalDataProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Path to property that is filled from response" />
