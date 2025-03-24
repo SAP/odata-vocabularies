@@ -709,6 +709,15 @@
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       }
     },
+    "ValueListRangeIn": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.ValueListParameterIn",
+      "Operator": {
+        "$Type": "UI.ValueListRangeOperator",
+        "$DefaultValue": "EQ",
+        "@Core.Description": "Operator applied to the property."
+      }
+    },
     "ValueListParameterConstant": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.ValueListParameter",
@@ -747,6 +756,15 @@
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       },
       "@Validation.ApplicableTerms": ["UI.Importance"]
+    },
+    "ValueListRangeInOut": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Common.ValueListParameterInOut",
+      "Operator": {
+        "$Type": "UI.ValueListRangeOperator",
+        "$DefaultValue": "EQ",
+        "@Core.Description": "Operator applied to the property."
+      }
     },
     "ValueListParameterOut": {
       "$Kind": "ComplexType",
