@@ -7,5 +7,5 @@ SPDX-PackageComment = "The code in this project may include calls to APIs (“AP
 [[annotations]]
 path = ["**", "docs/**", "examples/**", "lib/**", "vocabularies/**"]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2016-2020 SAP SE or an SAP affiliate company and SAP/odata-vocabularies contributors"
+SPDX-FileCopyrightText = "2016-2025 SAP SE or an SAP affiliate company and SAP/odata-vocabularies contributors"
 SPDX-License-Identifier = "Apache-2.0"
