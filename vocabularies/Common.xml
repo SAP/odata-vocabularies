@@ -1528,7 +1528,6 @@ followed by URL parameters
       </Term>
 
       <Term Name="AddressViaNavigationPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Service prefers requests to use a resource path with navigation properties" />
         <Annotation Term="Core.LongDescription">
           <String>Use this tag on services that do not restrict requests to certain resource paths
