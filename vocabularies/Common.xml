@@ -1531,10 +1531,14 @@ followed by URL parameters
         <Annotation Term="Core.Description" String="Service prefers requests to use a resource path with navigation properties" />
         <Annotation Term="Core.LongDescription">
           <String>Use this tag on services that do not restrict requests to certain resource paths
-          via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)
-          or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)
-          annotations, but that prefer requests on a resource path that
-          contains the navigation properties reflecting the object composition.</String>
+via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)
+or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)
+annotations, but that prefer requests with a resource path that
+contains the navigation properties reflecting the UI structure.
+
+For example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`
+leads to a
+`PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.</String>
         </Annotation>
       </Term>
 
