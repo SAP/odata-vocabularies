@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.Support.v1" Alias="Support">
+      <Annotation Term="Core.Description">
+        <String>Terms for support tools</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2025-03-25 © Copyright 2025 SAP SE. All rights reserved.</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Support.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/Support.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Support.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+      <Annotation Term="Common.Experimental" />
+
+      <Term Name="TechnicalInfo" Type="Support.TechnicalInfoSource" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Correspondence between `Core.ContentID` in a parameter and in the return type of an action" />
+        <Annotation Term="Core.LongDescription">
+          <String>If values in the action invocation are annotated with `Core.ContentID`,
+          the corresponding values returned by the action are annotated with the same `Core.ContentID`
+          and can thus be referenced in subsequent requests within the same batch request.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="TechnicalInfoSource">
+        <Annotation Term="Core.Description" String="A function import for retrieval of technical info" />
+        <Property Name="Url" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL of a CSDL document describing the function" />
+          <Annotation Term="Core.LongDescription">
+            <String>The function must follow [this template](#Template_GetTechnicalInfo).</String>
+          </Annotation>
+        </Property>
+        <Property Name="FunctionImport" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the function import" />
+        </Property>
+      </ComplexType>
+
+      <Function Name="Template_GetTechnicalInfo">
+        <Annotation Term="Core.Description" String="Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)" />
+        <Parameter Name="ServiceDefinition" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the service definition" />
+        </Parameter>
+        <Parameter Name="ModelElementPath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Path to the model element for which technical info is requested" />
+          <Annotation Term="Core.LongDescription">
+            <String>Uses the same syntax as [annotation targets](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#Target).</String>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Collection(Support.TechnicalInfoLink)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of development objects related to the model element" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="TechnicalInfoLink">
+        <Property Name="Text" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsLanguageDependent" />
+          <Annotation Term="Core.Description" String="Description of a development object" />
+        </Property>
+        <Property Name="Url" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="Link to open the development object" />
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
+      
