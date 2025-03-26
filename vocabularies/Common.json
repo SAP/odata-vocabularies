@@ -1356,9 +1356,8 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["EntityContainer"],
-      "@Common.Experimental": true,
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
-      "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\n          via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\n          or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\n          annotations, but that prefer requests on a resource path that\n          contains the navigation properties reflecting the object composition."
+      "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
     }
   }
 }
