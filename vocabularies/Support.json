@@ -31,7 +31,7 @@
       "Url": {
         "@Core.IsURL": true,
         "@Core.Description": "URL of a CSDL document describing the function",
-        "@Core.LongDescription": "The function must follow [this template](#Template_GetTechnicalInfo)."
+        "@Core.LongDescription": "This URL is interpreted relative to the URL of the CSDL document containing the annotation.\n            The function must follow [this template](#Template_GetTechnicalInfo)."
       },
       "FunctionImport": { "@Core.Description": "Name of the function import" }
     },
@@ -40,9 +40,14 @@
         "$Kind": "Function",
         "@Core.Description": "Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)",
         "$Parameter": [
-          { "$Name": "ServiceDefinition", "@Core.Description": "Name of the service definition" },
           {
-            "$Name": "ModelElementPath",
+            "$Name": "ServiceRoot",
+            "@Core.IsURL": true,
+            "@Core.Description": "Root URL of the UI service",
+            "@Core.LongDescription": "This URL is interpreted relative to the root URL of the service containing the function."
+          },
+          {
+            "$Name": "EdmPath",
             "@Core.Description": "Path to the model element for which technical info is requested",
             "@Core.LongDescription": "Uses the same syntax as [annotation targets](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#Target)."
           }
@@ -57,7 +62,11 @@
     "TechnicalInfoLink": {
       "$Kind": "ComplexType",
       "Text": { "@Core.IsLanguageDependent": true, "@Core.Description": "Description of a development object" },
-      "Url": { "@Core.IsURL": true, "@Core.Description": "Link to open the development object" }
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "Link to open the development object",
+        "@Core.LongDescription": "This URL is interpreted relative to the root URL of the service containing the function."
+      }
     }
   }
 }

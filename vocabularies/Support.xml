@@ -46,7 +46,8 @@
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of a CSDL document describing the function" />
           <Annotation Term="Core.LongDescription">
-            <String>The function must follow [this template](#Template_GetTechnicalInfo).</String>
+            <String>This URL is interpreted relative to the URL of the CSDL document containing the annotation.
+            The function must follow [this template](#Template_GetTechnicalInfo).</String>
           </Annotation>
         </Property>
         <Property Name="FunctionImport" Type="Edm.String" Nullable="false">
@@ -56,10 +57,14 @@
 
       <Function Name="Template_GetTechnicalInfo">
         <Annotation Term="Core.Description" String="Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)" />
-        <Parameter Name="ServiceDefinition" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the service definition" />
+        <Parameter Name="ServiceRoot" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="Root URL of the UI service" />
+          <Annotation Term="Core.LongDescription">
+            <String>This URL is interpreted relative to the root URL of the service containing the function.</String>
+          </Annotation>
         </Parameter>
-        <Parameter Name="ModelElementPath" Type="Edm.String" Nullable="false">
+        <Parameter Name="EdmPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Path to the model element for which technical info is requested" />
           <Annotation Term="Core.LongDescription">
             <String>Uses the same syntax as [annotation targets](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#Target).</String>
@@ -77,6 +82,9 @@
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="Link to open the development object" />
+          <Annotation Term="Core.LongDescription">
+            <String>This URL is interpreted relative to the root URL of the service containing the function.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 
