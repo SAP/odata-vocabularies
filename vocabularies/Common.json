@@ -1358,6 +1358,14 @@
       "$AppliesTo": ["EntityContainer"],
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
       "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
+    },
+    "PartnerPath": {
+      "$Kind": "Term",
+      "$Type": "Edm.NavigationPropertyPath",
+      "$AppliesTo": ["NavigationProperty"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A navigation property path that behaves like a [partner navigation property](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#PartnerNavigationProperty) but may traverse other navigation properties",
+      "@Core.LongDescription": "Let B be any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A.\nIf the annotated navigation property is single-valued, it MUST lead back from B to A.\nIf the annotated navigation property is collection-valued, A MUST be one of the\nentities related to B via it.\n\nExample: `Headers(1)/_Item(2)/_Subitem(3)/_Header` is the same entity as `Headers(1)`\nif the subitems entity type has a non-containment navigation property `_Header` annotated with\n`\"@Common.PartnerPath\": \"_Item/_Subitem\"`."
     }
   }
 }
