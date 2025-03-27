@@ -1365,7 +1365,7 @@
       "$AppliesTo": ["NavigationProperty"],
       "@Common.Experimental": true,
       "@Core.Description": "A navigation property path that behaves like a [partner navigation property](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#PartnerNavigationProperty) but may traverse other navigation properties",
-      "@Core.LongDescription": "Let B be any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A.\nIf the annotated navigation property is single-valued, it MUST lead back from B to A.\nIf the annotated navigation property is collection-valued, A MUST be one of the\nentities related to B via it.\n\nExample: `Headers(1)/_Item(2)/_Subitem(3)/_Header` is the same entity as `Headers(1)`\nif the subitems entity type has a non-containment navigation property `_Header` annotated with\n`\"@Common.PartnerPath\": \"_Item/_Subitem\"`."
+      "@Core.LongDescription": "Let B be any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A.\nIf the annotated navigation property is single-valued, it MUST lead back from B to A.\nIf the annotated navigation property is collection-valued, A MUST be one of the\nentities related to B via it.\n\nExample: `Headers(1)/_Items(2)/_Subitems(3)/_Header` MUST be the same entity as `Headers(1)`\nif the subitems entity type has a non-containment navigation property `_Header` annotated with\n`\"@Common.PartnerPath\": \"_Items/_Subitems\"`."
     }
   }
 }
