@@ -1364,8 +1364,8 @@
       "$Type": "Edm.NavigationPropertyPath",
       "$AppliesTo": ["NavigationProperty"],
       "@Common.Experimental": true,
-      "@Core.Description": "A navigation property path that behaves like a [partner navigation property](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#PartnerNavigationProperty) but may traverse other navigation properties",
-      "@Core.LongDescription": "Let B be any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A.\nIf the annotated navigation property is single-valued, it MUST lead back from B to A.\nIf the annotated navigation property is collection-valued, A MUST be one of the\nentities related to B via it.\n\nExample: `Headers(1)/_Items(2)/_Subitems(3)/_Header` MUST be the same entity as `Headers(1)`\nif the subitems entity type has a non-containment navigation property `_Header` annotated with\n`\"@Common.PartnerPath\": \"_Items/_Subitems\"`."
+      "@Core.Description": "A path consisting of two or more containment navigation properties that otherwise behaves like a [partner navigation property](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#PartnerNavigationProperty)",
+      "@Core.LongDescription": "The annotation target MUST be a single-valued non-containment navigation property.\nIf B is any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A,\nthen the annotated navigation property MUST lead back from B to A.\n\nExample: `Headers(1)/_Items(2)/_Subitems(3)/_Header` MUST be the same entity as `Headers(1)`\nif the subitems entity type has a non-containment navigation property `_Header` annotated with\n`\"@Common.PartnerPath\": \"_Items/_Subitems\"`.\nPaths with only one segment are given as partner navigation properties instead of `PartnerPath`s:\nThe items entity type has a non-containment navigation property `_Header` with\npartner navigation property `_Items`."
     }
   }
 }
