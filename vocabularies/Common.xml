@@ -805,7 +805,7 @@ The minimum structure is
       </ComplexType>
       <ComplexType Name="ValueListRangeIn" BaseType="Common.ValueListParameterIn">
         <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="EQ" Nullable="false">
-          <Annotation Term="Core.Description" String="Operator applied to the property." />
+          <Annotation Term="Core.Description" String="Comparison operator used to filter the value list by the property." />
         </Property>
       </ComplexType>      
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
@@ -841,7 +841,7 @@ The minimum structure is
       </ComplexType>
       <ComplexType Name="ValueListRangeInOut" BaseType="Common.ValueListParameterInOut">
         <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="EQ" Nullable="false">
-          <Annotation Term="Core.Description" String="Operator applied to the property." />
+          <Annotation Term="Core.Description" String="Comparison operator used to filter the value list by the property." />
         </Property>
       </ComplexType>    
       <ComplexType Name="ValueListParameterOut" BaseType="Common.ValueListParameter">
