@@ -1073,32 +1073,62 @@ The minimum structure is
         </Annotation>
       </Term>
       <ComplexType Name="DraftRootType" BaseType="Common.DraftNodeType">
+        <Property Name="PreparationAction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
+        </Property>
         <Property Name="ActivationAction" Type="Common.QualifiedName" Nullable="false">
           <Annotation Term="Core.Description" String="Action that activates a draft document" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="DiscardAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Action that discards a draft document" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the active document root node and has the following signature:
+- `PreserveChanges`: of type `Boolean` with default `false`, `true` means that an outdated draft of another user is not overwritten</String>
+          </Annotation>
+        </Property>
+        <Property Name="ResumeAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Action that resumes a draft document. The action re-acquires the exclusive lock if needed and checks if the related active document was not changed concurrently" />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root and has no parameters.</String>
+          </Annotation>
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
-          <Annotation Term="Core.LongDescription" String="New drafts may also be created by POSTing an empty entity without any properties to the entity set." />
+          <Annotation Term="Core.LongDescription">
+            <String>The action is bound to the draft document root entity set and has the following signature:
+- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
+
+New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.</String>
+          </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Additional actions that create a new draft" />
-          <Annotation Term="Core.LongDescription" String="Additional actions beside the default POST or standard `NewAction` that create a new draft." />
+          <Annotation Term="Core.Description" String="Additional actions beside the default POST or standard `NewAction`that create a new draft" />
+          <Annotation Term="Core.LongDescription">
+            <String>The actions are bound to the draft document root entity set and have the following signature:
+- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created</String>
+          </Annotation>
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
-          <Annotation Term="Core.Description" String="Action that shares a draft document with other users" />
+          <Annotation Term="Core.Description" String="Action that shares a draft document with other users and restricts access to the listed users in their specified roles" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
 - `Users`: collection of structure with properties
   - `UserID` of type `String` and
   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
+- `ShareAll` of type `Boolean` with default `false`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users
 
 It restricts access to the listed users in their specified roles.
 
@@ -1112,12 +1142,29 @@ followed by URL parameters
       </ComplexType>
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description">
           <String>Entities in this set are parts of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
+
       <ComplexType Name="DraftNodeType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Preparation is always called on the draft root node" />
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
         </Property>
         <Property Name="ValidationFunction" Type="Common.QualifiedName">
