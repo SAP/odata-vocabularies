@@ -1359,6 +1359,7 @@ The trend is
           <Annotation Term="Core.Description" String="Less than" />
         </Member>
       </EnumType>
+      
 
       <!-- basic type definitions for reuse -->
 
