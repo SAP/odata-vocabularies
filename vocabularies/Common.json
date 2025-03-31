@@ -707,15 +707,11 @@
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
-      }
-    },
-    "ValueListRangeIn": {
-      "$Kind": "ComplexType",
-      "$BaseType": "Common.ValueListParameterIn",
+      },
       "Operator": {
-        "$Type": "UI.ValueListRangeOperator",
-        "$DefaultValue": "EQ",
-        "@Core.Description": "Operator applied to the property."
+        "$Type": "Common.ValueListParameterOperator",
+        "$DefaultValue": "Common.ValueListParameterOperator/EQ",
+        "@Core.Description": "Comparison operator used to filter the value list by the property."
       }
     },
     "ValueListParameterConstant": {
@@ -755,16 +751,12 @@
         "$DefaultValue": false,
         "@Core.Description": "Initial value, e.g. empty string, is a valid and significant value"
       },
-      "@Validation.ApplicableTerms": ["UI.Importance"]
-    },
-    "ValueListRangeInOut": {
-      "$Kind": "ComplexType",
-      "$BaseType": "Common.ValueListParameterInOut",
       "Operator": {
-        "$Type": "UI.ValueListRangeOperator",
-        "$DefaultValue": "EQ",
-        "@Core.Description": "Operator applied to the property."
-      }
+        "$Type": "Common.ValueListParameterOperator",
+        "$DefaultValue": "Common.ValueListParameterOperator/EQ",
+        "@Core.Description": "Comparison operator used to filter the value list by the property."
+      },
+      "@Validation.ApplicableTerms": ["UI.Importance"]
     },
     "ValueListParameterOut": {
       "$Kind": "ComplexType",
@@ -788,6 +780,16 @@
       "@Core.Revisions": [
         { "Kind": "Deprecated", "Description": "All filterable properties of the value list can be used to filter" }
       ]
+    },
+    "ValueListParameterOperator": {
+      "$Kind": "EnumType",
+      "@Core.Description": "Comparison operator",
+      "EQ": 0,
+      "EQ@Core.Description": "Equal to",
+      "LE": 1,
+      "LE@Core.Description": "Less than or equal to",
+      "GE": 2,
+      "GE@Core.Description": "Greater than or equal to"
     },
     "IsCalendarYear": {
       "$Kind": "Term",

@@ -1191,16 +1191,6 @@
       "LT": 9,
       "LT@Core.Description": "Less than"
     },
-    "ValueListRangeOperator": {
-      "$Kind": "EnumType",
-      "@Core.Description": "Comparison operator",
-      "EQ": 0,
-      "EQ@Core.Description": "Equal to",
-      "LE": 1,
-      "LE@Core.Description": "Less than or equal to",
-      "GE": 2,
-      "GE@Core.Description": "Greater than or equal to"
-    },
     "ThingPerspective": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
