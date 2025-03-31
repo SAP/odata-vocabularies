@@ -804,7 +804,7 @@ The minimum structure is
         </Property>
       </ComplexType>
       <ComplexType Name="ValueListRangeIn" BaseType="Common.ValueListParameterIn">
-        <Property Name="Operator" Type="UI.ValueListRangeOperator" DefaultValue="EQ" Nullable="false">
+        <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="EQ" Nullable="false">
           <Annotation Term="Core.Description" String="Operator applied to the property." />
         </Property>
       </ComplexType>      
@@ -840,7 +840,7 @@ The minimum structure is
         </Annotation>
       </ComplexType>
       <ComplexType Name="ValueListRangeInOut" BaseType="Common.ValueListParameterInOut">
-        <Property Name="Operator" Type="UI.ValueListRangeOperator" DefaultValue="EQ" Nullable="false">
+        <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="EQ" Nullable="false">
           <Annotation Term="Core.Description" String="Operator applied to the property." />
         </Property>
       </ComplexType>    
@@ -873,6 +873,18 @@ The minimum structure is
           </Collection>
         </Annotation>
       </ComplexType>
+      <EnumType Name="ValueListParameterOperator">
+        <Annotation Term="Core.Description" String="Comparison operator" />
+        <Member Name="EQ">
+          <Annotation Term="Core.Description" String="Equal to" />
+        </Member>
+        <Member Name="LE">
+          <Annotation Term="Core.Description" String="Less than or equal to" />
+        </Member>
+        <Member Name="GE">
+          <Annotation Term="Core.Description" String="Greater than or equal to" />
+        </Member>
+      </EnumType>
 
       <!-- Section: Calendar Points in Time -->
       <Term Name="IsCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
