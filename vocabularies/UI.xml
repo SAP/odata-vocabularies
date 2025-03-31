@@ -994,7 +994,6 @@ The trend is
       </Term>
 
       <Term Name="OperationParameterFacets" Type="Collection(UI.ReferenceFacet)" Nullable="false" AppliesTo="Action Function ActionImport FunctionImport">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Facets that reference UI.FieldGroup annotations to group action or function parameters" />
       </Term>
 
@@ -1689,6 +1688,8 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
               <String>UI.ConnectedFields</String>
               <String>UI.DataPoint</String>
               <String>UI.FieldGroup</String>
+              <String>UI.PresentationVariant</String>
+              <String>UI.SelectionPresentationVariant</String>
             </Collection>
           </Annotation>
         </Property>

@@ -262,7 +262,7 @@
       </Term>
 
       <Term Name="Masked" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Revisions">
+        <!-- Annotation Term="Core.Revisions">
           <Annotation Term="Common.Experimental" />
           <Collection>
             <Record>
@@ -270,9 +270,13 @@
               <PropertyValue Property="Description" String="Use terms `MaskedValue` instead" />
             </Record>
           </Collection>
-        </Annotation>
+        </Annotation -->
         <Annotation Term="Core.Description">
           <String>Property contains sensitive data that should by default be masked on a UI and clear-text visible only upon user interaction</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>This tag affects only the presentation to the user.
+          The data are still transmitted in the response and can hence be observed using browser tools.</String>
         </Annotation>
       </Term>
 
@@ -1091,7 +1095,7 @@ The minimum structure is
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the active document root node and has the following signature:
-- `PreserveChanges`: optional, of type `Boolean`, `true` means that an outdated draft of another user is not overwritten</String>
+- `PreserveChanges`: of type `Boolean` with default `false`, `true` means that an outdated draft of another user is not overwritten</String>
           </Annotation>
         </Property>
         <Property Name="ResumeAction" Type="Common.QualifiedName" Nullable="true">
@@ -1107,7 +1111,7 @@ The minimum structure is
             <String>The action is bound to the draft document root entity set and has the following signature:
 - `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
 
-New drafts may also be created by POSTing an entity with property IsActiveEntity=false (default) to the entity set.</String>
+New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.</String>
           </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
@@ -1124,7 +1128,7 @@ New drafts may also be created by POSTing an entity with property IsActiveEntity
 - `Users`: collection of structure with properties
   - `UserID` of type `String` and
   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
-- `ShareAll` of type `Boolean` with default value `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users
+- `ShareAll` of type `Boolean` with default `false`, `true` means sharing with all users that are authorized to create drafts; the `Users` parameter is optional in this case, provide it to actively notify the listed users
 
 It restricts access to the listed users in their specified roles.
 
@@ -1564,9 +1568,25 @@ followed by URL parameters
 - parameter name = annotation qualifier, parameter value = channel ID (see below)
 - parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app
 
-&lt;dl&gt;Supported qualifiers and channel IDs:
+Supported qualifiers and channel IDs:
+&lt;dl&gt;
 &lt;dt&gt;`sideEffects` &lt;dd&gt;Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)
 &lt;/dl&gt;</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="AddressViaNavigationPath" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Service prefers requests to use a resource path with navigation properties" />
+        <Annotation Term="Core.LongDescription">
+          <String>Use this tag on services that do not restrict requests to certain resource paths
+via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)
+or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)
+annotations, but that prefer requests with a resource path that
+contains the navigation properties reflecting the UI structure.
+
+For example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`
+leads to a
+`PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.</String>
         </Annotation>
       </Term>
 
