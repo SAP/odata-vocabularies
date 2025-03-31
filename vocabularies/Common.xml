@@ -802,6 +802,9 @@ The minimum structure is
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
         </Property>
+        <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="Common.ValueListParameterOperator/EQ" Nullable="false">
+          <Annotation Term="Core.Description" String="Comparison operator used to filter the value list by the property." />
+        </Property>
       </ComplexType>
       <ComplexType Name="ValueListParameterConstant" BaseType="Common.ValueListParameter">
         <Property Name="Constant" Type="Edm.PrimitiveType" Nullable="false">
@@ -827,6 +830,9 @@ The minimum structure is
         </Property>
         <Property Name="InitialValueIsSignificant" Type="Edm.Boolean" DefaultValue="false" Nullable="false">
           <Annotation Term="Core.Description" String="Initial value, e.g. empty string, is a valid and significant value" />
+        </Property>
+        <Property Name="Operator" Type="Common.ValueListParameterOperator" DefaultValue="Common.ValueListParameterOperator/EQ" Nullable="false">
+          <Annotation Term="Core.Description" String="Comparison operator used to filter the value list by the property." />
         </Property>
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -863,6 +869,18 @@ The minimum structure is
           </Collection>
         </Annotation>
       </ComplexType>
+      <EnumType Name="ValueListParameterOperator">
+        <Annotation Term="Core.Description" String="Comparison operator" />
+        <Member Name="EQ">
+          <Annotation Term="Core.Description" String="Equal to" />
+        </Member>
+        <Member Name="LE">
+          <Annotation Term="Core.Description" String="Less than or equal to" />
+        </Member>
+        <Member Name="GE">
+          <Annotation Term="Core.Description" String="Greater than or equal to" />
+        </Member>
+      </EnumType>
 
       <!-- Section: Calendar Points in Time -->
       <Term Name="IsCalendarYear" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
