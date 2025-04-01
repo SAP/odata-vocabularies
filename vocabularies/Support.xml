@@ -33,15 +33,9 @@
       <Annotation Term="Common.Experimental" />
 
       <Term Name="TechnicalInfo" Type="Support.TechnicalInfoSource" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Correspondence between `Core.ContentID` in a parameter and in the return type of an action" />
-        <Annotation Term="Core.LongDescription">
-          <String>If values in the action invocation are annotated with `Core.ContentID`,
-          the corresponding values returned by the action are annotated with the same `Core.ContentID`
-          and can thus be referenced in subsequent requests within the same batch request.</String>
-        </Annotation>
+        <Annotation Term="Core.Description" String="A function import for retrieval of technical info" />
       </Term>
       <ComplexType Name="TechnicalInfoSource">
-        <Annotation Term="Core.Description" String="A function import for retrieval of technical info" />
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of a CSDL document describing the function" />

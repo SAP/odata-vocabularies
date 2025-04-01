@@ -22,12 +22,10 @@
       "$Kind": "Term",
       "$Type": "Support.TechnicalInfoSource",
       "$AppliesTo": ["EntityContainer"],
-      "@Core.Description": "Correspondence between `Core.ContentID` in a parameter and in the return type of an action",
-      "@Core.LongDescription": "If values in the action invocation are annotated with `Core.ContentID`,\n          the corresponding values returned by the action are annotated with the same `Core.ContentID`\n          and can thus be referenced in subsequent requests within the same batch request."
+      "@Core.Description": "A function import for retrieval of technical info"
     },
     "TechnicalInfoSource": {
       "$Kind": "ComplexType",
-      "@Core.Description": "A function import for retrieval of technical info",
       "Url": {
         "@Core.IsURL": true,
         "@Core.Description": "URL of a CSDL document describing the function",
