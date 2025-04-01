@@ -22,7 +22,7 @@
       "$Kind": "Term",
       "$Type": "Support.TechnicalInfoSource",
       "$AppliesTo": ["EntityContainer"],
-      "@Core.Description": "A function import for retrieval of technical info"
+      "@Core.Description": "A function import for retrieval of technical info for a UI service"
     },
     "TechnicalInfoSource": {
       "$Kind": "ComplexType",

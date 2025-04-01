@@ -8,7 +8,7 @@ Terms for support tools
 
 Term|Type|Description
 :---|:---|:----------
-[TechnicalInfo](Support.xml#L35)|[TechnicalInfoSource](#TechnicalInfoSource)|<a name="TechnicalInfo"></a>A function import for retrieval of technical info
+[TechnicalInfo](Support.xml#L35)|[TechnicalInfoSource](#TechnicalInfoSource)|<a name="TechnicalInfo"></a>A function import for retrieval of technical info for a UI service
 
 
 ## Functions

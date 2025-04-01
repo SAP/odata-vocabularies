@@ -33,7 +33,7 @@
       <Annotation Term="Common.Experimental" />
 
       <Term Name="TechnicalInfo" Type="Support.TechnicalInfoSource" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="A function import for retrieval of technical info" />
+        <Annotation Term="Core.Description" String="A function import for retrieval of technical info for a UI service" />
       </Term>
       <ComplexType Name="TechnicalInfoSource">
         <Property Name="Url" Type="Edm.String" Nullable="false">
