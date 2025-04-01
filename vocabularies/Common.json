@@ -976,45 +976,65 @@
     "DraftRootType": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.DraftNodeType",
+      "PreparationAction": {
+        "$Type": "Common.QualifiedName",
+        "$Nullable": true,
+        "@Core.Description": "Action that prepares a draft document for later activation",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
+      },
       "ActivationAction": {
         "$Type": "Common.QualifiedName",
-        "@Core.Description": "Action that activates a draft document"
+        "@Core.Description": "Action that activates a draft document",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "DiscardAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Action that discards a draft document"
+        "@Core.Description": "Action that discards a draft document",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "EditAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Action that creates an edit draft"
+        "@Core.Description": "Action that creates an edit draft",
+        "@Core.LongDescription": "The action is bound to the active document root node and has the following signature:\n- `PreserveChanges`: of type `Boolean` with default `false`, `true` means that an outdated draft of another user is not overwritten"
+      },
+      "ResumeAction": {
+        "$Type": "Common.QualifiedName",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Action that resumes a draft document. The action re-acquires the exclusive lock if needed and checks if the related active document was not changed concurrently",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "NewAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
         "@Core.Description": "Action that creates a new draft",
-        "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
       },
       "AdditionalNewActions": {
         "$Collection": true,
         "$Type": "Common.QualifiedName",
-        "@Common.Experimental": true,
-        "@Core.Description": "Additional actions that create a new draft",
-        "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+        "@Core.Description": "Additional actions beside the default POST or standard `NewAction`that create a new draft",
+        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created"
       },
       "ShareAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Action that shares a draft document with other users",
-        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String` and\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
+        "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
+        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String` and\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n- `ShareAll` of type `Boolean` with default `false`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users\n\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
       }
     },
     "DraftNode": {
       "$Kind": "Term",
       "$Type": "Common.DraftNodeType",
       "$AppliesTo": ["EntitySet"],
+      "@Core.Revisions": [
+        {
+          "Kind": "Deprecated",
+          "Description": "Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)"
+        }
+      ],
       "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
     },
     "DraftNodeType": {
@@ -1022,6 +1042,9 @@
       "PreparationAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Core.Revisions": [
+          { "Kind": "Deprecated", "Description": "Preparation is always called on the draft root node" }
+        ],
         "@Core.Description": "Action that prepares a draft document for later activation"
       },
       "ValidationFunction": {
@@ -1349,16 +1372,15 @@
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "Channel for WebSocket connections",
-      "@Core.LongDescription": "Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).\nTo consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- parameter name = annotation qualifier, parameter value = channel ID (see below)\n- parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app\n\n<dl>Supported qualifiers and channel IDs:\n<dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)\n</dl>"
+      "@Core.LongDescription": "Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).\nTo consume a channel, the client opens a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- parameter name = annotation qualifier, parameter value = channel ID (see below)\n- parameter name = `relatedService`, parameter value = base URL (relative to server root) of the OData service of the app\n\nSupported qualifiers and channel IDs:\n<dl>\n<dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value)\n</dl>"
     },
     "AddressViaNavigationPath": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["EntityContainer"],
-      "@Common.Experimental": true,
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
-      "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\n          via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\n          or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\n          annotations, but that prefer requests on a resource path that\n          contains the navigation properties reflecting the object composition."
+      "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
     }
   }
 }
