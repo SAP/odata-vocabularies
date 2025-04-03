@@ -8,7 +8,7 @@ Terms for support tools
 
 Term|Type|Description
 :---|:---|:----------
-[TechnicalInfoLinks](Support.xml#L35)|[TechnicalInfoLinksType](#TechnicalInfoLinksType)|<a name="TechnicalInfoLinks"></a>A function import for retrieval of technical info for a UI service
+[TechnicalInfoLinks](Support.xml#L35)|[TechnicalInfoLinksType](#TechnicalInfoLinksType)|<a name="TechnicalInfoLinks"></a>How to retrieve links to technical information about the service
 
 
 ## Functions
@@ -16,7 +16,7 @@ Term|Type|Description
 <a name="Template_GetTechnicalInfoLinks"></a>
 ### [Template_GetTechnicalInfoLinks](Support.xml#L52)
 
-Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)
+Template for a function that retrieves links to technical information about a service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -32,7 +32,7 @@ Parameter|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Url](Support.xml#L39)|URL|URL of a CSDL document describing the function<br>This URL is interpreted relative to the URL of the CSDL document containing the annotation. The function must follow [this template](#Template_GetTechnicalInfoLinks).
-[FunctionImport](Support.xml#L47)|String|Name of the function import
+[FunctionImport](Support.xml#L47)|String|Name of a function import for retrieval of links to technical information about the service
 
 <a name="TechnicalInfoLink"></a>
 ## [TechnicalInfoLink](Support.xml#L71)

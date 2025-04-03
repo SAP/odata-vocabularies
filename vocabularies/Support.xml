@@ -33,7 +33,7 @@
       <Annotation Term="Common.Experimental" />
 
       <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="A function import for retrieval of technical info for a UI service" />
+        <Annotation Term="Core.Description" String="How to retrieve links to technical information about the service" />
       </Term>
       <ComplexType Name="TechnicalInfoLinksType">
         <Property Name="Url" Type="Edm.String" Nullable="false">
@@ -45,12 +45,12 @@
           </Annotation>
         </Property>
         <Property Name="FunctionImport" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the function import" />
+          <Annotation Term="Core.Description" String="Name of a function import for retrieval of links to technical information about the service" />
         </Property>
       </ComplexType>
 
       <Function Name="Template_GetTechnicalInfoLinks">
-        <Annotation Term="Core.Description" String="Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)" />
+        <Annotation Term="Core.Description" String="Template for a function that retrieves links to technical information about a service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)" />
         <Parameter Name="ServiceRoot" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="Root URL of the UI service" />

@@ -22,7 +22,7 @@
       "$Kind": "Term",
       "$Type": "Support.TechnicalInfoLinksType",
       "$AppliesTo": ["EntityContainer"],
-      "@Core.Description": "A function import for retrieval of technical info for a UI service"
+      "@Core.Description": "How to retrieve links to technical information about the service"
     },
     "TechnicalInfoLinksType": {
       "$Kind": "ComplexType",
@@ -31,12 +31,14 @@
         "@Core.Description": "URL of a CSDL document describing the function",
         "@Core.LongDescription": "This URL is interpreted relative to the URL of the CSDL document containing the annotation.\n            The function must follow [this template](#Template_GetTechnicalInfoLinks)."
       },
-      "FunctionImport": { "@Core.Description": "Name of the function import" }
+      "FunctionImport": {
+        "@Core.Description": "Name of a function import for retrieval of links to technical information about the service"
+      }
     },
     "Template_GetTechnicalInfoLinks": [
       {
         "$Kind": "Function",
-        "@Core.Description": "Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)",
+        "@Core.Description": "Template for a function that retrieves links to technical information about a service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)",
         "$Parameter": [
           {
             "$Name": "ServiceRoot",
