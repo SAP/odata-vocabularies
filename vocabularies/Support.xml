@@ -32,7 +32,7 @@
       </Annotation>
       <Annotation Term="Common.Experimental" />
 
-      <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="Schema">
         <Annotation Term="Core.Description" String="How to retrieve links to technical information about the service" />
       </Term>
       <ComplexType Name="TechnicalInfoLinksType">
