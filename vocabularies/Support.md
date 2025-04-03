@@ -8,15 +8,15 @@ Terms for support tools
 
 Term|Type|Description
 :---|:---|:----------
-[TechnicalInfo](Support.xml#L35)|[TechnicalInfoSource](#TechnicalInfoSource)|<a name="TechnicalInfo"></a>A function import for retrieval of technical info for a UI service
+[TechnicalInfoLinks](Support.xml#L35)|[TechnicalInfoLinksType](#TechnicalInfoLinksType)|<a name="TechnicalInfoLinks"></a>A function import for retrieval of technical info for a UI service
 
 
 ## Functions
 
-<a name="Template_GetTechnicalInfo"></a>
-### [Template_GetTechnicalInfo](Support.xml#L52)
+<a name="Template_GetTechnicalInfoLinks"></a>
+### [Template_GetTechnicalInfoLinks](Support.xml#L52)
 
-Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)
+Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -25,13 +25,13 @@ Parameter|Type|Description
 [&rarr;](Support.xml#L67)|\[[TechnicalInfoLink](#TechnicalInfoLink)\]|Collection of development objects related to the model element
 
 
-<a name="TechnicalInfoSource"></a>
-## [TechnicalInfoSource](Support.xml#L38)
+<a name="TechnicalInfoLinksType"></a>
+## [TechnicalInfoLinksType](Support.xml#L38)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Url](Support.xml#L39)|URL|URL of a CSDL document describing the function<br>This URL is interpreted relative to the URL of the CSDL document containing the annotation. The function must follow [this template](#Template_GetTechnicalInfo).
+[Url](Support.xml#L39)|URL|URL of a CSDL document describing the function<br>This URL is interpreted relative to the URL of the CSDL document containing the annotation. The function must follow [this template](#Template_GetTechnicalInfoLinks).
 [FunctionImport](Support.xml#L47)|String|Name of the function import
 
 <a name="TechnicalInfoLink"></a>

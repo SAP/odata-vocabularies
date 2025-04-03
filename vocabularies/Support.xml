@@ -32,16 +32,16 @@
       </Annotation>
       <Annotation Term="Common.Experimental" />
 
-      <Term Name="TechnicalInfo" Type="Support.TechnicalInfoSource" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="A function import for retrieval of technical info for a UI service" />
       </Term>
-      <ComplexType Name="TechnicalInfoSource">
+      <ComplexType Name="TechnicalInfoLinksType">
         <Property Name="Url" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of a CSDL document describing the function" />
           <Annotation Term="Core.LongDescription">
             <String>This URL is interpreted relative to the URL of the CSDL document containing the annotation.
-            The function must follow [this template](#Template_GetTechnicalInfo).</String>
+            The function must follow [this template](#Template_GetTechnicalInfoLinks).</String>
           </Annotation>
         </Property>
         <Property Name="FunctionImport" Type="Edm.String" Nullable="false">
@@ -49,8 +49,8 @@
         </Property>
       </ComplexType>
 
-      <Function Name="Template_GetTechnicalInfo">
-        <Annotation Term="Core.Description" String="Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)" />
+      <Function Name="Template_GetTechnicalInfoLinks">
+        <Annotation Term="Core.Description" String="Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)" />
         <Parameter Name="ServiceRoot" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="Root URL of the UI service" />

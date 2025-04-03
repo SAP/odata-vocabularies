@@ -18,25 +18,25 @@
       { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Support.md" }
     ],
     "@Common.Experimental": true,
-    "TechnicalInfo": {
+    "TechnicalInfoLinks": {
       "$Kind": "Term",
-      "$Type": "Support.TechnicalInfoSource",
+      "$Type": "Support.TechnicalInfoLinksType",
       "$AppliesTo": ["EntityContainer"],
       "@Core.Description": "A function import for retrieval of technical info for a UI service"
     },
-    "TechnicalInfoSource": {
+    "TechnicalInfoLinksType": {
       "$Kind": "ComplexType",
       "Url": {
         "@Core.IsURL": true,
         "@Core.Description": "URL of a CSDL document describing the function",
-        "@Core.LongDescription": "This URL is interpreted relative to the URL of the CSDL document containing the annotation.\n            The function must follow [this template](#Template_GetTechnicalInfo)."
+        "@Core.LongDescription": "This URL is interpreted relative to the URL of the CSDL document containing the annotation.\n            The function must follow [this template](#Template_GetTechnicalInfoLinks)."
       },
       "FunctionImport": { "@Core.Description": "Name of the function import" }
     },
-    "Template_GetTechnicalInfo": [
+    "Template_GetTechnicalInfoLinks": [
       {
         "$Kind": "Function",
-        "@Core.Description": "Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfo/FunctionImport`](#TechnicalInfoType)",
+        "@Core.Description": "Template for a function that retrieves technical info for a UI service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)",
         "$Parameter": [
           {
             "$Name": "ServiceRoot",
