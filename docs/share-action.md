@@ -26,3 +26,27 @@
   <Parameter Name="Users" Type="Collection(com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.DraftUserAccessType)" Nullable="false"/>
 </Action>
 ```
+
+## Semantics
+
+ShareAll = true, IsDeltaUpdate = true, Users = $[]$ or $[\{current\ user\}]$
+- Semantics: ShareAll Draft
+  - Check if current (= session) user is authorized for EDIT
+    - If ok: Add current user to user list if check was successful and user not yet added
+  - Switch draft to _ShareAll_ if not yet done
+- Response:
+  - Check fails: _No authorization for user XY to work on this draft._
+  - Check successful and user added to user list: _User XY can now work on this draft._
+  - Check successful and user not added to user list: tbd.
+
+ShareAll = true, IsDeltaUpdate = true, Users = $[\{other\ user\}]$ or $[\{other\ user\},\{very\ other\ user\}]$
+- Semantics: ShareAll Draft
+  - Not implemented
+- Response:
+  - Not implemented
+
+ShareAll = true, IsDeltaUpdate = true, Users not provided
+- Semantics: ShareAll Draft
+  - Inconsistent
+- Response:
+  - %fail-cause = unspecific
