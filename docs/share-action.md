@@ -5,9 +5,9 @@
 ||External (OData) Name|Internal (ABAP) Name|Realization|Comment|
 |---|---|---|---|---|
 |Action|Share|`SHARE`| ||
-|Action Parameter|Users|`USERS`|`ABP_BEHV_PAR_SHARE`|Table of `ABP_BEHV_DRAFT_USER_ACCESS`|
 |Action Parameter|ShareAll|`SHAREALL`|`ABP_BEHV_PAR_SHARE`||
 |Action Parameter|IsDeltaUpdate|`ISDELTAUPDATE`|`ABP_BEHV_PAR_SHARE`||
+|Action Parameter|Users|`USERS`|`ABP_BEHV_PAR_SHARE`|Table of `ABP_BEHV_DRAFT_USER_ACCESS`|
 |Complex Type|DraftUserAccessType||`ABP_BEHV_DRAFT_USER_ACCESS`||
 |Complex Type Property|UserID|`USERID`|||
 |Complex Type Property|UserAccessRole|`USERACCESSROLE`|||
