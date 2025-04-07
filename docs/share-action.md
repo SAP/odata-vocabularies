@@ -114,3 +114,16 @@ ShareAll = null, IsDeltaUpdate irrelevant, Users = $[A]$ or $[A,B]$
   - Inconsistent
 - Response:
   - %fail-cause = unspecific
+
+## Authorization
+
+Rule 1: A change in sharing (i.e. exclusive vs. share all vs. collaborative) is only allowed by
+- the draft owner or
+- all (admin, UserRole=Owner) users in the user list.
+
+Rule 2: A call of the share action to change the user list is only allowed
+- in case of ShareAll = true
+  - by a user in the list
+  - by the current user if (a) it is a delta update and (b) users is empty or only contains the current user
+- in case of ShareAll = false
+  - by a user in the list
