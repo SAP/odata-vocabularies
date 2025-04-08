@@ -12,29 +12,6 @@
 |Complex Type Property|UserID|`USERID`|||
 |Complex Type Property|UserAccessRole|`USERACCESSROLE`|||
 
-### Example
-
-```xml
-<ComplexType Name="DraftUserAccessType">
-  <Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12"/>
-  <Property Name="UserAccessRole" Type="Edm.String" Nullable="false" MaxLength="1"/>
-</ComplexType>
-<Action Name="Share" IsBound="true">
-  <Parameter Name="_it" Type="com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.SharedEntityType" Nullable="false"/>
-  <Parameter Name="ShareAll" Type="Edm.Boolean" Nullable="false">
-    <Annotation Term="Core.OptionalParameter">
-      <Record/>
-    </Annotation>
-  </Parameter>
-  <Parameter Name="IsDeltaUpdate" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-  <Parameter Name="Users" Type="Collection(com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.DraftUserAccessType)" Nullable="false">
-    <Annotation Term="Core.OptionalParameter">
-      <Record/>
-    </Annotation>
-  </Parameter>
-</Action>
-```
-
 ## Semantics
 
 ShareAll = true, IsDeltaUpdate = true, Users = $[]$ or $[C]$ (the current user)
@@ -47,7 +24,7 @@ ShareAll = true, IsDeltaUpdate = true, Users = $[]$ or $[C]$ (the current user)
   - Check successful and user added to user list: _User XY can now work on this draft._
   - Check successful and user not added to user list: tbd.
 
-ShareAll = true, IsDeltaUpdate = true, Users = $[A]$ or $[A,B]$
+ShareAll = true, IsDeltaUpdate = true, Users = $[A,...]$ (without current user)
 - Semantics: ShareAll Draft
   - Not implemented
 - Response:
@@ -59,13 +36,13 @@ ShareAll = true, IsDeltaUpdate = true, Users not provided
 - Response:
   - %fail-cause = unspecific
 
-ShareAll = true, IsDeltaUpdate = false, Users = $[]$
+ShareAll = true, IsDeltaUpdate = false, Users = $[]$ or not provided
 - Semantics: ShareAll Draft
   - Empty user list
   - Add user who has _created_ the draft to user list
   - Switch draft to _ShareAll_ if not yet done
 
-ShareAll = true, IsDeltaUpdate = false, Users = $[A,B]$
+ShareAll = true, IsDeltaUpdate = false, Users = $[A,...]$ (without current user)
 - Semantics: ShareAll Draft
   - Check if users are authorized for EDIT
   - Add users to user list for which the check was successful and which are not yet on the list
@@ -85,7 +62,7 @@ ShareAll = false, IsDeltaUpdate = true, Users = $[]$ or $[C]$ (the current user)
   - Check successful and user added to user list: _User XY can now work on this draft._
   - Check successful and user not added to user list: tbd.
 
-ShareAll = false, IsDeltaUpdate = true, Users = $[A]$ or $[A,B]$
+ShareAll = false, IsDeltaUpdate = true, Users = $[A,...]$ (without current user)
 - Semantics: Collaborative Draft / Shared Draft
   - Not implemented
 - Response:
@@ -97,13 +74,13 @@ ShareAll = false, IsDeltaUpdate = true, Users not provided
 - Response:
   - %fail-cause = unspecific
 
-ShareAll = false, IsDeltaUpdate = false, Users = $[]$
+ShareAll = false, IsDeltaUpdate = false, Users = $[]$ or not provided
 - Semantics: Collaborative Draft
   - Empty user list
   - Add user who has _created_ the draft to user list
   - Switch draft to _collaborative_ if not yet done
 
-ShareAll = false, IsDeltaUpdate = false, Users = $[A,B]$
+ShareAll = false, IsDeltaUpdate = false, Users = $[A,...]$ (can include current user)
 - Semantics: Collaborative Draft
   - Check if users are authorized for EDIT
   - Add users to user list for which the check was successful and which are not yet on the list
@@ -117,7 +94,7 @@ ShareAll not provided, IsDeltaUpdate irrelevant, Users = $[]$ or not provided
 - Semantics: Exclusive Draft
   - Switch draft to _exclusive_ if not yet done
 
-ShareAll not provided, IsDeltaUpdate irrelevant, Users = $[A]$ or $[A,B]$
+ShareAll not provided, IsDeltaUpdate irrelevant, Users = $[A,...]$ (can include current user)
 - Semantics: Exclusive Draft
   - Inconsistent
 - Response:

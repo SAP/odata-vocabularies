@@ -157,6 +157,7 @@
       "ChangeNextSiblingAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Hierarchy.Template_ChangeNextSiblingAction",
         "@Core.Description": "Action that moves a node among its siblings, following [this template](#Template_ChangeNextSiblingAction)"
       },
       "ChangeSiblingForRootsSupported": {
@@ -167,6 +168,7 @@
       "CopyAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Hierarchy.Template_CopyAction",
         "@Core.Description": "Action that copies a node and its descendants, following [this template](#Template_CopyAction)"
       }
     },

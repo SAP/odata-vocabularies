@@ -1065,6 +1065,13 @@ The minimum structure is
         <Annotation Term="Core.Description" String="Only one term of the group identified with the Qualifier attribute can be applied" />
       </Term>
 
+      <Term Name="OperationTemplate" Type="Common.QualifiedName" Nullable="false" AppliesTo="Term Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Qualified name of an operation that serves as template for the operation described by the annotated term or term property" />
+        <Annotation Term="Core.LongDescription">
+          <String>Operations named in this annotation cannot themselves be invoked.</String>
+        </Annotation>
+      </Term>
 
       <!-- Section: Draft Handling -->
       <Term Name="DraftRoot" Type="Common.DraftRootType" Nullable="false" AppliesTo="EntitySet">
@@ -1092,10 +1099,10 @@ The minimum structure is
           </Annotation>
         </Property>
         <Property Name="EditAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.OperationTemplate" String="Common.Template_EditAction" />
           <Annotation Term="Core.Description" String="Action that creates an edit draft" />
           <Annotation Term="Core.LongDescription">
-            <String>The action is bound to the active document root node and has the following signature:
-- `PreserveChanges`: of type `Boolean` with default `false`, `true` means that an outdated draft of another user is not overwritten</String>
+            <String>The action is bound to the active document root node and has the signature of [`Template_EditAction`](#Template_EditAction).</String>
           </Annotation>
         </Property>
         <Property Name="ResumeAction" Type="Common.QualifiedName" Nullable="true">
@@ -1106,38 +1113,101 @@ The minimum structure is
           </Annotation>
         </Property>
         <Property Name="NewAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.OperationTemplate" String="Common.Template_NewAction" />
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription">
-            <String>The action is bound to the draft document root entity set and has the following signature:
-- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created
+            <String>The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).
 
 New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.</String>
           </Annotation>
         </Property>
         <Property Name="AdditionalNewActions" Type="Collection(Common.QualifiedName)" Nullable="false">
+          <Annotation Term="Common.OperationTemplate" String="Common.Template_NewAction" />
           <Annotation Term="Core.Description" String="Additional actions beside the default POST or standard `NewAction`that create a new draft" />
           <Annotation Term="Core.LongDescription">
-            <String>The actions are bound to the draft document root entity set and have the following signature:
-- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created</String>
+            <String>The actions are bound to the draft document root entity set and have the signature of [`Template_NewAction`](#Template_NewAction).</String>
           </Annotation>
         </Property>
         <Property Name="ShareAction" Type="Common.QualifiedName" Nullable="true">
+          <Annotation Term="Common.OperationTemplate" String="Common.Template_ShareAction" />
           <Annotation Term="Core.Description" String="Action that shares a draft document with other users and restricts access to the listed users in their specified roles" />
           <Annotation Term="Core.LongDescription">
-            <String>The action is bound to the draft document root node and has the following signature:
-- `ShareAll` optional of type `Boolean`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users
-- `IsDeltaUpdate` of type `Boolean` with default `false`, `true` means sharing _additionally_ with the `Users`
-- `Users`: optional collection of structure with properties
-  - `UserID` of type `String` and
-  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
-
-It restricts access to the listed users in their specified roles. For details, see [this document](../docs/share-action.md).
+            <String>The action is bound to the draft document root node and has the signature of [`Template_ShareAction`](#Template_ShareAction).
+It restricts access to the listed users in their specified roles.
 
 If this action is present, the client can receive notifications about changes to the
 collaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)
 followed by URL parameters
 - `relatedService` = base URL (relative to server root) of the OData service of the app
 - `draft` = draft UUID.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
+      <Action Name="Template_NewAction" IsBound="true" EntitySetPath="DraftDocumentRootEntitySet">
+        <Parameter Name="DraftDocumentRootEntitySet" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="ResultIsActiveEntity" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="`true` means that an active entity is created" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false" />
+      </Action>
+      <Action Name="Template_EditAction" IsBound="true">
+        <Parameter Name="ActiveDocumentRootNode" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="PreserveChanges" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="`true` means that an outdated draft of another user is not overwritten" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+      </Action>
+      <Action Name="Template_ShareAction" IsBound="true">
+        <Annotation Term="Core.Description" String="For details, see [this document](../docs/share-action.md)" />
+        <Parameter Name="DraftDocumentRootNode" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="ShareAll" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="`true` means sharing with all users that are authorized for the bound draft instance" />
+          <Annotation Term="Core.LongDescription">
+            <String>The `Users` parameter can be specified in this case to actively notify the listed users.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="IsDeltaUpdate" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="`true` means sharing _additionally_ with the `Users`" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <Parameter Name="Users" Type="Collection(Common.DraftUserAccessType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Collection of users" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+      </Action>
+      <ComplexType Name="DraftUserAccessType">
+        <Property Name="UserID" Type="Edm.String" Nullable="false" MaxLength="12" />
+        <Property Name="UserAccessRole" Type="Edm.String" Nullable="false" MaxLength="1">
+          <Annotation Term="Core.Description" String="Role of the user" />
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" String="O" />
+                <Annotation Term="Core.Description" String="Owner, can perform all draft actions" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="E" />
+                <Annotation Term="Core.Description" String="Editor, can change the draft" />
+              </Record>
+            </Collection>
           </Annotation>
         </Property>
       </ComplexType>
@@ -1311,27 +1381,18 @@ Upon modification field control logic is invoked so that meta-information like h
           <String>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>
-            The default values function must have a bound overload whose binding parameter type matches the annotation target
+          <String>The default values function must have a bound overload whose binding parameter type matches the annotation target
+- for an entity set: collection of entity type of entity set
+- for a navigation property: identical to the type of the navigation property (single- or collection-valued)
+- for a bound action/function: identical to the binding parameter type of the annotated action/function
 
-            - for an entity set: collection of entity type of entity set
+In addition the overload can have non-binding parameters for values that the user has already entered:
+- for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created
+- for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called
 
-            - for a navigation property: identical to the type of the navigation property (single- or collection-valued)
-
-            - for a bound action/function: identical to the binding parameter type of the annotated action/function
-
-            In addition the overload can have non-binding parameters for values that the user has already entered:
-
-            - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created
-
-            - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called
-
-            The result type of the default values function is a complex type whose properties correspond in name and type to a subset of
-
-            - the properties of the entity to create, or
-
-            - the parameters of the action or function to call
-                      </String>
+The result type of the default values function is a complex type whose properties correspond in name and type to a subset of
+- the properties of the entity to create, or
+- the parameters of the action or function to call</String>
         </Annotation>
       </Term>
 
@@ -1341,18 +1402,14 @@ Upon modification field control logic is invoked so that meta-information like h
           <String>Function import to derive a default value for the property from a given context.</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>
-            Function import has two parameters of complex types:
+          <String>Function import has two parameters of complex types:
+- `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property
+- `properties`, a structure resembling the type of the entity set of the annotated property
 
-            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property
+The return type must be of the same type as the annotated property.
 
-            - `properties`, a structure resembling the type of the entity set of the annotated property
-
-            The return type must be of the same type as the annotated property.
-
-            Arguments passed to the function import are used as context for deriving the default value.
-            The function import returns this default value, or null in case such a value could not be determined.
-          </String>
+Arguments passed to the function import are used as context for deriving the default value.
+The function import returns this default value, or null in case such a value could not be determined.</String>
         </Annotation>
       </Term>
 
@@ -1371,21 +1428,17 @@ Upon modification field control logic is invoked so that meta-information like h
           <String>Function import to derive a default value for the property from a given context in order to use it in filter expressions.</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>
-            Function import has two parameters of complex types:
+          <String>Function import has two parameters of complex types:
+- `parameters`, a structure resembling the entity type the parameter
+  entity set related to the entity set of the annotated property
+- `properties`, a structure resembling the
+  type of the entity set of the annotated property
 
-            - `parameters`, a structure resembling the entity type the parameter
-            entity set related to the entity set of the annotated property
+The return type must be of the same type as the annotated
+property.
 
-            - `properties`, a structure resembling the
-            type of the entity set of the annotated property
-
-            The return type must be of the same type as the annotated
-            property.
-
-            Arguments passed to the function import are used as context for deriving the default value.
-            The function import returns this default value, or null in case such a value could not be determined.
-          </String>
+Arguments passed to the function import are used as context for deriving the default value.
+The function import returns this default value, or null in case such a value could not be determined.</String>
         </Annotation>
       </Term>
 
