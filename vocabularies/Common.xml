@@ -1144,6 +1144,7 @@ followed by URL parameters
         </Property>
       </ComplexType>
       <Action Name="Template_NewAction" IsBound="true" EntitySetPath="DraftDocumentRootEntitySet">
+        <Annotation Term="Core.Constructor" />
         <Parameter Name="DraftDocumentRootEntitySet" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="ResultIsActiveEntity" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="`true` means that an active entity is created" />
