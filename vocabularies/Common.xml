@@ -1125,11 +1125,11 @@ New drafts may also be created by POSTing an entity with property `IsActiveEntit
           <Annotation Term="Core.Description" String="Action that shares a draft document with other users and restricts access to the listed users in their specified roles" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root node and has the following signature:
-- `Users`: collection of structure with properties
+- `ShareAll` optional of type `Boolean`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users
+- `IsDeltaUpdate` of type `Boolean` with default `false`, `true` means sharing _additionally_ with the `Users`
+- `Users`: optional collection of structure with properties
   - `UserID` of type `String` and
   - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)
-- `ShareAll` nullable of type `Boolean`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users
-- `IsDeltaUpdate` of type `Boolean` with default `false`, `true` means sharing _additionally_ with the `Users`
 
 It restricts access to the listed users in their specified roles.
 

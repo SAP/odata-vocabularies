@@ -21,9 +21,17 @@
 </ComplexType>
 <Action Name="Share" IsBound="true">
   <Parameter Name="_it" Type="com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.SharedEntityType" Nullable="false"/>
-  <Parameter Name="ShareAll" Type="Edm.Boolean" Nullable="true"/>
+  <Parameter Name="ShareAll" Type="Edm.Boolean" Nullable="false">
+    <Annotation Term="Core.OptionalParameter">
+      <Record/>
+    </Annotation>
+  </Parameter>
   <Parameter Name="IsDeltaUpdate" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
-  <Parameter Name="Users" Type="Collection(com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.DraftUserAccessType)" Nullable="false"/>
+  <Parameter Name="Users" Type="Collection(com.sap.gateway.srvd.i_shareddemoaction_sd.v0001.DraftUserAccessType)" Nullable="false">
+    <Annotation Term="Core.OptionalParameter">
+      <Record/>
+    </Annotation>
+  </Parameter>
 </Action>
 ```
 
@@ -105,11 +113,11 @@ ShareAll = false, IsDeltaUpdate = false, Users = $[A,B]$
 - Response:
   - For each user for which the check fails: _No authorization for user XY to work on this draft._
 
-ShareAll = null, IsDeltaUpdate irrelevant, Users = $[]$ or not provided
+ShareAll not provided, IsDeltaUpdate irrelevant, Users = $[]$ or not provided
 - Semantics: Exclusive Draft
   - Switch draft to _exclusive_ if not yet done
 
-ShareAll = null, IsDeltaUpdate irrelevant, Users = $[A]$ or $[A,B]$
+ShareAll not provided, IsDeltaUpdate irrelevant, Users = $[A]$ or $[A,B]$
 - Semantics: Exclusive Draft
   - Inconsistent
 - Response:
