@@ -967,6 +967,14 @@
       "$AppliesTo": ["Term"],
       "@Core.Description": "Only one term of the group identified with the Qualifier attribute can be applied"
     },
+    "OperationTemplate": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["Term", "Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified name of an operation that serves as template for the operation described by the annotated term or term property",
+      "@Core.LongDescription": "Operations named in this annotation cannot themselves be invoked."
+    },
     "DraftRoot": {
       "$Kind": "Term",
       "$Type": "Common.DraftRootType",
@@ -996,8 +1004,9 @@
       "EditAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Common.Template_EditAction",
         "@Core.Description": "Action that creates an edit draft",
-        "@Core.LongDescription": "The action is bound to the active document root node and has the following signature:\n- `PreserveChanges`: of type `Boolean` with default `false`, `true` means that an outdated draft of another user is not overwritten"
+        "@Core.LongDescription": "The action is bound to the active document root node and has the signature of [`Template_EditAction`](#Template_EditAction)."
       },
       "ResumeAction": {
         "$Type": "Common.QualifiedName",
@@ -1009,20 +1018,98 @@
       "NewAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Common.Template_NewAction",
         "@Core.Description": "Action that creates a new draft",
-        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
+        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
       },
       "AdditionalNewActions": {
         "$Collection": true,
         "$Type": "Common.QualifiedName",
+        "@Common.OperationTemplate": "Common.Template_NewAction",
         "@Core.Description": "Additional actions beside the default POST or standard `NewAction`that create a new draft",
-        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the following signature:\n- `ResultIsActiveEntity` of type `Boolean` with default `false`, `true` means that an active entity is created"
+        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the signature of [`Template_NewAction`](#Template_NewAction)."
       },
       "ShareAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Common.Template_ShareAction",
         "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
-        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String` and\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n- `ShareAll` of type `Boolean` with default `false`, `true` means sharing with all users that are authorized for the bound draft instance; the `Users` parameter is optional in this case, provide it to actively notify the listed users\n\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
+        "@Core.LongDescription": "The action is bound to the draft document root node and has the signature of [`Template_ShareAction`](#Template_ShareAction).\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
+      }
+    },
+    "Template_NewAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "DraftDocumentRootEntitySet",
+        "$IsBound": true,
+        "@Core.Constructor": true,
+        "$Parameter": [
+          { "$Name": "DraftDocumentRootEntitySet", "$Collection": true, "$Type": "Edm.EntityType" },
+          {
+            "$Name": "ResultIsActiveEntity",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means that an active entity is created",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType" }
+      }
+    ],
+    "Template_EditAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "$Parameter": [
+          { "$Name": "ActiveDocumentRootNode", "$Type": "Edm.EntityType" },
+          {
+            "$Name": "PreserveChanges",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means that an outdated draft of another user is not overwritten",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ]
+      }
+    ],
+    "Template_ShareAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Core.Description": "For details, see [this document](../docs/share-action.md)",
+        "$Parameter": [
+          { "$Name": "DraftDocumentRootNode", "$Type": "Edm.EntityType" },
+          {
+            "$Name": "ShareAll",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means sharing with all users that are authorized for the bound draft instance",
+            "@Core.LongDescription": "The `Users` parameter can be specified in this case to actively notify the listed users.",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "IsDeltaUpdate",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means sharing _additionally_ with the `Users`",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          },
+          {
+            "$Name": "Users",
+            "$Collection": true,
+            "$Type": "Common.DraftUserAccessType",
+            "@Core.Description": "Collection of users",
+            "@Core.OptionalParameter": {}
+          }
+        ]
+      }
+    ],
+    "DraftUserAccessType": {
+      "$Kind": "ComplexType",
+      "UserID": { "$MaxLength": 12 },
+      "UserAccessRole": {
+        "$MaxLength": 1,
+        "@Core.Description": "Role of the user",
+        "@Validation.AllowedValues": [
+          { "Value": "O", "@Core.Description": "Owner, can perform all draft actions" },
+          { "Value": "E", "@Core.Description": "Editor, can change the draft" }
+        ]
       }
     },
     "DraftNode": {
@@ -1183,14 +1270,14 @@
       "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntitySet", "NavigationProperty", "Action", "Function"],
       "@Core.Description": "Function to calculate default values based on user input that is only known to the client and \"context information\" that is already available to the service",
-      "@Core.LongDescription": "\n            The default values function must have a bound overload whose binding parameter type matches the annotation target\n\n            - for an entity set: collection of entity type of entity set\n\n            - for a navigation property: identical to the type of the navigation property (single- or collection-valued)\n\n            - for a bound action/function: identical to the binding parameter type of the annotated action/function\n\n            In addition the overload can have non-binding parameters for values that the user has already entered:\n\n            - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created\n\n            - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called\n\n            The result type of the default values function is a complex type whose properties correspond in name and type to a subset of\n\n            - the properties of the entity to create, or\n\n            - the parameters of the action or function to call\n                      "
+      "@Core.LongDescription": "The default values function must have a bound overload whose binding parameter type matches the annotation target\n- for an entity set: collection of entity type of entity set\n- for a navigation property: identical to the type of the navigation property (single- or collection-valued)\n- for a bound action/function: identical to the binding parameter type of the annotated action/function\n\nIn addition the overload can have non-binding parameters for values that the user has already entered:\n- for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created\n- for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called\n\nThe result type of the default values function is a complex type whose properties correspond in name and type to a subset of\n- the properties of the entity to create, or\n- the parameters of the action or function to call"
     },
     "DerivedDefaultValue": {
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": "This has been experimental for three years, consider to delete it",
       "@Core.Description": "Function import to derive a default value for the property from a given context.",
-      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
+      "@Core.LongDescription": "Function import has two parameters of complex types:\n- `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n- `properties`, a structure resembling the type of the entity set of the annotated property\n\nThe return type must be of the same type as the annotated property.\n\nArguments passed to the function import are used as context for deriving the default value.\nThe function import returns this default value, or null in case such a value could not be determined."
     },
     "FilterDefaultValue": {
       "$Kind": "Term",
@@ -1212,7 +1299,7 @@
       "$AppliesTo": ["Property"],
       "@Common.Experimental": "This has been experimental for three years, consider to delete it",
       "@Core.Description": "Function import to derive a default value for the property from a given context in order to use it in filter expressions.",
-      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter\n            entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the\n            type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated\n            property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
+      "@Core.LongDescription": "Function import has two parameters of complex types:\n- `parameters`, a structure resembling the entity type the parameter\n  entity set related to the entity set of the annotated property\n- `properties`, a structure resembling the\n  type of the entity set of the annotated property\n\nThe return type must be of the same type as the annotated\nproperty.\n\nArguments passed to the function import are used as context for deriving the default value.\nThe function import returns this default value, or null in case such a value could not be determined."
     },
     "SortOrder": {
       "$Kind": "Term",
