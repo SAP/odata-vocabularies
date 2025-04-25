@@ -967,6 +967,14 @@
       "$AppliesTo": ["Term"],
       "@Core.Description": "Only one term of the group identified with the Qualifier attribute can be applied"
     },
+    "OperationTemplate": {
+      "$Kind": "Term",
+      "$Type": "Common.QualifiedName",
+      "$AppliesTo": ["Term", "Property"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Qualified name of an operation that serves as template for the operation described by the annotated term or term property",
+      "@Core.LongDescription": "Operations named in this annotation cannot themselves be invoked."
+    },
     "DraftRoot": {
       "$Kind": "Term",
       "$Type": "Common.DraftRootType",
@@ -976,45 +984,69 @@
     "DraftRootType": {
       "$Kind": "ComplexType",
       "$BaseType": "Common.DraftNodeType",
+      "PreparationAction": {
+        "$Type": "Common.QualifiedName",
+        "$Nullable": true,
+        "@Core.Description": "Action that prepares a draft document for later activation",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
+      },
       "ActivationAction": {
         "$Type": "Common.QualifiedName",
-        "@Core.Description": "Action that activates a draft document"
+        "@Core.Description": "Action that activates a draft document",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "DiscardAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Common.Experimental": true,
-        "@Core.Description": "Action that discards a draft document"
+        "@Core.Description": "Action that discards a draft document",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "EditAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Action that creates an edit draft"
+        "@Common.OperationTemplate": "Common.Template_EditAction",
+        "@Core.Description": "Action that creates an edit draft",
+        "@Core.LongDescription": "The action is bound to the active document root node and has the signature of [`Template_EditAction`](#Template_EditAction)."
+      },
+      "ResumeAction": {
+        "$Type": "Common.QualifiedName",
+        "$Nullable": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "Action that resumes a draft document. The action re-acquires the exclusive lock if needed and checks if the related active document was not changed concurrently",
+        "@Core.LongDescription": "The action is bound to the draft document root and has no parameters."
       },
       "NewAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Common.OperationTemplate": "Common.Template_NewAction",
         "@Core.Description": "Action that creates a new draft",
-        "@Core.LongDescription": "New drafts may also be created by POSTing an empty entity without any properties to the entity set."
+        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
       },
       "AdditionalNewActions": {
         "$Collection": true,
         "$Type": "Common.QualifiedName",
-        "@Common.Experimental": true,
-        "@Core.Description": "Additional actions that create a new draft",
-        "@Core.LongDescription": "Additional actions beside the default POST or standard `NewAction` that create a new draft."
+        "@Common.OperationTemplate": "Common.Template_NewAction",
+        "@Core.Description": "Additional actions beside the default POST or standard `NewAction`that create a new draft",
+        "@Core.LongDescription": "The actions are bound to the draft document root entity set and have the signature of [`Template_NewAction`](#Template_NewAction)."
       },
       "ShareAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
-        "@Core.Description": "Action that shares a draft document with other users",
-        "@Core.LongDescription": "The action is bound to the draft document root node and has the following signature:\n- `Users`: collection of structure with properties\n  - `UserID` of type `String` and\n  - `UserAccessRole` of type `String` with possible values `O` (owner, can perform all draft actions), and `E` (editor, can change the draft)\n\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
+        "@Common.OperationTemplate": "Common.Template_ShareAction",
+        "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
+        "@Core.LongDescription": "The action is bound to the draft document root node and has the signature of [`Template_ShareAction`](#Template_ShareAction).\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
       }
     },
     "DraftNode": {
       "$Kind": "Term",
       "$Type": "Common.DraftNodeType",
       "$AppliesTo": ["EntitySet"],
+      "@Core.Revisions": [
+        {
+          "Kind": "Deprecated",
+          "Description": "Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)"
+        }
+      ],
       "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
     },
     "DraftNodeType": {
@@ -1022,6 +1054,9 @@
       "PreparationAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
+        "@Core.Revisions": [
+          { "Kind": "Deprecated", "Description": "Preparation is always called on the draft root node" }
+        ],
         "@Core.Description": "Action that prepares a draft document for later activation"
       },
       "ValidationFunction": {
@@ -1160,14 +1195,14 @@
       "$Type": "Common.QualifiedName",
       "$AppliesTo": ["EntitySet", "NavigationProperty", "Action", "Function"],
       "@Core.Description": "Function to calculate default values based on user input that is only known to the client and \"context information\" that is already available to the service",
-      "@Core.LongDescription": "\n            The default values function must have a bound overload whose binding parameter type matches the annotation target\n\n            - for an entity set: collection of entity type of entity set\n\n            - for a navigation property: identical to the type of the navigation property (single- or collection-valued)\n\n            - for a bound action/function: identical to the binding parameter type of the annotated action/function\n\n            In addition the overload can have non-binding parameters for values that the user has already entered:\n\n            - for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created\n\n            - for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called\n\n            The result type of the default values function is a complex type whose properties correspond in name and type to a subset of\n\n            - the properties of the entity to create, or\n\n            - the parameters of the action or function to call\n                      "
+      "@Core.LongDescription": "The default values function must have a bound overload whose binding parameter type matches the annotation target\n- for an entity set: collection of entity type of entity set\n- for a navigation property: identical to the type of the navigation property (single- or collection-valued)\n- for a bound action/function: identical to the binding parameter type of the annotated action/function\n\nIn addition the overload can have non-binding parameters for values that the user has already entered:\n- for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created\n- for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called\n\nThe result type of the default values function is a complex type whose properties correspond in name and type to a subset of\n- the properties of the entity to create, or\n- the parameters of the action or function to call"
     },
     "DerivedDefaultValue": {
       "$Kind": "Term",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": "This has been experimental for three years, consider to delete it",
       "@Core.Description": "Function import to derive a default value for the property from a given context.",
-      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
+      "@Core.LongDescription": "Function import has two parameters of complex types:\n- `parameters`, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property\n- `properties`, a structure resembling the type of the entity set of the annotated property\n\nThe return type must be of the same type as the annotated property.\n\nArguments passed to the function import are used as context for deriving the default value.\nThe function import returns this default value, or null in case such a value could not be determined."
     },
     "FilterDefaultValue": {
       "$Kind": "Term",
@@ -1189,7 +1224,7 @@
       "$AppliesTo": ["Property"],
       "@Common.Experimental": "This has been experimental for three years, consider to delete it",
       "@Core.Description": "Function import to derive a default value for the property from a given context in order to use it in filter expressions.",
-      "@Core.LongDescription": "\n            Function import has two parameters of complex types:\n\n            - `parameters`, a structure resembling the entity type the parameter\n            entity set related to the entity set of the annotated property\n\n            - `properties`, a structure resembling the\n            type of the entity set of the annotated property\n\n            The return type must be of the same type as the annotated\n            property.\n\n            Arguments passed to the function import are used as context for deriving the default value.\n            The function import returns this default value, or null in case such a value could not be determined.\n          "
+      "@Core.LongDescription": "Function import has two parameters of complex types:\n- `parameters`, a structure resembling the entity type the parameter\n  entity set related to the entity set of the annotated property\n- `properties`, a structure resembling the\n  type of the entity set of the annotated property\n\nThe return type must be of the same type as the annotated\nproperty.\n\nArguments passed to the function import are used as context for deriving the default value.\nThe function import returns this default value, or null in case such a value could not be determined."
     },
     "SortOrder": {
       "$Kind": "Term",
