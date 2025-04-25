@@ -1647,6 +1647,23 @@ leads to a
         </Annotation>
       </Term>
 
+      <Term Name="PartnerPath" Type="Edm.NavigationPropertyPath" Nullable="false" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A path consisting of two or more containment navigation properties that otherwise behaves like a [partner navigation property](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#PartnerNavigationProperty)" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotation target MUST be a single-valued non-containment navigation property.
+If B is any entity in the collection addressed by evaluating the `PartnerPath` starting at an entity A,
+then the annotated navigation property MUST lead back from B to A.
+
+Example: `Headers(1)/_Items(2)/_Subitems(3)/_Header` MUST be the same entity as `Headers(1)`
+if the subitems entity type has a non-containment navigation property `_Header` annotated with
+`"@Common.PartnerPath": "_Items/_Subitems"`.
+Paths with only one segment are given as partner navigation properties instead of `PartnerPath`s:
+The items entity type has a non-containment navigation property `_Header` with
+partner navigation property `_Items`.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
