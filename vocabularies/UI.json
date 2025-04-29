@@ -1632,6 +1632,19 @@
         "@Core.Description": "Name of an Action, Function, ActionImport, or FunctionImport in scope"
       }
     },
+    "DataFieldWithUpload": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DataField",
+      "@Common.Experimental": true,
+      "@Core.Description": "A piece of data that allows triggering an upload of an OData stream property",
+      "Value": { "$Type": "Edm.PrimitiveType" },
+      "Stream": {
+        "$Type": "Edm.AnnotationPath",
+        "@Validation.AllowedTerms": ["Common.IsActionPayload"],
+        "@Core.Description": "Annotation targeting a stream property in an entity set with a single key property",
+        "@Core.LongDescription": "The upload is made with a PUT or DELETE request to the stream property of the entity\n            with the data field's value as key. Other properties of the entity can be set\n            with a prior PATCH or PUT request.\n            Creation and deletion of the entity are implicitly handled by the service."
+      }
+    },
     "DataFieldWithIntentBasedNavigation": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataField",

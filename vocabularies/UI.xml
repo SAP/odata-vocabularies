@@ -1799,6 +1799,25 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           <Annotation Term="Core.Description" String="Name of an Action, Function, ActionImport, or FunctionImport in scope" />
         </Property>
       </ComplexType>
+      <ComplexType Name="DataFieldWithUpload" BaseType="UI.DataField">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="A piece of data that allows triggering an upload of an OData stream property" />
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
+        <Property Name="Stream" Type="Edm.AnnotationPath" Nullable="false">
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>Common.IsActionPayload</String>
+            </Collection>
+          </Annotation>
+          <Annotation Term="Core.Description" String="Annotation targeting a stream property in an entity set with a single key property" />
+          <Annotation Term="Core.LongDescription">
+            <String>The upload is made with a PUT or DELETE request to the stream property of the entity
+            with the data field's value as key. Other properties of the entity can be set
+            with a prior PATCH or PUT request.
+            Creation and deletion of the entity are implicitly handled by the service.</String>
+          </Annotation>
+        </Property>
+      </ComplexType>
 
       <ComplexType Name="DataFieldWithIntentBasedNavigation" BaseType="UI.DataField">
         <Annotation Term="Core.Description" String="A piece of data that allows triggering intent-based UI navigation" />

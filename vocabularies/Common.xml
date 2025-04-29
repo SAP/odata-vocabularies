@@ -1647,6 +1647,17 @@ leads to a
         </Annotation>
       </Term>
 
+      <Term Name="IsActionPayload" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.Description" String="A PUT request that addresses a stream value via this annotation target path behaves like an operation with side effects" />
+        <Annotation Term="Core.LongDescription">
+          <String>It has the same effect as an action invocation with a stream parameter in the payload
+          but allows the stream value to be processed chunk-by-chunk.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

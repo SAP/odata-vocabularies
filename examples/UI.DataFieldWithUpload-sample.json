@@ -1,0 +1,39 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "UI.examples": {
+    "$Alias": "self",
+    "Document": { "$Kind": "EntityType", "$Key": ["Name"], "Name": {}, "XML_ID": { "$Nullable": true } },
+    "XMLUpload": {
+      "$Kind": "EntityType",
+      "$Key": ["ID"],
+      "ID": {},
+      "XML": { "$Type": "Edm.Stream", "$Nullable": true }
+    },
+    "container": { "$Kind": "EntityContainer", "XMLUpload": { "$Collection": true, "$Type": "self.XMLUpload" } },
+    "$Annotations": {
+      "self.container/XMLUpload/XML": { "@Common.IsActionPayload": true },
+      "self.Document": {
+        "@UI.LineItem": [
+          {
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithUpload",
+            "Label": "Upload XML",
+            "Value": { "$Path": "XML_ID" },
+            "Stream": "/self.container/XMLUpload/XML/@Common.IsActionPayload"
+          }
+        ]
+      }
+    }
+  },
+  "$EntityContainer": "UI.examples.container"
+}
