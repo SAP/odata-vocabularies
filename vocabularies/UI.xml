@@ -1806,14 +1806,13 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
         <Property Name="Stream" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Validation.AllowedTerms">
             <Collection>
-              <String>Common.IsActionPayload</String>
+              <String>Common.StreamOperation</String>
             </Collection>
           </Annotation>
-          <Annotation Term="Core.Description" String="Annotation targeting a stream property in an entity set with a single key property" />
+          <Annotation Term="Core.Description" String="Annotation describing an operation involving a stream property in an entity set with a single key property" />
           <Annotation Term="Core.LongDescription">
-            <String>The upload is made with a PUT or DELETE request to the stream property of the entity
-            with the data field's value as key. Other properties of the entity that are named in the annotation
-            can be set with a prior PATCH or PUT request.</String>
+            <String>The upload is made with two requests to the entity
+            with the data field's value as key.</String>
           </Annotation>
         </Property>
       </ComplexType>

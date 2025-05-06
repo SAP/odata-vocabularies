@@ -32,10 +32,11 @@
       <EntityContainer Name="container">
         <EntitySet Name="XMLUpload" EntityType="self.XMLUpload" />
       </EntityContainer>
-      <Annotations Target="self.container/XMLUpload/XML">
-        <Annotation Term="Common.IsActionPayload">
+      <Annotations Target="self.container/XMLUpload">
+        <Annotation Term="Common.StreamOperation">
           <Collection>
             <PropertyPath>XMLSchema</PropertyPath>
+            <PropertyPath>XML</PropertyPath>
           </Collection>
         </Annotation>
       </Annotations>
@@ -45,7 +46,7 @@
             <Record Type="UI.DataFieldWithUpload">
               <PropertyValue Property="Label" String="Upload XML" />
               <PropertyValue Property="Value" Path="XML_ID" />
-              <PropertyValue Property="Stream" AnnotationPath="/self.container/XMLUpload/XML/@Common.IsActionPayload" />
+              <PropertyValue Property="Stream" AnnotationPath="/self.container/XMLUpload/@Common.StreamOperation" />
             </Record>
           </Collection>
         </Annotation>

@@ -1394,16 +1394,14 @@
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
       "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
     },
-    "IsActionPayload": {
+    "StreamOperation": {
       "$Kind": "Term",
       "$Collection": true,
       "$Type": "Edm.PropertyPath",
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.AppliesViaContainer": true,
-      "@Core.RequiresType": "Edm.Stream",
-      "@Core.Description": "A PUT or DELETE request that addresses a stream value via this annotation target path behaves like an operation with side effects",
-      "@Core.LongDescription": "It has the same effect as an action invocation with a stream parameter in the payload\n          but allows the stream value to be processed chunk-by-chunk.\n          Other properties of the same entity that are referenced in the path collection can be set as part of the same\n          operation, as if they were additional action parameters. They must be transferred in a prior PUT or PATCH request.\n          Creation and deletion of the entity are implicitly handled by the service."
+      "@Core.Description": "An operation that updates properties one of which is a stream property",
+      "@Core.LongDescription": "To invoke the operation the client makes two requests that change the same entity in one LUW:\n- a POST, PUT or PATCH request that updates the non-stream properties followed by\n- a PUT or DELETE request on the stream property (not in a $batch).\n\nBoth requests become effective only if the second request succeeds."
     }
   }
 }
