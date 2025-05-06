@@ -24,13 +24,20 @@
           <PropertyRef Name="ID" />
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="XMLSchema" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Property>
         <Property Name="XML" Type="Edm.Stream" Nullable="true" />
       </EntityType>
       <EntityContainer Name="container">
         <EntitySet Name="XMLUpload" EntityType="self.XMLUpload" />
       </EntityContainer>
       <Annotations Target="self.container/XMLUpload/XML">
-        <Annotation Term="Common.IsActionPayload" />
+        <Annotation Term="Common.IsActionPayload">
+          <Collection>
+            <PropertyPath>XMLSchema</PropertyPath>
+          </Collection>
+        </Annotation>
       </Annotations>
       <Annotations Target="self.Document">
         <Annotation Term="UI.LineItem">

@@ -18,11 +18,12 @@
       "$Kind": "EntityType",
       "$Key": ["ID"],
       "ID": {},
+      "XMLSchema": { "@Core.IsURL": true },
       "XML": { "$Type": "Edm.Stream", "$Nullable": true }
     },
     "container": { "$Kind": "EntityContainer", "XMLUpload": { "$Collection": true, "$Type": "self.XMLUpload" } },
     "$Annotations": {
-      "self.container/XMLUpload/XML": { "@Common.IsActionPayload": true },
+      "self.container/XMLUpload/XML": { "@Common.IsActionPayload": ["XMLSchema"] },
       "self.Document": {
         "@UI.LineItem": [
           {

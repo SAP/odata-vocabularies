@@ -1647,14 +1647,17 @@ leads to a
         </Annotation>
       </Term>
 
-      <Term Name="IsActionPayload" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsActionPayload" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description" String="A PUT request that addresses a stream value via this annotation target path behaves like an operation with side effects" />
+        <Annotation Term="Core.Description" String="A PUT or DELETE request that addresses a stream value via this annotation target path behaves like an operation with side effects" />
         <Annotation Term="Core.LongDescription">
           <String>It has the same effect as an action invocation with a stream parameter in the payload
-          but allows the stream value to be processed chunk-by-chunk.</String>
+          but allows the stream value to be processed chunk-by-chunk.
+          Other properties of the same entity that are referenced in the path collection can be set as part of the same
+          operation, as if they were additional action parameters. They must be transferred in a prior PUT or PATCH request.
+          Creation and deletion of the entity are implicitly handled by the service.</String>
         </Annotation>
       </Term>
 

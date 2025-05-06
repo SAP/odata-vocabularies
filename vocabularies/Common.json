@@ -1396,14 +1396,14 @@
     },
     "IsActionPayload": {
       "$Kind": "Term",
-      "$Type": "Core.Tag",
-      "$DefaultValue": true,
+      "$Collection": true,
+      "$Type": "Edm.PropertyPath",
       "$AppliesTo": ["Property"],
       "@Common.Experimental": true,
       "@Core.AppliesViaContainer": true,
       "@Core.RequiresType": "Edm.Stream",
-      "@Core.Description": "A PUT request that addresses a stream value via this annotation target path behaves like an operation with side effects",
-      "@Core.LongDescription": "It has the same effect as an action invocation with a stream parameter in the payload\n          but allows the stream value to be processed chunk-by-chunk."
+      "@Core.Description": "A PUT or DELETE request that addresses a stream value via this annotation target path behaves like an operation with side effects",
+      "@Core.LongDescription": "It has the same effect as an action invocation with a stream parameter in the payload\n          but allows the stream value to be processed chunk-by-chunk.\n          Other properties of the same entity that are referenced in the path collection can be set as part of the same\n          operation, as if they were additional action parameters. They must be transferred in a prior PUT or PATCH request.\n          Creation and deletion of the entity are implicitly handled by the service."
     }
   }
 }
