@@ -1393,6 +1393,14 @@
       "$AppliesTo": ["EntityContainer"],
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
       "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
+    },
+    "StreamOperation": {
+      "$Kind": "Term",
+      "$Type": "Edm.PropertyPath",
+      "$AppliesTo": ["Action"],
+      "@Common.Experimental": true,
+      "@Core.Description": "The annotated bound action is always combined with an update of a stream property",
+      "@Core.LongDescription": "The value of the annotation is a property path to a stream property of the return type of the action.\nTo invoke the operation the client makes two requests in one LUW:\n- a POST request that invokes the action followed by\n- a PUT or DELETE request on the stream property of the action result (not in a $batch).\n\nBoth requests become effective only if the second request succeeds."
     }
   }
 }

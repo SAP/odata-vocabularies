@@ -1632,6 +1632,18 @@
         "@Core.Description": "Name of an Action, Function, ActionImport, or FunctionImport in scope"
       }
     },
+    "DataFieldForUpload": {
+      "$Kind": "ComplexType",
+      "$BaseType": "UI.DataFieldAbstract",
+      "@Common.Experimental": true,
+      "@Core.Description": "A piece of data that allows triggering an operation on the current entity involving a stream property",
+      "Stream": {
+        "$Type": "Edm.AnnotationPath",
+        "@Validation.AllowedTerms": ["Common.StreamOperation"],
+        "@Core.Description": "Annotation describing the operation",
+        "@Core.LongDescription": "The upload is made by invoking an action on the current entity\n            and then updating a stream property of the action result."
+      }
+    },
     "DataFieldWithIntentBasedNavigation": {
       "$Kind": "ComplexType",
       "$BaseType": "UI.DataField",

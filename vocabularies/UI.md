@@ -69,17 +69,17 @@ Term|Type|Description
 [HiddenFilter](UI.xml#L1614)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<br>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all. If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.
 [AdaptationHidden](UI.xml#L1623) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AdaptationHidden"></a>Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization<br>The tagged elements can only be used in UI based on metadata, annnotations or code.
 [DataFieldDefault](UI.xml#L1629)|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
-[Criticality](UI.xml#L1862)|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
-[CriticalityCalculation](UI.xml#L1866)|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
-[Emphasized](UI.xml#L1870) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
-[OrderBy](UI.xml#L1876) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
-[ParameterDefaultValue](UI.xml#L1882)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
-[RecommendationState](UI.xml#L1888)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
-[RecommendationList](UI.xml#L1918)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
-[Recommendations](UI.xml#L1950) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
-[ExcludeFromNavigationContext](UI.xml#L1996)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
-[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L2000) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
-[LeadingEntitySet](UI.xml#L2010) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[Criticality](UI.xml#L1878)|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
+[CriticalityCalculation](UI.xml#L1882)|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
+[Emphasized](UI.xml#L1886) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
+[OrderBy](UI.xml#L1892) *([Experimental](Common.md#Experimental))*|PropertyPath|<a name="OrderBy"></a>Sort by the referenced property instead of by the annotated property<br>Example: annotated property `SizeCode` has string values XS, S, M, L, XL, referenced property SizeOrder has numeric values -2, -1, 0, 1, 2. Numeric ordering by SizeOrder will be more understandable than lexicographic ordering by SizeCode.
+[ParameterDefaultValue](UI.xml#L1898)|PrimitiveType?|<a name="ParameterDefaultValue"></a>Define default values for action parameters<br>For unbound actions the default value can either be a constant expression, or a dynamic expression using absolute paths, e.g. singletons or function import results. Whereas for bound actions the bound entity and its properties and associated properties can be used as default values
+[RecommendationState](UI.xml#L1904)|[RecommendationStateType](#RecommendationStateType)|<a name="RecommendationState"></a>Indicates whether a field contains or has a recommended value<br>Intelligent systems can help users by recommending input the user may "prefer".
+[RecommendationList](UI.xml#L1934)|[RecommendationListType](#RecommendationListType)|<a name="RecommendationList"></a>Specifies how to get a list of recommended values for a property or parameter<br>Intelligent systems can help users by recommending input the user may "prefer".
+[Recommendations](UI.xml#L1966) *([Experimental](Common.md#Experimental))*|ComplexType|<a name="Recommendations"></a>Recommendations for an entity<br>This complex-typed annotation contains structural properties corresponding via name equality to non-key structural primitive properties of the entity type for which recommendations are available. The type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType). (The specializiations are called "informal" because they may omit the property `RecommendedFieldDescription`.)<br>Clients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause. The recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).
+[ExcludeFromNavigationContext](UI.xml#L2012)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
+[DoNotCheckScaleOfMeasuredQuantity](UI.xml#L2016) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
+[LeadingEntitySet](UI.xml#L2026) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](UI.xml#L68)
@@ -827,6 +827,7 @@ By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the
   - [DataFieldWithNavigationPath](#DataFieldWithNavigationPath)
   - [DataFieldWithUrl](#DataFieldWithUrl)
   - [DataFieldWithActionGroup](#DataFieldWithActionGroup)
+- [DataFieldForUpload](#DataFieldForUpload)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -1041,8 +1042,29 @@ Property|Type|Description
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
 
+<a name="DataFieldForUpload"></a>
+## [DataFieldForUpload](UI.xml#L1802): [DataFieldAbstract](#DataFieldAbstract) *([Experimental](Common.md#Experimental))*
+A piece of data that allows triggering an operation on the current entity involving a stream property
+
+Property|Type|Description
+:-------|:---|:----------
+[*Label*](UI.xml#L1650)|String?|A short, human-readable text suitable for labels and captions in UIs
+[*Criticality*](UI.xml#L1654)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
+[*CriticalityRepresentation*](UI.xml#L1657)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
+[*IconUrl*](UI.xml#L1660)|URL?|Optional icon
+[Stream](UI.xml#L1805)|AnnotationPath|Annotation describing the operation<br>The upload is made by invoking an action on the current entity and then updating a stream property of the action result.<br>Allowed Terms:<ul><li>[StreamOperation](Common.md#StreamOperation)</li></ul>
+
+**Applicable Annotation Terms:**
+
+- [Hidden](#Hidden)
+- [Importance](#Importance)
+- [PartOfPreview](#PartOfPreview)
+- [CssDefaults](HTML5.md#CssDefaults)
+- [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
+- [FieldControl](Common.md#FieldControl)
+
 <a name="DataFieldWithIntentBasedNavigation"></a>
-## [DataFieldWithIntentBasedNavigation](UI.xml#L1803): [DataField](#DataField)
+## [DataFieldWithIntentBasedNavigation](UI.xml#L1819): [DataField](#DataField)
 A piece of data that allows triggering intent-based UI navigation
 
 The navigation intent is expressed as a Semantic Object and optionally an Action on that object.
@@ -1056,10 +1078,10 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1654)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1657)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1660)|URL?|Optional icon
-[Value](UI.xml#L1811)|PrimitiveType|The data field's value
-[SemanticObject](UI.xml#L1812)|String|Name of the Semantic Object
-[Action](UI.xml#L1815)|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
-[Mapping](UI.xml#L1818)|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
+[Value](UI.xml#L1827)|PrimitiveType|The data field's value
+[SemanticObject](UI.xml#L1828)|String|Name of the Semantic Object
+[Action](UI.xml#L1831)|String?|Name of the Action on the Semantic Object. If not specified, let user choose which of the available actions to trigger.
+[Mapping](UI.xml#L1834)|\[[SemanticObjectMappingType](Common.md#SemanticObjectMappingType)\]|Maps properties of the annotated entity type to properties of the Semantic Object
 
 **Applicable Annotation Terms:**
 
@@ -1071,7 +1093,7 @@ Property|Type|Description
 - [FieldControl](Common.md#FieldControl)
 
 <a name="DataFieldWithNavigationPath"></a>
-## [DataFieldWithNavigationPath](UI.xml#L1823): [DataField](#DataField)
+## [DataFieldWithNavigationPath](UI.xml#L1839): [DataField](#DataField)
 A piece of data that allows navigating to related data
 
 It should be rendered as a hyperlink
@@ -1082,8 +1104,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1654)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1657)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1660)|URL?|Optional icon
-[Value](UI.xml#L1826)|PrimitiveType|The data field's value
-[Target](UI.xml#L1827)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
+[Value](UI.xml#L1842)|PrimitiveType|The data field's value
+[Target](UI.xml#L1843)|NavigationPropertyPath|Contains either a navigation property or a term cast, where term is of type Edm.EntityType or a concrete entity type or a collection of these types
 
 **Applicable Annotation Terms:**
 
@@ -1095,7 +1117,7 @@ Property|Type|Description
 - [FieldControl](Common.md#FieldControl)
 
 <a name="DataFieldWithUrl"></a>
-## [DataFieldWithUrl](UI.xml#L1834): [DataField](#DataField)
+## [DataFieldWithUrl](UI.xml#L1850): [DataField](#DataField)
 A piece of data that allows navigating to other information on the Web
 
 It should be rendered as a hyperlink
@@ -1106,9 +1128,9 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1654)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1657)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1660)|URL?|Optional icon
-[Value](UI.xml#L1837)|PrimitiveType|The data field's value
-[Url](UI.xml#L1838)|URL|Target of the hyperlink<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
-[UrlContentType](UI.xml#L1847)|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
+[Value](UI.xml#L1853)|PrimitiveType|The data field's value
+[Url](UI.xml#L1854)|URL|Target of the hyperlink<br>Applicable Annotation Terms:<ul><li>[LinkTarget](HTML5.md#LinkTarget)</li></ul>
+[UrlContentType](UI.xml#L1863)|MediaType?|Media type of the hyperlink target, e.g. `video/mp4`
 
 **Applicable Annotation Terms:**
 
@@ -1120,7 +1142,7 @@ Property|Type|Description
 - [FieldControl](Common.md#FieldControl)
 
 <a name="DataFieldWithActionGroup"></a>
-## [DataFieldWithActionGroup](UI.xml#L1853): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
+## [DataFieldWithActionGroup](UI.xml#L1869): [DataField](#DataField) *([Experimental](Common.md#Experimental))*
 Collection of OData actions and intent based navigations
 
 Property|Type|Description
@@ -1129,8 +1151,8 @@ Property|Type|Description
 [*Criticality*](UI.xml#L1654)|[CriticalityType?](#CriticalityType)|Criticality of the data field value
 [*CriticalityRepresentation*](UI.xml#L1657)|[CriticalityRepresentationType?](#CriticalityRepresentationType)|Decides if criticality is visualized in addition by means of an icon
 [*IconUrl*](UI.xml#L1660)|URL?|Optional icon
-[Value](UI.xml#L1856)|PrimitiveType|The data field's value
-[Actions](UI.xml#L1857)|\[[DataField](#DataField)\]|Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
+[Value](UI.xml#L1872)|PrimitiveType|The data field's value
+[Actions](UI.xml#L1873)|\[[DataField](#DataField)\]|Collection of data fields that are either [DataFieldWithAction](#DataFieldWithAction), [DataFieldWithIntentBasedNavigation](#DataFieldWithIntentBasedNavigation), [DataFieldWithNavigationPath](#DataFieldWithNavigationPath), or [DataFieldWithUrl](#DataFieldWithUrl)
 
 **Applicable Annotation Terms:**
 
@@ -1142,7 +1164,7 @@ Property|Type|Description
 - [FieldControl](Common.md#FieldControl)
 
 <a name="RecommendationStateType"></a>
-## [RecommendationStateType](UI.xml#L1895)
+## [RecommendationStateType](UI.xml#L1911)
 **Type:** Byte
 
 Indicates whether a field contains or has a recommended value
@@ -1151,44 +1173,44 @@ Editable fields for which a recommendation has been pre-filled or that have reco
 
 Allowed Value|Description
 :------------|:----------
-[0](UI.xml#L1902)|regular - with human or default input, no recommendation
-[1](UI.xml#L1906)|highlighted - without human input and with recommendation
-[2](UI.xml#L1910)|warning - with human or default input and with recommendation
+[0](UI.xml#L1918)|regular - with human or default input, no recommendation
+[1](UI.xml#L1922)|highlighted - without human input and with recommendation
+[2](UI.xml#L1926)|warning - with human or default input and with recommendation
 
 <a name="RecommendationListType"></a>
-## [RecommendationListType](UI.xml#L1925)
+## [RecommendationListType](UI.xml#L1941)
 Reference to a recommendation list
 
 A recommendation consists of one or more values for editable fields plus a rank between 0.0 and 9.9, with 9.9 being the best recommendation.
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionPath](UI.xml#L1930)|String|Resource path of a collection of recommended values
-[RankProperty](UI.xml#L1933)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
-[Binding](UI.xml#L1936)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
+[CollectionPath](UI.xml#L1946)|String|Resource path of a collection of recommended values
+[RankProperty](UI.xml#L1949)|String|Name of the property within the collection of recommended values that describes the rank of the recommendation
+[Binding](UI.xml#L1952)|\[[RecommendationBinding](#RecommendationBinding)\]|List of pairs of a local property and recommended value property
 
 <a name="RecommendationBinding"></a>
-## [RecommendationBinding](UI.xml#L1941)
+## [RecommendationBinding](UI.xml#L1957)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[LocalDataProperty](UI.xml#L1942)|PropertyPath|Path to editable property for which recommended values exist
-[ValueListProperty](UI.xml#L1945)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
+[LocalDataProperty](UI.xml#L1958)|PropertyPath|Path to editable property for which recommended values exist
+[ValueListProperty](UI.xml#L1961)|String|Path to property in the collection of recommended values. Format is identical to PropertyPath annotations.
 
 <a name="PropertyRecommendationType"></a>
-## [*PropertyRecommendationType*](UI.xml#L1963) *([Experimental](Common.md#Experimental))*
+## [*PropertyRecommendationType*](UI.xml#L1979) *([Experimental](Common.md#Experimental))*
 Base type containing recommendations for an entity type property
 
 Property|Type|Description
 :-------|:---|:----------
-[RecommendedFieldValue](UI.xml#L1966)|PrimitiveType|Recommended value<br>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property. If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation that evaluates to the `RecommendedFieldDescription` property.
-[RecommendedFieldDescription](UI.xml#L1975)|String?|Description of the recommended value<br>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property. It is omitted from informal specializations for recommendations without description.
-[RecommendedFieldScoreValue](UI.xml#L1982)|Decimal?|Confidence score of the recommended value
-[RecommendedFieldIsSuggestion](UI.xml#L1985)|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.
+[RecommendedFieldValue](UI.xml#L1982)|PrimitiveType|Recommended value<br>In informal specializations of this base type, this property is specialized to the primitive type of the entity type property. If the recommendation has a description, this property has a [`Common.Text`](Common.md#Text) annotation that evaluates to the `RecommendedFieldDescription` property.
+[RecommendedFieldDescription](UI.xml#L1991)|String?|Description of the recommended value<br>In informal specializations of this base type, this property is specialized to the string type of the text property corresponding to the entity type property. It is omitted from informal specializations for recommendations without description.
+[RecommendedFieldScoreValue](UI.xml#L1998)|Decimal?|Confidence score of the recommended value
+[RecommendedFieldIsSuggestion](UI.xml#L2001)|Boolean|Whether the recommended value shall be suggested in the input field<br>For any collection of a specialization of `PropertyRecommendationType` in a property containing [`Recommendations`](#Recommendations), this flag can be true in at most one instance of the collection, and only if the `RecommendedFieldScoreValue` exceeds a certain threshold.
 
 <a name="ActionName"></a>
-## [ActionName](UI.xml#L2015)
+## [ActionName](UI.xml#L2031)
 **Type:** String
 
 Name of an Action, Function, ActionImport, or FunctionImport in scope

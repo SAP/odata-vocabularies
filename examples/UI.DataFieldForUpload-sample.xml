@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema Namespace="UI.examples" xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="self">
+      <EntityType Name="Document">
+        <Key>
+          <PropertyRef Name="Name" />
+        </Key>
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="XMLDocuments" Type="Collection(self.XMLDocument)" />
+      </EntityType>
+      <EntityType Name="XMLDocument">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="XMLSchema" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Property>
+        <Property Name="XML" Type="Edm.Stream" Nullable="true" />
+      </EntityType>
+      <Action Name="XMLUpload" IsBound="true">
+        <Parameter Name="Document" Type="self.Document" Nullable="false" />
+        <Parameter Name="XMLSchema" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Parameter>
+        <ReturnType Type="self.XMLDocument" Nullable="false" />
+      </Action>
+      <EntityContainer Name="container">
+        <EntitySet Name="XMLUpload" EntityType="self.XMLUpload" />
+      </EntityContainer>
+      <Annotations Target="self.XMLUpload">
+        <Annotation Term="Common.StreamOperation" PropertyPath="$ReturnType/XML" />
+      </Annotations>
+      <Annotations Target="self.Document">
+        <Annotation Term="UI.LineItem">
+          <Collection>
+            <Record Type="UI.DataFieldForUpload">
+              <PropertyValue Property="Label" String="Upload XML" />
+              <PropertyValue Property="Stream" AnnotationPath="/self.XMLUpload/@Common.StreamOperation" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
