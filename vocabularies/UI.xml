@@ -1810,25 +1810,8 @@ It is NOT tied to a data value (in contrast to [DataFieldWithIntentBasedNavigati
           </Annotation>
           <Annotation Term="Core.Description" String="Annotation describing the operation" />
           <Annotation Term="Core.LongDescription">
-            <String>The annotation MUST target the collection containing the current entity.
-            The upload is made with two requests to the current entity.</String>
-          </Annotation>
-        </Property>
-      </ComplexType>
-      <ComplexType Name="DataFieldWithUpload" BaseType="UI.DataField">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="A piece of data that allows triggering an operation involving a stream property" />
-        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false" />
-        <Property Name="Stream" Type="Edm.AnnotationPath" Nullable="false">
-          <Annotation Term="Validation.AllowedTerms">
-            <Collection>
-              <String>Common.StreamOperation</String>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="Annotation describing an operation" />
-          <Annotation Term="Core.LongDescription">
-            <String>The annotation MUST target an entity set with a single key property.
-            The upload is made with two requests to the entity with the data field's value as key.</String>
+            <String>The upload is made by invoking an action on the current entity
+            and then updating a stream property of the action result.</String>
           </Annotation>
         </Property>
       </ComplexType>

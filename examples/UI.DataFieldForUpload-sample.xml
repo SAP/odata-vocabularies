@@ -17,9 +17,9 @@
           <PropertyRef Name="Name" />
         </Key>
         <Property Name="Name" Type="Edm.String" Nullable="false" />
-        <Property Name="XML_ID" Type="Edm.String" Nullable="true" />
+        <NavigationProperty Name="XMLDocuments" Type="Collection(self.XMLDocument)" />
       </EntityType>
-      <EntityType Name="XMLUpload">
+      <EntityType Name="XMLDocument">
         <Key>
           <PropertyRef Name="ID" />
         </Key>
@@ -29,24 +29,25 @@
         </Property>
         <Property Name="XML" Type="Edm.Stream" Nullable="true" />
       </EntityType>
+      <Action Name="XMLUpload" IsBound="true">
+        <Parameter Name="Document" Type="self.Document" Nullable="false" />
+        <Parameter Name="XMLSchema" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+        </Parameter>
+        <ReturnType Type="self.XMLDocument" Nullable="false" />
+      </Action>
       <EntityContainer Name="container">
         <EntitySet Name="XMLUpload" EntityType="self.XMLUpload" />
       </EntityContainer>
-      <Annotations Target="self.container/XMLUpload">
-        <Annotation Term="Common.StreamOperation">
-          <Collection>
-            <PropertyPath>XMLSchema</PropertyPath>
-            <PropertyPath>XML</PropertyPath>
-          </Collection>
-        </Annotation>
+      <Annotations Target="self.XMLUpload">
+        <Annotation Term="Common.StreamOperation" PropertyPath="$ReturnType/XML" />
       </Annotations>
       <Annotations Target="self.Document">
         <Annotation Term="UI.LineItem">
           <Collection>
-            <Record Type="UI.DataFieldWithUpload">
+            <Record Type="UI.DataFieldForUpload">
               <PropertyValue Property="Label" String="Upload XML" />
-              <PropertyValue Property="Value" Path="XML_ID" />
-              <PropertyValue Property="Stream" AnnotationPath="/self.container/XMLUpload/@Common.StreamOperation" />
+              <PropertyValue Property="Stream" AnnotationPath="/self.XMLUpload/@Common.StreamOperation" />
             </Record>
           </Collection>
         </Annotation>

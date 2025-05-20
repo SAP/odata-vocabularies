@@ -1641,20 +1641,7 @@
         "$Type": "Edm.AnnotationPath",
         "@Validation.AllowedTerms": ["Common.StreamOperation"],
         "@Core.Description": "Annotation describing the operation",
-        "@Core.LongDescription": "The annotation MUST target the collection containing the current entity.\n            The upload is made with two requests to the current entity."
-      }
-    },
-    "DataFieldWithUpload": {
-      "$Kind": "ComplexType",
-      "$BaseType": "UI.DataField",
-      "@Common.Experimental": true,
-      "@Core.Description": "A piece of data that allows triggering an operation involving a stream property",
-      "Value": { "$Type": "Edm.PrimitiveType" },
-      "Stream": {
-        "$Type": "Edm.AnnotationPath",
-        "@Validation.AllowedTerms": ["Common.StreamOperation"],
-        "@Core.Description": "Annotation describing an operation",
-        "@Core.LongDescription": "The annotation MUST target an entity set with a single key property.\n            The upload is made with two requests to the entity with the data field's value as key."
+        "@Core.LongDescription": "The upload is made by invoking an action on the current entity\n            and then updating a stream property of the action result."
       }
     },
     "DataFieldWithIntentBasedNavigation": {

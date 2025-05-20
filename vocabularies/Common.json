@@ -1396,12 +1396,11 @@
     },
     "StreamOperation": {
       "$Kind": "Term",
-      "$Collection": true,
       "$Type": "Edm.PropertyPath",
-      "$AppliesTo": ["EntityType"],
+      "$AppliesTo": ["Action"],
       "@Common.Experimental": true,
-      "@Core.Description": "An operation that updates properties one of which is a stream property",
-      "@Core.LongDescription": "To invoke the operation the client makes two requests that change the same entity in one LUW:\n- a POST, PUT or PATCH request that updates the non-stream properties followed by\n- a PUT or DELETE request on the stream property (not in a $batch).\n\nBoth requests become effective only if the second request succeeds."
+      "@Core.Description": "The annotated bound action is always combined with an update of a stream property",
+      "@Core.LongDescription": "The value of the annotation is a property path to a stream property of the return type of the action.\nTo invoke the operation the client makes two requests in one LUW:\n- a POST request that invokes the action followed by\n- a PUT or DELETE request on the stream property of the action result (not in a $batch).\n\nBoth requests become effective only if the second request succeeds."
     }
   }
 }

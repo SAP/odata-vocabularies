@@ -13,24 +13,39 @@
   },
   "UI.examples": {
     "$Alias": "self",
-    "Document": { "$Kind": "EntityType", "$Key": ["Name"], "Name": {}, "XML_ID": { "$Nullable": true } },
-    "XMLUpload": {
+    "Document": {
+      "$Kind": "EntityType",
+      "$Key": ["Name"],
+      "Name": {},
+      "XMLDocuments": { "$Kind": "NavigationProperty", "$Collection": true, "$Type": "self.XMLDocument" }
+    },
+    "XMLDocument": {
       "$Kind": "EntityType",
       "$Key": ["ID"],
       "ID": {},
       "XMLSchema": { "@Core.IsURL": true },
       "XML": { "$Type": "Edm.Stream", "$Nullable": true }
     },
+    "XMLUpload": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "$Parameter": [
+          { "$Name": "Document", "$Type": "self.Document" },
+          { "$Name": "XMLSchema", "@Core.IsURL": true }
+        ],
+        "$ReturnType": { "$Type": "self.XMLDocument" }
+      }
+    ],
     "container": { "$Kind": "EntityContainer", "XMLUpload": { "$Collection": true, "$Type": "self.XMLUpload" } },
     "$Annotations": {
-      "self.container/XMLUpload": { "@Common.StreamOperation": ["XMLSchema", "XML"] },
+      "self.XMLUpload": { "@Common.StreamOperation": "$ReturnType/XML" },
       "self.Document": {
         "@UI.LineItem": [
           {
-            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldWithUpload",
+            "@odata.type": "https://sap.github.io/odata-vocabularies/vocabularies/UI.xml#UI.DataFieldForUpload",
             "Label": "Upload XML",
-            "Value": { "$Path": "XML_ID" },
-            "Stream": "/self.container/XMLUpload/@Common.StreamOperation"
+            "Stream": "/self.XMLUpload/@Common.StreamOperation"
           }
         ]
       }

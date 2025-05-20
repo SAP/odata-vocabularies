@@ -1647,13 +1647,14 @@ leads to a
         </Annotation>
       </Term>
 
-      <Term Name="StreamOperation" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType">
+      <Term Name="StreamOperation" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Action">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="An operation that updates properties one of which is a stream property" />
+        <Annotation Term="Core.Description" String="The annotated bound action is always combined with an update of a stream property" />
         <Annotation Term="Core.LongDescription">
-          <String>To invoke the operation the client makes two requests that change the same entity in one LUW:
-- a POST, PUT or PATCH request that updates the non-stream properties followed by
-- a PUT or DELETE request on the stream property (not in a $batch).
+          <String>The value of the annotation is a property path to a stream property of the return type of the action.
+To invoke the operation the client makes two requests in one LUW:
+- a POST request that invokes the action followed by
+- a PUT or DELETE request on the stream property of the action result (not in a $batch).
 
 Both requests become effective only if the second request succeeds.</String>
         </Annotation>
