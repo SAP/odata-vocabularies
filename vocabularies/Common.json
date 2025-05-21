@@ -1051,6 +1051,12 @@
     },
     "DraftNodeType": {
       "$Kind": "ComplexType",
+      "@Core.Revisions": [
+        {
+          "Kind": "Deprecated",
+          "Description": "The deprecated term [`DraftNode`](#DraftNode) effectively only tags the entity set, its value is an empty record"
+        }
+      ],
       "PreparationAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
@@ -1070,10 +1076,9 @@
     },
     "DraftActivationVia": {
       "$Kind": "Term",
-      "$Collection": true,
       "$Type": "Core.SimpleIdentifier",
       "$AppliesTo": ["EntitySet"],
-      "@Core.Description": "Draft entities in this set are indirectly activated via draft entities in the referenced entity sets"
+      "@Core.Description": "Draft entities in this set are indirectly activated via draft entities in the referenced entity set"
     },
     "EditableFieldFor": {
       "$Kind": "Term",
