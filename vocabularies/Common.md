@@ -371,11 +371,12 @@ Property|Type|Description
 All filterable properties of the value list can be used to filter
 
 <a name="DraftRootType"></a>
-## [DraftRootType](Common.xml#L1082)
+## [DraftRootType](Common.xml#L1082): [DraftNodeType](#DraftNodeType)
 
 
 Property|Type|Description
 :-------|:---|:----------
+[*ValidationFunction*](Common.xml#L1252) *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 [PreparationAction](Common.xml#L1083)|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation<br>The action is bound to the draft document root and has no parameters.
 [ActivationAction](Common.xml#L1089)|[QualifiedName](#QualifiedName)|Action that activates a draft document<br>The action is bound to the draft document root and has no parameters.
 [DiscardAction](Common.xml#L1095)|[QualifiedName?](#QualifiedName)|Action that discards a draft document<br>The action is bound to the draft document root and has no parameters.

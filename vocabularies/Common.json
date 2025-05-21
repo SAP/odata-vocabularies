@@ -983,6 +983,7 @@
     },
     "DraftRootType": {
       "$Kind": "ComplexType",
+      "$BaseType": "Common.DraftNodeType",
       "PreparationAction": {
         "$Type": "Common.QualifiedName",
         "$Nullable": true,
