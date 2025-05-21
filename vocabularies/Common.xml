@@ -1079,7 +1079,7 @@ The minimum structure is
           <String>Root entities of business documents that support the draft pattern</String>
         </Annotation>
       </Term>
-      <ComplexType Name="DraftRootType" BaseType="Common.DraftNodeType">
+      <ComplexType Name="DraftRootType">
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Description" String="Action that prepares a draft document for later activation" />
           <Annotation Term="Core.LongDescription">
