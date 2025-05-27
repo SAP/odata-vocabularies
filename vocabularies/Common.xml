@@ -1143,7 +1143,6 @@ followed by URL parameters
           </Annotation>
         </Property>
       </ComplexType>
-      <!--
       <Action Name="Template_NewAction" IsBound="true" EntitySetPath="DraftDocumentRootEntitySet">
         <Annotation Term="Core.Constructor" />
         <Parameter Name="DraftDocumentRootEntitySet" Type="Collection(Edm.EntityType)" Nullable="false" />
@@ -1213,7 +1212,6 @@ followed by URL parameters
           </Annotation>
         </Property>
       </ComplexType>
-      -->
 
       <Term Name="DraftNode" Type="Common.DraftNodeType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Revisions">

@@ -1037,6 +1037,81 @@
         "@Core.LongDescription": "The action is bound to the draft document root node and has the signature of [`Template_ShareAction`](#Template_ShareAction).\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
       }
     },
+    "Template_NewAction": [
+      {
+        "$Kind": "Action",
+        "$EntitySetPath": "DraftDocumentRootEntitySet",
+        "$IsBound": true,
+        "@Core.Constructor": true,
+        "$Parameter": [
+          { "$Name": "DraftDocumentRootEntitySet", "$Collection": true, "$Type": "Edm.EntityType" },
+          {
+            "$Name": "ResultIsActiveEntity",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means that an active entity is created",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ],
+        "$ReturnType": { "$Type": "Edm.EntityType" }
+      }
+    ],
+    "Template_EditAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "$Parameter": [
+          { "$Name": "ActiveDocumentRootNode", "$Type": "Edm.EntityType" },
+          {
+            "$Name": "PreserveChanges",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means that an outdated draft of another user is not overwritten",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          }
+        ]
+      }
+    ],
+    "Template_ShareAction": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "@Core.Description": "For details, see [this document](../docs/share-action.md)",
+        "$Parameter": [
+          { "$Name": "DraftDocumentRootNode", "$Type": "Edm.EntityType" },
+          {
+            "$Name": "ShareAll",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means sharing with all users that are authorized for the bound draft instance",
+            "@Core.LongDescription": "The `Users` parameter can be specified in this case to actively notify the listed users.",
+            "@Core.OptionalParameter": {}
+          },
+          {
+            "$Name": "IsDeltaUpdate",
+            "$Type": "Edm.Boolean",
+            "@Core.Description": "`true` means sharing _additionally_ with the `Users`",
+            "@Core.OptionalParameter": { "DefaultValue": "false" }
+          },
+          {
+            "$Name": "Users",
+            "$Collection": true,
+            "$Type": "Common.DraftUserAccessType",
+            "@Core.Description": "Collection of users",
+            "@Core.OptionalParameter": {}
+          }
+        ]
+      }
+    ],
+    "DraftUserAccessType": {
+      "$Kind": "ComplexType",
+      "UserID": { "$MaxLength": 12 },
+      "UserAccessRole": {
+        "$MaxLength": 1,
+        "@Core.Description": "Role of the user",
+        "@Validation.AllowedValues": [
+          { "Value": "O", "@Core.Description": "Owner, can perform all draft actions" },
+          { "Value": "E", "@Core.Description": "Editor, can change the draft" }
+        ]
+      }
+    },
     "DraftNode": {
       "$Kind": "Term",
       "$Type": "Common.DraftNodeType",
