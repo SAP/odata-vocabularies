@@ -1228,6 +1228,14 @@ followed by URL parameters
       </Term>
 
       <ComplexType Name="DraftNodeType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="The deprecated term [`DraftNode`](#DraftNode) effectively only tags the entity set, its value is an empty record" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="PreparationAction" Type="Common.QualifiedName">
           <Annotation Term="Core.Revisions">
             <Collection>
@@ -1252,8 +1260,8 @@ followed by URL parameters
         </Property>
       </ComplexType>
 
-      <Term Name="DraftActivationVia" Type="Collection(Core.SimpleIdentifier)" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity sets" />
+      <Term Name="DraftActivationVia" Type="Core.SimpleIdentifier" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity set" />
       </Term>
 
       <Term Name="EditableFieldFor" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
