@@ -198,8 +198,8 @@ $apply=filter(Industry in ('IT','AI'))
     /aggregate($count as LeavesCount),
   aggregate(Amount,Currency),
   Analytics.MultiLevelExpand(
-    LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
-                     {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
+    LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["_Country/Name"]},
+                     {"DimensionProperties":["Region"],"AdditionalProperties":["_Region/Name"]},
                      {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
@@ -218,6 +218,8 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
+            In this function, the term "properties" refers to primitive-valued structural properties
+            and string-valued properties of 1:1 navigation properties that contain texts.
             A property must not be referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
