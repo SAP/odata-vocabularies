@@ -219,7 +219,8 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
             In this function, the term "properties" refers to primitive-valued structural properties
-            and to paths consisting of a 1:1 navigation property followed by a string-valued property that contains a text.
+            and to paths consisting of a 1:1 navigation property (expanded by default)
+            followed by a string-valued property that contains a text.
             A property must not be referenced by more than one level.
             The first element in the collection defines the property names of the coarsest level,
             the following elements define the property names of consecutively finer-grained aggregation levels.
