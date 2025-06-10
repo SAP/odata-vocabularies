@@ -1,0 +1,72 @@
+{
+  "$Version": "4.01",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "com.sap.vocabularies.Support.v1": {
+    "$Alias": "Support",
+    "@Core.Description": "Terms for support tools",
+    "@Core.Description#Published": "2025-03-25 © Copyright 2025 SAP SE. All rights reserved.",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Support.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Support.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Support.md" }
+    ],
+    "@Common.Experimental": true,
+    "TechnicalInfoLinks": {
+      "$Kind": "Term",
+      "$Type": "Support.TechnicalInfoLinksType",
+      "$AppliesTo": ["Schema"],
+      "@Core.Description": "How to retrieve links to technical information about the service"
+    },
+    "TechnicalInfoLinksType": {
+      "$Kind": "ComplexType",
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "URL of a CSDL document describing the function",
+        "@Core.LongDescription": "This URL is interpreted relative to the URL of the CSDL document containing the annotation.\n            The function must follow [this template](#Template_GetTechnicalInfoLinks)."
+      },
+      "FunctionImport": {
+        "@Core.Description": "Name of a function import for retrieval of links to technical information about the service"
+      }
+    },
+    "Template_GetTechnicalInfoLinks": [
+      {
+        "$Kind": "Function",
+        "@Core.Description": "Template for a function that retrieves links to technical information about a service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)",
+        "$Parameter": [
+          {
+            "$Name": "ServiceRoot",
+            "@Core.IsURL": true,
+            "@Core.Description": "Root URL of the UI service",
+            "@Core.LongDescription": "This URL is interpreted relative to the root URL of the service containing the function."
+          },
+          {
+            "$Name": "EdmPath",
+            "@Core.Description": "Path to the model element for which technical info is requested",
+            "@Core.LongDescription": "Uses the same syntax as [annotation targets](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#Target)."
+          }
+        ],
+        "$ReturnType": {
+          "$Collection": true,
+          "$Type": "Support.TechnicalInfoLink",
+          "@Core.Description": "Collection of development objects related to the model element"
+        }
+      }
+    ],
+    "TechnicalInfoLink": {
+      "$Kind": "ComplexType",
+      "Text": { "@Core.IsLanguageDependent": true, "@Core.Description": "Description of a development object" },
+      "Url": {
+        "@Core.IsURL": true,
+        "@Core.Description": "Link to open the development object",
+        "@Core.LongDescription": "This URL is interpreted relative to the root URL of the service containing the function."
+      }
+    }
+  }
+}
