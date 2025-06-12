@@ -215,7 +215,7 @@ $apply=filter(Industry in ('IT','AI'))
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
         <Parameter Name="LevelProperties" Type="Collection(Analytics.MultiLevelExpandLevel)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of aggregation levels forming a leveled hierarchy" />
+          <Annotation Term="Core.Description" String="Non-empty collection of aggregation levels forming a leveled hierarchy" />
           <Annotation Term="Core.LongDescription">
             <String>Each element in the collection defines the properties that constitute one level.
             In this function, the term "properties" refers to primitive-valued structural properties of the binding parameter's entity type
