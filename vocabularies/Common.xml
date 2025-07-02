@@ -688,9 +688,6 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
         </Property>
-        <Property Name="RelativeToTarget" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="If true, the CollectionPath is relative to the annotation target" />
-        </Property>
         <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
         </Property>
