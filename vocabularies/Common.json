@@ -569,11 +569,6 @@
         "$Nullable": true,
         "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation"
       },
-      "RelativeToTarget": {
-        "$Type": "Edm.Boolean",
-        "$DefaultValue": false,
-        "@Core.Description": "If true, the CollectionPath is relative to the annotation target"
-      },
       "DistinctValuesSupported": {
         "$Type": "Edm.Boolean",
         "$DefaultValue": false,
