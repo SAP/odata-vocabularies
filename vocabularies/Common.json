@@ -568,7 +568,7 @@
       "CollectionRoot": {
         "$Nullable": true,
         "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation",
-        "@Core.LongDescription": "Must only be specified if `CollectionPath` is provided."
+        "@Core.LongDescription": "`CollectionPath` must not be specified unless CollectionPath is provided."
       },
       "DistinctValuesSupported": {
         "$Type": "Edm.Boolean",
