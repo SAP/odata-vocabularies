@@ -557,7 +557,13 @@
         "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
       },
       "CollectionPath": {
+        "$Nullable": true,
         "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
+      },
+      "RelativeCollectionPath": {
+        "$Type": "Edm.NavigationPropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Navigation property path of an OData collection with possible values, relative to the annotation target"
       },
       "CollectionRoot": {
         "$Nullable": true,
