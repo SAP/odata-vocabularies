@@ -688,7 +688,7 @@ The minimum structure is
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
           <Annotation Term="Core.LongDescription">
-            <String>`CollectionPath` must not be specified unless CollectionPath is provided.</String>
+            <String>`CollectionRoot` must not be specified unless CollectionPath is provided.</String>
           </Annotation>
         </Property>
         <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
