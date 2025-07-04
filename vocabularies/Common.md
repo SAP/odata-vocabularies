@@ -234,14 +234,14 @@ Property|Type|Description
 
 <a name="ValueListType"></a>
 ## [ValueListType](Common.xml#L657)
-Exactly one of CollectionPath and RelativeCollectionPath must be provided.
+Exactly one of `CollectionPath` and `RelativeCollectionPath` must be provided.
 
 Property|Type|Description
 :-------|:---|:----------
 [Label](Common.xml#L678)|String?|Headline for value list, fallback is the label of the property or parameter
 [CollectionPath](Common.xml#L682)|String?|Resource path of an OData collection with possible values, relative to CollectionRoot
 [RelativeCollectionPath](Common.xml#L685)|NavigationPropertyPath?|Navigation property path of an OData collection with possible values, relative to the annotation target
-[CollectionRoot](Common.xml#L688)|String?|Service root of the value list collection; not specified means local to the document containing the annotation<br>`CollectionRoot` must not be specified unless CollectionPath is provided.
+[CollectionRoot](Common.xml#L688)|String?|Service root of the value list collection; not specified means local to the document containing the annotation<br>`CollectionRoot` must not be specified unless `CollectionPath` is provided.
 [DistinctValuesSupported](Common.xml#L694)|Boolean|Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut
 [SearchSupported](Common.xml#L697)|Boolean|Value list supports the $search query option<br>The value of the target property is used as the search expression instead of in $filter
 [FetchValues](Common.xml#L701)|[FetchValuesType?](#FetchValuesType)|Hint on when to fetch values
