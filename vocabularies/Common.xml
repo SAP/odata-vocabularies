@@ -712,7 +712,7 @@ The minimum structure is
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
-        <Annotation Term="Core.Description" String="Exactly one of CollectionPath and RelativeCollectionPath must be provided." />
+        <Annotation Term="Core.Description" String="Exactly one of `CollectionPath` and `RelativeCollectionPath` must be provided." />
       </ComplexType>
 
       <TypeDefinition Name="FetchValuesType" UnderlyingType="Edm.Byte">
