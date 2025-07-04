@@ -557,11 +557,18 @@
         "@Core.Description": "Headline for value list, fallback is the label of the property or parameter"
       },
       "CollectionPath": {
+        "$Nullable": true,
         "@Core.Description": "Resource path of an OData collection with possible values, relative to CollectionRoot"
+      },
+      "RelativeCollectionPath": {
+        "$Type": "Edm.NavigationPropertyPath",
+        "$Nullable": true,
+        "@Core.Description": "Navigation property path of an OData collection with possible values, relative to the annotation target"
       },
       "CollectionRoot": {
         "$Nullable": true,
-        "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation"
+        "@Core.Description": "Service root of the value list collection; not specified means local to the document containing the annotation",
+        "@Core.LongDescription": "`CollectionRoot` must not be specified unless `CollectionPath` is provided."
       },
       "DistinctValuesSupported": {
         "$Type": "Edm.Boolean",
@@ -595,7 +602,8 @@
         "$Collection": true,
         "$Type": "Common.ValueListParameter",
         "@Core.Description": "Instructions on how to construct the value list request and consume response properties"
-      }
+      },
+      "@Core.Description": "Exactly one of `CollectionPath` and `RelativeCollectionPath` must be provided."
     },
     "FetchValuesType": {
       "$Kind": "TypeDefinition",
