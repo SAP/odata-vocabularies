@@ -677,11 +677,17 @@ The minimum structure is
           <Annotation Term="Core.IsLanguageDependent" />
           <Annotation Term="Core.Description" String="Headline for value list, fallback is the label of the property or parameter" />
         </Property>
-        <Property Name="CollectionPath" Type="Edm.String" Nullable="false">
+        <Property Name="CollectionPath" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Resource path of an OData collection with possible values, relative to CollectionRoot" />
+        </Property>
+        <Property Name="RelativeCollectionPath" Type="Edm.NavigationPropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Navigation property path of an OData collection with possible values, relative to the annotation target" />
         </Property>
         <Property Name="CollectionRoot" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Service root of the value list collection; not specified means local to the document containing the annotation" />
+          <Annotation Term="Core.LongDescription">
+            <String>`CollectionRoot` must not be specified unless `CollectionPath` is provided.</String>
+          </Annotation>
         </Property>
         <Property Name="DistinctValuesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Indicates that the value list supports a 'distinct' aggregation on the value list properties defined via ValueListParameterInOut and ValueListParameterOut" />
@@ -704,6 +710,7 @@ The minimum structure is
         <Property Name="Parameters" Type="Collection(Common.ValueListParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Instructions on how to construct the value list request and consume response properties" />
         </Property>
+        <Annotation Term="Core.Description" String="Exactly one of `CollectionPath` and `RelativeCollectionPath` must be provided." />
       </ComplexType>
 
       <TypeDefinition Name="FetchValuesType" UnderlyingType="Edm.Byte">
