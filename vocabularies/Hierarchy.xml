@@ -262,7 +262,6 @@ The template actions themselves cannot be invoked.</String>
       </ComplexType>
 
       <Term Name="MatchCount" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Common.IsInstanceAnnotation" />
         <Annotation Term="Core.Description" String="Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations" />
         <Annotation Term="Core.LongDescription">
@@ -345,7 +344,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
 
       <Term Name="RecursiveHierarchySupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier" />
         <Annotation Term="Core.LongDescription">
           <String>This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type.

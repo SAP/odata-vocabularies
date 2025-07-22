@@ -176,7 +176,6 @@
       "$Kind": "Term",
       "$Type": "Edm.Int64",
       "$AppliesTo": ["Collection"],
-      "@Common.Experimental": true,
       "@Common.IsInstanceAnnotation": true,
       "@Core.Description": "Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations",
       "@Core.LongDescription": "The service MAY designate a subset of the `$apply` result as \"matching nodes\".\nFor requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the\n`filter` or `search` transformation that occurs as the fourth parameter\nof the last `ancestors` transformation or occurs nested into it.\n\nFor requests not following this pattern, the subset NEED NOT be defined.\n\nThis instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType)\nand [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available."
@@ -241,7 +240,6 @@
       "$DefaultValue": true,
       "$AppliesTo": ["Collection"],
       "@Core.AppliesViaContainer": true,
-      "@Common.Experimental": true,
       "@Core.Description": "Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier",
       "@Core.LongDescription": "This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type.\n          The recursive hierarchy can then only be addressed through a collection where this tag is true."
     },
