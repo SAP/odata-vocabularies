@@ -64,6 +64,11 @@
         "$Type": "Edm.Int64",
         "$Nullable": true,
         "@Core.Description": "Position of the current aggregation level in the list of all aggregation levels"
+      },
+      "LimitedRank": {
+        "$Type": "Edm.Int64",
+        "$Nullable": true,
+        "@Core.Description": "0-based index of an entry in the multi-level expansion"
       }
     },
     "RecursiveHierarchyType": {
