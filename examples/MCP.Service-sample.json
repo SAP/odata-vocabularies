@@ -1,0 +1,62 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/MCP.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.MCP.v1", "$Alias": "MCP" }]
+    },
+    "https://fiorilaunchpad.sap.com/sap/opu/odata/sap/HCMFAB_COMMON_SRV/$metadata": {
+      "$Include": [{ "$Namespace": "HCMFAB_COMMON_SRV", "$Alias": "HCM" }]
+    },
+    "https://fiorilaunchpad.sap.com/sap/opu/odata/sap/HCMFAB_MYPAYSTUBS_SRV/$metadata": {
+      "$Include": [{ "$Namespace": "HCMFAB_MYPAYSTUBS_SRV", "$Alias": "Payroll" }]
+    }
+  },
+  "mcp.sample": {
+    "$Annotations": {
+      "HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet": {
+        "@MCP.EntityTool#MyEmployeeNumber": {
+          "QueryOptionsTemplate": "$filter=ApplicationId eq 'MYPAYSTUBS'",
+          "HttpMethod": "GET",
+          "OutputStructuralProperties": [
+            {
+              "Property": "$.EmployeeNumber",
+              "Value": { "$Path": "EmployeeId" },
+              "@Core.Description": "My employee number"
+            }
+          ]
+        }
+      },
+      "Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs": {
+        "@MCP.EntityTool#MyPaystub": {
+          "InputKeyValues": [{ "Value": "$.EmployeeNumber", "@Core.Description": "My employee number" }],
+          "QueryOptionsTemplate": "$orderby=SequenceNumber desc&$top=1",
+          "HttpMethod": "GET",
+          "OutputStructuralProperties": [
+            {
+              "Property": "$.TakeHomePay",
+              "Value": { "$Path": "NetpayAmount" },
+              "@Core.Description": "My take-home pay"
+            }
+          ]
+        }
+      },
+      "Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities": {
+        "@MCP.Service": [
+          {
+            "ToolName": "MyEmployeeNumber",
+            "ToolDefinition": "/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber",
+            "@Core.Description": "My employee number"
+          },
+          {
+            "ToolName": "MyPaystub",
+            "ToolDefinition": "EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub",
+            "@Core.Description": "My paystub"
+          }
+        ]
+      }
+    }
+  }
+}

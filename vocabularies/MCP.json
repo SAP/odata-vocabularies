@@ -1,0 +1,182 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.JSON.V1", "$Alias": "JSON" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "com.sap.vocabularies.MCP.v1": {
+    "$Alias": "MCP",
+    "@Common.Experimental": true,
+    "@Core.Description": "Terms that define exposure of an OData service in the Model Context Protocol",
+    "@Core.LongDescription": "An OData server can double as a generic MCP server:\n        (Parts of) the functionality of one or more OData services can be exposed in MCP\n        based on an [`MCP.Service`](#Service) annotation.\n        Annotations from this vocabulary are not meant for consumers of the OData services themselves.",
+    "@Core.Description#Published": "2025-08-15 © Copyright 2025 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/MCP.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/MCP.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/MCP.md" }
+    ],
+    "Service": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "MCP.ServiceType",
+      "$AppliesTo": ["EntityContainer"],
+      "@Core.Description": "An MCP service is a collection of MCP tools that expose (part of) the functionality of an OData service"
+    },
+    "ServiceType": {
+      "$Kind": "ComplexType",
+      "ToolName": { "@Core.Description": "Name of the MCP tool" },
+      "ToolDefinition": {
+        "$Type": "Edm.AnnotationPath",
+        "@Core.Description": "Annotation defining the MCP tool",
+        "@Core.LongDescription": "A tool exposing an operation is defined by one annotation per parameter and return type,\n            all with the same `ToolName`.",
+        "@Validation.AllowedTerms": ["MCP.EntityTool", "MCP.OperationToolParameter", "MCP.OperationToolReturnType"]
+      }
+    },
+    "EntityTool": {
+      "$Kind": "Term",
+      "$Type": "MCP.EntityToolType",
+      "$AppliesTo": ["Collection"],
+      "@Core.AppliesViaContainer": true,
+      "@Core.Description": "Exposes in an MCP tool an entity that is addressed via a certain resource path"
+    },
+    "AbstractToolType": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "InputKeyValues": {
+        "$Collection": true,
+        "$Type": "MCP.InputValue",
+        "@Core.Description": "The n-th entry contains a JSON path that determines the n-th key value in the resource path by querying the MCP tool's input schema"
+      },
+      "QueryOptionsTemplate": {
+        "@Core.Description": "URI template (RFC6570) for query options for the tool execution"
+      },
+      "QueryOptionsLabeledElements": {
+        "$Collection": true,
+        "$Type": "MCP.LabeledElement",
+        "@Core.Description": "Labeled elements for the `QueryOptionsTemplate`"
+      }
+    },
+    "InputValue": {
+      "$Kind": "ComplexType",
+      "Value": {
+        "$Type": "JSON.Path",
+        "@Core.Description": "JSON path that determines a value by querying the input schema"
+      }
+    },
+    "LabeledElement": { "$Kind": "ComplexType", "$BaseType": "MCP.InputValue", "Label": {} },
+    "EntityToolType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "MCP.AbstractToolType",
+      "HttpMethod": { "@Core.Description": "HTTP method used in the tool execution" },
+      "InputStructuralProperties": {
+        "$Collection": true,
+        "$Type": "MCP.InputProperty",
+        "@Core.Description": "Structural properties exposed in the MCP tool's input schema"
+      },
+      "InputNavigationProperties": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "Navigation properties exposed in the MCP tool's input schema",
+        "@Core.LongDescription": "The target entity type of an exposed navigation property has an `EntityTool` annotation with the same qualifier."
+      },
+      "OutputStructuralProperties": {
+        "$Collection": true,
+        "$Type": "MCP.OutputProperty",
+        "@Core.Description": "Structural properties exposed in the MCP tool's output schema"
+      },
+      "OutputNavigationProperties": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "Navigation properties exposed in the MCP tool's output schema",
+        "@Core.LongDescription": "The target entity type of an exposed navigation property has an `EntityTool` annotation with the same qualifier."
+      }
+    },
+    "InputProperty": {
+      "$Kind": "ComplexType",
+      "$BaseType": "MCP.InputValue",
+      "Property": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "Structural property exposed in the MCP tool's input schema"
+      }
+    },
+    "OutputValue": {
+      "$Kind": "ComplexType",
+      "Value": {
+        "$Type": "Edm.PrimitiveType",
+        "@Core.Description": "Property value expressed in terms of the annotation target in the OData response"
+      }
+    },
+    "OutputProperty": {
+      "$Kind": "ComplexType",
+      "$BaseType": "MCP.OutputValue",
+      "Property": {
+        "$Type": "JSON.Path",
+        "@Core.Description": "JSON path in the MCP tool's output schema that addresses an exposed property"
+      }
+    },
+    "OperationToolParameter": {
+      "$Kind": "Term",
+      "$Type": "MCP.OperationToolParameterType",
+      "$AppliesTo": ["Parameter"],
+      "@Core.AppliesViaContainer": true,
+      "@Core.Description": "Exposes in an MCP tool a non-binding parameter of an operation that is addressed via a certain resource path"
+    },
+    "OperationToolParameterType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "MCP.AbstractToolType",
+      "PrimitiveValue": {
+        "$Type": "MCP.InputValue",
+        "$Nullable": true,
+        "@Core.Description": "Primitive parameter exposed in the MCP tool's input schema"
+      },
+      "StructuralProperties": {
+        "$Collection": true,
+        "$Type": "MCP.InputProperty",
+        "@Core.Description": "Structural properties exposed in the MCP tool's input schema"
+      },
+      "NavigationProperties": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "Navigation properties exposed in the MCP tool's input schema",
+        "@Core.LongDescription": "The target entity type of an exposed navigation property has an `EntityTool` annotation with the same qualifier."
+      }
+    },
+    "OperationToolReturnType": {
+      "$Kind": "Term",
+      "$Type": "MCP.OperationToolReturnTypeType",
+      "$AppliesTo": ["ReturnType"],
+      "@Core.AppliesViaContainer": true,
+      "@Core.Description": "Exposes in an MCP tool the return type of an operation that is addressed via a certain resource path"
+    },
+    "OperationToolReturnTypeType": {
+      "$Kind": "ComplexType",
+      "$BaseType": "MCP.AbstractToolType",
+      "PrimitiveValue": {
+        "$Type": "MCP.OutputValue",
+        "$Nullable": true,
+        "@Core.Description": "Primitive return type exposed in the MCP tool's input schema"
+      },
+      "StructuralProperties": {
+        "$Collection": true,
+        "$Type": "MCP.OutputProperty",
+        "@Core.Description": "Structural properties exposed in the MCP tool's output schema"
+      },
+      "NavigationProperties": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Core.Description": "Navigation properties exposed in the MCP tool's output schema",
+        "@Core.LongDescription": "The target entity type of an exposed navigation property has an `EntityTool` annotation with the same qualifier."
+      }
+    }
+  }
+}
