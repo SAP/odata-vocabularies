@@ -45,7 +45,7 @@
     "EntityTool": {
       "$Kind": "Term",
       "$Type": "MCP.EntityToolType",
-      "$AppliesTo": ["Collection"],
+      "$AppliesTo": ["Collection", "Singleton"],
       "@Core.AppliesViaContainer": true,
       "@Core.Description": "Exposes in an MCP tool an entity that is addressed via a certain resource path"
     },
@@ -55,9 +55,11 @@
       "InputKeyValues": {
         "$Collection": true,
         "$Type": "MCP.InputValue",
-        "@Core.Description": "The n-th entry contains a JSON path that determines the n-th key value in the resource path by querying the MCP tool's input schema"
+        "@Core.Description": "The n-th entry contains a JSON path that determines the n-th key value in the resource path by querying the MCP tool's input schema",
+        "@Core.LongDescription": "Key values are ordered like in the key-as-segment convention."
       },
       "QueryOptionsTemplate": {
+        "$DefaultValue": "",
         "@Core.Description": "URI template (RFC6570) for query options for the tool execution"
       },
       "QueryOptionsLabeledElements": {

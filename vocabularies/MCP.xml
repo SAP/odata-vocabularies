@@ -68,15 +68,18 @@
         </Property>
       </ComplexType>
 
-      <Term Name="EntityTool" Type="MCP.EntityToolType" Nullable="false" AppliesTo="Collection">
+      <Term Name="EntityTool" Type="MCP.EntityToolType" Nullable="false" AppliesTo="Collection Singleton">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Exposes in an MCP tool an entity that is addressed via a certain resource path" />
       </Term>
       <ComplexType Name="AbstractToolType" Abstract="true">
         <Property Name="InputKeyValues" Type="Collection(MCP.InputValue)" Nullable="false">
           <Annotation Term="Core.Description" String="The n-th entry contains a JSON path that determines the n-th key value in the resource path by querying the MCP tool's input schema" />
+          <Annotation Term="Core.LongDescription">
+            <String>Key values are ordered like in the key-as-segment convention.</String>
+          </Annotation>
         </Property>
-        <Property Name="QueryOptionsTemplate" Type="Edm.String" Nullable="false">
+        <Property Name="QueryOptionsTemplate" Type="Edm.String" Nullable="false" DefaultValue="">
           <Annotation Term="Core.Description" String="URI template (RFC6570) for query options for the tool execution" />
         </Property>
         <Property Name="QueryOptionsLabeledElements" Type="Collection(MCP.LabeledElement)" Nullable="false">

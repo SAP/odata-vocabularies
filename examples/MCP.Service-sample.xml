@@ -17,14 +17,15 @@
       <Annotations Target="HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet">
         <Annotation Term="MCP.EntityTool" Qualifier="MyEmployeeNumber">
           <Record>
+            <Annotation Term="Core.Description" String="My employee number" />
             <PropertyValue Property="QueryOptionsTemplate" String="$filter=ApplicationId eq 'MYPAYSTUBS'" />
             <PropertyValue Property="HttpMethod" String="GET" />
             <PropertyValue Property="OutputStructuralProperties">
               <Collection>
                 <Record>
+                  <Annotation Term="Core.Description" String="My employee number" />
                   <PropertyValue Property="Property" String="$.EmployeeNumber" />
                   <PropertyValue Property="Value" Path="EmployeeId" />
-                  <Annotation Term="Core.Description" String="My employee number" />
                 </Record>
               </Collection>
             </PropertyValue>
@@ -34,11 +35,12 @@
       <Annotations Target="Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs">
         <Annotation Term="MCP.EntityTool" Qualifier="MyPaystub">
           <Record>
+            <Annotation Term="Core.Description" String="My paystub" />
             <PropertyValue Property="InputKeyValues">
               <Collection>
                 <Record>
-                  <PropertyValue Property="Value" String="$.EmployeeNumber" />
                   <Annotation Term="Core.Description" String="My employee number" />
+                  <PropertyValue Property="Value" String="$.EmployeeNumber" />
                 </Record>
               </Collection>
             </PropertyValue>
@@ -47,9 +49,9 @@
             <PropertyValue Property="OutputStructuralProperties">
               <Collection>
                 <Record>
+                  <Annotation Term="Core.Description" String="My take-home pay" />
                   <PropertyValue Property="Property" String="$.TakeHomePay" />
                   <PropertyValue Property="Value" Path="NetpayAmount" />
-                  <Annotation Term="Core.Description" String="My take-home pay" />
                 </Record>
               </Collection>
             </PropertyValue>
@@ -62,12 +64,10 @@
             <Record>
               <PropertyValue Property="ToolName" String="MyEmployeeNumber" />
               <PropertyValue Property="ToolDefinition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
-              <Annotation Term="Core.Description" String="My employee number" />
             </Record>
             <Record>
               <PropertyValue Property="ToolName" String="MyPaystub" />
               <PropertyValue Property="ToolDefinition" AnnotationPath="EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
-              <Annotation Term="Core.Description" String="My paystub" />
             </Record>
           </Collection>
         </Annotation>
