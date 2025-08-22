@@ -18,7 +18,7 @@
     "$Alias": "MCP",
     "@Common.Experimental": true,
     "@Core.Description": "Terms that define exposure of an OData service in the Model Context Protocol",
-    "@Core.LongDescription": "An OData server can double as a generic MCP server:\n        (Parts of) the functionality of one or more OData services can be exposed in MCP\n        based on an [`MCP.Service`](#Service) annotation.\n        Annotations from this vocabulary are not meant for consumers of the OData services themselves.",
+    "@Core.LongDescription": "An OData server can double as a generic MCP server:\n        (Parts of) the functionality of one or more OData services can be exposed in MCP\n        based on an [`MCP.Service`](#Service) annotation.\n        Annotations from this vocabulary are not meant for consumers of the OData services themselves,\n        but can be exposed as resources for MCP clients.",
     "@Core.Description#Published": "2025-08-15 © Copyright 2025 SAP SE. All rights reserved",
     "@Core.Links": [
       { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/MCP.xml" },
@@ -27,12 +27,25 @@
     ],
     "Service": {
       "$Kind": "Term",
-      "$Collection": true,
       "$Type": "MCP.ServiceType",
-      "$AppliesTo": ["EntityContainer"],
-      "@Core.Description": "An MCP service is a collection of MCP tools that expose (part of) the functionality of an OData service"
+      "$AppliesTo": ["Schema", "EntityContainer"],
+      "@Core.Description": "An MCP service consists of resources and tools"
     },
     "ServiceType": {
+      "$Kind": "ComplexType",
+      "Resources": {
+        "$Collection": true,
+        "@Core.IsURL": true,
+        "@Common.Experimental": true,
+        "@Core.Description": "A collection of MCP resources"
+      },
+      "Tools": {
+        "$Collection": true,
+        "$Type": "MCP.ToolType",
+        "@Core.Description": "A collection of MCP tools that expose (part of) the functionality of an OData service"
+      }
+    },
+    "ToolType": {
       "$Kind": "ComplexType",
       "ToolName": { "@Core.Description": "Name of the MCP tool" },
       "ToolDefinition": {

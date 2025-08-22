@@ -58,18 +58,22 @@
           </Record>
         </Annotation>
       </Annotations>
-      <Annotations Target="Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities">
+      <Annotations Target="mcp.sample">
         <Annotation Term="MCP.Service">
-          <Collection>
-            <Record>
-              <PropertyValue Property="ToolName" String="MyEmployeeNumber" />
-              <PropertyValue Property="ToolDefinition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
-            </Record>
-            <Record>
-              <PropertyValue Property="ToolName" String="MyPaystub" />
-              <PropertyValue Property="ToolDefinition" AnnotationPath="EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
-            </Record>
-          </Collection>
+          <Record>
+            <PropertyValue Property="Tools">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="ToolName" String="MyEmployeeNumber" />
+                  <PropertyValue Property="ToolDefinition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
+                </Record>
+                <Record>
+                  <PropertyValue Property="ToolName" String="MyPaystub" />
+                  <PropertyValue Property="ToolDefinition" AnnotationPath="/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
         </Annotation>
       </Annotations>
     </Schema>

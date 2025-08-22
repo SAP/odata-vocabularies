@@ -45,14 +45,19 @@
           ]
         }
       },
-      "Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities": {
-        "@MCP.Service": [
-          {
-            "ToolName": "MyEmployeeNumber",
-            "ToolDefinition": "/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber"
-          },
-          { "ToolName": "MyPaystub", "ToolDefinition": "EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" }
-        ]
+      "mcp.sample": {
+        "@MCP.Service": {
+          "Tools": [
+            {
+              "ToolName": "MyEmployeeNumber",
+              "ToolDefinition": "/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber"
+            },
+            {
+              "ToolName": "MyPaystub",
+              "ToolDefinition": "/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub"
+            }
+          ]
+        }
       }
     }
   }

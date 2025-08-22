@@ -23,7 +23,8 @@
         <String>An OData server can double as a generic MCP server:
         (Parts of) the functionality of one or more OData services can be exposed in MCP
         based on an [`MCP.Service`](#Service) annotation.
-        Annotations from this vocabulary are not meant for consumers of the OData services themselves.</String>
+        Annotations from this vocabulary are not meant for consumers of the OData services themselves,
+        but can be exposed as resources for MCP clients.</String>
       </Annotation>
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2025-08-15 © Copyright 2025 SAP SE. All rights reserved</String>
@@ -45,10 +46,20 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Service" Type="Collection(MCP.ServiceType)" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="An MCP service is a collection of MCP tools that expose (part of) the functionality of an OData service" />
+      <Term Name="Service" Type="MCP.ServiceType" Nullable="false" AppliesTo="Schema EntityContainer">
+        <Annotation Term="Core.Description" String="An MCP service consists of resources and tools" />
       </Term>
       <ComplexType Name="ServiceType">
+        <Property Name="Resources" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="A collection of MCP resources" />
+        </Property>
+        <Property Name="Tools" Type="Collection(MCP.ToolType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection of MCP tools that expose (part of) the functionality of an OData service" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ToolType">
         <Property Name="ToolName" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the MCP tool" />
         </Property>
