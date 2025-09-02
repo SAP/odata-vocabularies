@@ -87,6 +87,7 @@
     },
     "ExternalID": {
       "$Kind": "Term",
+      "$Type": "Edm.PrimitiveType",
       "$Nullable": true,
       "$AppliesTo": ["Property", "Parameter"],
       "@Common.Experimental": true,
