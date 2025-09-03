@@ -47,11 +47,11 @@
     },
     "ToolType": {
       "$Kind": "ComplexType",
-      "ToolName": { "@Core.Description": "Name of the MCP tool" },
-      "ToolDefinition": {
+      "Name": { "@Core.Description": "Name of the MCP tool" },
+      "Definition": {
         "$Type": "Edm.AnnotationPath",
         "@Core.Description": "Annotation defining the MCP tool",
-        "@Core.LongDescription": "A tool exposing an operation is defined by one annotation per parameter and return type,\n            all with the same `ToolName`.",
+        "@Core.LongDescription": "A tool exposing an operation is defined by one annotation per parameter and return type,\n            all with the same `Name`.",
         "@Validation.AllowedTerms": ["MCP.EntityTool", "MCP.OperationToolParameter", "MCP.OperationToolReturnType"]
       }
     },

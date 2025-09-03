@@ -60,14 +60,14 @@
         </Property>
       </ComplexType>
       <ComplexType Name="ToolType">
-        <Property Name="ToolName" Type="Edm.String" Nullable="false">
+        <Property Name="Name" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the MCP tool" />
         </Property>
-        <Property Name="ToolDefinition" Type="Edm.AnnotationPath" Nullable="false">
+        <Property Name="Definition" Type="Edm.AnnotationPath" Nullable="false">
           <Annotation Term="Core.Description" String="Annotation defining the MCP tool" />
           <Annotation Term="Core.LongDescription">
             <String>A tool exposing an operation is defined by one annotation per parameter and return type,
-            all with the same `ToolName`.</String>
+            all with the same `Name`.</String>
           </Annotation>
           <Annotation Term="Validation.AllowedTerms">
             <Collection>

@@ -63,12 +63,12 @@
           <PropertyValue Property="Tools">
             <Collection>
               <Record>
-                <PropertyValue Property="ToolName" String="MyEmployeeNumber" />
-                <PropertyValue Property="ToolDefinition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
+                <PropertyValue Property="Name" String="MyEmployeeNumber" />
+                <PropertyValue Property="Definition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
               </Record>
               <Record>
-                <PropertyValue Property="ToolName" String="MyPaystub" />
-                <PropertyValue Property="ToolDefinition" AnnotationPath="/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
+                <PropertyValue Property="Name" String="MyPaystub" />
+                <PropertyValue Property="Definition" AnnotationPath="/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
               </Record>
             </Collection>
           </PropertyValue>
