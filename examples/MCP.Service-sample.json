@@ -49,12 +49,12 @@
     "@MCP.Service": {
       "Tools": [
         {
-          "ToolName": "MyEmployeeNumber",
-          "ToolDefinition": "/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber"
+          "Name": "MyEmployeeNumber",
+          "Definition": "/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber"
         },
         {
-          "ToolName": "MyPaystub",
-          "ToolDefinition": "/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub"
+          "Name": "MyPaystub",
+          "Definition": "/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub"
         }
       ]
     }

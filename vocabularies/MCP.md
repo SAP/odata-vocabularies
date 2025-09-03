@@ -34,8 +34,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ToolName](MCP.xml#L63)|String|Name of the MCP tool
-[ToolDefinition](MCP.xml#L66)|AnnotationPath|Annotation defining the MCP tool<br>A tool exposing an operation is defined by one annotation per parameter and return type, all with the same `ToolName`.<br>Allowed Terms:<ul><li>[EntityTool](#EntityTool)</li><li>[OperationToolParameter](#OperationToolParameter)</li><li>[OperationToolReturnType](#OperationToolReturnType)</li></ul>
+[Name](MCP.xml#L63)|String|Name of the MCP tool
+[Definition](MCP.xml#L66)|AnnotationPath|Annotation defining the MCP tool<br>A tool exposing an operation is defined by one annotation per parameter and return type, all with the same `Name`.<br>Allowed Terms:<ul><li>[EntityTool](#EntityTool)</li><li>[OperationToolParameter](#OperationToolParameter)</li><li>[OperationToolReturnType](#OperationToolReturnType)</li></ul>
 
 <a name="AbstractToolType"></a>
 ## [*AbstractToolType*](MCP.xml#L86)
