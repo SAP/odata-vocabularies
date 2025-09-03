@@ -28,6 +28,13 @@
                   <PropertyValue Property="Value" Path="EmployeeId" />
                 </Record>
               </Collection>
+              <!-- Alternative: OutputStructuralProperties is of Edm.ComplexType
+              <Record Type="mcp.sample.MyEmployeeNumberOutput">
+                <PropertyValue Property="EmployeeNumber" Path="EmployeeId">
+                  <Annotation Term="Core.Description" String="My employee number" />
+                </PropertyValue>
+              </Record>
+              -->
             </PropertyValue>
           </Record>
         </Annotation>
@@ -54,6 +61,13 @@
                   <PropertyValue Property="Value" Path="NetpayAmount" />
                 </Record>
               </Collection>
+              <!-- Alternative: OutputStructuralProperties is of Edm.ComplexType
+              <Record Type="mcp.sample.MyPaystubOutput">
+                <PropertyValue Property="TakeHomePay" Path="NetpayAmount">
+                  <Annotation Term="Core.Description" String="My take-home pay" />
+                </PropertyValue>
+              </Record>
+              -->
             </PropertyValue>
           </Record>
         </Annotation>
