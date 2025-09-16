@@ -1665,7 +1665,7 @@ leads to a
         <Annotation Term="Core.Description" String="See [OData-CSDL, section 8.5](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint)" />
         <Annotation Term="Core.LongDescription">
           <String>This annotation MUST be embedded in a `NavigationProperty` element in the service metadata.
-          It behaves like the standard referential constraint on a navigation property,
+          It behaves like the standard referential constraint on the navigation property,
           but the nullability requirement for the dependent property is lifted.</String>
         </Annotation>
       </Term>
