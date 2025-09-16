@@ -469,5 +469,5 @@ User ID
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Common.xml#L1674)|PropertyPath|The path to the property MUST start with a segment containing the navigation property that is targeted by this annotation
-[ReferencedProperty](Common.xml#L1677)|PropertyPath|The path to the referenced property is evaluated relative to the type containing the navigation property
+[Property](Common.xml#L1674)|PropertyPath|The path to the property is evaluated relative to the type containing the navigation property
+[ReferencedProperty](Common.xml#L1677)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property that is targeted by this annotation
