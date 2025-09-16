@@ -1660,6 +1660,20 @@ leads to a
         </Annotation>
       </Term>
 
+      <Term Name="ReferentialConstraint" Type="Common.ReferentialConstraintType" Nullable="false" AppliesTo="NavigationProperty">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="See [OData-CSDL, section 8.5](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint)" />
+        <Annotation Term="Core.LongDescription">
+          <String>This annotation behaves like the standard referential constraint on a navigation property,
+          but the nullability requirement for the dependent property is lifted.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ReferentialConstraintType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false" />
+        <Property Name="ReferencedProperty" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
