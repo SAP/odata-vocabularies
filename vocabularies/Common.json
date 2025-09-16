@@ -1411,13 +1411,19 @@
       "$AppliesTo": ["NavigationProperty"],
       "@Common.Experimental": true,
       "@Core.Description": "See [OData-CSDL, section 8.5](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint)",
-      "@Core.LongDescription": "This annotation behaves like the standard referential constraint on a navigation property,\n          but the nullability requirement for the dependent property is lifted."
+      "@Core.LongDescription": "This annotation MUST be embedded in a `NavigationProperty` element in the service metadata.\n          It behaves like the standard referential constraint on a navigation property,\n          but the nullability requirement for the dependent property is lifted."
     },
     "ReferentialConstraintType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "Property": { "$Type": "Edm.PropertyPath" },
-      "ReferencedProperty": {}
+      "Property": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The path to the property MUST start with a segment containing the navigation property that is targeted by this annotation"
+      },
+      "ReferencedProperty": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The path to the referenced property is evaluated relative to the type containing the navigation property"
+      }
     }
   }
 }

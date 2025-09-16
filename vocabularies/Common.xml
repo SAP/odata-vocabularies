@@ -1664,14 +1664,19 @@ leads to a
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="See [OData-CSDL, section 8.5](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint)" />
         <Annotation Term="Core.LongDescription">
-          <String>This annotation behaves like the standard referential constraint on a navigation property,
+          <String>This annotation MUST be embedded in a `NavigationProperty` element in the service metadata.
+          It behaves like the standard referential constraint on a navigation property,
           but the nullability requirement for the dependent property is lifted.</String>
         </Annotation>
       </Term>
       <ComplexType Name="ReferentialConstraintType">
         <Annotation Term="Common.Experimental" />
-        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false" />
-        <Property Name="ReferencedProperty" Type="Edm.String" Nullable="false" />
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="The path to the property MUST start with a segment containing the navigation property that is targeted by this annotation" />
+        </Property>
+        <Property Name="ReferencedProperty" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="The path to the referenced property is evaluated relative to the type containing the navigation property" />
+        </Property>
       </ComplexType>
 
     </Schema>
