@@ -1417,7 +1417,7 @@
     "ReferentialConstraintType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
-      "@Core.Description": "A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation,\n          but the nullability requirement for the dependent property is lifted.",
+      "@Core.Description": "A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation,\n          but the nullability requirement for the dependent property is lifted.\n          It asserts that the dependent property _of an existing related entity_\n          must have the same value as the principal property.",
       "Property": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "The path to the property is evaluated relative to the type containing the navigation property"
