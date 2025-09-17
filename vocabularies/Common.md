@@ -465,9 +465,9 @@ User ID
 
 <a name="ReferentialConstraintType"></a>
 ## [ReferentialConstraintType](Common.xml#L1670) *([Experimental](Common.md#Experimental))*
-A record that behaves like the standard referential constraint on the navigation property, but the nullability requirement for the dependent property is lifted.
+A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation, but the nullability requirement for the dependent property is lifted.
 
 Property|Type|Description
 :-------|:---|:----------
 [Property](Common.xml#L1676)|PropertyPath|The path to the property is evaluated relative to the type containing the navigation property
-[ReferencedProperty](Common.xml#L1679)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property that is targeted by this annotation
+[ReferencedProperty](Common.xml#L1679)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property

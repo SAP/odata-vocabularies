@@ -1670,14 +1670,14 @@ leads to a
       <ComplexType Name="ReferentialConstraintType">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description">
-          <String>A record that behaves like the standard referential constraint on the navigation property,
+          <String>A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation,
           but the nullability requirement for the dependent property is lifted.</String>
         </Annotation>
         <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="The path to the property is evaluated relative to the type containing the navigation property" />
         </Property>
         <Property Name="ReferencedProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="The path to the referenced property MUST start with a segment containing the navigation property that is targeted by this annotation" />
+          <Annotation Term="Core.Description" String="The path to the referenced property MUST start with a segment containing the navigation property" />
         </Property>
       </ComplexType>
 
