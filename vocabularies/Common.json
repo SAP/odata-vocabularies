@@ -1407,15 +1407,17 @@
     },
     "ReferentialConstraint": {
       "$Kind": "Term",
+      "$Collection": true,
       "$Type": "Common.ReferentialConstraintType",
       "$AppliesTo": ["NavigationProperty"],
       "@Common.Experimental": true,
       "@Core.Description": "See [OData-CSDL, section 8.5](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint)",
-      "@Core.LongDescription": "This annotation MUST be embedded in a `NavigationProperty` element in the service metadata.\n          It behaves like the standard referential constraint on the navigation property,\n          but the nullability requirement for the dependent property is lifted."
+      "@Core.LongDescription": "This annotation MUST be embedded in a `NavigationProperty` element in the service metadata."
     },
     "ReferentialConstraintType": {
       "$Kind": "ComplexType",
       "@Common.Experimental": true,
+      "@Core.Description": "A record that behaves like the standard referential constraint on the navigation property,\n          but the nullability requirement for the dependent property is lifted.",
       "Property": {
         "$Type": "Edm.PropertyPath",
         "@Core.Description": "The path to the property is evaluated relative to the type containing the navigation property"
