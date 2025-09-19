@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/MCP.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.MCP.v1" Alias="MCP" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://fiorilaunchpad.sap.com/sap/opu/odata/sap/HCMFAB_COMMON_SRV/$metadata">
+    <edmx:Include Namespace="HCMFAB_COMMON_SRV" Alias="HCM" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://fiorilaunchpad.sap.com/sap/opu/odata/sap/HCMFAB_MYPAYSTUBS_SRV/$metadata">
+    <edmx:Include Namespace="HCMFAB_MYPAYSTUBS_SRV" Alias="Payroll" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="mcp.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotations Target="HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet">
+        <Annotation Term="MCP.EntityTool" Qualifier="MyEmployeeNumber">
+          <Record>
+            <Annotation Term="Core.Description" String="My employee number" />
+            <PropertyValue Property="QueryOptionsTemplate" String="$filter=ApplicationId eq 'MYPAYSTUBS'" />
+            <PropertyValue Property="HttpMethod" String="GET" />
+            <PropertyValue Property="OutputStructuralProperties">
+              <Collection>
+                <Record>
+                  <Annotation Term="Core.Description" String="My employee number" />
+                  <PropertyValue Property="Property" String="$.EmployeeNumber" />
+                  <PropertyValue Property="Value" Path="EmployeeId" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs">
+        <Annotation Term="MCP.EntityTool" Qualifier="MyPaystub">
+          <Record>
+            <Annotation Term="Core.Description" String="My paystub" />
+            <PropertyValue Property="InputKeyValues">
+              <Collection>
+                <Record>
+                  <Annotation Term="Core.Description" String="My employee number" />
+                  <PropertyValue Property="Value" String="$.EmployeeNumber" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="QueryOptionsTemplate" String="$orderby=SequenceNumber desc&amp;$top=1" />
+            <PropertyValue Property="HttpMethod" String="GET" />
+            <PropertyValue Property="OutputStructuralProperties">
+              <Collection>
+                <Record>
+                  <Annotation Term="Core.Description" String="My take-home pay" />
+                  <PropertyValue Property="Property" String="$.TakeHomePay" />
+                  <PropertyValue Property="Value" Path="NetpayAmount" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotation Term="MCP.Service">
+        <Record>
+          <PropertyValue Property="Tools">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Name" String="MyEmployeeNumber" />
+                <PropertyValue Property="Definition" AnnotationPath="/HCM.HCMFAB_COMMON_SRV_Entities/ConcurrentEmploymentSet/@MCP.EntityTool#MyEmployeeNumber" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Name" String="MyPaystub" />
+                <PropertyValue Property="Definition" AnnotationPath="/Payroll.HCMFAB_MYPAYSTUBS_SRV_Entities/EmployeeAssignmentSet/toPaystubs/@MCP.EntityTool#MyPaystub" />
+              </Record>
+            </Collection>
+          </PropertyValue>
+        </Record>
+      </Annotation>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
