@@ -1,0 +1,67 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "com.sap.vocabularies.ILM.v1": {
+    "$Alias": "ILM",
+    "@Core.Description": "Terms for annotating Information Lifecycle Management",
+    "@Core.Description#Published": "2025-09-19 © Copyright 2025 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ILM.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ILM.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/ILM.md" }
+    ],
+    "@Core.LongDescription": "\nInformation Lifecycle Management allows to mark entities with relevant information so retention, archiving and destruction policies can be attached to them. \nWhile this is usually the case for [PersonalData](PersonalData.md) entities, other entities can also be hooked in to destroy or archive old records for example.\n\nAt SAP the annotations are used to hook entities from the BTP application development frameworks into the Data Privacy Information (DPI) service on BTP, which is responsible for archiving, blocking and destruction, even for personal data unrelated entities.\n       ",
+    "BlockingEnabled": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["EntitySet"],
+      "@Core.Description": "Entity can be blocked by ILM",
+      "@Core.LongDescription": "Marks an entity as being able to be blocked by ILM. Blocked means a flag is set on the record, so that it no longer can be used for its original purpose, but remains in persistence for a specified time to be potentially accessed by Auditors.\n          "
+    },
+    "ArchivingEnabled": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["EntitySet"],
+      "@Core.Description": "Entity can be blocked by ILM",
+      "@Core.LongDescription": "Marks an entity as being able to be archived by ILM. Archived means the record is deleted from its current persistence and moved to a cheaper storage location for long-term storage.\n          "
+    },
+    "FieldSemantics": {
+      "$Kind": "Term",
+      "$Type": "ILM.FieldSemanticsType",
+      "$AppliesTo": ["Property"],
+      "@Core.Description": "Primary meaning for the Information Lifecycle contained in the annotated property",
+      "@Core.LongDescription": "Use this annotation on fields to semantically mark-up properties relevant for the Information Lifecycle, like describing the related business process or who is responsible for the record."
+    },
+    "FieldSemanticsType": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "Primary meaning of a data field",
+      "@Validation.AllowedValues": [
+        {
+          "@Common.Experimental": true,
+          "Value": "ProcessOrganizationAttribute",
+          "@Core.Description": "An identifier for the process organization.",
+          "@Core.LongDescription": "The process organization answers the 'What' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on the business process intention. In terms of PersonalData it marks the purpose of a record.\n                "
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "LineOrganizationAttribute",
+          "@Core.Description": "An identifier for the line organization.",
+          "@Core.LongDescription": "The line organization answers the 'Who' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on who is responsible for a specific record. In terms of PersonalData it is the data controller.\n                "
+        }
+      ]
+    }
+  }
+}
