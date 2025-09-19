@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ILM.v1" Alias="ILM">
+      <Annotation Term="Core.Description">
+        <String>Terms for annotating Information Lifecycle Management</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2025-09-19 © Copyright 2025 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ILM.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ILM.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/ILM.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+Information Lifecycle Management allows to mark entities with relevant information so retention, archiving and destruction policies can be attached to them. 
+While this is usually the case for [PersonalData](PersonalData.md) entities, other entities can also be hooked in to destroy or archive old records for example.
+
+At SAP the annotations are used to hook entities from the BTP application development frameworks into the Data Privacy Information (DPI) service on BTP, which is responsible for archiving, blocking and destruction, even for personal data unrelated entities.
+       </String>
+      </Annotation>
+
+      <Term Name="BlockingEnabled" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Entity can be blocked by ILM" />
+        <Annotation Term="Core.LongDescription">
+          <String>Marks an entity as being able to be blocked by ILM. Blocked means a flag is set on the record, so that it no longer can be used for its original purpose, but remains in persistence for a specified time to be potentially accessed by Auditors.
+          </String>
+        </Annotation>
+      </Term>
+
+      <Term Name="ArchivingEnabled" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Entity can be blocked by ILM" />
+        <Annotation Term="Core.LongDescription">
+          <String>Marks an entity as being able to be archived by ILM. Archived means the record is deleted from its current persistence and moved to a cheaper storage location for long-term storage.
+          </String>
+        </Annotation>
+      </Term>
+
+      <Term Name="FieldSemantics" Type="ILM.FieldSemanticsType" Nullable="false" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="Primary meaning for the Information Lifecycle contained in the annotated property" />
+        <Annotation Term="Core.LongDescription" String="Use this annotation on fields to semantically mark-up properties relevant for the Information Lifecycle, like describing the related business process or who is responsible for the record." />
+      </Term>
+      <TypeDefinition Name="FieldSemanticsType" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Primary meaning of a data field" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="ProcessOrganizationAttribute" />
+              <Annotation Term="Core.Description" String="An identifier for the process organization." />
+              <Annotation Term="Core.LongDescription">
+                <String>The process organization answers the 'What' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on the business process intention. In terms of PersonalData it marks the purpose of a record.
+                </String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="LineOrganizationAttribute" />
+              <Annotation Term="Core.Description" String="An identifier for the line organization." />
+              <Annotation Term="Core.LongDescription">
+                <String>The line organization answers the 'Who' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on who is responsible for a specific record. In terms of PersonalData it is the data controller.
+                </String>
+              </Annotation>
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
