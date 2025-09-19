@@ -83,6 +83,9 @@
         <Property Name="DistanceFromRoot" Type="Edm.Int64" Nullable="true">
           <Annotation Term="Core.Description" String="Position of the current aggregation level in the list of all aggregation levels" />
         </Property>
+        <Property Name="LimitedRank" Type="Edm.Int64" Nullable="true">
+          <Annotation Term="Core.Description" String="0-based index of an entry in the multi-level expansion" />
+        </Property>
       </ComplexType>
       <ComplexType Name="RecursiveHierarchyType" BaseType="Hierarchy.HierarchyType">
         <Annotation Term="Core.LongDescription">
