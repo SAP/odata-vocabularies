@@ -1405,6 +1405,28 @@
       "$AppliesTo": ["EntityContainer"],
       "@Core.Description": "Service prefers requests to use a resource path with navigation properties",
       "@Core.LongDescription": "Use this tag on services that do not restrict requests to certain resource paths\nvia [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html)\nor [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding)\nannotations, but that prefer requests with a resource path that\ncontains the navigation properties reflecting the UI structure.\n\nFor example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee`\nleads to a\n`PATCH Orders(23)/Items(5)/CancellationItem` request with `{\"Fee\": ...}` payload."
+    },
+    "ReferentialConstraint": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Common.ReferentialConstraintType",
+      "$AppliesTo": ["NavigationProperty"],
+      "@Common.Experimental": true,
+      "@Core.Description": "[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement",
+      "@Core.LongDescription": "This annotation MUST be embedded in a `NavigationProperty` element in the service metadata."
+    },
+    "ReferentialConstraintType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "@Core.Description": "A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation,\n          but the nullability requirement for the dependent property is lifted.\n          It asserts that the principal property _of an existing related entity_\n          must have the same value as the dependent property.",
+      "Property": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The path to the property is evaluated relative to the type containing the navigation property"
+      },
+      "ReferencedProperty": {
+        "$Type": "Edm.PropertyPath",
+        "@Core.Description": "The path to the referenced property MUST start with a segment containing the navigation property"
+      }
     }
   }
 }
