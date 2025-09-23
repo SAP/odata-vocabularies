@@ -1663,9 +1663,6 @@ leads to a
       <Term Name="ReferentialConstraint" Type="Collection(Common.ReferentialConstraintType)" Nullable="false" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement" />
-        <Annotation Term="Core.LongDescription">
-          <String>This annotation MUST be embedded in a `NavigationProperty` element in the service metadata.</String>
-        </Annotation>
       </Term>
       <ComplexType Name="ReferentialConstraintType">
         <Annotation Term="Common.Experimental" />
