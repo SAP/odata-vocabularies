@@ -16,7 +16,7 @@ This repository defines the following SAP vocabularies:
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
 - [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
-- [ILM: Information Lifecycle Management](vocabularies/ILM.md)
+- [ILM: Information Lifecycle Management](vocabularies/ILM.md) - _experimental_
 - [ODM: One Domain Model](vocabularies/ODM.md)
 - [Offline: Terms for Offline OData](vocabularies/Offline.md) - _experimental_
 - [PDF: PDF response format](vocabularies/PDF.md)
