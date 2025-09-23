@@ -39,7 +39,9 @@
 Information Lifecycle Management allows to mark entities with relevant information so retention, archiving and destruction policies can be attached to them. 
 While this is usually the case for [PersonalData](PersonalData.md) entities, other entities can also be hooked in to destroy or archive old records for example.
 
-At SAP the annotations are used to hook entities from the BTP application development frameworks into the Data Privacy Information (DPI) service on BTP, which is responsible for archiving, blocking and destruction, even for personal data unrelated entities.
+The terms from this vocabulary can be used to hook entities from certain application development frameworks (BTP is an example) into a Data Privacy Information (DPI) service. This service is responsible for archiving, blocking and destruction, even for entities unrelated to personal data.
+
+Other application development frameworks implement a DPI service without relying on this vocabulary.
        </String>
       </Annotation>
 
