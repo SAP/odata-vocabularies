@@ -13,6 +13,7 @@
   },
   "com.sap.vocabularies.ILM.v1": {
     "$Alias": "ILM",
+    "@Common.Experimental": true,
     "@Core.Description": "Terms for annotating Information Lifecycle Management",
     "@Core.Description#Published": "2025-09-19 © Copyright 2025 SAP SE. All rights reserved",
     "@Core.Links": [
