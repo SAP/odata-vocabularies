@@ -218,8 +218,9 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
 which are specific for the given annotation qualifier.
 These actions MUST have the same signature as the template actions linked below, with
 `Edm.EntityType` replaced with the entity type on which the recursive hierarchy is defined.
-The resource path of the binding parameter MUST traverse the hierarchy collection,
-including any hierarchy directory. If the resource path contains a Content ID reference to an earlier request,
+The resource path of the binding parameter MUST traverse the hierarchy collection
+and MUST identify the hierarchy directory of the addressed entity/entities, if any.
+If the resource path contains a Content ID reference to an earlier request,
 the hierarchy directory MUST be determined from the resource path of that request.
 ```json
 {"requests": [{
