@@ -19,6 +19,7 @@
       <Annotation Term="Core.Description" Qualifier="Published">
         <String>2025-09-19 © Copyright 2025 SAP SE. All rights reserved</String>
       </Annotation>
+      <Annotation Term="Common.Experimental" />
       <Annotation Term="Core.Links">
         <Collection>
           <Record>
