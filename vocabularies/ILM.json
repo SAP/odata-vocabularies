@@ -13,9 +13,9 @@
   },
   "com.sap.vocabularies.ILM.v1": {
     "$Alias": "ILM",
-    "@Common.Experimental": true,
     "@Core.Description": "Terms for annotating Information Lifecycle Management",
     "@Core.Description#Published": "2025-09-19 © Copyright 2025 SAP SE. All rights reserved",
+    "@Common.Experimental": true,
     "@Core.Links": [
       { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ILM.xml" },
       { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/ILM.json" },
