@@ -1412,8 +1412,7 @@
       "$Type": "Common.ReferentialConstraintType",
       "$AppliesTo": ["NavigationProperty"],
       "@Common.Experimental": true,
-      "@Core.Description": "[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement",
-      "@Core.LongDescription": "This annotation MUST be embedded in a `NavigationProperty` element in the service metadata."
+      "@Core.Description": "[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement"
     },
     "ReferentialConstraintType": {
       "$Kind": "ComplexType",
