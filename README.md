@@ -22,6 +22,7 @@ This repository defines the following SAP vocabularies:
 - [PDF: PDF response format](vocabularies/PDF.md)
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
+- [Support: Support Tools](vocabularies/Support.md) - _experimental_
 - [UI: Representing data in user interfaces](vocabularies/UI.md)
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
