@@ -67,6 +67,41 @@ Parameter|Type|Description
 [&rarr;](Analytics.xml#L267)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
+<a name="TopAndRemainder"></a>
+### [TopAndRemainder](Analytics.xml#L314) *([Experimental](Common.md#Experimental))*
+
+`$apply` transformation that outputs top N plus an instance representing the remainder
+
+This transformation is equivalent to the transformation sequence
+```
+groupby(
+  («G1»,...),
+  nest(
+    identity as raw,
+    aggregate(«A») as agg
+  )
+)
+/orderby(agg/«A» desc)
+/concat(
+  top(«N»),
+  skip(«N»)
+  /aggregate(raw/«A»)
+)
+```
+followed by
+```
+$select=«G1»,...,agg/«A»
+```
+
+Parameter|Type|Description
+:--------|:---|:----------
+**[InputSet](Analytics.xml#L339)**|\[EntityType\]|**Binding parameter:** Entity set to be processed
+[G](Analytics.xml#L342)|\[String\]|Property names of grouping criteria
+[A](Analytics.xml#L345)|String|Name of custom aggregate
+[N](Analytics.xml#L348)|Int64|Number of top entries before the remainder
+[&rarr;](Analytics.xml#L351)|\[EntityType\]|Output set containing properties `«G1»,...,«A»`<br>The output property `«A»` is not nested into `agg`. In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.
+
+
 <a name="AggregatedPropertyType"></a>
 ## [AggregatedPropertyType](Analytics.xml#L127)
 
