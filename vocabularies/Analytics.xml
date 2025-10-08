@@ -333,7 +333,7 @@ groupby(
 ```
 followed by
 ```
-$select=«G1»,...,agg/«A»
+$select=«G1»,...,agg/«A»,«A»
 ```</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false">
@@ -351,8 +351,8 @@ $select=«G1»,...,agg/«A»
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Output set containing properties `«G1»,...,«A»`" />
           <Annotation Term="Core.LongDescription">
-            <String>The output property `«A»` is not nested into `agg`. In the (N+1)st instance
-            `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.</String>
+            <String>In the first N instances the output property `«A»` is not nested into `agg`.
+            In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.</String>
           </Annotation>
         </ReturnType>
       </Function>
