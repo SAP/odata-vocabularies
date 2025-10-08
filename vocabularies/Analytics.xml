@@ -340,13 +340,14 @@ $select=«G1»,...,agg/«A»,«A»
           <Annotation Term="Core.Description" String="Entity set to be processed" />
         </Parameter>
         <Parameter Name="G" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Property names of grouping criteria" />
+          <Annotation Term="Core.Description" String="Non-empty list of property names of grouping criteria" />
         </Parameter>
         <Parameter Name="A" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of custom aggregate" />
         </Parameter>
         <Parameter Name="N" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="Number of top entries before the remainder" />
+          <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Output set containing properties `«G1»,...,«A»`" />

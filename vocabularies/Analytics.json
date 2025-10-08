@@ -290,9 +290,18 @@
             "$Type": "Edm.EntityType",
             "@Core.Description": "Entity set to be processed"
           },
-          { "$Name": "G", "$Collection": true, "@Core.Description": "Property names of grouping criteria" },
+          {
+            "$Name": "G",
+            "$Collection": true,
+            "@Core.Description": "Non-empty list of property names of grouping criteria"
+          },
           { "$Name": "A", "@Core.Description": "Name of custom aggregate" },
-          { "$Name": "N", "$Type": "Edm.Int64", "@Core.Description": "Number of top entries before the remainder" }
+          {
+            "$Name": "N",
+            "$Type": "Edm.Int64",
+            "@Core.Description": "Number of top entries before the remainder",
+            "@Validation.Minimum": 1
+          }
         ],
         "$ReturnType": {
           "$Collection": true,

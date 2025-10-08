@@ -96,10 +96,10 @@ $select=«G1»,...,agg/«A»,«A»
 Parameter|Type|Description
 :--------|:---|:----------
 **[InputSet](Analytics.xml#L339)**|\[EntityType\]|**Binding parameter:** Entity set to be processed
-[G](Analytics.xml#L342)|\[String\]|Property names of grouping criteria
+[G](Analytics.xml#L342)|\[String\]|Non-empty list of property names of grouping criteria
 [A](Analytics.xml#L345)|String|Name of custom aggregate
 [N](Analytics.xml#L348)|Int64|Number of top entries before the remainder
-[&rarr;](Analytics.xml#L351)|\[EntityType\]|Output set containing properties `«G1»,...,«A»`<br>In the first N instances the output property `«A»` is not nested into `agg`. In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.
+[&rarr;](Analytics.xml#L352)|\[EntityType\]|Output set containing properties `«G1»,...,«A»`<br>In the first N instances the output property `«A»` is not nested into `agg`. In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.
 
 
 <a name="AggregatedPropertyType"></a>
