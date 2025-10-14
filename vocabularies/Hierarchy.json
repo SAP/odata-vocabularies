@@ -215,6 +215,13 @@
             "@Core.OptionalParameter": {}
           },
           {
+            "$Name": "ShowMessageTargets",
+            "$Collection": true,
+            "@Core.Description": "End-user message targets to be shown",
+            "@Core.LongDescription": "Each target has the format of [`Messages/target`](#Messages) and identifies an entity\n            whose node in the current hierarchy is to be shown.",
+            "@Core.OptionalParameter": {}
+          },
+          {
             "$Name": "ExpandLevels",
             "$Collection": true,
             "$Type": "Hierarchy.TopLevelsExpandType",

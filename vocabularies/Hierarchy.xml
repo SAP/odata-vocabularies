@@ -326,6 +326,16 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
             <Record/>
           </Annotation>
         </Parameter>
+        <Parameter Name="ShowMessageTargets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="End-user message targets to be shown" />
+          <Annotation Term="Core.LongDescription">
+            <String>Each target has the format of [`Messages/target`](#Messages) and identifies an entity
+            whose node in the current hierarchy is to be shown.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
         <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
           <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
