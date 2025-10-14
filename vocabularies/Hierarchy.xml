@@ -335,7 +335,7 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ShowMessageTargets" Type="Collection(Edm.String)" Nullable="false">
+        <Parameter Name="ShowTargets" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="End-user message targets to be shown" />
           <Annotation Term="Core.LongDescription">
             <String>Each target has the format of [`Messages/target`](#Messages) and identifies an entity

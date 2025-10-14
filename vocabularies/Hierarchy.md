@@ -88,7 +88,7 @@ Parameter|Type|Description
 [NodeProperty](Hierarchy.xml#L322)|String|Property path to the node identifier, evaluated relative to the binding parameter
 *[Levels](Hierarchy.xml#L325)*|Int64|*Optional parameter:* The number n of levels to be output, absent means all levels
 *[Show](Hierarchy.xml#L332)*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[ShowMessageTargets](Hierarchy.xml#L338)*|\[String\]|*Optional parameter:* End-user message targets to be shown<br>Each target has the format of [`Messages/target`](#Messages) and identifies an entity whose node in the current hierarchy is to be shown.
+*[ShowTargets](Hierarchy.xml#L338)*|\[String\]|*Optional parameter:* End-user message targets to be shown<br>Each target has the format of [`Messages/target`](#Messages) and identifies an entity whose node in the current hierarchy is to be shown.
 *[ExpandLevels](Hierarchy.xml#L348)*|\[[TopLevelsExpandType](#TopLevelsExpandType)\]|*Optional parameter:* Nodes to be expanded
 [&rarr;](Hierarchy.xml#L354)|\[EntityType\]|
 
