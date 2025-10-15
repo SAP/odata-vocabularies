@@ -338,8 +338,8 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         <Parameter Name="ShowTargets" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Targets (for example, of end-user messages) to be shown" />
           <Annotation Term="Core.LongDescription">
-            <String>Each target has the format of [`Messages/target`](#Messages) and identifies an entity
-            whose node in the current hierarchy is to be shown.</String>
+            <String>Each target has the format of [`Messages/target`](#Messages) and is evaluated relative to the service base URL.
+            It identifies an entity whose node in the current hierarchy is to be shown.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>

@@ -230,7 +230,7 @@
             "$Name": "ShowTargets",
             "$Collection": true,
             "@Core.Description": "Targets (for example, of end-user messages) to be shown",
-            "@Core.LongDescription": "Each target has the format of [`Messages/target`](#Messages) and identifies an entity\n            whose node in the current hierarchy is to be shown.",
+            "@Core.LongDescription": "Each target has the format of [`Messages/target`](#Messages) and is evaluated relative to the service base URL.\n            It identifies an entity whose node in the current hierarchy is to be shown.",
             "@Core.OptionalParameter": {}
           },
           {
