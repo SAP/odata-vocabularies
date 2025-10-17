@@ -311,9 +311,9 @@ $apply=filter(Industry in ('IT','AI'))
         <Annotation Term="Core.Description" String="Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation" />
       </Term>
 
-      <Function Name="TopAndRemainder" IsBound="true" EntitySetPath="InputSet">
+      <Function Name="TopAndBalance" IsBound="true" EntitySetPath="InputSet">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="`$apply` transformation that outputs top N plus an instance representing the remainder" />
+        <Annotation Term="Core.Description" String="`$apply` transformation that outputs top N plus an instance representing the balance" />
         <Annotation Term="Core.LongDescription">
           <String>This transformation is equivalent to the transformation sequence
 ```
@@ -346,14 +346,14 @@ $select=«G1»,...,agg/«A»,«A»
           <Annotation Term="Core.Description" String="Name of custom aggregate" />
         </Parameter>
         <Parameter Name="N" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="Number of top entries before the remainder" />
+          <Annotation Term="Core.Description" String="Number of top entries before the balance" />
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Output set containing properties `«G1»,...,«A»`" />
           <Annotation Term="Core.LongDescription">
             <String>In the first N instances the output property `«A»` is not nested into `agg`.
-            In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder.</String>
+            In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the balance.</String>
           </Annotation>
         </ReturnType>
       </Function>

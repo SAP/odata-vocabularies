@@ -275,13 +275,13 @@
       "@Common.Experimental": true,
       "@Core.Description": "Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation"
     },
-    "TopAndRemainder": [
+    "TopAndBalance": [
       {
         "$Kind": "Function",
         "$EntitySetPath": "InputSet",
         "$IsBound": true,
         "@Common.Experimental": true,
-        "@Core.Description": "`$apply` transformation that outputs top N plus an instance representing the remainder",
+        "@Core.Description": "`$apply` transformation that outputs top N plus an instance representing the balance",
         "@Core.LongDescription": "This transformation is equivalent to the transformation sequence\n```\ngroupby(\n  («G1»,...),\n  nest(\n    identity as raw,\n    aggregate(«A») as agg\n  )\n)\n/orderby(agg/«A» desc)\n/concat(\n  top(«N»),\n  skip(«N»)\n  /aggregate(raw/«A»)\n)\n```\nfollowed by\n```\n$select=«G1»,...,agg/«A»,«A»\n```",
         "$Parameter": [
           {
@@ -299,7 +299,7 @@
           {
             "$Name": "N",
             "$Type": "Edm.Int64",
-            "@Core.Description": "Number of top entries before the remainder",
+            "@Core.Description": "Number of top entries before the balance",
             "@Validation.Minimum": 1
           }
         ],
@@ -307,7 +307,7 @@
           "$Collection": true,
           "$Type": "Edm.EntityType",
           "@Core.Description": "Output set containing properties `«G1»,...,«A»`",
-          "@Core.LongDescription": "In the first N instances the output property `«A»` is not nested into `agg`.\n            In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the remainder."
+          "@Core.LongDescription": "In the first N instances the output property `«A»` is not nested into `agg`.\n            In the (N+1)st instance `«G1»,...` are absent and `«A»` has the aggregate value of the balance."
         }
       }
     ]
