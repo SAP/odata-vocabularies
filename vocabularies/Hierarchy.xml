@@ -339,7 +339,8 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           <Annotation Term="Core.Description" String="Targets (for example, of end-user messages) to be shown" />
           <Annotation Term="Core.LongDescription">
             <String>Each target has the format of the `resourcePath` ABNF rule and
-            identifies an entity whose node in the current hierarchy is to be shown.</String>
+            identifies an entity whose node in the current hierarchy is to be shown.
+            Example: `ShowTargets=["HierarchyDirectory(1)/Nodes('A')"]`</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>

@@ -11,24 +11,24 @@ Term|Type|Description
 [RecursiveHierarchy](Hierarchy.xml#L41)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Hierarchy-specific information in the result set of a hierarchical request<br>The [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy) governs what are the nodes and parents in the hierarchy, whereas this term defines derived information.
 [RecursiveHierarchyActions](Hierarchy.xml#L217)|[RecursiveHierarchyActionsType](#RecursiveHierarchyActionsType)|<a name="RecursiveHierarchyActions"></a>Actions for maintaining the recursive hierarchy defined by the [base term](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)<br>When an annotation with this term is present, the [`ParentNavigationProperty`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchyType) in the base term must not have a collection-valued segment prior to its last segment.
 [MatchCount](Hierarchy.xml#L274) *([Experimental](Common.md#Experimental))*|Int64|<a name="MatchCount"></a>Instance annotation on the result of an `$apply` query option containing the number of matching nodes after hierarchical transformations<br>The service MAY designate a subset of the `$apply` result as "matching nodes". For requests following the pattern described [here](#RecursiveHierarchyType), this subset is the output set of the `filter` or `search` transformation that occurs as the fourth parameter of the last `ancestors` transformation or occurs nested into it.<br>For requests not following this pattern, the subset NEED NOT be defined.<br>This instance annotation is available if [`RecursiveHierarchy/Matched`](#RecursiveHierarchyType) and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are also available.
-[RecursiveHierarchySupported](Hierarchy.xml#L366) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="RecursiveHierarchySupported"></a>Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier<br>This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type. The recursive hierarchy can then only be addressed through a collection where this tag is true.
+[RecursiveHierarchySupported](Hierarchy.xml#L367) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="RecursiveHierarchySupported"></a>Whether the annotated collection acts as a [`RecursiveHierarchy`](#RecursiveHierarchy) with the given qualifier<br>This tag is applied to a collection with the same qualifier as the [`RecursiveHierarchy`](#RecursiveHierarchy) term which is applied to its entity type. The recursive hierarchy can then only be addressed through a collection where this tag is true.
 
 
 ## Actions
 
 <a name="Template_ChangeNextSiblingAction"></a>
-### [Template_ChangeNextSiblingAction](Hierarchy.xml#L376)
+### [Template_ChangeNextSiblingAction](Hierarchy.xml#L377)
 
 Template for actions that move a node among its siblings and are named in [`RecursiveHierarchyActions/ChangeNextSiblingAction`](#RecursiveHierarchyActionsType)
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](Hierarchy.xml#L378)**|EntityType|**Binding parameter:** The node T to be moved
-[NextSibling](Hierarchy.xml#L381)|ComplexType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>This parameter has properties with the same names, types, and type facets as the key properties of the entity type. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
+**[Node](Hierarchy.xml#L379)**|EntityType|**Binding parameter:** The node T to be moved
+[NextSibling](Hierarchy.xml#L382)|ComplexType?|Key of the node's new next sibling S (null if the node shall become the last sibling)<br>This parameter has properties with the same names, types, and type facets as the key properties of the entity type. next(T) = S after the action. If R is a node with next(R) = S before the action, then next(R) = T after the action, even if S = null. It is an error if S has a different parent than T.
 
 
 <a name="Template_CopyAction"></a>
-### [Template_CopyAction](Hierarchy.xml#L408)
+### [Template_CopyAction](Hierarchy.xml#L409)
 
 Template for actions that copy a node and its descendants and are named in [`RecursiveHierarchyActions/CopyAction`](#RecursiveHierarchyActionsType)
 
@@ -58,8 +58,8 @@ If a certain position of the copy of A among its new siblings is desired, an add
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Node](Hierarchy.xml#L435)**|EntityType|**Binding parameter:** The node to be copied
-[&rarr;](Hierarchy.xml#L438)|EntityType|The copied node
+**[Node](Hierarchy.xml#L436)**|EntityType|**Binding parameter:** The node to be copied
+[&rarr;](Hierarchy.xml#L439)|EntityType|The copied node
 
 
 
@@ -88,9 +88,9 @@ Parameter|Type|Description
 [NodeProperty](Hierarchy.xml#L322)|String|Property path to the node identifier, evaluated relative to the binding parameter
 *[Levels](Hierarchy.xml#L325)*|Int64|*Optional parameter:* The number n of levels to be output, absent means all levels
 *[Show](Hierarchy.xml#L332)*|\[String\]|*Optional parameter:* Identifiers of nodes to be shown
-*[ShowTargets](Hierarchy.xml#L338)*|\[String\]|*Optional parameter:* Targets (for example, of end-user messages) to be shown<br>Each target has the format of the `resourcePath` ABNF rule and identifies an entity whose node in the current hierarchy is to be shown.
-*[ExpandLevels](Hierarchy.xml#L348)*|\[[TopLevelsExpandType](#TopLevelsExpandType)\]|*Optional parameter:* Nodes to be expanded
-[&rarr;](Hierarchy.xml#L354)|\[EntityType\]|
+*[ShowTargets](Hierarchy.xml#L338)*|\[String\]|*Optional parameter:* Targets (for example, of end-user messages) to be shown<br>Each target has the format of the `resourcePath` ABNF rule and identifies an entity whose node in the current hierarchy is to be shown. Example: `ShowTargets=["HierarchyDirectory(1)/Nodes('A')"]`
+*[ExpandLevels](Hierarchy.xml#L349)*|\[[TopLevelsExpandType](#TopLevelsExpandType)\]|*Optional parameter:* Nodes to be expanded
+[&rarr;](Hierarchy.xml#L355)|\[EntityType\]|
 
 
 <a name="HierarchyType"></a>
@@ -213,10 +213,10 @@ Property|Type|Description
 [CopyAction](Hierarchy.xml#L268)|[QualifiedName?](Common.md#QualifiedName)|Action that copies a node and its descendants, following [this template](#Template_CopyAction)
 
 <a name="TopLevelsExpandType"></a>
-## [TopLevelsExpandType](Hierarchy.xml#L356)
+## [TopLevelsExpandType](Hierarchy.xml#L357)
 Information about nodes to be expanded
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeID](Hierarchy.xml#L358)|String|Identifier of a node to be expanded
-[Levels](Hierarchy.xml#L361)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[NodeID](Hierarchy.xml#L359)|String|Identifier of a node to be expanded
+[Levels](Hierarchy.xml#L362)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
