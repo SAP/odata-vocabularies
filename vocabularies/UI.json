@@ -1776,11 +1776,12 @@
     },
     "Recommendations": {
       "$Kind": "Term",
-      "$Type": "Edm.ComplexType",
+      "$Type": "Edm.Untyped",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
       "@Core.Description": "Recommendations for an entity",
-      "@Core.LongDescription": "This complex-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit the property `RecommendedFieldDescription`.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md)."
+      "@Core.LongDescription": "This complex- or entity-typed annotation contains structural properties corresponding via name equality\nto non-key structural primitive properties of the entity type for which recommendations are available.\nThe type of such a property is a collection of a informal specialization of [`PropertyRecommendationType`](#PropertyRecommendationType).\n(The specializiations are called \"informal\" because they may omit the property `RecommendedFieldDescription`.)\n\nClients retrieve the recommendations with a GET request that includes this annotation in a `$select` or `$expand` clause.\nThe recommendations MAY be computed asynchronously, see [this diagram](../docs/recommendations.md).",
+      "@Validation.DerivedTypeConstraint": ["Edm.ComplexType", "Edm.EntityType"]
     },
     "PropertyRecommendationType": {
       "$Kind": "ComplexType",
