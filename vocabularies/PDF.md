@@ -11,6 +11,7 @@ The PDF vocabulary provides information about the PDF format of a response
 Term|Type|Description
 :---|:---|:----------
 [Features](PDF.xml#L38)|[FeaturesType](#FeaturesType)|<a name="Features"></a>Features for the PDF
+[Printable](PDF.xml#L128)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Printable"></a>Entity can be printed<br>Marks an entity as printable. For that, the entity needs at least one field of type Edm.Stream. The filename of the file to be printed is determined via Core.ContentDispotion on the print content field.
 
 <a name="FeaturesType"></a>
 ## [FeaturesType](PDF.xml#L42)

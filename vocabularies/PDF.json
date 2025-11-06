@@ -106,6 +106,14 @@
         "@Core.Description": "Support of PDF document upload",
         "@Core.LongDescription": "A file share connection needs to be configured on the server. \nThe response of a corresponding request is then `301 Moved Permanently` with a `Location` header containing the link to the document on the file share server."
       }
+    },
+    "Printable": {
+      "$Kind": "Term",
+      "$Type": "Core.Tag",
+      "$DefaultValue": true,
+      "$AppliesTo": ["EntityType"],
+      "@Core.Description": "Entity can be printed",
+      "@Core.LongDescription": "Marks an entity as printable. For that, the entity needs at least one field of type Edm.Stream. The filename of the file to be printed is determined via Core.ContentDispotion on the print content field."
     }
   }
 }

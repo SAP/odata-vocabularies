@@ -125,6 +125,13 @@ The response of a corresponding request is then `301 Moved Permanently` with a `
         </Property>
       </ComplexType>
 
+      <Term Name="Printable" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Entity can be printed" />
+          <Annotation Term="Core.LongDescription">
+            <String>Marks an entity as printable. For that, the entity needs at least one field of type Edm.Stream. The filename of the file to be printed is determined via Core.ContentDispotion on the print content field.</String>
+          </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
