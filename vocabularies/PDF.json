@@ -112,6 +112,7 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
       "@Core.Description": "Entity can be printed",
       "@Core.LongDescription": "Marks an entity as printable. For that, the entity needs at least one field of type Edm.Stream. The filename of the file to be printed is determined via Core.ContentDispotion on the print content field."
     }
