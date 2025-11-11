@@ -329,17 +329,12 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
-          <Annotation Term="Core.OptionalParameter">
-            <Record/>
-          </Annotation>
-        </Parameter>
         <Parameter Name="ShowTargets" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Targets (for example, of end-user messages) to be shown" />
           <Annotation Term="Core.LongDescription">
             <String>Each target has the format of the `resourcePath` ABNF rule and
             identifies an entity whose node in the current hierarchy is to be shown.
+            Showing a node makes the node and its ancestors visible.
             Example: `ShowTargets=["HierarchyDirectory(1)/Nodes('A')"]`</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
@@ -348,6 +343,13 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         </Parameter>
         <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
           <Annotation Term="Core.Description" String="Nodes to be expanded" />
+          <Annotation Term="Core.LongDescription">
+            <String>Expansion of nodes happens in the following steps:
+1. Make all nodes from the top n levels visible.
+2. For each entry in `ExpandLevels` that identifies a visible node, expand or collapse that node
+   (making certain descendants visible or invisible) and mark the entry as done.
+3. If there are unmarked entries left, go back to step 2.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
