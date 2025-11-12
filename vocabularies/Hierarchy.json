@@ -232,7 +232,7 @@
             "$Collection": true,
             "$Type": "Hierarchy.TopLevelsExpandType",
             "@Core.Description": "Nodes to be expanded",
-            "@Core.LongDescription": "Expansion of nodes happens in the following steps:\n1. Make all nodes from the top n levels visible.\n2. For each entry in `ExpandLevels` that identifies a visible node, expand or collapse that node\n   (making certain descendants visible or invisible) and mark the entry as done.\n3. If there are unmarked entries left, go back to step 2.",
+            "@Core.LongDescription": "Expansion of nodes happens in the following steps:\n1. Make all nodes from the top n levels visible.\n2. For each entry in `ExpandLevels` that identifies a visible node, expand or collapse that node\n   (making certain descendants visible or invisible) and mark the entry as done.\n3. If at least one entry was marked during the most recent execution of step 2 and\n   there are unmarked entries left, go back to step 2.",
             "@Core.OptionalParameter": {}
           }
         ],
