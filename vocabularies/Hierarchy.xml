@@ -104,8 +104,8 @@ descendants(..., ID, filter(ID eq 'US'), keep start)
 or
 ```
 SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
-  descendants(..., ID, filter(ID eq 'US')),
-  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
+  descendants(..., ID, filter(ID eq 'US'), keep start)
+  /ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
 /Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
@@ -198,11 +198,20 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
+        <Property Name="MessageCount" Type="Collection(Hierarchy.MessageCountType)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Number of messages for each severity a [matching](#MatchCount) descendant of a node has in the unlimited hierarchy" />
+        </Property>
         <!--
         <Property Name="Cycle" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="There is a cycle from this occurrence of a node to the node itself following the [`Aggregation.UpPath`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#UpPath)" />
         </Property>
         -->
+      </ComplexType>
+      <ComplexType Name="MessageCountType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false" />
+        <Property Name="messageCount" Type="Edm.Int64" Nullable="false" />
       </ComplexType>
 
       <Term Name="RecursiveHierarchyActions" Type="Hierarchy.RecursiveHierarchyActionsType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
@@ -320,14 +329,29 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
+        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Nodes to be expanded" />
+          <Annotation Term="Core.LongDescription">
+            <String>Expansion of nodes happens in the following steps:
+1. Make all nodes from the top n levels visible.
+2. For each entry in `ExpandLevels` that identifies a visible node, expand or collapse that node
+   (making certain descendants visible or invisible) and mark the entry as done.
+3. If at least one entry was marked during the most recent execution of step 2 and
+   there are unmarked entries left, go back to step 2.
+4. Make the nodes identified by `ShowTargets` and their ancestors visible.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Nodes to be expanded" />
+        <Parameter Name="ShowTargets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Targets (for example, of end-user messages) to be shown" />
+          <Annotation Term="Core.LongDescription">
+            <String>Each target has the format of the `resourcePath` ABNF rule and
+            identifies an entity whose node in the current hierarchy is to be shown.
+            Showing a node makes the node and its ancestors visible.
+            Example: `ShowTargets=["HierarchyDirectory(1)/Nodes('A')"]`</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
