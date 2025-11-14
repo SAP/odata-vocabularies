@@ -334,9 +334,11 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           <Annotation Term="Core.LongDescription">
             <String>Expansion of nodes happens in the following steps:
 1. Make all nodes from the top n levels visible.
-2. For each entry in `ExpandLevels` in the given order: If the entry identifies a visible node,
-   expand or collapse that node (making certain descendants visible or invisible).
-3. Make the nodes identified by `ShowTargets` and their ancestors visible.</String>
+2. For each entry in `ExpandLevels` that identifies a visible node, expand or collapse that node
+   (making certain descendants visible or invisible) and mark the entry as done.
+3. If at least one entry was marked during the most recent execution of step 2 and
+   there are unmarked entries left, go back to step 2.
+4. Make the nodes identified by `ShowTargets` and their ancestors visible.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
