@@ -198,8 +198,8 @@
         "$Kind": "Function",
         "$EntitySetPath": "InputSet",
         "$IsBound": true,
-        "@Core.Description": "Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
-        "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\n          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\n          annotation on the entity type of the `HierarchyNodes`.\n          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),\n          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors\n          in the hierarchical collection given in the binding parameter.\n          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.\n          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific\n          definition of start nodes.",
+        "@Core.Description": "Returns the first $n$ levels of a hierarchical collection in preorder with individual nodes expanded or collapsed",
+        "@Core.LongDescription": "This function can be used as a transformation whose input set has a recursive hierarchy\ndefined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)\nannotation on the entity type of the `HierarchyNodes`.\nIts binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType).\nIts output is the limited hierarchy constructed as follows:\n1. Let output consist of all nodes with less than $n$ ancestors.\n2. Loop over the entries in `ExpandLevels` in ascending order of the distance from root of their identified nodes:  \n   If the current entry identifies a node contained in the output, expand or collapse that node\n   (adding certain descendants to the output or removing them from it).\n3. Add the nodes identified by `ShowTargets` and their ancestors to the output.\n4. Sort the output in preorder as with the `traverse` transformation with the hierarchy-specific\n   definition of start nodes.",
         "$Parameter": [
           { "$Name": "InputSet", "$Collection": true, "$Type": "Edm.EntityType" },
           {
@@ -216,7 +216,7 @@
           {
             "$Name": "Levels",
             "$Type": "Edm.Int64",
-            "@Core.Description": "The number n of levels to be output, absent means all levels",
+            "@Core.Description": "The number $n$ of levels to be output, absent means all levels",
             "@Core.OptionalParameter": {},
             "@Validation.Minimum": 1
           },
@@ -225,7 +225,6 @@
             "$Collection": true,
             "$Type": "Hierarchy.TopLevelsExpandType",
             "@Core.Description": "Nodes to be expanded",
-            "@Core.LongDescription": "Expansion of nodes happens in the following steps:\n- Make all nodes from the top n levels visible.\n- Loop over the entries in `ExpandLevels` in ascending order of the distance from root of their identified nodes:  \n  If the current entry identifies a visible node, expand or collapse that node\n  (making certain descendants visible or invisible).\n- Make the nodes identified by `ShowTargets` and their ancestors visible.",
             "@Core.OptionalParameter": {}
           },
           {

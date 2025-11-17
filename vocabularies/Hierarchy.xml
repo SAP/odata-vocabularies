@@ -302,17 +302,20 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       -->
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
-        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
+        <Annotation Term="Core.Description" String="Returns the first $n$ levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
         <Annotation Term="Core.LongDescription">
-          <String>This function can be used as a transformation whose input set has a recursive hierarchy
-          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`.
-          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),
-          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
-          in the hierarchical collection given in the binding parameter.
-          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific
-          definition of start nodes.</String>
+<String>This function can be used as a transformation whose input set has a recursive hierarchy
+defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+annotation on the entity type of the `HierarchyNodes`.
+Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType).
+Its output is the limited hierarchy constructed as follows:
+1. Let output consist of all nodes with less than $n$ ancestors.
+2. Loop over the entries in `ExpandLevels` in ascending order of the distance from root of their identified nodes:  
+   If the current entry identifies a node contained in the output, expand or collapse that node
+   (adding certain descendants to the output or removing them from it).
+3. Add the nodes identified by `ShowTargets` and their ancestors to the output.
+4. Sort the output in preorder as with the `traverse` transformation with the hierarchy-specific
+   definition of start nodes.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
@@ -323,7 +326,7 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="The number n of levels to be output, absent means all levels" />
+          <Annotation Term="Core.Description" String="The number $n$ of levels to be output, absent means all levels" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
@@ -331,14 +334,6 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
         </Parameter>
         <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
           <Annotation Term="Core.Description" String="Nodes to be expanded" />
-          <Annotation Term="Core.LongDescription">
-            <String>Expansion of nodes happens in the following steps:
-- Make all nodes from the top n levels visible.
-- Loop over the entries in `ExpandLevels` in ascending order of the distance from root of their identified nodes:  
-  If the current entry identifies a visible node, expand or collapse that node
-  (making certain descendants visible or invisible).
-- Make the nodes identified by `ShowTargets` and their ancestors visible.</String>
-          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
