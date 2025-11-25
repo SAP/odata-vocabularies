@@ -272,11 +272,11 @@ These terms are inspired by
         </Member>
       </EnumType>
 
-      <Term Name="IsEmailAddress" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsEmailAddress" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Property contains an email address" />
       </Term>
 
-      <Term Name="IsPhoneNumber" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPhoneNumber" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
         <Annotation Term="Core.Description" String="Property contains a phone number" />
       </Term>
 
