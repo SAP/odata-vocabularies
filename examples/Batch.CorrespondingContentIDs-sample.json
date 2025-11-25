@@ -1,0 +1,51 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Batch.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Batch.v1", "$Alias": "Batch" }]
+    }
+  },
+  "corresponding.sample": {
+    "$Alias": "self",
+    "SalesQuotation": { "$Kind": "EntityType", "id": { "$Type": "Edm.Int16", "$Nullable": true } },
+    "SalesQuotationItemToBeCopied": { "$Kind": "ComplexType", "product": { "$Nullable": true } },
+    "SalesOrder": {
+      "$Kind": "EntityType",
+      "Items": { "$Kind": "NavigationProperty", "$Collection": true, "$Type": "self.SalesOrderItem" }
+    },
+    "SalesOrderItem": {
+      "$Kind": "EntityType",
+      "Discounts": { "$Kind": "NavigationProperty", "$Collection": true, "$Type": "self.SalesOrderItemDiscount" }
+    },
+    "SalesOrderItemDiscount": {
+      "$Kind": "EntityType",
+      "percent": { "$Type": "Edm.Decimal", "$Nullable": true, "$Scale": 0 }
+    },
+    "CreateSalesOrder": [
+      {
+        "$Kind": "Action",
+        "$IsBound": true,
+        "$Parameter": [
+          { "$Name": "_it", "$Type": "self.SalesQuotation" },
+          { "$Name": "items", "$Collection": true, "$Type": "self.SalesQuotationItemToBeCopied" }
+        ],
+        "$ReturnType": { "$Type": "self.SalesOrder" },
+        "@Batch.CorrespondingContentIDs": [
+          {
+            "@Core.Description": "Correspondence between sales quotation item and sales order item",
+            "ParameterValue": "items",
+            "ReturnedValue": "$ReturnType/Items"
+          }
+        ]
+      }
+    ],
+    "default": {
+      "$Kind": "EntityContainer",
+      "SalesQuotations": { "$Collection": true, "$Type": "self.SalesQuotation" }
+    }
+  },
+  "$EntityContainer": "corresponding.sample.default"
+}
