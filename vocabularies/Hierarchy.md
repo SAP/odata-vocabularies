@@ -164,7 +164,7 @@ Property|Type|Description
 [SiblingRank](Hierarchy.xml#L185) *([Experimental](Common.md#Experimental))*|Int64?|Sibling rank of a node<br>The sibling rank of a node is the index of the node in the sequence of all nodes in the unlimited hierarchy with the same parent. The first sibling has rank 0.
 [Matched](Hierarchy.xml#L193) *([Experimental](Common.md#Experimental))*|Boolean?|Flag indicating [matching](#MatchCount) nodes
 [MatchedDescendantCount](Hierarchy.xml#L197) *([Experimental](Common.md#Experimental))*|Int64?|Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy
-[MessageCount](Hierarchy.xml#L201) *([Experimental](Common.md#Experimental))*|\[[MessageCountType](#MessageCountType)\]|Number of messages for each severity a [matching](#MatchCount) descendant of a node has in the unlimited hierarchy
+[MessageCount](Hierarchy.xml#L201) *([Experimental](Common.md#Experimental))*|\[[MessageCountType](#MessageCountType)\]|Number of messages for each severity a descendant of a node has in the sub-hierarchy
 
 <a name="MessageCountType"></a>
 ## [MessageCountType](Hierarchy.xml#L211) *([Experimental](Common.md#Experimental))*

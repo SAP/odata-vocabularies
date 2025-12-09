@@ -146,7 +146,7 @@
         "$Collection": true,
         "$Type": "Hierarchy.MessageCountType",
         "@Common.Experimental": true,
-        "@Core.Description": "Number of messages for each severity a [matching](#MatchCount) descendant of a node has in the unlimited hierarchy"
+        "@Core.Description": "Number of messages for each severity a descendant of a node has in the sub-hierarchy"
       }
     },
     "MessageCountType": {

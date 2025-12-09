@@ -200,7 +200,7 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
         </Property>
         <Property Name="MessageCount" Type="Collection(Hierarchy.MessageCountType)" Nullable="false">
           <Annotation Term="Common.Experimental" />
-          <Annotation Term="Core.Description" String="Number of messages for each severity a [matching](#MatchCount) descendant of a node has in the unlimited hierarchy" />
+          <Annotation Term="Core.Description" String="Number of messages for each severity a descendant of a node has in the sub-hierarchy" />
         </Property>
         <!--
         <Property Name="Cycle" Type="Edm.Boolean" Nullable="true">
