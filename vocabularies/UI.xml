@@ -2030,6 +2030,11 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </TypeDefinition>
 
+       <Term Name="RenderingHint" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="A short, human-readable text, that gives a hint that the frontend logic can use to render specific UI elements." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
