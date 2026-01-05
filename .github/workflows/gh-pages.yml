@@ -33,7 +33,7 @@ jobs:
       - name: Setup pandoc
         uses: nikeee/setup-pandoc@v1
         with:
-          pandoc-version: 3.1.12.2
+          pandoc-version: 3.8.3
       - name: Build with pandoc
         run: |
           npm ci
