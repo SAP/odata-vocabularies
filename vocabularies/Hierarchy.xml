@@ -104,8 +104,8 @@ descendants(..., ID, filter(ID eq 'US'), keep start)
 or
 ```
 SalesOrganizations?$apply=groupby((rolluprecursive(..., ID,
-  descendants(..., ID, filter(ID eq 'US')),
-  ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
+  descendants(..., ID, filter(ID eq 'US'), keep start)
+  /ancestors(..., ID, filter(contains(Name, 'New York')), keep start))), aggregate(...))
 /Hierarchy.TopLevels(..., NodeProperty='ID', Levels=2)
 &amp;$top=10
 ```
@@ -198,11 +198,20 @@ annotated with the `RecursiveHierarchy` annotation. The qualified name of the su
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Number of [matching](#MatchCount) descendants a node has in the unlimited hierarchy" />
         </Property>
+        <Property Name="MessageCount" Type="Collection(Hierarchy.MessageCountType)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Number of messages for each severity a descendant of a node has in the sub-hierarchy" />
+        </Property>
         <!--
         <Property Name="Cycle" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="There is a cycle from this occurrence of a node to the node itself following the [`Aggregation.UpPath`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#UpPath)" />
         </Property>
         -->
+      </ComplexType>
+      <ComplexType Name="MessageCountType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false" />
+        <Property Name="messageCount" Type="Edm.Int64" Nullable="false" />
       </ComplexType>
 
       <Term Name="RecursiveHierarchyActions" Type="Hierarchy.RecursiveHierarchyActionsType" BaseTerm="Aggregation.RecursiveHierarchy" Nullable="false" AppliesTo="EntityType">
@@ -293,17 +302,20 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
       -->
 
       <Function Name="TopLevels" IsBound="true" EntitySetPath="InputSet">
-        <Annotation Term="Core.Description" String="Returns the first n levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
+        <Annotation Term="Core.Description" String="Returns the first $n$ levels of a hierarchical collection in preorder with individual nodes expanded or collapsed" />
         <Annotation Term="Core.LongDescription">
-          <String>This function can be used as a transformation whose input set has a recursive hierarchy
-          defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
-          annotation on the entity type of the `HierarchyNodes`.
-          (Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType),
-          its output is the limited hierarchy.) The output initially contains the nodes with less than n ancestors
-          in the hierarchical collection given in the binding parameter.
-          Then individual nodes are expanded, shown or collapsed in the output, which extends or reduces the limited hierarchy.
-          Finally the output is sorted in preorder as with the `traverse` transformation with the hierarchy-specific
-          definition of start nodes.</String>
+<String>This function can be used as a transformation whose input set has a recursive hierarchy
+defined by an [`Aggregation.RecursiveHierarchy`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.html#RecursiveHierarchy)
+annotation on the entity type of the `HierarchyNodes`.
+Its binding parameter is the unlimited hierarchy as defined [here](#RecursiveHierarchyType).
+Its output is the limited hierarchy constructed as follows:
+1. Let output consist of all nodes with less than $n$ ancestors.
+2. Loop over the entries in `ExpandLevels` in ascending order of the distance from root of their identified nodes:  
+   If the current entry identifies a node contained in the output, expand or collapse that node
+   (adding certain descendants to the output or removing them from it).
+3. Add the nodes identified by `ShowTargets` and their ancestors to the output.
+4. Sort the output in preorder as with the `traverse` transformation with the hierarchy-specific
+   definition of start nodes.</String>
         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
@@ -314,20 +326,26 @@ and [`RecursiveHierarchy/MatchedDescendantCount`](#RecursiveHierarchyType) are a
           <Annotation Term="Core.Description" String="Property path to the node identifier, evaluated relative to the binding parameter" />
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="Core.Description" String="The number n of levels to be output, absent means all levels" />
+          <Annotation Term="Core.Description" String="The number $n$ of levels to be output, absent means all levels" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="Show" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Identifiers of nodes to be shown" />
+        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Nodes to be expanded" />
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
         </Parameter>
-        <Parameter Name="ExpandLevels" Type="Collection(Hierarchy.TopLevelsExpandType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Nodes to be expanded" />
+        <Parameter Name="ShowTargets" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Targets (for example, of end-user messages) to be shown" />
+          <Annotation Term="Core.LongDescription">
+            <String>Each target has the format of the `resourcePath` ABNF rule and
+            identifies an entity whose node in the current hierarchy is to be shown.
+            Showing a node makes the node and its ancestors visible.
+            Example: `ShowTargets=["HierarchyDirectory(1)/Nodes('A')"]`</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
