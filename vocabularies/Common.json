@@ -1141,7 +1141,8 @@
       "SourceEntities": {
         "$Collection": true,
         "$Type": "Edm.NavigationPropertyPath",
-        "@Core.Description": "Changes to one or more of these entities may affect the targets. An empty path means the annotation target."
+        "$Nullable": true,
+        "@Core.Description": "Changes to one or more of these entities may affect the targets. An null value means the annotation target."
       },
       "SourceEvents": {
         "$Collection": true,
@@ -1156,7 +1157,8 @@
       "TargetEntities": {
         "$Collection": true,
         "$Type": "Edm.NavigationPropertyPath",
-        "@Core.Description": "These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target."
+        "$Nullable": true,
+        "@Core.Description": "These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. A null value means the annotation target."
       },
       "EffectTypes": {
         "$Type": "Common.EffectType",

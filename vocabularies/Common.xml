@@ -1323,8 +1323,8 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Property Name="SourceProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Changes to the values of one or more of these structural properties may affect the targets" />
         </Property>
-        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An empty path means the annotation target." />
+        <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="true">
+          <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An null value means the annotation target." />
         </Property>
         <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
@@ -1334,8 +1334,8 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Annotation Term="Core.Description" String="These structural properties may be affected if the value of one of the sources changes" />
           <Annotation Term="Core.LongDescription" String="The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path" />
         </Property>
-        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. An empty path means the annotation target." />
+        <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="true">
+          <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. A null value means the annotation target." />
         </Property>
         <Property Name="EffectTypes" Type="Common.EffectType">
           <Annotation Term="Core.Revisions">
