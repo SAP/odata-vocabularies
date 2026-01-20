@@ -2030,6 +2030,18 @@ This switches off the validation of user input with respect to decimals.</String
         </Annotation>
       </TypeDefinition>
 
+       <Term Name="RenderingHint" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="A short text, that gives a hint that the frontend logic can use to render specific UI elements." />
+         <Annotation Term="Core.LongDescription">
+          <String>For example
+            - a decimal property marked with RenderingHint:Temperature shall be rendered as a mercury-filled thermometer 
+            - a date property marked with RenderingHint:Birthday shall be rendered as a cake and baloon when the date matches today and could offer actions to set a reminder
+          </String>
+        </Annotation>
+      </TypeDefinition>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
