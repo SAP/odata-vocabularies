@@ -223,8 +223,8 @@ $apply=filter(Industry in ('IT','AI'))
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result is the leveled hierarchy with these levels in preorder,
             entries on the finest-grained level cannot be expanded further.
-            If the finest-grained level includes all key properties, its entries additionally contain
-            all other non-aggregated properties.
+            If the finest-grained level includes all key properties, entries on that level additionally contain
+            all other non-aggregated properties even if they are not referenced in `LevelProperties`.
             The result does not contain a level representing a root or grand total.
             All referenced properties must be groupable.</String>
           </Annotation>
