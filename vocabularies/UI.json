@@ -1471,6 +1471,11 @@
         "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
         "@Core.IsLanguageDependent": true
       },
+      "Placeholder": {
+        "$Nullable": true,
+        "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
+        "@Core.IsLanguageDependent": true
+      },
       "Criticality": {
         "$Type": "UI.CriticalityType",
         "$Nullable": true,
