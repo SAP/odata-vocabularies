@@ -1259,7 +1259,7 @@
     },
     "Placeholder": {
       "$Kind": "Term",
-      "$AppliesTo": ["Property", "Parameter"],
+      "$AppliesTo": ["Property", "Parameter", "Record"],
       "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
       "@Core.IsLanguageDependent": true
     },
@@ -1462,6 +1462,7 @@
         "UI.Hidden",
         "UI.Importance",
         "UI.PartOfPreview",
+        "UI.Placeholder",
         "HTML5.CssDefaults",
         "HTML5.RowSpanForDuplicateValues",
         "Common.FieldControl"
@@ -1469,11 +1470,6 @@
       "Label": {
         "$Nullable": true,
         "@Core.Description": "A short, human-readable text suitable for labels and captions in UIs",
-        "@Core.IsLanguageDependent": true
-      },
-      "Placeholder": {
-        "$Nullable": true,
-        "@Core.Description": "A short, human-readable text that gives a hint or an example to help the user with data entry",
         "@Core.IsLanguageDependent": true
       },
       "Criticality": {
