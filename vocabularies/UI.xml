@@ -1651,6 +1651,10 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
           <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="Placeholder" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A short, human-readable text that gives a hint or an example to help the user with data entry" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
         <Property Name="Criticality" Type="UI.CriticalityType" Nullable="true">
           <Annotation Term="Core.Description" String="Criticality of the data field value" />
         </Property>
