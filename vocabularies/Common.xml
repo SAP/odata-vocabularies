@@ -1680,6 +1680,11 @@ leads to a
         </Property>
       </ComplexType>
 
+      <Term Name="AsynchronousRequestsRequired" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Requests to this service MUST be made with the `respond-async` preference" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
