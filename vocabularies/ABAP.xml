@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.ABAP.v1" Alias="ABAP">
+      <Annotation Term="Core.Description">
+        <String>Terms for ABAP-specific annotations</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2020-07-08 © Copyright 2020 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ABAP.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/ABAP.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/master/vocabularies/ABAP.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+      
+      <Term Name="IsRightAlignedIfNumeric" AppliesTo="Term Property" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Annotation Term="Core.RequiresType" String="Edm.String" />
+        <Annotation Term="Core.Description">
+          <String>Values that consist purely of digits are considered right-aligned (i.e., filled with leading zeros) when it comes to ordering.</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Applied to a property with `Type="Edm.String"` and `MaxLength="4"`, this means `"2" &lt; "11" &lt; "2A"`, because `"0002" &lt; "0011" &lt; "2A"`.
+            This behavior affects e.g. the `$orderby` and `$filter=… le …` operations and corresponds to the ABAP conversion exit `ALPHA`.</String>
+        </Annotation>
+      </Term>
+      
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
