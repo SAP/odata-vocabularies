@@ -22,11 +22,6 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
-          git config user.name ${GITHUB_ACTOR}
-          git config user.email ${PUSHER_EMAIL}
-          git add vocabularies/*.md vocabularies/*.json examples/*.json
-          git diff-index --quiet HEAD vocabularies/*.md vocabularies/*.json examples/*.json || git commit -m "auto-refreshed"
-          git push
+          git diff --exit-code vocabularies/*.md vocabularies/*.json examples/*.json
         env:
           CI: true
-          PUSHER_EMAIL: ${{ github.event.pusher.email }}
