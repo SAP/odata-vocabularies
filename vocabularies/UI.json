@@ -1318,7 +1318,6 @@
       "$Kind": "Term",
       "$Nullable": true,
       "$AppliesTo": ["Property", "Parameter"],
-      "@Common.Experimental": true,
       "@Core.Description": "The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style",
       "@Core.LongDescription": "Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`.\n          If this annotation is absent or null or an empty string, temporal values are shown in a default style.",
       "@Validation.AllowedValues": [
