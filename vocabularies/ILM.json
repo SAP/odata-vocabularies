@@ -30,6 +30,12 @@
       "@Core.Description": "Entity can be blocked by ILM",
       "@Core.LongDescription": "Marks an entity as being able to be blocked by ILM. Blocked means a flag is set on the record, so that it no longer can be used for its original purpose, but remains in persistence for a specified time to be potentially accessed by Auditors.\n          "
     },
+    "ObjectName": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntitySet"],
+      "@Core.Description": "Name for the entity set in ILM",
+      "@Core.LongDescription": "Defines the object name in ILM for the entity set. If the annotation is not specified the entity set name is being used.\n          "
+    },
     "ArchivingEnabled": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
@@ -52,13 +58,13 @@
       "@Validation.AllowedValues": [
         {
           "@Common.Experimental": true,
-          "Value": "ProcessOrganizationAttribute",
+          "Value": "ProcessOrganizationID",
           "@Core.Description": "An identifier for the process organization.",
           "@Core.LongDescription": "The process organization answers the 'What' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on the business process intention. In terms of PersonalData it marks the purpose of a record.\n                "
         },
         {
           "@Common.Experimental": true,
-          "Value": "LineOrganizationAttribute",
+          "Value": "LineOrganizationID",
           "@Core.Description": "An identifier for the line organization.",
           "@Core.LongDescription": "The line organization answers the 'Who' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on who is responsible for a specific record. In terms of PersonalData it is the data controller.\n                "
         }
