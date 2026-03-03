@@ -116,6 +116,8 @@ Term|Type|Description
 [WebSocketChannel](Common.xml#L1631) *([Experimental](Common.md#Experimental))*|String?|<a name="WebSocketChannel"></a>Channel for WebSocket connections<br><p>Messages sent over the channel follow the <a href="https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541">ABAP Push Channel Protocol</a>. To consume a channel, the client opens a web socket connection at the <a href="#WebSocketBaseURL"><code>WebSocketBaseURL</code></a> followed by URL parameters</p> <ul> <li>parameter name = annotation qualifier, parameter value = channel ID (see below)</li> <li>parameter name = <code>relatedService</code>, parameter value = base URL (relative to server root) of the OData service of the app</li> </ul> <p>Supported qualifiers and channel IDs:</p> <dl> <dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value) </dl> 
 [AddressViaNavigationPath](Common.xml#L1648)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AddressViaNavigationPath"></a>Service prefers requests to use a resource path with navigation properties<br>Use this tag on services that do not restrict requests to certain resource paths via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html) or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding) annotations, but that prefer requests with a resource path that contains the navigation properties reflecting the UI structure.<br>For example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee` leads to a `PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.
 [ReferentialConstraint](Common.xml#L1663) *([Experimental](Common.md#Experimental))*|\[[ReferentialConstraintType](#ReferentialConstraintType)\]|<a name="ReferentialConstraint"></a>[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement
+[AuditingDefaults](Common.xml#L1683) *([Experimental](Common.md#Experimental))*|[AuditingType](#AuditingType)|<a name="AuditingDefaults"></a>Defines service-wide defaults for the behaviour regarding auditing, like which scopes have auditor access.
+[Auditing](Common.xml#L1688) *([Experimental](Common.md#Experimental))*|[AuditingType](#AuditingType)|<a name="Auditing"></a>Defines the auditing behaviour for the entity set, like which scopes have auditor access.
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](Common.xml#L134)
@@ -471,3 +473,11 @@ Property|Type|Description
 :-------|:---|:----------
 [Property](Common.xml#L1675)|PropertyPath|The path to the property is evaluated relative to the type containing the navigation property
 [ReferencedProperty](Common.xml#L1678)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property
+
+<a name="AuditingType"></a>
+## [AuditingType](Common.xml#L1693) *([Experimental](Common.md#Experimental))*
+Use this annotation to configure the auditing behaviour for the annotated entity set or container.
+
+Property|Type|Description
+:-------|:---|:----------
+[AuditorScopes](Common.xml#L1698)|\[String\]|List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities.
