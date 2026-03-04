@@ -32,19 +32,15 @@
         </Collection>
       </Annotation>
 
-      <Term Name="DefaultAuditorScopes" Type="Auditing.AuditorScopesType" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="DefaultAuditorScopes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="List of scopes which have by default auditing access for entity sets in the annotated service. Annotating @Auditing.AuditorScopes to an entity set overrides this default." />
       </Term>
 
-      <Term Name="AuditorScopes" Type="Auditing.AuditorScopesType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="AuditorScopes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities." />
       </Term>
-
-      <TypeDefinition Name="AuditorScopesType" UnderlyingType="Collection(Edm.String)">
-        <Annotation Term="Core.Description" String="List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities." />
-      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>

@@ -4,17 +4,8 @@
     "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
       "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Validation.V1", "$Alias": "Validation" }]
-    },
-    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
-      "$Include": [{ "$Namespace": "Org.OData.Aggregation.V1", "$Alias": "Aggregation" }]
-    },
-    "https://sap.github.io/odata-vocabularies/vocabularies/UI.json": {
-      "$Include": [{ "$Namespace": "com.sap.vocabularies.UI.v1", "$Alias": "UI" }]
-    },
-    "https://sap.github.io/odata-vocabularies/vocabularies/Analytics.json": {
-      "$Include": [{ "$Namespace": "com.sap.vocabularies.Analytics.v1", "$Alias": "Analytics" }]
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
     }
   },
   "com.sap.vocabularies.Auditing.v1": {
@@ -29,21 +20,16 @@
     ],
     "DefaultAuditorScopes": {
       "$Kind": "Term",
-      "$Type": "Auditing.AuditorScopesType",
+      "$Collection": true,
       "$AppliesTo": ["EntityContainer"],
       "@Common.Experimental": true,
       "@Core.Description": "List of scopes which have by default auditing access for entity sets in the annotated service. Annotating @Auditing.AuditorScopes to an entity set overrides this default."
     },
     "AuditorScopes": {
       "$Kind": "Term",
-      "$Type": "Auditing.AuditorScopesType",
+      "$Collection": true,
       "$AppliesTo": ["EntitySet"],
       "@Common.Experimental": true,
-      "@Core.Description": "List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities."
-    },
-    "AuditorScopesType": {
-      "$Kind": "TypeDefinition",
-      "$UnderlyingType": "Collection(Edm.String)",
       "@Core.Description": "List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities."
     }
   }
