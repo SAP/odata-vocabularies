@@ -1669,26 +1669,6 @@ leads to a
         </Property>
       </ComplexType>
       
-      <Term Name="AuditingDefaults" Type="Common.AuditingType" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines service-wide defaults for the behaviour regarding auditing, like which scopes have auditor access." />
-      </Term>
-
-      <Term Name="Auditing" Type="Common.AuditingType" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines the auditing behaviour for the entity set, like which scopes have auditor access." />
-      </Term>
-
-      <ComplexType Name="AuditingType">
-        <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description">
-          <String>Use this annotation to configure the auditing behaviour for the annotated entity set or container.</String>
-        </Annotation>
-        <Property Name="AuditorScopes" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of scopes which have auditing access for the annotated entity set. Auditing access could for example mean accessing blocked or archived entities." />
-        </Property>
-      </ComplexType>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
