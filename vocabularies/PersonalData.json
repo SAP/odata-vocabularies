@@ -166,14 +166,14 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property", "EntitySet"],
+      "$AppliesTo": ["Property", "EntityType"],
       "@Core.Description": "Property contains potentially sensitive personal data",
       "@Core.LongDescription": "Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n                      - Personal data subject to professional secrecy. \n                      - Personal data relating to criminal or administrative offences.\n                      - Personal data concerning insurances and bank or credit card accounts.\n          "
     },
     "RelatedDataCategoryID": {
       "$Kind": "Term",
       "$Collection": true,
-      "$AppliesTo": ["Property", "EntitySet"],
+      "$AppliesTo": ["Property", "EntityType"],
       "@Core.Description": "Annotation with the assignment of multiple data categories to one entity or property",
       "@Core.LongDescription": "The annotation value is an array of strings, enabling the assignment of multiple data categories to one entity or field. The strings must adhere to the format of an Correlation ID corresponding to the concept name \"dataCategory\" in conjunction with an localIdentifier introduced herein (refer to ORD Specification | Open Resource Discovery).\n          Example: sap.s4com:dataCategory:SalesOrder\n          "
     }

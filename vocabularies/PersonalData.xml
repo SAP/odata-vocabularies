@@ -247,7 +247,7 @@ Terms for contact and address information are defined in the [Communication voca
         </Annotation>
       </Term>
 
-      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntitySet">
+      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
           <String>Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
@@ -258,7 +258,7 @@ Terms for contact and address information are defined in the [Communication voca
           </String>
         </Annotation>
       </Term>
-      <Term Name="RelatedDataCategoryID" Type="Collection(Edm.String)" AppliesTo="Property EntitySet">
+      <Term Name="RelatedDataCategoryID" Type="Collection(Edm.String)" AppliesTo="Property EntityType">
         <Annotation Term="Core.Description" String="Annotation with the assignment of multiple data categories to one entity or property" />
         <Annotation Term="Core.LongDescription">
           <String>The annotation value is an array of strings, enabling the assignment of multiple data categories to one entity or field. The strings must adhere to the format of an Correlation ID corresponding to the concept name "dataCategory" in conjunction with an localIdentifier introduced herein (refer to ORD Specification | Open Resource Discovery).
