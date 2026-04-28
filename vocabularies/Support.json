@@ -18,6 +18,12 @@
       { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Support.md" }
     ],
     "@Common.Experimental": true,
+    "DebugInfo": {
+      "$Kind": "Term",
+      "$Type": "String",
+      "$AppliesTo": ["Schema"],
+      "@Core.Description": "Debug information provided by client or server"
+    },
     "TechnicalInfoLinks": {
       "$Kind": "Term",
       "$Type": "Support.TechnicalInfoLinksType",
