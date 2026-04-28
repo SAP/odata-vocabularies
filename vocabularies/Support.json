@@ -21,7 +21,7 @@
     "DebugInfo": {
       "$Kind": "Term",
       "$Type": "String",
-      "@Core.Description": "Debug information provided by client or server"
+      "@Core.Description": "Debug information provided by the client in json batch requests"
     },
     "TechnicalInfoLinks": {
       "$Kind": "Term",
