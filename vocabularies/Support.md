@@ -8,14 +8,14 @@ Terms for support tools
 
 Term|Type|Description
 :---|:---|:----------
-[DebugInfo](Support.xml#L35)|String|<a name="DebugInfo"></a>Debug information provided by client or server
+[DebugInfo](Support.xml#L35)|[String](#String)|<a name="DebugInfo"></a>Debug information provided by client or server
 [TechnicalInfoLinks](Support.xml#L38)|[TechnicalInfoLinksType](#TechnicalInfoLinksType)|<a name="TechnicalInfoLinks"></a>How to retrieve links to technical information about the service
 
 
 ## Functions
 
 <a name="Template_GetTechnicalInfoLinks"></a>
-### [Template_GetTechnicalInfoLinks](Support.xml#L52)
+### [Template_GetTechnicalInfoLinks](Support.xml#L55)
 
 Template for a function that retrieves links to technical information about a service and whose function import is named in [`TechnicalInfoLinks/FunctionImport`](#TechnicalInfoLinksType)
 
