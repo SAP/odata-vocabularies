@@ -21,7 +21,6 @@
     "DebugInfo": {
       "$Kind": "Term",
       "$Type": "String",
-      "$AppliesTo": ["Schema"],
       "@Core.Description": "Debug information provided by client or server"
     },
     "TechnicalInfoLinks": {
