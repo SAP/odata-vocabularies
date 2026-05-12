@@ -32,6 +32,9 @@
       </Annotation>
       <Annotation Term="Common.Experimental" />
 
+      <Term Name="DebugInfo" Type="String" Nullable="false">
+        <Annotation Term="Core.Description" String="Debug information provided by the client in json batch requests" />
+      </Term>
       <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="Schema">
         <Annotation Term="Core.Description" String="How to retrieve links to technical information about the service" />
       </Term>
