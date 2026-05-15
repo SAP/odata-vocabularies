@@ -1144,6 +1144,18 @@
         "$Nullable": true,
         "@Core.Description": "Changes to one or more of these entities may affect the targets. An null value means the annotation target."
       },
+      "SourceEntitiesInserted": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Common.Experimental": true,
+        "@Core.Description": "Creating one or more of these entities may affect the targets."
+      },
+      "SourceEntitiesDeleted": {
+        "$Collection": true,
+        "$Type": "Edm.NavigationPropertyPath",
+        "@Common.Experimental": true,
+        "@Core.Description": "Deleting one or more of these entities may affect the targets."
+      },
       "SourceEvents": {
         "$Collection": true,
         "@Common.Experimental": true,
