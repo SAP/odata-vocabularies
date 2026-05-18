@@ -8,5 +8,5 @@
       "$Include": [{ "$Namespace": "com.sap.vocabularies._vocab.v1", "$Alias": "_vocab" }]
     }
   },
-  "_vocab.example": {}
+  "_vocab.examples": {}
 }
