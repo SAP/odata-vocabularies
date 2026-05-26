@@ -8,7 +8,7 @@ Terms for support tools
 
 Term|Type|Description
 :---|:---|:----------
-[DebugInfo](Support.xml#L35)|[String](#String)|<a name="DebugInfo"></a>Debug information provided by the client in json batch requests
+[DebugInfo](Support.xml#L35)|String|<a name="DebugInfo"></a>Debug information provided by the client in json batch requests
 [TechnicalInfoLinks](Support.xml#L38)|[TechnicalInfoLinksType](#TechnicalInfoLinksType)|<a name="TechnicalInfoLinks"></a>How to retrieve links to technical information about the service
 
 
