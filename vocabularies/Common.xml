@@ -519,7 +519,7 @@ The minimum structure is
 - `longtextUrl: Edm.String nullable`
 
 When the value of this annotation dynamically references a property, the service MAY omit that property
-from the default set of properties and clients SHOULD use include it in `$select` when needed.
+from the default set of properties and clients SHOULD include it in `$select` when needed.
           </String>
         </Annotation>
       </Term>
