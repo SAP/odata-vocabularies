@@ -1330,6 +1330,10 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Creating one or more of these entities may affect the targets." />
         </Property>
+        <Property Name="SourceEntitiesUpdated" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Updating one or more of these entities may affect the targets." />
+        </Property>
         <Property Name="SourceEntitiesDeleted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Deleting one or more of these entities may affect the targets." />
