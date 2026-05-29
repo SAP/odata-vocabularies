@@ -32,7 +32,7 @@
       </Annotation>
       <Annotation Term="Common.Experimental" />
 
-      <Term Name="DebugInfo" Type="String" Nullable="false">
+      <Term Name="DebugInfo" Type="Edm.String" Nullable="false">
         <Annotation Term="Core.Description" String="Debug information provided by the client in json batch requests" />
       </Term>
       <Term Name="TechnicalInfoLinks" Type="Support.TechnicalInfoLinksType" Nullable="false" AppliesTo="Schema">
