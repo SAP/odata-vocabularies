@@ -517,6 +517,9 @@ The minimum structure is
 - `transition: Edm.Boolean`
 - `numericSeverity: Edm.Byte`
 - `longtextUrl: Edm.String nullable`
+
+When the value of this annotation dynamically references a property, the service MAY omit that property
+from the default set of properties and clients SHOULD include it in `$select` when needed.
           </String>
         </Annotation>
       </Term>

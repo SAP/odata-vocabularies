@@ -396,7 +396,7 @@
       "$Collection": true,
       "$Type": "Edm.ComplexType",
       "@Core.Description": "Collection of end-user messages",
-      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n- `code: Edm.String`\n- `message: Edm.String`\n- `target: Edm.String nullable`\n- `additionalTargets: Collection(Edm.String)`\n- `transition: Edm.Boolean`\n- `numericSeverity: Edm.Byte`\n- `longtextUrl: Edm.String nullable`\n          "
+      "@Core.LongDescription": "The name of the message type is service-specific, its structure components are identified by naming convention, following the names of the OData error response structure.\n\nThe minimum structure is\n- `code: Edm.String`\n- `message: Edm.String`\n- `target: Edm.String nullable`\n- `additionalTargets: Collection(Edm.String)`\n- `transition: Edm.Boolean`\n- `numericSeverity: Edm.Byte`\n- `longtextUrl: Edm.String nullable`\n\nWhen the value of this annotation dynamically references a property, the service MAY omit that property\nfrom the default set of properties and clients SHOULD include it in `$select` when needed.\n          "
     },
     "additionalTargets": {
       "$Kind": "Term",
