@@ -1613,7 +1613,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
 
       <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
         <Annotation Term="Core.LongDescription">
@@ -1621,7 +1620,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Annotation>
       </Term>
       <Term Name="WebSocketChannel" Type="Edm.String" Nullable="true" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Channel for WebSocket connections" />
         <Annotation Term="Core.LongDescription">
           <String>Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).
