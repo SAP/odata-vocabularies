@@ -1326,6 +1326,18 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="true">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An null value means the annotation target." />
         </Property>
+        <Property Name="SourceEntitiesInserted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Creating one or more of these entities may affect the targets." />
+        </Property>
+        <Property Name="SourceEntitiesUpdated" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Updating one or more of these entities may affect the targets." />
+        </Property>
+        <Property Name="SourceEntitiesDeleted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Deleting one or more of these entities may affect the targets." />
+        </Property>    
         <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
