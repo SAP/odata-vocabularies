@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vocabularies.AI.v1" Alias="AI">
+      <Annotation Term="Core.Description">
+        <String>Terms for providing AI-specific guidance on API resources</String>
+      </Annotation>
+      <Annotation Term="Core.Description" Qualifier="Published">
+        <String>2026-06-05 © Copyright 2026 SAP SE. All rights reserved</String>
+      </Annotation>
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="latest-version" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="alternate" />
+            <PropertyValue Property="href" String="https://sap.github.io/odata-vocabularies/vocabularies/AI.json" />
+          </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href" String="https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" />
+          </Record>
+        </Collection>
+      </Annotation>
+
+      <Term Name="hint" Type="Edm.String" Nullable="false" AppliesTo="EntityType EntitySet NavigationProperty Property EntityContainer TypeDefinition">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description">
+          <String>A free-text hint for AI consumers (e.g., large language models or AI agents) on how to use or interpret the annotated element.</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Provides AI-specific guidance on how to use or interpret the annotated OData element.
+It is intentionally kept separate from human-readable descriptions (e.g., Core.Description)
+so that end-user-facing documentation and AI-targeted guidance can evolve independently.
+
+The annotation value is a plain string, optionally formatted using lightweight Markdown
+(bold labels, bullet points, inline code). Typical content includes:
+
+* Business context: what business concept or domain object the element represents
+* Usage guidance: when and how to use this entity, property, or service
+* Disambiguation: how to distinguish from similar entities or operations
+* Value constraints: valid values, formats, coding standards (e.g., ISO codes, enums)
+* Authorization: required scopes or roles for write operations (service level)
+* Routing guidance: when NOT to use this element and what to use instead
+
+The content of AI.hint is not intended for display to end users and MUST be filtered
+when publishing metadata externally (e.g., to public API catalogs).
+
+The corresponding annotation in ABAP CDS / CSN Interop is @AI.hint.
+In JSON Schema-based formats (OpenAPI, AsyncAPI), the equivalent is x-sap-ai-hint.
+          </String>
+        </Annotation>
+      </Term>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

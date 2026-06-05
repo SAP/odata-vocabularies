@@ -1,0 +1,28 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "com.sap.vocabularies.AI.v1": {
+    "$Alias": "AI",
+    "@Core.Description": "Terms for providing AI-specific guidance on API resources",
+    "@Core.Description#Published": "2026-06-05 © Copyright 2026 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/AI.json" },
+      { "rel": "describedby", "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/AI.md" }
+    ],
+    "hint": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntityType", "EntitySet", "NavigationProperty", "Property", "EntityContainer", "TypeDefinition"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A free-text hint for AI consumers (e.g., large language models or AI agents) on how to use or interpret the annotated element.",
+      "@Core.LongDescription": "Provides AI-specific guidance on how to use or interpret the annotated OData element.\nIt is intentionally kept separate from human-readable descriptions (e.g., Core.Description)\nso that end-user-facing documentation and AI-targeted guidance can evolve independently.\n\nThe annotation value is a plain string, optionally formatted using lightweight Markdown\n(bold labels, bullet points, inline code). Typical content includes:\n\n* Business context: what business concept or domain object the element represents\n* Usage guidance: when and how to use this entity, property, or service\n* Disambiguation: how to distinguish from similar entities or operations\n* Value constraints: valid values, formats, coding standards (e.g., ISO codes, enums)\n* Authorization: required scopes or roles for write operations (service level)\n* Routing guidance: when NOT to use this element and what to use instead\n\nThe content of AI.hint is not intended for display to end users and MUST be filtered\nwhen publishing metadata externally (e.g., to public API catalogs).\n\nThe corresponding annotation in ABAP CDS / CSN Interop is @AI.hint.\nIn JSON Schema-based formats (OpenAPI, AsyncAPI), the equivalent is x-sap-ai-hint.\n          "
+    }
+  }
+}
