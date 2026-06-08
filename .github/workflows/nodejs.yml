@@ -1,6 +1,7 @@
 name: Rebuild JSON and MarkDown files
 
 on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
