@@ -1,6 +1,6 @@
 name: Rebuild JSON and MarkDown files
 
-on: [push, pull_request]
+on: push
 
 jobs:
   build:
