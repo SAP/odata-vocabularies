@@ -56,7 +56,7 @@ The content of AI.hint is not intended for display to end users and MUST be filt
 when publishing metadata externally (e.g., to public API catalogs).
 
 The corresponding annotation in ABAP CDS / CSN Interop is @AI.hint.
-In JSON Schema-based formats (OpenAPI, AsyncAPI), the equivalent is x-sap-ai-hint.
+In JSON Schema-based formats (git@github.com:vyshnavigadamsetti/odata-vocabularies.gitOpenAPI, AsyncAPI), the equivalent is x-sap-ai-hint.
           </String>
         </Annotation>
       </Term>
