@@ -193,14 +193,14 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "Property contains an email address"
     },
     "IsPhoneNumber": {
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "Parameter"],
       "@Core.Description": "Property contains a phone number"
     },
     "Event": {

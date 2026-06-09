@@ -7,6 +7,7 @@ SAP Vocabularies for semantic markup of structured data published via [OData](ht
 This repository defines the following SAP vocabularies:
 
 - [Analytics: Analytical resources](vocabularies/Analytics.md)
+- [Auditing: Configure auditing behaviour](vocabularies/Auditing.md)
 - [CodeList: Code Lists](vocabularies/CodeList.md)
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
@@ -22,6 +23,7 @@ This repository defines the following SAP vocabularies:
 - [PDF: PDF response format](vocabularies/PDF.md)
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
+- [Support: Support Tools](vocabularies/Support.md) - _experimental_
 - [UI: Representing data in user interfaces](vocabularies/UI.md)
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
