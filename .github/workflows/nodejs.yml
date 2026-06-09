@@ -1,6 +1,6 @@
 name: Rebuild JSON and MarkDown files
 
-on: push # What about forked repos?
+on: [push, pull_request] # What about forked repos?
 
 jobs:
   build:
