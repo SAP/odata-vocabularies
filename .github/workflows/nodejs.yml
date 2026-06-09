@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: echo ${{ github.ref }}
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
