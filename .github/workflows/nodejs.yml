@@ -1,6 +1,6 @@
 name: Rebuild JSON and MarkDown files
 
-on: [push, workflow_dispatch]
+on: push # What about forked repos?
 
 jobs:
   build:
