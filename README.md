@@ -1,6 +1,6 @@
 # odata-vocabularies
 
-SAP Vocabularies for semantic markup of structured data published via [OData](https://www.odata.org) services.
+Copy of SAP Vocabularies for semantic markup of structured data published via [OData](https://www.odata.org) services.
 
 ## SAP Vocabularies
 
