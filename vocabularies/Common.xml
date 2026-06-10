@@ -517,6 +517,9 @@ The minimum structure is
 - `transition: Edm.Boolean`
 - `numericSeverity: Edm.Byte`
 - `longtextUrl: Edm.String nullable`
+
+When the value of this annotation dynamically references a property, the service MAY omit that property
+from the default set of properties and clients SHOULD include it in `$select` when needed.
           </String>
         </Annotation>
       </Term>
@@ -1326,6 +1329,18 @@ This can also be used with OData V2 services: the annotation target is a functio
         <Property Name="SourceEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="true">
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An null value means the annotation target." />
         </Property>
+        <Property Name="SourceEntitiesInserted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Creating one or more of these entities may affect the targets." />
+        </Property>
+        <Property Name="SourceEntitiesUpdated" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Updating one or more of these entities may affect the targets." />
+        </Property>
+        <Property Name="SourceEntitiesDeleted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Deleting one or more of these entities may affect the targets." />
+        </Property>    
         <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
@@ -1336,17 +1351,6 @@ This can also be used with OData V2 services: the annotation target is a functio
         </Property>
         <Property Name="TargetEntities" Type="Collection(Edm.NavigationPropertyPath)" Nullable="true">
           <Annotation Term="Core.Description" String="These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. A null value means the annotation target." />
-        </Property>
-        <Property Name="EffectTypes" Type="Common.EffectType">
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="All side effects are essentially value changes, differentiation not needed." />
-              </Record>
-            </Collection>
-          </Annotation>
-          <Annotation Term="Core.Description" String="One or more of the targets may show these effects. If not specified, any effect is possible." />
         </Property>
         <Property Name="TriggerAction" Type="Common.QualifiedName" Nullable="true">
           <Annotation Term="Core.Description" String="Bound action to trigger side-effects after modifying an entity" />
@@ -1621,7 +1625,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
       </Term>
 
       <Term Name="WebSocketBaseURL" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.IsURL" />
         <Annotation Term="Core.Description" String="Base URL for WebSocket connections" />
         <Annotation Term="Core.LongDescription">
@@ -1629,7 +1632,6 @@ If the request succeeds the response will contain a JSON body of `Content-Type: 
         </Annotation>
       </Term>
       <Term Name="WebSocketChannel" Type="Edm.String" Nullable="true" AppliesTo="EntityContainer">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Channel for WebSocket connections" />
         <Annotation Term="Core.LongDescription">
           <String>Messages sent over the channel follow the [ABAP Push Channel Protocol](https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541).
@@ -1679,7 +1681,7 @@ leads to a
           <Annotation Term="Core.Description" String="The path to the referenced property MUST start with a segment containing the navigation property" />
         </Property>
       </ComplexType>
-
+      
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

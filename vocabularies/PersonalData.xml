@@ -208,7 +208,15 @@ Terms for contact and address information are defined in the [Communication voca
               <PropertyValue Property="Value" String="BlockingDate" />
               <Annotation Term="Core.Description" String="Defines a date that marks when the provider of the data will block these" />
               <Annotation Term="Core.LongDescription">
-                <String>Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date.</String>
+                <String>Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date. Personal data that is blocked for processing MAY be indicated by either BlockingDate or IsBlockedIndicator.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="IsBlockedIndicator" />
+              <Annotation Term="Core.Description" String="The indicator shows if the personal data is blocked from further processing by the provider" />
+              <Annotation Term="Core.LongDescription">
+                <String>The indicator shows if the personal data is blocked from further processing by the provider. A value of true means that the provider no longer needs to process this data for active business purposes, such as after a contract has been completed.  Data consumers should evaluate whether there are any additional legitimate reasons to process the data beyond its blocked status. Personal data that is blocked for processing MAY be indicated by either BlockingDate or IsBlockedIndicator.</String>
               </Annotation>
             </Record>
             <Record>
@@ -217,6 +225,14 @@ Terms for contact and address information are defined in the [Communication voca
               <Annotation Term="Core.Description" String="Defines the date when the provider destroys the data" />
               <Annotation Term="Core.LongDescription">
                 <String>Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date.</String>
+              </Annotation>
+            </Record>
+            <Record>
+              <Annotation Term="Common.Experimental" />
+              <PropertyValue Property="Value" String="DataCategoryID" />
+              <Annotation Term="Core.Description" String="Defines a unique identifier for a local data category" />
+              <Annotation Term="Core.LongDescription">
+                <String>Defines a unique identifier for a local data category that is assigned to this instance.</String>
               </Annotation>
             </Record>
           </Collection>
@@ -231,7 +247,7 @@ Terms for contact and address information are defined in the [Communication voca
         </Annotation>
       </Term>
 
-      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="IsPotentiallySensitive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property EntityType">
         <Annotation Term="Core.Description" String="Property contains potentially sensitive personal data" />
         <Annotation Term="Core.LongDescription">
           <String>Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:
@@ -239,6 +255,14 @@ Terms for contact and address information are defined in the [Communication voca
                       - Personal data subject to professional secrecy. 
                       - Personal data relating to criminal or administrative offences.
                       - Personal data concerning insurances and bank or credit card accounts.
+          </String>
+        </Annotation>
+      </Term>
+      <Term Name="RelatedDataCategoryID" Type="Collection(Edm.String)" AppliesTo="Property EntityType">
+        <Annotation Term="Core.Description" String="Annotation with the assignment of multiple data categories to one entity or property" />
+        <Annotation Term="Core.LongDescription">
+          <String>The annotation value is an array of strings, enabling the assignment of multiple data categories to one entity or field. The strings must adhere to the format of an Correlation ID corresponding to the concept name "dataCategory" in conjunction with an localIdentifier introduced herein (refer to ORD Specification | Open Resource Discovery).
+          Example: sap.s4com:dataCategory:SalesOrder
           </String>
         </Annotation>
       </Term>

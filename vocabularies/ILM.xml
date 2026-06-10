@@ -54,6 +54,14 @@ Other application development frameworks implement a DPI service without relying
         </Annotation>
       </Term>
 
+      <Term Name="ObjectName" Type="Edm.String" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Name for the entity set in ILM" />
+        <Annotation Term="Core.LongDescription">
+          <String>Defines the object name in ILM for the entity set. If the annotation is not specified the entity set name is being used.
+          </String>
+        </Annotation>
+      </Term>
+
       <Term Name="ArchivingEnabled" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Entity can be blocked by ILM" />
         <Annotation Term="Core.LongDescription">
@@ -72,7 +80,7 @@ Other application development frameworks implement a DPI service without relying
           <Collection>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="ProcessOrganizationAttribute" />
+              <PropertyValue Property="Value" String="ProcessOrganizationID" />
               <Annotation Term="Core.Description" String="An identifier for the process organization." />
               <Annotation Term="Core.LongDescription">
                 <String>The process organization answers the 'What' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on the business process intention. In terms of PersonalData it marks the purpose of a record.
@@ -81,7 +89,7 @@ Other application development frameworks implement a DPI service without relying
             </Record>
             <Record>
               <Annotation Term="Common.Experimental" />
-              <PropertyValue Property="Value" String="LineOrganizationAttribute" />
+              <PropertyValue Property="Value" String="LineOrganizationID" />
               <Annotation Term="Core.Description" String="An identifier for the line organization." />
               <Annotation Term="Core.LongDescription">
                 <String>The line organization answers the 'Who' question, acting as a condition when defining retention and archiving policies, allowing to filter out the correct entities based on who is responsible for a specific record. In terms of PersonalData it is the data controller.

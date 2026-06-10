@@ -132,13 +132,25 @@
           "@Common.Experimental": true,
           "Value": "BlockingDate",
           "@Core.Description": "Defines a date that marks when the provider of the data will block these",
-          "@Core.LongDescription": "Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date."
+          "@Core.LongDescription": "Defines a date that marks when the provider of the data will block these. This is the point in time when the processing of a set of personal data is no longer required for the active business, for example, when a contract is fulfilled. After it has been reached, the data is blocked in the source and can only be displayed by users with special authorizations (for example, tax auditors); however, it is not allowed to create/change/copy/follow-up blocked data. Consumers of the data should consider if there is an additional purpose to process the data beyond the defined blocking date. Personal data that is blocked for processing MAY be indicated by either BlockingDate or IsBlockedIndicator."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "IsBlockedIndicator",
+          "@Core.Description": "The indicator shows if the personal data is blocked from further processing by the provider",
+          "@Core.LongDescription": "The indicator shows if the personal data is blocked from further processing by the provider. A value of true means that the provider no longer needs to process this data for active business purposes, such as after a contract has been completed.  Data consumers should evaluate whether there are any additional legitimate reasons to process the data beyond its blocked status. Personal data that is blocked for processing MAY be indicated by either BlockingDate or IsBlockedIndicator."
         },
         {
           "@Common.Experimental": true,
           "Value": "EndOfRetentionDate",
           "@Core.Description": "Defines the date when the provider destroys the data",
           "@Core.LongDescription": "Defines a date that marks when the provider of the data can destroy these. Consumers of the data should consider if there is an additional purpose (or a legal hold) to process the data beyond the defined destruction date."
+        },
+        {
+          "@Common.Experimental": true,
+          "Value": "DataCategoryID",
+          "@Core.Description": "Defines a unique identifier for a local data category",
+          "@Core.LongDescription": "Defines a unique identifier for a local data category that is assigned to this instance."
         }
       ]
     },
@@ -154,9 +166,16 @@
       "$Kind": "Term",
       "$Type": "Core.Tag",
       "$DefaultValue": true,
-      "$AppliesTo": ["Property"],
+      "$AppliesTo": ["Property", "EntityType"],
       "@Core.Description": "Property contains potentially sensitive personal data",
       "@Core.LongDescription": "Sensitive personal data is a category of personal data that needs special handling. The determination which personal data is sensitive may differ for different legal areas or industries. Examples of sensitive personal data:\n                      - Special categories of personal data, such as data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data, data concerning health or sex life or sexual orientation.\n                      - Personal data subject to professional secrecy. \n                      - Personal data relating to criminal or administrative offences.\n                      - Personal data concerning insurances and bank or credit card accounts.\n          "
+    },
+    "RelatedDataCategoryID": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$AppliesTo": ["Property", "EntityType"],
+      "@Core.Description": "Annotation with the assignment of multiple data categories to one entity or property",
+      "@Core.LongDescription": "The annotation value is an array of strings, enabling the assignment of multiple data categories to one entity or field. The strings must adhere to the format of an Correlation ID corresponding to the concept name \"dataCategory\" in conjunction with an localIdentifier introduced herein (refer to ORD Specification | Open Resource Discovery).\n          Example: sap.s4com:dataCategory:SalesOrder\n          "
     }
   }
 }

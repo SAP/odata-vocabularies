@@ -57,18 +57,18 @@ Term|Type|Description
 [Placeholder](UI.xml#L1412)|String|<a name="Placeholder"></a>A short, human-readable text that gives a hint or an example to help the user with data entry
 [InputMask](UI.xml#L1417) *([Experimental](Common.md#Experimental))*|[InputMaskType](#InputMaskType)|<a name="InputMask"></a>Properties or parameters annotated with this term will get a mask in edit mode<br>Input masks improve readability and help to enter data correctly. So, masks can be especially useful for input fields that have a fixed pattern, e.g. DUNS numbers or similar. [Here](../examples/UI.InputMask-sample.xml) you can find an example for this annotation
 [TextArrangement](UI.xml#L1451)|[TextArrangementType](#TextArrangementType)|<a name="TextArrangement"></a>Describes the arrangement of a code or ID value and its text<br><p>This term annotates one of the following:</p> <ol type="1"> <li>a <a href="Common.md#Text"><code>Common.Text</code></a> annotation of the code or ID property where the annotation value is the text</li> <li>an entity type, this has the same effect as annotating all <code>Common.Text</code> annotations of properties of that entity type.</li> </ol> 
-[DateTimeStyle](UI.xml#L1474) *([Experimental](Common.md#Experimental))*|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<br>Allowed Values:<dl><dt>[short](UI.xml#L1483)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1487)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1491)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1495)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
-[Note](UI.xml#L1503) *([Experimental](Common.md#Experimental))*|[NoteType](#NoteType)|<a name="Note"></a>Visualization of a note attached to an entity<br>Administrative data is given by the annotations [`Common.CreatedBy`](Common.md#CreatedBy), [`Common.CreatedAt`](Common.md#CreatedAt), [`Common.ChangedBy`](Common.md#ChangedBy), [`Common.ChangedAt`](Common.md#ChangedAt) on the same entity type.
-[Importance](UI.xml#L1556)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
-[Hidden](UI.xml#L1571)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<br>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.
-[IsCopyAction](UI.xml#L1579) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCopyAction"></a>The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type<br>The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance. Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity, and the response MUST be either `201 Created` and a representation of the created entity, or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.
-[IsAIOperation](UI.xml#L1591) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsAIOperation"></a>The annotated operation is powered by AI<br>This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data.
-[CreateHidden](UI.xml#L1599)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CreateHidden"></a>EntitySets annotated with this term can control the visibility of the Create operation dynamically<br>The annotation value should be a path to another property from a related entity.
-[UpdateHidden](UI.xml#L1604)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="UpdateHidden"></a>EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
-[DeleteHidden](UI.xml#L1609)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="DeleteHidden"></a>EntitySets annotated with this term can control the visibility of the Delete operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
-[HiddenFilter](UI.xml#L1614)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<br>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all. If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.
-[AdaptationHidden](UI.xml#L1623) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AdaptationHidden"></a>Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization<br>The tagged elements can only be used in UI based on metadata, annnotations or code.
-[DataFieldDefault](UI.xml#L1629)|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
+[DateTimeStyle](UI.xml#L1474)|String?|<a name="DateTimeStyle"></a>The temporal value represented by the annotated property or parameter shall be shown on the UI in the given style<br>Requires type `Edm.Date`, `Edm.TimeOfDay`, or `Edm.DateTimeOffset`. If this annotation is absent or null or an empty string, temporal values are shown in a default style.<br>Allowed Values:<dl><dt>[short](UI.xml#L1482)<dd>7/25/24, 1:11 PM<dt>[medium](UI.xml#L1486)<dd>Jul 25, 2024, 1:11:51 PM<dt>[long](UI.xml#L1490)<dd>July 25, 2024 at 1:11:51 PM GMT+2<dt>[full](UI.xml#L1494)<dd>Thursday, July 25, 2024 at 1:11:51 PM Central European Summer Time</dl>
+[Note](UI.xml#L1502) *([Experimental](Common.md#Experimental))*|[NoteType](#NoteType)|<a name="Note"></a>Visualization of a note attached to an entity<br>Administrative data is given by the annotations [`Common.CreatedBy`](Common.md#CreatedBy), [`Common.CreatedAt`](Common.md#CreatedAt), [`Common.ChangedBy`](Common.md#ChangedBy), [`Common.ChangedAt`](Common.md#ChangedAt) on the same entity type.
+[Importance](UI.xml#L1555)|[ImportanceType](#ImportanceType)|<a name="Importance"></a>Expresses the importance of e.g. a DataField or an annotation
+[Hidden](UI.xml#L1570)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Hidden"></a>Properties or facets (see UI.Facet) annotated with this term will not be rendered if the annotation evaluates to true.<br>Hidden properties usually carry technical information that is used for application control and is of no direct interest to end users. The annotation value may be an expression to dynamically hide or render the annotated feature. If a navigation property is annotated with `Hidden` true, all subsequent parts are hidden - independent of their own potential `Hidden` annotations.
+[IsCopyAction](UI.xml#L1578) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsCopyAction"></a>The annotated [`DataFieldForAction`](#DataFieldForAction) record references an action that deep-copies an instance of the annotated entity type<br>The referenced action MUST be bound to the annotated entity type and MUST create a new instance of the same entity type as a deep copy of the bound instance. Upon successful completion, the response MUST contain a `Location` header that contains the edit URL or read URL of the created entity, and the response MUST be either `201 Created` and a representation of the created entity, or `204 No Content` if the request included a `Prefer` header with a value of `return=minimal` and did not include the system query options `$select` and `$expand`.
+[IsAIOperation](UI.xml#L1590) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="IsAIOperation"></a>The annotated operation is powered by AI<br>This term allows making end-users aware that the annotated operation uses AI functionality to process the selected application data.
+[CreateHidden](UI.xml#L1598)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="CreateHidden"></a>EntitySets annotated with this term can control the visibility of the Create operation dynamically<br>The annotation value should be a path to another property from a related entity.
+[UpdateHidden](UI.xml#L1603)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="UpdateHidden"></a>EntitySets annotated with this term can control the visibility of the Edit/Save operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
+[DeleteHidden](UI.xml#L1608)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="DeleteHidden"></a>EntitySets annotated with this term can control the visibility of the Delete operation dynamically<br>The annotation value should be a path to another property from the same or a related entity.
+[HiddenFilter](UI.xml#L1613)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="HiddenFilter"></a>Properties annotated with this term will not be rendered as filter criteria if the annotation evaluates to true.<br>Properties annotated with `HiddenFilter` are intended as parts of a `$filter` expression that cannot be directly influenced by end users. The properties will be rendered in all other places, e.g. table columns or form fields. This is in contrast to properties annotated with [Hidden](#Hidden) that are not rendered at all. If a navigation property is annotated with `HiddenFilter` true, all subsequent parts are hidden in filter - independent of their own potential `HiddenFilter` annotations.
+[AdaptationHidden](UI.xml#L1622) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AdaptationHidden"></a>Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization<br>The tagged elements can only be used in UI based on metadata, annnotations or code.
+[DataFieldDefault](UI.xml#L1628)|[DataFieldAbstract](#DataFieldAbstract)|<a name="DataFieldDefault"></a>Default representation of a property as a datafield, e.g. when the property is added as a table column or form field via personalization<br>Only concrete subtypes of [DataFieldAbstract](#DataFieldAbstract) can be used for a DataFieldDefault. For type [DataField](#DataField) and its subtypes the annotation target SHOULD be the same property that is referenced via a path expression in the `Value` of the datafield.
 [Criticality](UI.xml#L1862)|[CriticalityType](#CriticalityType)|<a name="Criticality"></a>Service-calculated criticality, alternative to UI.CriticalityCalculation
 [CriticalityCalculation](UI.xml#L1866)|[CriticalityCalculationType](#CriticalityCalculationType)|<a name="CriticalityCalculation"></a>Parameters for client-calculated criticality, alternative to UI.Criticality
 [Emphasized](UI.xml#L1870) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Emphasized"></a>Highlight something that is of special interest<br>The usage of a property or operation should be highlighted as it's of special interest for the end user
@@ -788,29 +788,29 @@ Member|Value|Description
 [TextOnly](UI.xml#L1469)|3|Only text is represented, code/ID is hidden (e.g. for UUIDs)
 
 <a name="NoteType"></a>
-## [NoteType](UI.xml#L1515) *([Experimental](Common.md#Experimental))*
+## [NoteType](UI.xml#L1514) *([Experimental](Common.md#Experimental))*
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Title](UI.xml#L1517)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Applicable Annotation Terms:<ul><li>[Hidden](#Hidden)</li></ul>
-[Content](UI.xml#L1529)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Applicable Annotation Terms:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
-[Type](UI.xml#L1545)|String|A type used for grouping notes
-[MaximalLength](UI.xml#L1548)|Int32?|Type-specific maximal length of the content of the note
-[MultipleNotes](UI.xml#L1551)|Boolean|Whether the type allows multiple notes for one object
+[Title](UI.xml#L1516)|String?|Title of the note<br>The title of a note is hidden with an annotation `@UI.Note/Title/@UI.Hidden`, not with an annotation on the property targeted by `@UI.Note/Title`.<br>Applicable Annotation Terms:<ul><li>[Hidden](#Hidden)</li></ul>
+[Content](UI.xml#L1528)|String|Content of the note, as a string<br>The property targeted by `@UI.Note/Content` must be annotated with `Core.MediaType` and may be annotated with `Common.SAPObjectNodeTypeReference`. When it is tagged with `Core.IsLanguageDependent`, another property of the same entity type that is tagged with [`Common.IsLanguageIdentifier`](Common.md#IsLanguageIdentifier) determines the language of the note.<br>Applicable Annotation Terms:<ul><li>[MediaType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#MediaType)</li><li>[IsLanguageDependent](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#IsLanguageDependent)</li><li>[SAPObjectNodeTypeReference](Common.md#SAPObjectNodeTypeReference)</li></ul>
+[Type](UI.xml#L1544)|String|A type used for grouping notes
+[MaximalLength](UI.xml#L1547)|Int32?|Type-specific maximal length of the content of the note
+[MultipleNotes](UI.xml#L1550)|Boolean|Whether the type allows multiple notes for one object
 
 <a name="ImportanceType"></a>
-## [ImportanceType](UI.xml#L1559)
+## [ImportanceType](UI.xml#L1558)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[High](UI.xml#L1560)|0|High importance
-[Medium](UI.xml#L1563)|1|Medium importance
-[Low](UI.xml#L1566)|2|Low importance
+[High](UI.xml#L1559)|0|High importance
+[Medium](UI.xml#L1562)|1|Medium importance
+[Low](UI.xml#L1565)|2|Low importance
 
 <a name="DataFieldAbstract"></a>
-## [*DataFieldAbstract*](UI.xml#L1634)
+## [*DataFieldAbstract*](UI.xml#L1633)
 Elementary building block that represents a piece of data and/or allows triggering an action
 
 By using the applicable terms UI.Hidden, UI.Importance or HTML5.CssDefaults, the visibility, the importance and
@@ -841,6 +841,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -872,6 +873,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -898,6 +900,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -924,6 +927,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -964,6 +968,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -986,6 +991,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1014,6 +1020,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1038,6 +1045,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1067,6 +1075,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1091,6 +1100,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1116,6 +1126,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
@@ -1138,6 +1149,7 @@ Property|Type|Description
 - [Hidden](#Hidden)
 - [Importance](#Importance)
 - [PartOfPreview](#PartOfPreview)
+- [Placeholder](#Placeholder)
 - [CssDefaults](HTML5.md#CssDefaults)
 - [RowSpanForDuplicateValues](HTML5.md#RowSpanForDuplicateValues)
 - [FieldControl](Common.md#FieldControl)
