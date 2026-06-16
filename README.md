@@ -7,6 +7,7 @@ SAP Vocabularies for semantic markup of structured data published via [OData](ht
 This repository defines the following SAP vocabularies:
 
 - [Analytics: Analytical resources](vocabularies/Analytics.md)
+- [Auditing: Configure auditing behaviour](vocabularies/Auditing.md)
 - [CodeList: Code Lists](vocabularies/CodeList.md)
 - [Common: Semantics common to all types of APIs](vocabularies/Common.md)
 - [Communication: Contact information based on vCard](vocabularies/Communication.md)
@@ -16,11 +17,13 @@ This repository defines the following SAP vocabularies:
 - [Graph: SAP Graph](vocabularies/Graph.md) - _experimental_
 - [Hierarchy: Hierarchies](vocabularies/Hierarchy.md) - _experimental_
 - [HTML5: Rendering directives for UI5](vocabularies/HTML5.md)
+- [ILM: Information Lifecycle Management](vocabularies/ILM.md) - _experimental_
 - [ODM: One Domain Model](vocabularies/ODM.md)
 - [Offline: Terms for Offline OData](vocabularies/Offline.md) - _experimental_
 - [PDF: PDF response format](vocabularies/PDF.md)
 - [PersonalData: Personal data / GDPR](vocabularies/PersonalData.md)
 - [Session: Sticky Sessions](vocabularies/Session.md)
+- [Support: Support Tools](vocabularies/Support.md) - _experimental_
 - [UI: Representing data in user interfaces](vocabularies/UI.md)
 
 These vocabularies complement the [OASIS OData Vocabularies](https://github.com/oasis-tcs/odata-vocabularies) published by the [OASIS OData Technical Committee](https://www.oasis-open.org/committees/odata).
@@ -44,6 +47,8 @@ Contributors to this repository will need to run the generators, which require [
 ## Download and Installation
 
 The tools in this repository are only needed by contributors to refresh the `*.json` and `*.md` files after changing the `*.xml` source files. These tools require [Node.js](https://nodejs.org/) to be installed.
+
+To run the tools, you will need to [install](https://pandoc.org/installing.html) [Pandoc](https://pandoc.org).
 
 ### Installation
 

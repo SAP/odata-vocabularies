@@ -15,7 +15,7 @@ Term|Type|Description
 [compositeReferences](EntityRelationship.xml#L83) *([Experimental](Common.md#Experimental))*|\[[compositeReference](#compositeReference)\]|<a name="compositeReferences"></a>Defines one or many references to other Entity Types based on a composite IDs.
 [temporalIds](EntityRelationship.xml#L88) *([Experimental](Common.md#Experimental))*|\[[temporalId](#temporalId)\]|<a name="temporalIds"></a>Defines a list of temporal IDs.
 [temporalReferences](EntityRelationship.xml#L93) *([Experimental](Common.md#Experimental))*|\[[temporalReference](#temporalReference)\]|<a name="temporalReferences"></a>Defines a list of temporal references.
-[referencesWithConstantIds](EntityRelationship.xml#L97) *([Experimental](Common.md#Experimental))*|\[[referencesWithConstantId](#referencesWithConstantId)\]|<a name="referencesWithConstantIds"></a>Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values.
+[referencesWithConstantIds](EntityRelationship.xml#L97) *([Experimental](Common.md#Experimental))*|\[[referenceWithConstantId](#referenceWithConstantId)\]|<a name="referencesWithConstantIds"></a>Defines one or many references to other Entity Types based on a composite IDs where some properties of the references are constant values.
 
 <a name="singleReference"></a>
 ## [singleReference](EntityRelationship.xml#L102)

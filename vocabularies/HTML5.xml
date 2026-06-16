@@ -59,7 +59,6 @@
       </ComplexType>
 
       <Term Name="LinkTarget" Type="HTML5.LinkTargetType" Nullable="false" DefaultValue="_self">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Where to open a link for the annotated [URL](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#IsURL)" />
         <Annotation Term="Core.LongDescription">
           <String>When the UI contains a link to the URL, it shall open as specified by this annotation.
