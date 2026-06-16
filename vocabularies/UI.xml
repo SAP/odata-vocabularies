@@ -1642,6 +1642,7 @@ or `204 No Content` if the request included a `Prefer` header with a value of `r
             <String>UI.Importance</String>
             <String>UI.PartOfPreview</String>
             <String>UI.Placeholder</String>
+            <String>UI.Emphasized</String>
             <String>HTML5.CssDefaults</String>
             <String>HTML5.RowSpanForDuplicateValues</String>
             <String>Common.FieldControl</String>
@@ -1868,7 +1869,6 @@ This is in contrast to [DataFieldForIntentBasedNavigation](#DataFieldForIntentBa
       </Term>
 
       <Term Name="Emphasized" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Record">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="Highlight something that is of special interest" />
         <Annotation Term="Core.LongDescription" String="The usage of a property or operation should be highlighted as it's of special interest for the end user" />
       </Term>
