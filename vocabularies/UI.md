@@ -80,6 +80,7 @@ Term|Type|Description
 [ExcludeFromNavigationContext](UI.xml#L2002)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ExcludeFromNavigationContext"></a>The contents of this property must not be propagated to the app-to-app navigation context
 [DoNotCheckScaleOfMeasuredQuantity](UI.xml#L2006) *([Experimental](Common.md#Experimental))*|Boolean|<a name="DoNotCheckScaleOfMeasuredQuantity"></a>Do not check the number of fractional digits of the annotated measured quantity<br>The annotated property contains a measured quantity, and the user may enter more fractional digits than defined for the corresponding unit of measure.<br>This switches off the validation of user input with respect to decimals.
 [LeadingEntitySet](UI.xml#L2016) *([Experimental](Common.md#Experimental))*|String|<a name="LeadingEntitySet"></a>The referenced entity set is the preferred starting point for UIs using this service
+[RenderingHint](UI.xml#L2033) *([Experimental](Common.md#Experimental))*|String|<a name="RenderingHint"></a>A short, human-readable text, that gives a hint that the frontend logic can use to render specific UI elements.
 
 <a name="HeaderInfoType"></a>
 ## [HeaderInfoType](UI.xml#L68)
