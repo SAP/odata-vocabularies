@@ -1342,7 +1342,6 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Annotation Term="Core.Description" String="Deleting one or more of these entities may affect the targets." />
         </Property>    
         <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="When the service raises one or more of these &quot;events for side effects&quot;, the targets may be affected" />
         </Property>
         <Property Name="TargetProperties" Type="Collection(Edm.String)" Nullable="false">
