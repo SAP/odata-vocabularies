@@ -123,6 +123,36 @@
       "@Core.Description": "Collection of data fields for representation in a table or list",
       "@UI.ThingPerspective": true
     },
+    "CardItem": {
+      "$Kind": "Term",
+      "$Type": "UI.CardItemType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Defines the card structure for Grid List visualization. Use instead of UI.LineItem when presenting entity data as cards in a grid list layout.",
+      "@UI.ThingPerspective": true
+    },
+    "CardItemType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Header": {
+        "$Type": "Edm.AnnotationPath",
+        "@Core.Description": "Points to a UI.HeaderInfo annotation defining the card header.",
+        "@Validation.AllowedTerms": ["UI.HeaderInfo"]
+      },
+      "Actions": {
+        "$Collection": true,
+        "$Type": "UI.DataFieldAbstract",
+        "$Nullable": true,
+        "@Core.Description": "Action items for the card. Supports DataFieldForAction, DataFieldForIntentBasedNavigation, and DataFieldForActionGroup.",
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
+      },
+      "Details": {
+        "$Collection": true,
+        "$Type": "UI.Facet",
+        "@Core.Description": "Card body content as a collection of facets defining the sections of the card body."
+      },
+      "@Core.Description": "Card structure for Grid List visualization. Header is always required. Details holds the card body as a collection of facets. Actions are optional card-level interactions."
+    },
     "StatusInfo": {
       "$Kind": "Term",
       "$Collection": true,

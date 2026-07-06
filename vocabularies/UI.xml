@@ -149,6 +149,36 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
+      <Term Name="CardItem" Type="UI.CardItemType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines the card structure for Grid List visualization. Use instead of UI.LineItem when presenting entity data as cards in a grid list layout." />
+        <Annotation Term="UI.ThingPerspective" />
+      </Term>
+      <ComplexType Name="CardItemType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Header" Type="Edm.AnnotationPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Points to a UI.HeaderInfo annotation defining the card header." />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.HeaderInfo</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Actions" Type="Collection(UI.DataFieldAbstract)" Nullable="true">
+          <Annotation Term="Core.Description" String="Action items for the card. Supports DataFieldForAction, DataFieldForIntentBasedNavigation, and DataFieldForActionGroup." />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldForActionAbstract</String>
+              <String>UI.DataFieldForActionGroup</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Details" Type="Collection(UI.Facet)" Nullable="false">
+          <Annotation Term="Core.Description" String="Card body content as a collection of facets defining the sections of the card body." />
+        </Property>
+        <Annotation Term="Core.Description" String="Card structure for Grid List visualization. Header is always required. Details holds the card body as a collection of facets. Actions are optional card-level interactions." />
+      </ComplexType>
+
       <Term Name="StatusInfo" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of data fields describing the status of an entity" />
         <Annotation Term="UI.ThingPerspective" />
