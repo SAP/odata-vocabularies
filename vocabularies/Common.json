@@ -1438,7 +1438,7 @@
       "$Type": "Edm.EntityType",
       "$Nullable": true,
       "@Core.Description": "Entity-valued term that signals a service-specific default expansion of the response",
-      "@Core.LongDescription": "A client that requests `$expand=@Common.ServiceDefault` allows the service to\n          determine the expansion of navigation properties in the response. (Unlike the default expansion\n          in the absence of `$expand`, this need not include all entities or properties from the request.)\n          This term is never applied and services omit the null value for this annotation in the response."
+      "@Core.LongDescription": "A client that requests `$expand=@Common.ServiceDefault` expects the service to\n          determine the expansion of navigation properties in the response. (Unlike the default expansion\n          in the absence of `$expand`, this need not include all entities or properties from the request.)\n          Services never apply this term to an entity and omit the null value for this annotation in the response."
     }
   }
 }

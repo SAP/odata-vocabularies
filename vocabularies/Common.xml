@@ -1684,10 +1684,10 @@ leads to a
       <Term Name="ServiceDefault" Type="Edm.EntityType">
         <Annotation Term="Core.Description" String="Entity-valued term that signals a service-specific default expansion of the response" />
         <Annotation Term="Core.LongDescription">
-          <String>A client that requests `$expand=@Common.ServiceDefault` allows the service to
+          <String>A client that requests `$expand=@Common.ServiceDefault` expects the service to
           determine the expansion of navigation properties in the response. (Unlike the default expansion
           in the absence of `$expand`, this need not include all entities or properties from the request.)
-          This term is never applied and services omit the null value for this annotation in the response.</String>
+          Services never apply this term to an entity and omit the null value for this annotation in the response.</String>
         </Annotation>
       </Term>
 
