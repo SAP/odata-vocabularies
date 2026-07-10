@@ -151,7 +151,7 @@ a collection of business object instances, e.g. as a list or table.</String>
 
       <Term Name="CardItem" Type="UI.CardItemType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Common.Experimental" />
-        <Annotation Term="Core.Description" String="Defines the card structure for Grid List visualization. Use instead of UI.LineItem when presenting entity data as cards in a grid list layout." />
+        <Annotation Term="Core.Description" String="Defines the card structure for a list visualization. Use instead of UI.LineItem when presenting entity data as cards e.g. in a grid list layout." />
         <Annotation Term="UI.ThingPerspective" />
       </Term>
       <ComplexType Name="CardItemType">

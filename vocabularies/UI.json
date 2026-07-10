@@ -128,7 +128,7 @@
       "$Type": "UI.CardItemType",
       "$AppliesTo": ["EntityType"],
       "@Common.Experimental": true,
-      "@Core.Description": "Defines the card structure for Grid List visualization. Use instead of UI.LineItem when presenting entity data as cards in a grid list layout.",
+      "@Core.Description": "Defines the card structure for a list visualization. Use instead of UI.LineItem when presenting entity data as cards e.g. in a grid list layout.",
       "@UI.ThingPerspective": true
     },
     "CardItemType": {

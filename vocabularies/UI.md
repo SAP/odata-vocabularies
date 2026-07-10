@@ -24,7 +24,7 @@ Term|Type|Description
 [Identification](UI.xml#L115)|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="Identification"></a>Collection of fields identifying the object
 [Badge](UI.xml#L120)|[BadgeType](#BadgeType)|<a name="Badge"></a>Information usually displayed in the form of a business card
 [LineItem](UI.xml#L147)|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="LineItem"></a>Collection of data fields for representation in a table or list
-[CardItem](UI.xml#L152) *([Experimental](Common.md#Experimental))*|[CardItemType](#CardItemType)|<a name="CardItem"></a>Defines the card structure for Grid List visualization. Use instead of UI.LineItem when presenting entity data as cards in a grid list layout.
+[CardItem](UI.xml#L152) *([Experimental](Common.md#Experimental))*|[CardItemType](#CardItemType)|<a name="CardItem"></a>Defines the card structure for a list visualization. Use instead of UI.LineItem when presenting entity data as cards e.g. in a grid list layout.
 [StatusInfo](UI.xml#L182)|\[[DataFieldAbstract](#DataFieldAbstract)\]|<a name="StatusInfo"></a>Collection of data fields describing the status of an entity
 [FieldGroup](UI.xml#L187)|[FieldGroupType](#FieldGroupType)|<a name="FieldGroup"></a>Group of fields with an optional label
 [ConnectedFields](UI.xml#L201)|[ConnectedFieldsType](#ConnectedFieldsType)|<a name="ConnectedFields"></a>Group of semantically connected fields with a representation template and an optional label ([Example](UI.xml#L203))
