@@ -123,6 +123,36 @@
       "@Core.Description": "Collection of data fields for representation in a table or list",
       "@UI.ThingPerspective": true
     },
+    "CardItem": {
+      "$Kind": "Term",
+      "$Type": "UI.CardItemType",
+      "$AppliesTo": ["EntityType"],
+      "@Common.Experimental": true,
+      "@Core.Description": "Defines the card structure for a list visualization. Use instead of UI.LineItem when presenting entity data as cards e.g. in a grid list layout.",
+      "@UI.ThingPerspective": true
+    },
+    "CardItemType": {
+      "$Kind": "ComplexType",
+      "@Common.Experimental": true,
+      "Header": {
+        "$Type": "Edm.AnnotationPath",
+        "@Core.Description": "Points to a UI.HeaderInfo annotation defining the card header.",
+        "@Validation.AllowedTerms": ["UI.HeaderInfo"]
+      },
+      "Actions": {
+        "$Collection": true,
+        "$Type": "UI.DataFieldAbstract",
+        "$Nullable": true,
+        "@Core.Description": "Action items for the card. Supports DataFieldForAction, DataFieldForIntentBasedNavigation, and DataFieldForActionGroup.",
+        "@Validation.DerivedTypeConstraint": ["UI.DataFieldForActionAbstract", "UI.DataFieldForActionGroup"]
+      },
+      "Details": {
+        "$Collection": true,
+        "$Type": "UI.Facet",
+        "@Core.Description": "Card body content as a collection of facets defining the sections of the card body."
+      },
+      "@Core.Description": "Card structure for Grid List visualization. Header is always required. Details holds the card body as a collection of facets. Actions are optional card-level interactions."
+    },
     "StatusInfo": {
       "$Kind": "Term",
       "$Collection": true,
@@ -923,6 +953,7 @@
           "Communication.Address",
           "Communication.Contact",
           "UI.Badge",
+          "UI.CardItem",
           "UI.Chart",
           "UI.Contacts",
           "UI.DataPoint",
@@ -1048,8 +1079,8 @@
       "Visualizations": {
         "$Collection": true,
         "$Type": "Edm.AnnotationPath",
-        "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants.\n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            ",
-        "@Validation.AllowedTerms": ["UI.Chart", "UI.DataPoint", "UI.LineItem"]
+        "@Core.Description": "Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.CardItem`, `UI.Chart`, and `UI.DataPoint`.\n              For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type\n              shall be modeled with different presentation variants.\n              A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).\n              The first entry of the collection is the default visualization.\n            ",
+        "@Validation.AllowedTerms": ["UI.Chart", "UI.DataPoint", "UI.LineItem", "UI.CardItem"]
       },
       "RecursiveHierarchyQualifier": {
         "$Type": "Aggregation.HierarchyQualifier",

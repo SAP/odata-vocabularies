@@ -149,6 +149,36 @@ a collection of business object instances, e.g. as a list or table.</String>
         <Annotation Term="UI.ThingPerspective" />
       </Term>
 
+      <Term Name="CardItem" Type="UI.CardItemType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Defines the card structure for a list visualization. Use instead of UI.LineItem when presenting entity data as cards e.g. in a grid list layout." />
+        <Annotation Term="UI.ThingPerspective" />
+      </Term>
+      <ComplexType Name="CardItemType">
+        <Annotation Term="Common.Experimental" />
+        <Property Name="Header" Type="Edm.AnnotationPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Points to a UI.HeaderInfo annotation defining the card header." />
+          <Annotation Term="Validation.AllowedTerms">
+            <Collection>
+              <String>UI.HeaderInfo</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Actions" Type="Collection(UI.DataFieldAbstract)" Nullable="true">
+          <Annotation Term="Core.Description" String="Action items for the card. Supports DataFieldForAction, DataFieldForIntentBasedNavigation, and DataFieldForActionGroup." />
+          <Annotation Term="Validation.DerivedTypeConstraint">
+            <Collection>
+              <String>UI.DataFieldForActionAbstract</String>
+              <String>UI.DataFieldForActionGroup</String>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="Details" Type="Collection(UI.Facet)" Nullable="false">
+          <Annotation Term="Core.Description" String="Card body content as a collection of facets defining the sections of the card body." />
+        </Property>
+        <Annotation Term="Core.Description" String="Card structure for Grid List visualization. Header is always required. Details holds the card body as a collection of facets. Actions are optional card-level interactions." />
+      </ComplexType>
+
       <Term Name="StatusInfo" Type="Collection(UI.DataFieldAbstract)" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Collection of data fields describing the status of an entity" />
         <Annotation Term="UI.ThingPerspective" />
@@ -1028,6 +1058,7 @@ The trend is
               <String>Communication.Address</String>
               <String>Communication.Contact</String>
               <String>UI.Badge</String>
+              <String>UI.CardItem</String>
               <String>UI.Chart</String>
               <String>UI.Contacts</String>
               <String>UI.DataPoint</String>
@@ -1156,7 +1187,7 @@ The trend is
         </Property>
         <Property Name="Visualizations" Type="Collection(Edm.AnnotationPath)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.Chart`, and `UI.DataPoint`.
+            <String>Lists available visualization types. Currently supported types are `UI.LineItem`, `UI.CardItem`, `UI.Chart`, and `UI.DataPoint`.
               For each type, no more than a single annotation is meaningful. Multiple instances of the same visualization type
               shall be modeled with different presentation variants.
               A reference to `UI.Lineitem` should always be part of the collection (least common denominator for renderers).
@@ -1168,6 +1199,7 @@ The trend is
               <String>UI.Chart</String>
               <String>UI.DataPoint</String>
               <String>UI.LineItem</String>
+              <String>UI.CardItem</String>
             </Collection>
           </Annotation>
         </Property>
