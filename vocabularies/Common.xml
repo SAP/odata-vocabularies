@@ -586,7 +586,6 @@ from the default set of properties and clients SHOULD include it in `$select` wh
       </Term>
       <ComplexType Name="IntervalType">
         <Property Name="Label" Type="Edm.String" Nullable="true">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="A short, human-readable text suitable for labels and captions in UIs" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
