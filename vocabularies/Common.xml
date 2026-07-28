@@ -737,7 +737,7 @@ from the default set of properties and clients SHOULD include it in `$select` wh
       </Term>
 
       <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
+        <Annotation Term="Core.Description" String="If specified as true, there is only one value list mapping after evaluating ValueListRelevantQualifiers and its value list consists of a small number of fixed values" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Common.ValueListShowValuesImmediately</String>
