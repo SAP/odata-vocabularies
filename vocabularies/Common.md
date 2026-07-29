@@ -92,30 +92,30 @@ Term|Type|Description
 [MutuallyExclusiveTerm](Common.xml#L1071)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="MutuallyExclusiveTerm"></a>Only one term of the group identified with the Qualifier attribute can be applied
 [OperationTemplate](Common.xml#L1075) *([Experimental](Common.md#Experimental))*|[QualifiedName](#QualifiedName)|<a name="OperationTemplate"></a>Qualified name of an operation that serves as template for the operation described by the annotated term or term property<br>Operations named in this annotation cannot themselves be invoked.
 [DraftRoot](Common.xml#L1084)|[DraftRootType](#DraftRootType)|<a name="DraftRoot"></a>Root entities of business documents that support the draft pattern
-[DraftNode](Common.xml#L1247) *(Deprecated)*|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)
-[DraftActivationVia](Common.xml#L1294)|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity set
-[EditableFieldFor](Common.xml#L1298)|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
-[SemanticKey](Common.xml#L1328)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
-[SideEffects](Common.xml#L1332)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
-[DefaultValuesFunction](Common.xml#L1419)|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br><p>The default values function must have a bound overload whose binding parameter type matches the annotation target</p> <ul> <li>for an entity set: collection of entity type of entity set</li> <li>for a navigation property: identical to the type of the navigation property (single- or collection-valued)</li> <li>for a bound action/function: identical to the binding parameter type of the annotated action/function</li> </ul> <p>In addition the overload can have non-binding parameters for values that the user has already entered:</p> <ul> <li>for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created</li> <li>for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called</li> </ul> <p>The result type of the default values function is a complex type whose properties correspond in name and type to a subset of</p> <ul> <li>the properties of the entity to create, or</li> <li>the parameters of the action or function to call</li> </ul> 
-[DerivedDefaultValue](Common.xml#L1439) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br><p>Function import has two parameters of complex types:</p> <ul> <li><code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property</li> <li><code>properties</code>, a structure resembling the type of the entity set of the annotated property</li> </ul> <p>The return type must be of the same type as the annotated property.</p> <p>Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p> 
-[FilterDefaultValue](Common.xml#L1456)|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
-[FilterDefaultValueHigh](Common.xml#L1460) *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
-[DerivedFilterDefaultValue](Common.xml#L1465) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br><p>Function import has two parameters of complex types:</p> <ul> <li><code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property</li> <li><code>properties</code>, a structure resembling the type of the entity set of the annotated property</li> </ul> <p>The return type must be of the same type as the annotated property.</p> <p>Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p> 
-[SortOrder](Common.xml#L1485)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
-[RecursiveHierarchy](Common.xml#L1545) *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
-[CreatedAt](Common.xml#L1593)|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
-[CreatedBy](Common.xml#L1597)|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
-[ChangedAt](Common.xml#L1601)|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
-[ChangedBy](Common.xml#L1605)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
-[OriginalProtocolVersion](Common.xml#L1617)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
-[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1622)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
-[mediaUploadLink](Common.xml#L1627) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
-[PrimitivePropertyPath](Common.xml#L1642) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
-[WebSocketBaseURL](Common.xml#L1647)|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections<br>This annotation MUST be unqualified.
-[WebSocketChannel](Common.xml#L1654)|String?|<a name="WebSocketChannel"></a>Channel for WebSocket connections<br><p>Messages sent over the channel follow the <a href="https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541">ABAP Push Channel Protocol</a>. To consume a channel, the client opens a web socket connection at the <a href="#WebSocketBaseURL"><code>WebSocketBaseURL</code></a> followed by URL parameters</p> <ul> <li>parameter name = annotation qualifier, parameter value = channel ID (see below)</li> <li>parameter name = <code>relatedService</code>, parameter value = base URL (relative to server root) of the OData service of the app</li> </ul> <p>Supported qualifiers and channel IDs:</p> <dl> <dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value) </dl> 
-[AddressViaNavigationPath](Common.xml#L1670)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AddressViaNavigationPath"></a>Service prefers requests to use a resource path with navigation properties<br>Use this tag on services that do not restrict requests to certain resource paths via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html) or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding) annotations, but that prefer requests with a resource path that contains the navigation properties reflecting the UI structure.<br>For example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee` leads to a `PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.
-[ReferentialConstraint](Common.xml#L1685) *([Experimental](Common.md#Experimental))*|\[[ReferentialConstraintType](#ReferentialConstraintType)\]|<a name="ReferentialConstraint"></a>[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement
+[DraftNode](Common.xml#L1263) *(Deprecated)*|[DraftNodeType](#DraftNodeType)|<a name="DraftNode"></a>Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)
+[DraftActivationVia](Common.xml#L1310)|[SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier)|<a name="DraftActivationVia"></a>Draft entities in this set are indirectly activated via draft entities in the referenced entity set
+[EditableFieldFor](Common.xml#L1314)|PropertyPath|<a name="EditableFieldFor"></a>The annotated property is an editable field for the referenced key property
+[SemanticKey](Common.xml#L1344)|\[PropertyPath\]|<a name="SemanticKey"></a>The listed properties form the semantic key, i.e. they are unique modulo IsActiveEntity
+[SideEffects](Common.xml#L1348)|[SideEffectsType](#SideEffectsType)|<a name="SideEffects"></a>Describes side-effects of modification operations
+[DefaultValuesFunction](Common.xml#L1435)|[QualifiedName](#QualifiedName)|<a name="DefaultValuesFunction"></a>Function to calculate default values based on user input that is only known to the client and "context information" that is already available to the service<br><p>The default values function must have a bound overload whose binding parameter type matches the annotation target</p> <ul> <li>for an entity set: collection of entity type of entity set</li> <li>for a navigation property: identical to the type of the navigation property (single- or collection-valued)</li> <li>for a bound action/function: identical to the binding parameter type of the annotated action/function</li> </ul> <p>In addition the overload can have non-binding parameters for values that the user has already entered:</p> <ul> <li>for an entity set or navigation property: each non-binding parameter name and type must match the name and type of a property of the entity to be created</li> <li>for an action or function: each non-binding parameter name and type must match the name and type of a non-binding parameter of the action or function to be called</li> </ul> <p>The result type of the default values function is a complex type whose properties correspond in name and type to a subset of</p> <ul> <li>the properties of the entity to create, or</li> <li>the parameters of the action or function to call</li> </ul> 
+[DerivedDefaultValue](Common.xml#L1455) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedDefaultValue"></a>Function import to derive a default value for the property from a given context.<br><p>Function import has two parameters of complex types:</p> <ul> <li><code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property</li> <li><code>properties</code>, a structure resembling the type of the entity set of the annotated property</li> </ul> <p>The return type must be of the same type as the annotated property.</p> <p>Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p> 
+[FilterDefaultValue](Common.xml#L1472)|PrimitiveType?|<a name="FilterDefaultValue"></a>A default value for the property to be used in filter expressions.
+[FilterDefaultValueHigh](Common.xml#L1476) *([Experimental](Common.md#Experimental))*|PrimitiveType?|<a name="FilterDefaultValueHigh"></a>A default upper limit for the property to be used in 'less than or equal' filter expressions.
+[DerivedFilterDefaultValue](Common.xml#L1481) *([Experimental](Common.md#Experimental))*|String|<a name="DerivedFilterDefaultValue"></a>Function import to derive a default value for the property from a given context in order to use it in filter expressions.<br><p>Function import has two parameters of complex types:</p> <ul> <li><code>parameters</code>, a structure resembling the entity type the parameter entity set related to the entity set of the annotated property</li> <li><code>properties</code>, a structure resembling the type of the entity set of the annotated property</li> </ul> <p>The return type must be of the same type as the annotated property.</p> <p>Arguments passed to the function import are used as context for deriving the default value. The function import returns this default value, or null in case such a value could not be determined.</p> 
+[SortOrder](Common.xml#L1501)|\[[SortOrderType](#SortOrderType)\]|<a name="SortOrder"></a>List of sort criteria<br>The items of the annotated entity set or the items of the collection of the annotated entity type are sorted by the first entry of the SortOrder collection. Items with same value for this first sort criteria are sorted by the second entry of the SortOrder collection, and so on.
+[RecursiveHierarchy](Common.xml#L1561) *(Deprecated)*|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
+[CreatedAt](Common.xml#L1609)|DateTimeOffset?|<a name="CreatedAt"></a>Creation timestamp
+[CreatedBy](Common.xml#L1613)|[UserID?](#UserID)|<a name="CreatedBy"></a>First editor
+[ChangedAt](Common.xml#L1617)|DateTimeOffset?|<a name="ChangedAt"></a>Last modification timestamp
+[ChangedBy](Common.xml#L1621)|[UserID?](#UserID)|<a name="ChangedBy"></a>Last editor
+[OriginalProtocolVersion](Common.xml#L1633)|String|<a name="OriginalProtocolVersion"></a>Original protocol version of a converted (V4) CSDL document, allowed values `2.0` and `3.0`
+[ApplyMultiUnitBehaviorForSortingAndFiltering](Common.xml#L1638)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="ApplyMultiUnitBehaviorForSortingAndFiltering"></a>Sorting and filtering of amounts in multiple currencies needs special consideration<br>TODO: add link to UX documentation on https://experience.sap.com/fiori-design/
+[mediaUploadLink](Common.xml#L1643) *([Experimental](Common.md#Experimental))*|URL|<a name="mediaUploadLink"></a>URL for uploading new media content to a Document Management Service<br>In contrast to the `@odata.mediaEditLink` this URL allows to upload new media content without directly changing a stream property or media resource. The upload request typically uses HTTP POST with `Content-Type: multipart/form-data` following RFC 7578. The upload request must contain one multipart representing the content of the file. The `name` parameter in the `Content-Disposition` header (as described in RFC 7578) is irrelevant, but the `filename` parameter is expected. If the request succeeds the response will contain a JSON body of `Content-Type: application/json` with a JSON property `readLink`. The newly uploaded media resource can be linked to the stream property by changing the `@odata.mediaReadLink` to the value of this `readLink` in a subsequent PATCH request to the OData entity.
+[PrimitivePropertyPath](Common.xml#L1658) *([Experimental](Common.md#Experimental))*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="PrimitivePropertyPath"></a>A term or term property with this tag whose type is (a collection of) `Edm.PropertyPath` MUST resolve to a primitive structural property
+[WebSocketBaseURL](Common.xml#L1663)|URL|<a name="WebSocketBaseURL"></a>Base URL for WebSocket connections<br>This annotation MUST be unqualified.
+[WebSocketChannel](Common.xml#L1670)|String?|<a name="WebSocketChannel"></a>Channel for WebSocket connections<br><p>Messages sent over the channel follow the <a href="https://community.sap.com/t5/application-development-blog-posts/specification-of-the-push-channel-protocol-pcp/ba-p/13137541">ABAP Push Channel Protocol</a>. To consume a channel, the client opens a web socket connection at the <a href="#WebSocketBaseURL"><code>WebSocketBaseURL</code></a> followed by URL parameters</p> <ul> <li>parameter name = annotation qualifier, parameter value = channel ID (see below)</li> <li>parameter name = <code>relatedService</code>, parameter value = base URL (relative to server root) of the OData service of the app</li> </ul> <p>Supported qualifiers and channel IDs:</p> <dl> <dt>`sideEffects` <dd>Notifications about side effects to be triggered by the client (channel ID = non-null annotation value) </dl> 
+[AddressViaNavigationPath](Common.xml#L1686)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="AddressViaNavigationPath"></a>Service prefers requests to use a resource path with navigation properties<br>Use this tag on services that do not restrict requests to certain resource paths via [`Capabilities`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.html) or [`Core.RequiresExplicitBinding`](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#RequiresExplicitBinding) annotations, but that prefer requests with a resource path that contains the navigation properties reflecting the UI structure.<br>For example, entering a cancellation fee into an order item field bound to `CancellationItem/Fee` leads to a `PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.
+[ReferentialConstraint](Common.xml#L1701) *([Experimental](Common.md#Experimental))*|\[[ReferentialConstraintType](#ReferentialConstraintType)\]|<a name="ReferentialConstraint"></a>[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement
 
 <a name="TextFormatType"></a>
 ## [TextFormatType](Common.xml#L134)
@@ -378,7 +378,7 @@ All filterable properties of the value list can be used to filter
 
 Property|Type|Description
 :-------|:---|:----------
-[*ValidationFunction*](Common.xml#L1281) *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
+[*ValidationFunction*](Common.xml#L1297) *(Deprecated)*|[QualifiedName?](#QualifiedName)|Separate validation without side-effects is not useful
 [PreparationAction](Common.xml#L1090)|[QualifiedName?](#QualifiedName)|Action that prepares a draft document for later activation<br>The action is bound to the draft document root and has no parameters.
 [ActivationAction](Common.xml#L1096)|[QualifiedName](#QualifiedName)|Action that activates a draft document<br>The action is bound to the draft document root and has no parameters.
 [DiscardAction](Common.xml#L1102)|[QualifiedName?](#QualifiedName)|Action that discards a draft document<br>The action is bound to the draft document root and has no parameters.
@@ -397,19 +397,23 @@ A way to filter a list of documents with regard to their editing status
 
 Allowed Value|Description
 :------------|:----------
-[All](Common.xml#L1164)|All (hiding drafts)
-[Own](Common.xml#L1168)|Own drafts
+[All](Common.xml#L1164)|All
+[AllHidingDrafts](Common.xml#L1168)|All (hiding drafts)
+[Unchanged](Common.xml#L1172)|Unchanged
+[Own](Common.xml#L1176)|Own draft
+[Locked](Common.xml#L1180)|Locked by another user
+[Unsaved](Common.xml#L1184)|Unsaved changes by another user
 
 <a name="DraftNodeType"></a>
-## [DraftNodeType](Common.xml#L1261) *(Deprecated)*
+## [DraftNodeType](Common.xml#L1277) *(Deprecated)*
 The deprecated term [`DraftNode`](#DraftNode) effectively only tags the entity set, its value is an empty record
 
 <a name="SimpleIdentifier"></a>
-## [SimpleIdentifier](Common.xml#L1302) *(Deprecated)*
+## [SimpleIdentifier](Common.xml#L1318) *(Deprecated)*
 Use type [Core.SimpleIdentifier](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#SimpleIdentifier) instead
 
 <a name="QualifiedName"></a>
-## [QualifiedName](Common.xml#L1314)
+## [QualifiedName](Common.xml#L1330)
 **Type:** String
 
 The namespace-qualified name of an OData construct in scope
@@ -417,7 +421,7 @@ The namespace-qualified name of an OData construct in scope
 Alias-qualified names are not fully supported, and the use of namespace-qualified names is strongly recommended.
 
 <a name="ActionOverload"></a>
-## [ActionOverload](Common.xml#L1319)
+## [ActionOverload](Common.xml#L1335)
 **Type:** String
 
 The namespace-qualified name of an action with an optional overload
@@ -427,7 +431,7 @@ The namespace-qualified name of an action, optionally followed by parentheses
             or by empty parentheses to identify the unbound overload, like in the `Target` attribute of an `Annotation`.
 
 <a name="SideEffectsType"></a>
-## [SideEffectsType](Common.xml#L1335)
+## [SideEffectsType](Common.xml#L1351)
 Changes to the source properties or source entities may have side-effects on the target properties or entities.
 
 If neither TargetProperties nor TargetEntities are specified, a change to the source property values may have unforeseeable side-effects.
@@ -441,47 +445,47 @@ This can also be used with OData V2 services: the annotation target is a functio
 
 Property|Type|Description
 :-------|:---|:----------
-[SourceProperties](Common.xml#L1347)|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
-[SourceEntities](Common.xml#L1350)|\[NavigationPropertyPath?\]|Changes to one or more of these entities may affect the targets. An null value means the annotation target.
-[SourceEntitiesInserted](Common.xml#L1353) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Creating one or more of these entities may affect the targets.
-[SourceEntitiesUpdated](Common.xml#L1357) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Updating one or more of these entities may affect the targets.
-[SourceEntitiesDeleted](Common.xml#L1361) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Deleting one or more of these entities may affect the targets.
-[SourceEvents](Common.xml#L1365)|\[String\]|When the service raises one or more of these "events for side effects", the targets may be affected
-[TargetProperties](Common.xml#L1368)|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
-[TargetEntities](Common.xml#L1372)|\[NavigationPropertyPath?\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. A null value means the annotation target.
-[TriggerAction](Common.xml#L1375)|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
-[Discretionary](Common.xml#L1379) *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
+[SourceProperties](Common.xml#L1363)|\[PropertyPath\]|Changes to the values of one or more of these structural properties may affect the targets
+[SourceEntities](Common.xml#L1366)|\[NavigationPropertyPath?\]|Changes to one or more of these entities may affect the targets. An null value means the annotation target.
+[SourceEntitiesInserted](Common.xml#L1369) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Creating one or more of these entities may affect the targets.
+[SourceEntitiesUpdated](Common.xml#L1373) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Updating one or more of these entities may affect the targets.
+[SourceEntitiesDeleted](Common.xml#L1377) *([Experimental](Common.md#Experimental))*|\[NavigationPropertyPath\]|Deleting one or more of these entities may affect the targets.
+[SourceEvents](Common.xml#L1381)|\[String\]|When the service raises one or more of these "events for side effects", the targets may be affected
+[TargetProperties](Common.xml#L1384)|\[String\]|These structural properties may be affected if the value of one of the sources changes<br>The syntax follows closely the syntax rules for `Edm.PropertyPath`, with the addition of `*` as the last path segment meaning all structural properties directly reached via the preceding path
+[TargetEntities](Common.xml#L1388)|\[NavigationPropertyPath?\]|These entities will be affected if the value of one of the sources changes. All affected entities need to be explicitly listed. A null value means the annotation target.
+[TriggerAction](Common.xml#L1391)|[QualifiedName?](#QualifiedName)|Bound action to trigger side-effects after modifying an entity<br>Binding parameter type of the trigger action is the entity type annotated with `SideEffects`. The action does not have any additional parameters and does not return anything. It either succeeds with `204 No Content` or it fails with `4xx` or `5xx`.
+[Discretionary](Common.xml#L1395) *([Experimental](Common.md#Experimental))*|Boolean|Indicates whether the client can decide if a side-effect should be triggered or not<br>The value of this property typically a static boolean value. It can be used by clients (e.g. by asking the end user) to decide if the side effect should be triggered or not. This indicator is only allowed in case a trigger action is given as only then the execution control of the side effect is provided to the client.
 
 <a name="EffectType"></a>
-## [EffectType](Common.xml#L1385) *(Deprecated)*
+## [EffectType](Common.xml#L1401) *(Deprecated)*
 All side effects are essentially value changes, differentiation not needed.
 
 <a name="SortOrderType"></a>
-## [SortOrderType](Common.xml#L1493)
+## [SortOrderType](Common.xml#L1509)
 Exactly one of `Property`, `DynamicProperty` and `Expression` must be present
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Common.xml#L1495)|PropertyPath?|Sort property
-[DynamicProperty](Common.xml#L1507)|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
-[Expression](Common.xml#L1521) *([Experimental](Common.md#Experimental))*|PrimitiveType?|Dynamic expression whose primitive result value is used to sort the instances
-[Descending](Common.xml#L1525)|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](Common.xml#L1511)|PropertyPath?|Sort property
+[DynamicProperty](Common.xml#L1523)|AnnotationPath?|Dynamic property introduced by an annotation and used as sort property<br>If the annotation referenced by the annotation path does not apply to the same collection of entities as the one being sorted according to the [`UI.PresentationVariant`](UI.md#PresentationVariant) or `Common.SortOrder` annotation, this instance of `UI.PresentationVariant/SortOrder` or `Common.SortOrder` MUST be silently ignored.<br>Allowed Terms:<ul><li>[AggregatedProperty](Analytics.md#AggregatedProperty)</li><li>[CustomAggregate](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#CustomAggregate)</li></ul>
+[Expression](Common.xml#L1537) *([Experimental](Common.md#Experimental))*|PrimitiveType?|Dynamic expression whose primitive result value is used to sort the instances
+[Descending](Common.xml#L1541)|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="RecursiveHierarchyType"></a>
-## [RecursiveHierarchyType](Common.xml#L1558) *(Deprecated)*
+## [RecursiveHierarchyType](Common.xml#L1574) *(Deprecated)*
 Use terms [Aggregation.RecursiveHierarchy](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md#RecursiveHierarchy) and [Hierarchy.RecursiveHierarchy](https://github.com/SAP/odata-vocabularies/blob/main/vocabularies/Hierarchy.md#RecursiveHierarchy) instead
 
 <a name="UserID"></a>
-## [UserID](Common.xml#L1609)
+## [UserID](Common.xml#L1625)
 **Type:** String
 
 User ID
 
 <a name="ReferentialConstraintType"></a>
-## [ReferentialConstraintType](Common.xml#L1689) *([Experimental](Common.md#Experimental))*
+## [ReferentialConstraintType](Common.xml#L1705) *([Experimental](Common.md#Experimental))*
 A record that behaves like the standard referential constraint on the navigation property targeted by a [`ReferentialConstraint`](#ReferentialConstraint) annotation, but the nullability requirement for the dependent property is lifted. It asserts that the principal property _of an existing related entity_ must have the same value as the dependent property.
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Common.xml#L1697)|PropertyPath|The path to the property is evaluated relative to the type containing the navigation property
-[ReferencedProperty](Common.xml#L1700)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property
+[Property](Common.xml#L1713)|PropertyPath|The path to the property is evaluated relative to the type containing the navigation property
+[ReferencedProperty](Common.xml#L1716)|PropertyPath|The path to the referenced property MUST start with a segment containing the navigation property

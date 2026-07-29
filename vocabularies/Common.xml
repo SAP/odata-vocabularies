@@ -1163,11 +1163,27 @@ followed by URL parameters
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="All" />
+              <Annotation Term="Core.Description" String="All" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="AllHidingDrafts" />
               <Annotation Term="Core.Description" String="All (hiding drafts)" />
             </Record>
             <Record>
+              <PropertyValue Property="Value" String="Unchanged" />
+              <Annotation Term="Core.Description" String="Unchanged" />
+            </Record>
+            <Record>
               <PropertyValue Property="Value" String="Own" />
-              <Annotation Term="Core.Description" String="Own drafts" />
+              <Annotation Term="Core.Description" String="Own draft" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Locked" />
+              <Annotation Term="Core.Description" String="Locked by another user" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Unsaved" />
+              <Annotation Term="Core.Description" String="Unsaved changes by another user" />
             </Record>
           </Collection>
         </Annotation>

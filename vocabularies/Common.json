@@ -1055,8 +1055,12 @@
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "A way to filter a list of documents with regard to their editing status",
       "@Validation.AllowedValues": [
-        { "Value": "All", "@Core.Description": "All (hiding drafts)" },
-        { "Value": "Own", "@Core.Description": "Own drafts" }
+        { "Value": "All", "@Core.Description": "All" },
+        { "Value": "AllHidingDrafts", "@Core.Description": "All (hiding drafts)" },
+        { "Value": "Unchanged", "@Core.Description": "Unchanged" },
+        { "Value": "Own", "@Core.Description": "Own draft" },
+        { "Value": "Locked", "@Core.Description": "Locked by another user" },
+        { "Value": "Unsaved", "@Core.Description": "Unsaved changes by another user" }
       ]
     },
     "DraftNode": {
