@@ -25,7 +25,7 @@
     "TechnicalInfoLinks": {
       "$Kind": "Term",
       "$Type": "Support.TechnicalInfoLinksType",
-      "$AppliesTo": ["Schema"],
+      "$AppliesTo": ["EntityContainer"],
       "@Core.Description": "How to retrieve links to technical information about the service"
     },
     "TechnicalInfoLinksType": {
