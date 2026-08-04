@@ -1047,7 +1047,7 @@
         "$Type": "Common.EditingStatusFilter",
         "@Common.Experimental": true,
         "@Core.Description": "Whether a list of documents can be filtered for drafts and/or active objects",
-        "@Core.LongDescription": "If this is absent or empty, all filters are allowed"
+        "@Core.LongDescription": "If this is absent or empty, all filters are allowed."
       }
     },
     "EditingStatusFilter": {
@@ -1056,11 +1056,11 @@
       "@Core.Description": "A way to filter a list of documents with regard to their editing status",
       "@Validation.AllowedValues": [
         { "Value": "All", "@Core.Description": "All" },
-        { "Value": "AllHidingDrafts", "@Core.Description": "All (hiding drafts)" },
+        { "Value": "AllHidingDrafts", "@Core.Description": "All (Hiding Drafts)" },
         { "Value": "Unchanged", "@Core.Description": "Unchanged" },
-        { "Value": "Own", "@Core.Description": "Own draft" },
-        { "Value": "Locked", "@Core.Description": "Locked by another user" },
-        { "Value": "Unsaved", "@Core.Description": "Unsaved changes by another user" }
+        { "Value": "Own", "@Core.Description": "Own Draft" },
+        { "Value": "Locked", "@Core.Description": "Locked by Another User" },
+        { "Value": "Unsaved", "@Core.Description": "Unsaved Changes by Another User" }
       ]
     },
     "DraftNode": {

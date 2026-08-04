@@ -387,7 +387,7 @@ Property|Type|Description
 [NewAction](Common.xml#L1122)|[QualifiedName?](#QualifiedName)|Action that creates a new draft<br>The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).<br>New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.
 [AdditionalNewActions](Common.xml#L1131)|\[[QualifiedName](#QualifiedName)\]|Additional actions beside the default POST or standard `NewAction`that create a new draft<br>The actions are bound to the draft document root entity set and have the signature of [`Template_NewAction`](#Template_NewAction).
 [ShareAction](Common.xml#L1138)|[QualifiedName?](#QualifiedName)|Action that shares a draft document with other users and restricts access to the listed users in their specified roles<br><p>The action is bound to the draft document root node and has the signature of <a href="#Template_ShareAction"><code>Template_ShareAction</code></a>. It restricts access to the listed users in their specified roles.</p> <p>If this action is present, the client can receive notifications about changes to the collaborative draft by opening a web socket connection at the <a href="#WebSocketBaseURL"><code>WebSocketBaseURL</code></a> followed by URL parameters</p> <ul> <li><code>relatedService</code> = base URL (relative to server root) of the OData service of the app</li> <li><code>draft</code> = draft UUID.</li> </ul> 
-[AllowedEditingStatusFilters](Common.xml#L1152) *([Experimental](Common.md#Experimental))*|\[[EditingStatusFilter](#EditingStatusFilter)\]|Whether a list of documents can be filtered for drafts and/or active objects<br>If this is absent or empty, all filters are allowed
+[AllowedEditingStatusFilters](Common.xml#L1152) *([Experimental](Common.md#Experimental))*|\[[EditingStatusFilter](#EditingStatusFilter)\]|Whether a list of documents can be filtered for drafts and/or active objects<br>If this is absent or empty, all filters are allowed.
 
 <a name="EditingStatusFilter"></a>
 ## [EditingStatusFilter](Common.xml#L1160)
@@ -398,11 +398,11 @@ A way to filter a list of documents with regard to their editing status
 Allowed Value|Description
 :------------|:----------
 [All](Common.xml#L1164)|All
-[AllHidingDrafts](Common.xml#L1168)|All (hiding drafts)
+[AllHidingDrafts](Common.xml#L1168)|All (Hiding Drafts)
 [Unchanged](Common.xml#L1172)|Unchanged
-[Own](Common.xml#L1176)|Own draft
-[Locked](Common.xml#L1180)|Locked by another user
-[Unsaved](Common.xml#L1184)|Unsaved changes by another user
+[Own](Common.xml#L1176)|Own Draft
+[Locked](Common.xml#L1180)|Locked by Another User
+[Unsaved](Common.xml#L1184)|Unsaved Changes by Another User
 
 <a name="DraftNodeType"></a>
 ## [DraftNodeType](Common.xml#L1277) *(Deprecated)*

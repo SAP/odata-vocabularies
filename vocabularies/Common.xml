@@ -1153,7 +1153,7 @@ followed by URL parameters
           <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Whether a list of documents can be filtered for drafts and/or active objects" />
           <Annotation Term="Core.LongDescription">
-            <String>If this is absent or empty, all filters are allowed</String>
+            <String>If this is absent or empty, all filters are allowed.</String>
           </Annotation>
         </Property>
       </ComplexType>
@@ -1167,7 +1167,7 @@ followed by URL parameters
             </Record>
             <Record>
               <PropertyValue Property="Value" String="AllHidingDrafts" />
-              <Annotation Term="Core.Description" String="All (hiding drafts)" />
+              <Annotation Term="Core.Description" String="All (Hiding Drafts)" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Unchanged" />
@@ -1175,15 +1175,15 @@ followed by URL parameters
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Own" />
-              <Annotation Term="Core.Description" String="Own draft" />
+              <Annotation Term="Core.Description" String="Own Draft" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Locked" />
-              <Annotation Term="Core.Description" String="Locked by another user" />
+              <Annotation Term="Core.Description" String="Locked by Another User" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Unsaved" />
-              <Annotation Term="Core.Description" String="Unsaved changes by another user" />
+              <Annotation Term="Core.Description" String="Unsaved Changes by Another User" />
             </Record>
           </Collection>
         </Annotation>
