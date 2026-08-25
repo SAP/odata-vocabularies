@@ -1124,6 +1124,10 @@ from the default set of properties and clients SHOULD include it in `$select` wh
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).
+In a [recursive hierarchy](Hierarchy.md#RecursiveHierarchy), the payload may contain a
+`«Superordinate»@odata.bind` element to specify the parent of the new entity.
+(The UI5 OData model supplies such an element when its action invocation method receives a
+`@$ui5.node.parent` parameter.)
 
 New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.</String>
           </Annotation>
