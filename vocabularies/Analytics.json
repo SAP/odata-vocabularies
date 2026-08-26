@@ -236,7 +236,7 @@
       "DimensionProperties": {
         "$Collection": true,
         "@Core.Description": "A list of property names that define a combination of dimension values",
-        "@Core.LongDescription": "An empty list can occur only on the finest-grained level where it means all non-aggregated properties.\n            This is used to include the raw data without aggregation in the result."
+        "@Core.LongDescription": "An empty list can occur only on the finest-grained level where it means all properties.\n            This is used to include the unaggregated data in the result."
       },
       "AdditionalProperties": {
         "$Collection": true,

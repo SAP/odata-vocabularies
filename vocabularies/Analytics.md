@@ -103,7 +103,7 @@ Property names constituting a level in an [unnamed leveled hierarchy](#MultiLeve
 
 Property|Type|Description
 :-------|:---|:----------
-[DimensionProperties](Analytics.xml#L279)|\[String\]|A list of property names that define a combination of dimension values<br>An empty list can occur only on the finest-grained level where it means all non-aggregated properties. This is used to include the raw data without aggregation in the result.
+[DimensionProperties](Analytics.xml#L279)|\[String\]|A list of property names that define a combination of dimension values<br>An empty list can occur only on the finest-grained level where it means all properties. This is used to include the unaggregated data in the result.
 [AdditionalProperties](Analytics.xml#L286)|\[String\]|A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`
 
 <a name="MultiLevelExpandSiblingOrder"></a>
