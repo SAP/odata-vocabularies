@@ -30,7 +30,7 @@ Term|Type|Description
 Example transformation sequence:
 filter on columns `Industry`, `Amount` and `Currency`,
 order by `Amount` descending,
-show 2 levels, with two exceptions
+show 2 levels, with two exceptions (collapse US, show raw data for BW), 
 preceded by one row with a leaves count and one row with the grand total
 ```
 $apply=filter(Industry in ('IT','AI'))
@@ -50,7 +50,7 @@ $apply=filter(Industry in ('IT','AI'))
     SiblingOrder=[{"Property":"Amount","Descending":true}],
     Levels=2,
     ExpandLevels=[{"Entry":["US"],"Levels":0},
-                  {"Entry":["DE","BW"],"Levels":1}]
+                  {"Entry":["DE","BW"],"Levels":2}]
   )/concat(aggregate($count as ResultEntriesCount),
            skip(20)/top(10)))
 ```
@@ -103,7 +103,7 @@ Property names constituting a level in an [unnamed leveled hierarchy](#MultiLeve
 
 Property|Type|Description
 :-------|:---|:----------
-[DimensionProperties](Analytics.xml#L279)|\[String\]|A list of property names that define a combination of dimension values<br>An empty list can occur only on the finest-grained level where it means all properties. This is used to include the unaggregated data in the result.
+[DimensionProperties](Analytics.xml#L279)|\[String\]|A list of property names that define a combination of dimension values<br>An empty list has a special meaning and can occur only on the finest-grained level. In this case, that level contains the unaggregated data with all properties, even those that are not referenced in `LevelProperties`.
 [AdditionalProperties](Analytics.xml#L286)|\[String\]|A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`
 
 <a name="MultiLevelExpandSiblingOrder"></a>
