@@ -200,7 +200,8 @@ $apply=filter(Industry in ('IT','AI'))
   Analytics.MultiLevelExpand(
     LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
                      {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
-                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
+                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]},
+                     {"DimensionProperties":[],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
     Levels=2,
@@ -223,8 +224,6 @@ $apply=filter(Industry in ('IT','AI'))
             the following elements define the property names of consecutively finer-grained aggregation levels.
             The function result is the leveled hierarchy with these levels in preorder,
             entries on the finest-grained level cannot be expanded further.
-            If the finest-grained level includes all key properties, entries on that level additionally contain
-            all other non-aggregated properties even if they are not referenced in `LevelProperties`.
             The result does not contain a level representing a root or grand total.
             All referenced properties must be groupable.</String>
           </Annotation>
@@ -278,7 +277,11 @@ $apply=filter(Industry in ('IT','AI'))
           otherwise they have the same effect as `AdditionalProperties`.</String>
         </Annotation>
         <Property Name="DimensionProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty list of property names that define a combination of dimension values" />
+          <Annotation Term="Core.Description" String="A list of property names that define a combination of dimension values" />
+          <Annotation Term="Core.LongDescription">
+            <String>An empty list can occur only on the finest-grained level where it means all non-aggregated properties.
+            This is used to include the raw data without aggregation in the result.</String>
+          </Annotation>
         </Property>
         <Property Name="AdditionalProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`" />

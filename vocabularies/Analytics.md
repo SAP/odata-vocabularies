@@ -17,7 +17,7 @@ Term|Type|Description
 [AggregatedProperties](Analytics.xml#L106) *(Deprecated)*|\[[AggregatedPropertyType](#AggregatedPropertyType)\]|<a name="AggregatedProperties"></a>Deprecated in favor of [`AggregatedProperty`](#AggregatedProperty)
 [AggregatedProperty](Analytics.xml#L124)|[AggregatedPropertyType](#AggregatedPropertyType)|<a name="AggregatedProperty"></a>Dynamic property for aggregate expression with specified aggregation method defined on the annotated entity type.
 [AnalyticalContext](Analytics.xml#L144)|\[[AnalyticalContextType](#AnalyticalContextType)\]|<a name="AnalyticalContext"></a>Collection of properties that define an analytical context
-[LevelInformation](Analytics.xml#L311) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation
+[LevelInformation](Analytics.xml#L314) *([Experimental](Common.md#Experimental))*|[HierarchyType](Hierarchy.md#HierarchyType)|<a name="LevelInformation"></a>Information about grouping levels in the result set of a request including the [`MultiLevelExpand`](#MultiLevelExpand) transformation
 
 
 ## Functions
@@ -44,7 +44,8 @@ $apply=filter(Industry in ('IT','AI'))
   Analytics.MultiLevelExpand(
     LevelProperties=[{"DimensionProperties":["Country"],"AdditionalProperties":["CountryName"]},
                      {"DimensionProperties":["Region"],"AdditionalProperties":["RegionName"]},
-                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]}],
+                     {"DimensionProperties":["Segment","Industry"],"AdditionalProperties":[]},
+                     {"DimensionProperties":[],"AdditionalProperties":[]}],
     Aggregation=["Amount","Currency"],
     SiblingOrder=[{"Property":"Amount","Descending":true}],
     Levels=2,
@@ -57,14 +58,14 @@ $apply=filter(Industry in ('IT','AI'))
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[InputSet](Analytics.xml#L214)**|\[EntityType\]|**Binding parameter:** Entity set to be processed
-[LevelProperties](Analytics.xml#L217)|\[[MultiLevelExpandLevel](#MultiLevelExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not be referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result is the leveled hierarchy with these levels in preorder, entries on the finest-grained level cannot be expanded further. If the finest-grained level includes all key properties, entries on that level additionally contain all other non-aggregated properties even if they are not referenced in `LevelProperties`. The result does not contain a level representing a root or grand total. All referenced properties must be groupable.
-[Aggregation](Analytics.xml#L232)|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
-[SiblingOrder](Analytics.xml#L238)|\[[MultiLevelExpandSiblingOrder](#MultiLevelExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy
-*[Levels](Analytics.xml#L241)*|Int64|*Optional parameter:* Number N of levels to be shown in the initial expansion<br>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`). If this parameter is omitted, all levels are shown.
-*[ExpandLevels](Analytics.xml#L251)*|\[[MultiLevelExpandEntry](#MultiLevelExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
-*[SubtotalsAtBottom](Analytics.xml#L257)*|Boolean|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
-[&rarr;](Analytics.xml#L269)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
+**[InputSet](Analytics.xml#L215)**|\[EntityType\]|**Binding parameter:** Entity set to be processed
+[LevelProperties](Analytics.xml#L218)|\[[MultiLevelExpandLevel](#MultiLevelExpandLevel)\]|Collection of aggregation levels forming a leveled hierarchy<br>Each element in the collection defines the properties that constitute one level. A property must not be referenced by more than one level. The first element in the collection defines the property names of the coarsest level, the following elements define the property names of consecutively finer-grained aggregation levels. The function result is the leveled hierarchy with these levels in preorder, entries on the finest-grained level cannot be expanded further. The result does not contain a level representing a root or grand total. All referenced properties must be groupable.
+[Aggregation](Analytics.xml#L231)|\[String\]|Properties to aggregate for all result entries on all levels<br>All properties in this collection must be custom aggregates.
+[SiblingOrder](Analytics.xml#L237)|\[[MultiLevelExpandSiblingOrder](#MultiLevelExpandSiblingOrder)\]|Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy
+*[Levels](Analytics.xml#L240)*|Int64|*Optional parameter:* Number N of levels to be shown in the initial expansion<br>The initial expansion shows the first N levels as defined in `LevelProperties` (1 ≤ N ≤ length of `LevelProperties`). If this parameter is omitted, all levels are shown.
+*[ExpandLevels](Analytics.xml#L250)*|\[[MultiLevelExpandEntry](#MultiLevelExpandEntry)\]|*Optional parameter:* Entries with exceptional expansion
+*[SubtotalsAtBottom](Analytics.xml#L256)*|Boolean|*Optional parameter:* Whether to duplicate the group headers so that they appear before and after their descendants<br>The entry before has [DrillState](Hierarchy.md#HierarchyType) `expanded`, the entry after has DrillState `subtotal`.
+[&rarr;](Analytics.xml#L268)|\[EntityType\]|Output set including the instance annotation [`LevelInformation`](#LevelInformation)
 
 
 <a name="AggregatedPropertyType"></a>
@@ -94,7 +95,7 @@ Property|Type|Description
 [AccumulativeMeasure](Analytics.xml#L168)|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|The measure has non-negative and additive values; it can be used in whole-part charts, e.g. the Donut
 
 <a name="MultiLevelExpandLevel"></a>
-## [MultiLevelExpandLevel](Analytics.xml#L273) *([Experimental](Common.md#Experimental))*
+## [MultiLevelExpandLevel](Analytics.xml#L272) *([Experimental](Common.md#Experimental))*
 Property names constituting a level in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
 `DimensionProperties` must be used to identify entries in [`ExpandEntries/Entry`](#MultiLevelExpandEntry),
@@ -102,23 +103,23 @@ Property names constituting a level in an [unnamed leveled hierarchy](#MultiLeve
 
 Property|Type|Description
 :-------|:---|:----------
-[DimensionProperties](Analytics.xml#L280)|\[String\]|A non-empty list of property names that define a combination of dimension values
-[AdditionalProperties](Analytics.xml#L283)|\[String\]|A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`
+[DimensionProperties](Analytics.xml#L279)|\[String\]|A list of property names that define a combination of dimension values<br>An empty list can occur only on the finest-grained level where it means all non-aggregated properties. This is used to include the raw data without aggregation in the result.
+[AdditionalProperties](Analytics.xml#L286)|\[String\]|A possibly empty list of names of additional properties of the dimensions that occur in `DimensionProperties`
 
 <a name="MultiLevelExpandSiblingOrder"></a>
-## [MultiLevelExpandSiblingOrder](Analytics.xml#L287) *([Experimental](Common.md#Experimental))*
+## [MultiLevelExpandSiblingOrder](Analytics.xml#L290) *([Experimental](Common.md#Experimental))*
 Sibling order in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Analytics.xml#L290)|String|Property by which to sort
-[Descending](Analytics.xml#L293)|Boolean?|Sort direction, ascending if not specified otherwise
+[Property](Analytics.xml#L293)|String|Property by which to sort
+[Descending](Analytics.xml#L296)|Boolean?|Sort direction, ascending if not specified otherwise
 
 <a name="MultiLevelExpandEntry"></a>
-## [MultiLevelExpandEntry](Analytics.xml#L297) *([Experimental](Common.md#Experimental))*
+## [MultiLevelExpandEntry](Analytics.xml#L300) *([Experimental](Common.md#Experimental))*
 Expansion state of an entry in an [unnamed leveled hierarchy](#MultiLevelExpand)
 
 Property|Type|Description
 :-------|:---|:----------
-[Entry](Analytics.xml#L300)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one<br>The values are cast to strings as in the OData `cast` function.
-[Levels](Analytics.xml#L306)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
+[Entry](Analytics.xml#L303)|\[String\]|An entry on a given [level](#MultiLevelExpandLevel) is identified by a list of values for the `DimensionProperties` that constitute all levels up to and including the given one<br>The values are cast to strings as in the OData `cast` function.
+[Levels](Analytics.xml#L309)|Int64?|Number of levels to be expanded, null means all levels, 0 means collapsed
