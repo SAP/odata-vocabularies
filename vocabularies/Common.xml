@@ -1149,7 +1149,45 @@ followed by URL parameters
 - `draft` = draft UUID.</String>
           </Annotation>
         </Property>
+        <Property Name="AllowedEditingStatusFilters" Type="Collection(Common.EditingStatusFilter)" Nullable="false">
+          <Annotation Term="Common.Experimental" />
+          <Annotation Term="Core.Description" String="Whether a list of documents can be filtered for drafts and/or active objects" />
+          <Annotation Term="Core.LongDescription">
+            <String>If this is absent or empty, all filters are allowed.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
+      <TypeDefinition Name="EditingStatusFilter" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="A way to filter a list of documents with regard to their editing status" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="All" />
+              <Annotation Term="Core.Description" String="All" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="AllHidingDrafts" />
+              <Annotation Term="Core.Description" String="All (Hiding Drafts)" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Unchanged" />
+              <Annotation Term="Core.Description" String="Unchanged" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Own" />
+              <Annotation Term="Core.Description" String="Own Draft" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Locked" />
+              <Annotation Term="Core.Description" String="Locked by Another User" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Unsaved" />
+              <Annotation Term="Core.Description" String="Unsaved Changes by Another User" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
       <!--
       <Action Name="Template_NewAction" IsBound="true" EntitySetPath="DraftDocumentRootEntitySet">
         <Annotation Term="Core.Constructor" />
