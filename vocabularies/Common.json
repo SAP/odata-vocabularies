@@ -1026,7 +1026,7 @@
         "$Nullable": true,
         "@Common.OperationTemplate": "Common.Template_NewAction",
         "@Core.Description": "Action that creates a new draft",
-        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
+        "@Core.LongDescription": "The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).\nIn a [recursive hierarchy](Hierarchy.md#RecursiveHierarchy), the payload may contain a\n`«Superordinate»@odata.bind` element to specify the parent of the new entity.\n(The UI5 OData model supplies such an element when its action invocation method receives a\n`@$ui5.node.parent` parameter.)\n\nNew drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set."
       },
       "AdditionalNewActions": {
         "$Collection": true,
