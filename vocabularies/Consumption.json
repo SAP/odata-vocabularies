@@ -1,0 +1,31 @@
+{
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
+    },
+    "https://sap.github.io/odata-vocabularies/vocabularies/Common.json": {
+      "$Include": [{ "$Namespace": "com.sap.vocabularies.Common.v1", "$Alias": "Common" }]
+    }
+  },
+  "com.sap.vocabularies.Consumption.v1": {
+    "$Alias": "Consumption",
+    "@Core.Description": "Terms for consumption metadata",
+    "@Core.Description#Published": "2026-07-24 © Copyright 2026 SAP SE. All rights reserved",
+    "@Core.Links": [
+      { "rel": "alternate", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Consumption.xml" },
+      { "rel": "latest-version", "href": "https://sap.github.io/odata-vocabularies/vocabularies/Consumption.json" },
+      {
+        "rel": "describedby",
+        "href": "https://github.com/sap/odata-vocabularies/blob/main/vocabularies/Consumption.md"
+      }
+    ],
+    "aiHint": {
+      "$Kind": "Term",
+      "$AppliesTo": ["EntityType", "EntitySet", "NavigationProperty", "Property", "EntityContainer", "TypeDefinition"],
+      "@Common.Experimental": true,
+      "@Core.Description": "A free-text hint for AI consumers (e.g., large language models or AI agents) on how to use or interpret the annotated element.",
+      "@Core.LongDescription": "Provides guidance for AI consumers (e.g., LLMs or AI agents) on how to use or interpret the annotated OData element.\nIt is intentionally kept separate from human-readable descriptions (e.g., Core.Description)\nso that end-user-facing documentation and AI-targeted guidance can evolve independently.\n\nThe annotation value is a plain string, optionally formatted using lightweight Markdown\n(bold labels, bullet points, inline code). Typical content includes:\n\n* Business context: what business concept or domain object the element represents\n* Usage guidance: when and how to use this entity, property, or service\n* Disambiguation: how to distinguish from similar entities or operations\n* Value constraints: valid values, formats, coding standards (e.g., ISO codes, enums)\n* Authorization: required scopes or roles for write operations (service level)\n* Routing guidance: when NOT to use this element and what to use instead\n\nThe annotation value MUST NOT be displayed to end users and MUST be filtered\nwhen publishing metadata externally (e.g., to public API catalogs).\n\nThe corresponding annotation in ABAP CDS / CSN Interop is @Consumption.aiHint.\nIn JSON Schema-based formats (OpenAPI, AsyncAPI), the equivalent is x-sap-ai-hint.\n          "
+    }
+  }
+}
