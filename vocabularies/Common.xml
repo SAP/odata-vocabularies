@@ -1664,6 +1664,11 @@ leads to a
         </Annotation>
       </Term>
 
+      <Term Name="ExpandAfterConcatSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Service supports `$expand` and `$select` in combination with `$apply=concat(…)`" />
+      </Term>
+
       <Term Name="ReferentialConstraint" Type="Collection(Common.ReferentialConstraintType)" Nullable="false" AppliesTo="NavigationProperty">
         <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="[Referential constraints](https://oasis-tcs.github.io/odata-specs/odata-csdl-xml/odata-csdl-xml.html#ReferentialConstraint) without nullability requirement" />
