@@ -1146,19 +1146,16 @@
       "SourceEntitiesInserted": {
         "$Collection": true,
         "$Type": "Edm.NavigationPropertyPath",
-        "@Common.Experimental": true,
         "@Core.Description": "Creating one or more of these entities may affect the targets."
       },
       "SourceEntitiesUpdated": {
         "$Collection": true,
         "$Type": "Edm.NavigationPropertyPath",
-        "@Common.Experimental": true,
         "@Core.Description": "Updating one or more of these entities may affect the targets."
       },
       "SourceEntitiesDeleted": {
         "$Collection": true,
         "$Type": "Edm.NavigationPropertyPath",
-        "@Common.Experimental": true,
         "@Core.Description": "Deleting one or more of these entities may affect the targets."
       },
       "SourceEvents": {
