@@ -191,13 +191,16 @@
             "$Name": "Aggregation",
             "$Collection": true,
             "@Core.Description": "Properties to aggregate for all result entries on all levels",
-            "@Core.LongDescription": "All properties in this collection must be custom aggregates."
+            "@Core.LongDescription": "All properties in this collection must be custom aggregates.\n            This parameter defaults to an empty collection.",
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "SiblingOrder",
             "$Collection": true,
             "$Type": "Analytics.MultiLevelExpandSiblingOrder",
-            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy"
+            "@Core.Description": "Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy",
+            "@Core.LongDescription": "This parameter defaults to an empty collection.",
+            "@Core.OptionalParameter": {}
           },
           {
             "$Name": "Levels",
@@ -211,6 +214,7 @@
             "$Collection": true,
             "$Type": "Analytics.MultiLevelExpandEntry",
             "@Core.Description": "Entries with exceptional expansion",
+            "@Core.LongDescription": "This parameter defaults to an empty collection.",
             "@Core.OptionalParameter": {}
           },
           {
