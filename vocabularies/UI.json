@@ -1472,7 +1472,6 @@
       "$Type": "Core.Tag",
       "$DefaultValue": true,
       "$AppliesTo": ["Property", "EntitySet", "EntityType"],
-      "@Common.Experimental": true,
       "@Core.Description": "Properties or entities annotated with this term can't be used for UI adaptation/configuration/personalization",
       "@Core.LongDescription": "The tagged elements can only be used in UI based on metadata, annnotations or code."
     },

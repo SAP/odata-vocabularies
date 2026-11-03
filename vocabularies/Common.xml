@@ -737,7 +737,7 @@ from the default set of properties and clients SHOULD include it in `$select` wh
       </Term>
 
       <Term Name="ValueListWithFixedValues" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Parameter">
-        <Annotation Term="Core.Description" String="If specified as true, there's only one value list mapping and its value list consists of a small number of fixed values" />
+        <Annotation Term="Core.Description" String="If specified as true, there is only one value list mapping after evaluating [`ValueListRelevantQualifiers`](#ValueListRelevantQualifiers) and its value list consists of a small number of fixed values" />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Common.ValueListShowValuesImmediately</String>
@@ -1124,6 +1124,10 @@ from the default set of properties and clients SHOULD include it in `$select` wh
           <Annotation Term="Core.Description" String="Action that creates a new draft" />
           <Annotation Term="Core.LongDescription">
             <String>The action is bound to the draft document root entity set and has the signature of [`Template_NewAction`](#Template_NewAction).
+In a [recursive hierarchy](Hierarchy.md#RecursiveHierarchy), the payload may contain a
+`«Superordinate»@odata.bind` element to specify the parent of the new entity.
+(The UI5 OData model supplies such an element when its action invocation method receives a
+`@$ui5.node.parent` parameter.)
 
 New drafts may also be created by POSTing an entity with property `IsActiveEntity` = `false` (default) to the entity set.</String>
           </Annotation>
@@ -1367,15 +1371,12 @@ This can also be used with OData V2 services: the annotation target is a functio
           <Annotation Term="Core.Description" String="Changes to one or more of these entities may affect the targets. An null value means the annotation target." />
         </Property>
         <Property Name="SourceEntitiesInserted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Creating one or more of these entities may affect the targets." />
         </Property>
         <Property Name="SourceEntitiesUpdated" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Updating one or more of these entities may affect the targets." />
         </Property>
         <Property Name="SourceEntitiesDeleted" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Common.Experimental" />
           <Annotation Term="Core.Description" String="Deleting one or more of these entities may affect the targets." />
         </Property>    
         <Property Name="SourceEvents" Type="Collection(Edm.String)" Nullable="false">
@@ -1696,6 +1697,11 @@ For example, entering a cancellation fee into an order item field bound to `Canc
 leads to a
 `PATCH Orders(23)/Items(5)/CancellationItem` request with `{"Fee": ...}` payload.</String>
         </Annotation>
+      </Term>
+
+      <Term Name="ExpandAfterConcatSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Common.Experimental" />
+        <Annotation Term="Core.Description" String="Service supports `$expand` and `$select` in combination with `$apply=concat(…)`" />
       </Term>
 
       <Term Name="ReferentialConstraint" Type="Collection(Common.ReferentialConstraintType)" Nullable="false" AppliesTo="NavigationProperty">
