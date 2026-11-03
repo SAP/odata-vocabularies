@@ -231,11 +231,21 @@ $apply=filter(Industry in ('IT','AI'))
         <Parameter Name="Aggregation" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties to aggregate for all result entries on all levels" />
           <Annotation Term="Core.LongDescription">
-            <String>All properties in this collection must be custom aggregates.</String>
+            <String>All properties in this collection must be custom aggregates.
+            This parameter defaults to an empty collection.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
           </Annotation>
         </Parameter>
         <Parameter Name="SiblingOrder" Type="Collection(Analytics.MultiLevelExpandSiblingOrder)" Nullable="false">
           <Annotation Term="Core.Description" String="Sort specification to apply to all direct descendants of a given entry (so-called siblings) in the resulting leveled hierarchy" />
+          <Annotation Term="Core.LongDescription">
+            <String>This parameter defaults to an empty collection.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
         </Parameter>
         <Parameter Name="Levels" Type="Edm.Int64" Nullable="false">
           <Annotation Term="Core.Description" String="Number N of levels to be shown in the initial expansion" />
@@ -249,6 +259,9 @@ $apply=filter(Industry in ('IT','AI'))
         </Parameter>
         <Parameter Name="ExpandLevels" Type="Collection(Analytics.MultiLevelExpandEntry)" Nullable="false">
           <Annotation Term="Core.Description" String="Entries with exceptional expansion" />
+          <Annotation Term="Core.LongDescription">
+            <String>This parameter defaults to an empty collection.</String>
+          </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record/>
           </Annotation>
