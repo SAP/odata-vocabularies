@@ -1230,7 +1230,7 @@ followed by URL parameters
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description" String="Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)" />
+              <PropertyValue Property="Description" String="Draft nodes are marked with [`DraftManagedBy`](#DraftManagedBy)" />
             </Record>
           </Collection>
         </Annotation>
@@ -1273,7 +1273,20 @@ followed by URL parameters
       </ComplexType>
 
       <Term Name="DraftActivationVia" Type="Core.SimpleIdentifier" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Use [`DraftManagedBy`](#DraftManagedBy) instead" />
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="Draft entities in this set are indirectly activated via draft entities in the referenced entity set" />
+      </Term>
+
+      <Term Name="DraftManagedBy" Type="Core.SimpleIdentifier" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Draft entities in this set are managed by draft entities in the referenced root entity set" />
+        <Annotation Term="Core.LongDescription" String="Marks an entity set as a draft node whose full draft lifecycle (create, prepare, activate, discard, delete) is managed by the referenced root entity set" />
       </Term>
 
       <Term Name="EditableFieldFor" Type="Edm.PropertyPath" Nullable="false" AppliesTo="Property">
