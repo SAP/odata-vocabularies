@@ -1047,10 +1047,7 @@
       "$Type": "Common.DraftNodeType",
       "$AppliesTo": ["EntitySet"],
       "@Core.Revisions": [
-        {
-          "Kind": "Deprecated",
-          "Description": "Draft nodes are marked with [`DraftActivationVia`](#DraftActivationVia)"
-        }
+        { "Kind": "Deprecated", "Description": "Draft nodes are marked with [`DraftManagedBy`](#DraftManagedBy)" }
       ],
       "@Core.Description": "Entities in this set are parts of business documents that support the draft pattern"
     },
@@ -1083,7 +1080,15 @@
       "$Kind": "Term",
       "$Type": "Core.SimpleIdentifier",
       "$AppliesTo": ["EntitySet"],
+      "@Core.Revisions": [{ "Kind": "Deprecated", "Description": "Use [`DraftManagedBy`](#DraftManagedBy) instead" }],
       "@Core.Description": "Draft entities in this set are indirectly activated via draft entities in the referenced entity set"
+    },
+    "DraftManagedBy": {
+      "$Kind": "Term",
+      "$Type": "Core.SimpleIdentifier",
+      "$AppliesTo": ["EntitySet"],
+      "@Core.Description": "Draft entities in this set are managed by draft entities in the referenced root entity set",
+      "@Core.LongDescription": "Marks an entity set as a draft node whose full draft lifecycle (create, prepare, activate, discard, delete) is managed by the referenced root entity set"
     },
     "EditableFieldFor": {
       "$Kind": "Term",
