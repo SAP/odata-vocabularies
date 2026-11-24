@@ -1064,11 +1064,11 @@
         { "Value": "Unchanged", "@Core.Description": "IsActiveEntity eq true AND HasDraftEntity eq false" },
         {
           "Value": "Locked",
-          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser ne '' AND InProcessByUser ne null"
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser ne '' AND DraftAdministrativeData/InProcessByUser ne null"
         },
         {
           "Value": "Unsaved",
-          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser eq ''"
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser eq ''"
         }
       ]
     },

@@ -1188,11 +1188,11 @@ followed by URL parameters
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Locked" />
-              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser ne '' AND InProcessByUser ne null" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser ne '' AND DraftAdministrativeData/InProcessByUser ne null" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Unsaved" />
-              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser eq ''" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser eq ''" />
             </Record>
           </Collection>
         </Annotation>

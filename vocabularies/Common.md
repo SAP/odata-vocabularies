@@ -403,8 +403,8 @@ Allowed Value|Description
 [CollaboratingDraft](Common.xml#L1177)|IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)
 [SavedOnly](Common.xml#L1181)|IsActiveEntity eq true
 [Unchanged](Common.xml#L1185)|IsActiveEntity eq true AND HasDraftEntity eq false
-[Locked](Common.xml#L1189)|IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser ne '' AND InProcessByUser ne null
-[Unsaved](Common.xml#L1193)|IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser eq ''
+[Locked](Common.xml#L1189)|IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser ne '' AND DraftAdministrativeData/InProcessByUser ne null
+[Unsaved](Common.xml#L1193)|IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser eq ''
 
 <a name="DraftNodeType"></a>
 ## [DraftNodeType](Common.xml#L1286) *(Deprecated)*
