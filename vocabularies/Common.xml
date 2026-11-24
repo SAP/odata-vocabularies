@@ -105,7 +105,6 @@
       </Term>
 
       <Term Name="ExternalID" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property Parameter">
-        <Annotation Term="Common.Experimental" />
         <Annotation Term="Core.Description" String="A human readable identifier for values of the annotated property or parameter. Value MUST be a dynamic expression when used as metadata annotation." />
         <Annotation Term="Core.LongDescription">
           <String>If the annotated property is (part of) a foreign key of a resource, the external id is a human readable (part of an) identifier of this resource.
