@@ -400,7 +400,7 @@ Allowed Value|Description
 :------------|:----------
 [All](Common.xml#L1169)|IsActiveEntity eq false OR SiblingEntity/IsActiveEntity eq null
 [Own](Common.xml#L1173)|IsActiveEntity eq false
-[CollaboratingDraft](Common.xml#L1177)|IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)
+[CollaboratingDraft](Common.xml#L1177)|IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq «current user ID»)
 [SavedOnly](Common.xml#L1181)|IsActiveEntity eq true
 [Unchanged](Common.xml#L1185)|IsActiveEntity eq true AND HasDraftEntity eq false
 [Locked](Common.xml#L1189)|IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser ne '' AND DraftAdministrativeData/InProcessByUser ne null

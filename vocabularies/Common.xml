@@ -1176,7 +1176,7 @@ followed by URL parameters
             </Record>
             <Record>
               <PropertyValue Property="Value" String="CollaboratingDraft" />
-              <Annotation Term="Core.Description" String="IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq «current user ID»)" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SavedOnly" />

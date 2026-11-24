@@ -1058,7 +1058,7 @@
         { "Value": "Own", "@Core.Description": "IsActiveEntity eq false" },
         {
           "Value": "CollaboratingDraft",
-          "@Core.Description": "IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)"
+          "@Core.Description": "IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq «current user ID»)"
         },
         { "Value": "SavedOnly", "@Core.Description": "IsActiveEntity eq true" },
         { "Value": "Unchanged", "@Core.Description": "IsActiveEntity eq true AND HasDraftEntity eq false" },
