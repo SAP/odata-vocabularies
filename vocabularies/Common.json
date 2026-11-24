@@ -1040,7 +1040,37 @@
         "@Common.OperationTemplate": "Common.Template_ShareAction",
         "@Core.Description": "Action that shares a draft document with other users and restricts access to the listed users in their specified roles",
         "@Core.LongDescription": "The action is bound to the draft document root node and has the signature of [`Template_ShareAction`](#Template_ShareAction).\nIt restricts access to the listed users in their specified roles.\n\nIf this action is present, the client can receive notifications about changes to the\ncollaborative draft by opening a web socket connection at the [`WebSocketBaseURL`](#WebSocketBaseURL)\nfollowed by URL parameters\n- `relatedService` = base URL (relative to server root) of the OData service of the app\n- `draft` = draft UUID."
+      },
+      "AllowedEditingStatusFilters": {
+        "$Collection": true,
+        "$Type": "Common.EditingStatusFilter",
+        "@Common.Experimental": true,
+        "@Core.Description": "Editing status filters supported by the backend for this draft root",
+        "@Core.LongDescription": "Defines the set of editing status filters the backend can handle.\n              If absent or empty, all filters are supported.\n              The UI decides which of the supported filters to present based on the draft flavor (standard or collaborative draft)."
       }
+    },
+    "EditingStatusFilter": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "A way to filter a list of documents with regard to their editing status",
+      "@Validation.AllowedValues": [
+        { "Value": "All", "@Core.Description": "IsActiveEntity eq false OR SiblingEntity/IsActiveEntity eq null" },
+        { "Value": "Own", "@Core.Description": "IsActiveEntity eq false" },
+        {
+          "Value": "CollaboratingDraft",
+          "@Core.Description": "IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq «current user ID»)"
+        },
+        { "Value": "SavedOnly", "@Core.Description": "IsActiveEntity eq true" },
+        { "Value": "Unchanged", "@Core.Description": "IsActiveEntity eq true AND HasDraftEntity eq false" },
+        {
+          "Value": "Locked",
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser ne '' AND DraftAdministrativeData/InProcessByUser ne null"
+        },
+        {
+          "Value": "Unsaved",
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity/IsActiveEntity eq null AND DraftAdministrativeData/InProcessByUser eq ''"
+        }
+      ]
     },
     "DraftNode": {
       "$Kind": "Term",
