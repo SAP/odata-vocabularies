@@ -1169,27 +1169,31 @@ followed by URL parameters
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="All" />
-              <Annotation Term="Core.Description" String="All" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="AllHidingDrafts" />
-              <Annotation Term="Core.Description" String="All (Hiding Drafts)" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="Unchanged" />
-              <Annotation Term="Core.Description" String="Unchanged" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq false OR SiblingEntity/IsActiveEntity eq null" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Own" />
-              <Annotation Term="Core.Description" String="Own Draft" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq false" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="CollaboratingDraft" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="SavedOnly" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Unchanged" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND HasDraftEntity eq false" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Locked" />
-              <Annotation Term="Core.Description" String="Locked by Another User" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser ne '' AND InProcessByUser ne null" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="Unsaved" />
-              <Annotation Term="Core.Description" String="Unsaved Changes by Another User" />
+              <Annotation Term="Core.Description" String="IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser eq ''" />
             </Record>
           </Collection>
         </Annotation>

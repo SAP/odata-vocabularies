@@ -1055,12 +1055,22 @@
       "$UnderlyingType": "Edm.String",
       "@Core.Description": "A way to filter a list of documents with regard to their editing status",
       "@Validation.AllowedValues": [
-        { "Value": "All", "@Core.Description": "All" },
-        { "Value": "AllHidingDrafts", "@Core.Description": "All (Hiding Drafts)" },
-        { "Value": "Unchanged", "@Core.Description": "Unchanged" },
-        { "Value": "Own", "@Core.Description": "Own Draft" },
-        { "Value": "Locked", "@Core.Description": "Locked by Another User" },
-        { "Value": "Unsaved", "@Core.Description": "Unsaved Changes by Another User" }
+        { "Value": "All", "@Core.Description": "IsActiveEntity eq false OR SiblingEntity/IsActiveEntity eq null" },
+        { "Value": "Own", "@Core.Description": "IsActiveEntity eq false" },
+        {
+          "Value": "CollaboratingDraft",
+          "@Core.Description": "IsActiveEntity eq false AND DraftAdministrativeData/DraftAdministrativeUser/any(u:u/UserID eq me)"
+        },
+        { "Value": "SavedOnly", "@Core.Description": "IsActiveEntity eq true" },
+        { "Value": "Unchanged", "@Core.Description": "IsActiveEntity eq true AND HasDraftEntity eq false" },
+        {
+          "Value": "Locked",
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser ne '' AND InProcessByUser ne null"
+        },
+        {
+          "Value": "Unsaved",
+          "@Core.Description": "IsActiveEntity eq true AND SiblingEntity eq null AND InProcessByUser eq ''"
+        }
       ]
     },
     "DraftNode": {
