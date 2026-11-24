@@ -1046,8 +1046,8 @@
         "$Collection": true,
         "$Type": "Common.EditingStatusFilter",
         "@Common.Experimental": true,
-        "@Core.Description": "Whether a list of documents can be filtered for drafts and/or active objects",
-        "@Core.LongDescription": "If this is absent or empty, all filters are allowed."
+        "@Core.Description": "Editing status filters supported by the backend for this draft root",
+        "@Core.LongDescription": "Defines the set of editing status filters the backend can handle.\n              If absent or empty, all filters are supported.\n              The UI decides which of the supported filters to present based on the draft flavor (standard or collaborative draft)."
       }
     },
     "EditingStatusFilter": {
